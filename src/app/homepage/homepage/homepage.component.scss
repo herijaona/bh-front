@@ -1,0 +1,54 @@
+.bg-nav-color{
+    background:#373942;
+}
+.color-white{
+    color: white !important;
+}
+.recrute-text{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    background: #31333B;
+    margin-right: -16px;
+}
+.nav-load{
+    padding: 0;
+}
+.nav-top{
+    li span{
+        font-size: 14px;
+        color: #87888D;
+        margin: 12px;
+        top: 7px;
+        position: relative;
+      }
+    li{
+        .span-youtube{
+            svg{
+                border-left: 1px solid #87888D;
+                padding-left: 5px;
+                padding-right: 6px;
+                font-size: 31px;
+                border-right: 1px solid #87888D;
+                height: 20px;
+                stroke-width: 54px;
+                width: 45px;
+            }
+            
+        }
+        .span-twitter{
+            svg{
+                border-left: 1px solid #87888D;
+                padding-left: 5px;
+                padding-right: 6px;
+                font-size: 31px;
+                border-right: 1px solid #87888D;
+                height: 20px;
+                stroke-width: 54px;
+                width: 45px;
+            }
+            
+        }
+    }
+
+}
