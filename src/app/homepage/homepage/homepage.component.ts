@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BrowserModule, DomSanitizer} from '@angular/platform-browser'
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-homepage',

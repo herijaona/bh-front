@@ -34,50 +34,8 @@ h2{
         font-size: 1.8rem;
     }
 }
-
-.bg-nav-color{
-    background:#3f3f3f;
-}
 .color-white{
     color: white !important;
-}
-.recrute-text{
-    font-weight: 600;
-    font-size: 15px;
-    background: #e83936;
-    margin-right: -15px;
-    padding: 10px !important;
-    width: 108px;
-    text-align: center;
-    font-family: SourceSansPro-Light;
-    margin-left: 10px;
-}
-.nav-load{
-    padding: 0;
-}
-.nav-top{
-    float: right;
-    li span{
-        color: #87888D;
-        margin: 7px;
-        top: 7px;
-        position: relative;
-      }
-}
-@media(max-width:992px){
-    .nav-top{ 
-        display: block !important;
-        li{
-            display: inline-flex !important;
-        }
-        .i8{
-            top: -7px;
-            position: relative;
-        }
-    }
-}
-.ligne-vertical{
-    opacity: 0.5;
 }
 .bg-jumbotron{
     min-height: 450px;
@@ -97,18 +55,6 @@ h2{
 @media (max-width:1024px){
 .bg-jumbotron{
     margin-top: 50vh !important;
-    }
-}
-.navbar-read{
-    width: 100%;
-}
-.nav-logo{
-    float: left;
-}
-.img-logo{
-    img{
-        width: 29px;
-        margin-top: 7px;
     }
 }
 /* carroussel */
