@@ -18,6 +18,9 @@
     font-family:SourceSansPro-Semibold;
     font-size: 1.9rem;
     color: #e93a35;
+    background: -webkit-linear-gradient(55deg,#f94d37 50%, #e93a35 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 h2{
     font-family: SourceSansPro-Regular;
@@ -41,7 +44,7 @@ h2{
 .recrute-text{
     font-weight: 600;
     font-size: 15px;
-    background: #e93a35;
+    background: #e83936;
     margin-right: -15px;
     padding: 10px !important;
     width: 108px;
@@ -142,7 +145,7 @@ h2{
 
   }
 .carousel-item::after{
-    background: linear-gradient(-90deg, rgba(117, 38, 70, 0.8), rgba(103, 45, 36, 0.8));
+    background: linear-gradient(-159deg, rgba(105, 55, 84, 0.8) 0%,  rgba(119, 25, 10, 0.8) 100%);
     content: '';
     display: block;
     height: 100%;
