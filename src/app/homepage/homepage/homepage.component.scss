@@ -1,31 +1,16 @@
-@font-face {
-    font-family: 'SourceSansPro-Light';
-    src: url('/assets/fonts/SourceSansPro-Light.otf');
- }
- @font-face {
-    font-family: 'SourceSansPro-Regular';
-    src: url('/assets/fonts/SourceSansPro-Regular.otf');
- }
- @font-face {
-    font-family: 'SourceSansPro-Bold';
-    src: url('/assets/fonts/SourceSansPro-Bold.otf');
- }
- @font-face {
-    font-family: 'SourceSansPro-Semibold';
-    src: url('/assets/fonts/SourceSansPro-Semibold.otf');
- }
  h1{
     font-family:SourceSansPro-Semibold;
-    font-size: 1.9rem;
+    font-size: 2rem;
     color: #e93a35;
-    background: -webkit-linear-gradient(55deg,#f94d37 50%, #e93a35 50%);
+    background: -webkit-linear-gradient(55deg,#f94d37 50%, #e93a35 60%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-bottom: 0px !important;
 }
 h2{
     font-family: SourceSansPro-Regular;
-    font-size: 2.5rem;
-    margin: 60px;
+    font-size: 3rem;
+    margin: 81px;
     letter-spacing: 1px;
     @media(max-width:1024px){
         font-size: 2rem;
@@ -91,7 +76,7 @@ h2{
 
   }
 .carousel-item::after{
-    background: linear-gradient(-159deg, rgba(105, 55, 84, 0.8) 0%,  rgba(119, 25, 10, 0.8) 100%);
+    background: linear-gradient(-159deg, rgba(112, 50, 92, 0.8) 0%, rgba(120, 25, 10, 0.8) 100%);
     content: '';
     display: block;
     height: 100%;

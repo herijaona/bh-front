@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compile:sass":"node-sass src/assets/main.scss src/styles.css -w"
+    "compile:sass": "node-sass src/assets/main.scss src/styles.css -w"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +22,10 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "angular4-carousel": "^3.1.8",
     "core-js": "^2.4.1",
+    "ngx-agile-slider": "^1.0.0-alpha.8",
+    "ngx-slider": "0.0.5",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
