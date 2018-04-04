@@ -1,46 +1,18 @@
-<div id="demo" class="carousel slide" data-ride="carousel">
-    <!-- The slideshow -->
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class="silde">
-                <div class="jumbotron text-center bg-jumbotron">
-                    <img src="../../../assets/img/logo.png" width="90">
-                    <h1>Business Haven</h1>
-                    <h2>Open your organization to innovate</h2>
-                    <p class="lead">                   
-                        <a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">I want to apply for projects!</a>
-                        <a class="btn btn-primary btn-lg btn-crt" href="#" role="button">I create my organization</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item ct2">
-            <div class="silde">
-                <div class="jumbotron text-center bg-jumbotron">
-                    <img src="../../../assets/img/logo.png" width="90">
-                    <h1>Business Haven</h1>
-                    <h2>Open your organization to innovate</h2>
-                    <p class="lead">                   
-                        <a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">I want to apply for projects!</a>
-                        <a class="btn btn-primary btn-lg btn-crt" href="#" role="button">I create my organization</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item ct3">
-            <div class="silde">
-                <div class="jumbotron text-center bg-jumbotron">
-                    <img src="../../../assets/img/logo.png" width="90">
-                    <h1>Business Haven</h1>
-                    <h2>Open your organization to innovate</h2>
-                    <p class="lead">                   
-                        <a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">I want to apply for projects!</a>
-                        <a class="btn btn-primary btn-lg btn-crt" href="#" role="button">I create my organization</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-    
+<mdb-carousel [isControls]="false" [animation]="'slide'" [interval]="myInterval" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex" (activeSlideChange)="activeSlideChange()">
+        <mdb-slide *ngFor="let slide of slides; let index=index">
+            <div class="view hm-black-light">
+                <img  class="d-block w-100" [src]="slide.image">
+                <div class="mask waves-light" mdbRippleRadius></div>
+            </div>
+            <div class="carousel-caption">
+                <img src="../../../assets/img/logo.png" width="115">
+                <h1>Business Haven</h1>
+                <h2>Open your organization to innovate</h2>
+                <p class="lead">                   
+                    <a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">I want to apply for projects!</a>
+                    <a class="btn btn-primary btn-lg btn-crt" href="#" role="button">I create my organization</a>
+                </p>
+            </div>
+        </mdb-slide>
+    </mdb-carousel> 

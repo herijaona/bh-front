@@ -24,10 +24,6 @@
         font-style: italic;
     }
 }
-.list-nav{
-    list-style: none;
-    padding: 0;
-}
 .grid{
     width: 90%;
     margin: 0 auto;
@@ -56,24 +52,6 @@
 .img-logo{
     margin-top: -45px;
 }
-.row-bottom{
-    margin-bottom: 15px;
-    table{
-        td{
-            font-family: "SourceSansPro-Semibold";
-            text-transform: uppercase;
-        }
-        td a{
-            font-size: 14px;
-        }
-        td span{
-            color: #e84d3f;
-        }
-    }
-    .table-bord{
-        box-shadow: 0px 0px 4px 0px #b1b0b0;
-    }
-}
 .presentation{
     text-align: justify;
     h2{
@@ -88,27 +66,33 @@
         font-family: "SourceSansPro-Lighter";
     }
 }
-.btn-wnt{
-    background: transparent !important;
-    border: 1px solid gray;
-    color: gray !important;
+.btn-apply{
+    background: #e83936;
+    border: 1px solid #e83936;
+    color: white !important;
     font-size: 16px;
     border-radius: 0px;
     text-transform: initial;
+    width: 145px;
+    padding: 7px 0 7px 0px;
     box-shadow: none;
+    font-size: 14px;
+    span{
+        padding-right:10px;
+    }
 }
-.btn-crt{
-    background: #e83936;
-    border: 1px solid #e83936;
+.btn-question{
+    background: black;
+    border: 1px solid black;
     border-radius: 0;
     font-size: 16px;
     margin-left: -11px;
     box-shadow: none;
-    text-transform: initial;
-}
-.lead{
-    a svg{
-        color: black;
+    width: 145px;
+    padding: 7px 0 7px 0px;
+    font-size: 14px;
+    span{
+        padding-right:10px;
     }
 }
 .hr{
@@ -116,4 +100,25 @@
 }
 .grid-top{
     margin-bottom: 20px;
+}
+.nav-down{
+    font-size: 13px;
+    span{
+        color: gray;
+        padding-left:5px;
+    }
+    svg{
+        color: gray;
+    }
+}
+.project-list{
+    box-shadow: 0px 0px 3px 1px #b9b9b9;
+    padding: 42px 42px 5px 42px;
+}
+.list-nav{
+    padding: 0;
+    list-style: none;
+    h3{
+        color: #e83936;
+    }
 }

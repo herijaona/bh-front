@@ -8,7 +8,7 @@
     font-weight: 600;
     font-size: 15px;
     background: #e83936;
-    margin-right: -15px;
+    margin-right: -32px;
     padding: 10px !important;
     width: 108px;
     text-align: center;
@@ -17,6 +17,7 @@
 }
 .nav-load{
     padding: 0;
+    box-shadow: none;
 }
 .nav-top{
     float: right;
@@ -38,6 +39,10 @@
             position: relative;
         }
     }
+}
+.tw-8{
+    position: relative !important;
+    top: 9px !important;
 }
 .ligne-vertical{
     opacity: 0.5;

@@ -31,6 +31,7 @@
 .grid{
     width: 90%;
     margin: 0 auto;
+    box-shadow: none;
 }
 .nav-col{
     margin-top: -37px;
@@ -40,11 +41,16 @@
     max-height: 51px;
     box-shadow: 0px 1px 2px 0px grey;
     padding-bottom: 0;
+    .nav-link{
+        background: transparent !important;
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
     ul li a{
         font-family: "SourceSansPro-bold";
     }
     .active .nav-link{
         border-bottom: 3px solid #e84d3f;
+        color: rgba(0, 0, 0, 0.9) !important;
     }
 }
 .img-logo{

@@ -6,6 +6,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0px !important;
+    margin-top: 15px;
 }
 h2{
     font-family: SourceSansPro-Regular;
@@ -19,6 +20,8 @@ h2{
         font-size: 1.8rem;
     }
 }
+.carousel-caption{
+    top: 100px;}
 .color-white{
     color: white !important;
 }
@@ -32,10 +35,6 @@ h2{
         width: 105px;
         margin-bottom: 20px;
     }
-}
-.tw-8{
-    position: relative !important;
-    top: 9px !important;
 }
 @media (max-width:1024px){
 .bg-jumbotron{
@@ -51,8 +50,14 @@ h2{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image:url(/assets/img/bg-accueil.jpg)
-
+    background-image:url(/assets/img/bg-accueil.jpg);
+    .view{
+        width: 100%;
+        height: 100%;
+        img{
+            height: 100%;
+        }
+    }
   }
   .ct2 {
     height: 98vh;
@@ -94,31 +99,32 @@ h2{
     border-color: #e93a35;
     border-radius: 3px;
     font-size: 1rem;
-    margin-right: 11px;
     font-family: SourceSansPro-Light;
     letter-spacing: 0.5px;
-    padding: 12px;
-    min-width: 210px;
+    width: 242px;
+    border: 1px solid #e93a35;
+    padding: 14px 0px 14px 0px;
+    text-transform: inherit;
 }
 .btn-crt{
-    background-color: transparent;
-    border-color: white;
+    background-color: transparent ;
+    border-color: white !important;
     border-radius: 3px;
     font-size: 1rem;
     font-family: SourceSansPro-Light;
     letter-spacing: 0.5px;
-    margin-left: 11px;
-    padding: 12px;
-    min-width: 210px;
+    width: 242px;
+    border: 1px solid white;
+    padding: 14px 0px 14px 0px;
+    text-transform: inherit;
 }
+
 @media(max-width:500px){
     .btn-wnt{
-        margin-right: 0px;
-        margin-bottom: 7px;
+        width: 282px;
     }
     .btn-crt{
-        margin-left: 0px;
-        margin-bottom: 7px;
+        width: 282px;
     }
 }
 

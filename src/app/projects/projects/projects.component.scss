@@ -27,6 +27,15 @@
 .list-nav{
     list-style: none;
     padding: 0;
+    h3{
+        color: #e84d3f;
+        font-size: 13px;
+        font-family: "SourceSansPro-Regular";
+        span{
+            padding-left: 10px;
+            font-size: 16px;
+        }
+    }
 }
 .grid{
     width: 90%;
@@ -116,4 +125,21 @@
 }
 .grid-top{
     margin-bottom: 20px;
+}
+.nav-down{
+    font-size: 13px;
+    margin-left: 15px;
+    margin-top: -27px;
+    span{
+        color: gray;
+        padding-left:5px;
+    }
+    svg{
+        color: gray;
+    }
+}
+.projects-list{
+    line-height: 65px;
+    box-shadow: 0px 0px 3px 1px #b9b9b9;
+    padding: 42px 42px 5px 42px;
 }

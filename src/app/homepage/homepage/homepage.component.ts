@@ -7,13 +7,26 @@ import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  backgroundImg :string;
+
+  //mdbootstrap options carroussel
+  public myInterval: number = 3000;
+  public activeSlideIndex: number = 0;
+  public noWrapSlides:boolean = false;
+  
+  activeSlideChange(){
+      console.log(this.activeSlideIndex);
+  }
+
+  public slides:Array<Object> = [
+      {"image":"/assets/img/bg-accueil.jpg"},
+      {"image":"/assets/img/bg2.jpg"},
+      {"image":"/assets/img/bg3.jpg"},
+  ];
   constructor(private sanitizer:DomSanitizer) {
     
    }
 
   ngOnInit() {
-    this.backgroundImg = 'http://dl27.fotosklad.org.ua/20121020/6d0d7b1596285466e8bb06114a88c903.jpg';
   }
 
 }
