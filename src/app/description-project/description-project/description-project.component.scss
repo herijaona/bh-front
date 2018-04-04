@@ -120,5 +120,25 @@
     list-style: none;
     h3{
         color: #e83936;
+        font-size: 20px;
+        margin-left: -25px;
+        color: #e83936;
+        font-family: "SourceSansPro-Semibold";
+        svg{
+            font-size: 27px;
+            transform: -5px;
+            transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            left: -27px;
+            position: relative;
+        }
+    }
+    h4{
+        font-size: 18px;
+        font-family: "SourceSansPro-Semibold";
+    }
+    ul li a{
+        padding: 14px 15px 14px 0px;
     }
 }
