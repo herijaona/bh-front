@@ -134,13 +134,12 @@ h2{
     padding: 14px 0px 14px 0px;
     text-transform: inherit;
 }
-
-@media(max-width:500px){
-    .btn-wnt{
-        width: 282px;
-    }
-    .btn-crt{
-        width: 282px;
-    }
+@media(max-width:404px){
+        .btn-wnt{
+            width: 228px;
+        }
+        .btn-crt{
+            width: 228px;
+        }
 }
 
