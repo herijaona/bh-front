@@ -19,6 +19,9 @@ h2{
     @media(max-width:587px){
         font-size: 1.8rem;
     }
+    @media(max-width:710px) {
+        margin: 45px;
+    }
 }
 .carousel-caption{
     top: 100px;}
@@ -57,6 +60,14 @@ h2{
         img{
             height: 100%;
         }
+        @media (max-width:962px){
+        .w-100{
+            width: 1000px !important;
+        }
+        @media(max-height:496){
+            height: 104vh !important;
+        }
+    }
     }
   }
   .ct2 {
@@ -88,6 +99,11 @@ h2{
     position: absolute;
     width: 100%;
 }  
+@media(max-width:944px){
+.carousel-caption{
+    top: 8px;
+}
+}
 .silde{
     position: absolute;
     color: white;
