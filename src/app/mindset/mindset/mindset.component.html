@@ -27,41 +27,46 @@
       </div>
     </nav>
 </div>
-<nav class="bg-light nav-one">
-  <div class="navbar navbar-expand-lg navbar-light grid">
-      <a class="navbar-brand" href="#"><img class="img-responsive img-logo" src="../../../assets/img/logo2.png" width="120"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse nav-col" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Ideas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mindset</a>
-          </li>
+<div>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light bg-light" [containerInside] = "false">
+    <logo>
+      <a  href="#"><img class="img-responsive" src="../../../assets/img/logo2.png" width="120" height="0"></a>
+      <a  href="#"><img class="img-responsive img-logo" src="../../../assets/img/logo2.png" width="120" height="120"></a>
+    </logo>
+    <links>
+        <ul class="navbar-nav mr-auto text-center nv">
+            <li class="nav-item active">
+                <a class="nav-link waves-light" mdbRippleRadius>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbRippleRadius>Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbRippleRadius>Pricing</a>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+                Basic dropdown<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbRippleRadius href="#">Action</a>
+                    <a class="dropdown-item waves-light" mdbRippleRadius href="#">Another action</a>
+                    <a class="dropdown-item waves-light" mdbRippleRadius href="#">Something else here</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbRippleRadius href="#">Separated link</a>
+                </div>
+            </li>
         </ul>
-      </div>
-  </div>
-</nav>
-  <div class="container-fluid grid">
+    </links>
+</mdb-navbar>
+</div>
+  <div class="container-fluid grid top-mr">
       <div class="row">
-        <div class="col-8">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
           <div class="row  row-bottom">
-              <div class="col-8">
+              <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <img class="img-responsive" src="../../../assets/img/video1.png" width="100%" height="293px">
               </div>
-              <div class="col-4">
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 edit-margin">
                   <table class="table table-bordered text-center table-bord">
                       <tbody>
                         <tr>
@@ -100,7 +105,7 @@
               </div>
           </div>
         </div>
-        <div class="col-4 presentation">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 presentation">
             <h2>Presentation</h2>
             <p>Le Lorem Ipsum est simplement du faux texte employé dans 
                 la composition et la mise en page avant impression. Il a été popularisé 
@@ -147,3 +152,7 @@
         </div>
       </div>
     </div>
+
+
+
+    

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
 import { Routes, RouterModule } from '@angular/router';
+import { IdeasComponent } from './ideas/ideas/ideas.component';
 import { MindsetComponent } from './mindset/mindset/mindset.component';
 import { ProjectsComponent } from './projects/projects/projects.component';
 import { DescriptionProjectComponent } from './description-project/description-project/description-project.component';
@@ -20,7 +21,8 @@ const routes:Routes = [
   { path: 'mindset', component:MindsetComponent },
   { path: 'team', component:TeamComponent },
   { path: 'projects', component:ProjectsComponent },
-  { path: 'description-project', component:DescriptionProjectComponent }
+  { path: 'description-project', component:DescriptionProjectComponent },
+  { path: 'ideas', component:IdeasComponent }
 ];
 
 @NgModule({
@@ -30,6 +32,7 @@ const routes:Routes = [
     HomepageComponent,
     TeamComponent,
     ProjectsComponent,
+    IdeasComponent,
     DescriptionProjectComponent,
     NavbarComponent
   ],

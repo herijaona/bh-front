@@ -1,0 +1,67 @@
+.bg-mind{
+    background-image:url(/assets/img/london.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 355px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px;
+}
+.nr-brand{
+    visibility: hidden;
+}
+.nav-two{
+    background-color: transparent !important;
+    height: 75px;
+    top: 261px;
+    h1{
+        color: white;
+        font-family: "SourceSansPro-bold";
+    }
+    ul li ul li a{
+        color: white;
+        font-family: "SourceSansPro-Lighter";
+        font-style: italic;
+    }
+}
+.list-nav{
+    list-style: none;
+    padding: 0;
+}
+.grid{
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: none;
+}
+.nav-col{
+    margin-top: -37px;
+}
+.nav-one{
+    margin-bottom: 45px;
+    max-height: 51px;
+    box-shadow: 0px 1px 2px 0px grey;
+    padding-bottom: 0;
+    .nav-link{
+        background: transparent !important;
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+    ul li a{
+        font-family: "SourceSansPro-bold";
+    }
+    .active .nav-link{
+        border-bottom: 3px solid #e84d3f;
+        color: rgba(0, 0, 0, 0.9) !important;
+    }
+}
+.img-logo{
+    margin-top: -45px;
+}
+.grid-top{
+    margin-bottom: 20px;        
+        h2{
+            font-size: 18px;
+            margin-top: 15px;
+            color: black;
+            font-family: "SourceSansPro-bold";
+        } 
+}
