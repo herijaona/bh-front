@@ -67,7 +67,7 @@ h2 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url(/assets/img/bg-accueil.jpg);
+    // background-image: url(/assets/img/bg-accueil.jpg);
 
     .view {
         width: 100vw;
@@ -76,17 +76,6 @@ h2 {
         img {
             height: 100%;
         }
-
-        /* @media (max-width:962px) {
-            .w-100 {
-                width: 1000px !important;
-            }
-
-            @media(max-height:496) {
-                height: 104vh !important;
-            }
-
-        } */
 
     }
 
@@ -100,7 +89,7 @@ h2 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url(/assets/img/bg2.jpg)
+    // background-image: url(/assets/img/bg2.jpg)
 }
 
 .ct3 {
@@ -111,7 +100,7 @@ h2 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url(/assets/img/bg3.jpg)
+    // background-image: url(/assets/img/bg3.jpg)
 }
 
 .carousel-item::after {
@@ -174,6 +163,14 @@ h2 {
 
 }
 
-homeslider{
+homeslider {
     min-width: 300px
+}
+
+@media (max-height:640px) {
+    .view {
+        width: 100vw;
+        height: 640px !important;
+    }
+
 }
