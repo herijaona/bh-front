@@ -6,6 +6,8 @@ import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { Routes, RouterModule } from "@angular/router";
 /* Routes */
 import { OwnRouterModule } from "./routers/own-router.module";
+/*Modules impot*/
+import {UserAuthModule} from "./user-auth/user-auth.module";
 /* Component import */
 import { AppComponent } from "./app.component";
 import { IdeasComponent } from "./ideas/ideas/ideas.component";
@@ -34,6 +36,7 @@ import { HomesliderComponent } from "./homepage/homeslider/homeslider.component"
     BrowserModule,
     FormsModule,
     OwnRouterModule,
+    UserAuthModule,
     MDBBootstrapModule.forRoot(),
   ],
   exports: [RouterModule],

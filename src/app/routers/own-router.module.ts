@@ -8,7 +8,9 @@ import { ProjectsComponent } from "../projects/projects/projects.component";
 import { DescriptionProjectComponent } from "../description-project/description-project/description-project.component";
 import { TeamComponent } from "../team/team/team.component";
 import { HomepageComponent } from "../homepage/homepage/homepage.component";
-
+import { RegistrationComponent } from "../user-auth/registration/registration.component";
+// import { UserAuthModule } from "../user-auth/user-auth.module";
+ 
 const routes: Routes = [
 	{ path: "", redirectTo: "home", pathMatch: "full" },
 	{ path: "home", component: HomepageComponent },
@@ -16,7 +18,8 @@ const routes: Routes = [
 	{ path: "team", component: TeamComponent },
 	{ path: "projects", component: ProjectsComponent },
 	{ path: "description-project", component: DescriptionProjectComponent },
-	{ path: "ideas", component: IdeasComponent }
+	{ path: "ideas", component: IdeasComponent },
+	{ path: "registerCompany", component: RegistrationComponent }
 ];
 
 @NgModule({

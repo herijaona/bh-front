@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
 	selector: "homeslider",
@@ -10,13 +11,14 @@ export class HomesliderComponent implements OnInit {
 	public myInterval: number = 3000;
 	public activeSlideIndex: number = 0;
 	public noWrapSlides: boolean = false;
+	private registerLink:string;
 
 	public slides: Array<Object> = [
 		{ image: "/assets/img/bg-accueil.jpg" },
 		{ image: "/assets/img/bg2.jpg" },
 		{ image: "/assets/img/bg3.jpg" }
 	];
-	constructor() {}
+	constructor(private router : Router) {}
 
 	activeSlideChange() {
 		console.log(this.activeSlideIndex);
@@ -24,4 +26,10 @@ export class HomesliderComponent implements OnInit {
 
 
 	ngOnInit() {}
+
+	registerCompan(event){
+		event.preventDefault();
+		console.log(event.target);
+		this.router.navigateByUrl("/registerCompany");
+	}
 }
