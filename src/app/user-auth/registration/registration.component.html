@@ -1,3 +1,84 @@
-<p>
-  registration works!
-</p>
+<div class="container">
+	<!-- <div class="row">
+								<img src="https://mdbootstrap.com/img/Photos/Slides/img%20(134).jpg" class="img-fluid" alt="Responsive image">
+	</div> -->
+	<div class="row justify-content-md-center">
+		<form class="" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" >
+			<h1 class="">Sign up</h1>
+			<h5>Personal Info</h5>
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="md-form">
+						<input [ngClass]="{'err_sh' : registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched }" type="text" formControlName="bh_firstname"  id="bh_firstname" class="form-control" mdbActive>
+						<span class="err_msg" *ngIf="registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched">Required</span>
+						<label for="bh_firstname">Firstname</label>
+					</div>
+					<div class="md-form">
+						<input [ngClass]="{'err_sh' : registerForm.controls.bh_functions.invalid && registerForm.controls.bh_functions.touched }" type="text" formControlName="bh_functions" id="bh_functions" class="form-control" mdbActive>
+						<span class="err_msg" *ngIf="registerForm.controls.bh_functions.invalid && registerForm.controls.bh_functions.touched">Required</span>
+						<label for="bh_functions">Function:</label>
+					</div>
+					<div class="md-form">
+						<input type="password" formControlName="bh_pass" id="bh_pass" class="form-control" mdbActive>
+						<span class="err_msg" *ngIf="registerForm.controls.bh_pass.invalid && registerForm.controls.bh_pass.touched">Required</span>
+						<label for="bh_pass">Your password</label>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="md-form">
+						<input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" mdbActive>
+						<label for="bh_lastname">Lastname</label>
+					</div>
+					<div class="md-form">
+						<input type="email" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
+						<span class="err_msg" *ngIf="registerForm.controls.bhemail.invalid && registerForm.controls.bhemail.touched">Error</span>
+						<label for="bhemail">Your email</label>
+					</div>
+					<div class="md-form">
+						<input type="password" formControlName="bh_pass_conf" id="bh_pass_conf" class="form-control" mdbActive>
+						<label for="bh_pass_conf">Confirm password</label>
+					</div>
+				</div>
+			</div>
+			<h5>Organisation</h5>
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="md-form">
+						<input type="text" formControlName="bh_acc_commercial" id="bh_acc_commercial" class="form-control" mdbActive>
+						<label for="bh_acc_commercial">Commerciale Name</label>
+					</div>
+					<div class="md-form">
+						<input type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control" mdbActive>
+						<label for="bh_acc_socialMean">Raison Social</label>
+					</div>
+					<div class="md-form">
+						<div class="file-field">
+							<div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
+								<span>Logo File</span>
+								<input id="logoFile" type="file" accept="image/*" mdbFileSelect>
+							</div>
+								<span class="ferr_msg" *ngIf="fileError">Required</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					
+					<div class="md-form">
+						<input type="text" formControlName="bh_orgType" id="bh_orgType" class="form-control" mdbActive>
+						<label for="bh_orgType">Type Organisation</label>
+					</div>
+					<div class="md-form">
+						<input type="text" formControlName="bh_orgLocal" id="bh_orgLocal" class="form-control" mdbActive>
+						<label for="bh_orgLocal">Localisation</label>
+					</div>
+					
+				</div>
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Sign up</button>
+			</div>
+		</form>
+	</div>
+</div>
