@@ -4,8 +4,15 @@ import { FormsModule } from "@angular/forms";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { Routes, RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 /* Routes */
 import { OwnRouterModule } from "./routers/own-router.module";
+/* Services */
+import { ApiHttpService } from "./services/api-http/api-http.service";
+
+/*Modules impot*/
+import {UserAuthModule} from "./user-auth/user-auth.module";
 /* Component import */
 import { AppComponent } from "./app.component";
 import { IdeasComponent } from "./ideas/ideas/ideas.component";
@@ -33,11 +40,14 @@ import { HomesliderComponent } from "./homepage/homeslider/homeslider.component"
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     OwnRouterModule,
+    UserAuthModule,
     MDBBootstrapModule.forRoot(),
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [ApiHttpService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
