@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     MDBBootstrapModule
   ],
+  entryComponents: [LoginComponent, NotifComponent],
   declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent, LoginComponent, NotifComponent, ProfileComponent],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService],
