@@ -10,6 +10,8 @@ import { TeamComponent } from "../team/team/team.component";
 import { HomepageComponent } from "../homepage/homepage/homepage.component";
 import { RegistrationComponent } from "../user-auth/registration/registration.component";
 import { ActivationComponent } from "../user-auth/activation/activation.component";
+import { LoginComponent } from "../user-auth/login/login.component";
+
 // import { UserAuthModule } from "../user-auth/user-auth.module";
  
 const routes: Routes = [
@@ -21,7 +23,9 @@ const routes: Routes = [
 	{ path: "description-project", component: DescriptionProjectComponent },
 	{ path: "ideas", component: IdeasComponent },
 	{ path: "registerCompany", component: RegistrationComponent },
-	  { path: 'activate/:code', component: ActivationComponent }
+	  { path: 'activate/:code', component: ActivationComponent },
+	  { path: 'login', component: LoginComponent },
+
 ];
 
 @NgModule({

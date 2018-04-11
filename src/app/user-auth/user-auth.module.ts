@@ -10,6 +10,7 @@ import { AuthserviceService } from "../services/authservice/authservice.service"
 import { RegistrationComponent } from './registration/registration.component';
 import { NewCompanyComponent } from './new-company/new-company.component';
 import { ActivationComponent } from './activation/activation.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { ActivationComponent } from './activation/activation.component';
     ReactiveFormsModule,
     MDBBootstrapModule
   ],
-  declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent],
+  declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent, LoginComponent],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService],
 })
