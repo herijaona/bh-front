@@ -12,6 +12,7 @@ import { AuthserviceService } from "../../services/authservice/authservice.servi
 export class RegistrationComponent implements OnInit {
 	private registerForm: FormGroup;
 	fileError: any = false;
+	private used_email: boolean = false;
 
 	constructor(private el: ElementRef, private apiHttp: ApiHttpService,private auth: AuthserviceService) {}
 
@@ -44,9 +45,9 @@ export class RegistrationComponent implements OnInit {
 		let credential = {
 			email: this.registerForm.value.bhemail,
 			lastname: this.registerForm.value.bh_lastname,
+			firstname: this.registerForm.value.bh_firstname,
 			password: this.registerForm.value.bh_pass,
-			function: this.registerForm.value.bh_functions,
-			firstname: this.registerForm.value.firstname,
+			function: this.registerForm.value.bh_functions,			
 			enseigneCommerciale: this.registerForm.value.bh_acc_commercial,
 			raisonSociale: this.registerForm.value.bh_acc_socialMean,
 			Logo: "",
@@ -68,6 +69,9 @@ export class RegistrationComponent implements OnInit {
 					},
 					err => {
 						console.error(err);
+						if (err.status == 409) {
+							this.used_email = true;
+						}
 					}
 				);
 			}
