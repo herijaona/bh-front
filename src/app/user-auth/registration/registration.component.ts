@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ApiHttpService } from "../../services/api-http/api-http.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 
-
 @Component({
 	selector: "app-registration",
 	templateUrl: "./registration.component.html",
@@ -13,8 +12,13 @@ export class RegistrationComponent implements OnInit {
 	private registerForm: FormGroup;
 	fileError: any = false;
 	private used_email: boolean = false;
+	private form_el: ElementRef;
 
-	constructor(private el: ElementRef, private apiHttp: ApiHttpService,private auth: AuthserviceService) {}
+	constructor(
+		private el: ElementRef,
+		private apiHttp: ApiHttpService,
+		private auth: AuthserviceService
+	) {}
 
 	ngOnInit() {
 		this.registerForm = new FormGroup({
@@ -41,13 +45,17 @@ export class RegistrationComponent implements OnInit {
 	}
 
 	onFormSubmit() {
+
+		let formEl: HTMLInputElement = this.el.nativeElement.querySelector(
+			"#registerForm_"
+		);
 		var hasFile = this.formUpload();
 		let credential = {
 			email: this.registerForm.value.bhemail,
 			lastname: this.registerForm.value.bh_lastname,
 			firstname: this.registerForm.value.bh_firstname,
 			password: this.registerForm.value.bh_pass,
-			function: this.registerForm.value.bh_functions,			
+			function: this.registerForm.value.bh_functions,
 			enseigneCommerciale: this.registerForm.value.bh_acc_commercial,
 			raisonSociale: this.registerForm.value.bh_acc_socialMean,
 			Logo: "",
@@ -63,9 +71,10 @@ export class RegistrationComponent implements OnInit {
 				credential.Logo = resFile.data.imID;
 
 				this.auth.register(credential).subscribe(
-					(r:any) => {
+					(r: any) => {
 						// this.router.navigateByUrl("/profile");
 						console.log(r);
+						formEl.remove();
 					},
 					err => {
 						console.error(err);
@@ -83,6 +92,7 @@ export class RegistrationComponent implements OnInit {
 		let inputEl: HTMLInputElement = this.el.nativeElement.querySelector(
 			"#logoFile"
 		);
+
 		let imID: string;
 		let fileCount: number = inputEl.files.length;
 		let formData = new FormData();
@@ -98,7 +108,7 @@ export class RegistrationComponent implements OnInit {
 					inputEl.files.item(0).name
 				);
 				this.apiHttp
-					.postReq(formData, "up_images")
+					.postUpImages(formData)
 					.toPromise()
 					.then((resp: any) => {
 						if (resp.status == "OK") {
