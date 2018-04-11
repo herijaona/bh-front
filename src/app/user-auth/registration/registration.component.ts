@@ -1,7 +1,16 @@
-import { Component, OnInit, ElementRef } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	ElementRef,
+	ViewChild,
+	ComponentFactoryResolver,
+	ViewContainerRef
+} from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ApiHttpService } from "../../services/api-http/api-http.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
+import { NotifComponent } from "../notif/notif.component";
+import { LoginComponent } from "../login/login.component";
 
 @Component({
 	selector: "app-registration",
@@ -13,11 +22,13 @@ export class RegistrationComponent implements OnInit {
 	fileError: any = false;
 	private used_email: boolean = false;
 	private form_el: ElementRef;
+	@ViewChild("attachAll", { read: ViewContainerRef })	attachView: ViewContainerRef;
 
 	constructor(
 		private el: ElementRef,
 		private apiHttp: ApiHttpService,
-		private auth: AuthserviceService
+		private auth: AuthserviceService,
+		private componentFactoryResolver: ComponentFactoryResolver
 	) {}
 
 	ngOnInit() {
@@ -45,7 +56,6 @@ export class RegistrationComponent implements OnInit {
 	}
 
 	onFormSubmit() {
-
 		let formEl: HTMLInputElement = this.el.nativeElement.querySelector(
 			"#registerForm_"
 		);
@@ -75,6 +85,7 @@ export class RegistrationComponent implements OnInit {
 						// this.router.navigateByUrl("/profile");
 						console.log(r);
 						formEl.remove();
+						this.notifAndLogin();
 					},
 					err => {
 						console.error(err);
@@ -119,5 +130,22 @@ export class RegistrationComponent implements OnInit {
 		});
 
 		return promise;
+	}
+
+	private notifAndLogin() {
+		console.log(this.attachView);
+		var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
+			NotifComponent
+		);
+		var refNotif = this.attachView.createComponent(factoryNotif);
+		refNotif.instance.type = 'notif';
+		refNotif.instance.message = 'Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.';
+
+		var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(
+			LoginComponent
+		);
+		var refLogin = this.attachView.createComponent(factoryLogin);
+
+		// ref.changeDetectorRef.detectChanges();
 	}
 }
