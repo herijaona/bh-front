@@ -11,6 +11,9 @@ import { HomepageComponent } from "../homepage/homepage/homepage.component";
 import { RegistrationComponent } from "../user-auth/registration/registration.component";
 import { ActivationComponent } from "../user-auth/activation/activation.component";
 import { LoginComponent } from "../user-auth/login/login.component";
+import { ProfileComponent } from "../user-auth/profile/profile.component";
+import { AuthguardService } from "../services/authguard/authguard.service";
+
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
  
@@ -25,6 +28,7 @@ const routes: Routes = [
 	{ path: "registerCompany", component: RegistrationComponent },
 	  { path: 'activate/:code', component: ActivationComponent },
 	  { path: 'login', component: LoginComponent },
+	  { path: 'profile', component: ProfileComponent,  canActivate: [AuthguardService] }
 
 ];
 

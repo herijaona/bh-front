@@ -3,7 +3,7 @@
       <div id="" class="navbar-read">
           <ul class="navbar-nav mr-auto nav-logo">
               <li class="nav-item">
-                  <span class="img-logo"><img src="/assets/img/logo-2.png" width="17"></span>
+                  <span class="img-logo"><a routerLink="/"><img src="/assets/img/logo-2.png" width="17"></a></span>
               </li>
           </ul>
           <ul class="navbar-nav nav-top">
@@ -23,8 +23,11 @@
                   <span><img src="/assets/img/in-8.png" width="13"></span>
               </li>
               <li class="nav-item">
-                  <a class="nav-link  color-white recrute-text" href="">Connexion</a>
-              </li>
+                    <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login" class="nav-link  color-white recrute-text">Connexion</a>
+                </li>
+                <li *ngIf="auth.isLoggedIn()" class="nav-item">
+                    <a class="nav-link  color-white recrute-text" (click)="auth.logout()">Logout</a>
+                </li>
           </ul>
       </div>
   </nav>

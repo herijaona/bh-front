@@ -10,7 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { OwnRouterModule } from "./routers/own-router.module";
 /* Services */
 import { ApiHttpService } from "./services/api-http/api-http.service";
-
+import { AuthguardService } from "./services/authguard/authguard.service";
 /*Modules impot*/
 import {UserAuthModule} from "./user-auth/user-auth.module";
 /* Component import */
@@ -47,7 +47,7 @@ import { HomesliderComponent } from "./homepage/homeslider/homeslider.component"
     MDBBootstrapModule.forRoot(),
   ],
   exports: [RouterModule],
-  providers: [ApiHttpService],
+  providers: [ApiHttpService,AuthguardService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -99,7 +99,7 @@ export class AuthserviceService {
     return this.request('post', 'register', user);
   }
 
-  public login(user: TokenPayload): Observable<any> {
+  public login(user: any): Observable<any> {
     return this.request('post', 'login', user);
   }
 

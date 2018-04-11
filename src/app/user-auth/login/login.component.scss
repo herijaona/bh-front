@@ -42,7 +42,8 @@
     border-radius: 1px;
     margin-top: 2px;
     -webkit-transition: 0.2s;
-    transition: 0.2s; }
+    transition: 0.2s;
+    cursor: pointer; }
   
   .form-dark input[type="checkbox"]:checked + label:before {
     top: -4px;
@@ -64,5 +65,8 @@
     width: 27rem;
     margin: 0 auto;
     margin-top: 40px;
+    }
+    .chl{
+    padding-left: 27px;
     }
                   
