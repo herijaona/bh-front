@@ -22,8 +22,12 @@ export class ApiHttpService {
     return base;
   }
 
-  postReq( data: any, resources){
-  	return this.request('post', resources, data);
+  postUpImages( data: any){
+  	return this.request('post', 'up_images', data);
+  }
+
+  postReqActivation(text_){
+  	return this.request('post', 'activate', text_);
   }
 
 }
