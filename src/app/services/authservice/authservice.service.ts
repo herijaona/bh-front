@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 import { Router } from '@angular/router';
+import { UserDetails } from '../../models/user-detail.model';
 
 export interface userDataPaylod {
 	email: string;
@@ -11,14 +12,6 @@ export interface userDataPaylod {
 	name?: string;
 	lastname?: string;
 	firstname?: string;
-}
-
-export interface UserDetails {
-  _id: string;
-  email: string;
-  name: string;
-  exp: number;
-  iat: number;
 }
 
 interface TokenResponse {

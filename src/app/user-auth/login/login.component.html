@@ -4,7 +4,7 @@
       <form class="" [formGroup]="loginForm" (ngSubmit)="onFormSubmit()" >
         <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
             <div class="text-center">
-                <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>SIGN</strong> <a class="green-text font-weight-bold"><strong> UP</strong></a></h3>
+                <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>LOG</strong> <a class="green-text font-weight-bold"><strong>IN</strong></a></h3>
             </div>
             <div class="md-form">
                 <input type="email" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
@@ -13,18 +13,11 @@
             <div class="md-form pb-3">
                 <input type="password" formControlName="bh_pass" id="bh_pass" class="form-control" mdbActive>
                 <label for="Form-pass5">Your password</label>
-                <div class="form-check my-4">
-                  <input class="form-check-input d-none" type="checkbox" value="" id="defaultCheck17">
-                  <label class="form-check-label white-text chl" for="defaultCheck17">Accept the<a href="#" class="green-text font-weight-bold"> Terms and Conditions</a></label>
-                </div>
             </div>
             <div class="row d-flex align-items-center mb-4">
                 <div class="text-center mb-3 col-md-12">
                     <button [ngClass]="{'disabled':!loginForm.valid}" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign in</button>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold"> Log in</a></p>
             </div>
         </div>
       </form>
