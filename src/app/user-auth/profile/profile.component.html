@@ -9,13 +9,13 @@
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle img-fluid" alt="First sample avatar image">
                 </div>
                 <h5 class="font-weight-bold">
-                    <strong>{{ details?.lastname }}</strong>
+                    <strong>{{ details.lastname }}</strong>
                 </h5>
                 <h5 class="font-weight-bold">
-                    <strong>{{ details?.firstname }}</strong>
+                    <strong>{{ details.firstname }}</strong>
                 </h5>
-                <p class="grey-text">{{ details?.email }}</p>
-                <p class="grey-text">{{ details?.function }}</p>
+                <p class="grey-text">{{ details.email }}</p>
+                <p class="grey-text">{{ details.function }}</p>
                 <ul class="list-unstyled">
                     <a class="icons-sm fb-ic">
                         <i class="fa fa-facebook blue-text"> </i>
@@ -28,4 +28,12 @@
         </div>
     </div>
 </section>
-            
+
+<ul>
+    <li>
+        <form  id="editForm_" class="" [formGroup]="EditForm" (ngSubmit)="EditProfile()" >
+            <input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" value="{{ details.lastname }}" />
+            <button type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Edit</button>
+        </form>
+    </li>
+</ul>
