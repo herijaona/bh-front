@@ -4,7 +4,8 @@ import {
 	OnDestroy,
 	ViewChild,
 	ComponentFactoryResolver,
-	ViewContainerRef
+	ViewContainerRef,
+	ComponentRef
 } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ApiHttpService } from "../../services/api-http/api-http.service";
@@ -22,6 +23,8 @@ export class ActivationComponent implements OnInit, OnDestroy {
 	private text_activation: string;
 	@ViewChild("attachAll", { read: ViewContainerRef })
 	attachView: ViewContainerRef;
+	private refNotif;
+	private refLogin;
 	constructor(
 		private route: ActivatedRoute,
 		private apiHttp: ApiHttpService,
@@ -50,16 +53,19 @@ export class ActivationComponent implements OnInit, OnDestroy {
 		});
 	}
 
-	ngOnDestroy() {}
+	ngOnDestroy() {
+		this.refNotif.destroy();
+		this.refLogin.destroy();
+	}
 
 	private notifAndLogin(m,t, s) {
 		console.log(this.attachView);
 		var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
 			NotifComponent
 		);
-		var refNotif = this.attachView.createComponent(factoryNotif);
-		refNotif.instance.type = "notif";
-		refNotif.instance.message = m;
+		this.refNotif = this.attachView.createComponent(factoryNotif);
+		this.refNotif.instance.type = "notif";
+		this.refNotif.instance.message = m;
 
 		if (s) {
 			// code...
