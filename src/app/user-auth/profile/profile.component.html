@@ -1,39 +1,56 @@
-<section class="team-section pb-5 c-5">
-    <h4 class="h1 text-center py-5">Votre profile</h4>
-    <p class="grey-text pb-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi,
-        veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
-    <div class="row text-center">
-        <div class="col-lg-12 col-md-12 mb-12">
-            <div class="card card-body">
-                <div class="avatar mx-auto my-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle img-fluid" alt="First sample avatar image">
-                </div>
-                <h5 class="font-weight-bold">
-                    <strong>{{ details.lastname }}</strong>
-                </h5>
-                <h5 class="font-weight-bold">
-                    <strong>{{ details.firstname }}</strong>
-                </h5>
-                <p class="grey-text">{{ details.email }}</p>
-                <p class="grey-text">{{ details.function }}</p>
-                <ul class="list-unstyled">
-                    <a class="icons-sm fb-ic">
-                        <i class="fa fa-facebook blue-text"> </i>
-                    </a>
-                    <a class="icons-sm ins-ic">
-                        <i class="fa fa-instagram blue-text"> </i>
-                    </a>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
 
-<ul>
-    <li>
-        <form  id="editForm_" class="" [formGroup]="EditForm" (ngSubmit)="EditProfile()" >
-            <input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" value="{{ details.lastname }}" />
-            <button type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Edit</button>
-        </form>
-    </li>
-</ul>
+                    <h4 class="h1 text-center py-5">Votre profile</h4>
+<div class="container">
+<div class="row">
+    <div class="col-6">
+            <section class="team-section pb-5 c-">
+                    <div class="row text-center">
+                        <div class="col-lg-12 col-md-12 mb-12">
+                            <div class="card card-body">
+                                <div class="avatar mx-auto my-3">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle img-fluid" alt="First sample avatar image">
+                                </div>
+                                <h5 class="font-weight-bold">
+                                    <strong>{{ details.lastname }}</strong>
+                                </h5>
+                                <h5 class="font-weight-bold">
+                                    <strong>{{ details.firstname }}</strong>
+                                </h5>
+                                <p class="grey-text">{{ details.email }}</p>
+                                <p class="grey-text">{{ details.function }}</p>
+                                <ul class="list-unstyled">
+                                    <a class="icons-sm fb-ic">
+                                        <i class="fa fa-facebook blue-text"> </i>
+                                    </a>
+                                    <a class="icons-sm ins-ic">
+                                        <i class="fa fa-instagram blue-text"> </i>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="grey-text pb-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi,
+                            veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
+                </section>
+    </div>
+    <div class="col-6">
+
+            <h3><strong>Edit Info Personnel</strong></h3>
+                        <form  id="editForm_" class="" [formGroup]="EditForm" (ngSubmit)="EditProfile()" >
+                            <input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control"  />
+                            <input type="text" formControlName="bh_firstname"  id="bh_firstname" class="form-control"  />
+                            <input type="text" formControlName="bh_functions" id="bh_functions" class="form-control" />
+                            <button type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Edit</button>
+                        </form><hr>
+                        
+                <h3><strong>Edit Password</strong></h3>
+                        <form  id="editPassword_" class="" [formGroup]="editPassword" (ngSubmit)="EditPassword()" >
+                            <input type="password" formControlName="bh_pass" id="bh_pass" class="form-control"  />
+                            <input type="password" formControlName="bh_passConf" id="bh_passConf" class="form-control"  />
+                            <button [ngClass]="{'disabled':!editPassword.valid || editPassword.value.bh_passConf != editPassword.value.bh_pass }" type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Edit Password</button>
+                        </form>
+    </div>
+</div>
+</div>
+        

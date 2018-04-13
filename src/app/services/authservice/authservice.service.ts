@@ -75,15 +75,22 @@ export class AuthserviceService {
     }
   }
 
-  private request(method: 'post'|'get', type: any, user?: any): Observable<any> {
+  private request(method: 'post'|'get', type: any, user?: any, withtoken?: any ): Observable<any> {
     let base;
-
+    console.log(withtoken);
+    if(withtoken){
     if (method === 'post') {
       base = this.http.post(this.endPointUrl+`/api/${type}`, user ,  { headers: new HttpHeaders().append("Authorization",'Bearer '+ this.getToken()) });
     } else {
       base = this.http.get(this.endPointUrl+`/api/${type}`, { headers: new HttpHeaders().append("Authorization",'Bearer '+ this.getToken()) });
     }
-
+    }else{
+    if (method === 'post') {
+      base = this.http.post(this.endPointUrl+`/api/${type}`, user);
+    } else {
+      base = this.http.get(this.endPointUrl+`/api/${type}`);
+    }
+    }
  
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -106,11 +113,15 @@ export class AuthserviceService {
   }
 
   public profile(): Observable<any> {
-    return this.request('get', 'profile');
+    return this.request('get', 'profile',{}, true);
   }
 
   public editprofile(user: any): Observable<any> {
-    return this.request('post', 'profile/edit', user);
+    return this.request('post', 'profile/edit', user, true);
+  }
+
+  public editpass(user: any): Observable<any> {
+    return this.request('post', 'profile/editpass', user, true);
   }
 
   public logout(): void {
