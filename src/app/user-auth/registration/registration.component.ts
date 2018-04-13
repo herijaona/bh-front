@@ -11,6 +11,7 @@ import { ApiHttpService } from "../../services/api-http/api-http.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { NotifComponent } from "../notif/notif.component";
 import { LoginComponent } from "../login/login.component";
+import { Router } from '@angular/router';
 
 @Component({
 	selector: "app-registration",
@@ -28,10 +29,16 @@ export class RegistrationComponent implements OnInit {
 		private el: ElementRef,
 		private apiHttp: ApiHttpService,
 		private auth: AuthserviceService,
-		private componentFactoryResolver: ComponentFactoryResolver
-	) {}
+		private componentFactoryResolver: ComponentFactoryResolver,
+		private router: Router
+	) {
+		if(auth.isLoggedIn()){
+			this.router.navigateByUrl("/profile");
+		}
+	}
 
 	ngOnInit() {
+
 		this.registerForm = new FormGroup({
 			bhemail: new FormControl("", [
 				Validators.required,

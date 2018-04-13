@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 import { Router } from '@angular/router';
 import { UserDetails } from '../../models/user-detail.model';
+import 'rxjs/add/operator/map';
 
 export interface userDataPaylod {
 	email: string;
@@ -32,6 +33,14 @@ export class AuthserviceService {
   private endPointUrl: string = "http://localhost:3000";
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  public saveUser(user: UserDetails): void {
+    localStorage.setItem('bh-user', JSON.stringify(user));
+  }
+  public getUser(): any {
+    var u = localStorage.getItem('bh-user');
+    return JSON.parse(u);
+  }
 
   private saveToken(token: string): void {
     localStorage.setItem('mean-token', token);
@@ -66,16 +75,23 @@ export class AuthserviceService {
     }
   }
 
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: any): Observable<any> {
+  private request(method: 'post'|'get', type: any, user?: any, withtoken?: any ): Observable<any> {
     let base;
-
+    console.log(withtoken);
+    if(withtoken){
+    if (method === 'post') {
+      base = this.http.post(this.endPointUrl+`/api/${type}`, user ,  { headers: new HttpHeaders().append("Authorization",'Bearer '+ this.getToken()) });
+    } else {
+      base = this.http.get(this.endPointUrl+`/api/${type}`, { headers: new HttpHeaders().append("Authorization",'Bearer '+ this.getToken()) });
+    }
+    }else{
     if (method === 'post') {
       base = this.http.post(this.endPointUrl+`/api/${type}`, user);
     } else {
-      base = this.http.get(this.endPointUrl+`/api/${type}`, { headers: new HttpHeaders().append("Authorization",'Bearer '+ this.getToken()) });
-
+      base = this.http.get(this.endPointUrl+`/api/${type}`);
     }
-
+    }
+ 
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
@@ -97,7 +113,15 @@ export class AuthserviceService {
   }
 
   public profile(): Observable<any> {
-    return this.request('get', 'profile');
+    return this.request('get', 'profile',{}, true);
+  }
+
+  public editprofile(user: any): Observable<any> {
+    return this.request('post', 'profile/edit', user, true);
+  }
+
+  public editpass(user: any): Observable<any> {
+    return this.request('post', 'profile/editpass', user, true);
   }
 
   public logout(): void {
