@@ -84,18 +84,15 @@ export class RegistrationComponent implements OnInit {
 			if (resFile.status == 0) {
 				this.fileError = true;
 			} else {
-				console.log(resFile.data.imID);
 				credential.Logo = resFile.data.imID;
 
 				this.auth.register(credential).subscribe(
 					(r: any) => {
 						// this.router.navigateByUrl("/profile");
-						console.log(r);
 						formEl.remove();
 						this.notifAndLogin();
 					},
 					err => {
-						console.error(err);
 						if (err.status == 409) {
 							this.used_email = true;
 						}
@@ -114,8 +111,6 @@ export class RegistrationComponent implements OnInit {
 		let imID: string;
 		let fileCount: number = inputEl.files.length;
 		let formData = new FormData();
-		console.log(inputEl);
-
 		let promise = new Promise((resolve, reject) => {
 			if (fileCount == 0) {
 				resolve({ status: 0, data: null });
@@ -140,7 +135,6 @@ export class RegistrationComponent implements OnInit {
 	}
 
 	private notifAndLogin() {
-		console.log(this.attachView);
 		var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
 			NotifComponent
 		);

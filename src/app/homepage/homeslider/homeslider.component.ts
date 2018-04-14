@@ -21,7 +21,7 @@ export class HomesliderComponent implements OnInit {
 	constructor(private router : Router) {}
 
 	activeSlideChange() {
-		console.log(this.activeSlideIndex);
+		// console.log(this.activeSlideIndex);
 	}
 
 
@@ -29,7 +29,6 @@ export class HomesliderComponent implements OnInit {
 
 	registerCompan(event){
 		event.preventDefault();
-		console.log(event.target);
 		this.router.navigateByUrl("/registerCompany");
 	}
 }

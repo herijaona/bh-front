@@ -33,11 +33,9 @@ constructor(private auth: AuthserviceService, private router: Router) { }
 			password: this.loginForm.value.bh_pass
     };
     this.auth.login(credential).subscribe((data:any) => {
-      console.log(data);
       this.router.navigateByUrl("/profile");
     },
     error => {
-      console.log(error);
       this.error_log = true;
       this.text_ = 'Username ou Password erronee';
       this.type_ = 'error';

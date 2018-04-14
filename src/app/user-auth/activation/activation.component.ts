@@ -46,7 +46,6 @@ export class ActivationComponent implements OnInit, OnDestroy {
 						}
 					},
 					err => {
-						console.log(err);
 						this.notifAndLogin('User Not Found','error', false);
 					}
 				);
@@ -54,12 +53,11 @@ export class ActivationComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy() {
-		this.refNotif.destroy();
-		this.refLogin.destroy();
+		/*this.refNotif.destroy();
+		this.refLogin.destroy();*/
 	}
 
 	private notifAndLogin(m,t, s) {
-		console.log(this.attachView);
 		var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
 			NotifComponent
 		);

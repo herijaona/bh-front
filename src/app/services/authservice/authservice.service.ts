@@ -77,7 +77,6 @@ export class AuthserviceService {
 
   private request(method: 'post'|'get', type: any, user?: any, withtoken?: any ): Observable<any> {
     let base;
-    console.log(withtoken);
     if(withtoken){
     if (method === 'post') {
       base = this.http.post(this.endPointUrl+`/api/${type}`, user ,  { headers: new HttpHeaders().append("Authorization",'Bearer '+ this.getToken()) });
