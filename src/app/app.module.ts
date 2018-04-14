@@ -18,7 +18,7 @@ import { AppComponent } from "./app.component";
 import { IdeasComponent } from "./ideas/ideas/ideas.component";
 import { MindsetComponent } from "./mindset/mindset/mindset.component";
 import { ProjectsComponent } from "./projects/projects/projects.component";
-import { DescriptionProjectComponent } from "./description-project/description-project/description-project.component";
+import { DescriptionProjectModule } from "./description-project/description-project.module";
 import { TeamComponent } from "./team/team/team.component";
 import { HomepageComponent } from "./homepage/homepage/homepage.component";
 import { NavbarComponent } from "./navbar/navbar/navbar.component";
@@ -33,7 +33,6 @@ import { HomesliderComponent } from "./homepage/homeslider/homeslider.component"
     TeamComponent,
     ProjectsComponent,
     IdeasComponent,
-    DescriptionProjectComponent,
     NavbarComponent,
     HomesliderComponent
   ],
@@ -41,6 +40,7 @@ import { HomesliderComponent } from "./homepage/homeslider/homeslider.component"
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    DescriptionProjectModule,
     ReactiveFormsModule,
     OwnRouterModule,
     UserAuthModule,
