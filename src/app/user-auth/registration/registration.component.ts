@@ -19,9 +19,9 @@ import { Router } from '@angular/router';
 	styleUrls: ["./registration.component.scss"]
 })
 export class RegistrationComponent implements OnInit {
-	private registerForm: FormGroup;
+	public registerForm: FormGroup;
 	fileError: any = false;
-	private used_email: boolean = false;
+	used_email: boolean = false;
 	private form_el: ElementRef;
 	@ViewChild("attachAll", { read: ViewContainerRef })	attachView: ViewContainerRef;
 

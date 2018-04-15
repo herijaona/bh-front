@@ -18,8 +18,8 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 export class ProfileComponent implements OnInit {
   details: UserDetails;
 
-  private EditForm: FormGroup;
-  private editPassword: FormGroup;
+   EditForm: FormGroup;
+   editPassword: FormGroup;
 
   constructor(private auth: AuthserviceService, private route: Router) {
     this.details = new UserDetails();

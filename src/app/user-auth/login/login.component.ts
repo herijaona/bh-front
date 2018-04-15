@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  private loginForm: FormGroup;
+  loginForm: FormGroup;
   type_ = 'notif';
   text_ = 'Success de registration';
-  private error_log :boolean = false;
+   error_log :boolean = false;
 constructor(private auth: AuthserviceService, private router: Router) { }
   ngOnInit() {
     this.loginForm = new FormGroup({

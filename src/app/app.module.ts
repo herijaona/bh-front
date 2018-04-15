@@ -12,35 +12,33 @@ import { OwnRouterModule } from "./routers/own-router.module";
 import { ApiHttpService } from "./services/api-http/api-http.service";
 import { AuthguardService } from "./services/authguard/authguard.service";
 /*Modules impot*/
-import {UserAuthModule} from "./user-auth/user-auth.module";
+import { UserAuthModule} from "./user-auth/user-auth.module";
+import { DescriptionProjectModule } from "./description-project/description-project.module";
+import { HomepageModule } from "./homepage/homepage.module";
+import { IdeasModule } from "./ideas/ideas.module";
+import { MindsetModule } from "./mindset/mindset.module";
+import { NavbarModule } from "./navbar/navbar.module";
+import { ProjectsModule } from "./projects/projects.module";
+import { TeamModule } from "./team/team.module";
 /* Component import */
 import { AppComponent } from "./app.component";
-import { IdeasComponent } from "./ideas/ideas/ideas.component";
-import { MindsetComponent } from "./mindset/mindset/mindset.component";
-import { ProjectsComponent } from "./projects/projects/projects.component";
-import { DescriptionProjectModule } from "./description-project/description-project.module";
-import { TeamComponent } from "./team/team/team.component";
-import { HomepageComponent } from "./homepage/homepage/homepage.component";
-import { NavbarComponent } from "./navbar/navbar/navbar.component";
-import { HomesliderComponent } from "./homepage/homeslider/homeslider.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MindsetComponent,
-    HomepageComponent,
-    TeamComponent,
-    ProjectsComponent,
-    IdeasComponent,
-    NavbarComponent,
-    HomesliderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     DescriptionProjectModule,
+    HomepageModule,
+    ProjectsModule,
+    IdeasModule,
+    MindsetModule,
+    TeamModule,
+    NavbarModule,
     ReactiveFormsModule,
     OwnRouterModule,
     UserAuthModule,
