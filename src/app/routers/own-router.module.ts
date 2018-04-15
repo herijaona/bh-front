@@ -14,11 +14,10 @@ import { LoginComponent } from "../user-auth/login/login.component";
 import { ProfileComponent } from "../user-auth/profile/profile.component";
 import { AuthguardService } from "../services/authguard/authguard.service";
 
-
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
 const routes: Routes = [
-	{ path: "", redirectTo: "home", pathMatch: "full" },
+	{ path: "", component: HomepageComponent },
 	{ path: "home", component: HomepageComponent },
 	{ path: "mindset", component: MindsetComponent },
 	{ path: "team", component: TeamComponent },
@@ -26,9 +25,13 @@ const routes: Routes = [
 	{ path: "description-project", component: DescriptionProjectComponent },
 	{ path: "ideas", component: IdeasComponent },
 	{ path: "registerCompany", component: RegistrationComponent },
-	  { path: 'activate/:code', component: ActivationComponent },
-	  { path: 'login', component: LoginComponent },
-	  { path: 'profile', component: ProfileComponent,  canActivate: [AuthguardService] }
+	{ path: "activate/:code", component: ActivationComponent },
+	{ path: "login", component: LoginComponent },
+	{
+		path: "profile",
+		component: ProfileComponent,
+		canActivate: [AuthguardService]
+	}
 ];
 
 @NgModule({
