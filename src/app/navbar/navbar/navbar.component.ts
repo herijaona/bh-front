@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { Router } from "@angular/router";
+import { Globals } from './../../globals/globals';
+
 
 @Component({
 	selector: "app-navbar",
@@ -8,7 +10,7 @@ import { Router } from "@angular/router";
 	styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-	constructor(private router: Router, public auth: AuthserviceService) {}
+	constructor(private router: Router, public auth: AuthserviceService, public g : Globals ) {}
 
 	ngOnInit() {}
 

@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
+import { Globals } from './../../globals/globals';
 
 @Injectable()
 export class ApiHttpService {
-	private endPointUrl: string = "http://localhost:3000";
+	private endPointUrl: string;
 
-  constructor( private http : HttpClient ) {}
+  constructor( private http : HttpClient, private g : Globals ) {
+    this.endPointUrl = this.g.api_baseUrl;
+  }
 
  
 

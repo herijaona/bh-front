@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators/map';
 import { Router } from '@angular/router';
 import { UserDetails } from '../../models/user-detail.model';
 import 'rxjs/add/operator/map';
+import { Globals } from './../../globals/globals';
+
 
 export interface userDataPaylod {
 	email: string;
@@ -30,9 +32,11 @@ export interface TokenPayload {
 export class AuthserviceService {
 
   private token: string;
-  private endPointUrl: string = "http://localhost:3000";
+  private endPointUrl: string ;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private g : Globals) {
+    this.endPointUrl = this.g.api_baseUrl;
+  }
 
   public saveUser(user: UserDetails): void {
     localStorage.setItem('bh-user', JSON.stringify(user));

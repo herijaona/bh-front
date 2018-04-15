@@ -11,8 +11,10 @@ import { OwnRouterModule } from "./routers/own-router.module";
 /* Services */
 import { ApiHttpService } from "./services/api-http/api-http.service";
 import { AuthguardService } from "./services/authguard/authguard.service";
+import { Globals } from "./globals/globals";
+
 /*Modules impot*/
-import { UserAuthModule} from "./user-auth/user-auth.module";
+import { UserAuthModule } from "./user-auth/user-auth.module";
 import { DescriptionProjectModule } from "./description-project/description-project.module";
 import { HomepageModule } from "./homepage/homepage.module";
 import { IdeasModule } from "./ideas/ideas.module";
@@ -23,11 +25,8 @@ import { TeamModule } from "./team/team.module";
 /* Component import */
 import { AppComponent } from "./app.component";
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -42,10 +41,10 @@ import { AppComponent } from "./app.component";
     ReactiveFormsModule,
     OwnRouterModule,
     UserAuthModule,
-    MDBBootstrapModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   exports: [RouterModule],
-  providers: [ApiHttpService,AuthguardService],
+  providers: [ApiHttpService, AuthguardService, Globals],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
