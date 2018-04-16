@@ -14,11 +14,14 @@ import { LoginComponent } from './login/login.component';
 import { NotifComponent } from './notif/notif.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { Routes, RouterModule } from "@angular/router";
+
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MDBBootstrapModule,
+    RouterModule
   ],
   entryComponents: [LoginComponent, NotifComponent],
   declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent, LoginComponent, NotifComponent, ProfileComponent],
