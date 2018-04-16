@@ -7,27 +7,30 @@
               </li>
           </ul>
           <ul class="navbar-nav nav-top">
-              <li class="nav-item i8">
-                  <span class=""><img src="{{g.base_href}}assets/img/fb-8.png" width="6"></span>
-              </li>
-              <li class="i8">
-                  <span class="ligne-vertical">|</span>
-              </li>
-              <li class="nav-item i8">
-                  <span class="tw-8"><img src="{{g.base_href}}assets/img/tw-8.png" width="13"></span>
-              </li>
-              <li class="i8">
-                  <span class="ligne-vertical">|</span>
-              </li>
-              <li class="nav-item i8">
-                  <span><img src="{{g.base_href}}assets/img/in-8.png" width="13"></span>
-              </li>
-              <li class="nav-item">
-                    <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login" class="nav-link  color-white recrute-text">Connexion</a>
-                </li>
-                <li *ngIf="auth.isLoggedIn()" class="nav-item">
-                    <a class="nav-link  color-white recrute-text" (click)="auth.logout()">Logout</a>
-                </li>
+            <li class="nav-item i8">
+                <span class=""><img src="{{g.base_href}}assets/img/fb-8.png" width="6"></span>
+            </li>
+            <li class="i8">
+                <span class="ligne-vertical">|</span>
+            </li>
+            <li class="nav-item i8">
+                <span class="tw-8"><img src="{{g.base_href}}assets/img/tw-8.png" width="13"></span>
+            </li>
+            <li class="i8">
+                <span class="ligne-vertical">|</span>
+            </li>
+            <li class="nav-item i8">
+                <span><img src="{{g.base_href}}assets/img/in-8.png" width="13"></span>
+            </li>
+            <li class="nav-item">
+                <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login" class="nav-link  color-white recrute-text">Connexion</a>
+            </li>
+            <li *ngIf="auth.isLoggedIn()" class="nav-item">
+                <a class="nav-link  color-white  recrute-text2" routerLink="/profile">Profile</a>
+            </li>
+            <li *ngIf="auth.isLoggedIn()" class="nav-item">
+                <a class="nav-link  color-white recrute-text" (click)="auth.logout()">Logout</a>
+            </li>
           </ul>
       </div>
   </nav>
