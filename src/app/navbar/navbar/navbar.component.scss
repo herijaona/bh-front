@@ -15,6 +15,11 @@
     font-family: SourceSansPro-Light;
     margin-left: 10px;
 }
+@media(max-width: 360px){
+    .recrute-text{
+    width: inherit;
+    }
+}
 .recrute-text2{
     font-weight: 600;
     font-size: 15px;
@@ -24,6 +29,11 @@
     width: 108px;
     text-align: center;
     font-family: SourceSansPro-Light;
+}
+@media(max-width: 360px){
+    .recrute-text2{
+    width: inherit;
+    }
 }
 .nav-load{
     padding: 0;
