@@ -33,6 +33,7 @@
     "ngx-slider": "0.0.5",
     "node-sass": "^4.8.2",
     "rxjs": "^5.4.2",
+    "webpack": "^3.11.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
