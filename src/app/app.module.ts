@@ -6,7 +6,6 @@ import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 /* Routes */
 import { OwnRouterModule } from "./routers/own-router.module";
 /* Services */
@@ -44,7 +43,6 @@ import { AppComponent } from "./app.component";
     OwnRouterModule,
     UserAuthModule,
     MDBBootstrapModule.forRoot(),
-    Ng4LoadingSpinnerModule
   ],
   exports: [RouterModule],
   providers: [ApiHttpService, AuthguardService, Globals, SharedNotificationService],
