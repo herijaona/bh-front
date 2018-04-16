@@ -61,12 +61,14 @@
 				<div class="col-md-6">
 					<div class="md-form">
 						<input type="text" formControlName="bh_acc_commercial" id="bh_acc_commercial" class="form-control" mdbActive>
+						<span class="err_msg" *ngIf="registerForm.controls.bh_acc_commercial.invalid && registerForm.controls.bh_acc_commercial.touched">Required</span>
 						<label for="bh_acc_commercial">Commerciale Name</label>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="md-form">
 						<input type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control" mdbActive>
+						<span class="err_msg" *ngIf="registerForm.controls.bh_acc_socialMean.invalid && registerForm.controls.bh_acc_socialMean.touched">Required</span>
 						<label for="bh_acc_socialMean">Raison Social</label>
 					</div>
 				</div>
@@ -75,12 +77,14 @@
 				<div class="col-md-6">
 					<div class="md-form">
 						<input type="text" formControlName="bh_orgType" id="bh_orgType" class="form-control" mdbActive>
+						<span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Required</span>
 						<label for="bh_orgType">Type Organisation</label>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="md-form">
 						<input type="text" formControlName="bh_orgLocal" id="bh_orgLocal" class="form-control" mdbActive>
+						<span class="err_msg" *ngIf="registerForm.controls.bh_orgLocal.invalid && registerForm.controls.bh_orgLocal.touched">Required</span>
 						<label for="bh_orgLocal">Localisation</label>
 					</div>
 				</div>
