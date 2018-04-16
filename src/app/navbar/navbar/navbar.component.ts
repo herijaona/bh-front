@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { Router } from "@angular/router";
-import { Globals } from './../../globals/globals';
-
+import { AuthserviceService } from "../../services/authservice/authservice.service";
+import { Globals } from "./../../globals/globals";
 
 @Component({
 	selector: "app-navbar",
@@ -10,9 +9,15 @@ import { Globals } from './../../globals/globals';
 	styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-	constructor(private router: Router, public auth: AuthserviceService, public g : Globals ) {}
+	constructor(
+		private router: Router,
+		public auth: AuthserviceService,
+		public g: Globals,
+	) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		
+	}
 
 	gotologin() {
 		this.router.navigateByUrl("/login");

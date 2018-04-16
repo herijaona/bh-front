@@ -18,7 +18,7 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
   ],
   entryComponents: [LoginComponent, NotifComponent],
   declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent, LoginComponent, NotifComponent, ProfileComponent],

@@ -11,7 +11,8 @@ import { ApiHttpService } from "../../services/api-http/api-http.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { NotifComponent } from "../notif/notif.component";
 import { LoginComponent } from "../login/login.component";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 
 @Component({
 	selector: "app-registration",
@@ -23,22 +24,23 @@ export class RegistrationComponent implements OnInit {
 	fileError: any = false;
 	used_email: boolean = false;
 	private form_el: ElementRef;
-	@ViewChild("attachAll", { read: ViewContainerRef })	attachView: ViewContainerRef;
+	@ViewChild("attachAll", { read: ViewContainerRef })
+	attachView: ViewContainerRef;
 
 	constructor(
 		private el: ElementRef,
 		private apiHttp: ApiHttpService,
 		private auth: AuthserviceService,
 		private componentFactoryResolver: ComponentFactoryResolver,
-		private router: Router
+		private router: Router,
+		private sh: SharedNotificationService
 	) {
-		if(auth.isLoggedIn()){
+		if (auth.isLoggedIn()) {
 			this.router.navigateByUrl("/profile");
 		}
 	}
 
 	ngOnInit() {
-
 		this.registerForm = new FormGroup({
 			bhemail: new FormControl("", [
 				Validators.required,
@@ -86,13 +88,16 @@ export class RegistrationComponent implements OnInit {
 			} else {
 				credential.Logo = resFile.data.imID;
 
+				this.sh.runloader({ action: "show" });
 				this.auth.register(credential).subscribe(
 					(r: any) => {
 						// this.router.navigateByUrl("/profile");
+						this.sh.runloader({ action: "hide" });
 						formEl.remove();
 						this.notifAndLogin();
 					},
 					err => {
+						this.sh.runloader({ action: "hide" });
 						if (err.status == 409) {
 							this.used_email = true;
 						}
@@ -115,6 +120,7 @@ export class RegistrationComponent implements OnInit {
 			if (fileCount == 0) {
 				resolve({ status: 0, data: null });
 			} else {
+				this.sh.runloader({ action: "show" });
 				formData.append(
 					"im_up",
 					inputEl.files.item(0),
@@ -124,6 +130,7 @@ export class RegistrationComponent implements OnInit {
 					.postUpImages(formData)
 					.toPromise()
 					.then((resp: any) => {
+						this.sh.runloader({ action: "hide" });
 						if (resp.status == "OK") {
 							resolve({ status: 1, data: resp });
 						}
@@ -139,8 +146,9 @@ export class RegistrationComponent implements OnInit {
 			NotifComponent
 		);
 		var refNotif = this.attachView.createComponent(factoryNotif);
-		refNotif.instance.type = 'notif';
-		refNotif.instance.message = 'Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.';
+		refNotif.instance.type = "notif";
+		refNotif.instance.message =
+			"Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.";
 
 		var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(
 			LoginComponent
