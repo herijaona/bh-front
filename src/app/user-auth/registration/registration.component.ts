@@ -41,6 +41,7 @@ export class RegistrationComponent implements OnInit {
 	}
 
 	ngOnInit() {
+
 		this.registerForm = new FormGroup({
 			bhemail: new FormControl("", [
 				Validators.required,

@@ -26,9 +26,10 @@ import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
 /* Component import */
 import { AppComponent } from "./app.component";
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SpinnerComponent],
   imports: [
     BrowserModule,
     FormsModule,
