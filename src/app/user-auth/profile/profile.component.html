@@ -1,30 +1,36 @@
 <h4 class="h1 text-center py-5">Votre profile</h4>
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <section class="team-section pb-5 c-">
                 <div class="row text-center">
                     <div class="col-lg-12 col-md-12 mb-12">
                         <div class="card card-body">
-                            <div class="avatar mx-auto my-3">
-                                <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="avatar mx-auto my-3">
+                                        <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="100%">
+                                    </div>
+                                </div>
+                                <div class="col-6 text-left">
+                                    <h5 class="font-weight-bold">
+                                    <strong>{{ details.lastname }}</strong>
+                                    </h5>
+                                    <h5 class="font-weight-bold">
+                                    <strong>{{ details.firstname }}</strong>
+                                    </h5>
+                                    <p class="grey-text">{{ details.email }}</p>
+                                    <p class="grey-text">{{ details.function }}</p>
+                                    <ul class="list-unstyled">
+                                        <a class="icons-sm fb-ic">
+                                            <i class="fa fa-facebook blue-text"> </i>
+                                        </a>
+                                        <a class="icons-sm ins-ic">
+                                            <i class="fa fa-instagram blue-text"> </i>
+                                        </a>
+                                    </ul>
+                                </div>
                             </div>
-                            <h5 class="font-weight-bold">
-                            <strong>{{ details.lastname }}</strong>
-                            </h5>
-                            <h5 class="font-weight-bold">
-                            <strong>{{ details.firstname }}</strong>
-                            </h5>
-                            <p class="grey-text">{{ details.email }}</p>
-                            <p class="grey-text">{{ details.function }}</p>
-                            <ul class="list-unstyled">
-                                <a class="icons-sm fb-ic">
-                                    <i class="fa fa-facebook blue-text"> </i>
-                                </a>
-                                <a class="icons-sm ins-ic">
-                                    <i class="fa fa-instagram blue-text"> </i>
-                                </a>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -57,7 +63,7 @@
                 veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
             </section>
         </div>
-        <div class="col-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <h3><strong>Edit Info Personnel</strong></h3>
             <form  id="editForm_" class="" [formGroup]="EditForm" (ngSubmit)="EditProfile()" >
                 <input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control"  />
