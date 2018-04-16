@@ -25,6 +25,7 @@ import { ProjectsModule } from "./projects/projects.module";
 import { TeamModule } from "./team/team.module";
 /* Component import */
 import { AppComponent } from "./app.component";
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent],
@@ -42,6 +43,7 @@ import { AppComponent } from "./app.component";
     ReactiveFormsModule,
     OwnRouterModule,
     UserAuthModule,
+    NgxSpinnerModule,
     MDBBootstrapModule.forRoot(),
   ],
   exports: [RouterModule],
