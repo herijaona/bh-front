@@ -3,7 +3,8 @@
       <div id="" class="navbar-read">
           <ul class="navbar-nav mr-auto nav-logo">
               <li class="nav-item">
-                  <span class="img-logo"><a  routerLink="/"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
+                  <span *ngIf="!auth.isLoggedIn()" class="img-logo"><a  routerLink="/"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
+                  <span *ngIf="auth.isLoggedIn()" class="img-logo"><a  routerLink="/all-companies"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
               </li>
           </ul>
           <ul class="navbar-nav nav-top">

@@ -23,6 +23,7 @@ import { MindsetModule } from "./mindset/mindset.module";
 import { NavbarModule } from "./navbar/navbar.module";
 import { ProjectsModule } from "./projects/projects.module";
 import { TeamModule } from "./team/team.module";
+import { CompaniesModule } from "./companies/companies.module";
 /* Component import */
 import { AppComponent } from "./app.component";
 
@@ -41,6 +42,7 @@ import { AppComponent } from "./app.component";
     NavbarModule,
     ReactiveFormsModule,
     OwnRouterModule,
+    CompaniesModule,
     UserAuthModule,
     MDBBootstrapModule.forRoot(),
   ],

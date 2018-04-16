@@ -13,6 +13,7 @@ import { ActivationComponent } from "../user-auth/activation/activation.componen
 import { LoginComponent } from "../user-auth/login/login.component";
 import { ProfileComponent } from "../user-auth/profile/profile.component";
 import { AuthguardService } from "../services/authguard/authguard.service";
+import { ListCompaniesComponent } from '../companies/list-companies/list-companies.component';
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
@@ -27,6 +28,7 @@ const routes: Routes = [
 	{ path: "registerCompany", component: RegistrationComponent },
 	{ path: "activate/:code", component: ActivationComponent },
 	{ path: "login", component: LoginComponent },
+	{ path: "all-companies", component: ListCompaniesComponent },
 	{
 		path: "profile",
 		component: ProfileComponent,
