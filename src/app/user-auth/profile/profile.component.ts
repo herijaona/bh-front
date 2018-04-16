@@ -9,6 +9,8 @@ import { AuthserviceService } from "../../services/authservice/authservice.servi
 import { UserDetails } from "../../models/user-detail.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Globals } from "./../../globals/globals";
+
 // import { resolve } from "dns";
 @Component({
   selector: "app-profile",
@@ -17,11 +19,12 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class ProfileComponent implements OnInit {
   details: UserDetails;
+  public img_avatar: string;
+  EditForm: FormGroup;
+  editPassword: FormGroup;
 
-   EditForm: FormGroup;
-   editPassword: FormGroup;
-
-  constructor(private auth: AuthserviceService, private route: Router) {
+  constructor(private auth: AuthserviceService, private route: Router, public g: Globals) {
+    this.img_avatar = this.g.base_href + 'assets/img/profile-placeholder.jpg';
     this.details = new UserDetails();
     this.EditForm = new FormGroup({
       bh_lastname: new FormControl("", [Validators.required]),
@@ -59,8 +62,7 @@ export class ProfileComponent implements OnInit {
             this.details = this.copydata(this.details, user);
             resolve();
           },
-          err => {
-          }
+          err => {}
         );
     });
   }
@@ -76,8 +78,7 @@ export class ProfileComponent implements OnInit {
         this.saveUser(details);
         // this.details = user;
       },
-      err => {
-      }
+      err => {}
     );
   }
   copydata(user: UserDetails, data: any) {
@@ -98,7 +99,6 @@ export class ProfileComponent implements OnInit {
     let credential = {
       password: this.editPassword.value.bh_pass
     };
-    this.auth.editpass(credential).subscribe(user => {
-    });
+    this.auth.editpass(credential).subscribe(user => {});
   }
 }
