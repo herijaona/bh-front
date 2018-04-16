@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Globals } from "./../../globals/globals";
+
 
 @Component({
   selector: 'app-mindset',
@@ -11,7 +13,7 @@ export class MindsetComponent implements OnInit {
   public show:boolean = false;
   public buttonName:any = 'Show';
 
-  constructor() { }
+  constructor(public g : Globals) { }
 
   ngOnInit() {
   }
