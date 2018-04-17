@@ -29,3 +29,51 @@
     color: #55acee!important;
     font-size: 18px;
 }
+@media(max-width:767px){
+.img-c{
+    width: inherit !important;
+}
+}
+
+
+.user-l {
+    padding-right: 6px;
+  }
+  .user-r {
+    padding-left: 6px;
+  }
+  .user-l >img,
+  .user-r >img {
+    width: 150px;
+  }
+  .redes >ul li a {
+    width: 42px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 10em;
+    border: #EEE 1px solid;
+  }
+  .redes >ul li span {
+    color: #CCC;
+    font-size: 18px;
+  }
+  .footer {
+      padding: 16px 0;
+  }
+
+  .img-t{
+    height: 130px;
+  }
+  .small{
+      .btn{
+        padding: 4px 7px 4px 7px;
+      }
+  }
+  .card-header{
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  .lighten-10{
+      background: #96979e !important;
+  }
