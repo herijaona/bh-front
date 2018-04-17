@@ -24,12 +24,12 @@ export class ListCompaniesComponent implements OnInit {
 			});
 			this.companies_data = er;
 			console.log(this.companies_data);
-			// this.sh.runloader({action:'hide'});
+			this.sh.runloader({action:'hide'});
 		});
 	}
 
 	getAllCompanies() {
-		// this.sh.runloader({action:'show'});
+		this.sh.runloader({action:'show'});
 		return new Promise((resolve, reject) => {
 			this.apiHttp
 				.getAllCompanies()

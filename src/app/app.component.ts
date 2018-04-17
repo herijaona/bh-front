@@ -9,13 +9,15 @@ import { SharedNotificationService } from "./services/shared-notification/shared
 	styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-	title = "app";
+	title = "Business Haven";
 	private subscr: Subscription;
 	public spinnerload: boolean = false;
 	constructor(private sh: SharedNotificationService) {
 		this.subscr = this.sh.run_loader$.subscribe((mess: any) => {
 			if (mess.action == "show") {
-				this.spinnerload = true;
+				setTimeout(() => {
+					this.spinnerload = true;
+				}, 300);
 			} else if (mess.action == "hide") {
 				setTimeout(() => {
 					this.spinnerload = false;

@@ -23,8 +23,12 @@ export class ProfileComponent implements OnInit {
   EditForm: FormGroup;
   editPassword: FormGroup;
 
-  constructor(private auth: AuthserviceService, private route: Router, public g: Globals) {
-    this.img_avatar = this.g.base_href + 'assets/img/profile-placeholder.jpg';
+  constructor(
+    private auth: AuthserviceService,
+    private route: Router,
+    public g: Globals
+  ) {
+    this.img_avatar = this.g.base_href + "assets/img/profile-placeholder.jpg";
     this.details = new UserDetails();
     this.EditForm = new FormGroup({
       bh_lastname: new FormControl("", [Validators.required]),
@@ -52,18 +56,28 @@ export class ProfileComponent implements OnInit {
       });
     });
   }
+
   getProfile() {
     return new Promise((resolve, reject) => {
-      this.auth
-        .profile()
-        .toPromise()
-        .then(
-          user => {
-            this.details = this.copydata(this.details, user);
-            resolve();
-          },
-          err => {}
-        );
+      var savedUser: any = this.auth.getUser();
+      if (savedUser) {
+        this.details = savedUser;
+        resolve();
+      } else {
+        this.auth
+          .profile()
+          .toPromise()
+          .then(
+            user => {
+              this.details = this.copydata(this.details, user);
+              resolve();
+            },
+            err => {
+              console.log(err);
+              this.auth.logout();
+            }
+          );
+      }
     });
   }
 
