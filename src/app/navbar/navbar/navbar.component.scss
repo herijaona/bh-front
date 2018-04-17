@@ -80,3 +80,11 @@
     }
 }
 
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown > .dropdown-menu{
+    padding: 0 !important;
+    border-radius: 0px !important;
+} 

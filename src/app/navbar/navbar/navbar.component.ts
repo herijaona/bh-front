@@ -9,6 +9,7 @@ import { Globals } from "./../../globals/globals";
 	styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
+	public isAdmin : boolean = false;
 	constructor(
 		private router: Router,
 		public auth: AuthserviceService,
@@ -16,6 +17,13 @@ export class NavbarComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
+		let user__ :any;
+		if (this.auth.isLoggedIn()) {
+			user__ = this.auth.getUser();
+			if(user__)
+			this.isAdmin = user__.isAdmin; 
+		}
+
 		
 	}
 

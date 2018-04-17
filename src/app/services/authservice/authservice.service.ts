@@ -148,4 +148,8 @@ export class AuthserviceService {
     window.localStorage.removeItem("bh-user");
     this.router.navigateByUrl("/");
   }
+
+  removeUserItem(){
+    window.localStorage.removeItem("bh-user");
+  }
 }

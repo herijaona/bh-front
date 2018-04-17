@@ -6,4 +6,7 @@ export class UserDetails {
   function: String = "";
   idCca: String= "";
   exp: number = 0;
+  active = false;
+  isAdmin =  false;
+  accountAdmin = [];
 }

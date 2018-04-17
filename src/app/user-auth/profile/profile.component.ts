@@ -22,8 +22,11 @@ export class ProfileComponent implements OnInit {
   public img_avatar: string;
   EditForm: FormGroup;
   editPassword: FormGroup;
+  showInfo: boolean = false;
+  validUser: boolean = false;
 
   constructor(
+    private el: ElementRef,
     private auth: AuthserviceService,
     private route: Router,
     public g: Globals
@@ -49,11 +52,22 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.getProfile().then(() => {
-      this.EditForm.setValue({
-        bh_lastname: this.details.lastname,
-        bh_firstname: this.details.firstname,
-        bh_functions: this.details.function
-      });
+      if (!this.details.active) {
+        this.auth.removeUserItem();
+        let profile_data: HTMLInputElement = this.el.nativeElement.querySelector(
+          "#pr_data"
+        );
+        console.log('Handdrina');
+        this.showInfo = true;
+        // profile_data.remove();
+      } else {
+        this.EditForm.setValue({
+          bh_lastname: this.details.lastname,
+          bh_firstname: this.details.firstname,
+          bh_functions: this.details.function
+        });
+        this.validUser = true;
+      }
     });
   }
 
@@ -70,6 +84,8 @@ export class ProfileComponent implements OnInit {
           .then(
             user => {
               this.details = this.copydata(this.details, user);
+              this.auth.saveUser(this.details);
+              console.log(this.details);
               resolve();
             },
             err => {
@@ -103,6 +119,7 @@ export class ProfileComponent implements OnInit {
     });
     return user;
   }
+
   saveUser(user: any) {
     var d = this.copydata(this.details, user);
     this.details = d;

@@ -1,6 +1,6 @@
 <h4 class="h1 text-center py-5">Votre profile</h4>
 <div class="container">
-    <div class="row">
+    <div class="row" id="pr_data" *ngIf="!showInfo && validUser">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <section class="team-section pb-5 c-">
                 <div class="row text-center">
@@ -46,17 +46,17 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                                    <button routerLink="/description-project" type="button" class="wt-100 btn btn-secondary grey lighten-1 waves-effect waves-light">Descrption project</button>
-                                </div>
+                            <button routerLink="/description-project" type="button" class="wt-100 btn btn-secondary grey lighten-1 waves-effect waves-light">Descrption project</button>
+                        </div>
                         <div class="col-6">
                             <button routerLink="/projects" type="button" class=" wt-100 btn btn-success grey lighten-1 waves-effect waves-light">projects</button>
                         </div>
                     </div>
                     <div class="row">
-                            <div class="col-6">
-                                <button routerLink="/ideas" type="button" class="wt-100 btn btn-warning grey lighten-1 waves-effect waves-light">ideas</button>
-                            </div>
+                        <div class="col-6">
+                            <button routerLink="/ideas" type="button" class="wt-100 btn btn-warning grey lighten-1 waves-effect waves-light">ideas</button>
                         </div>
+                    </div>
                 </div>
                 <br>
                 <p class="grey-text pb-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi,
@@ -79,5 +79,12 @@
                 <button [ngClass]="{'disabled':!editPassword.valid || editPassword.value.bh_passConf != editPassword.value.bh_pass }" type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Edit Password</button>
             </form>
         </div>
+    </div>
+
+    <div *ngIf="showInfo" class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Juste un pas de plus!</h4>
+
+        <p>Oui, votre compte a été créé avec succès, ce message d'alerte est important. Pour accéder à l'ensemble de votre compte et à celui de votre entreprise, veuillez consulter votre adresse e-mail utilisée lors de l'inscription. Un e-mail a été envoyé pour activer votre compte.</p> 
+        <p class="mb-0"> Je vous remercie. </p>
     </div>
 </div>

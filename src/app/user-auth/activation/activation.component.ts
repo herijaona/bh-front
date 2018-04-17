@@ -43,6 +43,17 @@ export class ActivationComponent implements OnInit, OnDestroy {
 							this.notifAndLogin(resp.message,'notif', true);
 						} else {
 							this.notifAndLogin(resp.message,'notif', false);
+
+							var currUser = this.auth.getUser();
+							if (currUser._id == resp._id) {
+								currUser.active = true;
+								this.auth.saveUser(currUser);
+							} else{
+								setTimeout(()=>{
+									this.auth.logout();
+								}, 5000);
+							}
+
 						}
 					},
 					err => {

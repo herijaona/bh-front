@@ -1,39 +1,46 @@
 <div id="app" class="container-fluid bg-nav-color">
   <nav class="navbar navbar-expand-lg navbar-light bg-faded nav-load">
-      <div id="" class="navbar-read">
-          <ul class="navbar-nav mr-auto nav-logo">
-              <li class="nav-item">
-                  <span *ngIf="!auth.isLoggedIn()" class="img-logo"><a  routerLink="/"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
-                  <span *ngIf="auth.isLoggedIn()" class="img-logo"><a  routerLink="/all-companies"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
-              </li>
-          </ul>
-          <ul class="navbar-nav nav-top">
-            <li class="nav-item i8">
-                <span class=""><img src="{{g.base_href}}assets/img/fb-8.png" width="6"></span>
-            </li>
-            <li class="i8">
-                <span class="ligne-vertical">|</span>
-            </li>
-            <li class="nav-item i8">
-                <span class="tw-8"><img src="{{g.base_href}}assets/img/tw-8.png" width="13"></span>
-            </li>
-            <li class="i8">
-                <span class="ligne-vertical">|</span>
-            </li>
-            <li class="nav-item i8">
-                <span><img src="{{g.base_href}}assets/img/in-8.png" width="13"></span>
-            </li>
-            <li class="nav-item">
-                <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login" class="nav-link  color-white recrute-text">Connexion</a>
-            </li>
-            <li *ngIf="auth.isLoggedIn()" class="nav-item">
-                <a class="nav-link  color-white  recrute-text2" routerLink="/profile">Profile</a>
-            </li>
-            <li *ngIf="auth.isLoggedIn()" class="nav-item">
-                <a class="nav-link  color-white recrute-text" (click)="auth.logout()">Logout</a>
-            </li>
-          </ul>
-      </div>
+    <div id="" class="navbar-read">
+      <ul class="navbar-nav mr-auto nav-logo">
+        <li class="nav-item">
+          <span *ngIf="!auth.isLoggedIn()" class="img-logo"><a  routerLink="/"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
+          <span *ngIf="auth.isLoggedIn()" class="img-logo"><a  routerLink="/all-companies"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-top">
+        <li class="nav-item i8">
+          <span class=""><img src="{{g.base_href}}assets/img/fb-8.png" width="6"></span>
+        </li>
+        <li class="i8">
+          <span class="ligne-vertical">|</span>
+        </li>
+        <li class="nav-item i8">
+          <span class="tw-8"><img src="{{g.base_href}}assets/img/tw-8.png" width="13"></span>
+        </li>
+        <li class="i8">
+          <span class="ligne-vertical">|</span>
+        </li>
+        <li class="nav-item i8">
+          <span><img src="{{g.base_href}}assets/img/in-8.png" width="13"></span>
+        </li>
+        <li class="nav-item">
+          <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login" class="nav-link  color-white recrute-text">Connexion</a>
+        </li>
+        <li *ngIf="auth.isLoggedIn() && !isAdmin" class="nav-item">
+          <a class="nav-link  color-white  recrute-text2" routerLink="/profile">Profile</a>
+        </li>
+        <li *ngIf="auth.isLoggedIn() && isAdmin " class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/profile">Profile</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li *ngIf="auth.isLoggedIn() " class="nav-item">
+          <a class="nav-link  color-white recrute-text" (click)="auth.logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </div>
-
