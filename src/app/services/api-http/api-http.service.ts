@@ -16,11 +16,10 @@ export class ApiHttpService {
 
     private request(method: 'post'|'get', resources: string, data:any , params: {[key: string]: any} = {}, headers: {[key: string]: string} = {}): Observable<any> {
     let base;
-
     if (method === 'post') {
       base = this.http.post(this.endPointUrl+`/api/${resources}`, data);
     } else {
-      // base = this.http.get(this.endPointUrl+`/api/${type}`, { headers: new HttpHeaders().append("Authorization",'Bearer '+ this.getToken()) });
+      base = this.http.get(this.endPointUrl+`/api/${resources}`);
     }
     return base;
   }
@@ -31,6 +30,10 @@ export class ApiHttpService {
 
   postReqActivation(text_){
   	return this.request('post', 'activate', text_);
+  }
+
+  getAllCompanies(){
+    return this.request('get', 'all_companies', {});
   }
 
 }
