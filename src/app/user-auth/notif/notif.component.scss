@@ -3,9 +3,12 @@ margin: 0 auto;
 margin-top: 10px;
 box-shadow: 1px 1px 3px 0px grey;
 }
-.error{
-    background: #ef5350;
+.alrt{
+	margin-top: 16px !important;
+text-align: center !important;
+padding: 17px !important;
 }
-.notif{
-    background: #5ead3e;
+
+.alrt p {
+	margin-bottom: 0px
 }

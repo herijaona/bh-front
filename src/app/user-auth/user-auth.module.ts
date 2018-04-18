@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
+
 /*service*/
 import { AuthserviceService } from "../services/authservice/authservice.service";
 
@@ -21,7 +23,8 @@ import { Routes, RouterModule } from "@angular/router";
     CommonModule,
     ReactiveFormsModule,
     MDBBootstrapModule,
-    RouterModule
+    RouterModule,
+    Ng4GeoautocompleteModule.forRoot()
   ],
   entryComponents: [LoginComponent, NotifComponent],
   declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent, LoginComponent, NotifComponent, ProfileComponent],

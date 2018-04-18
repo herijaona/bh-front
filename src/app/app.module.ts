@@ -6,6 +6,7 @@ import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 /* Routes */
 import { OwnRouterModule } from "./routers/own-router.module";
 /* Services */
@@ -45,7 +46,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     OwnRouterModule,
     CompaniesModule,
     UserAuthModule,
-    MDBBootstrapModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   exports: [RouterModule],
   providers: [ApiHttpService, AuthguardService, Globals, SharedNotificationService],

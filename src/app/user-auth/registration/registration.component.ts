@@ -4,6 +4,7 @@ import {
 	ElementRef,
 	ViewChild,
 	ComponentFactoryResolver,
+	ViewEncapsulation,
 	ViewContainerRef
 } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
@@ -16,6 +17,7 @@ import { SharedNotificationService } from "./../../services/shared-notification/
 
 @Component({
 	selector: "app-registration",
+	encapsulation: ViewEncapsulation.None,
 	templateUrl: "./registration.component.html",
 	styleUrls: ["./registration.component.scss"]
 })
@@ -26,6 +28,16 @@ export class RegistrationComponent implements OnInit {
 	private form_el: ElementRef;
 	@ViewChild("attachAll", { read: ViewContainerRef })
 	attachView: ViewContainerRef;
+	userSettings: any = {
+		showSearchButton: false,
+		showRecentSearch: false,
+		showCurrentLocation: false,
+		inputPlaceholderText: "Adresse: Ville, Pays ......"
+	};
+	em_empty: boolean = false;
+	passNotEqual: boolean = false;
+	localAdded: boolean = false;
+	orgAddr: string = "";
 
 	constructor(
 		private el: ElementRef,
@@ -40,11 +52,21 @@ export class RegistrationComponent implements OnInit {
 		}
 	}
 
-	ngOnInit() {
+	autoCompleteCallback1(selectedData: any) {
+		//do any necessery stuff.
+		console.log(JSON.stringify(selectedData));
+		if (selectedData.response) {
+			this.orgAddr = JSON.stringify(selectedData);
+			this.localAdded = true;
+		} else {
+			this.orgAddr = "";
+			this.localAdded = false;
+		}
+	}
 
+	ngOnInit() {
 		this.registerForm = new FormGroup({
 			bhemail: new FormControl("", [
-				Validators.required,
 				Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
 			]),
 			bh_pass: new FormControl("", [
@@ -61,7 +83,7 @@ export class RegistrationComponent implements OnInit {
 			bh_acc_commercial: new FormControl("", [Validators.required]),
 			bh_acc_socialMean: new FormControl("", [Validators.required]),
 			bh_orgType: new FormControl("", [Validators.required]),
-			bh_orgLocal: new FormControl("", [Validators.required])
+			bh_orgLocal: new FormControl("")
 		});
 	}
 
@@ -147,7 +169,7 @@ export class RegistrationComponent implements OnInit {
 			NotifComponent
 		);
 		var refNotif = this.attachView.createComponent(factoryNotif);
-		refNotif.instance.type = "notif";
+		refNotif.instance.type = "success";
 		refNotif.instance.message =
 			"Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.";
 
@@ -157,5 +179,37 @@ export class RegistrationComponent implements OnInit {
 		var refLogin = this.attachView.createComponent(factoryLogin);
 
 		// ref.changeDetectorRef.detectChanges();
+	}
+
+	public detectEmail() {
+		if (this.registerForm.value.bhemail == "") {
+			this.em_empty = true;
+		} else {
+			this.em_empty = false;
+		}
+
+		if (this.used_email) {
+			this.used_email = false;
+		}
+	}
+
+	public passCheck() {
+		if (
+			this.registerForm.value.bh_pass != "" &&
+			this.registerForm.value.bh_pass_conf != ""
+		) {
+			console.log(
+				this.registerForm.value.bh_pass !=
+					this.registerForm.value.bh_pass_conf
+			);
+			if (
+				this.registerForm.value.bh_pass !=
+				this.registerForm.value.bh_pass_conf
+			) {
+				this.passNotEqual = true;
+			} else {
+				this.passNotEqual = false;
+			}
+		}
 	}
 }
