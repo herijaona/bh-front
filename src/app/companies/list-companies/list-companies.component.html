@@ -4,59 +4,98 @@
             <div class="card flex-md-row mb-4  h-md-250 box-s">
                 <img class="card-img-right flex-auto d-md-block img-c" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 160px; height: 188px;" [src]="c_.Logo" data-holder-rendered="true">
                 <div class="card-body d-flex flex-column align-items-start">
-                <h3 class="mb-0">
+                    <h3 class="mb-0">
                     <strong class="d-inline-block text-primary mb-0">{{c_.enseigneCommerciale}}</strong>
-                </h3>
-                <div>
-                    <div class="mb-1 text-muted ml-2">{{c_.raisonSociale}} - {{c_.adresse}}</div>
-                    <p class="card-text mb-auto"><i>15 Employees | 15 Projets</i></p>
-                    <p class="card-text mb-auto">Lorem ipsum dolor</p>
+                    </h3>
+                    <div>
+                        <div class="mb-1 text-muted ml-2">{{c_.raisonSociale}} - {{c_.adresse}}</div>
+                        <p class="card-text mb-auto"><i>15 Employees | 15 Projets</i></p>
+                        <p class="card-text mb-auto">Lorem ipsum dolor</p>
                     </div>
                     <div class="card-w text-center">
-                            <a type="button" class="btn-floating btn-small btn-fb waves-light" mdbRippleRadius><i class="fab fa-facebook-f fb-ic"></i></a>
-                            <a type="button" class="btn-floating btn-small btn-tw waves-light" mdbRippleRadius><i class="fab fa-linkedin-in in-ic"></i></a>
-                            <a type="button" class="btn-floating btn-small btn-dribbble waves-light" mdbRippleRadius><i class="fab fa-skype sk-ic"></i></a>
-                        </div>
+                        <a type="button" class="btn-floating btn-small btn-fb waves-light" mdbRippleRadius><i class="fab fa-facebook-f fb-ic"></i></a>
+                        <a type="button" class="btn-floating btn-small btn-tw waves-light" mdbRippleRadius><i class="fab fa-linkedin-in in-ic"></i></a>
+                        <a type="button" class="btn-floating btn-small btn-dribbble waves-light" mdbRippleRadius><i class="fab fa-skype sk-ic"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>            
+        </div>
     </div>
 </div> -->
-
-<div *ngIf="companies_data" class="container-fluid"><br>  
+<!-- <div *ngIf="companies_data" class="container-fluid"><br>
     <div class="row">
         <div *ngFor="let c_ of companies_data" class="col-sm-12 col-md-6 col-lg-4 mb-4">
             <div class="card box-s">
-            <h4 class="card-header lighten-10 text-white">{{c_.enseigneCommerciale}}
-            <div class="float-right small">
-                <a class="btn btn-raised btn-danger" href="#" title="Ver perfil de Miguel92" data-toggle="tooltip" data-placement="top">
-                    <i class="fa fa-user-circle" aria-hidden="true"></i>
-                </a>
-                <a class="btn btn-raised btn-danger" href="#" title="Enviar mensaje">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </a>
-                <a class="btn btn-raised btn-danger" href="#" title="Seguir usuario">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </a>
-            </div>
-            </h4>
-            <div class="card-body">
-                <div class="image float-left user-l">
-                    <img  [src]="c_.Logo" class="img-thumbnail img-t" alt="avatar">
+                <h4 class="card-header lighten-10 text-white">{{c_.enseigneCommerciale}}
+                <div class="float-right small" style="display: none;">
+                    <a class="btn bnt btn-raised btn-danger" href="#" title="Ver perfil de Miguel92" data-toggle="tooltip" data-placement="top">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn bnt btn-raised btn-danger" href="#" title="Enviar mensaje">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn bnt btn-raised btn-danger" routerLink='/mindset' href="#" title="Seguir usuario">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
                 </div>
-                <h4 class="card-title">{{c_.raisonSociale}} - {{c_.adresse}}</h4>
-                <p class="card-text"><i>15 Employees | 15 Projets</i></p>
-                <p class="card-text mb-auto">Lorem ipsum dolor</p>
-                <div class="card-w text-right">
-                        <!--Facebook-->
+                </h4>
+                <div class="card-body">
+                    <div class="image float-left user-l">
+                        <img  [src]="c_.Logo" class="img-thumbnail img-t" alt="avatar">
+                    </div>
+                    <h4 class="card-title">{{c_.raisonSociale}} - {{c_.adresse}}</h4>
+                    <p class="card-text"><i>15 Employees | 15 Projets</i></p>
+                    <p class="card-text mb-auto">Lorem ipsum dolor</p>
+                    <div class="card-w text-right">
+                        <! - -Facebook- - >
                         <a type="button" class="btn-floating btn-small btn-fb waves-light" mdbRippleRadius><i class="fab fa-facebook-f fb-ic"></i></a>
-                        <!--Twitter-->
+                        <! - -Twitter- ->
                         <a type="button" class="btn-floating btn-small btn-tw waves-light" mdbRippleRadius><i class="fab fa-linkedin-in in-ic"></i></a>
-                        <!--Google +-->
+                        <! - -Google +- ->
                         <a type="button" class="btn-floating btn-small btn-dribbble waves-light" mdbRippleRadius><i class="fab fa-skype sk-ic"></i></a>
                     </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div> -->
+<div  class="container">
+    <h5 style="margin-top: 40px; margin-bottom: 10px">COMPANIES</h5> <hr>
+    <div *ngIf="companies_data" class="">
+        <div class="row">
+            
+            <div *ngFor="let c_ of companies_data" class="col-lg-4 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="transparent">
+                        <!-- <i class="material-icons">weekend</i> -->
+                        <img [src]="c_.Logo" alt="">
+                    </div>
+                    <div class="card-content">
+                        <p class="namecommerce text-capitalize">{{c_.enseigneCommerciale}}</p>
+                        <h6 class="card-title"> <i>{{c_.adresse}}</i></h6>
+                    </div>
+                    <div class="card-body">
+                        <span class="erd"><i class="fa fa-bookmark" aria-hidden="true"></i></span> &nbsp; - {{ c_.raisonSociale }}
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats nimb">
+                            <span title="Employees">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                               <span style="margin-left: 5px">15</span> 
+                            </span> &nbsp; | &nbsp;
+                            <span title="Projets">
+                                <i class="fa fa-tasks" aria-hidden="true"></i>
+                               <span style="margin-left: 5px">15</span> 
+                            </span> &nbsp; | &nbsp;
+                            <span title="Opportinuite">
+                                <i class="fa fa-id-card" aria-hidden="true"></i>
+                               <span style="margin-left: 5px">15</span> 
+                            </span> 
+                            <!-- <a href="#pablo">Get More Space...</a> -->
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>            
+        </div>
     </div>
 </div>

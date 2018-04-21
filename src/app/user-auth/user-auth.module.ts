@@ -17,6 +17,7 @@ import { NotifComponent } from './notif/notif.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { Routes, RouterModule } from "@angular/router";
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { Routes, RouterModule } from "@angular/router";
     Ng4GeoautocompleteModule.forRoot()
   ],
   entryComponents: [LoginComponent, NotifComponent],
-  declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent, LoginComponent, NotifComponent, ProfileComponent],
+  declarations: [RegistrationComponent, NewCompanyComponent, ActivationComponent, LoginComponent, NotifComponent, ProfileComponent, ResetPasswordComponent],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService],
 })

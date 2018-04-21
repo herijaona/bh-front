@@ -142,6 +142,17 @@ export class AuthserviceService {
     return this.request("post", "profile/editpass", user, true);
   }
 
+  public requestresetpass(user: any): Observable<any> {
+    return this.request("post", "reset-password-request", user);
+  }
+
+  public checkDataResetpass(data: any): Observable<any> {
+    return this.request("post", "reset-password-check", data);
+  }
+  public submitNewPassword(data: any): Observable<any> {
+    return this.request("post", "reset-password-submit-new", data);
+  }
+
   public logout(): void {
     this.token = "";
     window.localStorage.removeItem("bh-token");

@@ -32,9 +32,7 @@
         <li *ngIf="auth.isLoggedIn() && isAdmin " class="nav-item dropdown">
           <a class="nav-link dropdown-toggle  color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/profile">Profile</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a *ngFor="let acc of accAdm" [routerLink]="['/company',acc.name, 'profile', acc._id]" class="dropdown-item" href="#">{{acc.name}}</a>
           </div>
         </li>
         <li *ngIf="auth.isLoggedIn() " class="nav-item">

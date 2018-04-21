@@ -14,6 +14,8 @@ import { ApiHttpService } from "./services/api-http/api-http.service";
 import { AuthguardService } from "./services/authguard/authguard.service";
 import { Globals } from "./globals/globals";
 import { SharedNotificationService } from "./services/shared-notification/shared-notification.service";
+import { BaseHttpService } from "./services/base-http/base-http.service";
+import { CompanyService } from "./services/company/company.service";
 
 /*Modules impot*/
 import { UserAuthModule } from "./user-auth/user-auth.module";
@@ -49,7 +51,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MDBBootstrapModule.forRoot()
   ],
   exports: [RouterModule],
-  providers: [ApiHttpService, AuthguardService, Globals, SharedNotificationService],
+  providers: [ApiHttpService, AuthguardService, Globals, SharedNotificationService,BaseHttpService, CompanyService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

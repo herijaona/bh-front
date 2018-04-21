@@ -35,6 +35,7 @@ export class ListCompaniesComponent implements OnInit {
 				.getAllCompanies()
 				.toPromise()
 				.then((data: any) => {
+					console.log(data);
 					resolve(data);
 				});
 		});
