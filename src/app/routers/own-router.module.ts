@@ -63,7 +63,8 @@ const routes: Routes = [
 				component: EventOnCompProfileComponent,
 				outlet: "company"
 			}
-		]
+		],
+		canActivate: [AuthguardService]
 	},
 	{ path: "login", component: LoginComponent },
 	{ path: "all-companies", component: ListCompaniesComponent },

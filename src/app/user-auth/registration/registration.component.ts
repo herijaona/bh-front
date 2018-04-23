@@ -86,11 +86,12 @@ export class RegistrationComponent implements OnInit {
             bh_orgLocal: new FormControl("")
         });
     }
+
     onFormSubmit() {
         let formEl: HTMLInputElement = this.el.nativeElement.querySelector(
             "#registerForm_"
         );
-        var hasFile = this.formUpload();
+        var hasFile = this.formImUpload();
         let credential = {
             email: this.registerForm.value.bhemail,
             lastname: this.registerForm.value.bh_lastname,
@@ -132,7 +133,9 @@ export class RegistrationComponent implements OnInit {
             }
         });
     }
-    formUpload() {
+
+
+    formImUpload() {
         // event.preventDefault();
         let inputEl: HTMLInputElement = this.el.nativeElement.querySelector(
             "#logoFile"
@@ -173,6 +176,8 @@ export class RegistrationComponent implements OnInit {
         });
         return promise;
     }
+
+    /* Show notification after registration */
     private notifAndLogin() {
         var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
             NotifComponent
@@ -187,6 +192,9 @@ export class RegistrationComponent implements OnInit {
         var refLogin = this.attachView.createComponent(factoryLogin);
         // ref.changeDetectorRef.detectChanges();
     }
+
+
+    /* Email validator complement*/
     public detectEmail() {
         if (this.registerForm.value.bhemail == "") {
             this.em_empty = true;
@@ -197,6 +205,8 @@ export class RegistrationComponent implements OnInit {
             this.used_email = false;
         }
     }
+
+    /*Chech if password typed is the same*/
     public passCheck() {
         if (
             this.registerForm.value.bh_pass != "" &&

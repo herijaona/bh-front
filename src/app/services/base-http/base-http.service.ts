@@ -20,38 +20,37 @@ export class BaseHttpService {
 
 	public request(
 		method: "post" | "get",
-		type: any,
+		resource: any,
 		data?: any,
 		withtoken?: any
 	): Observable<any> {
 		let base;
 
 		if (method === "post") {
-			console.log(localStorage.getItem("bh-token"));
 			/* Post method */
 			if (withtoken) {
-				base = this.http.post(this.endPointUrl + `/api/${type}`, data, {
+				base = this.http.post(this.endPointUrl + `/api/${resource}`, data, {
 					headers: new HttpHeaders().append(
 						"Authorization",
 						"Bearer " + localStorage.getItem("bh-token")
 					)
 				});
 			} else {
-				base = this.http.post(this.endPointUrl + `/api/${type}`, data);
+				base = this.http.post(this.endPointUrl + `/api/${resource}`, data);
 			}
 		} else {
 			/* Get method */
 			if (withtoken) {
 				// code...
 				console.log(localStorage.getItem("bh-token"));
-				base = this.http.get(this.endPointUrl + `/api/${type}`, {
+				base = this.http.get(this.endPointUrl + `/api/${resource}`, {
 					headers: new HttpHeaders().append(
 						"Authorization",
 						"Bearer " + localStorage.getItem("bh-token")
 					)
 				});
 			} else {
-				base = this.http.get(this.endPointUrl + `/api/${type}`);
+				base = this.http.get(this.endPointUrl + `/api/${resource}`);
 			}
 		}
 

@@ -7,6 +7,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Routes */
 import { OwnRouterModule } from "./routers/own-router.module";
 /* Services */
@@ -48,6 +49,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     OwnRouterModule,
     CompaniesModule,
     UserAuthModule,
+    BrowserAnimationsModule,
     MDBBootstrapModule.forRoot()
   ],
   exports: [RouterModule],

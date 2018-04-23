@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     };
     this.auth.login(credential).subscribe(
       (data: any) => {
-        this.sh.updateHeader({});
+        this.sh.updateHeader({e:'ok'});
         this.router.navigateByUrl("/profile");
       },
       error => {

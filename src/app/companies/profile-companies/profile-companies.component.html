@@ -2,9 +2,10 @@
   <div class="row">
     <div class="fb-profile">
       <img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/" alt="Profile image example"/>
-      <img align="left" class="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/9/" alt="Profile image example"/>
+      <img align="left" class="fb-image-profile thumbnail" [src]="profilData.img_" alt="Profile image example"/>
       <div class="fb-profile-text">
-        <h1>Eli Macy</h1>
+        <h1>{{profilData.commName}}</h1> 
+        <i><span class="ml-3 mr-3">{{profilData.r_s}}</span> - <span class="ml-3">{{profilData.adresse}}</span> </i>
         
       </div>
     </div>

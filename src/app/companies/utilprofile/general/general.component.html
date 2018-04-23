@@ -33,17 +33,20 @@
 		</div>
 	</form>
 	<hr style="width: 75%">
-	<form class="ee">
+	<form class="ee" (ngSubmit)="imLogoSubmit()">
 		<div class="row">
-			<div class="col-md-6 col-sm-12"><img style="width: 85px; height: 85px" [src]="im" alt=""></div>
+			<div class="col-md-6 col-sm-12 text-center" ><img style="width: 50%; height: 90%" [src]="im" alt=""></div>
 			<div class="col-md-6 col-sm-12">
 				<div class="md-form">
-					<div class="file-field">
+					<div class="file-field text-center">
 						<div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
 							<span>Logo File</span>
-							<input (change)="readUrl($event)" id="logoFile" type="file" accept="image/*" mdbFileSelect>
+							<input style="width: 100%" (change)="readUrl($event)" id="_imLog" type="file" accept="image/*" mdbFileSelect>
 						</div>
-						<span class="ferr_msg" *ngIf="fileError">Champ Obligatoire</span>
+						<span class="ferr_msg">Champ Obligatoire</span>
+					</div>
+					<div class="text-center">
+						<button [ngClass]="{'disabled': !imChange }" type="submit" class="btn btn-default">Mettre jour l'image</button>
 					</div>
 				</div>
 			</div>

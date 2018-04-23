@@ -38,7 +38,6 @@ export class AuthserviceService {
   }
   public getUser(): any {
     var u = localStorage.getItem("bh-user");
-    console.log(u);
     if (u) {
       return JSON.parse(u);
     } else {
