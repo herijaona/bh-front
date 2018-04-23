@@ -23,7 +23,6 @@ export class ListCompaniesComponent implements OnInit {
 				return el;
 			});
 			this.companies_data = er;
-			console.log(this.companies_data);
 			this.sh.runloader({action:'hide'});
 		});
 	}
@@ -35,7 +34,6 @@ export class ListCompaniesComponent implements OnInit {
 				.getAllCompanies()
 				.toPromise()
 				.then((data: any) => {
-					console.log(data);
 					resolve(data);
 				});
 		});

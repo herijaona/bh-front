@@ -99,16 +99,15 @@ export class ProfileCompaniesComponent implements OnInit, OnDestroy {
 	}
 
 	showData(e, notif?) {
+
 		this.cs.getCurrentAdminCompanyInfo(e).then(
 			(dat: any) => {
-				console.log(dat);
 				this.profilData.img_ = dat.Logo;
 				this.profilData.commName = dat.enseigneCommerciale;
 				this.profilData.r_s = dat.raisonSociale;
 				this.profilData.adresse = dat.adresse;
 			},
 			err => {
-				console.log(err);
 			}
 		);
 	}

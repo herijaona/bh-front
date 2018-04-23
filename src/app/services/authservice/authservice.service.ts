@@ -155,7 +155,11 @@ export class AuthserviceService {
   public logout(): void {
     this.token = "";
     window.localStorage.removeItem("bh-token");
+    window.localStorage.removeItem("accAdmin");
+    window.localStorage.removeItem("accCUR");
+    window.localStorage.removeItem("gen_flag");
     window.localStorage.removeItem("bh-user");
+    window.localStorage.removeItem("my_company");
     this.router.navigateByUrl("/");
   }
 

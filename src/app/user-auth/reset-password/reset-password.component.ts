@@ -39,7 +39,6 @@ export class ResetPasswordComponent implements OnInit {
 		this.route.params.subscribe(params => {
 			this.id_reset = params["id_"];
 			this.resetCode = params["pass_code"];
-			console.log(this.resetCode);
 			this.auth
 				.checkDataResetpass({
 					id_data: this.id_reset,
@@ -47,7 +46,6 @@ export class ResetPasswordComponent implements OnInit {
 				})
 				.subscribe(
 					(ret: any) => {
-						console.log(ret);
 						if (ret.status === "valid") {
 							this.showNotif(ret.data, true, "secondary");
 							this.resetpassFormFlag = true;
@@ -56,7 +54,6 @@ export class ResetPasswordComponent implements OnInit {
 						}
 					},
 					error => {
-						console.log(error);
 						if (error.error.status == "NOK") {
 							this.showNotif(error.error.data, true, "warning");
 						}
@@ -91,7 +88,6 @@ export class ResetPasswordComponent implements OnInit {
 				code_: this.resetCode
 			};
 
-			console.log(data);
 			this.auth.submitNewPassword(data).subscribe(
 				(state: any) => {
 					if (state.status == "OK") {

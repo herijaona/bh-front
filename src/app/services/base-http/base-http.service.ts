@@ -41,8 +41,6 @@ export class BaseHttpService {
 		} else {
 			/* Get method */
 			if (withtoken) {
-				// code...
-				console.log(localStorage.getItem("bh-token"));
 				base = this.http.get(this.endPointUrl + `/api/${resource}`, {
 					headers: new HttpHeaders().append(
 						"Authorization",

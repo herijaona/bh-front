@@ -111,8 +111,6 @@ export class GeneralComponent implements OnInit, OnDestroy {
 		);
 
 		this.apiHttp.formImUpload(inputEl).then((re: any) => {
-			console.log("Havako o");
-			console.log(re);
 			if (re.data.status == "OK") {
 				let upIm = this.cs.updateLogoImage({
 					IdIm: re.data.imID,
@@ -139,6 +137,5 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy() {
-		console.log("Destroy General");
 	}
 }

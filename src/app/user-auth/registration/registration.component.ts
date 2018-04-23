@@ -54,7 +54,6 @@ export class RegistrationComponent implements OnInit {
 
     autoCompleteCallback1(selectedData: any) {
         //do any necessery stuff.
-        console.log(JSON.stringify(selectedData));
         if (selectedData.response) {
             this.orgAddr = JSON.stringify(selectedData);
             this.localAdded = true;
@@ -212,10 +211,6 @@ export class RegistrationComponent implements OnInit {
             this.registerForm.value.bh_pass != "" &&
             this.registerForm.value.bh_pass_conf != ""
         ) {
-            console.log(
-                this.registerForm.value.bh_pass !=
-                    this.registerForm.value.bh_pass_conf
-            );
             if (
                 this.registerForm.value.bh_pass !=
                 this.registerForm.value.bh_pass_conf

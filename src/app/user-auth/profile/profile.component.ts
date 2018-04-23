@@ -10,6 +10,7 @@ import { UserDetails } from "../../models/user-detail.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Globals } from "./../../globals/globals";
+import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
 
 // import { resolve } from "dns";
 @Component({
@@ -28,6 +29,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private el: ElementRef,
     private auth: AuthserviceService,
+    public sh: SharedNotificationService,
     private route: Router,
     public g: Globals
   ) {
@@ -57,7 +59,6 @@ export class ProfileComponent implements OnInit {
         let profile_data: HTMLInputElement = this.el.nativeElement.querySelector(
           "#pr_data"
         );
-        console.log('Handdrina');
         this.showInfo = true;
         // profile_data.remove();
       } else {
@@ -85,11 +86,9 @@ export class ProfileComponent implements OnInit {
             user => {
               this.details = this.copydata(this.details, user);
               this.auth.saveUser(this.details);
-              console.log(this.details);
               resolve();
             },
             err => {
-              console.log(err);
               this.auth.logout();
             }
           );
@@ -107,10 +106,12 @@ export class ProfileComponent implements OnInit {
       (details: any) => {
         this.saveUser(details);
         // this.details = user;
+        this.successAction();
       },
       err => {}
     );
   }
+
   copydata(user: UserDetails, data: any) {
     Object.keys(data).forEach(function(key) {
       if (key in user) {
@@ -130,6 +131,16 @@ export class ProfileComponent implements OnInit {
     let credential = {
       password: this.editPassword.value.bh_pass
     };
-    this.auth.editpass(credential).subscribe(user => {});
+    this.auth.editpass(credential).subscribe(user => {
+      this.successAction();
+      this.editPassword.reset();
+    });
+  }
+
+  successAction() {
+    this.sh.notifToast({
+      type: "success",
+      message: "<p>Mis a jour Reussi</p>"
+    });
   }
 }

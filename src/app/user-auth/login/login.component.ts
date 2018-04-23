@@ -79,7 +79,6 @@ export class LoginComponent implements OnInit {
         .toPromise()
         .then(
           (res: any) => {
-            console.log(res);
             setTimeout(() => {
               if (res.status == "OK") {
                 this.type_ = "success";

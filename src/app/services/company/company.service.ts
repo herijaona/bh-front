@@ -31,7 +31,6 @@ export class CompanyService extends BaseHttpService {
               resolve(d);
             },
             err => {
-              console.log(err.error);
               reject(err.error);
             }
           );
@@ -57,7 +56,6 @@ export class CompanyService extends BaseHttpService {
 
   storeMycompanyId(i) {
     localStorage.setItem("my_company", i);
-    console.log(Date.now());
   }
 
   getMycompanyId() {
@@ -83,7 +81,6 @@ export class CompanyService extends BaseHttpService {
   }
 
   updateLogoImage(dataIm) {
-    console.log(dataIm);
     return new Promise((resolve, reject) => {
       this.request("post", "update-logo-companie", dataIm, true).subscribe(
         (e: any) => {
