@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy, ElementRef } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	OnDestroy,
+	ViewEncapsulation,
+	ElementRef
+} from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { CompanyService } from "../../../services/company/company.service";
 import { ApiHttpService } from "../../../services/api-http/api-http.service";
@@ -16,6 +22,7 @@ import { SharedNotificationService } from "../../../services/shared-notification
 
 @Component({
 	selector: "app-general",
+	encapsulation: ViewEncapsulation.None,
 	templateUrl: "./general.component.html",
 	styleUrls: ["./general.component.scss"]
 })
@@ -24,6 +31,13 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	public im: string;
 	public timeWait: number;
 	public imChange: boolean = false;
+	public userSettings: any = {
+		showSearchButton: false,
+		showRecentSearch: false,
+		showCurrentLocation: false,
+		inputPlaceholderText: "Adresse: Ville, Pays ......"
+
+	};
 
 	constructor(
 		private cs: CompanyService,
@@ -45,6 +59,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			_orgType: new FormControl("", [Validators.required])
 		});
 	}
+
 
 	ngOnInit() {
 		if (!this.cs.isCDataId()) {
@@ -136,6 +151,5 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			});
 	}
 
-	ngOnDestroy() {
-	}
+	ngOnDestroy() {}
 }

@@ -1,55 +1,128 @@
 <div class="tab-pane active fade in show " id="tab_default_1">
-	<h3>Info</h3>
-	<form class="swe" id="ewd" [formGroup]="uform" (ngSubmit)="onUpdateFormSubmit()" >
-		<div class="row">
-			<div class="col-md-6">
-				<div class="md-form">
-					<input type="text" formControlName="_acc_commercial" id="_acc_commercial" class="form-control" mdbActive>
-					<span class="err_msg" *ngIf="uform.controls._acc_commercial.invalid && uform.controls._acc_commercial.touched">Champ Obligatoire</span>
-					<label for="_acc_commercial">Commerciale Name</label>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="md-form">
-					<input type="text" formControlName="_acc_socialMean" id="_acc_socialMean" class="form-control" mdbActive>
-					<span class="err_msg" *ngIf="uform.controls._acc_socialMean.invalid && uform.controls._acc_socialMean.touched">Champ Obligatoire</span>
-					<label for="_acc_socialMean">Raison Social</label>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="md-form">
-					<input type="text" formControlName="_orgType" id="_orgType" class="form-control" mdbActive>
-					<span class="err_msg" *ngIf="uform.controls._orgType.invalid && uform.controls._orgType.touched">Champ Obligatoire</span>
-					<label for="_orgType">Type Organisation</label>
-				</div>
-			</div>
-			
-		</div>
-		<div class="container">
-			<div class="">
-				<button [ngClass]="{'disabled': !uform.valid}" type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Update</button>
-			</div>
-			
-		</div>
-	</form>
-	<hr style="width: 75%">
-	<form class="ee" (ngSubmit)="imLogoSubmit()">
-		<div class="row">
-			<div class="col-md-6 col-sm-12 text-center" ><img style="width: 50%; height: 90%" [src]="im" alt=""></div>
-			<div class="col-md-6 col-sm-12">
-				<div class="md-form">
-					<div class="file-field text-center">
-						<div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
-							<span>Logo File</span>
-							<input style="width: 100%" (change)="readUrl($event)" id="_imLog" type="file" accept="image/*" mdbFileSelect>
+	<div class="row">
+		<div class="col-md-4 inf">
+			<h3>Info</h3>
+			<form class="swe" id="ewd" [formGroup]="uform" (ngSubmit)="onUpdateFormSubmit()" >
+				<div class="row">
+					<div class="col-md-12">
+						<div class="md-form">
+							<input type="text" formControlName="_acc_commercial" id="_acc_commercial" class="form-control" mdbActive>
+							<span class="err_msg" *ngIf="uform.controls._acc_commercial.invalid && uform.controls._acc_commercial.touched">Champ Obligatoire</span>
+							<label for="_acc_commercial">Commerciale Name</label>
 						</div>
-						<span class="ferr_msg">Champ Obligatoire</span>
 					</div>
-					<div class="text-center">
-						<button [ngClass]="{'disabled': !imChange }" type="submit" class="btn btn-default">Mettre jour l'image</button>
+					<div class="col-md-12">
+						<div class="md-form">
+							<input type="text" formControlName="_acc_socialMean" id="_acc_socialMean" class="form-control" mdbActive>
+							<span class="err_msg" *ngIf="uform.controls._acc_socialMean.invalid && uform.controls._acc_socialMean.touched">Champ Obligatoire</span>
+							<label for="_acc_socialMean">Raison Social</label>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="md-form">
+							<input type="text" formControlName="_orgType" id="_orgType" class="form-control" mdbActive>
+							<span class="err_msg" *ngIf="uform.controls._orgType.invalid && uform.controls._orgType.touched">Champ Obligatoire</span>
+							<label for="_orgType">Type Organisation</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="">
+						<button [ngClass]="{'disabled': !uform.valid}" type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Update</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-4 adr">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="md-form addr_local">
+						<ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
 					</div>
 				</div>
 			</div>
 		</div>
-	</form>
+		<div class="col-md-4 img-p">
+			
+			<form class="ee" (ngSubmit)="imLogoSubmit()">
+				<h5>Logo:</h5>
+				<div class="row">
+					<div class="col-md-6 col-sm-12 text-center" ><img style="width: 100px; height: 100px" [src]="im" alt=""></div>
+					<div class="col-md-6 col-sm-12">
+						<div class="md-form">
+							<div class="file-field text-center">
+								<div class="btn btn-primary cst_btn  waves-light" mdbRippleRadius>
+									<input style="width: 100%" (change)="readUrl($event)" id="_imLog" type="file" accept="image/*" mdbFileSelect>
+								</div>
+							</div>
+							<div class="text-center">
+								<button [ngClass]="{'disabled': !imChange }" type="submit" class="btn btn-info ">Mettre jour l'image</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<form class="ee" (ngSubmit)="imLogoSubmit()">
+				<h5>Cover Image</h5>
+				<div class="row">
+					<div class="col-md-6 col-sm-12 text-center" ><img style="width: 100%; height: 110px" [src]="im" alt=""></div>
+					<div class="col-md-6 col-sm-12">
+						<div class="md-form">
+							<div class="file-field text-center">
+								<div class="btn btn-primary cst_btn waves-light" mdbRippleRadius>
+									<input style="width: 100%" (change)="readUrl($event)" id="_imCover" type="file" accept="image/*" mdbFileSelect>
+								</div>
+							</div>
+							<div class="text-center">
+								<button [ngClass]="{'disabled': !imChange }" type="submit" class="btn btn-info ">Mettre jour l'image</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<hr>
+	<h5>Page Show Configuration</h5>
+	<div class="row pagess">
+		<form class="form-inline" style="width: 100% !important">
+			<div class=" col-md-2 col-sm-3 col-xs-6    form-check ">
+				<input class="form-check-input" type="checkbox" id="teamPages">
+				<label class="form-check-label" for="teamPages">
+					Team
+				</label>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-6  form-check ">
+				<input class="form-check-input" type="checkbox" id="mindsetPages">
+				<label class="form-check-label" for="mindsetPages">
+					Mindset
+				</label>
+			</div>
+			
+			<div class="col-md-2 col-sm-3 col-xs-6  form-check ">
+				<input class="form-check-input" type="checkbox" id="projectsPages">
+				<label class="form-check-label" for="projectsPages">
+					Projects
+				</label>
+			</div>
+			
+			<div class="col-md-2 col-sm-3 col-xs-6  form-check ">
+				<input class="form-check-input" type="checkbox" id="ideasPages">
+				<label class="form-check-label" for="ideasPages">
+					Ideas
+				</label>
+			</div>
+			
+			<div class="col-md-2  col-sm-3 col-xs-6 form-check ">
+				<input class="form-check-input" type="checkbox" id="succesStoriePages">
+				<label class="form-check-label" for="succesStoriePages">
+					Succes Stories
+				</label>
+			</div>
+			<div class="">
+				<button type="submit" class="btn btn-primary btn-md mt-0">Submit</button>
+			</div>
+		</form>
+	</div>
 </div>

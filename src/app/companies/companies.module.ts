@@ -11,6 +11,7 @@ import { OwnUserComponent } from './utilprofile/own-user/own-user.component';
 import { ProjetProfileComponent } from './utilprofile/projet-profile/projet-profile.component';
 import { JobOnCompProfileComponent } from './utilprofile/job-on-comp-profile/job-on-comp-profile.component';
 import { EventOnCompProfileComponent } from './utilprofile/event-on-comp-profile/event-on-comp-profile.component';
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { EventOnCompProfileComponent } from './utilprofile/event-on-comp-profile
     RouterModule,
     ReactiveFormsModule,
     MDBBootstrapModule,
-    FormsModule
+    FormsModule,
+    Ng4GeoautocompleteModule.forRoot()
   ],
   declarations: [ListCompaniesComponent, ProfileCompaniesComponent, GeneralComponent, OwnUserComponent, ProjetProfileComponent, JobOnCompProfileComponent, EventOnCompProfileComponent],
   schemas: [NO_ERRORS_SCHEMA],
