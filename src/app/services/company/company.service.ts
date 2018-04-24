@@ -80,13 +80,36 @@ export class CompanyService extends BaseHttpService {
     localStorage.removeItem(this.cLabel.localCData);*/
   }
 
-  updateLogoImage(dataIm) {
+  updateDataImage(idim,acId,dim) {
+    let ivar = {
+          IdIm: idim,
+          acc_id: acId,
+          dataIm: dim
+        };
     return new Promise((resolve, reject) => {
-      this.request("post", "update-logo-companie", dataIm, true).subscribe(
+      this.request("post", "update-DataImage-companie", ivar , true).subscribe(
         (e: any) => {
           resolve(e);
         }
       );
+    });
+  }
+
+  updatePagetoShow(w: any) {
+    let dw = w.d;
+    dw.acc_id = w.acc_id;
+    return new Promise((resolve, reject) => {
+      this.request("post", "updateCompanyShowPage", dw, true)
+        .toPromise()
+        .then(
+          (re: any) => {
+            resolve(re);
+          },
+          err => {
+            console.log(err);
+            reject(err.error);
+          }
+        );
     });
   }
 }

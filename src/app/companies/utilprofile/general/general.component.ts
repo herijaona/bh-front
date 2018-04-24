@@ -28,7 +28,9 @@ import { SharedNotificationService } from "../../../services/shared-notification
 })
 export class GeneralComponent implements OnInit, OnDestroy {
 	public uform: FormGroup;
-	public im: string;
+	public pform: FormGroup;
+	public im = { i: "", s: false };
+	public imC = { i: "", s: false };
 	public timeWait: number;
 	public imChange: boolean = false;
 	public userSettings: any = {
@@ -36,7 +38,6 @@ export class GeneralComponent implements OnInit, OnDestroy {
 		showRecentSearch: false,
 		showCurrentLocation: false,
 		inputPlaceholderText: "Adresse: Ville, Pays ......"
-
 	};
 
 	constructor(
@@ -52,14 +53,21 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			this.cs.genVueFlag(false, 0);
 			this.timeWait = 1000;
 		}
-		this.im = g.base_href + "assets/img/logo2.png";
+		this.im.i = g.base_href + "assets/img/logo2.png";
+		this.imC.i = g.base_href + "assets/img/logo2.png";
+		this.pform = new FormGroup({
+			pMindset: new FormControl(false),
+			pTeam: new FormControl(false),
+			pSs: new FormControl(false),
+			pIdeas: new FormControl(false),
+			pProjects: new FormControl(false)
+		});
 		this.uform = new FormGroup({
 			_acc_commercial: new FormControl("", [Validators.required]),
 			_acc_socialMean: new FormControl("", [Validators.required]),
 			_orgType: new FormControl("", [Validators.required])
 		});
 	}
-
 
 	ngOnInit() {
 		if (!this.cs.isCDataId()) {
@@ -77,11 +85,23 @@ export class GeneralComponent implements OnInit, OnDestroy {
 		let ww = this.timeWait;
 		setTimeout(() => {
 			let AccData: any = this.cs.getLocalCData();
-			this.im = AccData.Logo;
+			this.im.i = AccData.Logo;
+			if (AccData.coverImage) {
+				this.imC.i = AccData.coverImage;
+			}
 			this.uform.setValue({
 				_acc_commercial: AccData.enseigneCommerciale,
 				_acc_socialMean: AccData.raisonSociale,
 				_orgType: AccData.typeOrganisation
+			});
+
+			let pConfig = JSON.parse(AccData.pagetoShow);
+			this.pform.setValue({
+				pMindset: pConfig.pMindset,
+				pTeam: pConfig.pTeam,
+				pSs: pConfig.pSs,
+				pIdeas: pConfig.pIdeas,
+				pProjects: pConfig.pProjects
 			});
 		}, ww);
 	}
@@ -105,14 +125,15 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	}
 	/* Show selected image on the view*/
 	readUrl(event: any) {
-		let lastIm = this.im;
+		let inID = event.target.id;
+		let lastIm = this[inID].i;
+
 		if (event.target.files && event.target.files[0]) {
 			var reader = new FileReader();
-
 			reader.onload = (event: any) => {
-				this.im = event.target.result;
-				if (this.im != lastIm) {
-					this.imChange = true;
+				this[inID].i = event.target.result;
+				if (this[inID].i != lastIm) {
+					this[inID].s = true;
 				}
 			};
 
@@ -120,9 +141,32 @@ export class GeneralComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	imLogoSubmit() {
+	imCIMSubmit(typeIM, idIN) {
 		let inputEl: HTMLInputElement = this.el.nativeElement.querySelector(
-			"#_imLog"
+			idIN
+		);
+
+		this.apiHttp.formImUpload(inputEl).then((re: any) => {
+			if (re.data.status == "OK") {
+				let upIm = this.cs.updateDataImage(
+					re.data.imID,
+					this.cs.getMycompanyId(),
+					typeIM
+				);
+				upIm.then((e: any) => {
+					this.sh.notifToast({
+						type: "success",
+						message: "<p>Image mis a jour</p>"
+					});
+					this.getNupdtadeLocal();
+				});
+			}
+		});
+	}
+
+	/*	imLogoSubmit() {
+		let inputEl: HTMLInputElement = this.el.nativeElement.querySelector(
+			"#im"
 		);
 
 		this.apiHttp.formImUpload(inputEl).then((re: any) => {
@@ -140,7 +184,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
 				});
 			}
 		});
-	}
+	}*/
 
 	getNupdtadeLocal() {
 		this.cs
@@ -148,6 +192,32 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			.then((cd: any) => {
 				this.sh.notifyUpdateView({});
 				this.showData();
+			});
+	}
+
+	autoCompleteCallback1($event) {}
+
+	savePageshowConfig() {
+		console.log(this.pform.value);
+		this.cs
+			.updatePagetoShow({
+				d: this.pform.value,
+				acc_id: this.cs.getMycompanyId()
+			})
+			.then((r: any) => {
+				if (r.status == "OK") {
+					this.sh.notifToast({
+						type: "success",
+						message: "<p>Configuration saved</p>"
+					});
+					return;
+				}
+			})
+			.then(() => {
+				this.cs.getCurrentAdminCompanyInfo(
+					this.cs.getMycompanyId(),
+					true
+				);
 			});
 	}
 
