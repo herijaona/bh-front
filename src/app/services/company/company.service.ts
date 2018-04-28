@@ -15,7 +15,7 @@ export class CompanyService extends BaseHttpService {
   }
 
   getAllCompanies() {
-    return this.request("get", "all_companies", {});
+    return this.fetch("get", "all_companies");
   }
 
   getCurrentAdminCompanyInfo(i, update: boolean = false) {
@@ -23,7 +23,7 @@ export class CompanyService extends BaseHttpService {
       if (this.isCDataStored() && !update) {
         resolve(this.getLocalCData());
       } else {
-        this.request("post", "gen_info_companies", { c: i }, true)
+        this.request("post", "gen_info_companies", { c: i })
           .toPromise()
           .then(
             (d: any) => {
@@ -80,14 +80,14 @@ export class CompanyService extends BaseHttpService {
     localStorage.removeItem(this.cLabel.localCData);*/
   }
 
-  updateDataImage(idim,acId,dim) {
+  updateDataImage(idim, acId, dim) {
     let ivar = {
-          IdIm: idim,
-          acc_id: acId,
-          dataIm: dim
-        };
+      IdIm: idim,
+      acc_id: acId,
+      dataIm: dim
+    };
     return new Promise((resolve, reject) => {
-      this.request("post", "update-DataImage-companie", ivar , true).subscribe(
+      this.request("post", "update-DataImage-companie", ivar, true).subscribe(
         (e: any) => {
           resolve(e);
         }
@@ -95,11 +95,19 @@ export class CompanyService extends BaseHttpService {
     });
   }
 
+  updateCompanyImages(data) {
+    return this.fetch("post", "updateCompanyImages", data, {});
+  }
+
+  getImBiblio(data) {
+    return this.fetch("get", "biblioImageCompany", {}, {'X-Type-Data': data });
+  }
+
   updatePagetoShow(w: any) {
     let dw = w.d;
     dw.acc_id = w.acc_id;
     return new Promise((resolve, reject) => {
-      this.request("post", "updateCompanyShowPage", dw, true)
+      this.fetch("post", "updateCompanyShowPage", dw)
         .toPromise()
         .then(
           (re: any) => {
@@ -111,5 +119,17 @@ export class CompanyService extends BaseHttpService {
           }
         );
     });
+  }
+
+  public saveZoneData(dt:any){
+     return  this.fetch('post','saveZoneData',dt,{});
+  }
+
+  public savePrData(d) {
+    return this.fetch('post','new-presentation',d,{});
+  }
+
+  getMindsetData(){
+    return this.fetch('get', 'getAdminMindsetData');
   }
 }

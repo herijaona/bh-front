@@ -18,7 +18,7 @@
 	font-size: 0.6rem !important;
 }
 
-.addr_local #search_places{
+.addr_local #search_places {
 	background-color: transparent !important;
 	border: none !important;
 	border-bottom: 1px solid #bdbdbd !important;
@@ -33,15 +33,97 @@
 	transition: all 0.3s !important;
 }
 
-
-@media (min-width: 768px){
-	.inf, .adr {
+@media (min-width:768px) {
+	.inf, .adr, .br_md {
 		border-right: 1px rgba(103, 106, 106, .5) dotted;
-
 	}
+
+
+
 }
 
-.pagess .form-check{
+.pagess .form-check {
 	margin-bottom: 10px;
 	margin-top: 10px;
+}
+
+.mindset_ {
+	margin: 1px;
+	textarea{
+		min-height: 268px;
+	}
+}
+.ql-container {
+	height: auto !important;
+	min-height: 150px !important;
+}
+
+.hr_cs {
+	margin-top: -5px;
+	margin-bottom: 5px;
+}
+
+.inter{
+	margin-bottom: 1.5rem;
+}
+
+.bq{
+	padding-right: 15px;
+    padding-left: 0;
+    // text-align: right;z
+    border-right: 5px solid #eee;
+    border-left: 0;
+}
+
+.tx_in{
+	margin:0px 5px 0px 10px;
+	padding:0px
+}
+
+._inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+._inputfile + label {
+    font-size: 1.0em;
+    font-weight: 700;
+    color: white;
+    background-color: transparent;
+    display: inline-block;
+}
+
+._inputfile:focus + label,
+._inputfile + label:hover {
+    background-color: #2841AA;
+}
+
+._inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.cs_input label {
+	margin: 0px !important; 
+	padding: 5px !important;
+}
+
+.cs_input{
+	padding: 0px;
+}
+
+._inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+#modalZoneForm{
+	background-color: #1010108c;
+}
+
+.modal-dialog.cascading-modal {
+    margin-top: 50px !important;
 }

@@ -3,6 +3,7 @@ import {
 	OnInit,
 	OnDestroy,
 	ViewEncapsulation,
+	ViewChild,
 	ElementRef
 } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
@@ -19,6 +20,7 @@ import {
 	ResolveEnd
 } from "@angular/router";
 import { SharedNotificationService } from "../../../services/shared-notification/shared-notification.service";
+import { ModalDirective } from "angular-bootstrap-md";
 
 @Component({
 	selector: "app-general",
@@ -27,6 +29,11 @@ import { SharedNotificationService } from "../../../services/shared-notification
 	styleUrls: ["./general.component.scss"]
 })
 export class GeneralComponent implements OnInit, OnDestroy {
+	public editor;
+	public editorContent = ``;
+	public editorOptions = {
+		placeholder: "insert content..."
+	};
 	public uform: FormGroup;
 	public pform: FormGroup;
 	public im = { i: "", s: false };
@@ -36,9 +43,17 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	public userSettings: any = {
 		showSearchButton: false,
 		showRecentSearch: false,
-		showCurrentLocation: false,
-		inputPlaceholderText: "Adresse: Ville, Pays ......"
+		showCurrentLocation: false
 	};
+
+	public prCurrentvalue = "";
+	public prButtActive: boolean = false;
+	@ViewChild("form") myModal: ModalDirective;
+	public modalData: boolean = false;
+	public typeChanged_: boolean = false;
+	public otherInfoCurr: string = "";
+	public othInfo = "";
+	public prAfterChangeValue: string = "";
 
 	constructor(
 		private cs: CompanyService,
@@ -67,11 +82,15 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			_acc_socialMean: new FormControl("", [Validators.required]),
 			_orgType: new FormControl("", [Validators.required])
 		});
+
+		this.sh.readyData$.subscribe((e: any) => {
+			this.showData();
+		});
 	}
 
 	ngOnInit() {
 		if (!this.cs.isCDataId()) {
-			this.sh.notifDataUnvaliable({});
+			// this.sh.notifDataUnvaliable({});
 		} else {
 			if (!this.cs.isCDataStored) {
 				this.getNupdtadeLocal();
@@ -94,16 +113,30 @@ export class GeneralComponent implements OnInit, OnDestroy {
 				_acc_socialMean: AccData.raisonSociale,
 				_orgType: AccData.typeOrganisation
 			});
+			if (AccData.pagetoShow) {
+				let pConfig = JSON.parse(AccData.pagetoShow);
+				this.pform.setValue({
+					pMindset: pConfig.pMindset,
+					pTeam: pConfig.pTeam,
+					pSs: pConfig.pSs,
+					pIdeas: pConfig.pIdeas,
+					pProjects: pConfig.pProjects
+				});
+			}
 
-			let pConfig = JSON.parse(AccData.pagetoShow);
-			this.pform.setValue({
-				pMindset: pConfig.pMindset,
-				pTeam: pConfig.pTeam,
-				pSs: pConfig.pSs,
-				pIdeas: pConfig.pIdeas,
-				pProjects: pConfig.pProjects
-			});
+			this.showMindsetData();
 		}, ww);
+	}
+
+	public showMindsetData() {
+		let m = new Promise((resolve, reject) => {
+			this.cs
+				.getMindsetData()
+				.toPromise()
+				.then((res: any) => {
+					console.log(res);
+				});
+		});
 	}
 
 	/* Handle Company Update Data Info*/
@@ -164,28 +197,6 @@ export class GeneralComponent implements OnInit, OnDestroy {
 		});
 	}
 
-	/*	imLogoSubmit() {
-		let inputEl: HTMLInputElement = this.el.nativeElement.querySelector(
-			"#im"
-		);
-
-		this.apiHttp.formImUpload(inputEl).then((re: any) => {
-			if (re.data.status == "OK") {
-				let upIm = this.cs.updateLogoImage({
-					IdIm: re.data.imID,
-					acc_id: this.cs.getMycompanyId()
-				});
-				upIm.then((e: any) => {
-					this.sh.notifToast({
-						type: "success",
-						message: "<p>IMage mis a jour</p>"
-					});
-					this.getNupdtadeLocal();
-				});
-			}
-		});
-	}*/
-
 	getNupdtadeLocal() {
 		this.cs
 			.getCurrentAdminCompanyInfo(this.cs.getMycompanyId(), true)
@@ -219,6 +230,56 @@ export class GeneralComponent implements OnInit, OnDestroy {
 					true
 				);
 			});
+	}
+
+	onEditorContentChanged(e, f) {
+		console.log(e.html);
+		if (f == "pr1") {
+			this.prAfterChangeValue = e.html;
+		}
+		if (
+			this.prCurrentvalue != this.prAfterChangeValue ||
+			this.otherInfoCurr != this.othInfo
+		) {
+			this.prButtActive = true;
+		} else {
+			this.prButtActive = false;
+		}
+	}
+
+	popModal() {
+		this.myModal.show();
+	}
+
+	editZone() {
+		this.myModal.show();
+	}
+
+	newZoneAdd() {
+		this.modalData = true;
+		this.myModal.show();
+	}
+
+	hideZoneModal() {
+		this.modalData = false;
+		this.myModal.hide();
+	}
+
+	public savePrChange() {
+		let dt = {
+			description: this.prAfterChangeValue,
+			autreDescription: this.othInfo
+		};
+
+		let e = new Promise((resolve, reject) => {
+			this.cs
+				.savePrData(dt)
+				.toPromise()
+				.then((res: any) => {
+					console.log(res);
+					resolve();
+				});
+		});
 	}
 
 	ngOnDestroy() {}

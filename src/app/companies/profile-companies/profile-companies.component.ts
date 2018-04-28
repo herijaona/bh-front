@@ -99,7 +99,7 @@ export class ProfileCompaniesComponent implements OnInit, OnDestroy {
 	}
 
 	showData(e, notif?) {
-
+		this.sh.tellDataReady({});
 		this.cs.getCurrentAdminCompanyInfo(e).then(
 			(dat: any) => {
 				this.profilData.img_ = dat.Logo;

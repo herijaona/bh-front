@@ -8,6 +8,7 @@ export class SharedNotificationService {
 	private headerUpdateMessage = new BehaviorSubject<Object>({});
 	private companyNotif = new BehaviorSubject<Object>({});
 	private toastNotif = new BehaviorSubject<Object>({});
+	private DataReadyNotif = new BehaviorSubject<Object>({});
 	private updateViewNotif = new BehaviorSubject<Object>({});
 	// private missionConfirmedSource = new Subject<any>();
 	run_loader$ = this.loadingMessage.asObservable();
@@ -15,6 +16,7 @@ export class SharedNotificationService {
 	notifCompany$ = this.companyNotif.asObservable();
 	ViewUpdateNotif$ = this.updateViewNotif.asObservable();
 	notifToast$ = this.toastNotif.asObservable();
+	readyData$ = this.DataReadyNotif.asObservable();
 
 	constructor() {}
 	// Service message commands
@@ -33,7 +35,12 @@ export class SharedNotificationService {
 	notifyUpdateView(ew){
 		this.updateViewNotif.next(ew);
 	}
+
 	notifToast(arg : any ){
 		this.toastNotif.next(arg);
+	}
+
+	tellDataReady(arg : any ){
+		this.DataReadyNotif.next(arg);
 	}
 }

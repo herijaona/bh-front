@@ -5,9 +5,9 @@ import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { Ng4GeoautocompleteModule } from "ng4-geoautocomplete";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 /* Routes */
 import { OwnRouterModule } from "./routers/own-router.module";
 /* Services */
@@ -17,6 +17,7 @@ import { Globals } from "./globals/globals";
 import { SharedNotificationService } from "./services/shared-notification/shared-notification.service";
 import { BaseHttpService } from "./services/base-http/base-http.service";
 import { CompanyService } from "./services/company/company.service";
+import { RequestInterceptorService } from "./services/request-interceptor/request-interceptor.service";
 
 /*Modules impot*/
 import { UserAuthModule } from "./user-auth/user-auth.module";
@@ -30,7 +31,7 @@ import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
 /* Component import */
 import { AppComponent } from "./app.component";
-import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerComponent } from "./spinner/spinner.component";
 
 @NgModule({
   declarations: [AppComponent, SpinnerComponent],
@@ -53,7 +54,20 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MDBBootstrapModule.forRoot()
   ],
   exports: [RouterModule],
-  providers: [ApiHttpService, AuthguardService, Globals, SharedNotificationService,BaseHttpService, CompanyService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptorService,
+      multi: true
+    },
+    ApiHttpService,
+    AuthguardService,
+    Globals,
+    RequestInterceptorService,
+    SharedNotificationService,
+    BaseHttpService,
+    CompanyService
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

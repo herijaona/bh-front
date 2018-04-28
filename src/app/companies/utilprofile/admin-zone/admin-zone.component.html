@@ -1,0 +1,101 @@
+<div class="">
+	<form [formGroup]="zoneForm">
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="md-form">
+					<input formControlName="zName" mdbInputDirective type="text" id="zoneName" class="form-control">
+					<label for="zoneName" class="">Name</label>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="md-form">
+					<input formControlName="zWidth" mdbInputDirective type="number" id="widthZone" class="form-control">
+					<label for="widthZone" class="">Width</label>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="md-form">
+					<input formControlName="zHeight" mdbInputDirective type="number" id="heightZone" class="form-control">
+					<label for="heightZone" class="">Height</label>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<select formControlName="zType" (change)="changeTypeContent($event)" [(ngModel)]="selectedStatusId" class="form-control" id="exampleSelect1">
+						<option value="0">Choose type </option>
+						<option value="1">Image</option>
+						<option value="2">Video</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div *ngIf="typeChanged_" class="row mb-2 mt-4">
+	<div *ngIf="typeImage" class="text-center col-md-12 br_md">
+		<img style="width: 150px; height: 100px" class="img-fluid img-thumbnail" [src]="currMedia.url" alt="">
+	</div>
+	<div *ngIf="typeVideo && chVideo" class="text-center col-md-12 br_md">
+		<video controls style="width: 120px; height: 90px">
+						<source [src]="currMedia.url" [type]="currMedia.mimetype">
+						<!-- <source src="movie.ogg" type="video/ogg"> -->
+						Your browser does not support the video tag.
+					</video>
+	</div>
+	<div *ngIf="typeImage" class="col-md-12">
+		<div *ngIf="hasBiblioImage" class="row">
+			<div *ngFor="let item of bbIm" class="col-lg-3 col-md-4 col-xs-6">
+				<a  (click)="selectedMedia($event, item)" href="#" class="d-block mb-4 h-100">
+					<img class="img-fluid img-thumbnail" [src]="item.url" alt=""/>
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="file-field text-center">
+					<div class="btn btn-primary cs_input waves-light" mdbRippleRadius>
+						<input multiple (change)="upImChanged($event,'_file')" id="_file" name="_file" type="file" accept="image/*" class="_inputfile">
+						<label for="_file"> <i class="fa fa-upload" aria-hidden="true"></i>
+							<span>Choose a file</span> </label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<button *ngIf="buttIm" (click)="uploadImageInBiblio($event, '_file', 'images')" class="btn btn-info">Upload</button>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="typeVideo" class="col-md-12">
+			<div *ngIf="hasBiblioVideo" class="row">
+				<div *ngFor="let item of bbVid" class="col-lg-4 col-md-4 col-xs-6">
+					<video controls style="width: 120px; height: 90px">
+						<source [src]="item.url" [type]="item.mimetype">
+						<!-- <source src="movie.ogg" type="video/ogg"> -->
+						Your browser does not support the video tag.
+					</video>
+					<a  (click)="selectedMedia( $event , item)" href="#" class="d-block text-center">
+						<span>Select</span>
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="file-field text-center">
+						<div class="btn btn-primary cs_input waves-light" mdbRippleRadius>
+							<input multiple (change)="upImChanged($event,'_filev')" id="_filev" name="_filev" type="file" accept="video/*" class="_inputfile">
+							<label for="_filev"> <i class="fa fa-upload" aria-hidden="true"></i>
+								<span>Choose a file</span> </label>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<button *ngIf="buttIm" (click)="uploadImageInBiblio($event, '_filev', 'videos')" class="btn btn-info">Upload</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="text-center mt-1-half">
+			<button (click)="saveZone()" [ngClass]="{disabled: !zoneForm.valid || !selectedMediaF }" class="btn btn-info mb-2 waves-light" mdbWavesEffect>Save<i class="fa fa-send ml-1"></i></button>
+		</div>

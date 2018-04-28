@@ -13,6 +13,10 @@ export class ApiHttpService extends BaseHttpService {
     return this.request("post", "up_images", data);
   }
 
+  postUpMImages(data: any, typ) {
+    return this.fetch("post", "up_Mimages", data, {'X-Type-Data': typ });
+  }
+
   /*Request Activation */
   postReqActivation(text_) {
     return this.request("post", "activate", text_);
