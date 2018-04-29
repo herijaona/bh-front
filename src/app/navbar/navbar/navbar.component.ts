@@ -25,8 +25,8 @@ import {
 					position: "fixed",
 					top: "5px",
 					width: "100%",
-					'z-index': 8888,
-					'text-align': "center"
+					"z-index": 8888,
+					"text-align": "center"
 				})
 			),
 			state(
@@ -50,6 +50,7 @@ export class NavbarComponent implements OnInit {
 	private subscr: Subscription;
 	public mess_notif: string;
 	public toast: boolean = true;
+
 	constructor(
 		private router: Router,
 		public auth: AuthserviceService,
@@ -78,17 +79,6 @@ export class NavbarComponent implements OnInit {
 				this.accAdm = user__.accountAdmin;
 			}
 		}, 1000);
-	}
-
-	gotologin() {
-		this.router.navigateByUrl("/login");
-	}
-	gotohome() {
-		this.router.navigateByUrl("/");
-	}
-
-	setComp(accID) {
-		localStorage.setItem("accCUR", accID);
 	}
 
 	showToast(dt) {
