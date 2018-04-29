@@ -54,6 +54,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	public otherInfoCurr: string = "";
 	public othInfo = "";
 	public prAfterChangeValue: string = "";
+	public hZone : any ;
 
 	constructor(
 		private cs: CompanyService,
@@ -133,7 +134,16 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			this.cs
 				.getMindsetData()
 				.toPromise()
-				.then((res: any) => {});
+				.then((res: any) => {
+					if(res.presentation) {
+						this.editorContent = res.presentation.description;
+						this.prCurrentvalue = res.presentation.description;
+						this.otherInfoCurr = res.presentation.autreDescription;
+						this.othInfo = res.presentation.autreDescription;
+					}
+
+					this.hZone = res.zone;
+				});
 		});
 	}
 
@@ -272,6 +282,11 @@ export class GeneralComponent implements OnInit, OnDestroy {
 				.savePrData(dt)
 				.toPromise()
 				.then((res: any) => {
+					this.sh.notifToast({
+						type: "success",
+						message: "<p>Enregistree</p>"
+					});
+					this.getNupdtadeLocal();
 					resolve();
 				});
 		});

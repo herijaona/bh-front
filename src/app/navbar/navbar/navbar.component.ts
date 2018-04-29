@@ -62,7 +62,7 @@ export class NavbarComponent implements OnInit {
 		});
 
 		this.sh.notifToast$.subscribe((m: any) => {
-			if ((m.sc = "loadView")) {
+			if (m.sc == "loadView") {
 				this.updateState();
 			} else {
 				this.showToast(m);

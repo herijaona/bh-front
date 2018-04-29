@@ -121,11 +121,11 @@ export class CompanyService extends BaseHttpService {
   }
 
   public saveZoneData(dt:any){
-     return  this.fetch('post','saveZoneData',dt,{});
+     return  this.fetch('post','saveZoneData',dt);
   }
 
   public savePrData(d) {
-    return this.fetch('post','new-presentation',d,{});
+    return this.fetch('post','save-presentation',d);
   }
 
   getMindsetData(){

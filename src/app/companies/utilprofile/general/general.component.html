@@ -172,6 +172,14 @@
 							<td>142px</td>
 							<td><i class=" ml-2 mr-2 fa fa-edit"></i>|<i class=" ml-2 mr-2 fa fa-eye"></i>|<i class=" ml-2 mr-2 fa fa-trash"></i></td>
 						</tr>
+						<tr *ngFor="let zn of hZone"  class="success">
+							<td>{{zn.caption}}</td>
+							<td>{{zn.zHeight}}</td>
+							<td>{{zn.zWidth}}</td>
+							<td *ngIf="zn.dtype == 1">Image</td>
+							<td *ngIf="zn.dtype == 2">Video</td>
+							<td><a (click)="editZone(zn)" ><i class=" ml-2 mr-2 fa fa-edit"></i></a>|<a (click)="showZone(zn)" ><i class=" ml-2 mr-2 fa fa-eye"></i></a>|<a (click)="deleteZone(zn)" ><i class=" ml-2 mr-2 fa fa-trash"></i></a></td>
+						</tr>
 					</tbody>
 					<tfoot>
 					<tr>
