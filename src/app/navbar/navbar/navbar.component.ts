@@ -64,6 +64,10 @@ export class NavbarComponent implements OnInit {
 		this.sh.notifToast$.subscribe((m: any) => {
 			this.showToast(m);
 		});
+		
+		this.sh.viewLoad$.subscribe((m: any) => {
+			this.updateState();
+		});
 	}
 
 	ngOnInit() {
@@ -78,7 +82,7 @@ export class NavbarComponent implements OnInit {
 				if (user__) this.isAdmin = user__.isAdmin;
 				this.accAdm = user__.accountAdmin;
 			}
-		}, 1000);
+		}, 500);
 	}
 
 	showToast(dt) {
