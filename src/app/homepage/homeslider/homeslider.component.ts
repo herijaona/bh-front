@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
-import { Globals } from './../../globals/globals';
-
+import { Router } from "@angular/router";
+import { Globals } from "./../../globals/globals";
 
 @Component({
 	selector: "homeslider",
@@ -13,24 +12,18 @@ export class HomesliderComponent implements OnInit {
 	public myInterval: number = 3000;
 	public activeSlideIndex: number = 0;
 	public noWrapSlides: boolean = false;
-	private registerLink:string;
+	private registerLink: string;
 
 	public slides: Array<Object> = [
-		{ image: this.g.base_href+"assets/img/bg-accueil.jpg" },
-		{ image: this.g.base_href+"assets/img/bg2.jpg" },
-		{ image: this.g.base_href+"assets/img/bg3.jpg" }
+		{ image: this.g.base_href + "assets/img/bg-accueil.jpg" },
+		{ image: this.g.base_href + "assets/img/bg2.jpg" },
+		{ image: this.g.base_href + "assets/img/bg3.jpg" }
 	];
-	constructor(private router : Router, public g : Globals ) {}
+	constructor(private router: Router, public g: Globals) {}
 
 	activeSlideChange() {
 		// console.log(this.activeSlideIndex);
 	}
 
-
 	ngOnInit() {}
-
-	registerCompan(event){
-		event.preventDefault();
-		this.router.navigateByUrl("/registerCompany");
-	}
 }
