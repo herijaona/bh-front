@@ -71,8 +71,9 @@ export class ProfileComponent implements OnInit {
         }
       })
       .then(() => {
-        console.log("Before sending Notification");
-        this.sh.loadViewData({ sc: 0 });
+        this.sh.notifToast({
+          sc: "loadView"
+        });
       });
   }
 

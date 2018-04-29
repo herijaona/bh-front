@@ -59,8 +59,6 @@ export class SharedNotificationService {
 	* Load view : called when data change for all view reload their data
 	*/
 	loadViewData(arg: any) {
-		console.log('Passed here');
-		console.log(arg);
 		this.loadView.next(arg);
 	}
 }
