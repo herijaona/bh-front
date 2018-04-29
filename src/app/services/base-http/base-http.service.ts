@@ -9,7 +9,6 @@ import { Globals } from "./../../globals/globals";
 
 @Injectable()
 export class BaseHttpService {
-	private token: string;
 	private endPointUrl: string;
 	constructor(public http: HttpClient, public g: Globals) {
 		this.endPointUrl = this.g.api_baseUrl;

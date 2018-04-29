@@ -53,23 +53,27 @@ export class ProfileComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.getProfile().then(() => {
-      if (!this.details.active) {
-        this.auth.removeUserItem();
-        let profile_data: HTMLInputElement = this.el.nativeElement.querySelector(
-          "#pr_data"
-        );
-        this.showInfo = true;
-        // profile_data.remove();
-      } else {
-        this.EditForm.setValue({
-          bh_lastname: this.details.lastname,
-          bh_firstname: this.details.firstname,
-          bh_functions: this.details.function
-        });
-        this.validUser = true;
-      }
-    });
+    this.getProfile()
+      .then(() => {
+        if (!this.details.active) {
+          this.auth.removeUserItem();
+          let profile_data: HTMLInputElement = this.el.nativeElement.querySelector(
+            "#pr_data"
+          );
+          this.showInfo = true;
+        } else {
+          this.EditForm.setValue({
+            bh_lastname: this.details.lastname,
+            bh_firstname: this.details.firstname,
+            bh_functions: this.details.function
+          });
+          this.validUser = true;
+        }
+      })
+      .then(() => {
+        console.log("Before sending Notification");
+        this.sh.loadViewData({ sc: 0 });
+      });
   }
 
   getProfile() {
@@ -79,19 +83,15 @@ export class ProfileComponent implements OnInit {
         this.details = savedUser;
         resolve();
       } else {
-        this.auth
-          .profile()
-          .toPromise()
-          .then(
-            user => {
-              this.details = this.copydata(this.details, user);
-              this.auth.saveUser(this.details);
-              resolve();
-            },
-            err => {
-              this.auth.logout();
-            }
-          );
+        this.auth.profile().then(
+          user => {
+            this.details = this.auth.getUser();
+            resolve();
+          },
+          err => {
+            this.auth.logout();
+          }
+        );
       }
     });
   }
@@ -112,17 +112,8 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  copydata(user: UserDetails, data: any) {
-    Object.keys(data).forEach(function(key) {
-      if (key in user) {
-        user[key] = data[key];
-      }
-    });
-    return user;
-  }
-
   saveUser(user: any) {
-    var d = this.copydata(this.details, user);
+    var d = this.auth.copydata(this.details, user);
     this.details = d;
     this.auth.saveUser(this.details);
   }

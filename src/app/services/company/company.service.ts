@@ -114,7 +114,6 @@ export class CompanyService extends BaseHttpService {
             resolve(re);
           },
           err => {
-            console.log(err);
             reject(err.error);
           }
         );

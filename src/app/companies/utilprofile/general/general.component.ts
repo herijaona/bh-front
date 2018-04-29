@@ -133,9 +133,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			this.cs
 				.getMindsetData()
 				.toPromise()
-				.then((res: any) => {
-					console.log(res);
-				});
+				.then((res: any) => {});
 		});
 	}
 
@@ -209,7 +207,6 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	autoCompleteCallback1($event) {}
 
 	savePageshowConfig() {
-		console.log(this.pform.value);
 		this.cs
 			.updatePagetoShow({
 				d: this.pform.value,
@@ -233,7 +230,6 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	}
 
 	onEditorContentChanged(e, f) {
-		console.log(e.html);
 		if (f == "pr1") {
 			this.prAfterChangeValue = e.html;
 		}
@@ -276,7 +272,6 @@ export class GeneralComponent implements OnInit, OnDestroy {
 				.savePrData(dt)
 				.toPromise()
 				.then((res: any) => {
-					console.log(res);
 					resolve();
 				});
 		});

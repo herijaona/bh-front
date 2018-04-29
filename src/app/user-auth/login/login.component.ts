@@ -47,14 +47,27 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.bhemail,
       password: this.loginForm.value.bh_pass
     };
-    this.auth.login(credential).subscribe(
+    this.auth.login(credential).then(
       (data: any) => {
-        this.sh.updateHeader({e:'ok'});
-        this.router.navigateByUrl("/profile");
+        this.auth.profile().then(
+          (res: any) => {
+            this.router.navigateByUrl("/profile");
+          },
+          err => {
+            this.sh.notifToast({
+              type: "warning",
+              message: "<p>Erreur inattendu</p>"
+            });
+
+            setTimeout(() => {
+              this.auth.logout();
+            }, 2000);
+          }
+        );
       },
       error => {
         this.error_log = true;
-        this.text_ = "email ou mot de passe erronée";
+        this.text_ = error.message;
         this.type_ = "danger";
       }
     );

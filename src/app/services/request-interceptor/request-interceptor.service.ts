@@ -19,8 +19,6 @@ export class RequestInterceptorService implements HttpInterceptor {
 		let my_comp = localStorage.getItem("my_company");
 		let headR = {};
 
-		console.log(my_comp);
-
 		if (my_comp) {
 			headR["X-Ccompany-Id"] = my_comp;
 		}

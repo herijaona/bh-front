@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
-
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators/map";
 import { Router } from "@angular/router";
 import { UserDetails } from "../../models/user-detail.model";
-import "rxjs/add/operator/map";
 import { Globals } from "./../../globals/globals";
+import { BaseHttpService } from "../base-http/base-http.service";
 
 export interface userDataPaylod {
   email: string;
@@ -21,21 +20,21 @@ interface TokenResponse {
 }
 
 @Injectable()
-export class AuthserviceService {
+export class AuthserviceService extends BaseHttpService {
   private token: string;
-  private endPointUrl: string;
 
   constructor(
-    private http: HttpClient,
-    private router: Router,
-    private g: Globals
+    public http: HttpClient,
+    public g: Globals,
+    private router: Router
   ) {
-    this.endPointUrl = this.g.api_baseUrl;
+    super(http, g);
   }
 
   public saveUser(user: UserDetails): void {
     localStorage.setItem("bh-user", JSON.stringify(user));
   }
+
   public getUser(): any {
     var u = localStorage.getItem("bh-user");
     if (u) {
@@ -78,78 +77,63 @@ export class AuthserviceService {
     }
   }
 
-  private request(
-    method: "post" | "get",
-    type: any,
-    user?: any,
-    withtoken?: any
-  ): Observable<any> {
-    let base;
-    if (withtoken) {
-      if (method === "post") {
-        base = this.http.post(this.endPointUrl + `/api/${type}`, user, {
-          headers: new HttpHeaders().append(
-            "Authorization",
-            "Bearer " + this.getToken()
-          )
-        });
-      } else {
-        base = this.http.get(this.endPointUrl + `/api/${type}`, {
-          headers: new HttpHeaders().append(
-            "Authorization",
-            "Bearer " + this.getToken()
-          )
-        });
-      }
-    } else {
-      if (method === "post") {
-        base = this.http.post(this.endPointUrl + `/api/${type}`, user);
-      } else {
-        base = this.http.get(this.endPointUrl + `/api/${type}`);
-      }
-    }
-
-    const request = base.pipe(
-      map((data: TokenResponse) => {
-        if (data.token) {
-          this.saveToken(data.token);
-        }
-        return data;
-      })
-    );
-
-    return request;
-  }
-
   public register(user: any): Observable<any> {
-    return this.request("post", "register", user);
+    return this.fetch("post", "register", user);
   }
 
-  public login(user: any): Observable<any> {
-    return this.request("post", "login", user);
+  public login(user: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.fetch("post", "login", user)
+        .toPromise()
+        .then(
+          (d: any) => {
+            if (d.token) {
+              this.saveToken(d.token);
+            }
+            resolve(d);
+          },
+          err => {
+            reject(err.error);
+          }
+        );
+    });
   }
 
-  public profile(): Observable<any> {
-    return this.request("get", "profile", {}, true);
+  public profile(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.fetch("get", "profile")
+        .toPromise()
+        .then(
+          (re: any) => {
+            let l: UserDetails = new UserDetails();
+            l = this.copydata(l, re);
+            this.saveUser(l);
+            resolve(true);
+          },
+          err => {
+            reject(err.error);
+          }
+        );
+    });
   }
 
   public editprofile(user: any): Observable<any> {
-    return this.request("post", "profile/edit", user, true);
+    return this.fetch("post", "profile/edit", user);
   }
 
   public editpass(user: any): Observable<any> {
-    return this.request("post", "profile/editpass", user, true);
+    return this.fetch("post", "profile/editpass", user);
   }
 
   public requestresetpass(user: any): Observable<any> {
-    return this.request("post", "reset-password-request", user);
+    return this.fetch("post", "reset-password-request", user);
   }
 
   public checkDataResetpass(data: any): Observable<any> {
-    return this.request("post", "reset-password-check", data);
+    return this.fetch("post", "reset-password-check", data);
   }
   public submitNewPassword(data: any): Observable<any> {
-    return this.request("post", "reset-password-submit-new", data);
+    return this.fetch("post", "reset-password-submit-new", data);
   }
 
   public logout(): void {
@@ -163,7 +147,27 @@ export class AuthserviceService {
     this.router.navigateByUrl("/");
   }
 
-  removeUserItem(){
+  removeUserItem() {
     window.localStorage.removeItem("bh-user");
   }
+
+  copydata(user: any, data: any) {
+    Object.keys(data).forEach(function(key) {
+      if (key in user) {
+        user[key] = data[key];
+      }
+    });
+    return user;
+  }
+
+  /*
+  const request = base.pipe(
+      map((data: TokenResponse) => {
+        if (data.token) {
+          this.saveToken(data.token);
+        }
+        return data;
+      })
+    );
+  */
 }

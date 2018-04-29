@@ -34,7 +34,6 @@ export class AdminZoneComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		console.log(this.actType);
 		this.zoneForm = new FormGroup({
 			zName: new FormControl("", [Validators.required]),
 			zHeight: new FormControl("", [Validators.required]),
@@ -52,7 +51,6 @@ export class AdminZoneComponent implements OnInit {
 			"#" + id
 		);
 		var label = inpt.nextElementSibling;
-		console.log(inpt);
 
 		var labelVal = "Error";
 
@@ -68,7 +66,6 @@ export class AdminZoneComponent implements OnInit {
 
 	imBiblioShow(dt) {
 		this.cs.getImBiblio(dt).subscribe((e: any) => {
-			console.log(e);
 			if (e) {
 				if (dt == "images") {
 					this.hasBiblioVideo = false;
@@ -148,13 +145,10 @@ export class AdminZoneComponent implements OnInit {
 				});
 		});
 	}
-	ngOnDestroy() {
-		console.log("i'm destroyed");
-	}
+	ngOnDestroy() {}
 
 	changeTypeContent() {
 		this.selectedMediaF = false;
-		console.log(this.selectedStatusId);
 		if (this.selectedStatusId == 1) {
 			this.Imagetype();
 			this.buttIm = false;
@@ -183,9 +177,7 @@ export class AdminZoneComponent implements OnInit {
 		this.typeChanged_ = true;
 	}
 
-	upVideoChanged(event, idinput) {
-		console.log(idinput);
-	}
+	upVideoChanged(event, idinput) {}
 
 	uploadVideoInBiblio(evnt, id) {
 		let inputEl: HTMLInputElement = this.el.nativeElement.querySelector(
@@ -197,7 +189,6 @@ export class AdminZoneComponent implements OnInit {
 		ev.preventDefault();
 		this.chVideo = false;
 		this.selectedMediaF = true;
-		console.log(it);
 		this.currMedia = it;
 		setTimeout(() => {
 			this.chVideo = true;
@@ -217,9 +208,7 @@ export class AdminZoneComponent implements OnInit {
 			this.cs
 				.saveZoneData(data)
 				.toPromise()
-				.then((ret: any) => {
-					console.log(ret);
-				});
+				.then((ret: any) => {});
 		});
 	}
 }

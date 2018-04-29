@@ -58,15 +58,17 @@ export class NavbarComponent implements OnInit {
 		private sh: SharedNotificationService
 	) {
 		this.sh.run_loader$.subscribe((mess: any) => {
-			this.updateState();
+			// this.updateState();
 		});
 
 		this.sh.notifToast$.subscribe((m: any) => {
 			this.showToast(m);
 		});
-		
+
 		this.sh.viewLoad$.subscribe((m: any) => {
-			this.updateState();
+			if (m.sc) {
+				this.updateState();
+			}
 		});
 	}
 
@@ -79,10 +81,12 @@ export class NavbarComponent implements OnInit {
 		setTimeout(() => {
 			if (this.auth.isLoggedIn()) {
 				user__ = this.auth.getUser();
-				if (user__) this.isAdmin = user__.isAdmin;
-				this.accAdm = user__.accountAdmin;
+				if (user__) {
+					this.isAdmin = user__.isAdmin;
+					this.accAdm = user__.accountAdmin;
+				}
 			}
-		}, 500);
+		}, 1000);
 	}
 
 	showToast(dt) {
