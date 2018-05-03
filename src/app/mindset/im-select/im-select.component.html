@@ -1,0 +1,23 @@
+<div *ngIf="hasImage" class="row">
+  <div *ngFor="let item of imbiblio" class="col-sm-6 col-md-3 cs_grid">
+    <a (click)="itemClicked($event,item)" class="" href="">
+			<img class="img-thumbnail img-fluid" [src]="item.url" alt="Park">
+			<div class="overlay_"><i class="fa fa-check chck" ></i></div>
+		</a>
+  </div>
+</div>
+<hr style="w-75">
+<div class="row">
+  <div class="col-md-6 col-sm-6 text-center">
+    <div class="btn btn-primary cs_input waves-light" mdbRippleRadius>
+      <input multiple (change)="upImChanged($event,'_filev')" id="_filev" name="_filev" type="file" accept="image/*" class="_inputfile">
+      <label for="_filev"> <i class="fa fa-upload" aria-hidden="true"></i>
+        <span>Add file</span>
+      </label>
+    </div>
+    <span id="chosen_file">Choose a file</span>
+  </div>
+  <div class="col-md-6 col-sm-6 text-center">
+    <button *ngIf="butt_up" (click)="uploadImageInBiblio($event, '_filev', 'images')" class="btn btn-info">Upload</button>
+  </div>
+</div>

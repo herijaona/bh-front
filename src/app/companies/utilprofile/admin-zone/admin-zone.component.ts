@@ -11,7 +11,7 @@ import { CompanyService } from "../../../services/company/company.service";
 })
 export class AdminZoneComponent implements OnInit {
 	@Input("actionType") actType;
-	@Input("data") dataValue;
+	@Input("znData") dataValue;
 	public hasBiblioImage: boolean = false;
 	public bbIm: any;
 	public bbVid: any;
@@ -40,6 +40,26 @@ export class AdminZoneComponent implements OnInit {
 			zWidth: new FormControl("", [Validators.required]),
 			zType: new FormControl("", [Validators.required])
 		});
+
+		if (this.dataValue) {
+			this.cs.getZone(this.dataValue).then((r: any) => {
+				this.zoneForm.setValue({
+					zName: r.message.caption,
+					zHeight: r.message.zHeight,
+					zWidth: r.message.zWidth,
+					zType: r.message.dtype
+				});
+				if (r.message.dtype == 1) {
+					this.Imagetype();
+					this.buttIm = false;
+					this.typeVideo = false;
+					this.typeImage = true;
+				} else {
+					this.Videostypes();
+				}
+			});
+		} else {
+		}
 	}
 
 	upImChanged(event, id) {
@@ -65,7 +85,7 @@ export class AdminZoneComponent implements OnInit {
 	}
 
 	imBiblioShow(dt) {
-		this.cs.getImBiblio(dt).subscribe((e: any) => {
+		this.cs.getImBiblio(dt).then((e: any) => {
 			if (e) {
 				if (dt == "images") {
 					this.hasBiblioVideo = false;
@@ -127,14 +147,13 @@ export class AdminZoneComponent implements OnInit {
 		});
 
 		promise.then((ert: any) => {
-			console.log(ert);
 			this.cs
 				.updateCompanyImages({
 					all_im: ert.data.imUP,
 					acc_id: this.cs.getMycompanyId(),
 					ty_pe: tp
 				})
-				.subscribe((de: any) => {
+				.then((de: any) => {
 					this.sh.notifToast({
 						type: "success",
 						message: "<p>Configuration saved</p>"
@@ -208,7 +227,16 @@ export class AdminZoneComponent implements OnInit {
 			this.cs
 				.saveZoneData(data)
 				.toPromise()
-				.then((ret: any) => {});
+				.then((ret: any) => {
+					this.sh.notifToast({
+						type: "success",
+						message: "<p>Configuration saved</p>"
+					});
+					this.sh.sendDataBus({
+						origin: "zn_save",
+						update_view: true
+					});
+				});
 		});
 	}
 }

@@ -109,6 +109,13 @@
 					Ideas
 				</label>
 			</div>
+
+			<div class="col-md-2 col-sm-3 col-xs-6  form-check ">
+				<input formControlName='pMeeting' class="form-check-input" type="checkbox" id="meetingPages">
+				<label class="form-check-label" for="meetingPages">
+					Meeting
+				</label>
+			</div>
 			<div class="col-md-2  col-sm-3 col-xs-6 form-check ">
 				<input formControlName='pSs' class="form-check-input" type="checkbox" id="succesStoriePages">
 				<label class="form-check-label" for="succesStoriePages">
@@ -163,7 +170,7 @@
 							<td>142px</td>
 							<td>175px</td>
 							<td>142px</td>
-							<td><a (click)="editZone()" title="Edit"><i class=" ml-2 mr-2 fa fa-edit"></i></a>|<i class=" ml-2 mr-2 fa fa-eye"></i>|<i class=" ml-2 mr-2 fa fa-trash"></i></td>
+							<td><a title="Edit"><i class=" ml-2 mr-2 fa fa-edit"></i></a>|<i class=" ml-2 mr-2 fa fa-eye"></i>|<i class=" ml-2 mr-2 fa fa-trash"></i></td>
 						</tr>
 						<tr class="success">
 							<td>Success</td>
@@ -192,7 +199,73 @@
 					</tfoot>
 				</table>
 			</div>
-			<div class="col-md-6"></div>
+			<div class="col-md-6">
+				<div *ngIf="selectedZn" class="row">
+					<div class="col-md-12">
+						<div *ngIf="selectedZn.dtype == 1" class="text-center col-md-12 br_md">
+							<img style="width: 100%; height: 200px" class="img-fluid img-thumbnail" [src]="selectedZn.image.url" alt="">
+						</div>
+						<div *ngIf="selectedZn.dtype == 2" class="text-center col-md-12 br_md">
+							<video controls style="width: 100%; height: 200px">
+								<source [src]="selectedZn.video.url" [type]="selectedZn.video.mimetype">
+								<!-- <source src="movie.ogg" type="video/ogg"> -->
+								Your browser does not support the video tag.
+							</video>
+						</div>
+					</div>
+					<div class="col-md-12 order-md-2 mb-4">
+						<h4 class="d-flex justify-content-between align-items-center mb-3">
+						<span class="text-muted">Propriety</span>
+						</h4>
+						<ul class="list-group mb-3">
+							<li class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Name</h6>
+									<small class="text-muted">Zone name</small>
+								</div>
+								<span class="text-muted">{{selectedZn.caption}}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Height</h6>
+									<small class="text-muted">height</small>
+								</div>
+								<span class="text-muted">{{selectedZn.zHeight}}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Width</h6>
+									<small class="text-muted">width</small>
+								</div>
+								<span class="text-muted">{{selectedZn.zWidth}}</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Type</h6>
+									<small class="text-muted">type</small>
+								</div>
+								<span class="text-muted" *ngIf="selectedZn.dtype == 1">Image</span>
+								<span class="text-muted" *ngIf="selectedZn.dtype == 2">Video</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between bg-light">
+								<div>
+									<h6 class="my-0">Rang</h6>
+									<small>EXAMPLECODE</small>
+								</div>
+								<span class="text-success">5</span>
+							</li>
+						</ul>
+						<form class="card p-2">
+							<div class="input-group">
+								<input class="form-control" placeholder="Promo code" type="text">
+								<div class="input-group-append">
+									<button type="submit" class="btn btn-secondary">Redeem</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade"  id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
@@ -208,10 +281,9 @@
 				</div>
 				<!--Body-->
 				<div *ngIf="modalData" class="modal-body mb-0">
-				<admin-zone actionType='add'></admin-zone>
+				<admin-zone actionType='{{act_type}}' znData='{{znData}}'></admin-zone>
 			</div>
 		</div>
 		<!--/.Content-->
 	</div>
 </div>
-        

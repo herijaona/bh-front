@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
 import { UserDetails } from "../../models/user-detail.model";
 import { Globals } from "./../../globals/globals";
 import { BaseHttpService } from "../base-http/base-http.service";
+import { CompanyService } from "../company/company.service";
 
 export interface userDataPaylod {
   email: string;
@@ -26,7 +27,8 @@ export class AuthserviceService extends BaseHttpService {
   constructor(
     public http: HttpClient,
     public g: Globals,
-    private router: Router
+    private router: Router,
+    private cs: CompanyService
   ) {
     super(http, g);
   }
@@ -75,6 +77,36 @@ export class AuthserviceService extends BaseHttpService {
     } else {
       return false;
     }
+  }
+
+  public isAdmin(curr_slug) {
+    return new Promise((resolve, reject) => {
+      if (this.isLoggedIn()) {
+        let u = this.getUser();
+        if (u) {
+          this.fetch("get", "check_role", { slug_chk: curr_slug })
+            .toPromise()
+            .then(
+              (re: any) => {
+                if (re.data_check_response) {
+                  this.cs.storeMycompanyId(re._id_check);
+                  resolve(re.data_check_response);
+                } else {
+                  this.cs.removeMycompanyId();
+                  resolve(false);
+                }
+              },
+              err => {
+                reject(err.error);
+              }
+            );
+        } else {
+          resolve(false);
+        }
+      } else {
+        resolve(false);
+      }
+    });
   }
 
   public register(user: any): Observable<any> {

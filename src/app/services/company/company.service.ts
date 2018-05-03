@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { BaseHttpService } from "../base-http/base-http.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Globals } from "./../../globals/globals";
-
 @Injectable()
 export class CompanyService extends BaseHttpService {
   private cLabel = {
@@ -13,59 +12,27 @@ export class CompanyService extends BaseHttpService {
   constructor(public http: HttpClient, public g: Globals) {
     super(http, g);
   }
-
-  getAllCompanies() {
-    return this.fetch("get", "all_companies");
-  }
-
-  getCurrentAdminCompanyInfo(i, update: boolean = false) {
-    return new Promise((resolve, reject) => {
-      if (this.isCDataStored() && !update) {
-        resolve(this.getLocalCData());
-      } else {
-        this.request("post", "gen_info_companies", { c: i })
-          .toPromise()
-          .then(
-            (d: any) => {
-              this.setDataC(d);
-              resolve(d);
-            },
-            err => {
-              reject(err.error);
-            }
-          );
-      }
-    });
-  }
-
-  updateFormInfo(i) {
-    return this.request("post", "updatecompanies", i, true);
-  }
-
   setDataC(v) {
     localStorage.setItem(this.cLabel.localCData, JSON.stringify(v));
   }
-
   isCDataStored() {
     return localStorage.getItem(this.cLabel.localCData) ? true : false;
   }
-
   getLocalCData() {
     return JSON.parse(localStorage.getItem(this.cLabel.localCData));
   }
-
   storeMycompanyId(i) {
     localStorage.setItem("my_company", i);
   }
-
   getMycompanyId() {
     return localStorage.getItem("my_company");
   }
-
+  removeMycompanyId() {
+    localStorage.removeItem("my_company");
+  }
   isCDataId() {
     return localStorage.getItem("my_company") ? true : false;
   }
-
   genVueFlag(i: boolean, v?: any) {
     if (i) {
       return localStorage.getItem(this.cLabel.genFlag);
@@ -73,13 +40,14 @@ export class CompanyService extends BaseHttpService {
       localStorage.setItem(this.cLabel.genFlag, v);
     }
   }
-
   removeData() {
     localStorage.removeItem(this.cLabel.genFlag);
     /*  localStorage.removeItem(this.cLabel.cID);
-    localStorage.removeItem(this.cLabel.localCData);*/
+        localStorage.removeItem(this.cLabel.localCData);*/
   }
-
+  updateDataInfo(i): Promise<any> {
+    return this.request("post", "updatecompanies", i, true).toPromise();
+  }
   updateDataImage(idim, acId, dim) {
     let ivar = {
       IdIm: idim,
@@ -94,24 +62,79 @@ export class CompanyService extends BaseHttpService {
       );
     });
   }
-
-  updateCompanyImages(data) {
-    return this.fetch("post", "updateCompanyImages", data, {});
+  updateCompanyImages(data): Promise<any> {
+    return this.fetch("post", "updateCompanyImages", data, {}).toPromise();
   }
-
   getImBiblio(data) {
-    return this.fetch("get", "biblioImageCompany", {}, {'X-Type-Data': data });
+    return this.fetch(
+      "get",
+      "biblioImageCompany",
+      {},
+      {
+        "X-Type-Data": data
+      }
+    ).toPromise();
   }
-
   updatePagetoShow(w: any) {
     let dw = w.d;
-    dw.acc_id = w.acc_id;
+    return this.fetch("post", "updateCompanyShowPage", dw).toPromise();
+  }
+  public saveZoneData(dt: any) {
+    return this.fetch("post", "saveZoneData", dt);
+  }
+  public savePrData(d) {
+    return this.fetch("post", "save-presentation", d);
+  }
+  getMindsetData() {
+    return this.fetch("get", "getAdminMindsetData");
+  }
+  /*
+     * Get all Companies
+     */
+  getAllCompanies(): Promise<any> {
+    return this.fetch("get", "all_companies").toPromise();
+  }
+  getCurrentAdminCompanyInfo(i, update: boolean = false) {
     return new Promise((resolve, reject) => {
-      this.fetch("post", "updateCompanyShowPage", dw)
+      if (this.isCDataStored() && !update) {
+        resolve(this.getLocalCData());
+      } else {
+        this.fetch("post", "gen_info_companies", {
+          c: i
+        })
+          .toPromise()
+          .then(
+            (d: any) => {
+              this.setDataC(d);
+              resolve(d);
+            },
+            err => {
+              reject(err.error);
+            }
+          );
+      }
+    });
+  }
+  getZone(id_zn) {
+    return new Promise((resolve, reject) => {
+      this.fetch("get", "zone", {
+        idzone: id_zn
+      })
+        .toPromise()
+        .then(r => {
+          resolve(r);
+        });
+    });
+  }
+  deleteZone(arg: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.fetch("delete", "zone", {
+        idzone: arg
+      })
         .toPromise()
         .then(
-          (re: any) => {
-            resolve(re);
+          reslt => {
+            resolve(reslt);
           },
           err => {
             reject(err.error);
@@ -119,16 +142,19 @@ export class CompanyService extends BaseHttpService {
         );
     });
   }
-
-  public saveZoneData(dt:any){
-     return  this.fetch('post','saveZoneData',dt);
+  getCompanyDetails(parms) {
+    return this.fetch("get", "company_details", {
+      company_slug: parms
+    }).toPromise();
   }
 
-  public savePrData(d) {
-    return this.fetch('post','save-presentation',d);
+  getCompanyPresentation(parms) {
+    return this.fetch("get", "company_presentation", {
+      company_slug: parms
+    }).toPromise();
   }
 
-  getMindsetData(){
-    return this.fetch('get', 'getAdminMindsetData');
+  public saveCompanyPresentation(d) {
+    return this.fetch("post", "save-presentation", d).toPromise();
   }
 }

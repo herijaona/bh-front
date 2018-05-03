@@ -2,18 +2,17 @@
     <h5 style="margin-top: 40px; margin-bottom: 10px">COMPANIES</h5> <hr>
     <div *ngIf="companies_data" class="">
         <div class="row">
-            
             <div *ngFor="let c_ of companies_data" class="col-lg-4 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="transparent">
                         <!-- <i class="material-icons">weekend</i> -->
-                        <a [routerLink]="['/mindset']">
+                        <a [routerLink]="['/Open-innovation',c_._slug,'Acceuil']"> 
                             <img [src]="c_.Logo" alt="">
                         </a>
                     </div>
                     <div class="card-content">
                         <p class="namecommerce text-capitalize">
-                            <a [routerLink]="['/mindset']">
+                            <a [routerLink]="['/Open-innovation',c_._slug,'Acceuil']">
                             {{c_.enseigneCommerciale}}
                         </a>
                     </p>

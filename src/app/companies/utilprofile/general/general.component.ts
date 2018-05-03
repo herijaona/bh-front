@@ -54,7 +54,10 @@ export class GeneralComponent implements OnInit, OnDestroy {
 	public otherInfoCurr: string = "";
 	public othInfo = "";
 	public prAfterChangeValue: string = "";
-	public hZone : any ;
+	public hZone: any;
+	public selectedZn: any;
+	public act_type: string;
+	public znData: string;
 
 	constructor(
 		private cs: CompanyService,
@@ -75,6 +78,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
 			pMindset: new FormControl(false),
 			pTeam: new FormControl(false),
 			pSs: new FormControl(false),
+			pMeeting: new FormControl(false),
 			pIdeas: new FormControl(false),
 			pProjects: new FormControl(false)
 		});
@@ -86,6 +90,16 @@ export class GeneralComponent implements OnInit, OnDestroy {
 
 		this.sh.readyData$.subscribe((e: any) => {
 			this.showData();
+		});
+
+		this.sh.viewLoadBus$.subscribe((dd: any) => {
+			if (dd.origin == "zn_save") {
+				this.hideZoneModal();
+			}
+
+			if (dd.update_view) {
+				this.getNupdtadeLocal();
+			}
 		});
 	}
 
@@ -121,6 +135,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
 					pTeam: pConfig.pTeam,
 					pSs: pConfig.pSs,
 					pIdeas: pConfig.pIdeas,
+					pMeeting: pConfig.pMeeting,
 					pProjects: pConfig.pProjects
 				});
 			}
@@ -135,13 +150,12 @@ export class GeneralComponent implements OnInit, OnDestroy {
 				.getMindsetData()
 				.toPromise()
 				.then((res: any) => {
-					if(res.presentation) {
+					if (res.presentation) {
 						this.editorContent = res.presentation.description;
 						this.prCurrentvalue = res.presentation.description;
 						this.otherInfoCurr = res.presentation.autreDescription;
 						this.othInfo = res.presentation.autreDescription;
 					}
-
 					this.hZone = res.zone;
 				});
 		});
@@ -152,17 +166,21 @@ export class GeneralComponent implements OnInit, OnDestroy {
 		var cr = {
 			raisonSociale: this.uform.value._acc_socialMean,
 			enseigneCommerciale: this.uform.value._acc_commercial,
-			typeOrganisation: this.uform.value._orgType,
-			acc_id: localStorage.getItem("my_company")
+			typeOrganisation: this.uform.value._orgType
 		};
-		this.cs.updateFormInfo(cr).subscribe((resp: any) => {
-			this.cs.setDataC(resp);
-			this.sh.notifToast({
-				type: "success",
-				message: "<p>Mis a jour Reussi</p>"
-			});
-			this.sh.notifyUpdateView({});
-		});
+		this.cs.updateDataInfo(cr).then(
+			(resp: any) => {
+				this.cs.setDataC(resp);
+				this.sh.notifToast({
+					type: "success",
+					message: "<p>Mis a jour Reussi</p>"
+				});
+				this.sh.notifyUpdateView({});
+			},
+			err => {
+				console.log(err.error);
+			}
+		);
 	}
 	/* Show selected image on the view*/
 	readUrl(event: any) {
@@ -218,10 +236,7 @@ export class GeneralComponent implements OnInit, OnDestroy {
 
 	savePageshowConfig() {
 		this.cs
-			.updatePagetoShow({
-				d: this.pform.value,
-				acc_id: this.cs.getMycompanyId()
-			})
+			.updatePagetoShow({ d: this.pform.value })
 			.then((r: any) => {
 				if (r.status == "OK") {
 					this.sh.notifToast({
@@ -257,11 +272,26 @@ export class GeneralComponent implements OnInit, OnDestroy {
 		this.myModal.show();
 	}
 
-	editZone() {
+	editZone(zn) {
+		this.znData = zn._id;
+		this.act_type = "edit";
+		this.modalData = true;
 		this.myModal.show();
 	}
 
+	deleteZone(zn) {
+		this.cs.deleteZone(zn._id).then((res: any) => {
+			this.sh.notifToast({
+				type: "success",
+				message: "<p>Configuration saved</p>"
+			});
+			this.getNupdtadeLocal();
+		});
+	}
+
 	newZoneAdd() {
+		this.znData = null;
+		this.act_type = "add";
 		this.modalData = true;
 		this.myModal.show();
 	}
@@ -290,6 +320,9 @@ export class GeneralComponent implements OnInit, OnDestroy {
 					resolve();
 				});
 		});
+	}
+	public showZone(zn) {
+		this.selectedZn = zn;
 	}
 
 	ngOnDestroy() {}

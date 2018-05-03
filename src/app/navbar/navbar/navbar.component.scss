@@ -99,11 +99,12 @@
 .in_toast{
     margin: 20px auto;
     width: 50%;
-    padding:20px;
+    // padding:20px;
     background-color: #b1ff61;
     box-shadow: 0px 1px 19px -4px rgba(0, 0, 0, 0.14);
+    // height: 36px
+}
 
-    p{
-        margin: 10px;
-    }
+.in_toast > p, .in_toast > p > p {
+        margin: auto !important;
 }

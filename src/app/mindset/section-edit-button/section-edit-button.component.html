@@ -1,0 +1,4 @@
+<div class="bt_edit">
+  <button (click)="editSectionAct($event)" *ngIf="editAction" class="btn cs_btn edt"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+  <button (click)="saveSectionAct($event)" *ngIf="!editAction" class="btn cs_btn sve"><i class="fa fa-check" aria-hidden="true"></i></button>
+</div>

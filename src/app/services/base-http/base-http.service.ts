@@ -61,7 +61,7 @@ export class BaseHttpService {
 	public getFilters(data_params: { [key: string]: string } = {}) {
 		let filter: string = "";
 		for (let key in data_params) {
-			filter += "&" + key + "]=" + data_params[key];
+			filter += "&" + key + "=" + data_params[key];
 		}
 		return filter;
 	}

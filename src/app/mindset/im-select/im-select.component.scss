@@ -1,0 +1,63 @@
+.cs_grid {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+.overlay_ {
+  position: absolute; 
+  top: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  height:100%
+}
+
+.cl_sl{
+  opacity: 1
+}
+
+.cs_grid:hover .overlay_ {
+  opacity: 1;
+}
+
+.chck{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	font-size:25px
+}
+
+._inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+._inputfile + label {
+    font-size: 1.0em;
+    font-weight: 700;
+    color: white;
+    background-color: transparent;
+    display: inline-block;
+}
+
+._inputfile:focus + label,
+._inputfile + label:hover {
+    background-color: #2841AA;
+}
+
+._inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
