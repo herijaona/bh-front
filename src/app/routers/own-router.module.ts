@@ -14,6 +14,7 @@ import { ActivationComponent } from "../user-auth/activation/activation.componen
 import { LoginComponent } from "../user-auth/login/login.component";
 import { ProfileComponent } from "../user-auth/profile/profile.component";
 import { ProfileAdminComponent } from "../profile-admin/profile-admin/profile-admin.component";
+import { MembersAdminComponent } from "../members-admin/members-admin/members-admin.component";
 import { AuthguardService } from "../services/authguard/authguard.service";
 import { ListCompaniesComponent } from "../companies/list-companies/list-companies.component";
 import { ProfileCompaniesComponent } from "../companies/profile-companies/profile-companies.component";
@@ -28,6 +29,7 @@ import { EventOnCompProfileComponent } from "../companies/utilprofile/event-on-c
 const routes: Routes = [
 	{ path: "", component: HomepageComponent },
 	{ path: "profile-admin", component: ProfileAdminComponent },
+	{ path: "members-admin", component: MembersAdminComponent },
 	{ path: "home", component: HomepageComponent },
 	{ path: "mindset", component: MindsetComponent },
 	{ path: "Open-innovation/:slug_acc/Acceuil", component: MindsetComponent },

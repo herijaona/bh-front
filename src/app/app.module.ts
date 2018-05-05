@@ -30,6 +30,9 @@ import { ProjectsModule } from "./projects/projects.module";
 import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
 import { ProfileAdminModule } from "./profile-admin/profile-admin.module";
+import { MembersAdminModule } from "./members-admin/members-admin.module";
+import { TabModule } from 'angular-tabs-component';
+
 /* Component import */
 import { AppComponent } from "./app.component";
 import { SpinnerComponent } from "./spinner/spinner.component";
@@ -38,6 +41,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
   declarations: [AppComponent, SpinnerComponent],
   imports: [
     BrowserModule,
+    TabModule,
     FormsModule,
     HttpClientModule,
     DescriptionProjectModule,
@@ -46,6 +50,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     IdeasModule,
     MindsetModule,
     ProfileAdminModule,
+    MembersAdminModule,
     TeamModule,
     NavbarModule,
     ReactiveFormsModule,
