@@ -29,6 +29,7 @@ import { NavbarModule } from "./navbar/navbar.module";
 import { ProjectsModule } from "./projects/projects.module";
 import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
+import { ProfileAdminModule } from "./profile-admin/profile-admin.module";
 /* Component import */
 import { AppComponent } from "./app.component";
 import { SpinnerComponent } from "./spinner/spinner.component";
@@ -44,6 +45,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     ProjectsModule,
     IdeasModule,
     MindsetModule,
+    ProfileAdminModule,
     TeamModule,
     NavbarModule,
     ReactiveFormsModule,
