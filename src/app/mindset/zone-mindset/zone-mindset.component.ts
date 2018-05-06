@@ -68,15 +68,15 @@ export class ZoneMindsetComponent implements OnInit {
 
 	ngOnInit() {
 		this.myWindth = this.el.nativeElement.parentElement.offsetWidth;
-		this.oneCol = (this.myWindth-10)  / 3;
-		this.twoCol = (this.myWindth-10)  * 2 / 3;
+		this.oneCol = (this.myWindth - 15)  / 3;
+		this.twoCol = (this.myWindth - 15)  * 2 / 3;
 		console.log(this.myWindth);
 	}
 
 	onResize(event) {
 		this.myWindth = this.el.nativeElement.parentElement.offsetWidth;
-		this.oneCol = (this.myWindth-10) / 3;
-		this.twoCol = (this.myWindth-10)  * 2 / 3;
+		this.oneCol = (this.myWindth-15) / 3;
+		this.twoCol = (this.myWindth-15)  * 2 / 3;
 	}
 
 	async formatDataView() {

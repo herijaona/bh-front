@@ -1,20 +1,34 @@
 <div *ngIf="editPAGEstatus" class="edit_">
   <button class="btn btn-info" (click)="AddNew()">add new</button>
 </div>
-<!-- Default -->
-<ng-template [ngIf]="stZone">
-  <div class="rtu row">
-    <div class="itemZone col-md-8 col-xs-12">
-      <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
-    </div>
-    <div  class="itemZone col-md-4">
-      <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
-    </div>
-    <div   class="itemZone col-md-4" *ngFor="let item of allZ">
-      <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
-    </div>
-  </div>
-</ng-template>
+<!-- Default  before -->
+<div class="">
+  <ng-template [ngIf]="stZone">
+    <ngx-masonry [options]="{ 
+    itemSelector: '.itemZone' , 
+    transitionDuration: '1s' , 
+    columnWidth: '.oneColl', 
+    initLayout: true,  
+    fitWidth: true, 
+    horizontalOrder: true,
+    resize: true,
+    stamp: '.stamp',
+    percentPosition:true, 
+    gutter:10 
+}">
+      <!-- <ngx-masonry-item class="grid-size"></ngx-masonry-item> -->
+      <ngx-masonry-item class="stamp grid-s-large ">
+        <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
+      </ngx-masonry-item>
+      <ngx-masonry-item class="stamp grid-size">
+        <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
+      </ngx-masonry-item>
+      <ngx-masonry-item class="itemZone oneColl" *ngFor="let item of allZ">
+        <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
+      </ngx-masonry-item>
+    </ngx-masonry>
+  </ng-template>
+</div>
 <!-- Modal -->
 <div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">

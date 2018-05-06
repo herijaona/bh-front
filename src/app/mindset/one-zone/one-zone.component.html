@@ -1,9 +1,10 @@
 <!-- Image -->
-<div  *ngIf="editPAGEstatus" class="">
-	<button class="btn btn-info">edit</button>
-	<button class="btn btn-info">delete</button>
-</div>
 <ng-template [ngIf]="dtZone">
+
+<div  *ngIf="editPAGEstatus" class="">
+	<button (click)="editZone()" class="btn btn-info">Edit</button>
+	<button  (click)='deleteZone()' class="btn btn-info">delete</button>
+</div>
 <ng-template [ngIf]="dtZone.dtype == 1">
 <div class="oz im">
 	<img class="img-responsive" [src]="dtZone.image.url" width="100%">

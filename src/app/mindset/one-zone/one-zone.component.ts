@@ -28,9 +28,10 @@ export class OneZoneComponent implements OnInit {
 	public dtZone: { [key: string]: any };
 	@Input("col_") column_in: number;
 
-	@Input("dataZone") set dataZone(d){
+	@Input("dataZone")
+	set dataZone(d) {
 		this.dtZone = d;
-		console.log(this.dtZone)
+		console.log(this.dtZone);
 	}
 	public in_col: number;
 	public sm_col: number;
@@ -60,7 +61,7 @@ export class OneZoneComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.widthExp = ( this.znWindth - 20 ) * this.znSize / 3;
+		this.widthExp = (this.znWindth - 20) * this.znSize / 3;
 		console.log(this.dtZone);
 		// console.log(this.znWindth);
 		if (this.dtZone.dtype == 2) {
@@ -73,4 +74,18 @@ export class OneZoneComponent implements OnInit {
 			this.dtZone.data_suppl = JSON.parse(this.dtZone.data_suppl);
 		}
 	}
+
+	async deleteZone() {
+		try {
+			let resDel = await this.cs.deleteZone(this.dtZone._id);
+			if (resDel) {
+				this.sh.notifToast({
+					type: "success",
+					message: "<p>Configuration saved</p>"
+				});
+			}
+		} catch (e) {}
+	}
+
+	editZone() {}
 }
