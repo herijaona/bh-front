@@ -60,7 +60,6 @@ export class PresentationSideComponent implements OnInit {
 		};
 		this.presentationEditState = false;
 		try {
-			console.log("Salot de bernard");
 			let save_pr = await this.cs.saveCompanyPresentation(dt);
 			if (save_pr) {
 				if (save_pr["status"] == "OK") {
@@ -80,7 +79,6 @@ export class PresentationSideComponent implements OnInit {
 		try {
 			let presnt = await this.cs.getCompanyPresentation(slug_);
 			if (presnt) {
-				console.log(presnt);
 				this.presentationData = presnt["data"].description;
 				this.editorPresentationModel = presnt["data"].description;
 			}

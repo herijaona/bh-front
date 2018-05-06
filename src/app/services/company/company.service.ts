@@ -80,7 +80,7 @@ export class CompanyService extends BaseHttpService {
     return this.fetch("post", "updateCompanyShowPage", dw).toPromise();
   }
   public saveZoneData(dt: any) {
-    return this.fetch("post", "saveZoneData", dt);
+    return this.fetch("post", "saveZoneData", dt).toPromise();
   }
   public savePrData(d) {
     return this.fetch("post", "save-presentation", d);
@@ -156,5 +156,14 @@ export class CompanyService extends BaseHttpService {
 
   public saveCompanyPresentation(d) {
     return this.fetch("post", "save-presentation", d).toPromise();
+  }
+  public saveNoHostedVideo(d) {
+    return this.fetch("post", "save_videos_no_hosted", d).toPromise();
+  }
+
+  public allZoneData(d) {
+    return this.fetch("get", "all-zone", {
+      company_slug: d
+    }).toPromise();
   }
 }

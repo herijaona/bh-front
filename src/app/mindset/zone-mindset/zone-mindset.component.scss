@@ -1,0 +1,68 @@
+.grid {
+	width: 90%;
+	margin: 0 auto;
+	box-shadow: none
+}
+
+.row-bottom {
+	margin-bottom: 15px;
+
+	table {
+		td {
+			font-family: "SourceSansPro-Semibold";
+			text-transform: uppercase
+		}
+
+		td a {
+			font-size: 14px
+		}
+
+		td span {
+			color: #e84d3f
+		}
+
+	}
+
+	.table-bord {
+		box-shadow: 0px 0px 4px 0px #b1b0b0
+	}
+
+}
+
+.edit-margin {
+	margin-top: 15px
+}
+
+.top-mr {
+	margin-top: 27px
+}
+
+
+.brick{
+	display: inline-block;
+	 width:200px
+}
+
+#modalZoneForm{
+	background-color: #1010108c;
+}
+
+.modal-dialog.cascading-modal {
+    margin-top: 50px !important;
+}
+
+@media (min-width:576px) {
+	.modal-dialog {
+		max-width: 75%;
+		// margin: 1.75rem auto;
+	}
+}
+
+.itemZone{
+	/* position: relative;
+	left: 5px */
+}
+
+.rtu{
+	// display:block;
+}

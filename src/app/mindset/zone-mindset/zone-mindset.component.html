@@ -1,42 +1,37 @@
- <div class="row  row-bottom">
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-          <img class="img-responsive" src="{{g.base_href}}assets/img/video1.png" width="100%" height="293px">
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 edit-margin">
-          <table class="table table-bordered text-center table-bord">
-            <tbody>
-              <tr>
-                <td><a>Lorem Ipsum<br><span>152</span></a></td>
-                <td><a>Lorem Ipsum<br><span>1040</span></a></td>
-              </tr>
-              <tr>
-                <td colspan="2"><a>Lorem Ipsum<br><span>22510</span></a></td>
-              </tr>
-              <tr>
-                <td><a>Lorem Ipsum<br><span>152</span></a></td>
-                <td><a>Lorem Ipsum<br><span>897</span></a></td>
-              </tr>
-              <tr>
-                <td colspan="2"><a>Le Lorem Ipsum est simplement<br><span>45</span></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<div *ngIf="editPAGEstatus" class="edit_">
+  <button class="btn btn-info" (click)="AddNew()">add new</button>
+</div>
+<!-- Default -->
+<ng-template [ngIf]="stZone">
+  <div class="rtu row">
+    <div class="itemZone col-md-8 col-xs-12">
+      <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
+    </div>
+    <div  class="itemZone col-md-4">
+      <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
+    </div>
+    <div   class="itemZone col-md-4" *ngFor="let item of allZ">
+      <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
+    </div>
+  </div>
+</ng-template>
+<!-- Modal -->
+<div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header light-blue darken-3 white-text">
+        <h4 class="title"><i class="fa fa-pencil"></i> Add New Zone </h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
+          <span aria-hidden="true">×</span>
+        </button>
       </div>
-      <div class="row">
-        <div class="col-4">
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video2.jpg" width="100%"></p>
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video3.jpg" width="100%"></p>
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video4.jpg" width="100%"></p>
-        </div>
-        <div class="col-4">
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video5.jpg" width="100%"></p>
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video6.jpg" width="100%"></p>
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video5.jpg" width="100%"></p>
-        </div>
-        <div class="col-4">
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video1.png" width="100%"></p>
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video2.jpg" width="100%"></p>
-          <p><img class="img-responsive" src="{{g.base_href}}assets/img/video8.jpg" width="100%"></p>
-        </div>
+      <!--Body-->
+      <div class="modal-body mb-0">
+        <new-zone-mindset [existDtype]="existDtype"> </new-zone-mindset>
       </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="form-group">
+	<select class="form-control" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
+		<option value="imAdd">Image</option>
+		<option value="vidAdd">Video</option>
+		<option *ngIf="!inArray(3 , existDtype )" value="chiffrAdd">Chiffres</option>
+		<option  *ngIf="!inArray(4, existDtype )" value="tweetAdd">Tweet</option>
+		<option *ngIf="!inArray(5 , existDtype )" value="fbAdd">Facebook</option>
+		<option *ngIf="!inArray(6 , existDtype )" value="txtAdd">Text Quote</option>
+		<option *ngIf="!inArray(7 , existDtype )" value="mapAdrAdd">Map</option>
+	</select>
+</div>
+<div *ngIf="selctFlag.imAdd" class="imAdd">
+	Add Image
+	<div class="row">
+		<div class="col-md-5">
+			<form [formGroup]="imForm" (ngSubmit)="saveZone('images')">
+				<div class="">
+					<label>Caption:</label>
+					<input formControlName="imCaption" type="text" name="">
+				</div>
+				<button type="submit" [ngClass]="{disabled : !imForm.valid || imNotSelected }" class="btn btn-default"> Save </button>
+			</form>
+		</div>
+		<div class="col-md-7">
+			<im-select [im_to]="newDestFile"></im-select>
+		</div>
+	</div>
+</div>
+<div *ngIf="selctFlag.vidAdd" class="vidAdd">
+	Add Video
+	<div class="row">
+		<div class="col-md-5">
+			<form [formGroup]="vidForm" (ngSubmit)="saveZone('videos')">
+				<div class="">
+					<label>Caption:</label>
+					<input formControlName="vidCaption" type="text" name="">
+				</div>
+				<div class="">
+					<label>Youtube Url:</label>
+					<input (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="vidYoutubeUrl" type="url" name="">
+				</div>
+				<div class="">
+					<button type="submit" class="btn btn-default" [ngClass]="{disabled : !vidForm.valid }">Save</button>
+				</div>
+			</form>
+		</div>
+		<div class=" col-md-7 ">
+			<div *ngIf="idVidYouTube.im_poster" class="">
+				<div class=" ">
+					<img [src]="idVidYouTube.im_poster" alt=" ">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="selctFlag.chiffrAdd" class="chiffrAdd ">
+	Add chiffres
+	<form [formGroup]="chrForm" (ngSubmit)="saveZone('chiffres')">
+		<div class="row">
+			<div class="col-md-6 ">
+				<div class="">
+					<label for="c_year">Annees de creation:</label>
+					<input formControlName="createdYear" class="" type="number" id="c_year" >
+				</div>
+				<div class="">
+					<label for="colab">Collaborateur:</label>
+					<input id="colab" class="" formControlName="collabor" type="number">
+				</div>
+				<div class="">
+					<label>Parite:</label>
+					<div class="">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<input formControlName="pariteHomme" type="number" >
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<input formControlName="pariteFemme" type="number">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 ">
+				<div class=" ">
+					<label>Age Moyen:</label>
+					<input formControlName="ageMoyen" type="number" >
+				</div>
+				<div class="">
+					<label>Turn Over:</label>
+					<input formControlName="turnOver" type="number" >
+				</div>
+				<div class="">
+					<label>Opportuinites crees:</label>
+					<input formControlName="createdOpportinuite" type="text" >
+				</div>
+			</div>
+		</div>
+		<div class="">
+			<button [ngClass]="{disabled: !chrForm.valid }" class="btn btn-default"> Save </button>
+		</div>
+	</form>
+</div>

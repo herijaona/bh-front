@@ -12,12 +12,16 @@ import { ImSelectComponent } from "./im-select/im-select.component";
 import { QuillModule } from "ngx-quill";
 import { BhSafeHtmlPipe } from "../pipe/bh-safe-html.pipe";
 import { ZoneMindsetComponent } from './zone-mindset/zone-mindset.component';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { OneZoneComponent } from './one-zone/one-zone.component';
+import { NewZoneMindsetComponent } from './new-zone-mindset/new-zone-mindset.component';
+
 
 @NgModule({
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
-		QuillModule,
+		QuillModule,NgxMasonryModule,
 		FormsModule,
 		MDBBootstrapModule.forRoot()
 	],
@@ -25,11 +29,13 @@ import { ZoneMindsetComponent } from './zone-mindset/zone-mindset.component';
 		MindsetComponent,
 		BhSafeHtmlPipe,
 		PageHeaderComponent,
+		NewZoneMindsetComponent,
 		EditPageButtonComponent,
 		PresentationSideComponent,
 		SectionEditButtonComponent,
 		ImSelectComponent,
-		ZoneMindsetComponent
+		ZoneMindsetComponent,
+		OneZoneComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA]
 })
