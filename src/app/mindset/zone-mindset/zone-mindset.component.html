@@ -1,18 +1,18 @@
 <div *ngIf="editPAGEstatus" class="edit_">
-  <button class="btn btn-info" (click)="AddNew()">add new</button>
+  &nbsp; <button class="btn btn-info addZoneButt " (click)="AddNew()"><i class="fa fa-plus"></i></button>
 </div>
 <!-- Default  before -->
 <div class="">
   <ng-template [ngIf]="stZone">
     <div class="row">
       <!-- <div class="grid-size"></div> -->
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-8 bbsh">
         <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
       </div>
-      <div class="col-md-4">
+      <div *ngIf="chrDtype" class="col-md-4 col-sm-4 col-xs-6 bbsh">
         <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
       </div>
-      <div class="col-md-4" *ngFor="let item of allZ">
+      <div class="col-md-4 col-sm-4 col-xs-6 bbsh" *ngFor="let item of allZ">
         <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
       </div>
     </div>

@@ -102,14 +102,14 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 						vidYoutubeUrl: this.data_zone.video.url.im_url
 					});
 					this.im_poster = this.data_zone.video.url.im_poster;
-					this.selectedZone = 'vidAdd';
-					this.zoneSelectVChange('vidAdd')
+					this.selectedZone = "vidAdd";
+					this.zoneSelectVChange("vidAdd");
 					break;
 				case 3:
 					this.chrForm.setValue(this.data_zone.data_suppl);
 					this.AllowedZone = [this.data_zone.dtype];
-					this.selectedZone = 'chiffrAdd';
-					this.zoneSelectVChange('chiffrAdd')
+					this.selectedZone = "chiffrAdd";
+					this.zoneSelectVChange("chiffrAdd");
 					break;
 				default:
 					this.AllowedZone = [this.data_zone.dtype];
@@ -185,13 +185,14 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			media_type: 1
 		};
 
-		let imCh: boolean = false;
-		if (this.data_zone.dtype == 1) {
-			imCh =
-				this.selectedIm._id == this.data_zone.image._id ? false : true;
-		}
-
 		if (this.action_type == this.editActText) {
+			let imCh: boolean = false;
+			if (this.data_zone.dtype == 1) {
+				imCh =
+					this.selectedIm._id == this.data_zone.image._id
+						? false
+						: true;
+			}
 			if (
 				data.caption != this.data_zone.caption ||
 				imCh ||

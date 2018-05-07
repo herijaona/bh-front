@@ -1,10 +1,10 @@
-.grid {
+/* .grid {
 	width: 90%;
 	margin: 0 auto;
 	box-shadow: none
-}
+} */
 
-.row-bottom {
+/* .row-bottom {
 	margin-bottom: 15px;
 
 	table {
@@ -27,7 +27,7 @@
 		box-shadow: 0px 0px 4px 0px #b1b0b0
 	}
 
-}
+} */
 
 .edit-margin {
 	margin-top: 15px
@@ -38,17 +38,12 @@
 }
 
 
-.brick{
-	display: inline-block;
-	 width:200px
-}
-
-#modalZoneForm{
+#modalZoneForm {
 	background-color: #1010108c;
 }
 
 .modal-dialog.cascading-modal {
-    margin-top: 50px !important;
+	margin-top: 50px !important;
 }
 
 @media (min-width:576px) {
@@ -56,26 +51,68 @@
 		max-width: 75%;
 		// margin: 1.75rem auto;
 	}
+
 }
 
-.itemZone{
-	/* position: relative;
-	left: 5px */
+
+.addZoneButt {
+	display: block;
+	color: black !important;
+	margin: 0px;
+	padding: 15px;
+	border-radius: 100% !important;
+	border: transparent !important;
+	background: khaki !important;
 }
 
-.rtu{
-	// display:block;
+.addZoneButt {
+	-moz-box-shadow: inset 0px -9px 13px 2px #ffffff;
+	-webkit-box-shadow: inset 0px -9px 13px 2px #ffffff;
+	box-shadow: inset 0px -9px 13px 2px #ffffff;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
+	background: -moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background: -webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background: -o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background: -ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9', GradientType=0);
+	background-color: #f9f9f9;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 11px 13px;
+	text-decoration: none;
+	text-shadow: 43px 7px 23px #ffffff;
 }
 
-.oneColl ,.grid-size{
-	width: 30%
+.addZoneButt:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9));
+	background: -moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background: -webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background: -o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background: -ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9', GradientType=0);
+	background-color: #e9e9e9;
 }
 
-.grid-s-large{
-	width:60% !important
-}
-
-.stamp{
+.addZoneButt:active {
 	position: relative;
-	left:0px !important
+	top: 1px;
+}
+
+.bbsh {
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px 1px;
 }
