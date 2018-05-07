@@ -106,6 +106,7 @@ export class SharedNotificationService {
 		this.busData.next(arg);
 	}
 
+
 	/*
 	* State of edit
 	*/

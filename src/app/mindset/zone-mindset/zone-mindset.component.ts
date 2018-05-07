@@ -28,12 +28,14 @@ export class ZoneMindsetComponent implements OnInit {
 	@ViewChild("form") myModal: ModalDirective;
 	public zoneEditState: boolean = false;
 	public addNewState: boolean = false;
+	public dataZoneEdit: any;
 	public existDtype: any;
+	public zoneActionType: string;
 	public allZ: any;
 	public allZ1: any;
 	public chrDtype: any;
-	public oneCol : number ;
-	public twoCol :number;
+	public oneCol: number;
+	public twoCol: number;
 	constructor(
 		public g: Globals,
 		private activRoute: ActivatedRoute,
@@ -57,26 +59,35 @@ export class ZoneMindsetComponent implements OnInit {
 				}
 			}
 		});
+
 		this.sh.busDataIn$.subscribe((st: any) => {
-			if (st.from == "modal_new") {
-				if (st.data == "end") {
-					this.closeModalAddNEw();
-				}
+			switch (st.from) {
+				case "modal_new":
+					if (st.data == "end") {
+						this.closeModalAddNEw();
+					}
+					break;
+				case "editZone":
+					this.EditZone(st.data);
+					break;
+				default:
+					// code...
+					break;
 			}
 		});
 	}
 
 	ngOnInit() {
 		this.myWindth = this.el.nativeElement.parentElement.offsetWidth;
-		this.oneCol = (this.myWindth - 15)  / 3;
-		this.twoCol = (this.myWindth - 15)  * 2 / 3;
+		this.oneCol = (this.myWindth - 15) / 3;
+		this.twoCol = (this.myWindth - 15) * 2 / 3;
 		console.log(this.myWindth);
 	}
 
 	onResize(event) {
 		this.myWindth = this.el.nativeElement.parentElement.offsetWidth;
-		this.oneCol = (this.myWindth-15) / 3;
-		this.twoCol = (this.myWindth-15)  * 2 / 3;
+		this.oneCol = (this.myWindth - 15) / 3;
+		this.twoCol = (this.myWindth - 15) * 2 / 3;
 	}
 
 	async formatDataView() {
@@ -93,7 +104,6 @@ export class ZoneMindsetComponent implements OnInit {
 							all.splice(z, 1);
 							break;
 						default:
-							console.log(all[z].dtype);
 							break;
 					}
 				}
@@ -105,14 +115,23 @@ export class ZoneMindsetComponent implements OnInit {
 				this.existDtype = dtype;
 				this.allZ = all;
 				this.stZone = true;
-				console.log(all);
 			}
 		} catch (e) {}
 	}
 
 	AddNew() {
 		this.addNewState = true;
+		this.zoneActionType = "addNew";
+		this.dataZoneEdit = null;
+		setTimeout(() => {
+			this.myModal.show();
+		}, 400);
+	}
 
+	EditZone(znData) {
+		this.addNewState = true;
+		this.zoneActionType = "editZone";
+		this.dataZoneEdit = znData;
 		setTimeout(() => {
 			this.myModal.show();
 		}, 400);

@@ -18,12 +18,20 @@ import {
 })
 export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	@Input("existDtype") existDtype: any;
+	@Input("action_type") action_type: any;
+	@Input("data_zone") data_zone: any;
 	public currentCompanySlug: string = "";
+	public selectedImage: string = "";
+	public im_poster: string = "";
+	public actionAdd: boolean = true;
 	public selectedZone: string = "imAdd";
+	public AllowedZone: any;
 	private newDestFile = "newZone_im";
 	private selectedIm: { [key: string]: string } = {};
 	public imForm: FormGroup;
 	public chrForm: FormGroup;
+	public editActText: string = "editZone";
+	public addActText: string = "addNew";
 	public vidForm: FormGroup;
 	public imNotSelected: boolean = true;
 	public selctFlag: { [key: string]: boolean } = {
@@ -48,13 +56,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 		private activRoute: ActivatedRoute,
 		private cs: CompanyService
 	) {
-		this.activRoute.params.subscribe((params_: any) => {
-			this.currentCompanySlug = params_["slug_acc"];
-			if (this.currentCompanySlug) {
-				this.getCurrentCompanyZoneList(this.currentCompanySlug);
-			}
-		});
-
 		this.imForm = new FormGroup({
 			imCaption: new FormControl("", [
 				Validators.required,
@@ -86,11 +87,46 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
+		console.log(this.action_type);
+		if (this.action_type == this.editActText) {
+			switch (this.data_zone.dtype) {
+				case 1:
+					this.AllowedZone = [1, 2];
+					this.selectedImage = this.data_zone.image.url;
+					this.imForm.setValue({ imCaption: this.data_zone.caption });
+					break;
+				case 2:
+					this.AllowedZone = [1, 2];
+					this.vidForm.setValue({
+						vidCaption: this.data_zone.caption,
+						vidYoutubeUrl: this.data_zone.video.url.im_url
+					});
+					this.im_poster = this.data_zone.video.url.im_poster;
+					this.selectedZone = 'vidAdd';
+					this.zoneSelectVChange('vidAdd')
+					break;
+				case 3:
+					this.chrForm.setValue(this.data_zone.data_suppl);
+					this.AllowedZone = [this.data_zone.dtype];
+					this.selectedZone = 'chiffrAdd';
+					this.zoneSelectVChange('chiffrAdd')
+					break;
+				default:
+					this.AllowedZone = [this.data_zone.dtype];
+					break;
+			}
+			this.actionAdd = false;
+			console.log("We are here");
+		} else if (this.action_type == this.addActText) {
+			this.actionAdd = true;
+		}
+
 		this.sh.im_Selected$.subscribe((st: any) => {
 			if (st.select) {
 				if (st.destFile == this.newDestFile) {
 					this.selectedIm = st.data;
 					this.imNotSelected = false;
+					this.selectedImage = st.data.url;
 				}
 			}
 		});
@@ -103,8 +139,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 		}
 		return false;
 	}
-	
-	async getCurrentCompanyZoneList(sl_) {}
 
 	zoneSelectChange(evt) {
 		Object.keys(this.selctFlag).forEach(k => {
@@ -117,15 +151,16 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 		});
 	}
 
-	saveZone(ty_) {
-		if (ty_ == "images") {
-			this.saveImageZone();
-		} else if (ty_ == "videos") {
-			this.saveVideosZone();
-		} else if (ty_ == "chiffres") {
-			this.saveChiffresZone();
-		}
+	zoneSelectVChange(sectioZone) {
+		Object.keys(this.selctFlag).forEach(k => {
+			if (k == sectioZone) {
+				this.selctFlag[k] = true;
+			} else {
+				this.selctFlag[k] = false;
+			}
+		});
 	}
+
 	saveChiffresZone() {
 		let data_ = this.chrForm.value;
 		let data = {
@@ -133,19 +168,42 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			media_type: 3,
 			data_suppl: JSON.stringify(data_)
 		};
-		this.apiSave(data).then(e => {
-			this.saveFinished();
-		});
+
+		if (this.action_type == this.editActText) {
+			this.apiSaveEdit(data);
+		} else if (this.action_type == this.addActText) {
+			this.apiSave(data).then(e => {
+				this.saveFinished();
+			});
+		}
 	}
+
 	saveImageZone() {
-		let data = {
+		let data: { [key: string]: any } = {
 			caption: this.imForm.value.imCaption,
 			media_id: this.selectedIm._id,
 			media_type: 1
 		};
-		this.apiSave(data).then(e => {
-			this.saveFinished();
-		});
+
+		let imCh: boolean = false;
+		if (this.data_zone.dtype == 1) {
+			imCh =
+				this.selectedIm._id == this.data_zone.image._id ? false : true;
+		}
+
+		if (this.action_type == this.editActText) {
+			if (
+				data.caption != this.data_zone.caption ||
+				imCh ||
+				data.media_type != this.data_zone.dtype
+			) {
+				this.apiSaveEdit(data);
+			}
+		} else if (this.action_type == this.addActText) {
+			this.apiSave(data).then(e => {
+				this.saveFinished();
+			});
+		}
 	}
 
 	async apiSave(d): Promise<any> {
@@ -160,6 +218,15 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 				return api_save;
 			}
 		} catch (e) {}
+	}
+
+	async apiSaveEdit(data) {
+		data.currZn = this.data_zone;
+		try {
+			let res_save = await this.cs.saveZoneEditData(data);
+		} catch (e) {
+			console.log("Error");
+		}
 	}
 
 	saveFinished() {
@@ -183,10 +250,12 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			}
 			console.log(video_id);
 			this.idVidYouTube = {
-				im_poster: "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg",
+				im_poster:
+					"https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg",
 				i_v: video_id,
 				im_url: r
 			};
+			this.im_poster = this.idVidYouTube.im_poster;
 			return video_id;
 		} else {
 			console.log("url not valid");
@@ -195,6 +264,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 
 	async saveVideosZone() {
 		this.getIdVideo(this.vidForm.value.vidYoutubeUrl);
+
 		let dataVideo = {
 			name: this.vidForm.value.vidCaption,
 			url: JSON.stringify(this.idVidYouTube),
@@ -202,21 +272,74 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			hosted: false
 		};
 		try {
-			let res_save_vid = await this.cs.saveNoHostedVideo(dataVideo);
-			if (res_save_vid) {
-				let data = {
-					caption: this.vidForm.value.vidCaption,
-					media_id: res_save_vid["data"]._id,
-					media_type: 2
-				};
-				this.apiSave(data).then(e => {
-					this.saveFinished();
-				});
+			if (this.action_type == this.editActText) {
+				if (this.data_zone.dtype == 1) {
+					let res_save_vid = await this.cs.saveNoHostedVideo(
+						dataVideo
+					);
+					let data = {
+						caption: this.vidForm.value.vidCaption,
+						media_id: res_save_vid["data"]._id,
+						media_type: 2
+					};
+					this.apiSaveEdit(data).then(e => {
+						this.saveFinished();
+					});
+				} else if (this.data_zone.dtype == 2) {
+					if (this.data_zone.video.i_v != this.idVidYouTube.i_v) {
+						let res_save_vid = await this.cs.saveNoHostedVideo(
+							dataVideo
+						);
+						let data = {
+							caption: this.vidForm.value.vidCaption,
+							media_id: res_save_vid["data"]._id,
+							media_type: 2
+						};
+
+						this.apiSaveEdit(data).then(e => {
+							this.saveFinished();
+						});
+					} else if (
+						this.data_zone.video.url.i_v == this.idVidYouTube.i_v &&
+						this.data_zone.caption != this.vidForm.value.vidCaption
+					) {
+						let data = {
+							caption: this.vidForm.value.vidCaption,
+							media_id: this.data_zone.video._id,
+							media_type: 2
+						};
+
+						this.apiSaveEdit(data).then(e => {
+							this.saveFinished();
+						});
+					} else {
+						console.log("Same data");
+					}
+				}
+			} else if (this.action_type == this.addActText) {
+				let res_save_vid = await this.cs.saveNoHostedVideo(dataVideo);
+				if (res_save_vid) {
+					let data = {
+						caption: this.vidForm.value.vidCaption,
+						media_id: res_save_vid["data"]._id,
+						media_type: 2
+					};
+					this.apiSave(data).then(e => {
+						this.saveFinished();
+					});
+				}
 			}
 		} catch (e) {}
 	}
 
 	ngOnDestroy() {
 		this.sh.pushData({});
+	}
+
+	saveEditZone(arg) {
+		if (arg == "images") {
+			console.log("Dka");
+			console.log(this.selectedZone);
+		}
 	}
 }

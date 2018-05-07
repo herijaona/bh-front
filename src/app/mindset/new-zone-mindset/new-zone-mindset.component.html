@@ -1,4 +1,5 @@
-<div class="form-group">
+<!-- Select Zone type on Add -->
+<div *ngIf="actionAdd" class="form-group">
 	<select class="form-control" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
 		<option value="imAdd">Image</option>
 		<option value="vidAdd">Video</option>
@@ -9,11 +10,30 @@
 		<option *ngIf="!inArray(7 , existDtype )" value="mapAdrAdd">Map</option>
 	</select>
 </div>
-<div *ngIf="selctFlag.imAdd" class="imAdd">
+
+<!-- Select Zone type on edit -->
+<div *ngIf="!actionAdd" class="form-group">
+	<select class="form-control" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
+		<option *ngIf="inArray(1 , AllowedZone )"value="imAdd">Image</option>
+		<option *ngIf="inArray(2 , AllowedZone )"value="vidAdd">Video</option>
+		<option *ngIf="inArray(3 , AllowedZone )" value="chiffrAdd">Chiffres</option>
+		<option  *ngIf="inArray(4, AllowedZone )" value="tweetAdd">Tweet</option>
+		<option *ngIf="inArray(5 , AllowedZone )" value="fbAdd">Facebook</option>
+		<option *ngIf="inArray(6 , AllowedZone )" value="txtAdd">Text Quote</option>
+		<option *ngIf="inArray(7 , AllowedZone )" value="mapAdrAdd">Map</option>
+	</select>
+</div>
+
+
+
+
+
+
+<div *ngIf="selctFlag.imAdd && actionAdd" class="imAdd">
 	Add Image
 	<div class="row">
 		<div class="col-md-5">
-			<form [formGroup]="imForm" (ngSubmit)="saveZone('images')">
+			<form [formGroup]="imForm" (ngSubmit)="saveImageZone()">
 				<div class="">
 					<label>Caption:</label>
 					<input formControlName="imCaption" type="text" name="">
@@ -26,11 +46,44 @@
 		</div>
 	</div>
 </div>
+
+
+<div *ngIf="selctFlag.imAdd && !actionAdd" class="imAdd">
+	<div class="row">
+		<div class="col-md-5">
+			<form [formGroup]="imForm" (ngSubmit)="saveImageZone()">
+				<div class="">
+					<label>Caption:</label>
+					<input formControlName="imCaption" type="text" name="">
+				</div>
+				<button type="submit" [ngClass]="{disabled : !imForm.valid || imNotSelected }" class="btn btn-default"> Save </button>
+			</form>
+			<div *ngIf="data_zone.dtype==1" class="">
+				<img class="im_edit" [src]="selectedImage" alt="">
+			</div>
+		</div>
+		<div class="col-md-7">
+			<im-select [im_to]="newDestFile"></im-select>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <div *ngIf="selctFlag.vidAdd" class="vidAdd">
 	Add Video
 	<div class="row">
 		<div class="col-md-5">
-			<form [formGroup]="vidForm" (ngSubmit)="saveZone('videos')">
+			<form [formGroup]="vidForm" (ngSubmit)="saveVideosZone()">
 				<div class="">
 					<label>Caption:</label>
 					<input formControlName="vidCaption" type="text" name="">
@@ -53,9 +106,12 @@
 		</div>
 	</div>
 </div>
+
+
+
 <div *ngIf="selctFlag.chiffrAdd" class="chiffrAdd ">
 	Add chiffres
-	<form [formGroup]="chrForm" (ngSubmit)="saveZone('chiffres')">
+	<form [formGroup]="chrForm" (ngSubmit)="saveChiffresZone()">
 		<div class="row">
 			<div class="col-md-6 ">
 				<div class="">

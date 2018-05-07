@@ -82,6 +82,9 @@ export class CompanyService extends BaseHttpService {
   public saveZoneData(dt: any) {
     return this.fetch("post", "saveZoneData", dt).toPromise();
   }
+  public saveZoneEditData(dt: any) {
+    return this.fetch("post", "saveZoneEditData", dt).toPromise();
+  }
   public savePrData(d) {
     return this.fetch("post", "save-presentation", d);
   }

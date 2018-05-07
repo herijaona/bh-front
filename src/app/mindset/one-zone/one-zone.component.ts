@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from "@angular/core";
+import { Component, OnInit, Input, ElementRef, OnDestroy } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { CompanyService } from "../../services/company/company.service";
@@ -9,9 +9,12 @@ import { SharedNotificationService } from "./../../services/shared-notification/
 	templateUrl: "./one-zone.component.html",
 	styleUrls: ["./one-zone.component.scss"]
 })
-export class OneZoneComponent implements OnInit {
+export class OneZoneComponent implements OnInit, OnDestroy {
 	private znWindth: number;
 	private widthExp: number;
+	private z_height: number;
+	private currentInEdit: boolean = false;
+	private canDeleted: boolean;
 	private znSize: number;
 	@Input("znWindth_")
 	set znWindth_(zn: number) {
@@ -20,6 +23,7 @@ export class OneZoneComponent implements OnInit {
 	@Input("size_")
 	set size_(znS: number) {
 		this.znSize = znS;
+		this.z_height = 100 * znS;
 	}
 
 	public editPAGEstatus: boolean = false;
@@ -62,12 +66,10 @@ export class OneZoneComponent implements OnInit {
 
 	ngOnInit() {
 		this.widthExp = (this.znWindth - 20) * this.znSize / 3;
-		console.log(this.dtZone);
-		// console.log(this.znWindth);
+		this.canDeleted = this.dtZone.canDeleted;
 		if (this.dtZone.dtype == 2) {
 			/*for local only */
 			if (!this.dtZone.video.url.startsWith("uploads")) {
-				// code...
 				this.dtZone.video.url = JSON.parse(this.dtZone.video.url);
 			}
 		} else if (this.dtZone.dtype == 3) {
@@ -87,5 +89,12 @@ export class OneZoneComponent implements OnInit {
 		} catch (e) {}
 	}
 
-	editZone() {}
+	editZone() {
+		this.currentInEdit = true;
+		this.sh.pushData({ from: "editZone", data: this.dtZone });
+	}
+
+	ngOnDestroy() {
+		this.sh.pushData({});
+	}
 }

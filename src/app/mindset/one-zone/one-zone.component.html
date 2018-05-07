@@ -1,18 +1,19 @@
-<!-- Image -->
-<ng-template [ngIf]="dtZone">
-
 <div  *ngIf="editPAGEstatus" class="">
 	<button (click)="editZone()" class="btn btn-info">Edit</button>
-	<button  (click)='deleteZone()' class="btn btn-info">delete</button>
+	<button *ngIf="canDeleted"  (click)='deleteZone()' class="btn btn-info">delete</button>
 </div>
+
+<!-- Image -->
+<ng-template [ngIf]="dtZone" >
+
 <ng-template [ngIf]="dtZone.dtype == 1">
-<div class="oz im">
+<div [ngStyle]="{'height.px': z_height}" class="oz im">
 	<img class="img-responsive" [src]="dtZone.image.url" width="100%">
 </div>
 </ng-template>
 <!-- Video  -->
 <ng-template [ngIf]="dtZone.dtype == 2">
-<div class="oz im">
+<div [ngStyle]="{'height.px': z_height}" class="oz im">
 	<div class="">
 		<img [src]="dtZone.video.url.im_poster" alt="">
 		<span></span>
@@ -21,7 +22,7 @@
 </ng-template>
 <!-- chiffres  -->
 <ng-template [ngIf]="dtZone.dtype == 3">
-<div class="oz">	
+<div  class="oz">	
 	<table class="table table-bordered text-center table-bord">
 		<tbody>
 			<tr>
