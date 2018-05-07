@@ -90,6 +90,7 @@
 }
 .font-weight-bold{
     color: #000000;
+    width: 125px;
 }
 .grey-text-bold{
     font-size: 15px;
@@ -151,7 +152,7 @@
 .profile-h5{
     font-family: SourceSansPro-Semibold;
     color: #e83936;
-    margin-bottom: 0px !important;
+    margin-bottom: 1.7rem !important;
     text-transform: capitalize;
 }
 .mg-left{
@@ -162,6 +163,13 @@
     width: 50%;
     padding-left: 20px;
     margin-right: 14px;
+    p{
+        margin-top:15px;   
+        display: flex;
+        .ch-second{
+            margin-left: 24px;
+        }
+    }
 }
 .btn-unique-edit{
     background: linear-gradient(-90deg, #e83936, #f94d37);
@@ -176,7 +184,7 @@ hr{
 }
 .ed-2{
     box-shadow: 0.2px 0px 0.1px 1px #e84d3f;
-    width: 50%;
+    width: 48.5%;
     margin: 10px 0px 10px 0px;
 }
 .form-control{
@@ -209,6 +217,21 @@ hr{
     @media(min-width:1004px){
             height: 350px;
         }
+    @media(max-width:1335px){
+            height: 414px;
+        }
+    @media(max-width:961px){
+        height: 425px;
+    }
+    @media(max-width:963px){
+        height: 450px;
+    }
+    @media(max-width:845px){
+        height: 470px;
+    }
+    @media(max-width:767px){
+        height: auto;
+    }
 }
 .darken-edit{
         background: #87888d;
@@ -231,6 +254,9 @@ hr{
 .edit-person{
     padding-left:15px;
 }
+.send-edit{
+    font-weight: 500;
+}
 .table-card{
     overflow-x: overlay;
     overflow-y: hidden;
@@ -244,4 +270,152 @@ hr{
         vertical-align: bottom;
         border-bottom: 2px solid transparent;
     }
+    td{
+        vertical-align: middle;
+        font-weight: normal;
+    }
+}
+.fa-remove{
+    font-size: 24px;
+    color: gray;
+}
+.tb{
+    font-weight: bold !important;
+}
+.flex-dt{
+    flex-direction: inherit;
+    position: relative;
+    top: 2px;
+    font-size: 15px;
+}
+@media(max-width: 991px){
+    .dt-ligne{
+    border-bottom: 2px solid rgba(232,57,54,0.1);
+}
+    }
+.float-right{
+    float: right;
+}
+.br-1{
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.br-2{
+    left: -15px;
+    position: relative;
+}
+.brth{
+    border-bottom: 2px solid rgba(232,57,54,0.1);
+    margin-right: 0px;
+    margin-left: 0px;
+    .active-nav{
+        background: linear-gradient(-90deg, #e83936, #f94d37);
+        color: white;
+        padding: 10px 25px 10px 25px;
+        font-size: 14px;
+        font-family: SourceSansPro-Light;
+    }
+    .no-active-nav{
+        padding: 10px 25px 10px 25px;
+        font-size: 14px;
+        font-family: SourceSansPro-Regular;
+    }
+    .font-all{
+        font-family: SourceSansPro-Light;
+        font-size: 15px;
+    }
+    .mg-0{
+        margin: 0px -1px -2px -1px;
+    }
+    .mg-no-active{
+        border-bottom: 2px solid #e83936;
+        margin-top: -4px;    
+    }
+}
+.font-bold{
+    font-weight: bold;
+    color: black;
+    font-family: SourceSansPro-Bold;
+    padding-right: 2px;
+}
+.large-size{
+    font-size: 28px;
+    color: #87888c;
+}
+.bars-size{
+    font-size: 28px;
+    font-weight: bold;
+}
+.icon-th{
+    margin-bottom: -5px !important;
+    top: -3px;
+    position: relative;
+}
+
+/* checkbox */
+.custon-ch {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    span:first-child{
+        font-family: SourceSansPro-Regular;
+        font-size: 15px;
+        text-transform: capitalize;
+        top: -2px;
+        position: relative;
+    }
+}
+.custon-ch input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 1px solid #606060;
+    border-radius: 4px;
+}
+.custon-ch:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.custon-ch input:checked ~ .checkmark {
+    background: linear-gradient(-90deg, #e83936, #f94d37);
+    border-radius: 4px;
+    border: 0px;        
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.custon-ch input:checked ~ .checkmark:after {
+    display: block;
+}
+.custon-ch .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/* end checkbox */
+
+input[type=text][_ngcontent-c3]:focus:not([readonly]), input[type=password][_ngcontent-c3]:focus:not([readonly]), input[type=email][_ngcontent-c3]:focus:not([readonly]) {
+    border-bottom: 1px solid #e6e9ec;
+    box-shadow: 0 1px 0 0 #e6e9ec !important;
 }

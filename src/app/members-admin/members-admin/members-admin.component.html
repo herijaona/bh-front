@@ -1,22 +1,19 @@
 <div class="jumbotron bg-mind">
   <nav class="navbar navbar-expand-lg navbar-light bg-light nav-two grid">
       <a class="navbar-brand nr-brand" href="#"><img class="img-responsive" src="{{g.base_href}}assets/img/logo-bh.JPG" width="170"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="" id="navbarNav">
         <ul class="list-nav">
           <li><h1>Business Haven</h1></li>
           <li>
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"><i class="far fa-id-badge"></i><span class="pl-7">Laboratoire pharmaceutique</span></a>
+                    <a class="nav-link" href="#"><i class="fa fa-tag" aria-hidden="true"></i><span class="pl-7">Laboratoire pharmaceutique</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-map-marker-alt"></i><span class="pl-7">Paris</span></a>
+                    <a class="nav-link" href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="pl-7">Paris</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-registered"></i><span class="pl-7">www.bh.fr</span></a>
+                    <a class="nav-link" href="#"><i class="fa fa-globe"></i><span class="pl-7">www.bh.fr</span></a>
                   </li>
               </ul>
           </li>
@@ -30,7 +27,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse nav-col" id="navbarNav">
+      <div class=" nav-col" id="navbarNav">
         <ul class="navbar-nav mg-4">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -53,7 +50,7 @@
 </nav>
 <div class="container-fluid grid grid-top">
   <div class="row">
-    <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
       <div class="card card-profile">
           <div class="card-body">
               <div class="row">
@@ -70,7 +67,7 @@
                       <p class="span-connect"><span>349</span>&nbsp;connections<span>19</span>&nbsp;profils views</p>
                   </div>
                   <div class="btn-edit-up">
-                      <button type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil-alt"></i><span class="edit-person">edit profile</span></button>
+                      <button type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">edit profile</span></button>
                   </div>
               </div>
               <div class="profile-text">
@@ -87,7 +84,7 @@
           </div>
       </div>         
     </div>
-    <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
         <div class="card card-profile">
             <div class="card-body">
                 <h5 class="profile-h5">Invite a coworker</h5>
@@ -109,11 +106,22 @@
                       <input type="email" class="form-control">
                         </span>
                         <span class="mg-left-wt">
-                            <label for="defaultFormRegisterNameEx" class="grey-text-form">function</label>
-                            <input type="text"  class="form-control">
+                            <label for="defaultFormRegisterNameEx" class="grey-text-form">invited for</label>
+                            <p>
+                                <label class="custon-ch">
+                                    <span>team</span>
+                                    <input type="checkbox" checked="checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="custon-ch ch-second">
+                                    <span>comittee</span>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </p>
                           </span>
                     </div>
-                        <button class="btn btn-unique-edit btn-width ed-2" type="submit"><span class="edit-person">Send invite</span></button>    
+                        <button class="btn btn-unique-edit btn-width ed-2" type="submit"><span class="edit-person send-edit">Send invite</span></button>    
                   </form> 
             </div>
         </div>  
@@ -121,9 +129,26 @@
   </div>
 </div>
 <div class="container-fluid grid grid-top">
-  <div class="card card-profile table-card">
+  <div class="card  table-card">
       <div class="card-body">
           <h5 class="profile-h5">Members Team</h5>
+          <div class="row brth">
+              <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12  br-1">
+                  <ul class="navbar-nav mg-4 flex-dt dt-ligne">
+                      <li class="nav-item mg-0 mg-no-active"><a class="nav-link no-active-nav">Administration</a></li>
+                      <li class="nav-item mg-0"><a class="nav-link active-nav">Community</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 font-all  br-2">
+                    <ul class="navbar-nav mg-4 flex-dt float-right">
+                        <li class="nav-item"><a class="nav-link"><span class="font-bold">19</span>Teams</a></li>
+                        <li class="nav-item"><a class="nav-link"><span class="font-bold">65</span> Comittee</a></li>
+                        <li class="nav-item"><a class="nav-link"><span class="font-bold">32</span> Invitations send</a></li>
+                        <li class="nav-item icon-th"><a class="nav-link"><i class="fa fa-th-large large-size" aria-hidden="true"></i></a></li>
+                        <li class="nav-item icon-th"><a class="nav-link"><i class="fa fa-bars bars-size"></i></a></li>
+                    </ul>
+              </div>
+          </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -132,48 +157,48 @@
                         <th>Job</th>
                         <th>Organisation</th>
                         <th>Interaction</th>
-                        <th>Remove</th>
+                        <th class="text-center">Remove</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>
+                        <th class="tb">
                             <a>
                               <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
                               John
                             </a>
                         </th>
-                        <td>Mark</td>
+                        <td class="tb">Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
                         <td>Otto</td>
-                        <td><i class="fas fa-trash-alt"></i></td>
+                        <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="tb">
                             <a>
                                 <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
-                                John
+                                Jack
                             </a>
                         </th>
-                        <td>Jacob</td>
+                        <td class="tb">Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
                         <td>Otto</td>
-                        <td><i class="fas fa-trash-alt"></i></td>
+                        <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="tb">
                             <a>
                                 <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
-                                John
-                              </a>
+                                Janne
+                            </a>
                         </th>
-                        <td>Larry</td>
+                        <td class="tb">Larry</td>
                         <td>the Bird</td>
                         <td>@twitter</td>
                         <td>Otto</td>
-                        <td><i class="fas fa-trash-alt"></i></td>
+                        <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
                     </tr>
                 </tbody>
             </table>
