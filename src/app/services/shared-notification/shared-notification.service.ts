@@ -96,7 +96,17 @@ export class SharedNotificationService {
 		this.imSelect_.next(arg);
 	}
 
-	
+	/*
+	* Event when image selected on the modal image selection
+	*/
+	private busData = new BehaviorSubject<Object>({});
+	busDataIn$ = this.busData.asObservable();
+
+	pushData(arg: any) {
+		this.busData.next(arg);
+	}
+
+
 	/*
 	* State of edit
 	*/

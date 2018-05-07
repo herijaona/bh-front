@@ -1,0 +1,40 @@
+<div *ngIf="editPAGEstatus" class="edit_">
+  <button class="btn btn-info" (click)="AddNew()">add new</button>
+</div>
+<!-- Default  before -->
+<div class="">
+  <ng-template [ngIf]="stZone">
+    <div class="row">
+      <!-- <div class="grid-size"></div> -->
+      <div class="col-md-8">
+        <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
+      </div>
+      <div class="col-md-4">
+        <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
+      </div>
+      <div class="col-md-4" *ngFor="let item of allZ">
+        <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<!-- Modal -->
+<div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header light-blue darken-3 white-text">
+        <h4 class="title"><i class="fa fa-pencil"></i> Add New Zone </h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body mb-0">
+        <new-zone-mindset [existDtype]="existDtype" [action_type]='zoneActionType' [data_zone]="dataZoneEdit"> </new-zone-mindset>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>

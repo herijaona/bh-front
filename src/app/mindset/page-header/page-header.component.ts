@@ -18,10 +18,15 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	private coverDestFile = "cover_im";
 	public company_name: string = "company_name";
 	public company_logo: string = "company_logo";
+	public company_cover: string = "company_cover";
 	public company_nameEditMode: boolean = false;
 	public currentCompanySlug: string = "";
 	public pagetoShow: any;
 	public header_page_logo: string = this.g.base_href + "assets/img/logo2.png";
+	public header_page_cover: string = "url(" +
+		this.g.base_href +
+		"assets/img/logo2.png" +
+		")";
 	public company_comm_name: string = "";
 	public editPAGEstatus: boolean = false;
 	public selectingImage: boolean = false;
@@ -69,7 +74,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 					console.log(this.logoItem);
 				} else if (st.destFile == this.coverDestFile) {
 					this.coverItem = st.data;
-					console.log(this.coverItem);
+					this.header_page_cover = "url(" + st.data.url + ")";
 				}
 			}
 		});
@@ -86,6 +91,12 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 				} else if (arg_.action == "save") {
 					this.saveCompanyLogo();
 				}
+			} else if (arg_.section == this.company_cover) {
+				if (arg_.action == "edit") {
+					this.editCompanyCover();
+				} else if (arg_.action == "save") {
+					this.saveCompanyCover();
+				}
 			}
 		});
 	}
@@ -96,6 +107,15 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 			this.myModal.show();
 		}, 300);
 	}
+
+	editCompanyCover() {
+		this.selectingImage = true;
+		this.dest_file = this.coverDestFile;
+		setTimeout(() => {
+			this.myModal.show();
+		}, 300);
+	}
+
 	hideImageModal() {
 		this.myModal.hide();
 		setTimeout(() => {
@@ -103,18 +123,28 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		}, 300);
 	}
 
-	async saveCompanyLogo() {
+	saveCompanyLogo() {
 		if (this.logoItem._id) {
-			try {
-				let res_update = await this.cs.updateDataInfo({	Logo: this.logoItem._id	});
-				if(res_update) {
-					this.sh.notifToast({
-						type: "success",
-						message: "<p>Enregistree</p>"
-					});
-				}
-				this.logoItem = {};
-			} catch (e) {}
+			this.saveUpdateIm({ Logo: this.logoItem._id });
+		}
+	}
+
+	async saveUpdateIm(arg: any) {
+		try {
+			let res_update = await this.cs.updateDataInfo(arg);
+			if (res_update) {
+				this.sh.notifToast({
+					type: "success",
+					message: "<p>Enregistree</p>"
+				});
+			}
+			this.logoItem = {};
+		} catch (e) {}
+	}
+
+	saveCompanyCover() {
+		if (this.coverItem._id) {
+			this.saveUpdateIm({ coverImage: this.coverItem._id });
 		}
 	}
 
@@ -157,6 +187,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 			(rsp: any) => {
 				this.pagetoShow = JSON.parse(rsp.pagetoShow);
 				this.header_page_logo = rsp.Logo;
+				this.header_page_cover = "url(" + rsp.coverImage + ")";
 				this.company_comm_name = rsp.enseigneCommerciale;
 			},
 			err => {

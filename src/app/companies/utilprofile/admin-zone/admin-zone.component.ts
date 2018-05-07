@@ -226,7 +226,6 @@ export class AdminZoneComponent implements OnInit {
 		let savingZone = new Promise((resolve, reject) => {
 			this.cs
 				.saveZoneData(data)
-				.toPromise()
 				.then((ret: any) => {
 					this.sh.notifToast({
 						type: "success",

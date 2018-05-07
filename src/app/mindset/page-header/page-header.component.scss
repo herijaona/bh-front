@@ -1,5 +1,4 @@
 .bg-mind {
-	background-image: url(/assets/img/london.jpg);
 	background-size: cover;
 	background-position: center;
 	min-height: 245px;
@@ -125,4 +124,10 @@ logo {
 
 .modal-dialog.cascading-modal {
     margin-top: 65px;
+}
+
+.edit_bCover{
+	position: absolute;
+    top: 63px;
+    left: 25px;
 }
