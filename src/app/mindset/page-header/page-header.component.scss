@@ -1,103 +1,3 @@
-.bg-mind {
-	background-size: cover;
-	background-position: center;
-	min-height: 245px;
-	margin: 0px;
-	padding: 0px;
-	border-radius: 0px;
-}
-
-.nr-brand {
-	visibility: hidden;
-}
-
-.nav-two {
-	background-color: transparent !important;
-	height: 75px;
-	top: 150px;
-
-	h1 {
-		color: white;
-		font-family: "SourceSansPro-bold";
-	}
-
-	ul li ul li a {
-		color: white;
-		font-family: "SourceSansPro-Lighter";
-		font-style: italic;
-	}
-
-}
-
-.list-nav {
-	list-style: none;
-	padding: 0;
-}
-
-.grid {
-	width: 90%;
-	margin: 0 auto;
-	box-shadow: none;
-}
-
-.nav-col {
-	margin-top: -37px;
-}
-
-.nv {
-	margin-bottom: 0px;
-
-	.active a {
-		border-bottom: 3px solid #e84d3f;
-		color: rgba(0, 0, 0, 0.9) !important;
-		background: transparent !important;
-		font-family: "SourceSansPro-Semibold";
-	}
-
-}
-
-nav {
-	height: 44px !important;
-}
-
-logo {
-	margin-right: 1%;
-	margin-left: 5%;
-}
-
-.navbar {
-	height: 44px !important;
-}
-
-.nav-one {
-	margin-bottom: 45px;
-	max-height: 51px;
-	box-shadow: 0px 1px 2px 0px grey;
-	height: 44px;
-
-	.nav-link {
-		background: transparent !important;
-		color: rgba(0, 0, 0, 0.5) !important;
-	}
-
-	ul li a {
-		font-family: "SourceSansPro-bold";
-	}
-
-	.active .nav-link {
-		border-bottom: 3px solid #e84d3f;
-		color: rgba(0, 0, 0, 0.9) !important;
-	}
-
-}
-
-.img-logo {
-	position: absolute;
-	z-index: 9;
-	left: 6%;
-	margin-top: -44px;
-	margin-top: -80px;
-}
 
 .company_name_input {
 	color: white;
@@ -131,3 +31,93 @@ logo {
     top: 63px;
     left: 25px;
 }
+
+
+
+/* header */
+.bg-mind{
+    background-image:url(/assets/img/london.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 355px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px;
+}
+.nr-brand{
+    visibility: hidden;
+}
+.mg-4{
+    li{
+        margin: 0px 11px 0px 11px;
+    }
+}
+.nav-two{
+    background-color: transparent !important;
+    height: 75px;
+    top: 261px;
+    h1{
+        color: white;
+        font-family: SourceSansPro-Regular;
+        font-size: 32px;
+    }
+    ul li ul li a{
+        color: white;
+        font-family: "SourceSansPro-Lighter";
+    }
+}
+.list-nav{
+    list-style: none;
+    padding: 0;
+}
+.grid{
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: none;
+}
+.nav-col{
+    margin-bottom: 87px;
+}
+.nav-one{
+    margin-bottom: 45px;
+    max-height: 50px;
+    box-shadow: 0px 1px 2px 0px grey;
+    padding-bottom: 0;
+    .nav-link{
+        background: transparent !important;
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+    ul li a{
+        font-family: "SourceSansPro-bold";
+    }
+    .active .nav-link{
+        border-bottom: 3px solid #e84d3f;
+        color: rgba(0, 0, 0, 0.9) !important;
+    }
+}
+.pl-7{
+    padding-left: 7px;
+}
+.img-logo{
+    margin-top: -120px;
+    box-shadow: 0px 1px 3px 1px #ababab;
+}
+.grid-top{
+    margin-bottom: 20px;        
+        h2{
+            font-size: 18px;
+            margin-top: 15px;
+            color: black;
+            font-family:SourceSansPro-Semibold;
+        } 
+}
+.bg-mind:before{
+    background: linear-gradient(-159deg, rgba(112, 50, 92, 0.8) 0%, rgba(120, 25, 10, 0.8) 100%);
+    content: '';
+    display: block;
+    min-height: 355px;
+    position: absolute;
+    width: 100%;
+
+}
+/* end header */

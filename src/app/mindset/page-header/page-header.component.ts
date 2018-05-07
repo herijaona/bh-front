@@ -21,6 +21,8 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	public company_cover: string = "company_cover";
 	public company_nameEditMode: boolean = false;
 	public currentCompanySlug: string = "";
+	public _typeOrganisation: string = "----";
+	public _addr: string = "----";
 	public pagetoShow: any;
 	public header_page_logo: string = this.g.base_href + "assets/img/logo2.png";
 	public header_page_cover: string = "url(" +
@@ -31,6 +33,9 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	public editPAGEstatus: boolean = false;
 	public selectingImage: boolean = false;
 	public logoItem: {
+		[key: string]: string;
+	} = {};
+	public compDetails: {
 		[key: string]: string;
 	} = {};
 	public coverItem: {
@@ -187,8 +192,14 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 			(rsp: any) => {
 				this.pagetoShow = JSON.parse(rsp.pagetoShow);
 				this.header_page_logo = rsp.Logo;
-				this.header_page_cover = "url(" + rsp.coverImage + ")";
+				if (rsp.coverImage) {
+					// code...
+					this.header_page_cover = "url(" + rsp.coverImage + ")";
+				}
 				this.company_comm_name = rsp.enseigneCommerciale;
+				this.compDetails = rsp;
+				this._typeOrganisation = rsp.typeOrganisation;
+				this._addr = rsp.adresse;
 			},
 			err => {
 				console.log(err);

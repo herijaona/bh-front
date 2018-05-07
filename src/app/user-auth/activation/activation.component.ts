@@ -35,31 +35,43 @@ export class ActivationComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => {
 			this.text_activation = params["code"]; // (+) converts string 'id' to a number
-			this.apiHttp
-				.postReqActivation({ activation_code: this.text_activation })
-				.subscribe(
-					(resp: any) => {
-						if (!this.auth.isLoggedIn()) {
-							this.notifAndLogin(resp.message,'notif', true);
-						} else {
-							this.notifAndLogin(resp.message,'notif', false);
+			if (this.text_activation) {
+				// code...
+				this.apiHttp
+					.postReqActivation({
+						activation_code: this.text_activation
+					})
+					.subscribe(
+						(resp: any) => {
+							if (!this.auth.isLoggedIn()) {
+								this.notifAndLogin(resp.message, "notif", true);
+							} else {
+								this.notifAndLogin(
+									resp.message,
+									"notif",
+									false
+								);
 
-							var currUser = this.auth.getUser();
-							if (currUser._id == resp._id) {
-								currUser.active = true;
-								this.auth.saveUser(currUser);
-							} else{
-								setTimeout(()=>{
-									this.auth.logout();
-								}, 5000);
+								var currUser = this.auth.getUser();
+								if (currUser._id == resp._id) {
+									currUser.active = true;
+									this.auth.saveUser(currUser);
+								} else {
+									setTimeout(() => {
+										this.auth.logout();
+									}, 5000);
+								}
 							}
-
+						},
+						err => {
+							this.notifAndLogin(
+								"User Not Found",
+								"error",
+								false
+							);
 						}
-					},
-					err => {
-						this.notifAndLogin('User Not Found','error', false);
-					}
-				);
+					);
+			}
 		});
 	}
 
@@ -68,7 +80,7 @@ export class ActivationComponent implements OnInit, OnDestroy {
 		this.refLogin.destroy();*/
 	}
 
-	private notifAndLogin(m,t, s) {
+	private notifAndLogin(m, t, s) {
 		var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
 			NotifComponent
 		);
