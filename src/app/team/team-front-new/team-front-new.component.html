@@ -1,0 +1,24 @@
+<form [formGroup]="teamVideoForm">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="">
+        <label>Caption</label>
+        <input formControlName="tvCaption" type="text" name="">
+      </div>
+      <div class="">
+        <label>Video Url</label>
+        <input (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="tvVideoUrl" type="url" name="">
+      </div>
+    </div>
+    <div class="col-md-5">
+    	<img width="100%" [src]="im_poster" alt="">
+    </div>
+  </div>
+  <div class="">
+    <label>Text</label>
+    <textarea formControlName="tvText" type="text" name=""></textarea>
+  </div>
+  <div class="">
+    <button [ngClass]="{'disabled': !teamVideoForm.valid }" class="btn btn-default"> Enregistrer</button>
+  </div>
+</form>

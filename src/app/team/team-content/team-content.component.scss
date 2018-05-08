@@ -1,0 +1,15 @@
+#modalZoneForm {
+	background-color: #1010108c;
+}
+
+.modal-dialog.cascading-modal {
+	margin-top: 50px !important;
+}
+
+@media (min-width:576px) {
+	.modal-dialog {
+		max-width: 75%;
+		// margin: 1.75rem auto;
+	}
+
+}
