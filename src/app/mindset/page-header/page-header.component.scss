@@ -65,6 +65,14 @@
         color: white;
         font-family: "SourceSansPro-Lighter";
     }
+    ul li ul li a:first-child{
+        padding-left:0px;
+    }
+}
+.nav-ls{
+    ul li{
+        margin-right: 9px;
+    }
 }
 .list-nav{
     list-style: none;
