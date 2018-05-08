@@ -1,4 +1,4 @@
-import { Component, OnInit ,ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -12,7 +12,7 @@ import { ModalDirective } from "angular-bootstrap-md";
   styleUrls: ["./team-content.component.scss"]
 })
 export class TeamContentComponent implements OnInit {
-  public currentCompanySlug : string;
+  public currentCompanySlug: string;
   public editPAGEstatus: boolean = false;
   public contentEditState: boolean = false;
   public addNewState: boolean = false;
@@ -39,15 +39,29 @@ export class TeamContentComponent implements OnInit {
         }
       }
     });
+
+    this.sh.busDataIn$.subscribe((st: any) => {
+      switch (st.from) {
+        case "tmodal_new":
+          console.log(" kn kjsnf sdnfs nskdfsk nslfkns");
+          if (st.data == "end") {
+            this.closeModalAddNEw();
+          }
+          break;
+        default:
+          // code...
+          break;
+      }
+    });
   }
 
   ngOnInit() {}
 
-  AddNew(){
+  AddNew() {
     this.addNewState = true;
     this.myModal.show();
   }
-  
+
   closeModalAddNEw() {
     this.myModal.hide();
     setTimeout(() => {

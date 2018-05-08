@@ -87,7 +87,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		console.log(this.action_type);
 		if (this.action_type == this.editActText) {
 			switch (this.data_zone.dtype) {
 				case 1:
@@ -116,7 +115,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 					break;
 			}
 			this.actionAdd = false;
-			console.log("We are here");
 		} else if (this.action_type == this.addActText) {
 			this.actionAdd = true;
 		}
@@ -210,7 +208,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	async apiSave(d): Promise<any> {
 		try {
 			let api_save = await this.cs.saveZoneData(d);
-			console.log(api_save);
 			if (api_save) {
 				this.sh.notifToast({
 					type: "success",
@@ -249,7 +246,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			if (ampersandPosition != -1) {
 				video_id = video_id.substring(0, ampersandPosition);
 			}
-			console.log(video_id);
 			this.idVidYouTube = {
 				im_poster:
 					"https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg",
@@ -339,8 +335,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 
 	saveEditZone(arg) {
 		if (arg == "images") {
-			console.log("Dka");
-			console.log(this.selectedZone);
+
 		}
 	}
 }

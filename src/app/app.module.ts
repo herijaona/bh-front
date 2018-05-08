@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { OwnRouterModule } from "./routers/own-router.module";
 /* Services */
 import { ApiHttpService } from "./services/api-http/api-http.service";
+import { TeamsService } from "./services/teams/teams.service";
 import { AuthguardService } from "./services/authguard/authguard.service";
 import { Globals } from "./globals/globals";
 import { SharedNotificationService } from "./services/shared-notification/shared-notification.service";
@@ -71,7 +72,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     AuthguardService,
     Globals,
     RequestInterceptorService,
-    SharedNotificationService,
+    SharedNotificationService,TeamsService,
     BaseHttpService,
     CompanyService
   ],

@@ -26,7 +26,6 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 			if (bblIm) {
 				this.hasImage = true;
 				this.imbiblio = bblIm["allIm"];
-				console.log(bblIm);
 			}
 		} catch (err) {
 			console.log(err);

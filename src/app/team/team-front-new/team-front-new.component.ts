@@ -1,22 +1,26 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import {
 	ValidateUrl,
 	ValidateYear,
 	ValidatePair
 } from "../../services/validators/own.validator";
-
+import { TeamsService } from "../../services/teams/teams.service";
 @Component({
 	selector: "team-front-new",
 	templateUrl: "./team-front-new.component.html",
 	styleUrls: ["./team-front-new.component.scss"]
 })
-export class TeamFrontNewComponent implements OnInit {
+export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	public teamVideoForm: FormGroup;
 	public idVidYouTube: { [key: string]: string } = {};
 	public im_poster: string;
 
-	constructor() {
+	constructor(
+		private tms: TeamsService,
+		private sh: SharedNotificationService
+	) {
 		this.teamVideoForm = new FormGroup({
 			tvCaption: new FormControl("", [Validators.required]),
 			tvText: new FormControl("", [Validators.required]),
@@ -45,9 +49,12 @@ export class TeamFrontNewComponent implements OnInit {
 			this.idVidYouTube = {
 				im_poster:
 					"https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg",
-				i_v: video_id,
-				im_url: r,
-				i_frame: "ffe"
+				id_video: video_id,
+				video_url: r,
+				iframe_:
+					"<iframe src='https://www.youtube.com/embed/" +
+					video_id +
+					"?controls=1&autoplay=1'></iframe>"
 			};
 			this.im_poster = this.idVidYouTube.im_poster;
 			return video_id;
@@ -55,4 +62,24 @@ export class TeamFrontNewComponent implements OnInit {
 			console.log("url not valid");
 		}
 	}
+
+	async saveTeamVideoFront() {
+		try {
+			let resp: any = await this.tms.teamFrontSaveData(this.idVidYouTube);
+			console.log(resp)
+			if (resp) {
+
+				this.sh.pushData({ from: "tmodal_new", data: "end" });
+				console.log(
+					"firjiiiiiiiiiiiiiiiiiiiierrrrrrrrrrrrrrrrrrrjjjjjjjjjjjjjjjjeeeeeeeeeeeeiiiiiiiiiiiii"
+				);
+			}
+		} catch (e) {}
+	}
+
+	ngOnDestroy() {
+		this.sh.pushData({});
+	}
+
+	reussiAction() {}
 }
