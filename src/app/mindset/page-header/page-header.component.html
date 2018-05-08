@@ -10,9 +10,9 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="list-nav">
           <li><h1><h1><span *ngIf="!company_nameEditMode">{{company_comm_name}}</span> <input [(ngModel)]="company_comm_name" *ngIf="company_nameEditMode" class="company_name_input" type="text" name="company_name_input"> <section-edit-button [section_]="company_name" *ngIf="editPAGEstatus"></section-edit-button> </h1></h1></li>
-          <li>
+          <li class="nav-ls">
               <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa fa-tag" aria-hidden="true"></i><span class="pl-7">{{_typeOrganisation}}</span></a>
                   </li>
                   <li class="nav-item">
