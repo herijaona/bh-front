@@ -7,16 +7,18 @@
 <ng-template [ngIf]="dtZone" >
 
 <ng-template [ngIf]="dtZone.dtype == 1">
-<div class="oz im">
+<div (click)="showZone(dtZone)" class="oz im">
 	<img class="img-responsive" [src]="dtZone.image.url" width="100%">
+	<div class="overlay_"><i class="fa fa-search chck" ></i></div>
 </div>
 </ng-template>
 <!-- Video  -->
 <ng-template [ngIf]="dtZone.dtype == 2">
-<div class="oz im">
+<div (click)="showZone(dtZone)" class="oz im">
 	<div class="">
 		<img width="100%" [src]="dtZone.video.url.im_poster" alt="">
-		<span></span>
+		<span class="captin"><i class="fa fa-play-circle-o "></i> <span>{{dtZone.caption}}</span></span>
+		<div class="overlay_"><i class="fa fa-search chck" ></i></div>
 	</div>
 </div>
 </ng-template>

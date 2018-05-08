@@ -11,7 +11,7 @@ import { CompanyService } from "../../services/company/company.service";
 export class MindsetComponent implements OnInit, OnDestroy {
   public show: boolean = false;
   public buttonName: any = "Show";
-
+  public mindset_page : string = 'mindset_page';
   public isAdmin_: boolean = false;
 
   constructor(

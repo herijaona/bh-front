@@ -1,33 +1,4 @@
-/* .grid {
-	width: 90%;
-	margin: 0 auto;
-	box-shadow: none
-} */
 
-/* .row-bottom {
-	margin-bottom: 15px;
-
-	table {
-		td {
-			font-family: "SourceSansPro-Semibold";
-			text-transform: uppercase
-		}
-
-		td a {
-			font-size: 14px
-		}
-
-		td span {
-			color: #e84d3f
-		}
-
-	}
-
-	.table-bord {
-		box-shadow: 0px 0px 4px 0px #b1b0b0
-	}
-
-} */
 
 .edit-margin {
 	margin-top: 15px
@@ -115,4 +86,33 @@
 	padding-left: 0px !important;
 	border-radius: 5px;
 	box-shadow: 1px 1px 1px 1px;
+}
+
+@media (min-width: 767px){
+	.llarge{
+		width: 60%;
+		margin: 3px
+	}
+
+	.normal{
+		width: 30%;
+		margin: 3px
+	}
+}
+
+
+@media (max-width: 767px){
+	.llarge{
+		width: 95%;
+		margin: 3px
+	}
+
+	.normal{
+		width: 43%;
+		margin: 3px
+	}
+}
+
+.contt{
+	margin-left:15px
 }

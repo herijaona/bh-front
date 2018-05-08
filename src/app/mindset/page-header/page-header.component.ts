@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild, Input } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -11,9 +11,32 @@ import { ModalDirective } from "angular-bootstrap-md";
 	styleUrls: ["./page-header.component.scss"]
 })
 export class PageHeaderComponent implements OnInit, OnDestroy {
+	@Input("pageCurrent")
+	set pageCurrent(e) {
+		this.pCurrent = e.split("_")[0];
+		console.log(e)
+		console.log(this.pCurrent)
+		Object.keys(this.isactivePage).forEach((val, i) => {
+			console.log(val)
+			if (val == this.pCurrent) {
+				this.isactivePage[val] = true;
+			} else {
+				this.isactivePage[val] = false;
+			}
+		});
+	}
+	public pCurrent: string;
 	private subscr: {
 		[key: string]: Subscription;
 	} = {};
+	public isactivePage = {
+		mindset: false,
+		ideas: false,
+		team: false,
+		meet: false,
+		projet: false,
+		sStr: false
+	};
 	private logoDestFile = "logo_im";
 	private coverDestFile = "cover_im";
 	public company_name: string = "company_name";

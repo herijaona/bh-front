@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { MindsetComponent } from "./mindset/mindset.component";
 import { PageHeaderComponent } from "./page-header/page-header.component";
@@ -22,6 +23,7 @@ import { NewZoneMindsetComponent } from './new-zone-mindset/new-zone-mindset.com
 		CommonModule,
 		ReactiveFormsModule,
 		QuillModule,NgxMasonryModule,
+		RouterModule,
 		FormsModule,
 		MDBBootstrapModule.forRoot()
 	],
@@ -37,6 +39,7 @@ import { NewZoneMindsetComponent } from './new-zone-mindset/new-zone-mindset.com
 		ZoneMindsetComponent,
 		OneZoneComponent
 	],
-	schemas: [NO_ERRORS_SCHEMA]
+	schemas: [NO_ERRORS_SCHEMA],
+	exports:[PageHeaderComponent, EditPageButtonComponent]
 })
 export class MindsetModule {}

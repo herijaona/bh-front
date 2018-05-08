@@ -6,7 +6,8 @@ import { Globals } from "./../../globals/globals";
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss']
 })
-export class TeamComponent implements OnInit {
+export class TeamComponent implements OnInit { 
+	public team_page :string = 'team_page';
 
   constructor( public g : Globals) { }
 

@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { CompanyService } from "../../services/company/company.service";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { ModalDirective } from "angular-bootstrap-md";
+declare var Masonry: any;
 
 @Component({
 	selector: "zone-mindset",
@@ -26,6 +27,7 @@ export class ZoneMindsetComponent implements OnInit {
 	public editPAGEstatus: boolean = false;
 	private myWindth: number;
 	@ViewChild("form") myModal: ModalDirective;
+	@ViewChild("ggrd") grid_: ElementRef;
 	public zoneEditState: boolean = false;
 	public addNewState: boolean = false;
 	public dataZoneEdit: any;
@@ -35,6 +37,17 @@ export class ZoneMindsetComponent implements OnInit {
 	public allZ1: any;
 	public chrDtype: any;
 	public oneCol: number;
+	public masonry_option: { [key: string]: any } = {
+		columnWidth: ".normal",
+		itemSelector: ".masonry-item",
+		fitWidth: false,
+		horizontalOrder: false,
+		initLayout: true,
+		gutter: 1,
+		originTop: true,
+		originLeft: true,
+		percentPosition: true
+	};
 	public twoCol: number;
 	constructor(
 		public g: Globals,
@@ -70,6 +83,9 @@ export class ZoneMindsetComponent implements OnInit {
 				case "editZone":
 					this.EditZone(st.data);
 					break;
+					case "oneZone":
+					this.showZone(st.data);
+					break;
 				default:
 					// code...
 					break;
@@ -78,6 +94,17 @@ export class ZoneMindsetComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		/*let de = new Masonry( '#ggrid' , {
+			itemSelector: ".grid-item",
+			columnWidth: ".grid-size",
+			percentPosition: true,
+			gutter: 10
+		});*/
+
+		let formEl: any = this.el.nativeElement.querySelector("#ggrid");
+
+		console.log(formEl);
+
 		this.myWindth = this.el.nativeElement.parentElement.offsetWidth;
 		this.oneCol = (this.myWindth - 15) / 3;
 		this.twoCol = (this.myWindth - 15) * 2 / 3;
@@ -143,4 +170,10 @@ export class ZoneMindsetComponent implements OnInit {
 			this.addNewState = false;
 		}, 330);
 	}
+
+	showZone(arg){
+
+	}
+
+	async ngAfterViewInit() {}
 }

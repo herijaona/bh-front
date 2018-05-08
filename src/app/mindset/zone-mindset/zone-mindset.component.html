@@ -1,21 +1,27 @@
 <div *ngIf="editPAGEstatus" class="edit_">
-  &nbsp; <button class="btn btn-info addZoneButt " (click)="AddNew()"><i class="fa fa-plus"></i></button>
+  &nbsp;
+  <button class="btn btn-info addZoneButt " (click)="AddNew()"><i class="fa fa-plus"></i></button>
 </div>
 <!-- Default  before -->
-<div class="">
+<div class="contt">
   <ng-template [ngIf]="stZone">
-    <div class="row">
-      <!-- <div class="grid-size"></div> -->
-      <div class="col-md-8 col-sm-8 bbsh">
-        <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
-      </div>
-      <div *ngIf="chrDtype" class="col-md-4 col-sm-4 col-xs-6 bbsh">
-        <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-6 bbsh" *ngFor="let item of allZ">
-        <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
-      </div>
-    </div>
+    <ngx-masonry [useImagesLoaded]="true" [options]= "masonry_option">
+      <ngx-masonry-item  class=" masonry-item llarge">
+        <div class="bbsh">
+          <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
+        </div>
+      </ngx-masonry-item>
+      <ngx-masonry-item *ngIf="chrDtype" class="masonry-item normal">
+        <div *ngIf="chrDtype" class=" grid-item bbsh">
+          <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
+        </div>
+      </ngx-masonry-item>
+      <ngx-masonry-item *ngFor="let item of allZ" class="masonry-item normal">
+        <div class="grid-item  bbsh" >
+          <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
+        </div>
+      </ngx-masonry-item>
+    </ngx-masonry>
   </ng-template>
 </div>
 <!-- Modal -->
@@ -38,3 +44,14 @@
     <!--/.Content-->
   </div>
 </div>
+
+
+<script src="">
+let de = new Masonry('ngx-masonry', {
+  itemSelector: ".grid-item",
+  columnWidth: ".grid-size",
+  percentPosition: true,
+  gutter: 10
+});
+
+</script>
