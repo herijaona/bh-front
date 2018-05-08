@@ -21,6 +21,7 @@ import { SharedNotificationService } from "../../services/shared-notification/sh
 export class ProfileComponent implements OnInit {
   details: UserDetails;
   public img_avatar: string;
+  public profil_page: any;
   EditForm: FormGroup;
   editPassword: FormGroup;
   showInfo: boolean = false;

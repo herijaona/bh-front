@@ -166,7 +166,7 @@ export class AdminZoneComponent implements OnInit {
 	}
 	ngOnDestroy() {}
 
-	changeTypeContent() {
+	changeTypeContent(e) {
 		this.selectedMediaF = false;
 		if (this.selectedStatusId == 1) {
 			this.Imagetype();
