@@ -3,28 +3,9 @@
 		<button (click)="AddNew()" class="btn btn-info"><i class="fa fa-plus"></i></button>
 	</div>
 </div>
-<div *ngFor="let item of dataTeamFront" class="container-fluid grid grid-top">
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 top-team">
-			<img class="img-responsive" [src]="item.im_poster" width="100%" height="100%">
-			<div class="text-video">
-				<div><i class="fa fa-play"></i></div>
-				<div>
-					<h5>Hoori Kaskanian</h5>
-					<p>General Manager - Pfizer Essential Health France</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 presentation">
-			{{item.textTeam}}
-			<p class="lead">
-				<a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">vous avez une question<i class="fa fa-question-circle icon-question"></i></a>
-				<a class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>
-			</p>
-		</div>
-	</div>
-<hr class="grid-hr hr">
-</div>
+
+<front-vteam  *ngFor="let item of dataTeamFront" [vteamDATA]= "item"></front-vteam>
+
 
 <!-- Modal -->
 <div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
@@ -40,7 +21,7 @@
       </div>
       <!--Body-->
       <div class="modal-body mb-0">
-        <team-front-new></team-front-new>
+        <team-front-new [do_action]='tmVideoAction'></team-front-new>
       </div>
     </div>
     <!--/.Content-->

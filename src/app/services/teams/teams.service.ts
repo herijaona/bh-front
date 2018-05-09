@@ -16,4 +16,8 @@ export class TeamsService extends BaseHttpService {
 	teamFrontGetData(arg: any) {
 		return this.fetch("get", "team_front_video",{ company_slug: arg }).toPromise();
 	}
+
+	deleteTmV(arg){
+		return this.fetch('delete','team_front_video', {tm_video_id : arg}).toPromise();
+	}
 }

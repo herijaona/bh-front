@@ -1,0 +1,28 @@
+<div  class="container-fluid grid grid-top">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 top-team">
+			<img class="img-responsive" [src]="teamVideoData.im_poster" width="100%" height="100%">
+			<div class="text-video">
+				<div><i class="fa fa-play"></i></div>
+				<div>
+					<h5>Hoori Kaskanian</h5>
+					<p>General Manager - Pfizer Essential Health France</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 presentation">
+			<p>
+			{{teamVideoData.textTeam}}
+			</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">vous avez une question<i class="fa fa-question-circle icon-question"></i></a>
+				<a class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>
+			</p>
+		</div>
+	</div>
+<hr class="grid-hr hr">
+</div>
+<div *ngIf="editPAGEstatus" class="">
+	<button (click)="tmVEdit()">edit</button>
+	<button (click)="tmVDelete()">delete</button>
+</div>
