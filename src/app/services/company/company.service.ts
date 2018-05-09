@@ -151,6 +151,10 @@ export class CompanyService extends BaseHttpService {
     }).toPromise();
   }
 
+  public getMyCompanData(){
+    return this.fetch('get', 'userCompanyDetails').toPromise();
+  }
+
   getCompanyPresentation(parms) {
     return this.fetch("get", "company_presentation", {
       company_slug: parms

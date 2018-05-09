@@ -43,10 +43,10 @@ export class ZoneMindsetComponent implements OnInit {
 		fitWidth: false,
 		horizontalOrder: false,
 		initLayout: true,
-		gutter: 1,
+		gutter: 2,
 		originTop: true,
-		originLeft: true,
-		percentPosition: true
+		originLeft: true
+		// percentPosition: true
 	};
 	public twoCol: number;
 	constructor(
@@ -78,13 +78,17 @@ export class ZoneMindsetComponent implements OnInit {
 				case "modal_new":
 					if (st.data == "end") {
 						this.closeModalAddNEw();
+						this.formatDataView();
 					}
 					break;
 				case "editZone":
 					this.EditZone(st.data);
 					break;
-					case "oneZone":
+				case "oneZone":
 					this.showZone(st.data);
+					break;
+				case "deleteZone":
+					this.formatDataView();
 					break;
 				default:
 					// code...
@@ -94,13 +98,6 @@ export class ZoneMindsetComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		/*let de = new Masonry( '#ggrid' , {
-			itemSelector: ".grid-item",
-			columnWidth: ".grid-size",
-			percentPosition: true,
-			gutter: 10
-		});*/
-
 		let formEl: any = this.el.nativeElement.querySelector("#ggrid");
 
 		console.log(formEl);
@@ -118,6 +115,7 @@ export class ZoneMindsetComponent implements OnInit {
 	}
 
 	async formatDataView() {
+		
 		try {
 			let dtype = [];
 			let all: any = await this.cs.allZoneData(this.currentCompanySlug);
@@ -133,6 +131,9 @@ export class ZoneMindsetComponent implements OnInit {
 						default:
 							break;
 					}
+				}
+				if(!dtype.includes(3)){
+					this.chrDtype = null;
 				}
 				dtype = dtype.filter((elem, pos, arr) => {
 					return arr.indexOf(elem) == pos;
@@ -171,9 +172,7 @@ export class ZoneMindsetComponent implements OnInit {
 		}, 330);
 	}
 
-	showZone(arg){
-
-	}
+	showZone(arg) {}
 
 	async ngAfterViewInit() {}
 }

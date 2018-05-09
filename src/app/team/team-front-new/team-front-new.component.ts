@@ -65,10 +65,11 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 
 	async saveTeamVideoFront() {
 		try {
+			this.idVidYouTube["caption"] = this.teamVideoForm.value.tvCaption;
+			this.idVidYouTube["textTeam"] = this.teamVideoForm.value.tvText;
 			let resp: any = await this.tms.teamFrontSaveData(this.idVidYouTube);
-			console.log(resp)
+			console.log(resp);
 			if (resp) {
-
 				this.sh.pushData({ from: "tmodal_new", data: "end" });
 				console.log(
 					"firjiiiiiiiiiiiiiiiiiiiierrrrrrrrrrrrrrrrrrrjjjjjjjjjjjjjjjjeeeeeeeeeeeeiiiiiiiiiiiii"

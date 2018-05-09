@@ -85,6 +85,11 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 					type: "success",
 					message: "<p>Configuration saved</p>"
 				});
+				this.sh.pushData({
+					from: "deleteZone",
+					action: "notif",
+					data: "success"
+				});
 			}
 		} catch (e) {}
 	}

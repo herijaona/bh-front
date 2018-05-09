@@ -37,11 +37,11 @@
           <li *ngIf="auth.isLoggedIn() && !isAdmin" class="nav-item">
             <a class="nav-link  color-white  recrute-text2" routerLink="/profile">Profile</a>
           </li>
-          <li *ngIf="auth.isLoggedIn() && isAdmin " class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle  color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/profile">Profile</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li *ngIf="auth.isLoggedIn() && isAdmin " class="nav-item">
+            <a class="nav-link color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/Administration">Administration</a>
+           <!--  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a *ngFor="let acc of accAdm" [routerLink]="['/company',acc.name, 'profile', acc._id]" class="dropdown-item" href="#">{{acc.name}}</a>
-            </div>
+            </div> -->
           </li>
           <li *ngIf="auth.isLoggedIn() " class="nav-item">
             <a class="nav-link  color-white recrute-text" (click)="auth.logout()">Logout</a>

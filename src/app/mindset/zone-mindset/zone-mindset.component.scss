@@ -89,27 +89,23 @@
 }
 
 @media (min-width: 767px){
-	.llarge{
-		width: 60%;
-		margin: 3px
-	}
-
 	.normal{
-		width: 30%;
-		margin: 3px
+		width: 32%;
+		margin: 2px
 	}
 }
 
 
 @media (max-width: 767px){
-	.llarge{
-		width: 95%;
-		margin: 3px
-	}
-
 	.normal{
-		width: 43%;
-		margin: 3px
+		width: 48%;
+		margin: 4px
+	}
+}
+@media (max-width: 485px){
+	.normal{
+		width: 99%;
+		margin: 4px
 	}
 }
 

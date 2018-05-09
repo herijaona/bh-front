@@ -44,6 +44,8 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 		mapAdrAdd: false
 	};
 
+	public chrError: boolean;
+
 	public idVidYouTube: { [key: string]: string } = {};
 	public dtypeAddable: { [key: string]: boolean } = {};
 
@@ -159,49 +161,85 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 		});
 	}
 
-	saveChiffresZone() {
-		let data_ = this.chrForm.value;
-		let data = {
-			caption: this.currentCompanySlug + "_chiffres",
-			media_type: 3,
-			data_suppl: JSON.stringify(data_)
-		};
+	async errorsInInput(arg) {
+		let hasError = [];
+		let hasErrorkey = [];
+		let err = false;
+		await Object.keys(arg.value).forEach(el => {
+			hasErrorkey.push(el);
+			hasError[el] = false;
+			if (arg.controls[el].errors) {
+				hasError[el] = true;
+			}
+		});
 
-		if (this.action_type == this.editActText) {
-			this.apiSaveEdit(data);
-		} else if (this.action_type == this.addActText) {
-			this.apiSave(data).then(e => {
-				this.saveFinished();
-			});
+		for (var i in hasErrorkey) {
+			if (hasError[hasErrorkey[i]]) {
+				err = true;
+			}
+		}
+		return err;
+	}
+
+	async saveChiffresZone() {
+		let err = await this.errorsInInput(this.chrForm);
+		if (!err) {
+			let data_ = this.chrForm.value;
+			let data = {
+				caption: this.currentCompanySlug + "_chiffres",
+				media_type: 3,
+				data_suppl: JSON.stringify(data_)
+			};
+
+			if (this.action_type == this.editActText) {
+				this.apiSaveEdit(data);
+			} else if (this.action_type == this.addActText) {
+				this.apiSave(data).then(e => {
+					this.saveFinished();
+				});
+			}
 		}
 	}
 
-	saveImageZone() {
-		let data: { [key: string]: any } = {
-			caption: this.imForm.value.imCaption,
-			media_id: this.selectedIm._id,
-			media_type: 1
-		};
+	hasErrorInDATA(arr) {
+		console.log(arr);
+		arr.forEach((e, i) => {
+			console.log(e);
+			console.log(i);
+		});
+	}
 
-		if (this.action_type == this.editActText) {
-			let imCh: boolean = false;
-			if (this.data_zone.dtype == 1) {
-				imCh =
-					this.selectedIm._id == this.data_zone.image._id
-						? false
-						: true;
+	async saveImageZone() {
+		let err = await this.errorsInInput(this.imForm);
+		if (!err) {
+			let data: { [key: string]: any } = {
+				caption: this.imForm.value.imCaption,
+				media_id: this.selectedIm._id,
+				media_type: 1
+			};
+
+			if (this.action_type == this.editActText) {
+				let imCh: boolean = false;
+				if (this.data_zone.dtype == 1) {
+					imCh =
+						this.selectedIm._id == this.data_zone.image._id
+							? false
+							: true;
+				}
+				if (
+					data.caption != this.data_zone.caption ||
+					imCh ||
+					data.media_type != this.data_zone.dtype
+				) {
+					this.apiSaveEdit(data);
+				}
+			} else if (this.action_type == this.addActText) {
+				this.apiSave(data).then(e => {
+					this.saveFinished();
+				});
 			}
-			if (
-				data.caption != this.data_zone.caption ||
-				imCh ||
-				data.media_type != this.data_zone.dtype
-			) {
-				this.apiSaveEdit(data);
-			}
-		} else if (this.action_type == this.addActText) {
-			this.apiSave(data).then(e => {
-				this.saveFinished();
-			});
+		} else {
+			this.chrError = true;
 		}
 	}
 
@@ -222,8 +260,20 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 		data.currZn = this.data_zone;
 		try {
 			let res_save = await this.cs.saveZoneEditData(data);
+			if (res_save) {
+				this.sh.notifToast({
+					type: "success",
+					message: "<p>Modification enregistre</p>"
+				});
+				this.saveFinished();
+				return res_save;
+			}
 		} catch (e) {
-			console.log("Error");
+			this.sh.notifToast({
+				type: "error",
+				message:
+					"<p>Donnee non enregistre, une erreur est survenu au cours de l'operation</p>"
+			});
 		}
 	}
 
@@ -260,30 +310,19 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	}
 
 	async saveVideosZone() {
-		this.getIdVideo(this.vidForm.value.vidYoutubeUrl);
+		let err = await this.errorsInInput(this.vidForm);
+		if (!err) {
+			this.getIdVideo(this.vidForm.value.vidYoutubeUrl);
 
-		let dataVideo = {
-			name: this.vidForm.value.vidCaption,
-			url: JSON.stringify(this.idVidYouTube),
-			acc_owner: this.cs.getMycompanyId(),
-			hosted: false
-		};
-		try {
-			if (this.action_type == this.editActText) {
-				if (this.data_zone.dtype == 1) {
-					let res_save_vid = await this.cs.saveNoHostedVideo(
-						dataVideo
-					);
-					let data = {
-						caption: this.vidForm.value.vidCaption,
-						media_id: res_save_vid["data"]._id,
-						media_type: 2
-					};
-					this.apiSaveEdit(data).then(e => {
-						this.saveFinished();
-					});
-				} else if (this.data_zone.dtype == 2) {
-					if (this.data_zone.video.i_v != this.idVidYouTube.i_v) {
+			let dataVideo = {
+				name: this.vidForm.value.vidCaption,
+				url: JSON.stringify(this.idVidYouTube),
+				acc_owner: this.cs.getMycompanyId(),
+				hosted: false
+			};
+			try {
+				if (this.action_type == this.editActText) {
+					if (this.data_zone.dtype == 1) {
 						let res_save_vid = await this.cs.saveNoHostedVideo(
 							dataVideo
 						);
@@ -292,41 +331,59 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 							media_id: res_save_vid["data"]._id,
 							media_type: 2
 						};
-
 						this.apiSaveEdit(data).then(e => {
 							this.saveFinished();
 						});
-					} else if (
-						this.data_zone.video.url.i_v == this.idVidYouTube.i_v &&
-						this.data_zone.caption != this.vidForm.value.vidCaption
-					) {
+					} else if (this.data_zone.dtype == 2) {
+						if (this.data_zone.video.i_v != this.idVidYouTube.i_v) {
+							let res_save_vid = await this.cs.saveNoHostedVideo(
+								dataVideo
+							);
+							let data = {
+								caption: this.vidForm.value.vidCaption,
+								media_id: res_save_vid["data"]._id,
+								media_type: 2
+							};
+
+							this.apiSaveEdit(data).then(e => {
+								this.saveFinished();
+							});
+						} else if (
+							this.data_zone.video.url.i_v ==
+								this.idVidYouTube.i_v &&
+							this.data_zone.caption !=
+								this.vidForm.value.vidCaption
+						) {
+							let data = {
+								caption: this.vidForm.value.vidCaption,
+								media_id: this.data_zone.video._id,
+								media_type: 2
+							};
+
+							this.apiSaveEdit(data).then(e => {
+								this.saveFinished();
+							});
+						} else {
+							console.log("Same data");
+						}
+					}
+				} else if (this.action_type == this.addActText) {
+					let res_save_vid = await this.cs.saveNoHostedVideo(
+						dataVideo
+					);
+					if (res_save_vid) {
 						let data = {
 							caption: this.vidForm.value.vidCaption,
-							media_id: this.data_zone.video._id,
+							media_id: res_save_vid["data"]._id,
 							media_type: 2
 						};
-
-						this.apiSaveEdit(data).then(e => {
+						this.apiSave(data).then(e => {
 							this.saveFinished();
 						});
-					} else {
-						console.log("Same data");
 					}
 				}
-			} else if (this.action_type == this.addActText) {
-				let res_save_vid = await this.cs.saveNoHostedVideo(dataVideo);
-				if (res_save_vid) {
-					let data = {
-						caption: this.vidForm.value.vidCaption,
-						media_id: res_save_vid["data"]._id,
-						media_type: 2
-					};
-					this.apiSave(data).then(e => {
-						this.saveFinished();
-					});
-				}
-			}
-		} catch (e) {}
+			} catch (e) {}
+		}
 	}
 
 	ngOnDestroy() {
@@ -335,7 +392,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 
 	saveEditZone(arg) {
 		if (arg == "images") {
-
 		}
 	}
 }

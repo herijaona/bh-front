@@ -75,7 +75,7 @@ const routes: Routes = [
 	{ path: "login", component: LoginComponent },
 	{ path: "all-companies", component: ListCompaniesComponent },
 	{
-		path: "profile",
+		path: "Administration",
 		component: ProfileComponent,
 		canActivate: [AuthguardService]
 	},
