@@ -222,9 +222,9 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 							"",
 							this.g.site_baseUrl +
 								this.g.base_href +
-								"/Open-innovation/" +
+								"/open-innovation/" +
 								resp._slug +
-								"/Acceuil"
+								"/acceuil"
 						);
 					}, 3000);
 				},
