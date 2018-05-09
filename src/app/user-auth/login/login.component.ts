@@ -4,12 +4,15 @@ import { AuthserviceService } from "../../services/authservice/authservice.servi
 import { Router } from "@angular/router";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 
+import { Globals } from "./../../globals/globals";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
+  public img_logo: string;
+  public img_avatar: string;
   public loginForm: FormGroup;
   public resetpassForm: FormGroup;
   public notifReset: boolean = false;
@@ -19,10 +22,14 @@ export class LoginComponent implements OnInit {
   error_log: boolean = false;
 
   constructor(
+    public g: Globals,
     private auth: AuthserviceService,
     private router: Router,
     private sh: SharedNotificationService
-  ) {}
+  ) {
+    this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
+    this.img_logo = this.g.base_href + "assets/img/bh.png";
+  }
   ngOnInit() {
     this.resetpassForm = new FormGroup({
       bhemail: new FormControl("", [
@@ -51,7 +58,7 @@ export class LoginComponent implements OnInit {
       (data: any) => {
         this.auth.profile().then(
           (res: any) => {
-            this.router.navigateByUrl("/profile");
+            this.router.navigateByUrl("/Administration");
           },
           err => {
             this.sh.notifToast({

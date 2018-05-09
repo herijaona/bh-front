@@ -28,10 +28,31 @@
 <nav class="bg-light nav-one">
   <div class="navbar navbar-expand-lg navbar-light grid">
       <a class="navbar-brand" href="#"><img class="img-responsive img-logo" [src]="header_page_logo" height="170" width="170"></a>
-
+     <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu" type="button"><i class="fa fa-bars"></i></button>
      <section-edit-button *ngIf="editPAGEstatus" class="butt_" [section_]="company_logo"></section-edit-button>
-      <div class="collapse navbar-collapse nav-col" id="navbarNav">
-        <ul *ngIf="pagetoShow" class="navbar-nav mg-4">
+        <div class="nav-col " ng-class="textType" id="navbarNav">
+          <ul *ngIf="pagetoShow" class="navbar-nav mg-4">
+            <li *ngIf="pagetoShow.pMindset" class="nav-item" [ngClass]="{'active': isactivePage.mindset}">
+              <a [routerLink]="['/Open-innovation',currentCompanySlug,'Acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
+            </li>
+            <li *ngIf="pagetoShow.pTeam" class="nav-item" [ngClass]="{'active': isactivePage.team}">
+              <a [routerLink]="['/Open-innovation',currentCompanySlug,'Team']" class="nav-link" >Team</a>
+            </li>
+            <li *ngIf="pagetoShow.pProjects"  class="nav-item" [ngClass]="{'active': isactivePage.projet}">
+              <a class="nav-link" href="#">Projects</a>
+            </li>
+            <li *ngIf="pagetoShow.pIdeas" class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
+                <a class="nav-link" href="#">Ideas</a>
+            </li>
+            <li *ngIf="pagetoShow.pSs" class="nav-item" [ngClass]="{'active': isactivePage.sstr}">
+              <a class="nav-link" href="#">SuccessStory</a>
+            </li>
+          </ul>
+        </div>
+  </div>
+</nav>
+<div class="collapse nav-one nav-one-two" [class.show]="show">
+      <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4">
           <li *ngIf="pagetoShow.pMindset" class="nav-item" [ngClass]="{'active': isactivePage.mindset}">
             <a [routerLink]="['/Open-innovation',currentCompanySlug,'Acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
           </li>
@@ -48,9 +69,7 @@
             <a class="nav-link" href="#">SuccessStory</a>
           </li>
         </ul>
-      </div>
-  </div>
-</nav>
+</div>
 
 
 <!-- Modal -->
