@@ -28,6 +28,7 @@ import { IdeasModule } from "./ideas/ideas.module";
 import { MindsetModule } from "./mindset/mindset.module";
 import { NavbarModule } from "./navbar/navbar.module";
 import { ProjectsModule } from "./projects/projects.module";
+import { CommitteeModule } from "./committee/committee.module";
 import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
 import { ProfileAdminModule } from "./profile-admin/profile-admin.module";
@@ -48,6 +49,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     DescriptionProjectModule,
     HomepageModule,
     ProjectsModule,
+    CommitteeModule,
     IdeasModule,
     MindsetModule,
     ProfileAdminModule,

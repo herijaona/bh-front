@@ -23,11 +23,13 @@ import { OwnUserComponent } from "../companies/utilprofile/own-user/own-user.com
 import { ProjetProfileComponent } from "../companies/utilprofile/projet-profile/projet-profile.component";
 import { JobOnCompProfileComponent } from "../companies/utilprofile/job-on-comp-profile/job-on-comp-profile.component";
 import { EventOnCompProfileComponent } from "../companies/utilprofile/event-on-comp-profile/event-on-comp-profile.component";
+import { CommitteeComponent } from "../committee/committee/committee.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
 const routes: Routes = [
 	{ path: "", component: HomepageComponent },
+	{ path: "committee", component: CommitteeComponent },
 	{ path: "profile-admin", component: ProfileAdminComponent },
 	{ path: "members-admin", component: MembersAdminComponent },
 	{ path: "home", component: HomepageComponent },

@@ -25,6 +25,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 			}
 		});
 	}
+	public show:boolean = false;
 	public pCurrent: string;
 	private subscr: {
 		[key: string]: Subscription;
@@ -98,6 +99,10 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 			}
 		});
 	}
+	   toggleCollapse() {
+    this.show = !this.show
+  }
+
 	ngOnInit() {
 		// this.editPAGEstatus = false;
 		this.subscr.notifB = this.sh.notifButton$.subscribe((st: any) => {

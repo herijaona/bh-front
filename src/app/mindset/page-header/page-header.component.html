@@ -3,15 +3,12 @@
     <section-edit-button [section_]="company_cover" *ngIf="editPAGEstatus"></section-edit-button>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light nav-two grid">
-      <a class="navbar-brand nr-brand" href="#"><img class="img-responsive" src="{{g.base_href}}assets/img/logo-bh.JPG" width="170"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <a class="navbar-brand nr-brand disp" href="#"><img class="img-responsive" src="{{g.base_href}}assets/img/logo-bh.JPG" width="170"></a>
+      <div class="" id="navbarNav">
         <ul class="list-nav">
-          <li><h1><h1><span *ngIf="!company_nameEditMode">{{company_comm_name}}</span> <input [(ngModel)]="company_comm_name" *ngIf="company_nameEditMode" class="company_name_input" type="text" name="company_name_input"> <section-edit-button [section_]="company_name" *ngIf="editPAGEstatus"></section-edit-button> </h1></h1></li>
+          <li><h1><span *ngIf="!company_nameEditMode">{{company_comm_name}}</span> <input [(ngModel)]="company_comm_name" *ngIf="company_nameEditMode" class="company_name_input" type="text" name="company_name_input"> <section-edit-button [section_]="company_name" *ngIf="editPAGEstatus"></section-edit-button></h1></li>
           <li class="nav-ls">
-              <ul class="navbar-nav">
+              <ul class="nb">
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa fa-tag" aria-hidden="true"></i><span class="pl-7">{{_typeOrganisation}}</span></a>
                   </li>
@@ -26,10 +23,12 @@
         </ul>
       </div>
     </nav>
+
 </div>
 <nav class="bg-light nav-one">
   <div class="navbar navbar-expand-lg navbar-light grid">
       <a class="navbar-brand" href="#"><img class="img-responsive img-logo" [src]="header_page_logo" height="170" width="170"></a>
+
      <section-edit-button *ngIf="editPAGEstatus" class="butt_" [section_]="company_logo"></section-edit-button>
       <div class="collapse navbar-collapse nav-col" id="navbarNav">
         <ul *ngIf="pagetoShow" class="navbar-nav mg-4">
@@ -40,13 +39,10 @@
             <a [routerLink]="['/Open-innovation',currentCompanySlug,'Team']" class="nav-link" >Team</a>
           </li>
           <li *ngIf="pagetoShow.pProjects"  class="nav-item" [ngClass]="{'active': isactivePage.projet}">
-            <a class="nav-link" href="#">Project</a>
+            <a class="nav-link" href="#">Projects</a>
           </li>
           <li *ngIf="pagetoShow.pIdeas" class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
               <a class="nav-link" href="#">Ideas</a>
-          </li>
-          <li *ngIf="pagetoShow.pMeeting" class="nav-item" [ngClass]="{'active': isactivePage.meet}">
-            <a class="nav-link" href="#">Meetings</a>
           </li>
           <li *ngIf="pagetoShow.pSs" class="nav-item" [ngClass]="{'active': isactivePage.sstr}">
             <a class="nav-link" href="#">SuccessStory</a>
