@@ -19,6 +19,10 @@ export class TeamContentComponent implements OnInit {
   public addNewState: boolean = false;
   @ViewChild("form") myModal: ModalDirective;
   public dataTeamFront: any = [];
+  public tmVideoAction: string;
+  private editAct = "tmVEdit";
+  private AddAct = "tmVAdd";
+  public tmVideoData : any ;
 
   constructor(
     public g: Globals,
@@ -47,9 +51,15 @@ export class TeamContentComponent implements OnInit {
     this.sh.busDataIn$.subscribe((st: any) => {
       switch (st.from) {
         case "tmodal_new":
-          console.log(" kn kjsnf sdnfs nskdfsk nslfkns");
           if (st.data == "end") {
             this.closeModalAddNEw();
+          }
+          break;
+        case "tmVideoFront":
+          if (st.action == "refresh") {
+                this.getDataTeamFront(this.currentCompanySlug);            
+          } else if(st.action == "edit"){
+                this.editTmVideo(st.data);
           }
           break;
         default:
@@ -63,6 +73,14 @@ export class TeamContentComponent implements OnInit {
 
   AddNew() {
     this.addNewState = true;
+     this.tmVideoAction = this.AddAct;
+    this.tmVideoData = null;
+    this.myModal.show();
+  }
+  editTmVideo(data) {
+    this.addNewState = true;
+    this.tmVideoAction = this.editAct;
+    this.tmVideoData = data;
     this.myModal.show();
   }
 
@@ -70,8 +88,8 @@ export class TeamContentComponent implements OnInit {
     try {
       let allData = await this.tms.teamFrontGetData(this.currentCompanySlug);
       if (allData) {
-        if (allData['status']==200){
-          this.dataTeamFront = allData['videoTeam'];
+        if (allData["status"] == 200) {
+          this.dataTeamFront = allData["videoTeam"];
         }
       }
     } catch (e) {}

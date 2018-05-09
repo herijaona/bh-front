@@ -36,10 +36,10 @@
             <a [routerLink]="['/Open-innovation',currentCompanySlug,'Acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
           </li>
           <li *ngIf="pagetoShow.pTeam" class="nav-item" [ngClass]="{'active': isactivePage.team}">
-            <a [routerLink]="['/Open-innovation',currentCompanySlug,'Team']" class="nav-link" >Team</a>
+            <a [routerLink]="['/Open-innovation',currentCompanySlug,'team']" class="nav-link" >Team</a>
           </li>
           <li *ngIf="pagetoShow.pProjects"  class="nav-item" [ngClass]="{'active': isactivePage.projet}">
-            <a class="nav-link" href="#">Projects</a>
+            <a [routerLink]="['/Open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
           </li>
           <li *ngIf="pagetoShow.pIdeas" class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
               <a class="nav-link" href="#">Ideas</a>
