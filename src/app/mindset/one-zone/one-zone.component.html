@@ -25,24 +25,42 @@
 <!-- chiffres  -->
 <ng-template [ngIf]="dtZone.dtype == 3">
 <div  class="oz">	
-	<table width="100%" class="table table-bordered text-center table-bord">
-		<tbody>
-			<tr>
-				<td><a>Annee de creation<br><span >{{ dtZone.data_suppl.createdYear }}</span></a></td>
-				<td><a>Collaborateur<br><span >{{dtZone.data_suppl.collabor}}</span></a></td>
-			</tr>
-			<tr>
-				<td colspan="2"><a>Parite<br ><span >22510</span></a></td>
-			</tr>
-			<tr>
-				<td><a>Lorem Ipsum<br ><span >152</span></a></td>
-				<td><a>Lorem Ipsum<br ><span >897</span></a></td>
-			</tr>
-			<tr>
-				<td colspan="2"><a>Le Lorem Ipsum est simplement<br ><span >45</span></a></td>
-			</tr>
-		</tbody>
-	</table>
+  <div class="stats-container">
+     <div class="stat-item">
+        <span class="stat-label">Année de creation</span>
+        <span class="stat-value">{{ dtZone.data_suppl.createdYear }}</span>
+     </div>
+     <div class="stat-item">
+        <span class="stat-label">Collaborateurs</span>
+        <span class="stat-value">{{dtZone.data_suppl.collabor}}</span>
+     </div>
+     <div class="stat-item wide">
+        <span class="stat-label">Parité</span>
+        <span class="stat-value">
+        <span class="value-item">
+        <i class="zmdi zmdi-female "></i>
+        33%
+        </span>
+        <span class="value-item">
+        <i class="zmdi zmdi-male-alt "></i>
+        67%
+        </span>
+        </span>
+     </div>
+     <div class="stat-item">
+        <span class="stat-label">Année de 20</span>
+        <span class="stat-value">2012</span>
+     </div>
+     <div class="stat-item">
+        <span class="stat-label">Collaborateurs</span>
+        <span class="stat-value">45</span>
+     </div>
+     <div class="stat-item wide">
+        <span class="stat-label">Âge moyen</span>
+        <span class="stat-value">31 ans</span>
+     </div>
+  </div>
+
 </div>
 </ng-template>
 </ng-template>

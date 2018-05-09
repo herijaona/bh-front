@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       (data: any) => {
         this.auth.profile().then(
           (res: any) => {
-            this.router.navigateByUrl("/profile");
+            this.router.navigateByUrl("/Administration");
           },
           err => {
             this.sh.notifToast({
