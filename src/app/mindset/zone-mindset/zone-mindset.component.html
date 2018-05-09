@@ -5,23 +5,27 @@
 <!-- Default  before -->
 <div class="contt">
   <ng-template [ngIf]="stZone">
-    <ngx-masonry [useImagesLoaded]="true" [options]= "masonry_option">
-      <ngx-masonry-item  class=" masonry-item llarge">
-        <div class="bbsh">
+    <div class="row">
+      <div class="col-md-8 p-0">
+        <div class="">
           <one-zone *ngIf="allZ1" [dataZone]="allZ1" [size_]="2" [znWindth_]="myWindth"></one-zone>
         </div>
-      </ngx-masonry-item>
-      <ngx-masonry-item *ngIf="chrDtype" class="masonry-item normal">
-        <div *ngIf="chrDtype" class=" grid-item bbsh">
+      </div>
+      <div class="col-md-4">
+        <div *ngIf="chrDtype">
           <one-zone *ngIf="chrDtype" [dataZone]="chrDtype" [size_]="1" [znWindth_]="myWindth"></one-zone>
         </div>
-      </ngx-masonry-item>
-      <ngx-masonry-item *ngFor="let item of allZ" class="masonry-item normal">
-        <div class="grid-item  bbsh" >
-          <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
-        </div>
-      </ngx-masonry-item>
-    </ngx-masonry>
+      </div>
+    </div>
+    <div class="">
+      <ngx-masonry [useImagesLoaded]="true" [options]="masonry_option">
+        <ngx-masonry-item *ngFor="let item of allZ" class="masonry-item normal">
+          <div class="grid-item  bbsh">
+            <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
+          </div>
+        </ngx-masonry-item>
+      </ngx-masonry>
+    </div>
   </ng-template>
 </div>
 <!-- Modal -->
@@ -44,8 +48,6 @@
     <!--/.Content-->
   </div>
 </div>
-
-
 <script src="">
 let de = new Masonry('ngx-masonry', {
   itemSelector: ".grid-item",

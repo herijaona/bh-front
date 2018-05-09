@@ -1,6 +1,6 @@
 <!-- Select Zone type on Add -->
 <div *ngIf="actionAdd" class="form-group">
-	<select class="form-control" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
+	<select class="form-control sl_newZone" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
 		<option value="imAdd">Image</option>
 		<option value="vidAdd">Video</option>
 		<option *ngIf="!inArray(3 , existDtype )" value="chiffrAdd">Chiffres</option>
@@ -30,7 +30,9 @@
 
 
 <div *ngIf="selctFlag.imAdd && actionAdd" class="imAdd">
+	<span>
 	Add Image
+	</span>
 	<div class="row">
 		<div class="col-md-5">
 			<form [formGroup]="imForm" (ngSubmit)="saveImageZone()">

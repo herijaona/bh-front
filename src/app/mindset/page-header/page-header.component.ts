@@ -14,10 +14,10 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	@Input("pageCurrent")
 	set pageCurrent(e) {
 		this.pCurrent = e.split("_")[0];
-		console.log(e)
-		console.log(this.pCurrent)
+		console.log(e);
+		console.log(this.pCurrent);
 		Object.keys(this.isactivePage).forEach((val, i) => {
-			console.log(val)
+			console.log(val);
 			if (val == this.pCurrent) {
 				this.isactivePage[val] = true;
 			} else {
@@ -80,9 +80,25 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		this.subscr.actvR = this.activRoute.params.subscribe((params_: any) => {
 			this.currentCompanySlug = params_["slug_acc"];
 			if (this.currentCompanySlug) {
-				this.getCurrentCompany(this.currentCompanySlug);
+				this.getCurrentCompany(this.currentCompanySlug).then(
+					(e: any) => {
+						if (e.status != 200) {
+							this.router.navigateByUrl("/");
+						}
+					},
+					e => {
+						this.router.navigateByUrl("/");
+					}
+				);
 			} else {
-				this.router.navigateByUrl("/");
+				this.cs.getMyCompanData().then(
+					e => {
+						this.showData(e);
+					},
+					er => {
+						this.router.navigateByUrl("/");
+					}
+				);
 			}
 		});
 	}
@@ -220,28 +236,38 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	editCompanyNameSection() {
 		this.company_nameEditMode = true;
 	}
-	getCurrentCompany(slug_: string) {
-		this.cs.getCompanyDetails(slug_).then(
-			(rsp: any) => {
-				this.pagetoShow = JSON.parse(rsp.pagetoShow);
-				this.header_page_logo = rsp.Logo;
-				if (rsp.coverImage) {
-					// code...
-					this.header_page_cover = "url(" + rsp.coverImage + ")";
-				}
-				this.company_comm_name = rsp.enseigneCommerciale;
-				this.compDetails = rsp;
-				this._typeOrganisation = rsp.typeOrganisation;
-				this._addr = rsp.adresse;
-			},
-			err => {
-				console.log(err);
-				if (err.status == 404) {
-					// code...
-				}
+
+	async getCurrentCompany(slug_: string) {
+		try {
+			let rsp: any = await this.cs.getCompanyDetails(slug_);
+			if (rsp) {
+				this.showData(rsp);
+				return {
+					status: 200,
+					message: "OK"
+				};
 			}
-		);
+		} catch (e) {
+			let d = {
+				status: e.status,
+				message: e.error
+			};
+			return d;
+		}
 	}
+
+	showData(rsp: any) {
+		this.pagetoShow = JSON.parse(rsp["pagetoShow"]);
+		this.header_page_logo = rsp["Logo"];
+		if (rsp["coverImage"]) {
+			this.header_page_cover = "url(" + rsp["coverImage"] + ")";
+		}
+		this.company_comm_name = rsp["enseigneCommerciale"];
+		this.compDetails = rsp;
+		this._typeOrganisation = rsp["typeOrganisation"];
+		this._addr = rsp["adresse"];
+	}
+
 	ngOnDestroy() {
 		Object.keys(this.subscr).forEach(e => {
 			this.subscr[e].unsubscribe();

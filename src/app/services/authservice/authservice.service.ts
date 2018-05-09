@@ -149,6 +149,8 @@ export class AuthserviceService extends BaseHttpService {
     });
   }
 
+  
+
   public editprofile(user: any): Observable<any> {
     return this.fetch("post", "profile/edit", user);
   }
@@ -192,14 +194,4 @@ export class AuthserviceService extends BaseHttpService {
     return user;
   }
 
-  /*
-  const request = base.pipe(
-      map((data: TokenResponse) => {
-        if (data.token) {
-          this.saveToken(data.token);
-        }
-        return data;
-      })
-    );
-  */
 }
