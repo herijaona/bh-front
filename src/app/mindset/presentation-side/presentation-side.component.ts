@@ -1,7 +1,8 @@
-import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { CompanyService } from "../../services/company/company.service";
+
 
 @Component({
 	selector: "presentation-side",

@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
-import { MindsetModule } from "../mindset/mindset.module";
+import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { Ng4GeoautocompleteModule } from "ng4-geoautocomplete";
 
@@ -25,7 +25,7 @@ import { HeaderProfileComponent } from './header-profile/header-profile.componen
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MindsetModule,
+   GeneralUtilitiesModule,
     MDBBootstrapModule,
     RouterModule,
     Ng4GeoautocompleteModule.forRoot()

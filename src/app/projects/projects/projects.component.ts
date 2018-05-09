@@ -7,7 +7,7 @@ import { Globals } from "./../../globals/globals";
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-
+	public projet_page = 'projet_page';
   constructor(public g : Globals) { }
 
   ngOnInit() {

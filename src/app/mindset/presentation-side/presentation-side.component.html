@@ -4,7 +4,7 @@
     <section-edit-button *ngIf="editPAGEstatus" [section_]="current_section"></section-edit-button>
     </h2>
   </div>
-  <div *ngIf="!presentationEditState" [innerHtml]="presentationData | bhSafeHtml" class="">...</div>
+  <div *ngIf="!presentationEditState" [innerHtml]="presentationData|bhSafeHtml" class="">...</div>
   <!-- <h2>Le Lorem Ipsum</h2> -->
   <quill-editor [(ngModel)]="editorPresentationModel" theme="bubble" *ngIf="presentationEditState"></quill-editor>
 </div>
