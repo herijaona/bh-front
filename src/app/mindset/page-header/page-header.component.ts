@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, Input } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild, Input, ElementRef } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -26,6 +26,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		});
 	}
 	public show:boolean = false;
+	public hide:boolean = false;
 	public pCurrent: string;
 	private subscr: {
 		[key: string]: Subscription;
@@ -68,6 +69,8 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	@ViewChild("form") myModal: ModalDirective;
 	public dest_file = "";
 	constructor(
+
+	public el: ElementRef,
 		public g: Globals,
 		public sh: SharedNotificationService,
 		private activRoute: ActivatedRoute,
@@ -84,7 +87,9 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		});
 	}
 	   toggleCollapse() {
-    this.show = !this.show
+	   	this.hide = !this.hide;
+    this.show = !this.show;
+   	this.el.nativeElement.querySelector('.nav-col').classList.add('foo');
   }
 
 	ngOnInit() {
