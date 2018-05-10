@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, ElementRef, OnDestroy } from "@angular/core";
+import { Component, OnInit, Input, ElementRef, OnDestroy,ViewChild } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { CompanyService } from "../../services/company/company.service";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
+import { ModalDirective } from "angular-bootstrap-md";
 
 @Component({
 	selector: "one-zone",
@@ -16,6 +17,8 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	private currentInEdit: boolean = false;
 	private canDeleted: boolean;
 	private znSize: number;
+	public addNewState: boolean = false;
+	@ViewChild("form2") myModal: ModalDirective;
 	@Input("znWindth_")
 	set znWindth_(zn: number) {
 		this.znWindth = zn;
@@ -102,4 +105,17 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.sh.pushData({});
 	}
+
+	ShowZoom() {
+		setTimeout(() => {
+			this.myModal.show();
+		}, 400);
+	}
+	closeModalShowZoom() {
+		this.myModal.hide();
+		setTimeout(() => {
+			this.addNewState = false;
+		}, 330);
+	}
+
 }

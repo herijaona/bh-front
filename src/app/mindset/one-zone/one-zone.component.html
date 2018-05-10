@@ -1,6 +1,7 @@
+
 <div  *ngIf="editPAGEstatus" class="oneZonebut">
 	<button (click)="editZone()" class="btn btn-info erew"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-	<button *ngIf="canDeleted"  (click)='deleteZone()' class="btn btn-info erew"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+	<button *ngIf="canDeleted"  (click)='deleteZone()' class="btn btn-info erew2"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 </div>
 
 <!-- Image -->
@@ -9,8 +10,27 @@
 <ng-template [ngIf]="dtZone.dtype == 1">
 <div (click)="showZone(dtZone)" class="oz im">
 	<img class="img-responsive" [src]="dtZone.image.url" width="100%">
-	<div class="overlay_"><i class="fa fa-search chck" ></i></div>
+	<div class="overlay_" mdbWavesEffect (click)="ShowZoom()"><i class="fa fa-search chck" ></i></div>
 </div>
+
+<!-- Modal -->
+<div style="overflow: auto;" mdbModal #form2="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header light-blue darken-3 white-text">
+        <h4 class="title"><i class="fa fa-pencil"></i> Add New Zone </h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalShowZoom()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+
 </ng-template>
 <!-- Video  -->
 <ng-template [ngIf]="dtZone.dtype == 2">
@@ -22,6 +42,7 @@
 	</div>
 </div>
 </ng-template>
+
 <!-- chiffres  -->
 <ng-template [ngIf]="dtZone.dtype == 3">
 <div  class="oz">	
@@ -60,7 +81,7 @@
         <span class="stat-value">31 ans</span>
      </div>
   </div>
-
 </div>
 </ng-template>
+
 </ng-template>
