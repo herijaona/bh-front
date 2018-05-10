@@ -1,0 +1,28 @@
+<div class="">
+  	<div class="">
+  		<label>Nom  du projet </label>
+    <input type="text" name="pName">
+  	</div>
+    <div class="">
+    	<label> Project Context</label>
+      <ckeditor [(ngModel)]="contextProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+    </div>
+    <div class="">
+    	<label> Project Objectives</label>
+      <ckeditor [(ngModel)]="objectivesProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+    </div>
+    <div class="">
+    	<label>Proposal Requirements</label>
+      <ckeditor [(ngModel)]="proposalsRequirementEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+    </div>
+    <div class="">
+    	<label>Response time</label>
+    <input type="number" name="resonseTime">
+    <div class="">
+    	<button  (click)="saveProjects()" class="btn">Save</button>
+    </div>
+    </div>
+</div>
