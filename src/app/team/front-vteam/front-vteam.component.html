@@ -1,6 +1,6 @@
 <div  class="container-fluid grid grid-top">
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 top-team">
+		<div (click)="tmVShow()" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 top-team">
 			<img class="img-responsive" [src]="teamVideoData.im_poster" width="100%" height="100%">
 			<div class="text-video">
 				<div><i class="fa fa-play"></i></div>
@@ -9,6 +9,7 @@
 					<p>General Manager - Pfizer Essential Health France</p>
 				</div>
 			</div>
+			<div class="overlay_"><i class="fa fa-search chck" ></i></div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 presentation">
 			<p>

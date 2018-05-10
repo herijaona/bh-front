@@ -138,6 +138,7 @@
     display: -ms-flexbox;
     display: flex;
     left: 40px;
+    z-index:1000;
     div:last-child{
     	color:white;
     	padding-left: 20px;
@@ -173,4 +174,33 @@
 .grid-hr{
     width: 88%;
     margin:0 auto;
+}
+
+
+.overlay_ {
+  position: absolute; 
+  top: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  height:100%;
+  z-index:990
+}
+
+.top-team:hover .overlay_{
+    opacity: 1;
+}
+
+.chck{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    font-size:25px
 }

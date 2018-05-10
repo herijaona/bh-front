@@ -20,4 +20,8 @@ export class TeamsService extends BaseHttpService {
 	deleteTmV(arg){
 		return this.fetch('delete','team_front_video', {tm_video_id : arg}).toPromise();
 	}
+
+	updatetmvData(arg){
+		return this.fetch('put','team_front_video', arg).toPromise();
+	}
 }

@@ -1,12 +1,9 @@
 <div class="row">
-	<div *ngIf="editPAGEstatus" class="">
-		<button (click)="AddNew()" class="btn btn-info"><i class="fa fa-plus"></i></button>
-	</div>
+  <div *ngIf="editPAGEstatus" class="">
+    <button (click)="AddNew()" class="btn btn-info"><i class="fa fa-plus"></i></button>
+  </div>
 </div>
-
 <front-vteam  *ngFor="let item of dataTeamFront" [vteamDATA]= "item"></front-vteam>
-
-
 <!-- Modal -->
 <div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">
@@ -16,14 +13,33 @@
       <div class="modal-header light-blue darken-3 white-text">
         <h4 class="title"><i class="fa fa-pencil"></i> Add New Zone </h4>
         <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
-          <span aria-hidden="true">×</span>
+        <span aria-hidden="true">×</span>
         </button>
       </div>
       <!--Body-->
       <div class="modal-body mb-0">
-        <team-front-new [do_action]='tmVideoAction'></team-front-new>
+        <team-front-new [tmv_data]='tmVideoData' [do_action]='tmVideoAction'></team-front-new>
       </div>
     </div>
     <!--/.Content-->
+  </div>
+</div>
+
+
+<div mdbModal #showVideo="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div *ngIf="showDataState" class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="showVideoCLose()">
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div [innerHtml]="videoTeam|bhSafeHtml" class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        m            
+      </div>
+    </div>
   </div>
 </div>

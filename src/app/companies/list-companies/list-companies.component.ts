@@ -5,7 +5,7 @@ import { SharedNotificationService } from "../../services/shared-notification/sh
 import { CompanyService } from "../../services/company/company.service";
 
 @Component({
-	selector: "app-list-companies",
+	selector: "list-companies",
 	templateUrl: "./list-companies.component.html",
 	styleUrls: ["./list-companies.component.scss"]
 })

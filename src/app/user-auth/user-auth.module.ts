@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
@@ -19,13 +19,12 @@ import { ProfileComponent } from "./profile/profile.component";
 
 import { Routes, RouterModule } from "@angular/router";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
-import { HeaderProfileComponent } from './header-profile/header-profile.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-   GeneralUtilitiesModule,
+   GeneralUtilitiesModule,FormsModule,
     MDBBootstrapModule,
     RouterModule,
     Ng4GeoautocompleteModule.forRoot()
@@ -38,8 +37,7 @@ import { HeaderProfileComponent } from './header-profile/header-profile.componen
     LoginComponent,
     NotifComponent,
     ProfileComponent,
-    ResetPasswordComponent,
-    HeaderProfileComponent
+    ResetPasswordComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService]

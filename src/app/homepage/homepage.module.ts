@@ -4,10 +4,11 @@ import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { Routes, RouterModule } from "@angular/router";
 
+import { CompaniesModule } from "../companies/companies.module";
 import { HomepageComponent } from "./homepage/homepage.component";
 import { HomesliderComponent } from "./homeslider/homeslider.component";
 @NgModule({
-	imports: [CommonModule, MDBBootstrapModule, RouterModule],
+	imports: [CommonModule, MDBBootstrapModule, RouterModule, CompaniesModule],
 	declarations: [HomepageComponent, HomesliderComponent],
 	exports: [HomepageComponent, HomesliderComponent],
 	schemas: [NO_ERRORS_SCHEMA]
