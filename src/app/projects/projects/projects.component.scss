@@ -89,12 +89,12 @@
         border-bottom: 1px solid #b9b7b7;
         font-size: 19px;
         padding-bottom: 17px;
-        font-family: "SourceSansPro-bold";
+        font-family: SourceSansPro-bold;
     }
     p{
         color: gray;
         font-size: 15px;
-        font-family: "SourceSansPro-Lighter";
+        font-family: SourceSansPro-Regular;
     }
 }
 .btn-wnt{
@@ -130,6 +130,9 @@
     font-size: 13px;
     margin-left: 15px;
     margin-top: -27px;
+    li a{
+        color: gray;
+    }
     span{
         color: gray;
         padding-left:5px;
@@ -142,4 +145,19 @@
     line-height: 65px;
     box-shadow: 0px 0px 3px 1px #b9b9b9;
     padding: 42px 42px 5px 42px;
+}
+.create-new{
+    position:relative;
+}
+.ed-2{
+    box-shadow: 0.2px 0px 0.1px 1px #e84d3f;
+}
+.btn-unique-edit{
+    background: linear-gradient(-90deg, #e83936, #f94d37);
+    font-family: SourceSansPro-Bold;
+    margin-bottom: 15px;
+    margin-top: 27px;
+}
+.list-ul{
+    font-family: SourceSansPro-Regular;
 }

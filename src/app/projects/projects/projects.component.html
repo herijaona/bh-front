@@ -1,143 +1,86 @@
-<div class="jumbotron bg-mind">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-two grid">
-        <a class="navbar-brand nr-brand" href="#"><img class="img-responsive" src="{{g.base_href}}assets/img/logo2.png" width="120"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="list-nav">
-            <li><h1>Pfizer</h1></li>
-            <li>
-                <ul class="navbar-nav">
+<page-header [pageCurrent]="projet_page"></page-header>
+<edit-page-button> </edit-page-button>
+
+<div class="container-fluid grid grid-top">
+  <div class="create-new">
+    <button (click)="create_new()" class="btn btn-unique-edit ed-2">add a new project</button>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top-team">
+      <div class="" #newRef> </div>
+      <div class="projects-list">
+        <div class="navbar-expand-lg">
+          <div>
+            <ul class="list-nav list-ul">
+              <li>
+                <h3><i class="fa fa-square"></i><span>Offre de produit/service pour les séniors</span></h3></li>
+              <li>
+                <ul class="navbar-nav nav-down">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="#"><i class="fa fa-clock-o"></i><span>Answer delay: 3Days</span></a>
                   </li>
                 </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
-  </div>
-  <nav class="bg-light nav-one">
-    <div class="navbar navbar-expand-lg navbar-light grid">
-        <a class="navbar-brand" href="#"><img class="img-responsive img-logo" src="{{g.base_href}}assets/img/logo2.png" width="120"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse nav-col" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ideas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Mindset</a>
-            </li>
-          </ul>
-        </div>
-    </div>
-  </nav>
-    <div class="container-fluid grid grid-top">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top-team">
-              <div class="projects-list">
-                  <div class="navbar-expand-lg">
-                    <div>
-                      <ul class="list-nav">
-                        <li><h3><i class="fa fa-square"></i><span>Offre de produit/service pour les séniors</span></h3></li>
-                        <li>
-                            <ul class="navbar-nav nav-down">
-                              <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-clock"></i><span>Answer delay: 3Days</span></a>
-                              </li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                        <ul class="list-nav">
-                          <li><h3><i class="fa fa-square"></i><span>Offre de produit/service pour les séniors</span></h3></li>
-                          <li>
-                              <ul class="navbar-nav nav-down">
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#"><i class="fa fa-clock"></i><span>Answer delay: 3Days</span></a>
-                                </li>
-                              </ul>
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
-                          <ul class="list-nav">
-                            <li><h3><i class="fa fa-square"></i><span>Offre de produit/service pour les séniors</span></h3></li>
-                            <li>
-                                <ul class="navbar-nav nav-down">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-clock"></i><span>Answer delay: 3Days</span></a>
-                                  </li>
-                                </ul>
-                            </li>
-                          </ul>
-                        </div>
-                  </div>
-              </div>
+              </li>
+            </ul>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 presentation">
-              <p>Le Lorem Ipsum est simplement du faux texte employé dans 
-                  la composition et la mise en page avant impression. Il a été popularisé 
-                  dans les années 1960 grâce à la vente de feuilles Letraset 
-                  contenant des passages du Lorem Ipsum, et, plus récemment, par 
-                  son inclusion dans des applications de mise en page de texte, 
-                  comme Aldus PageMaker.
-                </p>
-                <p>Le Lorem Ipsum est simplement du faux texte employé dans 
-                  la composition et la mise en page avant impression.
-                  Le Lorem Ipsum est le faux texte standard de l'imprimerie 
-                  depuis les années 1500, quand un peintre anonyme assembla 
-                  ensemble des morceaux de texte pour réaliser un livre spécimen 
-                  de polices de texte.
-                </p>
-                <p>Le Lorem Ipsum est simplement du faux texte employé dans 
-                    la composition et la mise en page avant impression.
-                    Le Lorem Ipsum est le faux texte standard de l'imprimerie 
-                    depuis les années 1500, quand un peintre anonyme assembla 
-                    ensemble des morceaux de texte pour réaliser un livre spécimen 
-                    de polices de texte.
-                </p>
+          <div>
+            <ul class="list-nav">
+              <li>
+                <h3><i class="fa fa-square"></i><span>Offre de produit/service pour les séniors</span></h3></li>
+              <li>
+                <ul class="navbar-nav nav-down">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-clock-o"></i><span>Answer delay: 3Days</span></a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list-nav">
+              <li>
+                <h3><i class="fa fa-square"></i><span>Offre de produit/service pour les séniors</span></h3></li>
+              <li>
+                <ul class="navbar-nav nav-down">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-clock-o"></i><span>Answer delay: 3Days</span></a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 presentation">
+      <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+      </p>
+      <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+      </p>
+      <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <div class="container-fluid">
+  <ckeditor [(ngModel)]="ckeditorContent" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+  </ckeditor>
+</div> -->

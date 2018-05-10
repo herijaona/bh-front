@@ -13,3 +13,40 @@
 	}
 
 }
+
+.modal-body iframe {
+	width:100% !important;
+}
+.btn-floating i{
+    font-size: 21px;
+    color: white;
+}
+.btn-floating{
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    width: 47px;
+    height: 47px;
+    padding: 10px 0px 5px 15px;
+    border-radius: 50%;
+    margin: 0px;
+    background-color: #d6970b;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+    width: 54.1px;
+    height: 52.1px;
+    width: 47px;
+    height: 47px;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.btn-mg{
+	position: relative;
+    top: 23px;
+    left: 51px;
+}
+.modal-header{
+    background: linear-gradient(-90deg, #e83936, #f94d37);
+}

@@ -17,12 +17,16 @@ export class TeamContentComponent implements OnInit {
   public editPAGEstatus: boolean = false;
   public contentEditState: boolean = false;
   public addNewState: boolean = false;
+  public showDataState: boolean = false;
   @ViewChild("form") myModal: ModalDirective;
+  @ViewChild("showVideo") showModal: ModalDirective;
   public dataTeamFront: any = [];
   public tmVideoAction: string;
-  private editAct = "tmVEdit";
-  private AddAct = "tmVAdd";
-  public tmVideoData : any ;
+  private editAct: string = "tmVEdit";
+  private AddAct: string = "tmVAdd";
+  public tmVideoData: any;
+  public dataToSHow: any;
+  public videoTeam: any;
 
   constructor(
     public g: Globals,
@@ -53,13 +57,16 @@ export class TeamContentComponent implements OnInit {
         case "tmodal_new":
           if (st.data == "end") {
             this.closeModalAddNEw();
+            this.getDataTeamFront(this.currentCompanySlug);
           }
           break;
         case "tmVideoFront":
           if (st.action == "refresh") {
-                this.getDataTeamFront(this.currentCompanySlug);            
-          } else if(st.action == "edit"){
-                this.editTmVideo(st.data);
+            this.getDataTeamFront(this.currentCompanySlug);
+          } else if (st.action == "edit") {
+            this.editTmVideo(st.data);
+          } else if (st.action == "show") {
+            this.showTeamVideo(st.data);
           }
           break;
         default:
@@ -69,19 +76,34 @@ export class TeamContentComponent implements OnInit {
     });
   }
 
+  showTeamVideo(data) {
+    this.showDataState = true;
+    this.dataToSHow = data;
+    this.videoTeam = data.iframe_;
+    setTimeout(() => {
+      console.log(data);
+      this.showModal.show();
+    }, 330);
+  }
+
   ngOnInit() {}
 
   AddNew() {
     this.addNewState = true;
-     this.tmVideoAction = this.AddAct;
+    this.tmVideoAction = this.AddAct;
     this.tmVideoData = null;
-    this.myModal.show();
+    setTimeout(() => {
+      this.myModal.show();
+    }, 300);
   }
+
   editTmVideo(data) {
     this.addNewState = true;
     this.tmVideoAction = this.editAct;
     this.tmVideoData = data;
-    this.myModal.show();
+    setTimeout(() => {
+      this.myModal.show();
+    }, 300);
   }
 
   async getDataTeamFront(sl_) {
@@ -99,6 +121,13 @@ export class TeamContentComponent implements OnInit {
     this.myModal.hide();
     setTimeout(() => {
       this.addNewState = false;
+    }, 330);
+  }
+
+  showVideoCLose() {
+    this.showModal.hide();
+    setTimeout(() => {
+      this.showDataState = false;
     }, 330);
   }
 }

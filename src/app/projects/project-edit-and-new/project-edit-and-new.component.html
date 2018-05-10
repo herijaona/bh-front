@@ -1,0 +1,28 @@
+<div class="">
+  	<div class="mb-20">
+  		<label class="grey-text-form">Nom  du projet </label>
+    <input type="text" name="pName" class="form-control-project">
+  	</div>
+    <div class="mb-20">
+    	<label class="grey-text-form"> Project Context</label>
+      <ckeditor [(ngModel)]="contextProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+    </div>
+    <div class="mb-20">
+    	<label class="grey-text-form"> Project Objectives</label>
+      <ckeditor [(ngModel)]="objectivesProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+    </div>
+    <div class="mb-20">
+    	<label class="grey-text-form">Proposal Requirements</label>
+      <ckeditor [(ngModel)]="proposalsRequirementEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+    </div>
+    <div class="mb-20">
+    	<label class="grey-text-form">Response time</label>
+    <input type="number" name="resonseTime" class="form-control-project">
+    <div class="">
+    	<button  (click)="saveProjects()" class="btn btn-unique-edit ed-2">Save</button>
+    </div>
+    </div>
+</div>

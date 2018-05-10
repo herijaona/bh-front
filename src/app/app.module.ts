@@ -19,6 +19,7 @@ import { SharedNotificationService } from "./services/shared-notification/shared
 import { BaseHttpService } from "./services/base-http/base-http.service";
 import { CompanyService } from "./services/company/company.service";
 import { RequestInterceptorService } from "./services/request-interceptor/request-interceptor.service";
+/*pipe*/
 
 /*Modules impot*/
 import { UserAuthModule } from "./user-auth/user-auth.module";

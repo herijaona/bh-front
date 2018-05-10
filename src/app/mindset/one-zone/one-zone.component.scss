@@ -134,4 +134,25 @@
     -ms-flex-wrap: wrap;
     box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
 }
+@media (min-width: 576px){
+.modal-dialog {
+    margin: 1.75rem auto;
+    max-width: 60%;
+    }
+}
+.modal-header{
+    background: linear-gradient(-90deg, #e83936, #f94d37);
+}
+.close{
+    position: relative;
+    float: right;
+    right: -43px;
+    padding: 1px;
+    font-size: 32px;
+}
+.modal-body{
+    img{
+        max-height: 710px;
+    }
+}
 /* end chiffre */

@@ -20,8 +20,9 @@
     </div>
     <div class="mg-left">
       <ngx-masonry [useImagesLoaded]="true" [options]="masonry_option">
+
         <ngx-masonry-item *ngFor="let item of allZ" class="masonry-item normal mb-1">
-          <div class="grid-item  bbsh">
+          <div class="bbsh">
             <one-zone [dataZone]="item" [size_]="1" [znWindth_]="myWindth"></one-zone>
           </div>
         </ngx-masonry-item>
@@ -49,12 +50,3 @@
     <!--/.Content-->
   </div>
 </div>
-<script src="">
-let de = new Masonry('ngx-masonry', {
-  itemSelector: ".grid-item",
-  columnWidth: ".grid-size",
-  percentPosition: true,
-  gutter: 10
-});
-
-</script>

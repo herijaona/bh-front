@@ -1,12 +1,14 @@
-import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { CompanyService } from "../../services/company/company.service";
 
+
 @Component({
 	selector: "presentation-side",
 	templateUrl: "./presentation-side.component.html",
-	styleUrls: ["./presentation-side.component.scss"]
+	styleUrls: ["./presentation-side.component.scss"],
+	encapsulation: ViewEncapsulation.None,
 })
 export class PresentationSideComponent implements OnInit {
 	public current_section: string = "presentation";

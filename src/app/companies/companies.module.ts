@@ -34,6 +34,7 @@ import { AdminZoneComponent } from "./utilprofile/admin-zone/admin-zone.componen
     EventOnCompProfileComponent,
     AdminZoneComponent
   ],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
+  exports:[ListCompaniesComponent]
 })
 export class CompaniesModule {}
