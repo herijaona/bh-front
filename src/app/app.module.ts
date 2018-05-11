@@ -18,6 +18,7 @@ import { Globals } from "./globals/globals";
 import { SharedNotificationService } from "./services/shared-notification/shared-notification.service";
 import { BaseHttpService } from "./services/base-http/base-http.service";
 import { CompanyService } from "./services/company/company.service";
+import { ProjectsService } from "./services/projects/projects.service";
 import { RequestInterceptorService } from "./services/request-interceptor/request-interceptor.service";
 /*pipe*/
 
@@ -34,7 +35,7 @@ import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
 import { ProfileAdminModule } from "./profile-admin/profile-admin.module";
 import { MembersAdminModule } from "./members-admin/members-admin.module";
-import { TabModule } from 'angular-tabs-component';
+import { TabModule } from "angular-tabs-component";
 
 /* Component import */
 import { AppComponent } from "./app.component";
@@ -75,8 +76,10 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     AuthguardService,
     Globals,
     RequestInterceptorService,
-    SharedNotificationService,TeamsService,
+    SharedNotificationService,
+    TeamsService,
     BaseHttpService,
+    ProjectsService,
     CompanyService
   ],
   bootstrap: [AppComponent],

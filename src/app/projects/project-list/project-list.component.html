@@ -1,0 +1,26 @@
+<div class="projects-list">
+  <div class="navbar-expand-lg">
+    <div *ngFor="let item of listData">
+      <ul class="list-nav list-ul">
+        <li>
+          <a class="re" [routerLink]="[ '/open-innovation' , currentCompanySlug , 'details-project' , item._id ]">
+            <h3><i class="fa fa-square"></i><span>{{item.name}}</span></h3>
+          </a>
+        </li>
+        <li>
+          <ul class="navbar-nav nav-down">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>--location--</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-clock-o"></i><span>Answer delay: {{item.responseTimeValue }} {{item.responseTimeUnit}} </span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

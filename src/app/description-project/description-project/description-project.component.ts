@@ -10,5 +10,6 @@ export class DescriptionProjectComponent implements OnInit {
 	public projet_page: string = "projet_page";
 	constructor(public g: Globals) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+	}
 }
