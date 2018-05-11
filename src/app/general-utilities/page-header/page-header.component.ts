@@ -14,10 +14,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	@Input("pageCurrent")
 	set pageCurrent(e) {
 		this.pCurrent = e.split("_")[0];
-		console.log(e);
-		console.log(this.pCurrent);
 		Object.keys(this.isactivePage).forEach((val, i) => {
-			console.log(val);
 			if (val == this.pCurrent) {
 				this.isactivePage[val] = true;
 			} else {

@@ -6,6 +6,7 @@ import {
 	ViewContainerRef
 } from "@angular/core";
 import { Globals } from "./../../globals/globals";
+import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { ProjectEditAndNewComponent } from "../project-edit-and-new/project-edit-and-new.component";
 
 @Component({
@@ -15,6 +16,7 @@ import { ProjectEditAndNewComponent } from "../project-edit-and-new/project-edit
 })
 export class ProjectsComponent implements OnInit {
 	public projet_page = "projet_page";
+	public editPAGEstatus: boolean = false;
 	public ckeditorContent: any;
 	@ViewChild("newRef", {
 		read: ViewContainerRef
@@ -23,8 +25,19 @@ export class ProjectsComponent implements OnInit {
 
 	constructor(
 		public g: Globals,
-		private componentFactoryResolver: ComponentFactoryResolver
-	) {}
+		private componentFactoryResolver: ComponentFactoryResolver,
+		private sh: SharedNotificationService
+	) {
+		this.sh.notifButton$.subscribe((st: any) => {
+			if (st.no == "clck") {
+				if (!st.state) {
+					this.editPAGEstatus = false;
+				} else {
+					this.editPAGEstatus = true;
+				}
+			}
+		});
+	}
 
 	ngOnInit() {}
 

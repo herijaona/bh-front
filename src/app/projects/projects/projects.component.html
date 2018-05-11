@@ -2,7 +2,7 @@
 <edit-page-button> </edit-page-button>
 
 <div class="container-fluid grid grid-top">
-  <div class="create-new">
+  <div *ngIf="editPAGEstatus" class="create-new">
     <button (click)="create_new()" class="btn btn-unique-edit ed-2">add a new project</button>
   </div>
   <div class="row">
