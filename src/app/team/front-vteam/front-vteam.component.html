@@ -1,4 +1,8 @@
 <div  class="container-fluid grid grid-top">
+	<div *ngIf="editPAGEstatus" class="post-top">
+				<button (click)="tmVEdit()" class="btn btn-info erew"><i class="fa fa-pencil-square-o"></i></button>
+				<button (click)="tmVDelete()" class="btn btn-info erew2"><i class="fa fa-trash-o"></i></button>
+	</div>
 	<div class="row">
 		<div (click)="tmVShow()" class="col-team top-team">
 			<img class="img-responsive img-clip-path" [src]="teamVideoData.im_poster" width="100%" height="100%">
@@ -11,7 +15,6 @@
 			</div>
 			<div class="overlay_"><i class="fa fa-search chck" ></i></div>
 		</div>
-
 		<div class="col-team-2 presentation mt-4p">
 			<p>
 			{{teamVideoData.textTeam}}
@@ -20,11 +23,7 @@
 				<a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">vous avez une question<i class="fa fa-question-circle icon-question"></i></a>
 				<a class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>
 			</p>
-		</div	>
+		</div>
 	</div>
-<hr class="grid-hr hr">
 </div>
-<div *ngIf="editPAGEstatus" class="">
-	<button (click)="tmVEdit()" class="btn btn-info erew"><i class="fa fa-pencil-square-o"></i></button>
-	<button (click)="tmVDelete()" class="btn btn-info erew2"><i class="fa fa-trash-o"></i></button>
-</div>
+<hr>

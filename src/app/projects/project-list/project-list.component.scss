@@ -2,6 +2,7 @@
     line-height: 65px;
     box-shadow: 0px 0px 3px 1px #b9b9b9;
     padding: 42px 42px 5px 42px;
+    margin-bottom: 15px;
 }
 
 .list-nav{
@@ -22,6 +23,24 @@
     font-family: SourceSansPro-Regular;
 }
 
+@media(max-width:992px){
+    .nav-down{
+         flex-direction: row;
+        line-height: 8px;
+        margin-top: 5px !important;
+    z-index: 9;
+    li{
+        margin-right: 10px;
+    }
+  }
+}
+@media(max-width:491px){
+    .nav-down{
+    line-height: 18px;
+    margin-top: 5px;
+    flex-direction: column;
+  }
+}
 .nav-down{
     font-size: 13px;
     margin-left: 15px;

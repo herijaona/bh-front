@@ -125,7 +125,7 @@
     margin-right: -15px;
     margin-left: -15px;
     margin-top: -35px;
-    margin-bottom: -45px;
+    margin-bottom: -56px;
     @media(max-width:894px){
         margin-top: -5%;
         margin-bottom: -6%;
@@ -136,6 +136,10 @@
     }
 
 }
+hr{
+    margin-bottom: -22px;
+    width: 90%;
+}
 .grid-top{
     margin-bottom: 20px;
 }
@@ -145,14 +149,14 @@
 }
 .text-video{
     position: absolute;
-    bottom: 12%;
+    bottom: -1%;
     color: red;
     display: -ms-flexbox;
     display: flex;
     left: 27px;
     z-index: 1000;
     @media(max-width:474px){
-        bottom: 10px !important;
+        bottom: -6% !important;
         left: 8px;
         div:first-child{
             left: 16px !important;
@@ -221,8 +225,7 @@
   padding: 20px;
   text-align: center;
   height:100%;
-  z-index:990;
-  clip-path: inset(13% 0% 13% 0%);
+  z-index:1;
 }
 img::after{
 
@@ -238,17 +241,29 @@ img::after{
     left: 50%;
     font-size:25px
 }
-.img-clip-path{
-    clip-path: inset(13% 0% 13% 0%);
+
+@media(max-width:900px){
+    .img-clip-path{
+        max-width:100% !important;
+    }
+    .col-team{
+        height:100% !important;
+        width: 100% !important;
+    }
+    .col-team-2{
+        width: 100% !important;
+        padding: 0 !important;
+        margin-top: -1% !important;
+    }
 }
 .mt-4p{
-    margin-top:4%;
     @media(max-width:724px){
         margin-top: -8%
     }
 }
 .col-team{
     width:45%;
+    height: 460px;
     @media(max-width:724px){
         width: 100%;
     }
@@ -299,8 +314,20 @@ img::after{
     background: #d61b1b;
 }
 .btn .fa{
-        font-size: 1rem;
-        position: relative;
-        vertical-align: middle;
-        margin-top: -2px;
+    font-size: 1rem;
+    position: relative;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.bb-2{
+    border-bottom: 1px solid gray;
+}
+.mt-45{
+    margin-top:55px;
+}
+.post-top{
+    top: 35px;
+    position: relative;
+    z-index: 9;
+    left: -14px;
 }

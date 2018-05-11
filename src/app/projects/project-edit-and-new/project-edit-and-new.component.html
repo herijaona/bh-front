@@ -1,43 +1,43 @@
 <div class="">
-  <div class="mb-20">
-    <label class="grey-text-form">Nom du projet </label>
-    <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
-  </div>
-  <div class="mb-20">
-    <label class="grey-text-form"> Project Context</label>
-    <ckeditor [(ngModel)]="prModel.pr_contexte_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
-    </ckeditor>
-  </div>
-  <div class="mb-20">
-    <label class="grey-text-form"> Project Objectives</label>
-    <ckeditor [(ngModel)]="prModel.pr_objectif_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
-    </ckeditor>
-  </div>
-  <div class="mb-20">
-    <label class="grey-text-form">Proposal Requirements</label>
-    <ckeditor [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
-    </ckeditor>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
-      <div class="mb-20">
-        <label class="grey-text-form">Response time</label>
-        <input (change)="onChange($event)" type="number" [(ngModel)]="prModel.pr_responseTimeValue" name="resonseTime" class="form-control-project">
+   <div class="mb-20">
+      <label class="grey-text-form">Nom du projet </label>
+      <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
+   </div>
+   <div class="mb-20">
+      <label class="grey-text-form"> Project Context</label>
+      <ckeditor [(ngModel)]="prModel.pr_contexte_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+   </div>
+   <div class="mb-20">
+      <label class="grey-text-form"> Project Objectives</label>
+      <ckeditor [(ngModel)]="prModel.pr_objectif_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+   </div>
+   <div class="mb-20">
+      <label class="grey-text-form">Proposal Requirements</label>
+      <ckeditor [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
+      </ckeditor>
+   </div>
+   <div class="row">
+      <div class="col-md-6 col-sm-6">
+         <div class="mb-20">
+            <label class="grey-text-form">Response time</label>
+            <input (change)="onChange($event)" type="number" [(ngModel)]="prModel.pr_responseTimeValue" name="resonseTime" class="form-control-project">
+         </div>
       </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-      <div class="mb-20">
-        <label class="grey-text-form">Unit</label>
-        <select (change)="onChange($event)" [(ngModel)]="prModel.pr_responseTimeUnit">
-          <option value="Hour">Hours</option>
-          <option value="Day">Days</option>
-          <option value="Week">Weeks</option>
-          <option value="Month">Months</option>
-        </select>
+      <div class="col-md-6 col-sm-6">
+         <div class="mb-20">
+            <label class="grey-text-form">Unit</label>
+            <select (change)="onChange($event)" [(ngModel)]="prModel.pr_responseTimeUnit">
+            <option value="Hour">Hours</option>
+            <option value="Day">Days</option>
+            <option value="Week">Weeks</option>
+            <option value="Month">Months</option>
+            </select>
+         </div>
       </div>
-    </div>
-  </div>
-  <div class="">
-    <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2">Save</button>
-  </div>
+   </div>
+   <div class="">
+      <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2">Save</button>
+   </div>
 </div>
