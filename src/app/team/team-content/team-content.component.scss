@@ -13,10 +13,6 @@
 	}
 
 }
-
-.modal-body iframe {
-	width:100% !important;
-}
 .btn-floating i{
     font-size: 21px;
     color: white;
@@ -49,4 +45,8 @@
 }
 .modal-header{
     background: linear-gradient(-90deg, #e83936, #f94d37);
+    .close{
+        margin: -28px;
+        margin-right: 8px;
+    }
 }
