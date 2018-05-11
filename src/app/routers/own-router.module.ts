@@ -37,7 +37,7 @@ const routes: Routes = [
 	{ path: "open-innovation/:slug_acc/acceuil", component: MindsetComponent },
 	{ path: "open-innovation/:slug_acc/team", component: TeamComponent },
 	{ path: "open-innovation/:slug_acc/projects", component: ProjectsComponent },
-	{ path: "open-innovation/:slug_acc/projects/:id_project", component: DescriptionProjectComponent },
+	{ path: "open-innovation/:slug_acc/details-project/:project_id", component: DescriptionProjectComponent },
 	{ path: "team", component: TeamComponent },
 	{ path: "projects", component: ProjectsComponent },
 	{ path: "description-project", component: DescriptionProjectComponent },

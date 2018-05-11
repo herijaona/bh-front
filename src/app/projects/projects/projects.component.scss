@@ -24,19 +24,7 @@
         font-style: italic;
     }
 }
-.list-nav{
-    list-style: none;
-    padding: 0;
-    h3{
-        color: #e84d3f;
-        font-size: 13px;
-        font-family: "SourceSansPro-Regular";
-        span{
-            padding-left: 10px;
-            font-size: 16px;
-        }
-    }
-}
+
 .grid{
     width: 90%;
     margin: 0 auto;
@@ -172,7 +160,4 @@
     font-family: SourceSansPro-Bold;
     margin-bottom: 15px;
     margin-top: 27px;
-}
-.list-ul{
-    font-family: SourceSansPro-Regular;
 }

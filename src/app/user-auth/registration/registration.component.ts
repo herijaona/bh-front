@@ -32,6 +32,7 @@ export class RegistrationComponent implements OnInit {
     userSettings: any = {
         showSearchButton: false,
         showRecentSearch: false,
+        geoTypes:['(regions)', '(cities)'],
         showCurrentLocation: false,
         inputPlaceholderText: "Adresse: Ville, Pays ......"
     };
