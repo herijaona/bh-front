@@ -3,7 +3,7 @@
     <section-edit-button [section_]="company_cover" *ngIf="editPAGEstatus"></section-edit-button>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light nav-two grid">
-      <a class="navbar-brand nr-brand disp" href="#"><img class="img-responsive" src="{{g.base_href}}assets/img/logo-bh.JPG" width="170"></a>
+      <a class="navbar-brand nr-brand disp" href="#"><img class="img-responsive" src="{{g.base_href}}assets/img/logo-bh.JPG" width="175" height="175"></a>
       <div class="" id="navbarNav">
         <ul class="list-nav">
           <li><h1><span *ngIf="!company_nameEditMode">{{company_comm_name}}</span> <input [(ngModel)]="company_comm_name" *ngIf="company_nameEditMode" class="company_name_input" type="text" name="company_name_input"> <section-edit-button [section_]="company_name" *ngIf="editPAGEstatus"></section-edit-button></h1></li>
@@ -25,9 +25,9 @@
     </nav>
 
 </div>
-<nav class="bg-light nav-one">
+<nav class="nav-one">
   <div class="navbar navbar-expand-lg navbar-light grid">
-      <a class="navbar-brand" href="#"><img class="img-responsive img-logo" [src]="header_page_logo" height="170" width="170"></a>
+      <a class="navbar-brand" href="#"><img class="img-responsive img-logo" [src]="header_page_logo" height="175" width="175"></a>
      <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu" type="button"><i class="fa fa-bars"></i></button>
      <section-edit-button *ngIf="editPAGEstatus" class="butt_" [section_]="company_logo"></section-edit-button>
         <div class="nav-col " ng-class="textType" id="navbarNav">

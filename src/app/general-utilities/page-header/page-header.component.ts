@@ -103,7 +103,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		});
 	}
 	   toggleCollapse() {
-	   	this.hide = !this.hide;
+	this.hide = !this.hide;
     this.show = !this.show;
    	this.el.nativeElement.querySelector('.nav-col').classList.add('foo');
   }

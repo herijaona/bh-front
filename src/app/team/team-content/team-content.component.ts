@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Directive, Component, OnInit, ViewChild, ElementRef, Renderer2 } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -12,6 +12,10 @@ import { TeamsService } from "../../services/teams/teams.service";
   templateUrl: "./team-content.component.html",
   styleUrls: ["./team-content.component.scss"]
 })
+@Directive({
+  selector: '[appGoWild]'
+})
+
 export class TeamContentComponent implements OnInit {
   public currentCompanySlug: string;
   public editPAGEstatus: boolean = false;
@@ -29,6 +33,7 @@ export class TeamContentComponent implements OnInit {
   public videoTeam: any;
 
   constructor(
+    public el: ElementRef,
     public g: Globals,
     public sh: SharedNotificationService,
     private activRoute: ActivatedRoute,

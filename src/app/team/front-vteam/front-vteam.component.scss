@@ -145,25 +145,49 @@
 }
 .text-video{
     position: absolute;
-    bottom: 10%;
+    bottom: 12%;
     color: red;
     display: -ms-flexbox;
     display: flex;
-    left: 40px;
-    z-index:1000;
+    left: 27px;
+    z-index: 1000;
+    @media(max-width:474px){
+        bottom: 10px !important;
+        left: 8px;
+        div:first-child{
+            left: 16px !important;
+            i{
+        
+            font-size: 1rem !important;
+            padding: 8px 0px 8px 12px !important;
+            width: 33px !important;
+            }
+        }
+            div:last-child{
+            padding-left: 10px !important;
+        
+            h5{
+                font-size: 18px !important;
+            }
+            p{
+                font-size: 12px !important;
+            }
+        }
+    }
+
     div:last-child{
-    	color:white;
-    	padding-left: 20px;
-    	h5{
-    		font-family: SourceSansPro-Bold;
-    		font-size: 20px;
-    	}
-    	p{
-		    font-family: SourceSansPro-Regular;
-		    font-size: 14px;
-		    top: -7px;
-		    position: relative;
-    	}
+	color:white;
+	padding-left: 20px;
+	h5{
+		font-family: SourceSansPro-Bold;
+		font-size: 20px;
+	}
+	p{
+	    font-family: SourceSansPro-Regular;
+	    font-size: 14px;
+	    top: -7px;
+	    position: relative;
+	   }
     }
     div:first-child{
     	i{
@@ -186,13 +210,14 @@
   position: absolute; 
   top: 0; 
   background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  background: rgba(0, 0, 0, 0.6); /* Black see-through */
   color: #f1f1f1; 
   width: 100%;
   transition: .5s ease;
   opacity:0;
   color: white;
   font-size: 20px;
+  cursor:pointer;
   padding: 20px;
   text-align: center;
   height:100%;
