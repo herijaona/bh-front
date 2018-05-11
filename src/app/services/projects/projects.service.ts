@@ -18,4 +18,8 @@ export class ProjectsService extends BaseHttpService {
 			company_slug: arg
 		}).toPromise();
 	}
+
+	getProjectByID(arg) {
+		return this.fetch("get", "getProjectbyID", { projectID: arg }).toPromise();
+	}
 }

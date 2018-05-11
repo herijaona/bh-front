@@ -7,7 +7,6 @@ import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { MindsetComponent } from "./mindset/mindset.component";
 import { PresentationSideComponent } from "./presentation-side/presentation-side.component";
 import { QuillModule } from "ngx-quill";
-import { BhSafeHtmlPipe } from "../pipe/bh-safe-html.pipe";
 import { ZoneMindsetComponent } from "./zone-mindset/zone-mindset.component";
 import { NgxMasonryModule } from "ngx-masonry";
 import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
@@ -31,9 +30,8 @@ import { NewZoneMindsetComponent } from "./new-zone-mindset/new-zone-mindset.com
 		PresentationSideComponent,
 		ZoneMindsetComponent,
 		OneZoneComponent,
-		BhSafeHtmlPipe
 	],
 	schemas: [NO_ERRORS_SCHEMA],
-	exports: [BhSafeHtmlPipe]
+	exports: []
 })
 export class MindsetModule {}

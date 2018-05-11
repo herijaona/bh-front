@@ -7,6 +7,7 @@ import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { SectionEditButtonComponent } from "./section-edit-button/section-edit-button.component";
 import { EditPageButtonComponent } from "./edit-page-button/edit-page-button.component";
 import { ImSelectComponent } from "./im-select/im-select.component";
+import { BhSafeHtmlPipe } from "../pipe/bh-safe-html.pipe";
 import { PageHeaderComponent } from "./page-header/page-header.component";
 
 @NgModule({
@@ -21,13 +22,15 @@ import { PageHeaderComponent } from "./page-header/page-header.component";
 		PageHeaderComponent,
 		SectionEditButtonComponent,
 		EditPageButtonComponent,
-		ImSelectComponent
+		ImSelectComponent,
+		BhSafeHtmlPipe
 	],
 	exports: [
 		PageHeaderComponent,
 		SectionEditButtonComponent,
 		ImSelectComponent,
-		EditPageButtonComponent
+		EditPageButtonComponent,
+		BhSafeHtmlPipe
 	]
 })
 export class GeneralUtilitiesModule {}
