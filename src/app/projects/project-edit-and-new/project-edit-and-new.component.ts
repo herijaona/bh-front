@@ -3,9 +3,10 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ProjectsService } from "../../services/projects/projects.service";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
+declare const CKEDITOR: any;
 
 @Component({
-	selector: "app-project-edit-and-new",
+	selector: "project-edit-and-new",
 	templateUrl: "./project-edit-and-new.component.html",
 	styleUrls: ["./project-edit-and-new.component.scss"]
 })
@@ -120,5 +121,8 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 	onFocus(vent) {}
 	ngOnDestroy() {
 		this.sh.pushData({});
+		for (let x in CKEDITOR.instances) {
+        CKEDITOR.instances[x].destroy(true);
+    }
 	}
 }
