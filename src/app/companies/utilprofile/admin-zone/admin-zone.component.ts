@@ -85,7 +85,7 @@ export class AdminZoneComponent implements OnInit {
 	}
 
 	imBiblioShow(dt) {
-		this.cs.getImBiblio(dt).then((e: any) => {
+		this.cs.getImBiblio( dt , "account").then((e: any) => {
 			if (e) {
 				if (dt == "images") {
 					this.hasBiblioVideo = false;

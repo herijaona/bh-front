@@ -65,16 +65,21 @@ export class CompanyService extends BaseHttpService {
   updateCompanyImages(data): Promise<any> {
     return this.fetch("post", "updateCompanyImages", data, {}).toPromise();
   }
-  getImBiblio(data) {
+
+  getImBiblio(data, entity) {
     return this.fetch(
       "get",
       "biblioImageCompany",
-      {},
+      {
+        data: data,
+        entity: entity
+      },
       {
         "X-Type-Data": data
       }
     ).toPromise();
   }
+
   updatePagetoShow(w: any) {
     let dw = w.d;
     return this.fetch("post", "updateCompanyShowPage", dw).toPromise();
@@ -151,8 +156,8 @@ export class CompanyService extends BaseHttpService {
     }).toPromise();
   }
 
-  public getMyCompanData(){
-    return this.fetch('get', 'userCompanyDetails').toPromise();
+  public getMyCompanData() {
+    return this.fetch("get", "userCompanyDetails").toPromise();
   }
 
   getCompanyPresentation(parms) {
@@ -173,4 +178,6 @@ export class CompanyService extends BaseHttpService {
       company_slug: d
     }).toPromise();
   }
+
+  public getUsrImBiblio(arg) {}
 }

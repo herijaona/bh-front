@@ -34,6 +34,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	public addActText: string = "addNew";
 	public vidForm: FormGroup;
 	public imNotSelected: boolean = true;
+	public cpy_entity: string = "account";
 	public selctFlag: { [key: string]: boolean } = {
 		imAdd: true,
 		vidAdd: false,

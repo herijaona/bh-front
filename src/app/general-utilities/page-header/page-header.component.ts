@@ -39,6 +39,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	private logoDestFile = "logo_im";
 	private coverDestFile = "cover_im";
 	public company_name: string = "company_name";
+	public cpy_entity: string = "account";
 	public company_logo: string = "company_logo";
 	public company_cover: string = "company_cover";
 	public company_nameEditMode: boolean = false;
@@ -75,6 +76,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		private router: Router
 	) {
 		this.subscr.actvR = this.activRoute.params.subscribe((params_: any) => {
+			console.log(params_)
 			this.currentCompanySlug = params_["slug_acc"];
 			if (this.currentCompanySlug) {
 				this.getCurrentCompany(this.currentCompanySlug).then(
