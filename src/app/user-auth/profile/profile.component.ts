@@ -26,23 +26,16 @@ import { SharedNotificationService } from "../../services/shared-notification/sh
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   public details: UserDetails;
-  public profileImageItem: any;
-  public img_avatar: string;
   public mindset_page: string = "mindset_page";
   public EditForm: FormGroup;
   public editPInfo: boolean = false;
-  public selectedImage: boolean = false;
-  public toModifyIm: boolean = false;
   public editCompInfo: boolean = false;
   public editPassword: FormGroup;
   public showInfo: boolean = false;
   public isAdmin: boolean = false;
   public validUser: boolean = false;
   public accountData: any;
-  public cpy_entity: string = "user";
-  public dest_file: string = "profileImage";
   public uform: FormGroup;
-  @ViewChild("imProfileChanges") imModal: ModalDirective;
   public userSettings: any = {
     showSearchButton: false,
     showRecentSearch: false,
@@ -62,7 +55,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private route: Router,
     public g: Globals
   ) {
-    this.img_avatar = this.g.base_href + "assets/img/profile-placeholder.jpg";
     this.details = new UserDetails();
     this.EditForm = new FormGroup({
       bh_lastname: new FormControl("", [Validators.required]),
@@ -93,15 +85,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
-    this.sh.im_Selected$.subscribe((st: any) => {
-      if (st.select) {
-        if (st.destFile == this.dest_file) {
-          this.profileImageItem = st.data;
-          this.img_avatar = this.profileImageItem.url;
-          this.selectedImage = true;
-        }
-      }
-    });
+   
 
     try {
       let resp = await this.getProfile();
@@ -117,9 +101,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
             bh_email: this.details.email
           });
           this.validUser = true;
-          if (this.details.imageProfile) {
-            this.img_avatar = this.details.imageProfile;
-          }
 
           let accData: any = await this.auth.isAdminUser();
           if (accData.status == "OK") {
@@ -263,37 +244,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.editCompInfo = !this.editCompInfo;
   }
 
-  modifyProfileImage() {
-    this.selectedImage = false;
-    this.toModifyIm = true;
-    this.profileImageItem = {};
-    setTimeout(() => {
-      this.imModal.show();
-    }, 500);
-  }
-
-  async saveImProfile() {
-    try {
-      if (this.selectedImage) {
-        let re = await this.sendDataEdit({
-          imageProfile: this.profileImageItem._id
-        });
-        if (re == "DONE") {
-          setTimeout(() => {
-            this.hideProfileImModal();
-          }, 500);
-        }
-      }
-    } catch (e) {}
-  }
-  hideProfileImModal() {
-    this.selectedImage = false;
-    this.imModal.hide();
-    this.profileImageItem = {};
-    setTimeout(() => {
-      this.toModifyIm = false;
-    }, 500);
-  }
   ngOnDestroy() {
     this.sh.pushData({});
   }
