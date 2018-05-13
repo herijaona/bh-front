@@ -9,4 +9,5 @@ export class UserDetails {
   active = false;
   isAdmin =  false;
   accountAdmin = [];
+  imageProfile:string= ""
 }

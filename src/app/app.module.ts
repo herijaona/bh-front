@@ -23,7 +23,6 @@ import { RequestInterceptorService } from "./services/request-interceptor/reques
 /*pipe*/
 
 /*Modules impot*/
-import { ProfileAllModule } from "./profile-all/profile-all.module";
 import { UserAuthModule } from "./user-auth/user-auth.module";
 import { DescriptionProjectModule } from "./description-project/description-project.module";
 import { HomepageModule } from "./homepage/homepage.module";
@@ -59,7 +58,6 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     MembersAdminModule,
     TeamModule,
     NavbarModule,
-    ProfileAllModule,
     ReactiveFormsModule,
     OwnRouterModule,
     CompaniesModule,

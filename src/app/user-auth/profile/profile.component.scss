@@ -161,18 +161,18 @@
     letter-spacing: 0.3px;
 }
 
-.form-control{
-    width: 100%;
-    height: 25px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #e6e9ec;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    padding-left: 14px;
+.form-control , .custom-autocomplete input {
+    width: 100% !important ;
+    height: 25px !important ;
+    font-size: 1rem !important ;
+    line-height: 1.5 !important ;
+    color: #495057 !important ;
+    background-color: #fff !important ;
+    background-clip: padding-box !important ;
+    border: 1px solid #e6e9ec !important ;
+    border-radius: .25rem !important ;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important ;
+    padding-left: 14px !important ;
 }
 
 .mg-left-wt{
@@ -181,4 +181,24 @@
 
 .btn-unique-edit{
     background: linear-gradient(-90deg, #e83936, #f94d37);
+}
+
+.overlay_ {
+  position: absolute;
+  top: 0;
+  background: black;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 88%;
+  transition: .5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  height:100%;
+}
+
+.avatar:hover .overlay_ {
+	opacity: 0.8
 }

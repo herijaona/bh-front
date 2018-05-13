@@ -152,7 +152,7 @@ export class AdminZoneComponent implements OnInit {
 					all_im: ert.data.imUP,
 					acc_id: this.cs.getMycompanyId(),
 					ty_pe: tp
-				})
+				},"account")
 				.then((de: any) => {
 					this.sh.notifToast({
 						type: "success",

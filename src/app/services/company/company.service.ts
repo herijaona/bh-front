@@ -62,14 +62,26 @@ export class CompanyService extends BaseHttpService {
       );
     });
   }
-  updateCompanyImages(data): Promise<any> {
-    return this.fetch("post", "updateCompanyImages", data, {}).toPromise();
+  updateCompanyImages(data, entity): Promise<any> {
+    let ress: string;
+    if (entity == "account") {
+      ress = "updateCompanyImages";
+    } else if (entity == "user") {
+      ress = "updateUserImages";
+    }
+    return this.fetch("post", ress, data, {}).toPromise();
   }
 
   getImBiblio(data, entity) {
+    let ress: string;
+    if (entity == "account") {
+      ress = "biblioImageCompany";
+    } else if (entity == "user") {
+      ress = "biblioImageUser";
+    }
     return this.fetch(
       "get",
-      "biblioImageCompany",
+      ress,
       {
         data: data,
         entity: entity
