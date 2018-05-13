@@ -15,8 +15,8 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span class="pl-7">{{_addr}}</span></a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-globe"></i><span class="pl-7">www.bh.fr</span></a>
+                  <li *ngIf="hasWebSiteUrl" class="nav-item">
+                    <a class="nav-link" [href]="websiteUrl"><i class="fa fa-globe"></i><span [innerHtml]="websitUrl|bhSafeHtml" class="pl-7"></span></a>
                   </li>
               </ul>
           </li>
@@ -31,6 +31,8 @@
      <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu" type="button"><i class="fa fa-bars"></i></button>
      <section-edit-button *ngIf="editPAGEstatus" class="butt_" [section_]="company_logo"></section-edit-button>
         <div class="nav-col " ng-class="textType" id="navbarNav">
+
+          <ng-template [ngIf]="FrontMenu">
           <ul *ngIf="pagetoShow" class="navbar-nav mg-4">
             <li *ngIf="pagetoShow.pMindset" class="nav-item" [ngClass]="{'active': isactivePage.mindset}">
               <a [routerLink]="['/open-innovation',currentCompanySlug,'acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
@@ -48,6 +50,28 @@
               <a class="nav-link" href="#">SuccessStory</a>
             </li>
           </ul>
+        </ng-template>
+
+          <ng-template [ngIf]="!FrontMenu">
+          <ul  class="navbar-nav mg-4">
+            <li  class="nav-item" [ngClass]="{'active': isactivePage.mindset}">
+              <a [routerLink]="['/Administration']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+            </li>
+            <li  class="nav-item" [ngClass]="{'active': isactivePage.team}">
+              <a [routerLink]="['/members-admin']" class="nav-link" >Team</a>
+            </li>
+            <li   class="nav-item" [ngClass]="{'active': isactivePage.projet}">
+              <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
+            </li>
+            <li  class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
+                <a class="nav-link" href="#">Ideas</a>
+            </li>
+            <li  class="nav-item" [ngClass]="{'active': isactivePage.sstr}">
+              <a class="nav-link" href="#">SuccessStory</a>
+            </li>
+          </ul>
+        </ng-template>
+
         </div>
   </div>
 </nav>

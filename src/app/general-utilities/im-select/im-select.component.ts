@@ -74,7 +74,7 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 				let updateData = await this.cs.updateCompanyImages({
 					all_im: up_res["data"].imUP,
 					ty_pe: "images"
-				});
+				}, this.entity);
 				if (updateData) {
 					this.sh.notifToast({
 						type: "success",

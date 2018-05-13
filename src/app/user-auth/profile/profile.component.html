@@ -1,22 +1,26 @@
-<page-header [pageCurrent]="profil_page"></page-header>
-
-<div class="container-fluid grid grid-top">
+<page-header [pageCurrent]="mindset_page"></page-header>
+<div *ngIf="!showInfo" class="container-fluid grid grid-top">
   <h5 class="profile-h5">your profile</h5>
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-9">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <div class="">
             <div class="row">
               <div class="col-4">
                 <div class="avatar mx-auto my-3">
+                  <div class="">                    
                   <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="100%">
+                  <div (click)="modifyProfileImage()" class="overlay_">
+                    <i class="fa fa-photo chck"></i>
+                  </div>
+                  </div>
                 </div>
               </div>
               <div class="col-8 text-left font-my-3">
                 <h3 class="font-weight-bold">
-                        <strong>{{ details.lastname+' '+details.firstname }}</strong>
-                        </h3>
+              <strong>{{ details.lastname+' '+details.firstname }}</strong>
+              </h3>
                 <p class="grey-text-bold">{{ details.email }}
                   <br><span>{{ details.function }}</span></p>
                 <p class="span-connect"><span>349</span>&nbsp;connections<span>19</span>&nbsp;profils views</p>
@@ -39,148 +43,130 @@
         </div>
       </div>
       <hr>
-      <div class="title-edit">
-        <h4>Personnal info</h4>
-        <span>
-            <button type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">edit personnal info</span></button>
-        </span>
-      </div>
-       <form>
-          <div class="flex" style="width: 100%">
-            <span class="mg-left">
-                <label for="defaultFormRegisterNameEx" class="grey-text-form">Firstname</label>
-          <input type="text"  class="form-control col-xs-12">
-            </span>
-            <span class="mg-left-wt">
-                <label for="defaultFormRegisterNameEx" class="grey-text-form">Lastname</label>
-                <input type="text" class="form-control col-xs-12">
-              </span>
-          </div>
-          <br>
-          <div class="flex" style="width: 100%">
-              <span class="mg-left">
-                  <label for="defaultFormRegisterNameEx" class="grey-text-form">email</label>
-            <input type="email" class="form-control">
-              </span>
-              <span class="mg-left-wt">
-                  <label for="defaultFormRegisterNameEx" class="grey-text-form">function</label>
-                  <input type="text"  class="form-control">
-                </span>
-          </div>
-          <hr>
-          <div class="title-edit">
-              <h4>Connexion</h4>
-              <span>
-                  <button class="btn btn-unique-edit ed-2" type="submit"><i class="fa fa-check"></i><span class="edit-person">Save edit</span></button>
-              </span>
-          </div>
-          <div class="flex" style="width: 100%">
-              <span class="mg-left">
-                  <label for="defaultFormRegisterNameEx" class="grey-text-form">Password</label>
-                  <input type="password"  class="form-control">
-              </span>
-              <span class="mg-left-wt">
-                  <label for="defaultFormRegisterNameEx" class="grey-text-form">Confirm Password</label>
-                  <input type="password"  class="form-control">
-                </span>
-          </div>
-        </form>
+      <!-- Personal Info data -->
+      <form id="editForm_" class="" [formGroup]="EditForm" (ngSubmit)="EditProfile()">
+        <div class="title-edit">
+          <h4>Personnal info</h4>
+          <span>
+            <button *ngIf="!editPInfo" (click)='activeInfoEdit()' type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">edit personnal info</span></button>
+          <button *ngIf="editPInfo" [ngClass]="{'disabled': !EditForm.valid}" type="submit" class="btn  btn-block darken-edit ed"><i class="fa fa-check"></i><span class="edit-person">save</span></button>
+          </span>
+        </div>
+        <div class="flex" style="width: 100%">
+          <span class="mg-left">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">Firstname</label>
+            <input [attr.readonly]="!editPInfo ? true : null" type="text" formControlName="bh_firstname" id="bh_firstname" class="form-control col-xs-12">
+          </span>
+          <span class="mg-left-wt">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">Lastname</label>
+            <input [attr.readonly]="!editPInfo ? true : null" formControlName="bh_lastname" id="bh_lastname"  type="text" class="form-control col-xs-12">
+          </span>
+        </div>
+        <br>
+        <div class="flex" style="width: 100%">
+          <span class="mg-left">
+            <label for="defaultFormRegisterNameEx" [attr.readonly]="!editPInfo ? true : null" class="grey-text-form">email</label>
+            <input [attr.readonly]="!editPInfo ? true : null" type="email" formControlName="bh_email"  class="form-control">
+          </span>
+          <span class="mg-left-wt">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">function</label>
+            <input [attr.readonly]="!editPInfo ? true : null" type="text" formControlName="bh_functions" id="bh_functions" class="form-control" />
+          </span>
+        </div>
+      </form>
+      <hr>
+      <!-- PassWord Data -->
+      <form *ngIf="isAdmin" id="editPassword_" class="" [formGroup]="editPassword" (ngSubmit)="EditPassword()">
+        <div class="title-edit">
+          <h4>Connexion</h4>
+          <span>
+            <button [ngClass]="{'disabled':!editPassword.valid || editPassword.value.bh_passConf != editPassword.value.bh_pass }" class="btn btn-unique-edit ed-2" type="submit"><i class="fa fa-check"></i><span class="edit-person">Save edit</span></button>
+          </span>
+        </div>
+        <div class="flex" style="width: 100%">
+          <span class="mg-left">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">Password</label>
+            <input type="password" formControlName="bh_pass" id="bh_pass" class="form-control">
+          </span>
+          <span class="mg-left-wt">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">Confirm Password</label>
+            <input type="password" formControlName="bh_passConf" id="bh_passConf"  class="form-control">
+          </span>
+        </div>
+      </form>
+      <hr>
+      <!--   company Data  -->
+      <form class="swe" id="ewd" [formGroup]="uform" (ngSubmit)="onUpdateFormSubmit()">
+        <div class="title-edit">
+          <h4>Edit Organisation</h4>
+          <span>
+            <button (click)="activeCmpInfoEdit()" type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">edit personnal info</span></button>
+          </span>
+        </div>
+        <div class="flex" style="width: 100%">
+          <span class="mg-left">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">company name</label>
+            <input [attr.readonly]="!editCompInfo? true : null" type="text" formControlName="_acc_commercial"  class="form-control" placeholder="Enter your company name">
+          </span>
+          <span class="mg-left-wt">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">activity</label>
+            <input [attr.readonly]="!editCompInfo? true : null" type="text" formControlName="_acc_socialMean" class="form-control" placeholder="Enter your activity">
+          </span>
+        </div>
+        <br>
+        <div class="flex" style="width: 100%">
+          <span class="mg-left">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">type</label>
+            <input [attr.readonly]="!editCompInfo? true : null" type="text" formControlName="_orgType" class="form-control" placeholder="Technologie,Media">
+          </span>
+          <span class="mg-left-wt">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">location</label>
+            <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+          </span>
+        </div>
+        <br>
+        <div class="flex" style="width: 100%">
+          <span class="mg-left">
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">website</label>
+            <input [attr.readonly]="!editCompInfo? true : null" formControlName="_acc_websitLink"  type="url" class="form-control" placeholder="Your website link: http(s)://www. ....">
+          </span>
+          <span class="mg-left-wt">
+            <button [ngClass]="{'disabled': !editCompInfo }" class="btn btn-unique-edit btn-width ed-2" type="submit"><i class="fa fa-check"></i><span class="edit-person">Save edit</span></button>
+          </span>
+        </div>
+      </form>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<hr class="text-center">
-
-
-<h4 class="h1 text-center py-5">Votre profile</h4>
-<div class="container">
-  <div class="row" id="pr_data" *ngIf="!showInfo && validUser">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <section class="team-section pb-5 c-">
-        <div class="row text-center">
-          <div class="col-lg-12 col-md-12 mb-12">
-            <div class="card card-body">
-              <div class="row">
-                <div class="col-4">
-                  <div class="avatar mx-auto my-3">
-                    <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="100%">
-                  </div>
-                </div>
-                <div class="col-6 text-left">
-                  <h5 class="font-weight-bold">
-                                    <strong>{{ details.lastname }}</strong>
-                                    </h5>
-                  <h5 class="font-weight-bold">
-                                    <strong>{{ details.firstname }}</strong>
-                                    </h5>
-                  <p class="grey-text">{{ details.email }}</p>
-                  <p class="grey-text">{{ details.function }}</p>
-                  <ul class="list-unstyled">
-                    <a class="icons-sm fb-ic">
-                                            <i class="fa fa-facebook blue-text"> </i>
-                                        </a>
-                    <a class="icons-sm ins-ic">
-                                            <i class="fa fa-instagram blue-text"> </i>
-                                        </a>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="wt-100">
-          <div class="row">
-            <div class="col-6">
-              <button routerLink="/mindset" type="button" class="wt-100 btn btn-primary grey lighten-1 waves-effect waves-light">mindset</button>
-            </div>
-            <div class="col-6">
-              <button routerLink="/team" type="button" class="wt-100 btn btn-default grey lighten-1 waves-effect waves-light">team</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <button routerLink="/description-project" type="button" class="wt-100 btn btn-secondary grey lighten-1 waves-effect waves-light">Descrption project</button>
-            </div>
-            <div class="col-6">
-              <button routerLink="/projects" type="button" class=" wt-100 btn btn-success grey lighten-1 waves-effect waves-light">projects</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <button routerLink="/ideas" type="button" class="wt-100 btn btn-warning grey lighten-1 waves-effect waves-light">ideas</button>
-            </div>
-          </div>
-        </div>
-        <br>
-        <p class="grey-text pb-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
-      </section>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <h3><strong>Edit Info Personnel</strong></h3>
-      <form id="editForm_" class="" [formGroup]="EditForm" (ngSubmit)="EditProfile()">
-        <input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" />
-        <input type="text" formControlName="bh_firstname" id="bh_firstname" class="form-control" />
-        <input type="text" formControlName="bh_functions" id="bh_functions" class="form-control" />
-        <button type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Edit</button>
-      </form>
-      <hr>
-      <h3><strong>Edit Password</strong></h3>
-      <form id="editPassword_" class="" [formGroup]="editPassword" (ngSubmit)="EditPassword()">
-        <input type="password" formControlName="bh_pass" id="bh_pass" class="form-control" />
-        <input type="password" formControlName="bh_passConf" id="bh_passConf" class="form-control" />
-        <button [ngClass]="{'disabled':!editPassword.valid || editPassword.value.bh_passConf != editPassword.value.bh_pass }" type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Edit Password</button>
-      </form>
-    </div>
-  </div>
-  <div *ngIf="showInfo" class="alert alert-success" role="alert">
+<div class="container" *ngIf="showInfo">
+  <div class="alert alert-success" role="alert">
     <h4 class="alert-heading">Juste un pas de plus!</h4>
     <p>Oui, votre compte a été créé avec succès, ce message d'alerte est important. Pour accéder à l'ensemble de votre compte et à celui de votre entreprise, veuillez consulter votre adresse e-mail utilisée lors de l'inscription. Un e-mail a été envoyé pour activer votre compte.</p>
     <p class="mb-0"> Je vous remercie. </p>
+  </div>
+</div>
+
+<div *ngIf="toModifyIm" mdbModal #imProfileChanges="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Select Image</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hideProfileImModal()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-8">
+            <im-select [entity]="cpy_entity" [im_to]='dest_file'></im-select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm waves-light" data-dismiss="modal" (click)="hideProfileImModal()" mdbWavesEffect>Close</button>
+        <button (click)="saveImProfile()" [ngClass]="{disabled: !selectedImage }" type="button" class="btn btn-primary btn-sm waves-light" mdbWavesEffect>Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
