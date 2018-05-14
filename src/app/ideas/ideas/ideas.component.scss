@@ -72,7 +72,11 @@
     right: 21px;
     display: flex;
     margin: 8px;
+    z-index:1000;
     margin-right: 4px;
+    .itw{
+        margin:4px
+    }
     .fa-pen{
         color: #0077B5;
         font-size: 20px;
