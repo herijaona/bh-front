@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BaseHttpService } from "../base-http/base-http.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { SharedNotificationService } from "../shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
 @Injectable()
 export class CompanyService extends BaseHttpService {
@@ -9,8 +10,8 @@ export class CompanyService extends BaseHttpService {
     genFlag: "gen_flag",
     localCData: "accAdmin"
   };
-  constructor(public http: HttpClient, public g: Globals) {
-    super(http, g);
+  constructor(public http: HttpClient, public g: Globals, public sh: SharedNotificationService) {
+    super(http, g, sh);
   }
   setDataC(v) {
     localStorage.setItem(this.cLabel.localCData, JSON.stringify(v));

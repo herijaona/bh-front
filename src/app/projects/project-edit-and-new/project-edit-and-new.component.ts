@@ -30,18 +30,19 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 	};
 
 	public todoAct: string;
+	public accId: string;
 	public noValid: boolean = true;
 	public editAct: string = "EditAct";
 	public addAct: string = "AddAct";
 	public projform: FormGroup;
-	public dataPROJ: any;
-	@Input("to_do")
-	set to_do(arg) {
+	public prData: any;
+	@Input("todoAct_")
+	set todoAct_(arg) {
 		this.todoAct = arg;
 	}
-	@Input("projetData")
-	set projetData(arg) {
-		this.dataPROJ = arg;
+	@Input("prData_")
+	set prData_(arg) {
+		this.prData = arg;
 	}
 
 	constructor(
@@ -49,10 +50,33 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 		private pr: ProjectsService,
 		private sh: SharedNotificationService,
 		private el: ElementRef
-	) {}
+	) {
+		this.sh.busDataIn$.subscribe((st: any) => {
+			switch (st.from) {
+				case "editKeyGeneral":
+					this.accId = st.data;
+			}
+		});
+	}
 	ngOnInit() {
-		if ((this.todoAct = this.addAct)) {
-			// code...)
+		console.log("Current Data");
+		console.log(this.todoAct);
+		console.log(this.prData);
+		if ((this.todoAct = this.editAct)) {
+			this.getDataProject();
+		}
+	}
+
+	async getDataProject() {
+		try {
+			let prD: any = await this.pr.getProjectByID(this.prData._id);
+			if (prD.status == "OK") {
+				Object.keys(this.prModel).forEach(el => {
+					this.prModel[el] = prD.data[el.split("_")[1]];
+				});
+			}
+		} catch (e) {
+			console.log(e);
 		}
 	}
 
@@ -62,7 +86,13 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 			new_val[e.split("_")[1]] = this.prModel[e];
 		});
 		try {
-			let save_res: any = this.pr.saveNewsProject(new_val);
+			let save_res: any;
+			if ((this.todoAct = this.editAct)) {
+				let data = { edited: new_val, id_: this.prData._id };
+				save_res = await this.pr.saveEditProject(data);
+			} else {
+				save_res = await this.pr.saveNewsProject(new_val);
+			}
 			if (save_res) {
 				if (save_res.status == "OK") {
 					this.sh.notifToast({
@@ -71,7 +101,7 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 					});
 					this.el.nativeElement.style.display = "none";
 					this.sh.pushData({
-						from: "projects",
+						from: "projectNEW",
 						action: "refresh",
 						data: "end"
 					});
@@ -82,16 +112,6 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 	onReady(vent) {}
 	onChange(event) {
 		Object.keys(this.prModel).forEach(e => {
-			/*if (e == "prName") {
-				if (event.target.classList.contains("prN")) {
-					if (this.prModel[e].length == 0) {
-						this.inptErr.prN = true;
-					} else {
-						this.inptErr.prN = true;
-					}
-				}
-			}*/
-			console.log(this.prModel[e]);
 			if (this.prModel[e] != null) {
 				if (this.prModel[e].length == 0) {
 					// code...
@@ -103,7 +123,7 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 				this.buttSaveErr[e] = true;
 			}
 		});
-		console.log(this.buttSaveErr);
+
 		let vl = Object.values(this.buttSaveErr);
 		let iter = 0;
 		for (let i of vl) {
@@ -121,8 +141,8 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 	onFocus(vent) {}
 	ngOnDestroy() {
 		this.sh.pushData({});
-		for (let x in CKEDITOR.instances) {
-        CKEDITOR.instances[x].destroy(true);
-    }
+		/*for (let x in CKEDITOR.instances) {
+			CKEDITOR.instances[x].destroy(true);
+		}*/
 	}
 }

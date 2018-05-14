@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BaseHttpService } from "../base-http/base-http.service";
+import { SharedNotificationService } from "../shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
 
 @Injectable()
 export class TeamsService extends BaseHttpService {
-	constructor(public http: HttpClient, public g: Globals) {
-		super(http, g);
+	constructor(public http: HttpClient, public g: Globals, public sh: SharedNotificationService) {
+		super(http, g, sh);
 	}
 
 	teamFrontSaveData(arg: any) {

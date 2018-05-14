@@ -12,9 +12,6 @@ import { TeamsService } from "../../services/teams/teams.service";
   templateUrl: "./team-content.component.html",
   styleUrls: ["./team-content.component.scss"]
 })
-@Directive({
-  selector: '[appGoWild]'
-})
 
 export class TeamContentComponent implements OnInit {
   public currentCompanySlug: string;

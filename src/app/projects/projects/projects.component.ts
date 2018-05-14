@@ -19,6 +19,10 @@ export class ProjectsComponent implements OnInit {
 	public editPAGEstatus: boolean = false;
 	public projectPageEditStatus: boolean = false;
 	public ckeditorContent: any;
+	public toDoAction: string;
+	public prData: any;
+	public editAct: string = "EditAct";
+	public addAct: string = "AddAct";
 	public btnButtontext = "ADD A NEW PROJECT";
 	@ViewChild("newRef", {
 		read: ViewContainerRef
@@ -42,7 +46,22 @@ export class ProjectsComponent implements OnInit {
 		});
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.sh.busDataIn$.subscribe((st: any) => {
+			switch (st.from) {
+				case "projectNEW":
+					if (st.data == "end") {
+						this.projectPageEditStatus = false;
+					}
+					break;
+				case "editProject":
+					this.editProject(st.data);
+					break;
+				default:
+					break;
+			}
+		});
+	}
 
 	onChange($event: any): void {
 		console.log("onChange");
@@ -63,8 +82,26 @@ export class ProjectsComponent implements OnInit {
 		// ref.changeDetectorRef.detectChanges();
 	}*/
 
-	createNewPr(){
-		this.projectPageEditStatus = !this.projectPageEditStatus;
-		this.btnButtontext = this.projectPageEditStatus ? "Cancel" :  "ADD A NEW PROJECT";
+	createNewPr() {
+		if (!this.projectPageEditStatus) {
+			this.btnButtontext = "Cancel";
+			this.toDoAction = this.addAct;
+			this.prData = null;
+			setTimeout(() => {
+				this.projectPageEditStatus = true;
+			}, 330);
+		} else {
+			this.btnButtontext = "ADD A NEW PROJECT";
+			this.projectPageEditStatus = false;
+		}
+	}
+
+	editProject(i) {
+		this.btnButtontext = "Cancel";
+		this.toDoAction = this.editAct;
+		this.prData = i;
+		setTimeout(() => {
+			this.projectPageEditStatus = true;
+		}, 330);
 	}
 }
