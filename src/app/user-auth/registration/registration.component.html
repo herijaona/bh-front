@@ -110,8 +110,9 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="file-field">
-								<label for="bh_orgType">Logo File</label>
-								<input id="logoFile" type="file" accept="image/*" mdbFileSelect class="btn btn-primary btn-sm float-left waves-effect waves-light" mdbActive>
+								<input id="logoFile" type="file" accept="image/*" mdbFileSelect class="inputfile"  mdbActive>
+
+								<label for="logoFile" class="label-file"><i class="fa fa-upload"></i><strong>Choose a file</strong></label>
 								<span class="ferr_msg" *ngIf="fileError">Champ Obligatoire</span>
 							</div>
 						</div>

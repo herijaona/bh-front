@@ -1,8 +1,8 @@
 .err_msg {
-    top: -19px;
+	top: 80px;
     font-size: 10px;
     color: red;
-    position: relative;
+    position: absolute;
 }
 
 .ferr_msg {
@@ -275,11 +275,43 @@ h5{
     .log-in-register{
     	display:none;
     }
-    .file-up{
-   	position: absolute;
-    height: 52px;
-    width: 100%;
-    top: 0px;
-    opacity: 0;
-    left: -1px;
+    // .file-up{
+   	// position: absolute;
+    // height: 52px;
+    // width: 100%;
+    // top: 0px;
+    // opacity: 0;
+    // left: -1px;
+    // }
+
+    .inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.label-file{
+	font-size: 12px !important;
+    padding: 10px;
+    i{
+    	padding-right: 10px;
+    	font-size: 16px;
     }
+}
