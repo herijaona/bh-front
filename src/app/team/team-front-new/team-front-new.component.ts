@@ -81,9 +81,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 			};
 			this.im_poster = this.idVidYouTube.im_poster;
 			return video_id;
-		} else {
-			console.log("url not valid");
-		}
+		} 
 	}
 
 	async saveTeamVideoFront() {

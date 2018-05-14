@@ -59,7 +59,7 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 			console.log(e);
 		}
 	}
-	tmVShow() {
+	tmVShow2() {
 		this.sh.pushData({
 			from: "tmVideoFront",
 			action: "show",

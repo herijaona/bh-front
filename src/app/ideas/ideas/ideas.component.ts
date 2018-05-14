@@ -11,6 +11,9 @@ import { Globals } from "./../../globals/globals";
 	styleUrls: ["./ideas.component.scss"]
 })
 export class IdeasComponent implements OnInit {
+	public showDataState: boolean = false;
+	public dataToSHow: any;
+  	public videoTeamPlay: any;
 	public sstr_page: string = "sStr_page";
 	public currentCompanySlug: string;
 	public modalStateCnt: boolean = false;
@@ -23,6 +26,7 @@ export class IdeasComponent implements OnInit {
 
 	public editPAGEstatus: boolean = false;
 	@ViewChild("modalsstr") sstrModal: ModalDirective;
+  	@ViewChild("showVideoPlay") showModalPlay: ModalDirective;
 	public contentEditState: boolean = false;
 	constructor(
 		public g: Globals,
@@ -128,4 +132,20 @@ export class IdeasComponent implements OnInit {
 			this.sstrModal.show();
 		}, 330);
 	}
+
+	showTeamVideo(data) {
+	  	this.showDataState = true;
+	    this.dataToSHow = data;
+	    this.videoTeamPlay = this.sh.getiframeVideo(data.id_video);
+	    setTimeout(() => {
+	      this.showModalPlay.show();
+	    }, 330);
+	  }
+	showTeamVideoCLose() {
+    this.showModalPlay.hide();
+    setTimeout(() => {
+      this.showDataState = false;
+    }, 330);
+  }
+
 }
