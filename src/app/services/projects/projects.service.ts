@@ -27,4 +27,8 @@ export class ProjectsService extends BaseHttpService {
 	saveEditProject(arg) {
 		return this.fetch("put", "bh-projects", arg ).toPromise();
 	}
+
+	deleteProject(arg) {
+		return this.fetch("delete", "bh-projects", arg ).toPromise();
+	}
 }

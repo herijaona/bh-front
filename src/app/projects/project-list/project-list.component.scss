@@ -1,76 +1,100 @@
-.projects-list{
+.projects-list {
     line-height: 65px;
     box-shadow: 0px 0px 3px 1px #b9b9b9;
     padding: 42px 42px 5px 42px;
     margin-bottom: 15px;
 }
 
-.list-nav{
+.list-nav {
     list-style: none;
     padding: 0;
-    h3{
+
+    h3 {
         color: #e84d3f;
         font-size: 13px;
         font-family: "SourceSansPro-Regular";
-        span{
+
+        span {
             padding-left: 10px;
             font-size: 16px;
         }
+
     }
+
 }
 
-.list-ul{
+.list-ul {
     font-family: SourceSansPro-Regular;
 }
 
-@media(max-width:992px){
-    .nav-down{
-         flex-direction: row;
+@media(max-width:992px) {
+    .nav-down {
+        flex-direction: row;
         line-height: 8px;
         margin-top: 5px !important;
-    z-index: 9;
-    li{
-        margin-right: 10px;
+        z-index: 9;
+
+        li {
+            margin-right: 10px;
+        }
+
     }
-  }
+
 }
-@media(max-width:491px){
-    .nav-down{
-    line-height: 18px;
-    margin-top: 5px;
-    flex-direction: column;
-  }
+
+@media(max-width:491px) {
+    .nav-down {
+        line-height: 18px;
+        margin-top: 5px;
+        flex-direction: column;
+    }
+
 }
-.nav-down{
+
+.nav-down {
     font-size: 13px;
     margin-left: 15px;
     margin-top: -27px;
-    li a{
+
+    li a {
         color: gray;
     }
-    span{
+
+    span {
         color: gray;
-        padding-left:5px;
+        padding-left: 5px;
     }
-    svg{
+
+    svg {
         color: gray;
     }
+
 }
 
-.nav-one{
+.nav-one {
     margin-bottom: 45px;
     max-height: 51px;
     box-shadow: 0px 1px 2px 0px grey;
     padding-bottom: 0;
-    .nav-link{
+
+    .nav-link {
         background: transparent !important;
         color: rgba(0, 0, 0, 0.5) !important;
     }
-    ul li a{
+
+    ul li a {
         font-family: "SourceSansPro-bold";
     }
-    .active .nav-link{
+
+    .active .nav-link {
         border-bottom: 3px solid #e84d3f;
         color: rgba(0, 0, 0, 0.9) !important;
     }
+
+}
+
+.bnt-pr {
+    float: right;
+    position: relative;
+    top: -46px;
 }

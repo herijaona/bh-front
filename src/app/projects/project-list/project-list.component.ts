@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { ProjectsService } from "../../services/projects/projects.service";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 	templateUrl: "./project-list.component.html",
 	styleUrls: ["./project-list.component.scss"]
 })
-export class ProjectListComponent implements OnInit {
+export class ProjectListComponent implements OnInit, OnDestroy {
 	public currentCompanySlug: string;
 	public editPAGEstatus: boolean = false;
 	public listData: any;
@@ -50,8 +50,10 @@ export class ProjectListComponent implements OnInit {
 	}
 
 	async formatDataView() {
+		let allProject: any = [];
+		this.listData =[];
 		try {
-			let allProject: any = await this.pr.getCompanyProject(
+			allProject = await this.pr.getCompanyProject(
 				this.currentCompanySlug
 			);
 			console.log(allProject);
@@ -73,5 +75,17 @@ export class ProjectListComponent implements OnInit {
 			data: item
 		});
 	}
-	deleteProject(item) {}
+
+	async deleteProject(item) {
+		try {
+			let resDel = await this.pr.deleteProject(item);
+			this.formatDataView();
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	ngOnDestroy() {
+		this.sh.pushData({});
+	}
 }

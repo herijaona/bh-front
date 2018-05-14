@@ -7,9 +7,9 @@
             <h3><i class="fa fa-square"></i><span>{{item.name}}</span></h3>
           </a>
         </li>
-        <div *ngIf="editPAGEstatus" class="">
-          <button (click)="editProject(item)">edit</button>
-          <button (click)="deleteProject(item)">delete</button>
+        <div *ngIf="editPAGEstatus" class="bnt-pr">
+          <button class="btn btn-sm grey darken-3" (click)="editProject(item)">edit</button>
+          <button class="btn btn-sm red darken-4" (click)="deleteProject(item)">delete</button>
         </div>
         <li>
           <ul class="navbar-nav nav-down">
