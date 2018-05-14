@@ -13,11 +13,12 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
 	public button_text: string = "Edit";
 	public edit_state: boolean = false;
 	public isAdmin: boolean = false;
+	public currAccId: string;
 	public currentCompanySlug: string = "";
 
 	constructor(
 		private activRoute: ActivatedRoute,
-		private cs : CompanyService,
+		private cs: CompanyService,
 		private auth: AuthserviceService,
 		private sh: SharedNotificationService
 	) {
@@ -31,21 +32,33 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
 
 	isAdm() {
 		this.auth.isAdmin(this.currentCompanySlug).then((er: any) => {
-			this.isAdmin = er;
-			if (!er) {
+			this.isAdmin = er.resp;
+			if (!er.resp) {
 				this.sh.setLocalEditState(0);
-				this.sh.pageEditButton({ state: false, no:'clck' });
+				this.sh.pageEditButton({ state: false, no: "clck" });
+			} else {
+				this.currAccId = er.data;
 			}
 		});
 	}
 
 	show_hideAllEdit() {
 		if (this.edit_state) {
+			this.sh.pushData({
+				from: "editKeyGeneral",
+				action: "idACCOUNT",
+				data: ""
+			});
 			this.sh.setLocalEditState(0);
 			this.edit_state = false;
 			this.button_text = "Edit";
 			this.sh.pageEditButton({ state: false, no: "clck" });
 		} else {
+			this.sh.pushData({
+				from: "editKeyGeneral",
+				action: "idACCOUNT",
+				data: this.currAccId
+			});
 			this.sh.setLocalEditState(1);
 			this.edit_state = true;
 			this.button_text = "Leave Edit";
@@ -53,8 +66,9 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	ngOnDestroy() {    
-    this.cs.removeMycompanyId();
-    this.sh.pageEditButton({});
-  }
+	ngOnDestroy() {
+		this.cs.removeMycompanyId();
+		this.sh.pageEditButton({});
+		this.sh.pushData({});
+	}
 }

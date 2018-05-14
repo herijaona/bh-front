@@ -1,21 +1,19 @@
 <page-header [pageCurrent]="projet_page"></page-header>
 <edit-page-button> </edit-page-button>
-
 <div class="container-fluid grid grid-top">
   <div *ngIf="editPAGEstatus" class="create-new">
     <button (click)="createNewPr()" class="btn btn-unique-edit ed-2">{{btnButtontext}}</button>
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top-team anim">
-      <div *ngIf="projectPageEditStatus" class="" #newRef> 
-        <project-edit-and-new>
-          
+      <div *ngIf="projectPageEditStatus" class="" #newRef>
+        <project-edit-and-new [todoAct_]="toDoAction" [prData_]="prData">
         </project-edit-and-new>
       </div>
-
-      <project-list></project-list>
+      <div *ngIf="!projectPageEditStatus" class="">
+        <project-list></project-list>
+      </div>
     </div>
-
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 presentation">
       <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
       </p>

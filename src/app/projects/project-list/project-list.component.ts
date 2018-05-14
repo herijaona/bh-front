@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class ProjectListComponent implements OnInit {
 	public currentCompanySlug: string;
+	public editPAGEstatus: boolean = false;
 	public listData: any;
 	constructor(
 		public g: Globals,
@@ -22,24 +23,55 @@ export class ProjectListComponent implements OnInit {
 			this.currentCompanySlug = params_["slug_acc"];
 			this.formatDataView();
 		});
+
+		this.sh.notifButton$.subscribe((st: any) => {
+			if (st.no == "clck") {
+				if (!st.state) {
+					this.editPAGEstatus = false;
+				} else {
+					this.editPAGEstatus = true;
+				}
+			}
+		});
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.sh.busDataIn$.subscribe((st: any) => {
+			switch (st.from) {
+				case "projectNEW":
+					if (st.action == "refresh") {
+						this.formatDataView();
+					}
+					break;
+				default:
+					break;
+			}
+		});
+	}
 
 	async formatDataView() {
 		try {
 			let allProject: any = await this.pr.getCompanyProject(
 				this.currentCompanySlug
 			);
-			console.log(allProject)
+			console.log(allProject);
 			if (allProject.status == "OK") {
-				if(allProject.status == 'OK') {
+				if (allProject.status == "OK") {
 					this.listData = allProject.data;
-					console.log(this.listData)
+					console.log(this.listData);
 				}
 			}
 		} catch (e) {
-			console.log(e)
+			console.log(e);
 		}
 	}
+
+	editProject(item) {
+		this.sh.pushData({
+			from: "editProject",
+			action: "edit",
+			data: item
+		});
+	}
+	deleteProject(item) {}
 }

@@ -6,6 +6,8 @@ import { Router } from "@angular/router";
 import { UserDetails } from "../../models/user-detail.model";
 import { Globals } from "./../../globals/globals";
 import { BaseHttpService } from "../base-http/base-http.service";
+import { SharedNotificationService } from "../shared-notification/shared-notification.service";
+
 import { CompanyService } from "../company/company.service";
 
 export interface userDataPaylod {
@@ -28,9 +30,10 @@ export class AuthserviceService extends BaseHttpService {
     public http: HttpClient,
     public g: Globals,
     private router: Router,
+    public sh : SharedNotificationService,
     private cs: CompanyService
   ) {
-    super(http, g);
+    super(http, g, sh);
   }
 
   public saveUser(user: UserDetails): void {
@@ -90,10 +93,14 @@ export class AuthserviceService extends BaseHttpService {
               (re: any) => {
                 if (re.data_check_response) {
                   this.cs.storeMycompanyId(re._id_check);
-                  resolve(re.data_check_response);
+                  let resp = {
+                    resp: re.data_check_response,
+                    data: re._id_check
+                  }
+                  resolve(resp);
                 } else {
                   this.cs.removeMycompanyId();
-                  resolve(false);
+                  resolve({resp: false});
                 }
               },
               err => {
@@ -101,10 +108,10 @@ export class AuthserviceService extends BaseHttpService {
               }
             );
         } else {
-          resolve(false);
+          resolve({resp: false});
         }
       } else {
-        resolve(false);
+        resolve({resp: false});
       }
     });
   }
