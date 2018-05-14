@@ -1,14 +1,19 @@
 import {
+  Component,
+  OnInit,
   ElementRef,
   ViewChild,
+  ViewEncapsulation,
   ComponentFactoryResolver,
-  ViewContainerRef
+  ViewContainerRef,
+  OnDestroy
 } from "@angular/core";
-import { Component, OnInit } from "@angular/core";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
+import { CompanyService } from "../../services/company/company.service";
 import { UserDetails } from "../../models/user-detail.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ModalDirective } from "angular-bootstrap-md";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
 
@@ -16,20 +21,43 @@ import { SharedNotificationService } from "../../services/shared-notification/sh
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ["./profile.component.scss"]
 })
-export class ProfileComponent implements OnInit {
-  details: UserDetails;
+export class ProfileComponent implements OnInit, OnDestroy {
+  public details: UserDetails;
+  public profileImageItem: any;
   public img_avatar: string;
-  public profil_page: string = 'profil_page';
-  EditForm: FormGroup;
-  editPassword: FormGroup;
-  showInfo: boolean = false;
-  validUser: boolean = false;
+  public mindset_page: string = "mindset_page";
+  public EditForm: FormGroup;
+  public editPInfo: boolean = false;
+  public selectedImage: boolean = false;
+  public toModifyIm: boolean = false;
+  public editCompInfo: boolean = false;
+  public editPassword: FormGroup;
+  public showInfo: boolean = false;
+  public isAdmin: boolean = false;
+  public validUser: boolean = false;
+  public accountData: any;
+  public cpy_entity: string = "user";
+  public dest_file: string = "profileImage";
+  public uform: FormGroup;
+  @ViewChild("imProfileChanges") imModal: ModalDirective;
+  public userSettings: any = {
+    showSearchButton: false,
+    showRecentSearch: false,
+    geoTypes: ["(cities)"],
+    showCurrentLocation: false,
+    inputPlaceholderText: "Adresse: Ville, Pays ......"
+  };
+
+  private orgAddr: string = "";
+  private localAdded: boolean = false;
 
   constructor(
     private el: ElementRef,
     private auth: AuthserviceService,
+    private cs: CompanyService,
     public sh: SharedNotificationService,
     private route: Router,
     public g: Globals
@@ -39,6 +67,9 @@ export class ProfileComponent implements OnInit {
     this.EditForm = new FormGroup({
       bh_lastname: new FormControl("", [Validators.required]),
       bh_firstname: new FormControl("", [Validators.required]),
+      bh_email: new FormControl("", [
+        Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
+      ]),
       bh_functions: new FormControl("", [Validators.required])
     });
 
@@ -52,66 +83,115 @@ export class ProfileComponent implements OnInit {
         Validators.minLength(8)
       ])
     });
+
+    this.uform = new FormGroup({
+      _acc_commercial: new FormControl(""),
+      _acc_socialMean: new FormControl(""),
+      _acc_websitLink: new FormControl(""),
+      _orgType: new FormControl("")
+    });
   }
-  ngOnInit() {
-    this.getProfile()
-      .then(() => {
+
+  async ngOnInit() {
+    this.sh.im_Selected$.subscribe((st: any) => {
+      if (st.select) {
+        if (st.destFile == this.dest_file) {
+          this.profileImageItem = st.data;
+          this.img_avatar = this.profileImageItem.url;
+          this.selectedImage = true;
+        }
+      }
+    });
+
+    try {
+      let resp = await this.getProfile();
+      if (resp) {
         if (!this.details.active) {
           this.auth.removeUserItem();
-          let profile_data: HTMLInputElement = this.el.nativeElement.querySelector(
-            "#pr_data"
-          );
           this.showInfo = true;
         } else {
           this.EditForm.setValue({
             bh_lastname: this.details.lastname,
             bh_firstname: this.details.firstname,
-            bh_functions: this.details.function
+            bh_functions: this.details.function,
+            bh_email: this.details.email
           });
           this.validUser = true;
-        }
-      })
-      .then(() => {
-        this.sh.notifToast({
-          sc: "loadView"
-        });
-      });
-  }
-
-  getProfile() {
-    return new Promise((resolve, reject) => {
-      var savedUser: any = this.auth.getUser();
-      if (savedUser) {
-        this.details = savedUser;
-        resolve();
-      } else {
-        this.auth.profile().then(
-          user => {
-            this.details = this.auth.getUser();
-            resolve();
-          },
-          err => {
-            this.auth.logout();
+          if (this.details.imageProfile) {
+            this.img_avatar = this.details.imageProfile;
           }
-        );
+
+          let accData: any = await this.auth.isAdminUser();
+          if (accData.status == "OK") {
+            console.log(accData);
+            this.accountData = accData.data;
+         
+            let urlWebsite =
+              "websiteUrl" in this.accountData
+                ? this.accountData.websiteUrl
+                : "";
+            this.uform.setValue({
+              _acc_commercial: this.accountData.enseigneCommerciale,
+              _acc_socialMean: this.accountData.raisonSociale,
+              _acc_websitLink: urlWebsite,
+              _orgType: this.accountData.typeOrganisation
+            });
+
+            this.isAdmin = true;
+            let addr: any = JSON.parse(this.accountData.adresse);
+            let addrAcc = addr.description;
+            console.log("After JSON.parse");
+            console.log(addrAcc);
+            this.userSettings["inputString"] = addrAcc;
+            this.userSettings = Object.assign({}, this.userSettings);
+          }
+        }
       }
-    });
+    } catch (er) {
+      console.log(er);
+    }
   }
 
-  EditProfile() {
+  async getProfile() {
+    try {
+      let prdata = await this.auth.profile();
+      if (prdata) {
+        this.details = prdata;
+        return prdata;
+      }
+    } catch (ee) {
+      this.auth.logout();
+    }
+  }
+
+  async EditProfile() {
     let credential = {
       lastname: this.EditForm.value.bh_lastname,
       firstname: this.EditForm.value.bh_firstname,
+      email: this.EditForm.value.bh_email,
       function: this.EditForm.value.bh_functions
     };
-    this.auth.editprofile(credential).subscribe(
-      (details: any) => {
-        this.saveUser(details);
-        // this.details = user;
-        this.successAction();
-      },
-      err => {}
-    );
+    try {
+      let r: any = await this.sendDataEdit(credential);
+      if (r == "DONE") {
+        this.editPInfo = false;
+      }
+    } catch (e) {}
+  }
+
+  async sendDataEdit(arg) {
+    try {
+      let resp: any = await this.auth.editprofile(arg);
+      if (resp) {
+        if (resp.status == "OK") {
+          this.saveUser(resp.data);
+          this.successAction();
+          return "DONE";
+        }
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   saveUser(user: any) {
@@ -135,5 +215,86 @@ export class ProfileComponent implements OnInit {
       type: "success",
       message: "<p>Mis a jour Reussi</p>"
     });
+  }
+
+  activeInfoEdit() {
+    this.editPInfo = true;
+  }
+
+  autoCompleteCallback1(selectedData: any) {
+    if (selectedData.response) {
+      this.orgAddr = JSON.stringify(selectedData.data);
+      this.localAdded = true;
+    } else {
+      this.orgAddr = "";
+      this.localAdded = false;
+    }
+  }
+
+  /* Handle Company Update Data Info*/
+  onUpdateFormSubmit() {
+    var cr: { [key: string]: any } = {
+      raisonSociale: this.uform.value._acc_socialMean,
+      enseigneCommerciale: this.uform.value._acc_commercial,
+      websiteUrl: this.uform.value._acc_websitLink,
+      typeOrganisation: this.uform.value._orgType
+    };
+
+    if (this.localAdded) {
+      cr["adresse"] = this.orgAddr;
+    }
+
+    this.cs.updateDataInfo(cr).then(
+      (resp: any) => {
+        this.cs.setDataC(resp);
+        this.sh.notifToast({
+          type: "success",
+          message: "<p>Mis a jour Reussi</p>"
+        });
+        this.sh.pushData({ from: "editData", action: "refresh" });
+      },
+      err => {
+        console.log(err.error);
+      }
+    );
+  }
+
+  activeCmpInfoEdit() {
+    this.editCompInfo = !this.editCompInfo;
+  }
+
+  modifyProfileImage() {
+    this.selectedImage = false;
+    this.toModifyIm = true;
+    this.profileImageItem = {};
+    setTimeout(() => {
+      this.imModal.show();
+    }, 500);
+  }
+
+  async saveImProfile() {
+    try {
+      if (this.selectedImage) {
+        let re = await this.sendDataEdit({
+          imageProfile: this.profileImageItem._id
+        });
+        if (re == "DONE") {
+          setTimeout(() => {
+            this.hideProfileImModal();
+          }, 500);
+        }
+      }
+    } catch (e) {}
+  }
+  hideProfileImModal() {
+    this.selectedImage = false;
+    this.imModal.hide();
+    this.profileImageItem = {};
+    setTimeout(() => {
+      this.toModifyIm = false;
+    }, 500);
+  }
+  ngOnDestroy() {
+    this.sh.pushData({});
   }
 }

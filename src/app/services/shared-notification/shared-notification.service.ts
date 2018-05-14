@@ -106,7 +106,6 @@ export class SharedNotificationService {
 		this.busData.next(arg);
 	}
 
-
 	/*
 	* State of edit
 	*/
@@ -129,5 +128,16 @@ export class SharedNotificationService {
 			window.localStorage.removeItem("setTime");
 		}
 		return window.localStorage.setItem("EditState", st);
+	}
+
+	getVideoImPoster(videoID) {
+		return "https://img.youtube.com/vi/" + videoID + "/maxresdefault.jpg";
+	}
+	getiframeVideo(videoID) {
+		return (
+			"<iframe src='https://www.youtube.com/embed/" +
+			videoID +
+			"?controls=1&autoplay=1'></iframe>"
+		);
 	}
 }

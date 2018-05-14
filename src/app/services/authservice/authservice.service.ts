@@ -109,6 +109,18 @@ export class AuthserviceService extends BaseHttpService {
     });
   }
 
+  async isAdminUser() {
+    try {
+      let resp: any = await this.fetch("get", "Admincheck_role").toPromise();
+      if (resp.status == "OK") {
+        this.cs.storeMycompanyId(resp.data._id);
+      }
+      return resp;
+    } catch (er) {
+      
+    }
+  }
+
   public register(user: any): Observable<any> {
     return this.fetch("post", "register", user);
   }
@@ -140,7 +152,7 @@ export class AuthserviceService extends BaseHttpService {
             let l: UserDetails = new UserDetails();
             l = this.copydata(l, re);
             this.saveUser(l);
-            resolve(true);
+            resolve(l);
           },
           err => {
             reject(err.error);
@@ -149,10 +161,8 @@ export class AuthserviceService extends BaseHttpService {
     });
   }
 
-  
-
-  public editprofile(user: any): Observable<any> {
-    return this.fetch("post", "profile/edit", user);
+  public editprofile(user: any): Promise<any> {
+    return this.fetch("post", "profile/edit", user).toPromise();
   }
 
   public editpass(user: any): Observable<any> {
@@ -193,5 +203,4 @@ export class AuthserviceService extends BaseHttpService {
     });
     return user;
   }
-
 }

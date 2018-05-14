@@ -1,4 +1,11 @@
-import { Component, OnInit, OnDestroy, ViewChild, Input, ElementRef } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	OnDestroy,
+	ViewChild,
+	Input,
+	ElementRef
+} from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -14,10 +21,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	@Input("pageCurrent")
 	set pageCurrent(e) {
 		this.pCurrent = e.split("_")[0];
-		console.log(e);
-		console.log(this.pCurrent);
 		Object.keys(this.isactivePage).forEach((val, i) => {
-			console.log(val);
 			if (val == this.pCurrent) {
 				this.isactivePage[val] = true;
 			} else {
@@ -25,8 +29,8 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 			}
 		});
 	}
-	public show:boolean = false;
-	public hide:boolean = false;
+	public show: boolean = false;
+	public hide: boolean = false;
 	public pCurrent: string;
 	private subscr: {
 		[key: string]: Subscription;
@@ -42,12 +46,15 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	private logoDestFile = "logo_im";
 	private coverDestFile = "cover_im";
 	public company_name: string = "company_name";
+	public cpy_entity: string = "account";
 	public company_logo: string = "company_logo";
 	public company_cover: string = "company_cover";
 	public company_nameEditMode: boolean = false;
+	public hasWebSiteUrl: boolean = false;
 	public currentCompanySlug: string = "";
 	public _typeOrganisation: string = "----";
 	public _addr: string = "----";
+	public FrontMenu: boolean = true;
 	public pagetoShow: any;
 	public header_page_logo: string = this.g.base_href + "assets/img/logo2.png";
 	public header_page_cover: string = "url(" +
@@ -55,6 +62,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		"assets/img/logo2.png" +
 		")";
 	public company_comm_name: string = "";
+	public websiteUrl: string = "";
 	public editPAGEstatus: boolean = false;
 	public selectingImage: boolean = false;
 	public logoItem: {
@@ -69,8 +77,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	@ViewChild("form") myModal: ModalDirective;
 	public dest_file = "";
 	constructor(
-
-	public el: ElementRef,
+		public el: ElementRef,
 		public g: Globals,
 		public sh: SharedNotificationService,
 		private activRoute: ActivatedRoute,
@@ -78,35 +85,23 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		private router: Router
 	) {
 		this.subscr.actvR = this.activRoute.params.subscribe((params_: any) => {
+			console.log(params_);
 			this.currentCompanySlug = params_["slug_acc"];
-			if (this.currentCompanySlug) {
-				this.getCurrentCompany(this.currentCompanySlug).then(
-					(e: any) => {
-						if (e.status != 200) {
-							this.router.navigateByUrl("/");
-						}
-					},
-					e => {
-						this.router.navigateByUrl("/");
-					}
-				);
-			} else {
-				this.cs.getMyCompanData().then(
-					e => {
-						this.showData(e);
-					},
-					er => {
-						this.router.navigateByUrl("/");
-					}
-				);
+			this.getDataDetails();
+		});
+
+		this.sh.busDataIn$.subscribe((st: any) => {
+			if (st.from == "editData") {
+				this.getDataDetails();
 			}
 		});
 	}
-	   toggleCollapse() {
-	this.hide = !this.hide;
-    this.show = !this.show;
-   	this.el.nativeElement.querySelector('.nav-col').classList.add('foo');
-  }
+
+	toggleCollapse() {
+		this.hide = !this.hide;
+		this.show = !this.show;
+		this.el.nativeElement.querySelector(".nav-col").classList.add("foo");
+	}
 
 	ngOnInit() {
 		// this.editPAGEstatus = false;
@@ -154,6 +149,32 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 			}
 		});
 	}
+	getDataDetails() {
+		if (this.currentCompanySlug) {
+			this.FrontMenu = true;
+			this.getCurrentCompany(this.currentCompanySlug).then(
+				(e: any) => {
+					if (e.status != 200) {
+						this.router.navigateByUrl("/");
+					}
+				},
+				e => {
+					this.router.navigateByUrl("/");
+				}
+			);
+		} else {
+			this.FrontMenu = false;
+			this.cs.getMyCompanData().then(
+				e => {
+					this.showData(e);
+				},
+				er => {
+					this.router.navigateByUrl("/");
+				}
+			);
+		}
+	}
+
 	editCompanyLogo() {
 		this.selectingImage = true;
 		this.dest_file = this.logoDestFile;
@@ -261,6 +282,10 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		this.header_page_logo = rsp["Logo"];
 		if (rsp["coverImage"]) {
 			this.header_page_cover = "url(" + rsp["coverImage"] + ")";
+		}
+		if (rsp["websiteUrl"]) {
+			this.websiteUrl = "url(" + rsp["websiteUrl"] + ")";
+			this.hasWebSiteUrl = true;
 		}
 		this.company_comm_name = rsp["enseigneCommerciale"];
 		this.compDetails = rsp;

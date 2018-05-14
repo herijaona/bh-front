@@ -11,20 +11,6 @@ export class Globals {
 		removePlugins : 'elementspath' ,
 		toolbar: [
 			{
-				name: "clipboard",
-				groups: ["clipboard", "undo"],
-				items: [
-					"Cut",
-					"Copy",
-					"Paste",
-					"PasteText",
-					"PasteFromWord",
-					"-",
-					"Undo",
-					"Redo"
-				]
-			},
-			{
 				name: "basicstyles",
 				groups: ["basicstyles", "cleanup"],
 				items: [
@@ -61,7 +47,7 @@ export class Globals {
 					"SpecialChar"
 				]
 			},
-			{ name: "styles", items: ["Styles", "Format", "FontSize"] },
+			{ name: "styles", items: ["Styles", "Format"] },
 			{ name: "colors", items: ["TextColor", "BGColor"] },
 		]
 	};

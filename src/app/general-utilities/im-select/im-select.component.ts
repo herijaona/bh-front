@@ -10,6 +10,7 @@ import { ApiHttpService } from "../../services/api-http/api-http.service";
 })
 export class ImSelectComponent implements OnInit, OnDestroy {
 	@Input("im_to") dest_file: string;
+	@Input("entity") entity: string;
 	public hasImage: boolean = false;
 	public imbiblio: any;
 	public butt_up: boolean;
@@ -20,9 +21,10 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 		private apiHttp: ApiHttpService,
 		private sh: SharedNotificationService
 	) {}
+
 	async imBiblioShow() {
 		try {
-			let bblIm = await this.cs.getImBiblio("images");
+			let bblIm: any = await this.cs.getImBiblio("images", this.entity);
 			if (bblIm) {
 				this.hasImage = true;
 				this.imbiblio = bblIm["allIm"];
@@ -32,6 +34,7 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 			this.hasImage = false;
 		}
 	}
+
 	ngOnInit() {
 		this.imBiblioShow();
 	}
@@ -71,7 +74,7 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 				let updateData = await this.cs.updateCompanyImages({
 					all_im: up_res["data"].imUP,
 					ty_pe: "images"
-				});
+				}, this.entity);
 				if (updateData) {
 					this.sh.notifToast({
 						type: "success",

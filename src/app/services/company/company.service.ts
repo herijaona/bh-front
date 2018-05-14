@@ -62,19 +62,36 @@ export class CompanyService extends BaseHttpService {
       );
     });
   }
-  updateCompanyImages(data): Promise<any> {
-    return this.fetch("post", "updateCompanyImages", data, {}).toPromise();
+  updateCompanyImages(data, entity): Promise<any> {
+    let ress: string;
+    if (entity == "account") {
+      ress = "updateCompanyImages";
+    } else if (entity == "user") {
+      ress = "updateUserImages";
+    }
+    return this.fetch("post", ress, data, {}).toPromise();
   }
-  getImBiblio(data) {
+
+  getImBiblio(data, entity) {
+    let ress: string;
+    if (entity == "account") {
+      ress = "biblioImageCompany";
+    } else if (entity == "user") {
+      ress = "biblioImageUser";
+    }
     return this.fetch(
       "get",
-      "biblioImageCompany",
-      {},
+      ress,
+      {
+        data: data,
+        entity: entity
+      },
       {
         "X-Type-Data": data
       }
     ).toPromise();
   }
+
   updatePagetoShow(w: any) {
     let dw = w.d;
     return this.fetch("post", "updateCompanyShowPage", dw).toPromise();
@@ -151,8 +168,8 @@ export class CompanyService extends BaseHttpService {
     }).toPromise();
   }
 
-  public getMyCompanData(){
-    return this.fetch('get', 'userCompanyDetails').toPromise();
+  public getMyCompanData() {
+    return this.fetch("get", "userCompanyDetails").toPromise();
   }
 
   getCompanyPresentation(parms) {
@@ -173,4 +190,6 @@ export class CompanyService extends BaseHttpService {
       company_slug: d
     }).toPromise();
   }
+
+  public getUsrImBiblio(arg) {}
 }
