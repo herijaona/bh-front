@@ -46,7 +46,7 @@
       </form>
       <hr>
       <!-- PassWord Data -->
-      <form *ngIf="isAdmin" id="editPassword_" class="" [formGroup]="editPassword" (ngSubmit)="EditPassword()">
+      <form  id="editPassword_" class="" [formGroup]="editPassword" (ngSubmit)="EditPassword()">
         <div class="title-edit">
           <h4>Connexion</h4>
           <span>
@@ -66,7 +66,7 @@
       </form>
       <hr>
       <!--   company Data  -->
-      <form class="swe" id="ewd" [formGroup]="uform" (ngSubmit)="onUpdateFormSubmit()">
+      <form *ngIf="isAdmin" class="swe" id="ewd" [formGroup]="uform" (ngSubmit)="onUpdateFormSubmit()">
         <div class="title-edit">
           <h4>Edit Organisation</h4>
           <span>
