@@ -191,5 +191,22 @@ export class CompanyService extends BaseHttpService {
     }).toPromise();
   }
 
-  public getUsrImBiblio(arg) {}
+  public getAllSstr(arg) {
+    return this.fetch("get", "success-story-all", {
+      company_slug: arg
+    }).toPromise();
+  }
+
+  public sstrFrontSaveData(data) {
+    return this.fetch("post", "success-story-new", data).toPromise();
+  }
+
+  public deleteSstr(da) {
+    return this.fetch("delete", "success-story", da).toPromise();
+  }
+  public updatesstrData(da) {
+    return this.fetch("put", "success-story", da).toPromise();
+  }
+
+
 }

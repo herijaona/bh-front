@@ -3,36 +3,15 @@
 <div class="container-fluid grid grid-top">
   <div class="row">
     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-      <div class="card card-profile">
+      <div *ngIf="readyData" class="card card-profile">
           <div class="card-body">
               <div class="row">
-                  <div class="col-4">
-                      <div class="avatar mx-auto my-3">
-                          <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="100%">
-                      </div>
-                  </div>
-                  <div class="col-6 text-left font-my-3">
-                      <h3 class="font-weight-bold">
-                      <strong>John Doe</strong>
-                      </h3>
-                      <p class="grey-text-bold">johndoe@gmail.net<br><span>Director</span></p>
-                      <p class="span-connect"><span>349</span>&nbsp;connections<span>19</span>&nbsp;profils views</p>
-                  </div>
+                  <p-info [details_]="details"></p-info>
                   <div class="btn-edit-up">
-                      <button type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">edit profile</span></button>
+                      <button (click)="gotoProfileEdit()" type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">edit profile</span></button>
                   </div>
               </div>
-              <div class="profile-text">
-                  <div>Your profile is 97% complete</div>
-                  <div class="progress-out">
-                    <div class="progress-in"></div>
-                  </div>
-              </div>
-              <div class="enter-text">
-                <p>Enter your commerciale name</p>
-                <p>Enter your social reason</p>
-                <p>Enter your location</p>
-              </div>
+              <p-completion></p-completion>
           </div>
       </div>         
     </div>
@@ -41,45 +20,46 @@
             <div class="card-body">
                 <h5 class="profile-h5">Invite a coworker</h5>
                 <hr>
-                <form>
+                <form [formGroup]="inviteForm" (ngSubmit)="submitinvite()" >
                     <div class="flex">
                       <span class="mg-left">
                           <label for="defaultFormRegisterNameEx" class="grey-text-form">Firstname</label>
-                    <input type="text"  class="form-control">
+                    <input formControlName="firstname" type="text"  class="form-control">
                       </span>
                       <span class="mg-left-wt">
                           <label for="defaultFormRegisterNameEx" class="grey-text-form">Lastname</label>
-                          <input type="text" class="form-control">
+                          <input formControlName="lastname" type="text" class="form-control">
                         </span>
                     </div>
                     <div class="flex">
                         <span class="mg-left">
                             <label for="defaultFormRegisterNameEx" class="grey-text-form">email</label>
-                      <input type="email" class="form-control">
+                      <input formControlName="email" type="email" class="form-control">
                         </span>
                         <span class="mg-left-wt">
                             <label for="defaultFormRegisterNameEx" class="grey-text-form">invited for</label>
                             <p>
                                 <label class="custon-ch">
                                     <span>team</span>
-                                    <input type="checkbox" checked="checked">
+                                    <input formControlName="invAsTeam" type="checkbox" checked="checked">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="custon-ch ch-second">
                                     <span>comittee</span>
-                                    <input type="checkbox">
+                                    <input formControlName="invAsComm" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
                             </p>
                           </span>
                     </div>
-                        <button class="btn btn-unique-edit btn-width ed-2" type="submit"><span class="edit-person send-edit">Send invite</span></button>    
+                        <button  [ngClass]="{disabled: !inviteForm.valid}" class="btn btn-unique-edit btn-width ed-2" type="submit"><span class="edit-person send-edit">Send invite</span></button>    
                   </form> 
             </div>
         </div>  
     </div>
   </div>
 </div>
+
 <div class="container-fluid grid grid-top">
   <div class="card  table-card">
       <div class="card-body">

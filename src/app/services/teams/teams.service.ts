@@ -24,4 +24,8 @@ export class TeamsService extends BaseHttpService {
 	updatetmvData(arg){
 		return this.fetch('put','team_front_video', arg).toPromise();
 	}
+
+	public inviteTeam(da){
+		return this.fetch('post', 'invite-in-team', da).toPromise();
+	}
 }

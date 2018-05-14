@@ -34,20 +34,20 @@
 
           <ng-template [ngIf]="FrontMenu">
           <ul *ngIf="pagetoShow" class="navbar-nav mg-4">
-            <li *ngIf="pagetoShow.pMindset" class="nav-item" [ngClass]="{'active': isactivePage.mindset}">
+            <li  class="nav-item" [ngClass]="{'active': isactivePage.mindset}">
               <a [routerLink]="['/open-innovation',currentCompanySlug,'acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
             </li>
-            <li *ngIf="pagetoShow.pTeam" class="nav-item" [ngClass]="{'active': isactivePage.team}">
+            <li  class="nav-item" [ngClass]="{'active': isactivePage.team}">
               <a [routerLink]="['/open-innovation',currentCompanySlug,'team']" class="nav-link" >Team</a>
             </li>
-            <li *ngIf="pagetoShow.pProjects"  class="nav-item" [ngClass]="{'active': isactivePage.projet}">
+            <li   class="nav-item" [ngClass]="{'active': isactivePage.projet}">
               <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
             </li>
             <li *ngIf="pagetoShow.pIdeas" class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
                 <a class="nav-link" href="#">Ideas</a>
             </li>
-            <li *ngIf="pagetoShow.pSs" class="nav-item" [ngClass]="{'active': isactivePage.sstr}">
-              <a class="nav-link" href="#">SuccessStory</a>
+            <li  class="nav-item" [ngClass]="{'active': isactivePage.sStr}">
+              <a [routerLink]="['/open-innovation',currentCompanySlug,'success-stories']"  class="nav-link" href="#">SuccessStory</a>
             </li>
           </ul>
         </ng-template>

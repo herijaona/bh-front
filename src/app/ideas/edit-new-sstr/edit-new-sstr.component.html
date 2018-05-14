@@ -1,0 +1,23 @@
+<form [formGroup]="sstrForm" (ngSubmit)="submitSstr()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="">
+        <label>Success Story titles</label>
+        <input type="text" formControlName="sstrCaption" name="">
+      </div>
+      <div class="">
+        <label>Youtube url</label>
+        <input (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="sstrVideoUrl" type="url" name="">
+      </div>
+      <div class="">
+        <button type="button" class="btn btn-secondary btn-sm waves-light" (click)="emitCloseModal()" mdbWavesEffect>Close</button>
+        <button [ngClass]="{'disabled': !sstrForm.valid }" type="submit" class="btn btn-primary btn-sm waves-light" mdbWavesEffect>Save changes</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="">
+        <img width="100%" [src]="im_poster" alt="">
+      </div>
+    </div>
+  </div>
+</form>
