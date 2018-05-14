@@ -1,117 +1,127 @@
-<div class="container">
-	<div class="justify-content-md-center">
-		<div #attachAll></div>
-		<form  id="registerForm_" class="" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" >
-			<h1 class="">Sign up</h1>
-			<h5>Personal Info</h5>
-			<hr>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="md-form">
-						<input [ngClass]="{'err_sh' : registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched }" type="text" formControlName="bh_firstname"  id="bh_firstname" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched">Champ Obligatoire</span>
-						<label for="bh_firstname">Firstname</label>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="md-form">
-						<input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_lastname.invalid && registerForm.controls.bh_lastname.touched">Champ Obligatoire</span>
-						<label for="bh_lastname">Lastname</label>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="md-form">
-						<input type="email" (change)="detectEmail()" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
-						<span>
-							
-							<span class="err_msg" *ngIf="registerForm.controls.bhemail.invalid && registerForm.controls.bhemail.touched && !used_email && !em_empty">Email invalide</span>
-							<span class="err_msg" *ngIf="registerForm.value.bhemail == '' && registerForm.controls.bhemail.touched && !used_email && em_empty ">Champ obligatoire</span>
-							<span class="err_msg" *ngIf="used_email">Email deja Utilisee </span>
-						</span>
-						<label for="bhemail">Your email</label>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="md-form">
-						<input [ngClass]="{'err_sh' : registerForm.controls.bh_functions.invalid && registerForm.controls.bh_functions.touched }" type="text" formControlName="bh_functions" id="bh_functions" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_functions.invalid && registerForm.controls.bh_functions.touched">Champ Obligatoire</span>
-						<label for="bh_functions">Function:</label>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="md-form">
-						<input  (keyup)="passCheck()" type="password" formControlName="bh_pass" id="bh_pass" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_pass.invalid && registerForm.controls.bh_pass.touched && !passNotEqual">Champ Obligatoire - minimum 8 caracteres</span>
-						<span class="err_msg" *ngIf="passNotEqual">Mot de passe non Egaux</span>
-						<label for="bh_pass">Your password</label>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="md-form">
-						<input  (keyup)="passCheck()" type="password" formControlName="bh_pass_conf" id="bh_pass_conf" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="passNotEqual">Mot de passe non Egaux</span>
-						<label for="bh_pass_conf">Confirm password</label>
-					</div>
-				</div>
-			</div>
-			<h5>Organisation</h5>
-			<hr>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="md-form">
-						<input type="text" formControlName="bh_acc_commercial" id="bh_acc_commercial" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_acc_commercial.invalid && registerForm.controls.bh_acc_commercial.touched">Champ Obligatoire</span>
-						<label for="bh_acc_commercial">Commerciale Name</label>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="md-form">
-						<input type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_acc_socialMean.invalid && registerForm.controls.bh_acc_socialMean.touched">Champ Obligatoire</span>
-						<label for="bh_acc_socialMean">Raison Social</label>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="md-form">
-						<input type="text" formControlName="bh_orgType" id="bh_orgType" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Champ Obligatoire</span>
-						<label for="bh_orgType">Type Organisation</label>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="md-form addr_local">
-						<ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
-						<!-- <input type="text" formControlName="bh_orgLocal" id="bh_orgLocal" class="form-control" mdbActive>
-						<span class="err_msg" *ngIf="registerForm.controls.bh_orgLocal.invalid && registerForm.controls.bh_orgLocal.touched">Champ Obligatoire</span>
-						<label for="bh_orgLocal">Localisation</label> -->
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="md-form">
-						<div class="file-field">
-							<div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
-								<span>Logo File</span>
-								<input id="logoFile" type="file" accept="image/*" mdbFileSelect>
+<div class="bg-fr-color">
+    <img [src]="img_avatar" class="rty img-top" alt="First sample avatar image" width="100%" height="100%" style="position:absolute;">
+</div>
+
+<div class="section-login">
+	<section class="form-dark">
+        <div class="card card-image bg-register">
+        	<div #attachAll></div>
+            <form id="registerForm_" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" class="form-up">
+                <div class="text-white content-rgba py-5 px-5-edit z-depth-4">
+                    <div class="text-center text-logo">
+                           <img [src]="img_logo" class="rty" alt="First sample avatar image" width="200px" height="100%">
+                           <h4>Sign up</h4>
+                           <p>Collaborate with innovative ecosystems</p>
+                    </div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bh_firstname">Firstname</label>
+								<input [ngClass]="{'err_sh' : registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched }" type="text" formControlName="bh_firstname"  id="bh_firstname" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched">Champ Obligatoire</span>
 							</div>
-							<span class="ferr_msg" *ngIf="fileError">Champ Obligatoire</span>
+						</div>
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bh_lastname">Lastname</label>
+								<input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_lastname.invalid && registerForm.controls.bh_lastname.touched">Champ Obligatoire</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-6"></div>
-			</div>
-			<div class="text-center">
-				<button [ngClass]="{'disabled': !registerForm.valid || registerForm.value.bh_pass_conf != registerForm.value.bh_pass || registerForm.controls.bh_pass.untouched || !localAdded }" type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Sign up</button>
-				<!-- <button [ngClass]="{'disabled':!registerForm.valid || (( registerForm.value.bh_pass_conf != registerForm.value.bh_pass )  && ( registerForm.controls.bh_pass_conf.touched || registerForm.controls.bh_pass.touched ))}" type="submit" class="btn btn-deep-orange waves-light" mdbRippleRadius>Sign up</button> -->
-			</div>
-		</form>
-	</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bhemail">Your email</label>
+								<input type="email" (change)="detectEmail()" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
+								<span>
+									<span class="err_msg" *ngIf="registerForm.controls.bhemail.invalid && registerForm.controls.bhemail.touched && !used_email && !em_empty">Email invalide</span>
+									<span class="err_msg" *ngIf="registerForm.value.bhemail == '' && registerForm.controls.bhemail.touched && !used_email && em_empty ">Champ obligatoire</span>
+									<span class="err_msg" *ngIf="used_email">Email deja Utilisee </span>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bh_functions">Function:</label>
+								<input [ngClass]="{'err_sh' : registerForm.controls.bh_functions.invalid && registerForm.controls.bh_functions.touched }" type="text" formControlName="bh_functions" id="bh_functions" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_functions.invalid && registerForm.controls.bh_functions.touched">Champ Obligatoire</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bh_pass">Your password</label>
+								<input (keyup)="passCheck()" type="password" formControlName="bh_pass" id="bh_pass" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_pass.invalid && registerForm.controls.bh_pass.touched && !passNotEqual">Champ Obligatoire - minimum 8 caracteres</span>
+								<span class="err_msg" *ngIf="passNotEqual">Mot de passe non Egaux</span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-md	">
+								<label for="bh_pass_conf">Confirm password</label>
+								<input (keyup)="passCheck()" type="password" formControlName="bh_pass_conf" id="bh_pass_conf" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="passNotEqual">Mot de passe non Egaux</span>
+							</div>
+						</div>
+					</div>
+
+
+					<h5>Organisation</h5>
+					<hr>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bh_acc_commercial">Commerciale Name</label>
+								<input type="text" formControlName="bh_acc_commercial" id="bh_acc_commercial" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_acc_commercial.invalid && registerForm.controls.bh_acc_commercial.touched">Champ Obligatoire</span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bh_acc_socialMean">Raison Social</label>
+								<input type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_acc_socialMean.invalid && registerForm.controls.bh_acc_socialMean.touched">Champ Obligatoire</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-md">
+								<label for="bh_orgType">Type Organisation</label>
+								<input type="text" formControlName="bh_orgType" id="bh_orgType" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Champ Obligatoire</span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-md">
+								<label>Adresse</label>
+								<ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
+								<!-- <input type="text" formControlName="bh_orgLocal" id="bh_orgLocal" class="form-control" mdbActive>
+								<span class="err_msg" *ngIf="registerForm.controls.bh_orgLocal.invalid && registerForm.controls.bh_orgLocal.touched">Champ Obligatoire</span>
+								<label for="bh_orgLocal">Localisation</label> -->
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="file-field">
+								<input id="logoFile" type="file" accept="image/*" mdbFileSelect class="inputfile"  mdbActive>
+
+								<label for="logoFile" class="label-file"><i class="fa fa-upload"></i><strong>Choose a file</strong></label>
+								<span class="ferr_msg" *ngIf="fileError">Champ Obligatoire</span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<button [ngClass]="{'disabled': !registerForm.valid || registerForm.value.bh_pass_conf != registerForm.value.bh_pass || registerForm.controls.bh_pass.untouched || !localAdded }" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign" mdbRippleRadius>Sign up</button>
+						</div>
+					</div>
+                </div>
+            </form>
+        </div>
+    </section>
 </div>

@@ -1,9 +1,9 @@
 #modalZoneForm {
-	background-color: #1010108c;
+	background-color: #000000eb;
 }
 
 .modal-dialog.cascading-modal {
-	margin-top: 50px !important;
+	margin-top: 77px !important;
 }
 
 @media (min-width:576px) {
@@ -19,6 +19,8 @@
 }
 .btn-floating{
     position: relative;
+    left: -8px;
+    top: -14px;
     z-index: 1;
     vertical-align: middle;
     display: inline-block;
@@ -43,10 +45,13 @@
     left: 43px;
     margin-top: -7px;
 }
-.modal-header{
-    background: linear-gradient(-90deg, #e83936, #f94d37);
+.md-header{
+    background: transparent !important;
     .close{
-        margin: -28px;
-        margin-right: 8px;
+        margin: 5px;
+        margin-right: -6px;
     }
+}
+.md-content{
+    background: black;
 }

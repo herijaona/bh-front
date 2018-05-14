@@ -14,6 +14,7 @@ import { NotifComponent } from "../notif/notif.component";
 import { LoginComponent } from "../login/login.component";
 import { Router } from "@angular/router";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
+import { Globals } from "./../../globals/globals";
 @Component({
     selector: "app-registration",
     encapsulation: ViewEncapsulation.None,
@@ -21,6 +22,8 @@ import { SharedNotificationService } from "./../../services/shared-notification/
     styleUrls: ["./registration.component.scss"]
 })
 export class RegistrationComponent implements OnInit {
+    public img_logo: string;
+    public img_avatar: string;
     public registerForm: FormGroup;
     fileError: any = false;
     used_email: boolean = false;
@@ -41,6 +44,7 @@ export class RegistrationComponent implements OnInit {
     localAdded: boolean = false;
     orgAddr: string = "";
     constructor(
+        public g: Globals,
         private el: ElementRef,
         private apiHttp: ApiHttpService,
         private auth: AuthserviceService,
@@ -51,6 +55,8 @@ export class RegistrationComponent implements OnInit {
         if (auth.isLoggedIn()) {
             this.router.navigateByUrl("/profile");
         }
+        this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
+        this.img_logo = this.g.base_href + "assets/img/bh.png";
     }
 
     autoCompleteCallback1(selectedData: any) {
