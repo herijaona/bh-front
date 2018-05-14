@@ -1,107 +1,45 @@
-<div class="jumbotron bg-mind">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light nav-two grid">
-      <a class="navbar-brand nr-brand" href="#"><img class="img-responsive" src="{{g.base_href}}assets/img/logo2.png" width="120"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="list-nav">
-          <li><h1>Pfizer</h1></li>
-          <li>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-              </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+<page-header [pageCurrent]="sstr_page"></page-header>
+<edit-page-button> </edit-page-button>
+<div *ngIf="editPAGEstatus" class="">
+  <button (click)="addNewSstr()" class="btn btn-default btn-md">new</button>
 </div>
-<nav class="bg-light nav-one">
-  <div class="navbar navbar-expand-lg navbar-light grid">
-      <a class="navbar-brand" href="#"><img class="img-responsive img-logo" src="{{g.base_href}}assets/img/logo2.png" width="120"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse nav-col" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Ideas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mindset</a>
-          </li>
-        </ul>
+<div class="container-fluid grid grid-top">
+  <div *ngIf="readySstrData" class="row">
+
+    <div *ngFor="let item of sstrAll" class="col-md-4 col-sm-6">
+      <div *ngIf="editPAGEstatus" class="">
+        <div class="">
+          <button (click)= "editSstr(item)">edit</button>
+        </div>
+        <div class="">
+          <button (click)= "deleteSstr(item)" > delete</button>
+        </div>
       </div>
+      <div class="">
+        <img [src]="item.im_poster" alt="" width="100%">
+        <div class="oveerlay_"></div>
+      </div>
+      <h2>{{item.caption}}</h2>
+      <p>12 vues - il y a 5 Semaines</p>
+    </div>
+    
+    
   </div>
-</nav>
-  <div class="container-fluid grid grid-top">
-      <div class="row">
-        <div class="col-4">
-              <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-              </div>  
-              <h2>Seagle: Comment Integrer des applications IA</h2>
-              <p>12 vues - il y a 5 Semaines</p>
+</div>
+
+
+<div mdbModal #modalsstr="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
+    <div class="modal-dialog modal-lg" role="document">
+      <div *ngIf="modalStateCnt" class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Success Stories</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closemodalsstr()">
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
-        <div class="col-4">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-            </div> 
-            <h2>Seagle: Comment Integrer des applications IA</h2>
-            <p>12 vues - il y a 5 Semaines</p>
-        </div>
-        <div class="col-4">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-          </div> 
-          <h2>Seagle: Comment Integrer des applications IA</h2>
-          <p>12 vues - il y a 5 Semaines</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-          </div> 
-          <h2>Seagle: Comment Integrer des applications IA</h2>
-          <p>12 vues - il y a 5 Semaines</p>
-        </div>
-        <div class="col-4">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-          </div> 
-          <h2>Seagle: Comment Integrer des applications IA</h2>
-          <p>12 vues - il y a 5 Semaines</p>
-        </div>
-        <div class="col-4">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-          </div> 
-          <h2>Seagle: Comment Integrer des applications IA</h2>
-          <p>12 vues - il y a 5 Semaines</p>
+        <div class="modal-body">
+          <edit-new-sstr [toDoAct_] = "toDoAction" [sstrData_]='SelectedSstr' ></edit-new-sstr>
         </div>
       </div>
     </div>
-
-  
-            
+</div>

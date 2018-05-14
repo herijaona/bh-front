@@ -20,6 +20,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { Routes, RouterModule } from "@angular/router";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
 import { PInfoComponent } from './p-info/p-info.component';
+import { PCompletionComponent } from './p-completion/p-completion.component';
 
 @NgModule({
   imports: [
@@ -39,9 +40,11 @@ import { PInfoComponent } from './p-info/p-info.component';
     NotifComponent,
     ProfileComponent,
     ResetPasswordComponent,
-    PInfoComponent
+    PInfoComponent,
+    PCompletionComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthserviceService]
+  providers: [AuthserviceService], 
+  exports:[ PInfoComponent,PCompletionComponent]
 })
 export class UserAuthModule {}

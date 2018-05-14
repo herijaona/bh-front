@@ -1,0 +1,58 @@
+.avatar:hover .overlay_ {
+	opacity: 0.8
+}
+
+.overlay_ {
+  position: absolute;
+  top: 0;
+  background: black;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 88%;
+  transition: .5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  height:100%;
+}
+
+
+
+.font-my-3 {
+	font-family: SourceSansPro-Semibold;
+}
+
+.font-weight-bold {
+	color: #000000;
+}
+
+
+.grey-text-bold {
+	font-size: 15px;
+	color: #6b6767;
+	font-family: SourceSansPro-Regular;
+	letter-spacing: 0.2px;
+
+	span {
+		text-transform: capitalize;
+	}
+
+}
+
+.span-connect {
+	font-size: 15px;
+	color: #6b6767;
+	font-family: SourceSansPro-Regular;
+	letter-spacing: 0.2px;
+
+	span {
+		color: #e84d3f;
+	}
+
+	span:last-child {
+		margin-left: 10px;
+	}
+
+}
