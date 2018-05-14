@@ -52,6 +52,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	public company_nameEditMode: boolean = false;
 	public hasWebSiteUrl: boolean = false;
 	public currentCompanySlug: string = "";
+	public cmp_slug: string = "";
 	public _typeOrganisation: string = "----";
 	public _addr: string = "----";
 	public FrontMenu: boolean = true;
@@ -165,7 +166,8 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		} else {
 			this.FrontMenu = false;
 			this.cs.getMyCompanData().then(
-				e => {
+				(e:any) => {
+					this.cmp_slug = e._slug;
 					this.showData(e);
 				},
 				er => {
