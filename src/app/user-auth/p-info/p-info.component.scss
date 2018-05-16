@@ -27,6 +27,9 @@
 	@media(max-width:575px){
 		text-align: center !important;
 	}
+	@media all and (min-width:768px) and (max-width:991px){
+    text-align: center !important;
+    }
 }
 
 .font-weight-bold {

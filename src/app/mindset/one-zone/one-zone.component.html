@@ -1,6 +1,6 @@
 <div *ngIf="editPAGEstatus" class="oneZonebut">
-  <button (click)="editZone()" class="btn btn-info erew"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-  <button *ngIf="canDeleted" (click)='deleteZone()' class="btn btn-info erew2"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+  <a (click)="editZone()" class="erew"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+  <a *ngIf="canDeleted" (click)='deleteZone()' class="erew2"><i class="fa fa-trash" aria-hidden="true"></i></a>
 </div>
 <ng-template [ngIf]="dtZone">
   <!-- Image -->
@@ -14,8 +14,8 @@
   <ng-template [ngIf]="dtZone.dtype == 2">
     <div (click)="ShowZoom()" class="oz im">
       <div class="video_zone">
-        <img width="100%" [src]="getPoster()" alt="">
-        <span class="captin"><i class="fa fa-play-circle-o "></i> <span>{{dtZone.caption}}</span></span>
+        <img width="100%" [src]="getPoster()" alt="" class="vd">
+        <span class="captin"><i class="fa fa-play"></i> <span class="zone-caption">{{dtZone.caption}}</span></span>
         <div (click)="ShowZoom()" mdbWavesEffect class="overlay_"><i class="fa fa-play chck"></i></div>
       </div>
     </div>

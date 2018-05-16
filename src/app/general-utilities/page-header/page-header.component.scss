@@ -73,7 +73,7 @@
 .list-nav{
     list-style: none;
     padding: 0;
-    margin-bottom: 247px;
+    margin-bottom: 268px;
     margin-left: 15px;
 }
 .grid{
@@ -120,7 +120,9 @@
     max-height: inherit;
 }
 .btn-menu{
-    margin-top: -21px;
+    position: absolute;
+    right: 3px;
+    top: 8px;
     font-size: 27px;
     color: #d84236 !important;
 }
@@ -130,6 +132,10 @@
 .img-logo{
     margin-top: -120px;
     box-shadow: 0px 1px 3px 1px #ababab;
+    @media(max-width:515px){
+        width: 120px;
+        height: 120px;
+    }
 }
 .grid-top{
     margin-bottom: 20px;        
@@ -174,6 +180,9 @@
 }
 .list-nav{
     margin-left: 200px;
+    @media(max-width:515px){
+        margin-left: 142px;
+    }
 }
     }
 @media(max-width:650px){

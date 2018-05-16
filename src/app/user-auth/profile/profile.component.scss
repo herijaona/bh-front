@@ -38,6 +38,9 @@
 
 .font-my-3 {
 	font-family: SourceSansPro-Semibold;
+	    @media(max-width:991px){
+        text-align: center !important;
+        }
 }
 
 .font-weight-bold {
@@ -201,4 +204,12 @@
 
 .avatar:hover .overlay_ {
 	opacity: 0.8
+}
+.block-txt{
+	display: block;
+	visibility:hidden;
+}
+.ed-2{
+	width: 100%;
+    margin-top: 1px;
 }
