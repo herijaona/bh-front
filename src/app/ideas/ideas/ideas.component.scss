@@ -57,6 +57,7 @@
     margin-top: -45px;
 }
 .grid-top{
+    padding: 0;
     margin-bottom: 20px;        
         h2{
             font-size: 20px;
@@ -80,10 +81,16 @@
     .fa-pen{
         color: #0077B5;
         font-size: 20px;
+        background: #ffffff9e;
+        border-radius: 45px;
+        padding: 5px 6px 5px 6px;
     }
     .fa-del{
         color: #d61200;
-        font-size: 20px;padding-left: 5px;
+        font-size: 20px;
+        background: #ffffff9e;
+        border-radius: 45px;
+        padding: 5px 6px 5px 6px;
     }
 }
 .view-video{

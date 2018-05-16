@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
+import { Globals } from "./../../globals/globals";
 
 @Component({
 	selector: "invited-register",
@@ -10,6 +11,8 @@ import { AuthserviceService } from "../../services/authservice/authservice.servi
 	styleUrls: ["./invited-register.component.scss"]
 })
 export class InvitedRegisterComponent implements OnInit {
+	public img_logo: string;
+  	public img_avatar: string;
 	private company_slug: string = "";
 	private invitation_code: string = "";
 	public success: boolean = false;
@@ -19,8 +22,12 @@ export class InvitedRegisterComponent implements OnInit {
 	public readyData: boolean = false;
 	constructor(
 		private activ_route: ActivatedRoute,
-		private auth: AuthserviceService
+		private auth: AuthserviceService,
+		public g: Globals
 	) {
+
+	    this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
+	    this.img_logo = this.g.base_href + "assets/img/bh.png";
 		this.newpassForm = new FormGroup({
 			bh_pass_conf: new FormControl("", [Validators.minLength(8)]),
 			bh_new_pass: new FormControl("", [Validators.minLength(8)])

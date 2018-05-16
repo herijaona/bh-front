@@ -232,6 +232,9 @@ hr {
     box-shadow: 0.2px 0px 0.1px 1px #e84d3f;
     width: 48.5%;
     margin: 10px 0px 10px 0px;
+    @media(max-width:767px){
+        width:100%;
+    }
 }
 
 .form-control {
@@ -302,7 +305,9 @@ hr {
     span{
         display:none; 
         @media(max-width:1335px){
-            display:block;
+            display: inline-block;
+            padding-left: 7px;
+            font-family: SourceSansPro-Bold;
         }
             }
 }
@@ -446,6 +451,9 @@ hr {
     margin-bottom: -5px !important;
     top: -3px;
     position: relative;
+    @media(max-width:475px){
+        display:inline-block;
+    }
 }
 
 /* checkbox */
@@ -558,4 +566,10 @@ input[type=text][_ngcontent-c3]:focus:not([readonly]), input[type=password][_ngc
 }
 .over-flow{
     overflow:scroll;
+}
+@media(max-width:475px){
+.ds-flex{
+    display: block;
+    float: left !important;
+    }
 }

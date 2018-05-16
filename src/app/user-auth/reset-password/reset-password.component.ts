@@ -11,6 +11,8 @@ import { Globals } from "./../../globals/globals";
 	styleUrls: ["./reset-password.component.scss"]
 })
 export class ResetPasswordComponent implements OnInit {
+	public img_logo: string;
+  	public img_avatar: string;
 	public resetpassForm: FormGroup;
 	resetpassFormFlag: boolean = false;
 	private id_reset: string;
@@ -23,6 +25,9 @@ export class ResetPasswordComponent implements OnInit {
 		private auth: AuthserviceService,
 		public g: Globals
 	) {
+
+	    this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
+	    this.img_logo = this.g.base_href + "assets/img/bh.png";
 		this.resetpassForm = new FormGroup({
 			bh_pass: new FormControl("", [
 				Validators.required,
