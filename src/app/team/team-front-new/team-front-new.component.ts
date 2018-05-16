@@ -49,7 +49,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 				tvVideoUrl: this.tmvDATA.video_url
 			});
 			console.log(this.tmvDATA);
-			this.im_poster = this.tmvDATA.im_poster;
+			this.im_poster = this.sh.getVideoImPoster(this.tmvDATA.id_video);
 		}
 	}
 
@@ -79,9 +79,9 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 					video_id +
 					"?controls=1&autoplay=1'></iframe>"
 			};
-			this.im_poster = this.idVidYouTube.im_poster;
+			this.im_poster = this.sh.getVideoImPoster(this.idVidYouTube.id_video);
 			return video_id;
-		} 
+		}
 	}
 
 	async saveTeamVideoFront() {

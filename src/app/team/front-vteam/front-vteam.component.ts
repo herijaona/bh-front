@@ -14,6 +14,7 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 	public teamVideoData: { [key: string]: any } = {};
 	public editPAGEstatus = false;
 	public contentEditState = false;
+	public im_poster: string = "";
 	constructor(
 		private el: ElementRef,
 		private sh: SharedNotificationService,
@@ -30,7 +31,13 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 			}
 		});
 	}
-	ngOnInit() {}
+	ngOnInit() {
+		if (this.teamVideoData) {
+			this.im_poster = this.sh.getVideoImPoster(
+				this.teamVideoData.id_video
+			);
+		}
+	}
 	tmVEdit() {
 		this.sh.pushData({
 			from: "tmVideoFront",
@@ -59,6 +66,7 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 			console.log(e);
 		}
 	}
+
 	tmVShow2() {
 		this.sh.pushData({
 			from: "tmVideoFront",
@@ -66,6 +74,7 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 			data: this.teamVideoData
 		});
 	}
+
 	ngOnDestroy() {
 		this.sh.pushData({});
 	}
