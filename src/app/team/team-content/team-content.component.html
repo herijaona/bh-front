@@ -6,7 +6,7 @@
 <front-vteam  *ngFor="let item of dataTeamFront" [vteamDATA]= "item"></front-vteam>
 
 <!-- Modal add-->
- <div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+ <div *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">
     <!--Content-->
     <div class="modal-content">
@@ -27,7 +27,7 @@
 </div>
 
 <!-- Modal video play-->
-<div style="overflow: auto;" mdbModal #showVideo="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+<div *ngIf="showDataState" style="overflow: auto;" mdbModal #showVideo="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="showDataState" class="modal-dialog cascading-modal" role="document">
     <!--Content-->
     <div class="modal-content md-content">

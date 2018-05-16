@@ -10,6 +10,7 @@ import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { CompanyService } from "../../services/company/company.service";
+import { DomSanitizer } from "@angular/platform-browser";
 import { Subscription } from "rxjs/Subscription";
 import { ModalDirective } from "angular-bootstrap-md";
 @Component({
@@ -82,6 +83,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		public g: Globals,
 		public sh: SharedNotificationService,
 		private activRoute: ActivatedRoute,
+		private sanitizer: DomSanitizer,
 		private cs: CompanyService,
 		private router: Router
 	) {
@@ -96,6 +98,11 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 				this.getDataDetails();
 			}
 		});
+	}
+
+	sanitizert(url: string) {
+		return  this.sanitizer.bypassSecurityTrustUrl(url)
+
 	}
 
 	toggleCollapse() {
@@ -166,7 +173,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		} else {
 			this.FrontMenu = false;
 			this.cs.getMyCompanData().then(
-				(e:any) => {
+				(e: any) => {
 					this.cmp_slug = e._slug;
 					this.showData(e);
 				},

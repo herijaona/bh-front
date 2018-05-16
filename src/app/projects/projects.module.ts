@@ -8,12 +8,15 @@ import { CKEditorModule } from "ng2-ckeditor";
 import { ProjectListComponent } from "./project-list/project-list.component";
 import { ProjectEditAndNewComponent } from "./project-edit-and-new/project-edit-and-new.component";
 
+import { MindsetModule } from "../mindset/mindset.module";
+
+
 @NgModule({
 	imports: [
 		CommonModule,
 		GeneralUtilitiesModule,
 		ReactiveFormsModule,
-		FormsModule,
+		FormsModule,MindsetModule,
 		RouterModule,
 		CKEditorModule
 	],

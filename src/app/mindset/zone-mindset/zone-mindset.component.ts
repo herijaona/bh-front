@@ -41,7 +41,7 @@ export class ZoneMindsetComponent implements OnInit {
 		columnWidth: ".normal",
 		itemSelector: ".masonry-item",
 		fitWidth: false,
-		horizontalOrder: false,
+		horizontalOrder: true,
 		initLayout: true,
 		gutter: 2,
 		originTop: true,
@@ -84,9 +84,6 @@ export class ZoneMindsetComponent implements OnInit {
 				case "editZone":
 					this.EditZone(st.data);
 					break;
-				case "oneZone":
-					this.showZone(st.data);
-					break;
 				case "deleteZone":
 					this.formatDataView();
 					break;
@@ -98,14 +95,6 @@ export class ZoneMindsetComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		let formEl: any = this.el.nativeElement.querySelector("#ggrid");
-
-		console.log(formEl);
-
-		this.myWindth = this.el.nativeElement.parentElement.offsetWidth;
-		this.oneCol = (this.myWindth - 15) / 3;
-		this.twoCol = (this.myWindth - 15) * 2 / 3;
-		console.log(this.myWindth);
 	}
 
 	onResize(event) {
@@ -167,12 +156,13 @@ export class ZoneMindsetComponent implements OnInit {
 
 	closeModalAddNEw() {
 		this.myModal.hide();
+		this.dataZoneEdit=null;
 		setTimeout(() => {
 			this.addNewState = false;
 		}, 330);
 	}
 
-	showZone(arg) {}
+
 
 	async ngAfterViewInit() {}
 }

@@ -62,7 +62,7 @@ export class RegistrationComponent implements OnInit {
     autoCompleteCallback1(selectedData: any) {
         //do any necessery stuff.
         if (selectedData.response) {
-            this.orgAddr = JSON.stringify(selectedData);
+            this.orgAddr = JSON.stringify(selectedData.data);
             this.localAdded = true;
         } else {
             this.orgAddr = "";

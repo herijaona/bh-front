@@ -11,8 +11,7 @@
     <div id="" class="navbar-read">
       <ul class="navbar-nav mr-auto nav-logo">
         <li class="nav-item">
-          <span *ngIf="!auth.isLoggedIn()" class="img-logo"><a  routerLink="/"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
-          <span *ngIf="auth.isLoggedIn()" class="img-logo"><a  routerLink="/all-companies"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
+          <span class="img-logo"><a  routerLink="/"><img src="{{g.base_href}}assets/img/logo-2.png" width="17"></a></span>
         </li>
       </ul>
       <ul class="navbar-nav nav-top">
@@ -34,10 +33,10 @@
         <li class="nav-item">
           <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login" class="nav-link  color-white recrute-text">Connexion</a>
           </li>
-          <li *ngIf="auth.isLoggedIn() && !isAdmin" class="nav-item">
+          <!-- <li *ngIf="auth.isLoggedIn() && !isAdmin" class="nav-item">
             <a class="nav-link  color-white  recrute-text2" routerLink="/profile">Profile</a>
-          </li>
-          <li *ngIf="auth.isLoggedIn() && isAdmin " class="nav-item">
+          </li> -->
+          <li *ngIf="auth.isLoggedIn()" class="nav-item">
             <a class="nav-link color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/Administration"><span>Administration</span></a>
            <!--  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a *ngFor="let acc of accAdm" [routerLink]="['/company',acc.name, 'profile', acc._id]" class="dropdown-item" href="#">{{acc.name}}</a>

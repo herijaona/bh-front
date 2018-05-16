@@ -30,7 +30,7 @@ export class AuthserviceService extends BaseHttpService {
     public http: HttpClient,
     public g: Globals,
     private router: Router,
-    public sh : SharedNotificationService,
+    public sh: SharedNotificationService,
     private cs: CompanyService
   ) {
     super(http, g, sh);
@@ -96,11 +96,11 @@ export class AuthserviceService extends BaseHttpService {
                   let resp = {
                     resp: re.data_check_response,
                     data: re._id_check
-                  }
+                  };
                   resolve(resp);
                 } else {
                   this.cs.removeMycompanyId();
-                  resolve({resp: false});
+                  resolve({ resp: false });
                 }
               },
               err => {
@@ -108,10 +108,10 @@ export class AuthserviceService extends BaseHttpService {
               }
             );
         } else {
-          resolve({resp: false});
+          resolve({ resp: false });
         }
       } else {
-        resolve({resp: false});
+        resolve({ resp: false });
       }
     });
   }
@@ -123,9 +123,7 @@ export class AuthserviceService extends BaseHttpService {
         this.cs.storeMycompanyId(resp.data._id);
       }
       return resp;
-    } catch (er) {
-      
-    }
+    } catch (er) {}
   }
 
   public register(user: any): Observable<any> {
@@ -209,5 +207,12 @@ export class AuthserviceService extends BaseHttpService {
       }
     });
     return user;
+  }
+
+  public checkInvitationVal(arg) {
+    return this.fetch("get", "cInvitationValData", arg ).toPromise();
+  }
+  public postInvitationVal(arg) {
+    return this.fetch("post", "cInvitationValData", arg ).toPromise();
   }
 }

@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, ElementRef, OnDestroy,ViewChild } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	Input,
+	ElementRef,
+	OnDestroy,
+	ViewChild
+} from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { CompanyService } from "../../services/company/company.service";
@@ -12,9 +19,11 @@ import { ModalDirective } from "angular-bootstrap-md";
 })
 export class OneZoneComponent implements OnInit, OnDestroy {
 	private znWindth: number;
+	public videoZoneMindset: any;
 	private widthExp: number;
 	private z_height: number;
 	private currentInEdit: boolean = false;
+	public showDataState: boolean = false;
 	private canDeleted: boolean;
 	private znSize: number;
 	public addNewState: boolean = false;
@@ -68,10 +77,9 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.widthExp = (this.znWindth - 20) * this.znSize / 3;
 		this.canDeleted = this.dtZone.canDeleted;
+		console.log(this.dtZone);
 		if (this.dtZone.dtype == 2) {
-			/*for local only */
 			if (!this.dtZone.video.url.startsWith("uploads")) {
 				this.dtZone.video.url = JSON.parse(this.dtZone.video.url);
 			}
@@ -105,17 +113,28 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.sh.pushData({});
 	}
-
 	ShowZoom() {
+		if (this.dtZone.dtype == 2) {
+			this.videoZoneMindset = this.sh.getiframeVideo(
+				this.dtZone.video.url.i_v
+			);
+		}
+		console.log(this.dtZone);
+		this.showDataState = true;
 		setTimeout(() => {
 			this.myModal.show();
 		}, 400);
 	}
+
 	closeModalShowZoom() {
 		this.myModal.hide();
 		setTimeout(() => {
 			this.addNewState = false;
+			this.showDataState = false;
 		}, 330);
 	}
 
+	getPoster() {
+		return this.sh.getVideoImPoster(this.dtZone.video.url.i_v);
+	}
 }

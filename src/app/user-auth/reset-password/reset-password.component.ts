@@ -19,7 +19,7 @@ export class ResetPasswordComponent implements OnInit {
 	text_ = "Success de registration";
 	error_log: boolean = false;
 	constructor(
-		private route: ActivatedRoute,
+		private activ_route: ActivatedRoute,
 		private auth: AuthserviceService,
 		public g: Globals
 	) {
@@ -36,7 +36,7 @@ export class ResetPasswordComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.route.params.subscribe(params => {
+		this.activ_route.params.subscribe(params => {
 			this.id_reset = params["id_"];
 			this.resetCode = params["pass_code"];
 			this.auth

@@ -24,6 +24,7 @@ import { ProjetProfileComponent } from "../companies/utilprofile/projet-profile/
 import { JobOnCompProfileComponent } from "../companies/utilprofile/job-on-comp-profile/job-on-comp-profile.component";
 import { EventOnCompProfileComponent } from "../companies/utilprofile/event-on-comp-profile/event-on-comp-profile.component";
 import { CommitteeComponent } from "../committee/committee/committee.component";
+import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
@@ -36,9 +37,18 @@ const routes: Routes = [
 	{ path: "mindset", component: MindsetComponent },
 	{ path: "open-innovation/:slug_acc/acceuil", component: MindsetComponent },
 	{ path: "open-innovation/:slug_acc/team", component: TeamComponent },
-	{ path: "open-innovation/:slug_acc/projects", component: ProjectsComponent },
-	{ path: "open-innovation/:slug_acc/details-project/:project_id", component: DescriptionProjectComponent },
-	{ path: "open-innovation/:slug_acc/success-stories", component: IdeasComponent },
+	{
+		path: "open-innovation/:slug_acc/projects",
+		component: ProjectsComponent
+	},
+	{
+		path: "open-innovation/:slug_acc/details-project/:project_id",
+		component: DescriptionProjectComponent
+	},
+	{
+		path: "open-innovation/:slug_acc/success-stories",
+		component: IdeasComponent
+	},
 	{ path: "team", component: TeamComponent },
 	{ path: "projects", component: ProjectsComponent },
 	{ path: "description-project", component: DescriptionProjectComponent },
@@ -87,6 +97,10 @@ const routes: Routes = [
 	{
 		path: "reset-my-pass/:id_/:pass_code",
 		component: ResetPasswordComponent
+	},
+	{
+		path: 'invitation_response/:acc_slug/invitation/:invit_id',
+		component: InvitedRegisterComponent
 	}
 ];
 

@@ -32,6 +32,6 @@ import { NewZoneMindsetComponent } from "./new-zone-mindset/new-zone-mindset.com
 		OneZoneComponent,
 	],
 	schemas: [NO_ERRORS_SCHEMA],
-	exports: []
+	exports: [PresentationSideComponent]
 })
 export class MindsetModule {}

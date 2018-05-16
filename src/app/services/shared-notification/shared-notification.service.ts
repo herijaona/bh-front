@@ -137,7 +137,7 @@ export class SharedNotificationService {
 		return (
 			"<iframe src='https://www.youtube.com/embed/" +
 			videoID +
-			"?controls=1&autoplay=0'></iframe>"
+			"?controls=0&autoplay=0'></iframe>"
 		);
 	}
 }

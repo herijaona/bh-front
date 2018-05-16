@@ -14,6 +14,7 @@ export class MembersAdminComponent implements OnInit {
 	public team_page: string = "team_page";
 	public details: any;
 	public img_avatar: string;
+	public activated: boolean = false;
 	public readyData: boolean = false;
 	public inviteForm: FormGroup;
 	constructor(
@@ -30,7 +31,8 @@ export class MembersAdminComponent implements OnInit {
 			invAsTeam: new FormControl(true),
 			invAsComm: new FormControl(true),
 			email: new FormControl("", [
-				Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$"),Validators.required
+				Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$"),
+				Validators.required
 			])
 		});
 	}
@@ -48,14 +50,29 @@ export class MembersAdminComponent implements OnInit {
 
 	async getProfile() {
 		try {
-			let prdata = await this.auth.profile();
+			let prdata: any = await this.auth.profile();
 			if (prdata) {
-				this.details = prdata;
-				this.readyData = true;
-				return prdata;
+				if (prdata.active) {
+					this.activated = true;
+
+					this.details = prdata;
+					this.readyData = true;
+					return prdata;
+				} else {
+					throw new Object({ type: "NotActivate" });
+				}
 			}
 		} catch (ee) {
-			this.auth.logout();
+			this.readyData = true;
+
+			if ("type" in ee) {
+				if (ee.type == "NotActivate") {
+					this.activated = false;
+					console.log(ee);
+				}
+			} else {
+				this.auth.logout();
+			}
 		}
 	}
 	gotoProfileEdit() {

@@ -1,89 +1,92 @@
-
-<div  *ngIf="editPAGEstatus" class="oneZonebut">
-	<button (click)="editZone()" class="btn btn-info erew"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-	<button *ngIf="canDeleted"  (click)='deleteZone()' class="btn btn-info erew2"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+<div *ngIf="editPAGEstatus" class="oneZonebut">
+  <button (click)="editZone()" class="btn btn-info erew"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+  <button *ngIf="canDeleted" (click)='deleteZone()' class="btn btn-info erew2"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 </div>
-
-<!-- Image -->
-<ng-template [ngIf]="dtZone" >
-
-<ng-template [ngIf]="dtZone.dtype == 1">
-<div (click)="showZone(dtZone)" class="oz im">
-	<img class="img-responsive" [src]="dtZone.image.url" width="100%">
-	<div class="overlay_" mdbWavesEffect (click)="ShowZoom()"><i class="fa fa-search chck" ></i></div>
-</div>
-
-<!-- Modal -->
-<div style="overflow: auto;" mdbModal #form2="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-  <div class="modal-dialog cascading-modal" role="document">
-    <!--Content-->
-    <div class="modal-content md-content">
-      <!--Header-->
-      <div class="modal-header light-blue darken-3 white-text">
-        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalShowZoom()">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <img class="img-responsive" [src]="dtZone.image.url" width="100%">
+<ng-template [ngIf]="dtZone">
+  <!-- Image -->
+  <ng-template [ngIf]="dtZone.dtype == 1">
+    <div (click)="ShowZoom()" class="oz im">
+      <img class="img-responsive" [src]="dtZone.image.url" width="100%">
+      <div class="overlay_" mdbWavesEffect (click)="ShowZoom()"><i class="fa fa-search chck"></i></div>
+    </div>
+  </ng-template>
+  <!-- Video  -->
+  <ng-template [ngIf]="dtZone.dtype == 2">
+    <div (click)="ShowZoom()" class="oz im">
+      <div class="video_zone">
+        <img width="100%" [src]="getPoster()" alt="">
+        <span class="captin"><i class="fa fa-play-circle-o "></i> <span>{{dtZone.caption}}</span></span>
+        <div (click)="ShowZoom()" mdbWavesEffect class="overlay_"><i class="fa fa-search chck"></i></div>
       </div>
     </div>
-    <!--/.Content-->
-  </div>
-</div>
-
-
-</ng-template>
-<!-- Video  -->
-<ng-template [ngIf]="dtZone.dtype == 2">
-<div (click)="showZone(dtZone)" class="oz im">
-	<div class="video_zone">
-		<img width="100%" [src]="dtZone.video.url.im_poster" alt="">
-		<span class="captin"><i class="fa fa-play-circle-o "></i> <span>{{dtZone.caption}}</span></span>
-		<div class="overlay_"><i class="fa fa-search chck" ></i></div>
-	</div>
-</div>
-</ng-template>
-
-<!-- chiffres  -->
-<ng-template [ngIf]="dtZone.dtype == 3">
-<div  class="oz">	
-  <div class="stats-container">
-     <div class="stat-item">
-        <span class="stat-label">Année de creation</span>
-        <span class="stat-value">{{ dtZone.data_suppl.createdYear }}</span>
-     </div>
-     <div class="stat-item">
-        <span class="stat-label">Collaborateurs</span>
-        <span class="stat-value">{{dtZone.data_suppl.collabor}}</span>
-     </div>
-     <div class="stat-item wide">
-        <span class="stat-label">Parité</span>
-        <span class="stat-value">
-        <span class="value-item">
-        <i class="zmdi zmdi-female "></i>
-        33%
+  </ng-template>
+  <!-- chiffres  -->
+  <ng-template [ngIf]="dtZone.dtype == 3">
+    <div class="oz">
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-label">Année de creation</span>
+          <span class="stat-value">{{ dtZone.data_suppl.createdYear }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Collaborateurs</span>
+          <span class="stat-value">{{dtZone.data_suppl.collabor}}</span>
+        </div>
+        <div class="stat-item wide">
+          <span class="stat-label">Parité</span>
+          <span class="stat-value">
+        <span class="value-item mr-2">
+        <i class="fa fa-female "></i>
+        {{dtZone.data_suppl.pariteFemme}} %
         </span>
-        <span class="value-item">
-        <i class="zmdi zmdi-male-alt "></i>
-        67%
+          <span class="value-item ml-2">
+        <i class="fa fa-male"></i>
+        {{dtZone.data_suppl.pariteHomme}} %
         </span>
-        </span>
-     </div>
-     <div class="stat-item">
-        <span class="stat-label">Année de 20</span>
-        <span class="stat-value">2012</span>
-     </div>
-     <div class="stat-item">
-        <span class="stat-label">Collaborateurs</span>
-        <span class="stat-value">45</span>
-     </div>
-     <div class="stat-item wide">
-        <span class="stat-label">Âge moyen</span>
-        <span class="stat-value">31 ans</span>
-     </div>
-  </div>
-</div>
-</ng-template>
+          </span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Opportuinite cree</span>
+          <span class="stat-value">{{dtZone.data_suppl.createdOpportinuite}}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Turn over</span>
+          <span class="stat-value">{{dtZone.data_suppl.turnOver}}</span>
+        </div>
+        <div class="stat-item wide">
+          <span class="stat-label">Âge moyen</span>
+          <span class="stat-value">{{dtZone.data_suppl.ageMoyen}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 
+
+  <!-- Modal video play-->
+  <ng-template [ngIf]="dtZone.dtype == 1 || dtZone.dtype == 2">
+    <div *ngIf="showDataState" style="overflow: auto;" mdbModal #form2="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+      <div *ngIf="showDataState" class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content md-content">
+          <!--Header-->
+          <div class="modal-header md-header light-blue darken-3 white-text">
+            <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalShowZoom()">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body mb-0">
+            <ng-template [ngIf]="dtZone.dtype == 2">
+              <div [innerHtml]="videoZoneMindset|bhSafeHtml" class="md-video text-center"></div>
+            </ng-template>
+
+            <ng-template [ngIf]="dtZone.dtype == 1">
+              <img class="imf" [src]="dtZone.image.url" alt="">
+            </ng-template>
+          </div>
+          <!--/.Content-->
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </ng-template>

@@ -21,6 +21,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
 import { PInfoComponent } from './p-info/p-info.component';
 import { PCompletionComponent } from './p-completion/p-completion.component';
+import { InvitedRegisterComponent } from './invited-register/invited-register.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { PCompletionComponent } from './p-completion/p-completion.component';
     ProfileComponent,
     ResetPasswordComponent,
     PInfoComponent,
-    PCompletionComponent
+    PCompletionComponent,
+    InvitedRegisterComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService], 

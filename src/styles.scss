@@ -2,19 +2,23 @@
 @font-face {
     font-family: 'SourceSansPro-Light';
     src: url('assets/fonts/SourceSansPro-Light.otf');
- }
- @font-face {
+}
+
+@font-face {
     font-family: 'SourceSansPro-Regular';
     src: url('assets/fonts/SourceSansPro-Regular.otf');
- }
- @font-face {
+}
+
+@font-face {
     font-family: 'SourceSansPro-Bold';
     src: url('assets/fonts/SourceSansPro-Bold.otf');
- }
- @font-face {
+}
+
+@font-face {
     font-family: 'SourceSansPro-Semibold';
     src: url('assets/fonts/SourceSansPro-Semibold.otf');
- }
+}
+
 .md-video iframe {
     width: 560px;
     height: 315px;
@@ -23,15 +27,38 @@
     border: 0px;
 }
 
-@media (min-height: 460px){
-.md-video iframe {
-    width: 640px;
-    height: 360px;
+@media (min-height:460px) {
+    .md-video iframe {
+        width: 640px;
+        height: 360px;
+    }
+
 }
-	}
-@media (min-height: 580px){
-.md-video iframe{
-    width: 853px;
-    height: 480px;
+
+@media (min-height:580px) {
+    .md-video iframe {
+        width: 853px;
+        height: 480px;
+    }
+
 }
-	}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+/* PRINCIPAL EDIT BUTTON STYLE  */
+.ultimeeditActiveButton {
+    @media (max-width:767px) {
+        top: -50px;
+    }
+
+    right: 20px;
+    position: absolute;
+    top: -45px;
+}
+
+.portailpage-data {
+    position: relative;
+}

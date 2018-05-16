@@ -1,32 +1,30 @@
 <page-header [pageCurrent]="sstr_page"></page-header>
-<edit-page-button> </edit-page-button>
-<div *ngIf="editPAGEstatus" class="">
-  <a class="btn-floating btn-lg purple-gradient waves-light" mdbWavesEffect (click)="addNewSstr()"><i class="fa fa-plus"></i></a>
-
-</div>
-<div class="container-fluid grid grid-top">
-  <div *ngIf="readySstrData" class="row">
-
-    <div *ngFor="let item of sstrAll" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-      <div *ngIf="editPAGEstatus" class="edit-delete">
-        <div class="itw">
-          <a (click)= "editSstr(item)"><i class="fa fa-pencil fa-pen"></i></a>
+<div class="portailpage-data">
+  <edit-page-button class="ultimeeditActiveButton"></edit-page-button>
+  <div *ngIf="editPAGEstatus" class="">
+    <a class="btn-floating btn-lg purple-gradient waves-light" mdbWavesEffect (click)="addNewSstr()"><i class="fa fa-plus"></i></a>
+  </div>
+  <div class="container-fluid grid grid-top">
+    <div *ngIf="readySstrData" class="row">
+      <div *ngFor="let item of sstrAll" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <div *ngIf="editPAGEstatus" class="edit-delete">
+          <div class="itw">
+            <a (click)="editSstr(item)"><i class="fa fa-pencil fa-pen"></i></a>
+          </div>
+          <div class="itw">
+            <a (click)="deleteSstr(item)"><i class="fa fa-trash fa-del"></i></a>
+          </div>
         </div>
-        <div class="itw">
-          <a (click)= "deleteSstr(item)" ><i class="fa fa-trash fa-del"></i></a>
+        <div class="posters" (click)="showTeamVideo(item)">
+          <img [src]="item.im_poster" alt="" width="100%" height="">
+          <div class="overlay_"><i class="fa fa-play"></i></div>
         </div>
+        <h2>{{item.caption}}</h2>
+        <p class="view-video">12 vues - il y a 5 Semaines</p>
       </div>
-      <div class="posters" (click)="showTeamVideo(item)">
-        <img [src]="item.im_poster" alt="" width="100%" height="" >
-        <div class="overlay_"><i class="fa fa-play"></i></div>
-      </div>
-      <h2>{{item.caption}}</h2>
-      <p class="view-video">12 vues - il y a 5 Semaines</p>
     </div>
   </div>
-</div>
-
-<div mdbModal #modalsstr="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
+  <div mdbModal #modalsstr="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
     <div class="modal-dialog modal-lg" role="document">
       <div *ngIf="modalStateCnt" class="modal-content">
         <div class="modal-header">
@@ -36,26 +34,23 @@
           </button>
         </div>
         <div class="modal-body">
-          <edit-new-sstr [toDoAct_] = "toDoAction" [sstrData_]='SelectedSstr' ></edit-new-sstr>
+          <edit-new-sstr [toDoAct_]="toDoAction" [sstrData_]='SelectedSstr'></edit-new-sstr>
         </div>
       </div>
     </div>
+  </div>
 </div>
-
 <div mdbModal #showVideoPlay="mdb-modal" class="modal fade" id="modalVideoPLay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
-    <div class="modal-dialog modal-lg" role="document">
-      <div  class="modal-content md-content">
-        <div class="modal-header md-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="showTeamVideoCLose()">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div [innerHtml]="videoTeamPlay|bhSafeHtml" class="md-video text-center">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content md-content">
+      <div class="modal-header md-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="showTeamVideoCLose()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div [innerHtml]="videoTeamPlay|bhSafeHtml" class="md-video text-center">
         </div>
       </div>
     </div>
-</div>
-
-
-
+  </div>

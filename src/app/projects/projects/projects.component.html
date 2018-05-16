@@ -1,30 +1,23 @@
 <page-header [pageCurrent]="projet_page"></page-header>
-<edit-page-button> </edit-page-button>
-<div class="container-fluid grid grid-top">
-  <div *ngIf="editPAGEstatus" class="create-new">
-    <button (click)="createNewPr()" class="btn btn-unique-edit ed-2">{{btnButtontext}}</button>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top-team anim">
-      <div *ngIf="projectPageEditStatus" class="" #newRef>
-        <project-edit-and-new [todoAct_]="toDoAction" [prData_]="prData">
-        </project-edit-and-new>
-      </div>
-      <div *ngIf="!projectPageEditStatus" class="">
-        <project-list></project-list>
-      </div>
+<div class="portailpage-data">
+  <edit-page-button class="ultimeeditActiveButton"></edit-page-button>
+  <div class="container-fluid">
+    <div *ngIf="editPAGEstatus" class="create-new">
+      <button (click)="createNewPr()" class="btn btn-unique-edit ed-2">{{btnButtontext}}</button>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 presentation">
-      <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
-      </p>
-      <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
-      </p>
-      <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
-      </p>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top-team anim">
+        <div *ngIf="projectPageEditStatus" class="" #newRef>
+          <project-edit-and-new [todoAct_]="toDoAction" [prData_]="prData">
+          </project-edit-and-new>
+        </div>
+        <div *ngIf="!projectPageEditStatus" class="">
+          <project-list></project-list>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <presentation-side></presentation-side>
+      </div>
     </div>
   </div>
 </div>
-<!-- <div class="container-fluid">
-  <ckeditor [(ngModel)]="ckeditorContent" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" debounce="500">
-  </ckeditor>
-</div> -->
