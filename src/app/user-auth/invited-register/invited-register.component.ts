@@ -12,6 +12,8 @@ import { AuthserviceService } from "../../services/authservice/authservice.servi
 export class InvitedRegisterComponent implements OnInit {
 	private company_slug: string = "";
 	private invitation_code: string = "";
+	public success: boolean = false;
+	public error_data: boolean = false;
 	private newpassForm: FormGroup;
 	public dataUser: any;
 	public readyData: boolean = false;
@@ -39,7 +41,7 @@ export class InvitedRegisterComponent implements OnInit {
 				slug: this.company_slug,
 				invitId: this.invitation_code
 			});
-			if (chVal.status == "NOK") {
+			if (chVal.status == "OK") {
 				this.readyData = true;
 				this.dataUser = chVal.data;
 			} else {
@@ -51,8 +53,6 @@ export class InvitedRegisterComponent implements OnInit {
 			console.log(e);
 		}
 	}
-	public success: boolean = false;
-	public error_data: boolean = false;
 	async sumbitPass() {
 		this.readyData = false;
 		console.log(this.newpassForm.value);
