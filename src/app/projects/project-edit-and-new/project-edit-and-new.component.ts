@@ -62,7 +62,7 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 		console.log("Current Data");
 		console.log(this.todoAct);
 		console.log(this.prData);
-		if ((this.todoAct = this.editAct)) {
+		if (this.todoAct == this.editAct) {
 			this.getDataProject();
 		}
 	}
@@ -87,7 +87,7 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 		});
 		try {
 			let save_res: any;
-			if ((this.todoAct = this.editAct)) {
+			if (this.todoAct == this.editAct) {
 				let data = { edited: new_val, id_: this.prData._id };
 				save_res = await this.pr.saveEditProject(data);
 			} else {

@@ -1,8 +1,9 @@
 <page-header [pageCurrent]="sstr_page"></page-header>
 <div class="portailpage-data">
   <edit-page-button class="ultimeeditActiveButton"></edit-page-button>
-  <div *ngIf="editPAGEstatus" class="">
-    <a class="btn-floating btn-lg purple-gradient waves-light" mdbWavesEffect (click)="addNewSstr()"><i class="fa fa-plus"></i></a>
+  <div *ngIf="editPAGEstatus" class="edit_">
+    &nbsp;
+    <a class="waves-light p-2 mb-2 addBut" mdbWavesEffect (click)="addNewSstr()"><i class="fa fa-plus mr-2 "></i> ADD NEW</a>
   </div>
   <div class="container-fluid grid grid-top">
     <div *ngIf="readySstrData" class="row">

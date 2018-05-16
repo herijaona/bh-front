@@ -1,12 +1,11 @@
-<div class="row">
-  <div *ngIf="editPAGEstatus" class="btn-mg">
-    <a (click)="AddNew()" class="btn-floating btn-lg purple-gradient waves-light"><i class="fa fa-plus"></i></a>
-  </div>
+<div *ngIf="editPAGEstatus" class="edit_">
+  &nbsp;
+  <a class="waves-light p-2 mb-2 addBut" mdbWavesEffect (click)="AddNew()"><i class="fa fa-plus mr-2 "></i> ADD NEW</a>
 </div>
-<front-vteam  *ngFor="let item of dataTeamFront" [vteamDATA]= "item"></front-vteam>
 
+<front-vteam *ngFor="let item of dataTeamFront" [vteamDATA]="item"></front-vteam>
 <!-- Modal add-->
- <div *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+<div *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">
     <!--Content-->
     <div class="modal-content">
@@ -14,7 +13,7 @@
       <div class="modal-header light-blue darken-3 white-text">
         <h4 class="title"><i class="fa fa-pencil"></i> Add New Zone </h4>
         <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
-        <span aria-hidden="true">×</span>
+          <span aria-hidden="true">×</span>
         </button>
       </div>
       <!--Body-->
@@ -25,7 +24,6 @@
     <!--/.Content-->
   </div>
 </div>
-
 <!-- Modal video play-->
 <div *ngIf="showDataState" style="overflow: auto;" mdbModal #showVideo="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="showDataState" class="modal-dialog cascading-modal modal-lg" role="document">
@@ -34,14 +32,14 @@
       <!--Header-->
       <div class="modal-header md-header light-blue darken-3 white-text">
         <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="showVideoCLose()">
-        <span aria-hidden="true">×</span>
+          <span aria-hidden="true">×</span>
         </button>
       </div>
       <!--Body-->
       <div class="modal-body mb-0">
-      	<div [innerHtml]="videoTeam|bhSafeHtml" class="md-video text-center">
+        <div [innerHtml]="videoTeam|bhSafeHtml" class="md-video text-center">
+        </div>
       </div>
+      <!--/.Content-->
     </div>
-    <!--/.Content-->
   </div>
-</div>
