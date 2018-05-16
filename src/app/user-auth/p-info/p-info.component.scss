@@ -19,9 +19,14 @@
 }
 
 
-
 .font-my-3 {
 	font-family: SourceSansPro-Semibold;
+	@media(max-width:1112px){
+		padding-left: 26px;
+	}
+	@media(max-width:575px){
+		text-align: center !important;
+	}
 }
 
 .font-weight-bold {
@@ -55,4 +60,7 @@
 		margin-left: 10px;
 	}
 
+}
+.min-width-avatar{
+	min-width: 105px;
 }

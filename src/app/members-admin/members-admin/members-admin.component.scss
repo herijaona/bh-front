@@ -299,6 +299,12 @@ hr {
 
 .ed {
     box-shadow: 0.2px 0px 0.1px 1px #c1c1c1;
+    span{
+        display:none; 
+        @media(max-width:1335px){
+            display:block;
+        }
+            }
 }
 
 .btn-edit-up {
