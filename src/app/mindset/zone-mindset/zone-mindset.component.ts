@@ -56,7 +56,9 @@ export class ZoneMindsetComponent implements OnInit {
 		private sh: SharedNotificationService,
 		private cs: CompanyService,
 		private el: ElementRef
-	) {
+	) {}
+
+	ngOnInit() {
 		this.activRoute.params.subscribe((params_: any) => {
 			this.currentCompanySlug = params_["slug_acc"];
 			this.formatDataView();
@@ -94,9 +96,6 @@ export class ZoneMindsetComponent implements OnInit {
 		});
 	}
 
-	ngOnInit() {
-	}
-
 	onResize(event) {
 		this.myWindth = this.el.nativeElement.parentElement.offsetWidth;
 		this.oneCol = (this.myWindth - 15) / 3;
@@ -104,7 +103,6 @@ export class ZoneMindsetComponent implements OnInit {
 	}
 
 	async formatDataView() {
-		
 		try {
 			let dtype = [];
 			let all: any = await this.cs.allZoneData(this.currentCompanySlug);
@@ -118,10 +116,14 @@ export class ZoneMindsetComponent implements OnInit {
 							all.splice(z, 1);
 							break;
 						default:
+						if('rang' in all[z]) {
+							// code...
+							console.log('lskjdfsl jslkdjfsldkjf slfkjsdlfkjsl')
+						}
 							break;
 					}
 				}
-				if(!dtype.includes(3)){
+				if (!dtype.includes(3)) {
 					this.chrDtype = null;
 				}
 				dtype = dtype.filter((elem, pos, arr) => {
@@ -156,13 +158,11 @@ export class ZoneMindsetComponent implements OnInit {
 
 	closeModalAddNEw() {
 		this.myModal.hide();
-		this.dataZoneEdit=null;
+		this.dataZoneEdit = null;
 		setTimeout(() => {
 			this.addNewState = false;
 		}, 330);
 	}
-
-
 
 	async ngAfterViewInit() {}
 }
