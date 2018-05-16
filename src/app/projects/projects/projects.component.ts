@@ -57,10 +57,22 @@ export class ProjectsComponent implements OnInit {
 				case "editProject":
 					this.editProject(st.data);
 					break;
+				case "commEditpage":
+					this.editStateChange(st.data);
+					break;
 				default:
 					break;
 			}
 		});
+	}
+
+	editStateChange(st) {
+		if (!st) {
+			this.editPAGEstatus = false;
+			this.projectPageEditStatus = false;
+		} else {
+			this.editPAGEstatus = true;
+		}
 	}
 
 	onChange($event: any): void {

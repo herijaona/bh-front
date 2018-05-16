@@ -13,6 +13,7 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
 	public button_text: string = "Edit";
 	public edit_state: boolean = false;
 	public isAdmin: boolean = false;
+	public isComm: boolean = false;
 	public currAccId: string;
 	public currentCompanySlug: string = "";
 
@@ -33,9 +34,17 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
 	isAdm() {
 		this.auth.isAdmin(this.currentCompanySlug).then((er: any) => {
 			this.isAdmin = er.resp;
+			console.log(er);
 			if (!er.resp) {
-				this.sh.setLocalEditState(0);
-				this.sh.pageEditButton({ state: false, no: "clck" });
+				if ("isComm" in er) {
+					if (er["isComm"]) {
+						this.isComm = true;
+						this.currAccId = er.data;
+					}
+				} else {
+					this.sh.setLocalEditState(0);
+					this.sh.pageEditButton({ state: false, no: "clck" });
+				}
 			} else {
 				this.currAccId = er.data;
 			}
@@ -70,5 +79,35 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
 		this.cs.removeMycompanyId();
 		this.sh.pageEditButton({});
 		this.sh.pushData({});
+	}
+
+	show_hideCommEdit() {
+		if (this.edit_state) {
+			this.sh.pushData({
+				from: "editKeyGeneral",
+				action: "idACCOUNT",
+				data: ""
+			});
+			this.edit_state = false;
+			this.button_text = "Edit";
+			this.sh.pushData({
+				from: "commEditpage",
+				message: "stateChange",
+				data: false
+			});
+		} else {
+			this.sh.pushData({
+				from: "editKeyGeneral",
+				action: "idACCOUNT",
+				data: this.currAccId
+			});
+			this.edit_state = true;
+			this.button_text = "Leave Edit";
+			this.sh.pushData({
+				from: "commEditpage",
+				message: "stateChange",
+				data: true
+			});
+		}
 	}
 }

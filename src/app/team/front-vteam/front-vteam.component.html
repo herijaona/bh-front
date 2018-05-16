@@ -20,8 +20,8 @@
 			{{teamVideoData.textTeam}}
 			</p>
 			<p class="lead">
-				<a class="btn btn-primary btn-lg btn-wnt" href="#" role="button">vous avez une question<i class="fa fa-question-circle icon-question"></i></a>
-				<a class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>
+				<a (click)="ask_questions_toTeam($event)" class="btn btn-primary btn-lg btn-wnt" href="#" role="button">vous avez une question<i class="fa fa-question-circle icon-question"></i></a>
+				<a (click)="ask_questions_toTeam($event)" class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>
 			</p>
 		</div>
 	</div>

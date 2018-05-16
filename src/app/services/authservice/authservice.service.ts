@@ -91,17 +91,21 @@ export class AuthserviceService extends BaseHttpService {
             .toPromise()
             .then(
               (re: any) => {
-                if (re.data_check_response) {
-                  this.cs.storeMycompanyId(re._id_check);
-                  let resp = {
-                    resp: re.data_check_response,
-                    data: re._id_check
-                  };
-                  resolve(resp);
+                let rs = {
+                  resp: re.data_check_response
+                };
+
+                if ("_id_check" in re) {
+                  rs["data"] = re._id_check;
                 } else {
-                  this.cs.removeMycompanyId();
-                  resolve({ resp: false });
+                  rs["data"] = null;
                 }
+                if ("data_isComm" in re) {
+                  rs["isComm"] = re.data_isComm;
+                } else {
+                  rs["isComm"] = false;
+                }
+                resolve(rs);
               },
               err => {
                 reject(err.error);
@@ -210,9 +214,9 @@ export class AuthserviceService extends BaseHttpService {
   }
 
   public checkInvitationVal(arg) {
-    return this.fetch("get", "cInvitationValData", arg ).toPromise();
+    return this.fetch("get", "cInvitationValData", arg).toPromise();
   }
   public postInvitationVal(arg) {
-    return this.fetch("post", "cInvitationValData", arg ).toPromise();
+    return this.fetch("post", "cInvitationValData", arg).toPromise();
   }
 }

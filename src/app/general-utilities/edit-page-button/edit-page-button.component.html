@@ -10,3 +10,16 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="isComm">
+  <div>
+    <div class="pull-right">
+      <button (click)="show_hideCommEdit()" [ngClass]="{'btn-info':!edit_state , 'btn-success': edit_state}" type="button" class="btn waves-light adminEdit btn-md" mdbWavesEffect><i class="fa fa-pencil mr-1" aria-hidden="true"></i> &nbsp;
+        <span class="btntext">
+        
+  {{button_text}}
+      </span>
+      </button>
+    </div>
+  </div>
+</div>

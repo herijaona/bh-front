@@ -17,6 +17,9 @@
   <div class="">
     <label>Text</label>
     <textarea formControlName="tvText" type="text" name=""></textarea>
+
+    <ckeditor  [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"  debounce="500">
+      </ckeditor>
   </div>
   <div class="">
     <button [ngClass]="{'disabled': !teamVideoForm.valid }" class="btn btn-default"> Enregistrer</button>

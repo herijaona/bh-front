@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from "@angular/core";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
+import { Globals } from "./../../globals/globals";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import {
 	ValidateUrl,
@@ -20,6 +21,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	private tmvDATA: any;
 	private editAct: string = "tmVEdit";
 	private AddAct: string = "tmVAdd";
+	public teamText: string;
 
 	@Input("do_action")
 	set do_action(to_do: string) {
@@ -32,7 +34,8 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private tms: TeamsService,
-		private sh: SharedNotificationService
+		private sh: SharedNotificationService,
+		private g : Globals
 	) {
 		this.teamVideoForm = new FormGroup({
 			tvCaption: new FormControl("", [Validators.required]),
@@ -79,7 +82,9 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 					video_id +
 					"?controls=1&autoplay=1'></iframe>"
 			};
-			this.im_poster = this.sh.getVideoImPoster(this.idVidYouTube.id_video);
+			this.im_poster = this.sh.getVideoImPoster(
+				this.idVidYouTube.id_video
+			);
 			return video_id;
 		}
 	}
@@ -135,4 +140,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	}
 
 	reussiAction() {}
+	onChange($event) {
+		console.log($event);
+	}
 }

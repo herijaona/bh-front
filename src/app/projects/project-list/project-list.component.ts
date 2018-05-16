@@ -43,15 +43,26 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 						this.formatDataView();
 					}
 					break;
+				case "commEditpage":
+					this.editStateChange(st.data);
+					break;
 				default:
 					break;
 			}
 		});
 	}
 
+	editStateChange(st) {
+		if (!st) {
+			this.editPAGEstatus = false;
+		} else {
+			this.editPAGEstatus = true;
+		}
+	}
+
 	async formatDataView() {
 		let allProject: any = [];
-		this.listData =[];
+		this.listData = [];
 		try {
 			allProject = await this.pr.getCompanyProject(
 				this.currentCompanySlug

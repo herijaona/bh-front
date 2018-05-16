@@ -78,4 +78,9 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.sh.pushData({});
 	}
+
+	ask_questions_toTeam(ev){
+		ev.preventDefault();
+		alert("Lkaofje");
+	}
 }
