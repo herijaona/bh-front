@@ -111,6 +111,9 @@
         color: gray;
     }
 }
+.nav-down li a{
+    color: gray;
+}
 .project-list{
     box-shadow: 0px 0px 3px 1px #b9b9b9;
     padding: 42px 42px 5px 42px;
@@ -119,8 +122,8 @@
     padding: 0;
     list-style: none;
     h3{
-        color: #e83936;
-        font-size: 20px;
+        color: #e84d3f;
+        font-size: 13px;
         margin-left: -25px;
         color: #e83936;
         font-family: "SourceSansPro-Semibold";
@@ -140,5 +143,17 @@
     }
     ul li a{
         padding: 14px 15px 14px 0px;
+    }
+}
+.list-nav h3 span {
+    padding-left: 10px;
+    font-size: 16px;
+}
+@media (max-width: 491px){
+.nav-down li{
+    margin-bottom: -15px;
+    }
+.title-propos{
+    margin-top: 21px;
     }
 }

@@ -32,17 +32,13 @@
         width: 640px;
         height: 360px;
     }
-
 }
-
 @media (min-height:580px) {
     .md-video iframe {
         width: 853px;
         height: 480px;
     }
-
 }
-
 .row {
     margin-right: 0px !important;
     margin-left: 0px !important;
@@ -62,7 +58,49 @@
 .portailpage-data {
     position: relative;
 }
-
 .addBut{
     border: solid 1px;
+    font-family: SourceSansPro-Regular;
+}
+.md-content, .md-header{
+    box-shadow: none !important;
+    @media(max-width:501px){
+    .modal-body{
+        padding: 0 !important;
+        margin-top: 5px;
+        }
+    }
+}
+@media(max-width:670px){
+    .modal-lg{
+        margin: 0px !important;
+        }
+    }
+@media(max-width:575px){
+    .close{
+        margin-top: -15px !important;
+        }
+    } 
+
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 75%;
+    }
+}
+@media (min-width: 576px){
+.modal-lg {
+    max-width: 100% !important;
+    }
+}
+
+#modalZoneForm {
+    background-color: #000000eb;
+    z-index:99999;
+}
+
+.imAdd im-select .row .img-hidden{
+    width:inherit;
+}
+.modal-lg{
+    margin-top: 27px !important;
 }

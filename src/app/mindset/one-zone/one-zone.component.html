@@ -65,13 +65,13 @@
   <!-- Modal video play-->
   <ng-template [ngIf]="dtZone.dtype == 1 || dtZone.dtype == 2">
     <div *ngIf="showDataState" style="overflow: auto;" mdbModal #form2="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-      <div *ngIf="showDataState" class="modal-dialog cascading-modal" role="document">
+      <div *ngIf="showDataState" class="modal-dialog cascading-modal modal-lg" role="document">
         <!--Content-->
         <div class="modal-content md-content">
           <!--Header-->
           <div class="modal-header md-header light-blue darken-3 white-text">
             <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalShowZoom()">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true"><i class="fa fa-window-close"></i>fermer</span>
             </button>
           </div>
           <!--Body-->

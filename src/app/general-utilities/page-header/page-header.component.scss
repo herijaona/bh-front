@@ -192,4 +192,41 @@
     }
 }
 
+.nav-hv:after {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    background: #87888D;
+    animation: fadeOutLeft .2s linear;
+    content: ' ';
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    visibility: hidden;
+}
+.active:hover:after {
+     background: transparent;   
+}
+a::after{
+    -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) false;
+    -o-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) false;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.nav-hv:hover:after {
+    animation: fadeInRight .2s linear;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    visibility: visible;
+}
+.nav-hv{
+    position: relative;
+    display: block;
+}
 /* end header */

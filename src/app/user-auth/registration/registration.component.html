@@ -15,14 +15,14 @@
                     </div>
 
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-6  col-sm-6">
 							<div class="input-md">
 								<label for="bh_firstname">Firstname</label>
 								<input [ngClass]="{'err_sh' : registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched }" type="text" formControlName="bh_firstname"  id="bh_firstname" class="form-control" mdbActive>
 								<span class="err_msg" *ngIf="registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched">Champ Obligatoire</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bh_lastname">Lastname</label>
 								<input type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" mdbActive>
@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bhemail">Your email</label>
 								<input type="email" (change)="detectEmail()" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
@@ -43,7 +43,7 @@
 								</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bh_functions">Function:</label>
 								<input [ngClass]="{'err_sh' : registerForm.controls.bh_functions.invalid && registerForm.controls.bh_functions.touched }" type="text" formControlName="bh_functions" id="bh_functions" class="form-control" mdbActive>
@@ -53,7 +53,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bh_pass">Your password</label>
 								<input (keyup)="passCheck()" type="password" formControlName="bh_pass" id="bh_pass" class="form-control" mdbActive>
@@ -61,7 +61,7 @@
 								<span class="err_msg" *ngIf="passNotEqual">Mot de passe non Egaux</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md	">
 								<label for="bh_pass_conf">Confirm password</label>
 								<input (keyup)="passCheck()" type="password" formControlName="bh_pass_conf" id="bh_pass_conf" class="form-control" mdbActive>
@@ -69,19 +69,17 @@
 							</div>
 						</div>
 					</div>
-
-
-					<h5>Organisation</h5>
+					<h5 class="title-second">Organisation</h5>
 					<hr>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bh_acc_commercial">Commerciale Name</label>
 								<input type="text" formControlName="bh_acc_commercial" id="bh_acc_commercial" class="form-control" mdbActive>
 								<span class="err_msg" *ngIf="registerForm.controls.bh_acc_commercial.invalid && registerForm.controls.bh_acc_commercial.touched">Champ Obligatoire</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bh_acc_socialMean">Raison Social</label>
 								<input type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control" mdbActive>
@@ -90,14 +88,14 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bh_orgType">Type Organisation</label>
 								<input type="text" formControlName="bh_orgType" id="bh_orgType" class="form-control" mdbActive>
 								<span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Champ Obligatoire</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label>Adresse</label>
 								<ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
@@ -108,7 +106,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<div class="file-field">
 								<input id="logoFile" type="file" accept="image/*" mdbFileSelect class="inputfile"  mdbActive>
 
@@ -116,7 +114,7 @@
 								<span class="ferr_msg" *ngIf="fileError">Champ Obligatoire</span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 col-sm-6">
 							<button [ngClass]="{'disabled': !registerForm.valid || registerForm.value.bh_pass_conf != registerForm.value.bh_pass || registerForm.controls.bh_pass.untouched || !localAdded }" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign" mdbRippleRadius>Sign up</button>
 						</div>
 					</div>

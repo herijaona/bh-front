@@ -58,7 +58,7 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 				});
 				this.sh.notifToast({
 					type: "success",
-					message: "<p>Element SupprimE avec success</p>"
+					message: "<p>Element Supprimé  avec success</p>"
 				});
 				this.el.nativeElement.remove();
 			}
