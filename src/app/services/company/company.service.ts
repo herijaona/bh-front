@@ -47,7 +47,7 @@ export class CompanyService extends BaseHttpService {
         localStorage.removeItem(this.cLabel.localCData);*/
   }
   updateDataInfo(i): Promise<any> {
-    return this.request("post", "updatecompanies", i, true).toPromise();
+    return this.fetch("post", "updatecompanies", i).toPromise();
   }
   updateDataImage(idim, acId, dim) {
     let ivar = {
@@ -56,7 +56,7 @@ export class CompanyService extends BaseHttpService {
       dataIm: dim
     };
     return new Promise((resolve, reject) => {
-      this.request("post", "update-DataImage-companie", ivar, true).subscribe(
+      this.fetch("post", "update-DataImage-companie", ivar).subscribe(
         (e: any) => {
           resolve(e);
         }

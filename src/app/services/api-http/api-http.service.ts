@@ -12,7 +12,7 @@ export class ApiHttpService extends BaseHttpService {
   }
 
   postUpImages(data: any) {
-    return this.request("post", "up_images", data);
+    return this.fetch("post", "up_images", data);
   }
 
   postUpMImages(data: any, typ) {
@@ -21,7 +21,7 @@ export class ApiHttpService extends BaseHttpService {
 
   /*Request Activation */
   postReqActivation(text_) {
-    return this.request("post", "activate", text_);
+    return this.fetch("post", "activate", text_);
   }
 
   /*Uploads Image to the server */

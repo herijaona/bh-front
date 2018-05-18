@@ -101,6 +101,9 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
 				action: "idACCOUNT",
 				data: this.currAccId
 			});
+
+			console.log(this.currAccId)
+
 			this.edit_state = true;
 			this.button_text = "Leave Edit";
 			this.sh.pushData({
