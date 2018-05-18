@@ -170,7 +170,16 @@ homeslider {
 @media (max-height:640px) {
     .view {
         width: 100vw;
+        img{
         height: 640px !important;
+        }
+
+    }
+
+}
+@media (max-width:640px) {
+    .carousel-item{
+    overflow-y:auto;
     }
 
 }
