@@ -38,9 +38,6 @@
 
 .font-my-3 {
 	font-family: SourceSansPro-Semibold;
-	    @media(max-width:991px){
-        text-align: center !important;
-        }
 }
 
 .font-weight-bold {
@@ -185,7 +182,10 @@
 .btn-unique-edit{
     background: linear-gradient(-90deg, #e83936, #f94d37);
 }
-
+.ed-2{
+	width: 100%;
+    margin-top: 1px;
+}
 .overlay_ {
   position: absolute;
   top: 0;
@@ -208,8 +208,4 @@
 .block-txt{
 	display: block;
 	visibility:hidden;
-}
-.ed-2{
-	width: 100%;
-    margin-top: 1px;
 }

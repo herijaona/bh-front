@@ -11,7 +11,7 @@
 .btn-unique-edit{
     background: linear-gradient(-90deg, #e83936, #f94d37);
     font-family: SourceSansPro-Bold;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     margin-top: 27px;
 }
 .form-control-project{
@@ -33,4 +33,19 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 }
 .mb-20{
 	margin-bottom:20px;
+}
+.unit-display{
+    display: inline-grid;
+    top: 0px;
+    position: relative;
+    select{
+        background: white;
+        height: 33px;
+        min-width: 110px;
+        border: 1px solid #e6e9ec;
+        height: 41px;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+    }
 }
