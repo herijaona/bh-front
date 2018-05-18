@@ -193,8 +193,12 @@
 .imf {
   // width: 100% !important;
   // height: 100%;
-  width: 750px;
-  height: 600px;
+    width: 100%;
+    height: auto;
+    @media(min-width:965px){
+      max-width:965px;
+      max-height: 550px;
+    }
 }
 
 /* ****** ***** **** ** ** ** * * * ** * * ** *  */

@@ -1,5 +1,4 @@
 
-
 .edit-margin {
 	margin-top: 15px
 }
@@ -8,21 +7,8 @@
 	margin-top: 27px
 }
 
-
 #modalZoneForm {
 	background-color: #1010108c;
-}
-
-.modal-dialog.cascading-modal {
-	margin-top: 50px !important;
-}
-
-@media (min-width:992px) {
-	.modal-dialog {
-		max-width: 800px;
-		// margin: 1.75rem auto;
-	}
-
 }
 
 .addZoneButt {
@@ -108,9 +94,6 @@
 	}
 }
 
-/* .contt{
-	margin-left:15px
-} */
 .btn-floating{
 	position: relative;
     left: -8%;
@@ -141,9 +124,7 @@
 .mb-30{
 	margin-bottom:25px;
 }
-.md-content{
-    background: transparent;
-}
+
 .edit_{
 	left: -8px;
     position: relative;

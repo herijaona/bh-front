@@ -54,13 +54,15 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 			fileName = inpt.files.length.toString() + " selected";
 		else fileName = event.target.value.split("\\").pop();
 		if (fileName) {
-			lbs.innerHTML = fileName;
+			// lbs.innerHTML = fileName;
 			this.butt_up = true;
+			this.uploadImageInBiblio(event, '_filev', 'images')
 		} else {
 			this.butt_up = false;
 			lbs.innerHTML = labelVal;
 		}
 	}
+
 	async uploadImageInBiblio(evtn, id, tp) {
 		let inputEl: HTMLInputElement = this.el.nativeElement.querySelector(
 			"#" + id

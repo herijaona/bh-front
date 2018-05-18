@@ -30,11 +30,11 @@
 	Add Image
 	</span>
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-5 pl-0">
 			<form [formGroup]="imForm" (ngSubmit)="saveImageZone()">
 				<div class="">
 					<label>Caption:</label>
-					<input formControlName="imCaption" type="text" name="">
+					<input formControlName="imCaption" type="text" name="" class="input-story">
 				</div>
 				<button type="submit" [ngClass]="{disabled : !imForm.valid || imNotSelected }" class="btn btn-default"> Save </button>
 			</form>
@@ -48,11 +48,11 @@
 
 <div *ngIf="selctFlag.imAdd && !actionAdd" class="imAdd">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-5 pl-0">
 			<form [formGroup]="imForm" (ngSubmit)="saveImageZone()">
 				<div class="">
 					<label>Caption:</label>
-					<input formControlName="imCaption" type="text" name="">
+					<input formControlName="imCaption" type="text" name="" class="input-story">
 				</div>
 				<button type="submit" [ngClass]="{disabled : !imForm.valid || imNotSelected }" class="btn btn-default"> Save </button>
 			</form>
@@ -69,11 +69,11 @@
 <div *ngIf="selctFlag.vidAdd" class="vidAdd">
 	Add Video
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-5 pl-0">
 			<form [formGroup]="vidForm" (ngSubmit)="saveVideosZone()">
 				<div class="">
 					<label>Caption:</label>
-					<input formControlName="vidCaption" type="text" name="">
+					<input formControlName="vidCaption" type="text" name="" class="input-story">
 				</div>
 				<div class="">
 					<label>Youtube Url:</label>
@@ -132,7 +132,7 @@
 				</div>
 				<div class="">
 					<label>Opportuinites crees:</label>
-					<input formControlName="createdOpportinuite" type="text" >
+					<input formControlName="createdOpportinuite" type="text" class="input-story">
 				</div>
 			</div>
 		</div>

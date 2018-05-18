@@ -28,23 +28,21 @@
     </div>
   </ng-template>
 </div>
-<!-- Modal -->
-<div *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-  <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">
-    <!--Content-->
-    <div class="modal-content">
-      <!--Header-->
-      <div class="modal-header light-blue darken-3 white-text">
-        <h4 class="title"><i class="fa fa-pencil"></i> Add New Zone </h4>
-        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
-          <span aria-hidden="true">x</span>
-        </button>
-      </div>
-      <!--Body-->
-      <div class="modal-body mb-0 mindset-modal">
-        <new-zone-mindset [existDtype]="existDtype" [action_type]='zoneActionType' [data_zone]="dataZoneEdit"> </new-zone-mindset>
+
+
+  <div *ngIf="addNewState"  mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
+    <div class="modal-dialog modal-lg" role="document">
+      <div *ngIf="addNewState" class="modal-content success-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Add New Zone </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <new-zone-mindset [existDtype]="existDtype" [action_type]='zoneActionType' [data_zone]="dataZoneEdit"> </new-zone-mindset>
+        </div>
       </div>
     </div>
-    <!--/.Content-->
   </div>
-</div>
+

@@ -1,4 +1,6 @@
-
+#modalVideoPLay {
+    background-color: #000000eb; 
+}
 @media (min-width:576px) {
 	.modal-dialog {
 		max-width: 75%;
@@ -53,10 +55,7 @@
         }
     }
 }
-.md-content{
-    background: transparent;
-    box-shadow: none;
-}
+
 .grid-top{
     margin-bottom: 20px;
     padding-left: 0;

@@ -97,11 +97,11 @@
 <!-- Modal -->
 <div *ngIf="selectingImage" class="">
   <div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-    <div *ngIf="selectingImage" class="modal-dialog cascading-modal" role="document">
+    <div *ngIf="selectingImage" class="cascading-modal" role="document">
       <!--Content-->
-      <div class="modal-content">
+      <div class="modal-content success-content">
         <!--Header-->
-        <div class="modal-header light-blue darken-3 white-text">
+        <div class="modal-header">
           <h4 class="title"><i class="fa fa-pencil"></i> Select Image </h4>
           <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="hideImageModal()">
             <span aria-hidden="true">×</span>

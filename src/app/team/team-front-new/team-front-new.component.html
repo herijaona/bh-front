@@ -1,19 +1,19 @@
 <form [formGroup]="teamVideoForm" (ngSubmit)="saveTeamVideoFront()">
   <div class="">
-    <button [ngClass]="{'disabled': !teamVideoForm.valid || !editorChanged }" class="btn btn-default"> Enregistrer</button>
+    <button [ngClass]="{'disabled': !teamVideoForm.valid || !editorChanged }" class="btn btn-default bg-sign  "><i class="fa fa-save mr-2"></i>save</button>
   </div>
   <div class="row">
-    <div class="col-md-7">
-      <div class="">
+    <div class="col-md-7 pl-0">
+      <div class="label-text">
         <label>Caption</label>
-        <input formControlName="tvCaption" type="text" name="">
+        <input formControlName="tvCaption" type="text" name="" class="input-story">
       </div>
-      <div class="">
+      <div class="label-text">
         <label>Video Url</label>
-        <input (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="tvVideoUrl" type="url" name="">
+        <input class="input-story" (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="tvVideoUrl" type="url" name="" >
       </div>
 
-      <div class="">
+      <div class="label-text dsp-g">
         <label>Team:</label>
         <select formControlName="tvteamMember">
           <option value="0"> Choose Team member</option>
@@ -28,10 +28,10 @@
     </div>
   </div>
 </form>
-<div class="">
+<div class="label-text">
   <label>
     Team Texte:
+  </label>
     <ckeditor [(ngModel)]="cketeamText" [config]="g.conf_editor" [readonly]="false" (change)="onChangeEditor($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" debounce="500">
     </ckeditor>
-  </label>
 </div>

@@ -5,12 +5,12 @@
 
 <front-vteam *ngFor="let item of dataTeamFront" [vteamDATA]="item"></front-vteam>
 <!-- Modal add-->
-<div *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-  <div *ngIf="addNewState" class="modal-dialog cascading-modal" role="document">
+<div *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div *ngIf="addNewState" class="cascading-modal" role="document">
     <!--Content-->
-    <div class="modal-content">
+    <div class="modal-content success-content">
       <!--Header-->
-      <div class="modal-header light-blue darken-3 white-text">
+      <div class="modal-header">
         <h4 class="title"><i class="fa fa-pencil"></i> Add New Zone </h4>
         <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
           <span aria-hidden="true">×</span>
@@ -30,7 +30,7 @@
     <!--Content-->
     <div class="modal-content md-content">
       <!--Header-->
-      <div class="modal-header md-header light-blue darken-3 white-text">
+      <div class="modal-header md-header">
         <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="showVideoCLose()">
           <span aria-hidden="true"><i class="fa fa-window-close"></i>fermer</span>
         </button>
