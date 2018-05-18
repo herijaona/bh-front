@@ -211,3 +211,29 @@
     background: transparent;
     box-shadow: none;
 }
+.success-content{
+    max-width: 800px;
+    margin: 0 auto;
+    top: 45px;
+    .close{
+        background: #e84d3f; 
+        position: relative; 
+        border-radius: 39px;
+        color: white; 
+        width: 40px;
+        padding: 11px; 
+        font-size: 19px;
+        margin: -39px;
+        opacity:0.8;
+        float: left;
+        display: table; 
+         margin-right: -50px;
+    }
+    h4{
+        font-family: SourceSansPro-Regular;
+        color: #e84d3f;
+        background: -webkit-linear-gradient(55deg, #f94d37 50%, #e84d3f 60%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
