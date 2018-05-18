@@ -45,6 +45,11 @@ export class AskQuestionsComponent implements OnInit {
 		return true;
 	}
 
+	async sendQuestions(){
+		console.log("Current Object");
+		console.log(this.currObj)
+	}
+
 	onReady($event) {}
 	onEditorChange($event) {}
 }

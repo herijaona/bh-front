@@ -26,28 +26,6 @@ export class BaseHttpService {
 		});
 	}
 
-	public request(
-		method: "post" | "get",
-		resource: any,
-		data?: any,
-		withtoken?: any
-	): Observable<any> {
-		let base;
-
-		if (method === "post") {
-			base = this.http.post(this.endPointUrl + `/api/${resource}`, data);
-		} else {
-			base = this.http.get(this.endPointUrl + `/api/${resource}`);
-		}
-
-		const request = base.pipe(
-			map(data => {
-				return data;
-			})
-		);
-		return request;
-	}
-
 	public fetch(
 		method: string = "GET",
 		resource: string = "",
