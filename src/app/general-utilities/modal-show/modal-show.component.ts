@@ -11,6 +11,7 @@ export class ModalShowComponent implements OnInit {
 	@ViewChild("mdl_general") myModalGen: ModalDirective;
 	public askquest_mdl: boolean = false;
 	public lgin_mdl: boolean = false;
+	public dataModal: any;
 	public activeShow: boolean = false;
 	constructor(private sh: SharedNotificationService) {
 		this.sh.busDataIn$.subscribe((st: any) => {
@@ -25,8 +26,9 @@ export class ModalShowComponent implements OnInit {
 		});
 	}
 	public loginModal(arg) {
-		this.activeShow = true;
+		this.dataModal = arg;
 		this.lgin_mdl = true;
+		this.activeShow = true;
 		console.log(arg);
 		setTimeout(() => {
 			this.myModalGen.show();
@@ -34,9 +36,9 @@ export class ModalShowComponent implements OnInit {
 	}
 
 	public askQuestions(arg) {
-		console.log(arg);
-		this.activeShow = true;
+		this.dataModal = arg;
 		this.askquest_mdl = true;
+		this.activeShow = true;
 		setTimeout(() => {
 			this.myModalGen.show();
 		}, 330);
@@ -47,6 +49,7 @@ export class ModalShowComponent implements OnInit {
 			this.lgin_mdl = false;
 			this.askquest_mdl = false;
 			this.activeShow = false;
+			this.dataModal = null;
 		}, 500);
 	}
 	ngOnInit() {}

@@ -1,1 +1,11 @@
-<h1>lop</h1>
+<div class="quest_">
+  <div class="">
+    <label>Your Questions:</label>
+    <ckeditor [(ngModel)]="questionText" [config]="g.conf_editor" [readonly]="false" (change)="onChangeEditor($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" debounce="500">
+    </ckeditor>
+  </div>
+  <div class="mt-2">
+    <button [ngClass]="{ disabled : !changeStatus } " class="btn btn-md btn-info"> send </button>
+  </div>
+  <div><label class="mr-2">Length:</label> {{ charLength}}  <span class="ml-2"> (max: 1500 )</span> </div>
+</div>

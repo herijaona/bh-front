@@ -6,10 +6,10 @@
       </button>
       <div class="modal-body">
         <div *ngIf="lgin_mdl" class="lgm">
-          <login-modal></login-modal>
+          <login-modal ></login-modal>
         </div>
         <div *ngIf="askquest_mdl" class="askm">
-          <ask-questions></ask-questions>
+          <ask-questions [data_]="dataModal" ></ask-questions>
         </div>
       </div>
     </div>

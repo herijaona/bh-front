@@ -4,6 +4,7 @@ import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
+import { CKEditorModule } from "ng2-ckeditor";
 import { SectionEditButtonComponent } from "./section-edit-button/section-edit-button.component";
 import { EditPageButtonComponent } from "./edit-page-button/edit-page-button.component";
 import { ImSelectComponent } from "./im-select/im-select.component";
@@ -16,7 +17,7 @@ import { LoginModalComponent } from "./login-modal/login-modal.component";
 @NgModule({
 	imports: [
 		CommonModule,
-		ReactiveFormsModule,
+		ReactiveFormsModule,CKEditorModule,
 		FormsModule,
 		RouterModule,
 		MDBBootstrapModule.forRoot()
