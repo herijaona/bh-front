@@ -92,10 +92,18 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 			this.sh.pushData({
 				from: "askQuestions",
 				message: "askquestions",
-				data: { tms: this.teamVideoData, dtls: this.tmsDetails }
+				data: {
+					objectRef: "team_front",
+					objectData: this.teamVideoData,
+					dtls: this.tmsDetails
+				}
 			});
 		} else {
-			let afterdata = { tms: this.teamVideoData, dtls: this.tmsDetails };
+			let afterdata = {
+				objectRef: "team_front",
+				objectData: this.teamVideoData,
+				dtls: this.tmsDetails
+			};
 			this.sh.pushData({
 				from: "loginModal",
 				message: "askquestions",
