@@ -212,3 +212,22 @@
     padding-right: 4rem !important;
     padding-left: 4rem !important;
     }
+
+    .mdb_genModal{
+        position: relative;
+    }
+
+    .login_notif{
+        position: absolute;
+        top: 0px;
+        z-index: 1060;
+        width:100%;
+        text-align: center;
+        padding: auto
+    }
+
+    .logg{
+        margin: auto;
+        width:75%;
+        padding:15px
+    }

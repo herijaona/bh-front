@@ -88,26 +88,23 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 	ask_questions_toTeam(ev) {
 		ev.preventDefault();
 		console.log(this.teamVideoData);
+		let _data = {
+			objectRef: "TMV",
+			objectData: this.teamVideoData,
+			dtls: this.tmsDetails
+		};
+		
 		if (this.auth.isLoggedIn()) {
 			this.sh.pushData({
 				from: "askQuestions",
 				message: "askquestions",
-				data: {
-					objectRef: "team_front",
-					objectData: this.teamVideoData,
-					dtls: this.tmsDetails
-				}
+				data: _data
 			});
 		} else {
-			let afterdata = {
-				objectRef: "team_front",
-				objectData: this.teamVideoData,
-				dtls: this.tmsDetails
-			};
 			this.sh.pushData({
 				from: "loginModal",
 				message: "askquestions",
-				data: { after: afterdata, to: "askQuestions" }
+				data: { after: _data, to: "askQuestions" }
 			});
 		}
 	}
