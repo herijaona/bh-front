@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { Router } from "@angular/router";
@@ -11,11 +11,20 @@ import { Globals } from "./../../globals/globals";
   styleUrls: ["./login-modal.component.scss"]
 })
 export class LoginModalComponent implements OnInit {
+  public currObj: any;
+  @Input("data_")
+  set data_(d) {
+    this.currObj = d;
+  }
   public img_logo: string;
   public img_avatar: string;
+  public alrt_type: string;
+  public msg_error: string = "";
   public loginForm: FormGroup;
   public resetpassForm: FormGroup;
+  @Output() endMessage = new EventEmitter<{}>();
   public notifReset: boolean = false;
+  public hasError: boolean = false;
   public loginFormFlag: boolean = true;
   type_ = "notif";
   text_ = "Success de registration";
@@ -31,6 +40,7 @@ export class LoginModalComponent implements OnInit {
     this.img_logo = this.g.base_href + "assets/img/bh.png";
   }
   ngOnInit() {
+    console.log(this.currObj.data);
     this.resetpassForm = new FormGroup({
       bhemail: new FormControl("", [
         Validators.required,
@@ -49,35 +59,39 @@ export class LoginModalComponent implements OnInit {
       ])
     });
   }
-  onFormSubmit() {
+  async onFormSubmit() {
     let credential = {
       email: this.loginForm.value.bhemail,
       password: this.loginForm.value.bh_pass
     };
-    this.auth.login(credential).then(
-      (data: any) => {
-        this.auth.profile().then(
-          (res: any) => {
-            this.router.navigateByUrl("/Administration");
-          },
-          err => {
-            this.sh.notifToast({
-              type: "warning",
-              message: "<p>Erreur inattendu</p>"
-            });
 
-            setTimeout(() => {
-              this.auth.logout();
-            }, 2000);
+    try {
+      let logRes = await this.auth.login(credential);
+      if (logRes) {
+        let pr = this.auth.profile();
+        if (pr) {
+          this.sh.pushData({
+            from: "updateDataLogged",
+            message: "update view",
+            data: pr
+          });
+          let aft: any = null;
+          let aft_data: any = null;
+          if ("after" in this.currObj.data) {
+            aft = this.currObj.data.to;
+            aft_data = this.currObj.data.after;
           }
-        );
-      },
-      error => {
-        this.error_log = true;
-        this.text_ = error.message;
-        this.type_ = "danger";
+          this.endAll({ status: "OK", after: aft, data: aft_data });
+          console.log(pr);
+        }
       }
-    );
+    } catch (e) {
+      console.log(e);
+      this.hasError = true;
+      this.alrt_type = "warning";
+      this.msg_error =
+        "Error type: " + e.error_type + ". Message: " + e.message;
+    }
   }
 
   forgotPasswordInit(e) {
@@ -128,5 +142,8 @@ export class LoginModalComponent implements OnInit {
           }
         );
     });
+  }
+  endAll(status) {
+    this.endMessage.emit(status);
   }
 }

@@ -52,5 +52,22 @@ export class ModalShowComponent implements OnInit {
 			this.dataModal = null;
 		}, 500);
 	}
+
+	endMesssage(evnt) {
+		if (evnt["after"]) {
+			this.myModalGen.hide();
+			setTimeout(() => {
+				this.sh.pushData({
+					from: evnt["after"],
+					message: "askquestions",
+					data: evnt["data"]
+				});
+			}, 1000);
+		} else {
+			setTimeout(() => {
+				this.myModalGen.hide();
+			}, 200);
+		}
+	}
 	ngOnInit() {}
 }

@@ -47,4 +47,8 @@ export class TeamsService extends BaseHttpService {
 	public getUsersTeamsNameFn(arg) {
 		return this.fetch("get", "team-details", { id_user: arg }).toPromise();
 	}
+
+	public questionsSendData(arg) {
+		return this.fetch('post', 'question-data', arg ).toPromise();
+	}
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit , OnDestroy} from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
+import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { ProjectsService } from "../../services/projects/projects.service";
 import { Router, ActivatedRoute } from "@angular/router";
 
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 	templateUrl: "./description-project.component.html",
 	styleUrls: ["./description-project.component.scss"]
 })
-export class DescriptionProjectComponent implements OnInit {
+export class DescriptionProjectComponent implements OnInit, OnDestroy {
 	public projet_page: string = "projet_page";
 	public currentCompanySlug: string;
 	public detailsData: any;
@@ -18,7 +19,7 @@ export class DescriptionProjectComponent implements OnInit {
 	constructor(
 		public g: Globals,
 		public sh: SharedNotificationService,
-		public activRoute: ActivatedRoute,
+		public activRoute: ActivatedRoute, private auth: AuthserviceService,
 		private pr: ProjectsService
 	) {
 		this.activRoute.params.subscribe((params_: any) => {
@@ -41,5 +42,31 @@ export class DescriptionProjectComponent implements OnInit {
 		}
 	}
 
+	ask_questions_aboutProject(ev) {
+		ev.preventDefault();
+		console.log(this.detailsData);
+		let _data = {
+			objectRef: "PRT",
+			objectData: this.detailsData,
+		};
+		
+		if (this.auth.isLoggedIn()) {
+			this.sh.pushData({
+				from: "askQuestions",
+				message: "askquestions",
+				data: _data
+			});
+		} else {
+			this.sh.pushData({
+				from: "loginModal",
+				message: "askquestions",
+				data: { after: _data, to: "askQuestions" }
+			});
+		}
+	}
+
 	ngOnInit() {}
+	ngOnDestroy(){
+		this.sh.pushData({});
+	}
 }
