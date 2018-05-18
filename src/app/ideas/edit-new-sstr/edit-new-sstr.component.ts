@@ -52,7 +52,6 @@ export class EditNewSstrComponent implements OnInit, OnDestroy {
 					sstrCaption: this.sstrData.caption,
 					sstrVideoUrl: this.sstrData.video_url
 				});
-				console.log(this.sstrData);
 				this.im_poster = this.sh.getVideoImPoster(
 					this.sstrData.id_video
 				);
@@ -68,7 +67,6 @@ export class EditNewSstrComponent implements OnInit, OnDestroy {
 			if (ampersandPosition != -1) {
 				video_id = video_id.substring(0, ampersandPosition);
 			}
-			console.log(video_id);
 			this.idVidYouTube = {
 				im_poster:
 					"https://img.youtube.com/vi/" +
@@ -84,7 +82,6 @@ export class EditNewSstrComponent implements OnInit, OnDestroy {
 			this.im_poster = this.sh.getVideoImPoster(video_id);
 			return video_id;
 		} else {
-			console.log("url not valid");
 		}
 	}
 

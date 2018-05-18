@@ -11,7 +11,7 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiHttpService } from "../../services/api-http/api-http.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { NotifComponent } from "../notif/notif.component";
-import { LoginComponent } from "../login/login.component";
+import { PageLoginComponent } from "../page-login/page-login.component";
 
 @Component({
 	selector: "app-activation",
@@ -91,7 +91,7 @@ export class ActivationComponent implements OnInit, OnDestroy {
 		if (s) {
 			// code...
 			var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(
-				LoginComponent
+				PageLoginComponent
 			);
 			var refLogin = this.attachView.createComponent(factoryLogin);
 		}

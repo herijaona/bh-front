@@ -6,11 +6,11 @@ import { SharedNotificationService } from "./../../services/shared-notification/
 
 import { Globals } from "./../../globals/globals";
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  selector: "login-modal",
+  templateUrl: "./login-modal.component.html",
+  styleUrls: ["./login-modal.component.scss"]
 })
-export class LoginComponent implements OnInit {
+export class LoginModalComponent implements OnInit {
   public img_logo: string;
   public img_avatar: string;
   public loginForm: FormGroup;

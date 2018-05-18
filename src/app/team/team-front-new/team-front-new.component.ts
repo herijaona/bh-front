@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from "@angular/core";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
+import { Router, ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import {
 	ValidateUrl,
@@ -17,11 +18,15 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	public teamVideoForm: FormGroup;
 	public idVidYouTube: { [key: string]: string } = {};
 	public im_poster: string;
+	public editorChanged: boolean = false;
 	private toDoAction: string;
 	private tmvDATA: any;
 	private editAct: string = "tmVEdit";
-	private AddAct: string = "tmVAdd";
+	private addAct: string = "tmVAdd";
 	public teamText: string;
+	public currentCompanySlug: string;
+	public team_person: any;
+	public cketeamText: string = "...";
 
 	@Input("do_action")
 	set do_action(to_do: string) {
@@ -33,26 +38,51 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	}
 
 	constructor(
+		private activRoute: ActivatedRoute,
 		private tms: TeamsService,
 		private sh: SharedNotificationService,
-		private g : Globals
+		private g: Globals
 	) {
 		this.teamVideoForm = new FormGroup({
 			tvCaption: new FormControl("", [Validators.required]),
-			tvText: new FormControl("", [Validators.required]),
+			tvteamMember: new FormControl(0, [Validators.required]),
 			tvVideoUrl: new FormControl("", [Validators.required, ValidateUrl])
+		});
+
+		this.activRoute.params.subscribe((params_: any) => {
+			this.currentCompanySlug = params_["slug_acc"];
 		});
 	}
 
+	async getallTeams() {
+		try {
+			let altM: any = await this.tms.getTeamUsers(
+				this.currentCompanySlug
+			);
+			if (altM) {
+				if ((altM.status = "OK")) {
+					console.log(altM.data);
+					return altM.data;
+				}
+			}
+		} catch (e) {}
+	}
 	ngOnInit() {
+		this.getallTeams().then((dt: any) => {
+			this.team_person = dt;
+		});
+
 		if (this.toDoAction == this.editAct) {
 			this.teamVideoForm.setValue({
 				tvCaption: this.tmvDATA.caption,
-				tvText: this.tmvDATA.textTeam,
+				tvteamMember: this.tmvDATA.team_users,
 				tvVideoUrl: this.tmvDATA.video_url
 			});
-			console.log(this.tmvDATA);
+			this.cketeamText = this.tmvDATA.textTeam;
 			this.im_poster = this.sh.getVideoImPoster(this.tmvDATA.id_video);
+			this.editorChanged = true;
+		} else if (this.toDoAction == this.addAct) {
+			// code...
 		}
 	}
 
@@ -88,22 +118,35 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 			return video_id;
 		}
 	}
+	public userNotSelected: boolean = false;
+
+	onChangeTeamUsers(){
+
+	}
 
 	async saveTeamVideoFront() {
+		if (this.teamVideoForm.value.tvteamMember == 0) {
+			this.userNotSelected = true;
+			return;
+		} else {
+			this.userNotSelected = false;
+		}
+
 		try {
 			if (this.toDoAction == this.editAct) {
 				if (
 					this.teamVideoForm.value.tvCaption !=
 						this.tmvDATA.caption ||
-					this.teamVideoForm.value.tvText != this.tmvDATA.textTeam ||
+					this.cketeamText != this.tmvDATA.textTeam ||
 					this.idVidYouTube.id_video != this.tmvDATA.id_video
 				) {
 					this.idVidYouTube[
 						"caption"
 					] = this.teamVideoForm.value.tvCaption;
 					this.idVidYouTube[
-						"textTeam"
-					] = this.teamVideoForm.value.tvText;
+						"team_users"
+					] = this.teamVideoForm.value.tvteamMember;
+					this.idVidYouTube["textTeam"] = this.cketeamText;
 
 					let tmvUpdate: any = await this.tms.updatetmvData({
 						id_: this.tmvDATA._id,
@@ -119,11 +162,14 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 						}
 					}
 				}
-			} else if (this.toDoAction == this.AddAct) {
+			} else if (this.toDoAction == this.addAct) {
 				this.idVidYouTube[
 					"caption"
 				] = this.teamVideoForm.value.tvCaption;
-				this.idVidYouTube["textTeam"] = this.teamVideoForm.value.tvText;
+				this.idVidYouTube[
+					"team_users"
+				] = this.teamVideoForm.value.tvteamMember;
+				this.idVidYouTube["textTeam"] = this.cketeamText;
 				let resp: any = await this.tms.teamFrontSaveData(
 					this.idVidYouTube
 				);
@@ -140,7 +186,25 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	}
 
 	reussiAction() {}
-	onChange($event) {
-		console.log($event);
+
+	onEditorChange($event) {
+		console.log("msg;");
 	}
+	onChangeEditor(e) {
+		this.cketeamText = e;
+		this.editorChanged = this.textLengthCheck(e);
+	}
+
+	textLengthCheck(txt) {
+		console.log(txt.length);
+		if (txt.length > 950) {
+			return false;
+		}
+		return true;
+	}
+	onChange(vent) {
+		console.log("here");
+		console.log(vent);
+	}
+	onReady(vent) {}
 }

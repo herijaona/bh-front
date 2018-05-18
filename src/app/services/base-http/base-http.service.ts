@@ -11,7 +11,7 @@ import { Globals } from "./../../globals/globals";
 @Injectable()
 export class BaseHttpService {
 	private endPointUrl: string;
-	private accId: string ="";
+	private accId: string = "";
 	constructor(
 		public http: HttpClient,
 		public g: Globals,
@@ -63,8 +63,8 @@ export class BaseHttpService {
 			_data = {};
 		}
 
-		if(this.accId !="") {
-			header['X-Ccompany-Id']= this.accId;
+		if (this.accId != "") {
+			header["X-Ccompany-Id"] = this.accId;
 		}
 
 		return this.http.request(method, url, {
@@ -75,8 +75,12 @@ export class BaseHttpService {
 
 	public getFilters(data_params: { [key: string]: string } = {}) {
 		let filter: string = "";
+		let index: number = 0;
 		for (let key in data_params) {
-			filter += "&" + key + "=" + data_params[key];
+			console.log(key);
+			let ecomm = index ? "&" : "";
+			filter += ecomm + key + "=" + data_params[key];
+			index++;
 		}
 		return filter;
 	}

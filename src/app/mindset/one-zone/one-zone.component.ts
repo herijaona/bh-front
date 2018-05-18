@@ -47,7 +47,6 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	@Input("dataZone")
 	set dataZone(d) {
 		this.dtZone = d;
-		console.log(this.dtZone);
 	}
 	public in_col: number;
 	public sm_col: number;
@@ -78,7 +77,6 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.canDeleted = this.dtZone.canDeleted;
-		console.log(this.dtZone);
 		if (this.dtZone.dtype == 2) {
 			if (!this.dtZone.video.url.startsWith("uploads")) {
 				this.dtZone.video.url = JSON.parse(this.dtZone.video.url);
@@ -119,7 +117,6 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 				this.dtZone.video.url.i_v
 			);
 		}
-		console.log(this.dtZone);
 		this.showDataState = true;
 		setTimeout(() => {
 			this.myModal.show();

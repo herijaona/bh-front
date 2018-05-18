@@ -7,15 +7,18 @@ import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
+import { CKEditorModule } from "ng2-ckeditor";
 import { TeamContentComponent } from "./team-content/team-content.component";
 import { TeamFrontNewComponent } from "./team-front-new/team-front-new.component";
 import { FrontVteamComponent } from "./front-vteam/front-vteam.component";
+import { UserAuthModule } from "../user-auth/user-auth.module";
 
 @NgModule({
 	imports: [
 		CommonModule,
-		MindsetModule,
+		MindsetModule,UserAuthModule,
 		ReactiveFormsModule,
+		CKEditorModule,
 		FormsModule,
 		GeneralUtilitiesModule,
 		RouterModule,
@@ -26,7 +29,7 @@ import { FrontVteamComponent } from "./front-vteam/front-vteam.component";
 		TeamComponent,
 		TeamContentComponent,
 		TeamFrontNewComponent,
-		FrontVteamComponent
+		FrontVteamComponent,
 	]
 })
 export class TeamModule {}

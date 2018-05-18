@@ -11,7 +11,7 @@ import { HomepageComponent } from "../homepage/homepage/homepage.component";
 import { RegistrationComponent } from "../user-auth/registration/registration.component";
 import { ResetPasswordComponent } from "../user-auth/reset-password/reset-password.component";
 import { ActivationComponent } from "../user-auth/activation/activation.component";
-import { LoginComponent } from "../user-auth/login/login.component";
+import { PageLoginComponent } from "../user-auth/page-login/page-login.component";
 import { ProfileComponent } from "../user-auth/profile/profile.component";
 import { ProfileAdminComponent } from "../profile-admin/profile-admin/profile-admin.component";
 import { MembersAdminComponent } from "../members-admin/members-admin/members-admin.component";
@@ -87,7 +87,7 @@ const routes: Routes = [
 		],
 		canActivate: [AuthguardService]
 	},
-	{ path: "login", component: LoginComponent },
+	{ path: "login", component: PageLoginComponent },
 	{ path: "all-companies", component: ListCompaniesComponent },
 	{
 		path: "Administration",

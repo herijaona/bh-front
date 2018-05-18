@@ -201,15 +201,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			}
 		}
 	}
-
-	hasErrorInDATA(arr) {
-		console.log(arr);
-		arr.forEach((e, i) => {
-			console.log(e);
-			console.log(i);
-		});
-	}
-
+	
 	async saveImageZone() {
 		let err = await this.errorsInInput(this.imForm);
 		if (!err) {
@@ -306,7 +298,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			this.im_poster = this.idVidYouTube.im_poster;
 			return video_id;
 		} else {
-			console.log("url not valid");
 		}
 	}
 
@@ -365,7 +356,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 								this.saveFinished();
 							});
 						} else {
-							console.log("Same data");
 						}
 					}
 				} else if (this.action_type == this.addActText) {

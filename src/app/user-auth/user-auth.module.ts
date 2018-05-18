@@ -13,7 +13,6 @@ import { AuthserviceService } from "../services/authservice/authservice.service"
 import { RegistrationComponent } from "./registration/registration.component";
 import { NewCompanyComponent } from "./new-company/new-company.component";
 import { ActivationComponent } from "./activation/activation.component";
-import { LoginComponent } from "./login/login.component";
 import { NotifComponent } from "./notif/notif.component";
 import { ProfileComponent } from "./profile/profile.component";
 
@@ -22,6 +21,7 @@ import { ResetPasswordComponent } from "./reset-password/reset-password.componen
 import { PInfoComponent } from './p-info/p-info.component';
 import { PCompletionComponent } from './p-completion/p-completion.component';
 import { InvitedRegisterComponent } from './invited-register/invited-register.component';
+import { PageLoginComponent } from './page-login/page-login.component';
 
 @NgModule({
   imports: [
@@ -32,12 +32,12 @@ import { InvitedRegisterComponent } from './invited-register/invited-register.co
     RouterModule,
     Ng4GeoautocompleteModule.forRoot()
   ],
-  entryComponents: [LoginComponent, NotifComponent],
+  entryComponents: [PageLoginComponent, NotifComponent],
   declarations: [
     RegistrationComponent,
     NewCompanyComponent,
     ActivationComponent,
-    LoginComponent,
+    PageLoginComponent,
     NotifComponent,
     ProfileComponent,
     ResetPasswordComponent,
@@ -47,6 +47,6 @@ import { InvitedRegisterComponent } from './invited-register/invited-register.co
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService], 
-  exports:[ PInfoComponent,PCompletionComponent]
+  exports:[ PInfoComponent,PCompletionComponent, PageLoginComponent]
 })
 export class UserAuthModule {}

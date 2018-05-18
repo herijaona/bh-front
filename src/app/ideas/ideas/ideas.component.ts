@@ -80,7 +80,6 @@ export class IdeasComponent implements OnInit {
 		try {
 			let all: any = await this.cs.getAllSstr(curr_slug);
 			if (all.data) {
-				console.log(all);
 				all.data.forEach(el => {
 					el.im_poster = this.sh.getVideoImPoster(el.id_video);
 					this.sstrAll.push(el);

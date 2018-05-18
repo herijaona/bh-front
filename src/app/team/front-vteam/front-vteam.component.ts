@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, Input, ElementRef } from "@angular/core";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { TeamsService } from "../../services/teams/teams.service";
+import { AuthserviceService } from "../../services/authservice/authservice.service";
+
 @Component({
 	selector: "front-vteam",
 	templateUrl: "./front-vteam.component.html",
@@ -13,9 +15,12 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 	}
 	public teamVideoData: { [key: string]: any } = {};
 	public editPAGEstatus = false;
+	public tmsDetails: any;
 	public contentEditState = false;
+	public readyDT: boolean = false;
 	public im_poster: string = "";
 	constructor(
+		private auth: AuthserviceService,
 		private el: ElementRef,
 		private sh: SharedNotificationService,
 		private tms: TeamsService
@@ -37,6 +42,7 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 				this.teamVideoData.id_video
 			);
 		}
+		this.getTeamUsers();
 	}
 	tmVEdit() {
 		this.sh.pushData({
@@ -79,8 +85,36 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 		this.sh.pushData({});
 	}
 
-	ask_questions_toTeam(ev){
+	ask_questions_toTeam(ev) {
 		ev.preventDefault();
-		alert("Lkaofje");
+		console.log(this.teamVideoData);
+		if (this.auth.isLoggedIn()) {
+			this.sh.pushData({
+				from: "askQuestions",
+				message: "askquestions",
+				data: { tms: this.teamVideoData, dtls: this.tmsDetails }
+			});
+		} else {
+			let afterdata = { tms: this.teamVideoData, dtls: this.tmsDetails };
+			this.sh.pushData({
+				from: "loginModal",
+				message: "askquestions",
+				data: { after: afterdata, to: "askQuestions" }
+			});
+		}
+	}
+
+	async getTeamUsers() {
+		try {
+			let o = await this.tms.getUsersTeamsNameFn(
+				this.teamVideoData["team_users"]
+			);
+			if (o) {
+				if (o["status"] == "OK") {
+					this.readyDT = true;
+					this.tmsDetails = o["data"];
+				}
+			}
+		} catch (e) {}
 	}
 }

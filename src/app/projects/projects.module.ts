@@ -10,13 +10,13 @@ import { ProjectEditAndNewComponent } from "./project-edit-and-new/project-edit-
 
 import { MindsetModule } from "../mindset/mindset.module";
 
-
 @NgModule({
 	imports: [
 		CommonModule,
 		GeneralUtilitiesModule,
 		ReactiveFormsModule,
-		FormsModule,MindsetModule,
+		FormsModule,
+		MindsetModule,
 		RouterModule,
 		CKEditorModule
 	],

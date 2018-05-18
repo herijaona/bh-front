@@ -9,6 +9,9 @@ import { EditPageButtonComponent } from "./edit-page-button/edit-page-button.com
 import { ImSelectComponent } from "./im-select/im-select.component";
 import { BhSafeHtmlPipe } from "../pipe/bh-safe-html.pipe";
 import { PageHeaderComponent } from "./page-header/page-header.component";
+import { AskQuestionsComponent } from "./ask-questions/ask-questions.component";
+import { ModalShowComponent } from "./modal-show/modal-show.component";
+import { LoginModalComponent } from "./login-modal/login-modal.component";
 
 @NgModule({
 	imports: [
@@ -23,14 +26,20 @@ import { PageHeaderComponent } from "./page-header/page-header.component";
 		SectionEditButtonComponent,
 		EditPageButtonComponent,
 		ImSelectComponent,
-		BhSafeHtmlPipe
+		AskQuestionsComponent,
+		LoginModalComponent,
+		BhSafeHtmlPipe,
+		ModalShowComponent
 	],
 	exports: [
 		PageHeaderComponent,
 		SectionEditButtonComponent,
 		ImSelectComponent,
+		AskQuestionsComponent,
+		LoginModalComponent,
 		EditPageButtonComponent,
-		BhSafeHtmlPipe
+		BhSafeHtmlPipe,
+		ModalShowComponent
 	]
 })
 export class GeneralUtilitiesModule {}

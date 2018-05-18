@@ -6,19 +6,17 @@
 	<div class="row">
 		<div (click)="tmVShow()" class="col-team top-team">
 			<img class="img-responsive img-clip-path" [src]="im_poster" width="100%" height="100%">
-			<div class="text-video">
+			<div *ngIf="readyDT" class="text-video">
 				<div><i class="fa fa-play"></i></div>
-				<div>
-					<h5>Hoori Kaskanian</h5>
-					<p>General Manager - Pfizer Essential Health France</p>
+				<div >
+					<h5>{{tmsDetails.usr}}</h5>
+					<p>{{tmsDetails.fn}} - Pfizer Essential Health France</p>
 				</div>
 			</div>
 			<div class="overlay_"><i class="fa fa-search chck" ></i></div>
 		</div>
-		<div class="col-team-2 presentation mt-4p">
-			<p>
-			{{teamVideoData.textTeam}}
-			</p>
+		<div class="col-team-2 presentation mt-4p"  >
+			<div [innerHtml]="teamVideoData.textTeam | bhSafeHtml" class=""></div>
 			<p class="lead">
 				<a (click)="ask_questions_toTeam($event)" class="btn btn-primary btn-lg btn-wnt" href="#" role="button">vous avez une question<i class="fa fa-question-circle icon-question"></i></a>
 				<a (click)="ask_questions_toTeam($event)" class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>

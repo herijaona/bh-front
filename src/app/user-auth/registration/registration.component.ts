@@ -11,7 +11,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ApiHttpService } from "../../services/api-http/api-http.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { NotifComponent } from "../notif/notif.component";
-import { LoginComponent } from "../login/login.component";
+import { PageLoginComponent } from "../page-login/page-login.component";
 import { Router } from "@angular/router";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
@@ -193,7 +193,7 @@ export class RegistrationComponent implements OnInit {
         refNotif.instance.message =
             "Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.";
         var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(
-            LoginComponent
+            PageLoginComponent
         );
         var refLogin = this.attachView.createComponent(factoryLogin);
         // ref.changeDetectorRef.detectChanges();

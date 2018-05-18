@@ -21,6 +21,7 @@ export class ProjectsComponent implements OnInit {
 	public ckeditorContent: any;
 	public toDoAction: string;
 	public prData: any;
+	public erew: any;
 	public editAct: string = "EditAct";
 	public addAct: string = "AddAct";
 	public btnButtontext = "ADD A NEW PROJECT";
@@ -76,23 +77,7 @@ export class ProjectsComponent implements OnInit {
 	}
 
 	onChange($event: any): void {
-		console.log("onChange");
-		//this.log += new Date() + "<br />";
-		console.log(this.ckeditorContent);
 	}
-
-	/* Show notification after registration */
-	/*private create_new() {
-		var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
-			ProjectEditAndNewComponent
-		);
-		var refNotif = this.attachView.createComponent(factoryNotif);
-		refNotif.instance.type = "success";
-		refNotif.instance.message =
-			"Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.";
-		
-		// ref.changeDetectorRef.detectChanges();
-	}*/
 
 	createNewPr() {
 		if (!this.projectPageEditStatus) {

@@ -117,8 +117,7 @@ export class ZoneMindsetComponent implements OnInit {
 							break;
 						default:
 						if('rang' in all[z]) {
-							// code...
-							console.log('lskjdfsl jslkdjfsldkjf slfkjsdlfkjsl')
+							
 						}
 							break;
 					}

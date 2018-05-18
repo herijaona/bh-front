@@ -1,8 +1,16 @@
-import { Component, OnInit, ElementRef, Input, OnDestroy } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	ElementRef,
+	Input,
+	OnDestroy,
+	ViewChild
+} from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ProjectsService } from "../../services/projects/projects.service";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
+
 declare const CKEDITOR: any;
 
 @Component({
@@ -28,9 +36,9 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 		pr_responseTimeUnit: false,
 		pr_responseTimeValue: false
 	};
-
 	public todoAct: string;
 	public accId: string;
+	public dataCurr: any = {};
 	public noValid: boolean = true;
 	public editAct: string = "EditAct";
 	public addAct: string = "AddAct";
@@ -59,9 +67,6 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 		});
 	}
 	ngOnInit() {
-		console.log("Current Data");
-		console.log(this.todoAct);
-		console.log(this.prData);
 		if (this.todoAct == this.editAct) {
 			this.getDataProject();
 		}
@@ -71,6 +76,7 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 		try {
 			let prD: any = await this.pr.getProjectByID(this.prData._id);
 			if (prD.status == "OK") {
+				this.dataCurr = prD;
 				Object.keys(this.prModel).forEach(el => {
 					this.prModel[el] = prD.data[el.split("_")[1]];
 				});
@@ -109,7 +115,15 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 			}
 		} catch (e) {}
 	}
-	onReady(vent) {}
+	onReady(vent) {
+		if ("status" in this.dataCurr) {
+			if (this.dataCurr["status"] == "OK") {
+				Object.keys(this.prModel).forEach(el => {
+					this.prModel[el] = this.dataCurr.data[el.split("_")[1]];
+				});
+			}
+		}
+	}
 	onChange(event) {
 		Object.keys(this.prModel).forEach(e => {
 			if (this.prModel[e] != null) {

@@ -88,7 +88,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		private router: Router
 	) {
 		this.subscr.actvR = this.activRoute.params.subscribe((params_: any) => {
-			console.log(params_);
 			this.currentCompanySlug = params_["slug_acc"];
 			this.getDataDetails();
 		});
@@ -128,7 +127,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 				if (st.destFile == this.logoDestFile) {
 					this.logoItem = st.data;
 					this.header_page_logo = this.logoItem.url;
-					console.log(this.logoItem);
 				} else if (st.destFile == this.coverDestFile) {
 					this.coverItem = st.data;
 					this.header_page_cover = "url(" + st.data.url + ")";

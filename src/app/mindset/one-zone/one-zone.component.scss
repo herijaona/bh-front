@@ -182,6 +182,8 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden !important;
+    position: relative;
 }
 
 /* end chiffre */
