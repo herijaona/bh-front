@@ -68,7 +68,6 @@ export class MembersAdminComponent implements OnInit {
 			if ("type" in ee) {
 				if (ee.type == "NotActivate") {
 					this.activated = false;
-					console.log(ee);
 				}
 			} else {
 				this.auth.logout();

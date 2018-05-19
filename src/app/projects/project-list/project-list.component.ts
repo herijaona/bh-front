@@ -67,11 +67,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 			allProject = await this.pr.getCompanyProject(
 				this.currentCompanySlug
 			);
-			console.log(allProject);
 			if (allProject.status == "OK") {
 				if (allProject.status == "OK") {
 					this.listData = allProject.data;
-					console.log(this.listData);
 				}
 			}
 		} catch (e) {

@@ -104,7 +104,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
           let accData: any = await this.auth.isAdminUser();
           if (accData.status == "OK") {
-            console.log(accData);
             this.accountData = accData.data;
          
             let urlWebsite =
@@ -121,8 +120,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
             this.isAdmin = true;
             let addr: any = JSON.parse(this.accountData.adresse);
             let addrAcc = addr.description;
-            console.log("After JSON.parse");
-            console.log(addrAcc);
             this.userSettings["inputString"] = addrAcc;
             this.userSettings = Object.assign({}, this.userSettings);
           }

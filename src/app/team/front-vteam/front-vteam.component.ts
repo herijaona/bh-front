@@ -87,7 +87,6 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 
 	ask_questions_toTeam(ev) {
 		ev.preventDefault();
-		console.log(this.teamVideoData);
 		let _data = {
 			objectRef: "TMV",
 			objectData: this.teamVideoData,

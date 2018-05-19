@@ -40,7 +40,6 @@ export class LoginModalComponent implements OnInit {
     this.img_logo = this.g.base_href + "assets/img/bh.png";
   }
   ngOnInit() {
-    console.log(this.currObj.data);
     this.resetpassForm = new FormGroup({
       bhemail: new FormControl("", [
         Validators.required,
@@ -77,7 +76,6 @@ export class LoginModalComponent implements OnInit {
             aft_data = this.currObj.data.after;
           }
           this.endAll({ status: "OK", after: aft, data: aft_data });
-          console.log(pr);
         }
       }
     } catch (e) {

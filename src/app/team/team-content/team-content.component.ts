@@ -83,7 +83,6 @@ export class TeamContentComponent implements OnInit {
     this.dataToSHow = data;
     this.videoTeam = data.iframe_;
     setTimeout(() => {
-      console.log(data);
       this.showModal.show();
     }, 330);
   }

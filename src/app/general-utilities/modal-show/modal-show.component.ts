@@ -37,7 +37,6 @@ export class ModalShowComponent implements OnInit {
 		this.dataModal = arg;
 		this.applyModal = true;
 		this.activeShow = true;
-		console.log(arg);
 		setTimeout(() => {
 			this.myModalGen.show();
 		}, 330);
@@ -47,7 +46,6 @@ export class ModalShowComponent implements OnInit {
 		this.dataModal = arg;
 		this.lgin_mdl = true;
 		this.activeShow = true;
-		console.log(arg);
 		setTimeout(() => {
 			this.myModalGen.show();
 		}, 330);

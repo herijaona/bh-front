@@ -61,7 +61,6 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 			);
 			if (altM) {
 				if ((altM.status = "OK")) {
-					console.log(altM.data);
 					return altM.data;
 				}
 			}
@@ -101,7 +100,6 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 			if (ampersandPosition != -1) {
 				video_id = video_id.substring(0, ampersandPosition);
 			}
-			console.log(video_id);
 			this.idVidYouTube = {
 				im_poster:
 					"https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg",
@@ -173,7 +171,6 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 				let resp: any = await this.tms.teamFrontSaveData(
 					this.idVidYouTube
 				);
-				console.log(resp);
 				if (resp) {
 					this.sh.pushData({ from: "tmodal_new", data: "end" });
 				}
@@ -188,7 +185,6 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	reussiAction() {}
 
 	onEditorChange($event) {
-		console.log("msg;");
 	}
 	onChangeEditor(e) {
 		this.cketeamText = e;
@@ -196,15 +192,12 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	}
 
 	textLengthCheck(txt) {
-		console.log(txt.length);
 		if (txt.length > 950) {
 			return false;
 		}
 		return true;
 	}
 	onChange(vent) {
-		console.log("here");
-		console.log(vent);
 	}
 	onReady(vent) {}
 }

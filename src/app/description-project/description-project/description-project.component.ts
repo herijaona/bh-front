@@ -45,7 +45,6 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 
 	ask_questions_aboutProject(ev) {
 		ev.preventDefault();
-		console.log(this.detailsData);
 		let _data = {
 			objectRef: "PRT",
 			objectData: this.detailsData

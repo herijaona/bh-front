@@ -62,7 +62,6 @@ export class InvitedRegisterComponent implements OnInit {
 	}
 	async sumbitPass() {
 		this.readyData = false;
-		console.log(this.newpassForm.value);
 		let dUser = {
 			new_pass: this.newpassForm.value.bh_new_pass,
 			user_new: this.dataUser

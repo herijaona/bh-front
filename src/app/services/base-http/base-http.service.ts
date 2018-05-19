@@ -55,7 +55,6 @@ export class BaseHttpService {
 		let filter: string = "";
 		let index: number = 0;
 		for (let key in data_params) {
-			console.log(key);
 			let ecomm = index ? "&" : "";
 			filter += ecomm + key + "=" + data_params[key];
 			index++;

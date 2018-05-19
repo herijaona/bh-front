@@ -36,7 +36,6 @@ export class AskQuestionsComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		console.log(this.currObj);
 	}
 	loginProcess() {}
 	askQuestion() {}
@@ -46,7 +45,6 @@ export class AskQuestionsComponent implements OnInit {
 	}
 
 	textLengthCheck(txt) {
-		console.log(txt.length);
 		if (txt.length > 1500) {
 			return false;
 		}
@@ -54,8 +52,6 @@ export class AskQuestionsComponent implements OnInit {
 	}
 
 	async sendQuestions() {
-		console.log("Current Object");
-		console.log(this.currObj);
 		let _data_ = {
 			objectRef: this.currObj.data.objectRef,
 			objectRefID: this.currObj.data.objectData._id,
@@ -64,7 +60,6 @@ export class AskQuestionsComponent implements OnInit {
 				account: this.currObj.data.objectData.account
 			}
 		};
-		console.log(_data_);
 
 		try {
 			let qRES = await this.tms.questionsSendData(_data_);
@@ -76,7 +71,6 @@ export class AskQuestionsComponent implements OnInit {
 					});
 					this.endAll({ status: "OK", after: null, data: null });
 				}
-				console.log(qRES);
 			}
 		} catch (e) {
 			console.log(e);
