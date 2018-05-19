@@ -64,7 +64,7 @@
 
   <!-- Modal video play-->
   <ng-template [ngIf]="dtZone.dtype == 1 || dtZone.dtype == 2">
-    <div *ngIf="showDataState" style="overflow: auto;" mdbModal #form2="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div (onHide)="hiddedModal()" *ngIf="showDataState" style="overflow: auto;" mdbModal #form2="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
       <div *ngIf="showDataState" class="modal-dialog cascading-modal modal-lg" role="document">
         <!--Content-->
         <div class="modal-content md-content">

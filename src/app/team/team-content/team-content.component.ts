@@ -131,4 +131,10 @@ export class TeamContentComponent implements OnInit {
       this.showDataState = false;
     }, 330);
   }
+
+  hiddedModal() {
+    setTimeout(() =>{
+      this.showDataState = false;
+    }, 500);
+  }
 }

@@ -25,7 +25,7 @@
   </div>
 </div>
 <!-- Modal video play-->
-<div *ngIf="showDataState" style="overflow: auto;" mdbModal #showVideo="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+<div (onHide)="hiddedModal()" *ngIf="showDataState" style="overflow: auto;" mdbModal #showVideo="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="showDataState" class="modal-dialog cascading-modal modal-lg" role="document">
     <!--Content-->
     <div class="modal-content md-content">

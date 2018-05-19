@@ -116,9 +116,8 @@ export class ZoneMindsetComponent implements OnInit {
 							all.splice(z, 1);
 							break;
 						default:
-						if('rang' in all[z]) {
-							
-						}
+							if ("rang" in all[z]) {
+							}
 							break;
 					}
 				}
@@ -161,6 +160,13 @@ export class ZoneMindsetComponent implements OnInit {
 		setTimeout(() => {
 			this.addNewState = false;
 		}, 330);
+	}
+
+	hiddedModal() {
+		setTimeout(() => {
+			this.dataZoneEdit = null;
+			this.addNewState = false;
+		}, 500);
 	}
 
 	async ngAfterViewInit() {}

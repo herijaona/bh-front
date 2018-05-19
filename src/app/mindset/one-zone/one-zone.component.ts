@@ -128,7 +128,14 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 		setTimeout(() => {
 			this.addNewState = false;
 			this.showDataState = false;
-		}, 330);
+		}, 130);
+	}
+
+	hiddedModal() {
+		setTimeout(() =>{
+			this.addNewState = false;
+			this.showDataState = false;
+		}, 500);
 	}
 
 	getPoster() {

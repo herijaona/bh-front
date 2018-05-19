@@ -147,4 +147,10 @@ export class IdeasComponent implements OnInit {
     }, 330);
   }
 
+  hiddedModal() {
+		setTimeout(() =>{
+			this.showDataState = false;
+		}, 500);
+	}
+
 }

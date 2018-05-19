@@ -30,7 +30,7 @@
 </div>
 
 
-  <div *ngIf="addNewState"  mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
+  <div (onHide)="hiddedModal()" *ngIf="addNewState"  mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
     <div class="modal-dialog modal-lg" role="document">
       <div *ngIf="addNewState" class="modal-content success-content">
         <div class="modal-header">
