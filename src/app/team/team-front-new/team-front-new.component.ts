@@ -41,7 +41,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 		private activRoute: ActivatedRoute,
 		private tms: TeamsService,
 		private sh: SharedNotificationService,
-		private g: Globals
+		public g: Globals
 	) {
 		this.teamVideoForm = new FormGroup({
 			tvCaption: new FormControl("", [Validators.required]),
