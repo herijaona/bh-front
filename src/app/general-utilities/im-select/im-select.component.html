@@ -22,10 +22,7 @@
 
    <!--  <span id="chosen_file">Choose a file</span> -->
   </div>
-  <div class="col-md-6">
-      <button class="btn btn-unique-edit btn-width ed-2" type="submit"><i class="fa fa-check"></i><span class="edit-person">Save edit</span></button>
-  </div>
-  <div class="col-md-6 col-sm-6 text-center">
-    <button *ngIf="butt_up" (click)="uploadImageInBiblio($event, '_filev', 'images')" class="btn btn-info">Upload</button>
+  <div *ngIf="changeOk && allowDestfile()" class="col-md-6">
+      <button (click)="Okchange()" class="btn btn-unique-edit btn-width ed-2" type="submit"><i class="fa fa-check"></i><span class="edit-person">OK</span></button>
   </div>
 </div>

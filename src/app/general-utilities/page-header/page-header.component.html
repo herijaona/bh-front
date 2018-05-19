@@ -109,7 +109,7 @@
         </div>
         <!--Body-->
         <div class="modal-body mb-0">
-          <im-select [entity]="cpy_entity" [im_to]='dest_file'></im-select>
+          <im-select (onOk)="hideImageModal()" [entity]="cpy_entity" [im_to]='dest_file'></im-select>
         </div>
       </div>
       <!--/.Content-->

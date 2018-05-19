@@ -1,4 +1,4 @@
-import { Component, OnInit , OnDestroy} from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
@@ -19,7 +19,8 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 	constructor(
 		public g: Globals,
 		public sh: SharedNotificationService,
-		public activRoute: ActivatedRoute, private auth: AuthserviceService,
+		public activRoute: ActivatedRoute,
+		private auth: AuthserviceService,
 		private pr: ProjectsService
 	) {
 		this.activRoute.params.subscribe((params_: any) => {
@@ -47,9 +48,9 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 		console.log(this.detailsData);
 		let _data = {
 			objectRef: "PRT",
-			objectData: this.detailsData,
+			objectData: this.detailsData
 		};
-		
+
 		if (this.auth.isLoggedIn()) {
 			this.sh.pushData({
 				from: "askQuestions",
@@ -65,8 +66,27 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 		}
 	}
 
+	applyto(ev) {
+		ev.preventDefault();
+		let _data = {};
+		
+		if (this.auth.isLoggedIn()) {
+			this.sh.pushData({
+				from: "applytToProjects",
+				message: "apply",
+				data: _data
+			});
+		} else {
+			this.sh.pushData({
+				from: "loginModal",
+				message: "apply",
+				data: { after: _data, to: "applytToProjects" }
+			});
+		}
+	}
+
 	ngOnInit() {}
-	ngOnDestroy(){
+	ngOnDestroy() {
 		this.sh.pushData({});
 	}
 }

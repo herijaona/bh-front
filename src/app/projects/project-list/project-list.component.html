@@ -2,7 +2,7 @@
   <div class="navbar-expand-lg">
     <div>
       <ul class="list-nav list-ul">
-        <li>
+        <li class="titl-text">
           <a class="re" [routerLink]="[ '/open-innovation' , currentCompanySlug , 'details-project' , item._id ]">
             <h3><i class="fa fa-square"></i><span>{{item.name}}</span></h3>
           </a>
@@ -11,16 +11,16 @@
           <button class="btn btn-sm grey darken-3" (click)="editProject(item)">edit</button>
           <button class="btn btn-sm red darken-4" (click)="deleteProject(item)">delete</button>
         </div>
-        <li>
+        <li class="resume-text">
           <ul class="navbar-nav nav-down">
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
+              <a class="nav-link" [routerLink]="[ '/open-innovation' , currentCompanySlug , 'details-project' , item._id ]"><i class="fa fa-calendar"></i><span>Meetings</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>--location--</span></a>
+              <a class="nav-link" [routerLink]="[ '/open-innovation' , currentCompanySlug , 'details-project' , item._id ]"><i class="fa fa-map-marker"></i><span>--location--</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-clock-o"></i><span>Answer delay: {{item.responseTimeValue }} {{item.responseTimeUnit}} </span></a>
+              <a class="nav-link" [routerLink]="[ '/open-innovation' , currentCompanySlug , 'details-project' , item._id ]"><i class="fa fa-clock-o"></i><span>Answer delay: {{item.responseTimeValue }} {{item.responseTimeUnit}} </span></a>
             </li>
           </ul>
         </li>

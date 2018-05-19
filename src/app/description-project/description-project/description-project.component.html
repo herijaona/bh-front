@@ -1,11 +1,11 @@
 <page-header [pageCurrent]="projet_page"></page-header>
 <div class="container-fluid grid grid-top">
-<div *ngIf="hasData" class="project-list ">
-  <div class="navbar-expand-lg">
-    <div>
-      <ul class="list-nav">
-        <li>
-          <h3><i class="fa fa-square"></i><span>{{detailsData.name}}</span></h3></li>
+  <div *ngIf="hasData" class="project-list ">
+    <div class="navbar-expand-lg">
+      <div>
+        <ul class="list-nav">
+          <li>
+            <h3><i class="fa fa-square"></i><span>{{detailsData.name}}</span></h3></li>
           <li>
             <ul class="navbar-nav nav-down">
               <li class="nav-item">
@@ -20,7 +20,7 @@
             </ul>
           </li>
           <li>
-          <h4 class="title-propos">A propos</h4></li>
+            <h4 class="title-propos">A propos</h4></li>
         </ul>
       </div>
       <div>
@@ -29,13 +29,12 @@
         <p [innerHtml]="detailsData.elementProposition | bhSafeHtml"></p>
         <p class="text-right">
           <a (click)="ask_questions_aboutProject($event)" class="btn btn-primary btn-lg btn-question" href="#" role="button"><span>Question</span><i class="fa fa-question-circle"></i></a>
-          <a class="btn btn-primary btn-lg btn-apply" href="#" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
+          <a (click)="applyto($event)" class="btn btn-primary btn-lg btn-apply" href="#" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
         </p>
       </div>
     </div>
   </div>
 </div>
-
 <div class="">
   <modal-show></modal-show>
 </div>

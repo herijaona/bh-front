@@ -1,7 +1,7 @@
 .projects-list {
     line-height: 65px;
     box-shadow: 0px 0px 3px 1px #b9b9b9;
-    padding: 42px 42px 5px 42px;
+    padding: 20px 42px 5px 42px;
     margin-bottom: 15px;
 }
 
@@ -97,4 +97,11 @@
     float: right;
     position: relative;
     top: -46px;
+}
+
+.titl-text{
+    z-index : 1000
+}
+.resume-text{
+    z-index:900
 }

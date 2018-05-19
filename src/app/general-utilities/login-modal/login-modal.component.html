@@ -1,7 +1,7 @@
 <div class="mdb_genModal">
-  <div *ngIf="hasError" class="login_notif">
+  <div *ngIf="hasNotif" class="login_notif">
     <div class=" logg alert alert-{{alrt_type}}">
-      <span>{{msg_error}}</span>
+      <span [innerHtml]="msg_error" ></span>
     </div>
   </div>
   <!-- Section Login -->

@@ -12,6 +12,7 @@ export class ModalShowComponent implements OnInit {
 	public askquest_mdl: boolean = false;
 	public lgin_mdl: boolean = false;
 	public dataModal: any;
+	public modal_size: string = "md";
 	public activeShow: boolean = false;
 	constructor(private sh: SharedNotificationService) {
 		this.sh.busDataIn$.subscribe((st: any) => {
@@ -22,10 +23,27 @@ export class ModalShowComponent implements OnInit {
 				case "loginModal":
 					this.loginModal(st);
 					break;
+				case "applytToProjects":
+					this.applyToProjects(st);
+					break;
 			}
 		});
 	}
+
+	public applyModal: boolean = false;
+
+	public applyToProjects(arg) {
+		this.modal_size = "lg";
+		this.dataModal = arg;
+		this.applyModal = true;
+		this.activeShow = true;
+		console.log(arg);
+		setTimeout(() => {
+			this.myModalGen.show();
+		}, 330);
+	}
 	public loginModal(arg) {
+		this.modal_size = "md";
 		this.dataModal = arg;
 		this.lgin_mdl = true;
 		this.activeShow = true;
@@ -36,6 +54,7 @@ export class ModalShowComponent implements OnInit {
 	}
 
 	public askQuestions(arg) {
+		this.modal_size = "md";
 		this.dataModal = arg;
 		this.askquest_mdl = true;
 		this.activeShow = true;
@@ -49,7 +68,9 @@ export class ModalShowComponent implements OnInit {
 			this.lgin_mdl = false;
 			this.askquest_mdl = false;
 			this.activeShow = false;
+			this.applyModal = false;
 			this.dataModal = null;
+			this.modal_size = "";
 		}, 500);
 	}
 
@@ -59,7 +80,7 @@ export class ModalShowComponent implements OnInit {
 			setTimeout(() => {
 				this.sh.pushData({
 					from: evnt["after"],
-					message: "askquestions",
+					message: "after",
 					data: evnt["data"]
 				});
 			}, 1000);
@@ -69,5 +90,6 @@ export class ModalShowComponent implements OnInit {
 			}, 200);
 		}
 	}
+	
 	ngOnInit() {}
 }

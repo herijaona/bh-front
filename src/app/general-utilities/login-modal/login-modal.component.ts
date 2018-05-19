@@ -24,7 +24,7 @@ export class LoginModalComponent implements OnInit {
   public resetpassForm: FormGroup;
   @Output() endMessage = new EventEmitter<{}>();
   public notifReset: boolean = false;
-  public hasError: boolean = false;
+  public hasNotif: boolean = false;
   public loginFormFlag: boolean = true;
   type_ = "notif";
   text_ = "Success de registration";
@@ -70,11 +70,6 @@ export class LoginModalComponent implements OnInit {
       if (logRes) {
         let pr = this.auth.profile();
         if (pr) {
-          this.sh.pushData({
-            from: "updateDataLogged",
-            message: "update view",
-            data: pr
-          });
           let aft: any = null;
           let aft_data: any = null;
           if ("after" in this.currObj.data) {
@@ -87,10 +82,12 @@ export class LoginModalComponent implements OnInit {
       }
     } catch (e) {
       console.log(e);
-      this.hasError = true;
-      this.alrt_type = "warning";
-      this.msg_error =
-        "Error type: " + e.error_type + ". Message: " + e.message;
+      this.hasNotif = false;
+      this.notifMessage(
+        "warning",
+        "Error type: " + e.error_type + ". Message: " + e.message,
+        500
+      );
     }
   }
 
@@ -113,30 +110,38 @@ export class LoginModalComponent implements OnInit {
         .toPromise()
         .then(
           (res: any) => {
+            this.hasNotif = true;
+
             setTimeout(() => {
               if (res.status == "OK") {
-                this.type_ = "success";
-                this.text_ =
+                this.notifMessage(
+                  "success",
                   "Demande de reinitialisation de mot passe effectuer avec success <br>" +
-                  res.message +
-                  " <br> Veuiller consulter votre email .";
+                    res.message +
+                    " <br> Veuiller consulter votre email .",
+                  500
+                );
               } else {
-                this.type_ = "warning";
-                this.text_ =
+                this.notifMessage(
+                  "warning",
                   "Un erreur est survenue au cours de votre demande<br>" +
-                  res.message +
-                  " <br> Merci.";
+                    res.message +
+                    " <br> Merci.",
+                  500
+                );
               }
               this.resetpassForm.reset();
               this.error_log = true;
             }, 1000);
           },
           error => {
-            this.type_ = "warning";
-            this.text_ =
+            this.notifMessage(
+              "warning",
               "Un erreur est survenue au cours de votre demande<br>" +
-              error.error.text +
-              " <br> Merci.";
+                error.error.text +
+                " <br> Merci.",
+              500
+            );
             this.resetpassForm.reset();
             this.error_log = true;
           }
@@ -145,5 +150,15 @@ export class LoginModalComponent implements OnInit {
   }
   endAll(status) {
     this.endMessage.emit(status);
+  }
+
+  notifMessage(type, mess, time) {
+    this.hasNotif = false;
+    this.alrt_type = type;
+    this.msg_error = mess;
+    this.hasNotif = true;
+    setTimeout(() => {
+      this.hasNotif = false;
+    }, 5000);
   }
 }

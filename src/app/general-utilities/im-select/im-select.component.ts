@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy, ElementRef, Input } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	OnDestroy,
+	ElementRef,
+	Input,
+	Output,
+	EventEmitter
+} from "@angular/core";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { CompanyService } from "../../services/company/company.service";
 import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
@@ -13,6 +21,7 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 	@Input("entity") entity: string;
 	public hasImage: boolean = false;
 	public imbiblio: any;
+	@Output() onOk = new EventEmitter<{}>();
 	public butt_up: boolean;
 	private previousSelected: any = null;
 	constructor(
@@ -56,7 +65,7 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 		if (fileName) {
 			// lbs.innerHTML = fileName;
 			this.butt_up = true;
-			this.uploadImageInBiblio(event, '_filev', 'images')
+			this.uploadImageInBiblio(event, "_filev", "images");
 		} else {
 			this.butt_up = false;
 			lbs.innerHTML = labelVal;
@@ -73,10 +82,13 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 				"images"
 			);
 			if (up_res["status"] == 1) {
-				let updateData = await this.cs.updateCompanyImages({
-					all_im: up_res["data"].imUP,
-					ty_pe: "images"
-				}, this.entity);
+				let updateData = await this.cs.updateCompanyImages(
+					{
+						all_im: up_res["data"].imUP,
+						ty_pe: "images"
+					},
+					this.entity
+				);
 				if (updateData) {
 					this.sh.notifToast({
 						type: "success",
@@ -104,8 +116,20 @@ export class ImSelectComponent implements OnInit, OnDestroy {
 			data: item,
 			destFile: this.dest_file
 		});
+		this.changeOk = true;
+	}
+	public changeOk: boolean = false;
+
+	Okchange() {
+		this.onOk.emit({});
 	}
 	ngOnDestroy() {
 		this.sh.imageSelected({});
+	}
+
+	public allowDestfile() : boolean {
+		if (this.dest_file == "cover_im" || this.dest_file == "logo_im")
+			return true;
+		return false;
 	}
 }
