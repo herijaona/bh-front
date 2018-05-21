@@ -132,9 +132,9 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	}
 
 	hiddedModal() {
-		setTimeout(() =>{
-			this.addNewState = false;
-			this.showDataState = false;
+		setTimeout(() => {
+			if (this.addNewState) this.addNewState = false;
+			if (this.showDataState) this.showDataState = false;
 		}, 500);
 	}
 

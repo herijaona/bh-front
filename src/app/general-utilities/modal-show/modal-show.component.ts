@@ -58,7 +58,7 @@ export class ModalShowComponent implements OnInit {
 		this.activeShow = true;
 		setTimeout(() => {
 			this.myModalGen.show();
-		}, 330);
+		}, 430);
 	}
 
 	hiddedModal() {

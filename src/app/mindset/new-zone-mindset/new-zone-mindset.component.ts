@@ -34,6 +34,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	public addActText: string = "addNew";
 	public vidForm: FormGroup;
 	public imNotSelected: boolean = true;
+	public presentIn: boolean = true;
 	public cpy_entity: string = "account";
 	public selctFlag: { [key: string]: boolean } = {
 		imAdd: true,
@@ -201,7 +202,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			}
 		}
 	}
-	
+
 	async saveImageZone() {
 		let err = await this.errorsInInput(this.imForm);
 		if (!err) {
@@ -271,6 +272,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	}
 
 	saveFinished() {
+		this.presentIn = false;
 		this.sh.pushData({ from: "modal_new", data: "end" });
 	}
 
@@ -379,6 +381,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.sh.pushData({});
+		this.sh.notifToast({});
 	}
 
 	saveEditZone(arg) {

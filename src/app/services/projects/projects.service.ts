@@ -31,4 +31,8 @@ export class ProjectsService extends BaseHttpService {
 	deleteProject(arg) {
 		return this.fetch("delete", "bh-projects", arg ).toPromise();
 	}
+
+	public sendProjectsApplication(arg){
+		return this.fetch('post', 'bh-projects-apply', arg ).toPromise();
+	}
 }

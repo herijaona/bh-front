@@ -67,7 +67,7 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 
 	applyto(ev) {
 		ev.preventDefault();
-		let _data = {};
+		let _data =  this.detailsData;
 		
 		if (this.auth.isLoggedIn()) {
 			this.sh.pushData({
