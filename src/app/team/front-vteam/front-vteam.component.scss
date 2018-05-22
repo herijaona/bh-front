@@ -101,6 +101,9 @@
     box-shadow: none;
     font-style: italic;
     padding: 10px 12px 10px 12px;
+    @media(min-width:403px){
+        border-right: 0;
+    }
 }
 .btn-crt{
     background: #e83936;
