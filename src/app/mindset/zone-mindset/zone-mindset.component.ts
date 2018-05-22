@@ -159,10 +159,9 @@ export class ZoneMindsetComponent implements OnInit {
 	}
 
 	hiddedModal() {
-		setTimeout(() => {
-			this.addNewState = false;
-			this.dataZoneEdit = null;
-		}, 300);
+		if (this.addNewState) this.addNewState = false;
+		if (this.zoneActionType) this.zoneActionType = "";
+		if (this.dataZoneEdit) this.dataZoneEdit = null;
 	}
 
 	async ngAfterViewInit() {}

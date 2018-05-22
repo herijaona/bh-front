@@ -22,7 +22,6 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	public videoZoneMindset: any;
 	private widthExp: number;
 	private z_height: number;
-	private currentInEdit: boolean = false;
 	public showDataState: boolean = false;
 	private canDeleted: boolean;
 	private znSize: number;
@@ -104,7 +103,6 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	}
 
 	editZone() {
-		this.currentInEdit = true;
 		this.sh.pushData({ from: "editZone", data: this.dtZone });
 	}
 
@@ -125,10 +123,6 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 
 	closeModalShowZoom() {
 		this.myModal.hide();
-		setTimeout(() => {
-			this.addNewState = false;
-			this.showDataState = false;
-		}, 130);
 	}
 
 	hiddedModal() {

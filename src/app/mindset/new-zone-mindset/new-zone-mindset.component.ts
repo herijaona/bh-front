@@ -383,9 +383,4 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 		this.sh.pushData({});
 		this.sh.notifToast({});
 	}
-
-	saveEditZone(arg) {
-		if (arg == "images") {
-		}
-	}
 }
