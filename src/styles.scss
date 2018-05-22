@@ -216,9 +216,11 @@ select{
     }
   }
 }
-
 .in_toast > p > p {
     margin: auto !important;
     padding:17px;
     opacity:0.9;
+}
+.resume-text > p > p{
+    margin: 0;
 }

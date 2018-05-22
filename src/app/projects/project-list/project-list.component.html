@@ -23,6 +23,8 @@
               <a class="nav-link" [routerLink]="[ '/open-innovation' , currentCompanySlug , 'details-project' , item._id ]"><i class="fa fa-clock-o"></i><span>Answer delay: {{item.responseTimeValue }} {{item.responseTimeUnit}} </span></a>
             </li>
           </ul>
+          <p [innerHtml]="item.contexte|bhSafeHtml" >
+          </p>
         </li>
       </ul>
     </div>
