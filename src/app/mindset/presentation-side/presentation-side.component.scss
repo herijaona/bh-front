@@ -8,8 +8,9 @@
         padding: 0 0 10px;
         font-weight: 400;
         font-size: 20px;
-        color: #373942;
+        color: #4B4D55;
         margin-bottom: 12px;
+        font-family: SourceSansPro-Regular;
     }
 .presentation>div>p>span{
     // color: red !important;
@@ -18,4 +19,9 @@
 }
 .present{
         padding-top: 15px;
+        p{
+            color: #4B4D55;
+            font-family: SourceSansPro-Regular;
+            font-size: 15px;
+        }
 }
