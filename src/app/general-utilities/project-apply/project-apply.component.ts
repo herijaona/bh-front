@@ -72,4 +72,6 @@ export class ProjectApplyComponent implements OnInit {
 			}
 		} catch (e) {}
 	}
+
+	onEditorChange($event){}
 }
