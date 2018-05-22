@@ -1,4 +1,11 @@
-import { Directive, Component, OnInit, ViewChild, ElementRef, Renderer2 } from "@angular/core";
+import {
+  Directive,
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Renderer2
+} from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -12,7 +19,6 @@ import { TeamsService } from "../../services/teams/teams.service";
   templateUrl: "./team-content.component.html",
   styleUrls: ["./team-content.component.scss"]
 })
-
 export class TeamContentComponent implements OnInit {
   public currentCompanySlug: string;
   public editPAGEstatus: boolean = false;
@@ -120,20 +126,22 @@ export class TeamContentComponent implements OnInit {
 
   closeModalAddNEw() {
     this.myModal.hide();
-    setTimeout(() => {
-      this.addNewState = false;
-    }, 330);
   }
 
   showVideoCLose() {
     this.showModal.hide();
+  }
+
+  hiddedModalAddEdit() {
     setTimeout(() => {
-      this.showDataState = false;
-    }, 330);
+      this.addNewState = false;
+      this.tmVideoAction = "";
+      this.tmVideoData = null;
+    }, 500);
   }
 
   hiddedModal() {
-    setTimeout(() =>{
+    setTimeout(() => {
       this.showDataState = false;
     }, 500);
   }

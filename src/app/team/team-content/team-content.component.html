@@ -5,7 +5,7 @@
 
 <front-vteam *ngFor="let item of dataTeamFront" [vteamDATA]="item"></front-vteam>
 <!-- Modal add-->
-<div *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+<div (onHide)="hiddedModalAddEdit()" *ngIf="addNewState" style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div *ngIf="addNewState" class="cascading-modal" role="document">
     <!--Content-->
     <div class="modal-content success-content">

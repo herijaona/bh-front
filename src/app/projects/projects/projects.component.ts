@@ -53,6 +53,7 @@ export class ProjectsComponent implements OnInit {
 				case "projectNEW":
 					if (st.data == "end") {
 						this.projectPageEditStatus = false;
+						this.btnButtontext = "ADD A NEW PROJECT";
 					}
 					break;
 				case "editProject":

@@ -104,6 +104,8 @@ export class ZoneMindsetComponent implements OnInit {
 
 	async formatDataView() {
 		try {
+			this.stZone = false;
+			this.allZ = [];
 			let dtype = [];
 			let all: any = await this.cs.allZoneData(this.currentCompanySlug);
 			if (all) {
