@@ -6,24 +6,26 @@
     @media(max-width:420px){
         padding: 8px 42px 5px 8px;
     }
+    div div p p{
+        font-size: 15px;
+        color: #4B4D55;
+        font-family: SourceSansPro-Regular;
+    }
 }
 
 .list-nav {
     list-style: none;
     padding: 0;
-
     h3 {
         color: #e84d3f;
         font-size: 13px;
-        font-family: "SourceSansPro-Regular";
+        font-family: SourceSansPro-Semibold;
 
         span {
             padding-left: 10px;
             font-size: 16px;
         }
-
     }
-
 }
 
 .list-ul {
@@ -37,7 +39,7 @@
         line-height: 8px;
         margin-top: 5px !important;
         z-index: 9;
-
+        margin-left: 8px !important;
         li {
             margin-right: 10px;
         }
@@ -60,8 +62,15 @@
     font-size: 13px;
     margin-left: 15px;
     margin-top: -27px;
+
     li{
         margin: 5px;
+        margin-top: 11px;
+        margin-bottom: 11px;
+        @media(max-width:491px){
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
     }
 
     li a {

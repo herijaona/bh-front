@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
 	public accAdm: any;
 	private subscr: Subscription;
 	public mess_notif: string;
-	public toast: boolean = true;
+	public toast: boolean = false;
 
 	constructor(
 		private router: Router,
@@ -92,13 +92,13 @@ export class NavbarComponent implements OnInit {
 			// code...
 			this.mess_notif = dt.message;
 			this.toast = true;
-			this.st = "notifOn";
+			/*this.st = "notifOn";*/
 			setTimeout(() => {
 				this.st = "notifOff";
 				setTimeout(() => {
 					this.toast = false;
 				}, 1000);
-			}, 3000);
+			}, 1200);
 		}
 	}
 }

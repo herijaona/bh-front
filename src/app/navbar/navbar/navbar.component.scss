@@ -120,20 +120,24 @@
 
 .in_toast{
     font-family: SourceSansPro-Semibold;
-    box-shadow: 0px 1px 19px -4px rgba(0, 0, 0, 0.14);
     vertical-align: middle;
     color: white;
     font-size: 20px;
     margin: auto;
     position: fixed;
-    top: 42%;
     z-index: 9999;
     width: 100%;
     text-align: center;
+    background: #000000ba;
+    height: 100%;
+    top: 0px;
     p{
         width: 50%;
-        background: linear-gradient(90deg, #28a745, #35bd54);
-        opacity:0.9;
+        background: linear-gradient(90deg, #25863b, #06883a);
+        box-shadow: 0px 0px 5px 1px #f9f9f921;
+        border-radius: 7px;
+        top: 40%;
+        position: relative;
     }
 }
 
