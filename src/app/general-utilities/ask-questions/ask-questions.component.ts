@@ -45,7 +45,7 @@ export class AskQuestionsComponent implements OnInit {
 	}
 
 	textLengthCheck(txt) {
-		if (txt.length > 1500) {
+		if (txt.length > 10000) {
 			return false;
 		}
 		return true;
