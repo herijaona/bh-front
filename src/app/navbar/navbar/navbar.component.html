@@ -15,7 +15,7 @@
         </li>
       </ul>
       <ul class="navbar-nav nav-top">
-        <li class="nav-item i8">
+        <!-- <li class="nav-item i8">
           <span class=""><img src="{{g.base_href}}assets/img/fb-8.png" width="6"></span>
         </li>
         <li class="i8">
@@ -29,7 +29,7 @@
         </li>
         <li class="nav-item i8">
           <span><img src="{{g.base_href}}assets/img/in-8.png" width="13"></span>
-        </li>
+        </li> -->
         <li class="nav-item">
           <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login" class="nav-link  color-white recrute-text">Connexion</a>
           </li>
@@ -37,7 +37,7 @@
             <a class="nav-link  color-white  recrute-text2" routerLink="/profile">Profile</a>
           </li> -->
           <li *ngIf="auth.isLoggedIn()" class="nav-item">
-            <a class="nav-link color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/Administration"><span>Administration</span></a>
+            <a class="nav-link color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/Administration"><span class="d-none-admin">Administration</span><span class="d-none-ad">Admin</span></a>
            <!--  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a *ngFor="let acc of accAdm" [routerLink]="['/company',acc.name, 'profile', acc._id]" class="dropdown-item" href="#">{{acc.name}}</a>
             </div> -->
