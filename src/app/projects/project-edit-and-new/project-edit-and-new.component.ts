@@ -105,12 +105,12 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 						type: "success",
 						message: "<p>Configuration saved</p>"
 					});
-					this.el.nativeElement.style.display = "none";
 					this.sh.pushData({
 						from: "projectNEW",
 						action: "refresh",
 						data: "end"
 					});
+					this.el.nativeElement.style.display = "none";
 				}
 			}
 		} catch (e) {}

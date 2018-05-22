@@ -70,7 +70,17 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 			if (allProject.status == "OK") {
 				if (allProject.status == "OK") {
 					this.listData = allProject.data;
+					for (var xe in this.listData) {
+						let cnt: string = this.listData[xe].contexte
+							.replace(/\n/g, "")
+							.replace(/<(?:.|\n)*?>/gm, "");
+						if (cnt.length > 300) {
+							cnt = cnt.substr(0, 300)+'....';
+						}
+						this.listData[xe].contexte = cnt;
+					}
 				}
+				console.log(this.listData);
 			}
 		} catch (e) {
 			console.log(e);
