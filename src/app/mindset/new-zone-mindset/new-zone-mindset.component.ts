@@ -24,7 +24,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	public selectedImage: string = "";
 	public im_poster: string = "";
 	public actionAdd: boolean = true;
-	public selectedZone: string = "imAdd";
+	public selectedZone: string = "default";
 	public AllowedZone: any;
 	private newDestFile = "newZone_im";
 	private selectedIm: { [key: string]: string } = {};
@@ -266,7 +266,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			this.sh.notifToast({
 				type: "error",
 				message:
-					"<p>Donnée non enregistré, une erreur est survenu au cours de l'opération</p>"
+					"<p>Donnée non enregistre, une erreur est survenu au cours de l'operation</p>"
 			});
 		}
 	}
