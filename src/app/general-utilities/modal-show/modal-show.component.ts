@@ -33,7 +33,7 @@ export class ModalShowComponent implements OnInit {
 	public applyModal: boolean = false;
 
 	public applyToProjects(arg) {
-		this.modal_size = "lg";
+		this.modal_size = "modal-lg";
 		this.dataModal = arg;
 		this.applyModal = true;
 		this.activeShow = true;
@@ -42,7 +42,7 @@ export class ModalShowComponent implements OnInit {
 		}, 330);
 	}
 	public loginModal(arg) {
-		this.modal_size = "md";
+		this.modal_size = "modal-md";
 		this.dataModal = arg;
 		this.lgin_mdl = true;
 		this.activeShow = true;
@@ -52,7 +52,7 @@ export class ModalShowComponent implements OnInit {
 	}
 
 	public askQuestions(arg) {
-		this.modal_size = "md";
+		this.modal_size = "ask-modal";
 		this.dataModal = arg;
 		this.askquest_mdl = true;
 		this.activeShow = true;

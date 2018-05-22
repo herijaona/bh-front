@@ -6,9 +6,10 @@ export class Globals {
 	// api_baseUrl: string = "http://54.36.98.91:3000";
 	api_baseUrl: string = "http://localhost:3000";
 	site_baseUrl: string = "http://localhost:4546";
-	urlArrayLeng: 6
+	urlArrayLeng: 6;
+	public conf0_editor = { toolbar: [], removePlugins: "elementspath" };
 	public conf_editor = {
-		removePlugins : 'elementspath' ,
+		removePlugins: "elementspath",
 		toolbar: [
 			{
 				name: "basicstyles",
@@ -41,14 +42,10 @@ export class Globals {
 			{ name: "links", items: ["Link", "Unlink"] },
 			{
 				name: "insert",
-				items: [
-					"HorizontalRule",
-					"Smiley",
-					"SpecialChar"
-				]
+				items: ["HorizontalRule", "Smiley", "SpecialChar"]
 			},
 			{ name: "styles", items: ["Styles", "Format"] },
-			{ name: "colors", items: ["TextColor", "BGColor"] },
+			{ name: "colors", items: ["TextColor", "BGColor"] }
 		]
 	};
 }
