@@ -75,7 +75,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 							.replace(/\n/g, "")
 							.replace(/<(?:.|\n)*?>/gm, "");
 						if (cnt.length > 300) {
-							cnt = cnt.substr(0, 300)+'....';
+							cnt = cnt.substr(0, 300) + "....";
 						}
 						this.listData[xe].contexte = cnt;
 					}
@@ -98,7 +98,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 	async deleteProject(item) {
 		try {
 			let resDel = await this.pr.deleteProject(item);
-			this.formatDataView();
+			if (resDel) {
+				this.formatDataView();
+			}
 		} catch (e) {
 			console.log(e);
 		}
