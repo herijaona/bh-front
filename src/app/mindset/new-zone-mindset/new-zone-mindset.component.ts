@@ -104,6 +104,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 						vidCaption: this.data_zone.caption,
 						vidYoutubeUrl: this.data_zone.video.url.im_url
 					});
+					console.log(this.data_zone);
 					this.im_poster = this.data_zone.video.url.im_poster;
 					this.selectedZone = "vidAdd";
 					this.zoneSelectVChange("vidAdd");
