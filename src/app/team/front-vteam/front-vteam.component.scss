@@ -112,6 +112,7 @@
     box-shadow: none;
     text-transform: initial;
    	padding: 10px;
+    opacity: 1;
 }
 .lead{
     a svg{
@@ -262,7 +263,7 @@ img::after{
 }
 .col-team{
     width:45%;
-    height: 337px;
+    height: 100%;
     @media(max-width:724px){
         width: 100%;
     }

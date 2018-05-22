@@ -13,6 +13,7 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
 	set vteamDATA(d) {
 		this.teamVideoData = d;
 	}
+	public disabled_btn = false;
 	public teamVideoData: { [key: string]: any } = {};
 	public editPAGEstatus = false;
 	public tmsDetails: any;

@@ -19,7 +19,7 @@
 			<div [innerHtml]="teamVideoData.textTeam | bhSafeHtml" class=""></div>
 			<p class="lead">
 				<a (click)="ask_questions_toTeam($event)" class="btn btn-primary btn-lg btn-wnt" href="#" role="button">vous avez une question<i class="fa fa-question-circle icon-question"></i></a>
-				<a (click)="ask_questions_toTeam($event)" class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>
+				<a [ngClass]="{'disabled': !disabled_btn}" class="btn btn-primary btn-lg btn-crt" href="#" role="button">dites-moi</a>
 			</p>
 		</div>
 	</div>

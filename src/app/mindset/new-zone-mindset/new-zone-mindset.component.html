@@ -33,7 +33,7 @@
     <div class="col-md-5 pl-0">
       <form [formGroup]="imForm" (ngSubmit)="saveImageZone()">
         <div class="">
-          <label>Caption:</label>
+          <label>Caption :</label>
           <input formControlName="imCaption" type="text" name="" class="input-story">
         </div>
         <button type="submit" [ngClass]="{disabled : !imForm.valid || imNotSelected }" class="btn btn-default"> Save </button>
@@ -70,11 +70,11 @@
     <div class="col-md-5 pl-0">
       <form [formGroup]="vidForm" (ngSubmit)="saveVideosZone()">
         <div class="">
-          <label>Caption:</label>
+          <label>Caption :</label>
           <input formControlName="vidCaption" type="text" name="" class="input-story">
         </div>
         <div class="">
-          <label>Youtube Url:</label>
+          <label>Youtube Url :</label>
           <input (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="vidYoutubeUrl" type="url" name="">
         </div>
         <div class="">
@@ -97,11 +97,11 @@
     <div class="row">
       <div class="col-md-6 ">
         <div class="">
-          <label for="c_year">Annees de creation:</label>
+          <label for="c_year">Annees de creation :</label>
           <input formControlName="createdYear" class="" type="number" id="c_year">
         </div>
         <div class="">
-          <label for="colab">Collaborateur:</label>
+          <label for="colab">Collaborateur :</label>
           <input id="colab" class="" formControlName="collabor" type="number">
         </div>
         <div class="">
@@ -120,7 +120,7 @@
       </div>
       <div class="col-md-6 ">
         <div class=" ">
-          <label>Age Moyen:</label>
+          <label>Age Moyen :</label>
           <input formControlName="ageMoyen" type="number">
         </div>
         <div class="">
@@ -128,7 +128,7 @@
           <input formControlName="turnOver" type="number">
         </div>
         <div class="">
-          <label>Opportuinites crees:</label>
+          <label>Opportuinites crees :</label>
           <input formControlName="createdOpportinuite" type="text" class="input-story">
         </div>
       </div>
