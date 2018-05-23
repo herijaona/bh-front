@@ -37,7 +37,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	public presentIn: boolean = true;
 	public cpy_entity: string = "account";
 	public selctFlag: { [key: string]: boolean } = {
-		imAdd: true,
+		imAdd: false,
 		vidAdd: false,
 		chiffrAdd: false,
 		tweetAdd: false,
@@ -96,6 +96,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 				case 1:
 					this.AllowedZone = [1, 2];
 					this.selectedImage = this.data_zone.image.url;
+					this.selectedZone = "imAdd";
 					this.imForm.setValue({ imCaption: this.data_zone.caption });
 					break;
 				case 2:

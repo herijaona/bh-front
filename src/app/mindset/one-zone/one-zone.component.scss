@@ -190,21 +190,10 @@
 }
 
 /* end chiffre */
-.imf {
-  // width: 100% !important;
-  // height: 100%;
-    width: 100%;
-    height: auto;
-    @media(min-width:965px){
-      max-width:965px;
-      max-height: 550px;
-    }
-}
+
 
 /* ****** ***** **** ** ** ** * * * ** * * ** *  */
-#modalZoneForm {
-  background-color: #000000eb;
-}
+
 
 .btn-floating i {
   font-size: 21px;
@@ -241,29 +230,3 @@
   margin-top: -7px;
 }
 
-.md-header {
-  background: transparent !important;
-
-  .close {
-    margin-right: 0px;
-  }
-
-}
-.md-header{
-    background: transparent !important;
-    .close{
-        span{
-            font-size: 16px;
-            text-transform: uppercase;
-            font-family: SourceSansPro-Semibold;
-        }
-        i{
-            color: #e83936;
-            padding-right: 5px;
-        }
-    }
-}
-.md-content {
-    background: transparent;
-    text-align:center;
-}

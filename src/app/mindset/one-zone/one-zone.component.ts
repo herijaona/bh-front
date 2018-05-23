@@ -10,7 +10,6 @@ import { Globals } from "./../../globals/globals";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { CompanyService } from "../../services/company/company.service";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
-import { ModalDirective } from "angular-bootstrap-md";
 
 @Component({
 	selector: "one-zone",
@@ -26,7 +25,6 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	private canDeleted: boolean;
 	private znSize: number;
 	public addNewState: boolean = false;
-	@ViewChild("form2") myModal: ModalDirective;
 	@Input("znWindth_")
 	set znWindth_(zn: number) {
 		this.znWindth = zn;
@@ -109,27 +107,13 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.sh.pushData({});
 	}
+
 	ShowZoom() {
-		if (this.dtZone.dtype == 2) {
-			this.videoZoneMindset = this.sh.getiframeVideo(
-				this.dtZone.video.url.i_v
-			);
-		}
-		this.showDataState = true;
-		setTimeout(() => {
-			this.myModal.show();
-		}, 400);
-	}
-
-	closeModalShowZoom() {
-		this.myModal.hide();
-	}
-
-	hiddedModal() {
-		setTimeout(() => {
-			if (this.addNewState) this.addNewState = false;
-			if (this.showDataState) this.showDataState = false;
-		}, 500);
+		this.sh.pushData({
+			from: "showZoom",
+			action: "one-zone",
+			data: this.dtZone
+		});
 	}
 
 	getPoster() {

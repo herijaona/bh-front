@@ -67,7 +67,7 @@ export class AskQuestionsComponent implements OnInit {
 				if (qRES["status"] == "OK") {
 					this.sh.notifToast({
 						type: "success",
-						message: "<p>Questions sent</p>"
+						message: "<p>Your question is sent</p>"
 					});
 					this.endAll({ status: "OK", after: null, data: null });
 				}

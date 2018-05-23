@@ -303,7 +303,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		Object.keys(this.subscr).forEach(e => {
 			this.subscr[e].unsubscribe();
-			console.log(e);
 		});
 		delete this.editPAGEstatus;
 		delete this.sh;

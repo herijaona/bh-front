@@ -1,9 +1,8 @@
-<ng-template [ngIf]= 'presentIn'>
-  
+<ng-template [ngIf]= 'presentIn'>  
 <!-- Select Zone type on Add -->
 <div *ngIf="actionAdd" class="form-group">
   <select class="form-control sl_newZone" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
-    <option value ="default">Select the type</option>
+    <option value ="default">Select the type</option>    
     <option value="imAdd">Image</option>
     <option value="vidAdd">Video</option>
     <option *ngIf="!inArray(3 , existDtype )" value="chiffrAdd">Chiffres</option>
@@ -12,10 +11,12 @@
     <option *ngIf="!inArray(6 , existDtype )" value="txtAdd">Text Quote</option>
     <option *ngIf="!inArray(7 , existDtype )" value="mapAdrAdd">Map</option> -->
   </select>
-</div>
+</div> <!-- end select add type zone  -->
+
 <!-- Select Zone type on edit -->
 <div *ngIf="!actionAdd" class="form-group">
   <select class="form-control" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
+    <option value ="default">Select the type</option>
     <option *ngIf="inArray(1 , AllowedZone )" value="imAdd">Image</option>
     <option *ngIf="inArray(2 , AllowedZone )" value="vidAdd">Video</option>
     <option *ngIf="inArray(3 , AllowedZone )" value="chiffrAdd">Chiffres</option>
@@ -24,7 +25,9 @@
     <option *ngIf="inArray(6 , AllowedZone )" value="txtAdd">Text Quote</option>
     <option *ngIf="inArray(7 , AllowedZone )" value="mapAdrAdd">Map</option> -->
   </select>
-</div>
+</div><!-- end select edit type -->
+
+
 <div *ngIf="selctFlag.imAdd && actionAdd" class="imAdd">
   <span>
   Add Image
@@ -64,6 +67,8 @@
     </div>
   </div>
 </div>
+
+<!-- Videos Add and edit -->
 <div *ngIf="selctFlag.vidAdd" class="vidAdd">
   Add Video
   <div class="row">
@@ -91,6 +96,8 @@
     </div>
   </div>
 </div>
+
+<!-- Chiffres number add  and edit  -->
 <div *ngIf="selctFlag.chiffrAdd" class="chiffrAdd ">
   Add chiffres
   <form [formGroup]="chrForm" (ngSubmit)="saveChiffresZone()">

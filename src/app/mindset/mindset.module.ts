@@ -12,6 +12,7 @@ import { NgxMasonryModule } from "ngx-masonry";
 import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
 import { OneZoneComponent } from "./one-zone/one-zone.component";
 import { NewZoneMindsetComponent } from "./new-zone-mindset/new-zone-mindset.component";
+import { ModalMediaComponent } from './modal-media/modal-media.component';
 
 @NgModule({
 	imports: [
@@ -30,6 +31,7 @@ import { NewZoneMindsetComponent } from "./new-zone-mindset/new-zone-mindset.com
 		PresentationSideComponent,
 		ZoneMindsetComponent,
 		OneZoneComponent,
+		ModalMediaComponent,
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [PresentationSideComponent]

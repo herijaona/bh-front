@@ -2,17 +2,20 @@
   <a (click)="editZone()" class="erew"><i class="fa fa-pencil" aria-hidden="true"></i></a>
   <a *ngIf="canDeleted" (click)='deleteZone()' class="erew2"><i class="fa fa-trash" aria-hidden="true"></i></a>
 </div>
+
 <ng-template [ngIf]="dtZone">
+
   <!-- Image -->
   <ng-template [ngIf]="dtZone.dtype == 1">
-    <div (click)="ShowZoom()" class="oz im">
+    <div  class="oz im">
       <img class="img-responsive" [src]="dtZone.image.url" width="100%">
       <div class="overlay_" mdbWavesEffect (click)="ShowZoom()"><i class="fa fa-search chck"></i></div>
     </div>
   </ng-template>
+
   <!-- Video  -->
   <ng-template [ngIf]="dtZone.dtype == 2">
-    <div (click)="ShowZoom()" class="oz im">
+    <div  class="oz im">
       <div class="video_zone">
         <img width="100%" [src]="getPoster()" alt="" class="vd">
         <span class="captin"><i class="fa fa-play"></i> <span class="zone-caption">{{dtZone.caption}}</span></span>
@@ -20,6 +23,7 @@
       </div>
     </div>
   </ng-template>
+
   <!-- chiffres  -->
   <ng-template [ngIf]="dtZone.dtype == 3">
     <div class="oz">
@@ -56,35 +60,6 @@
         <div class="stat-item wide">
           <span class="stat-label">Âge moyen</span>
           <span class="stat-value">{{dtZone.data_suppl.ageMoyen}}</span>
-        </div>
-      </div>
-    </div>
-  </ng-template>
-
-
-  <!-- Modal video play-->
-  <ng-template [ngIf]="dtZone.dtype == 1 || dtZone.dtype == 2">
-    <div (onHide)="hiddedModal()" *ngIf="showDataState" style="overflow: auto;" mdbModal #form2="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-      <div *ngIf="showDataState" class="modal-dialog cascading-modal modal-lg" role="document">
-        <!--Content-->
-        <div class="modal-content md-content">
-          <!--Header-->
-          <div class="modal-header md-header light-blue darken-3 white-text">
-            <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="closeModalShowZoom()">
-              <span aria-hidden="true"><i class="fa fa-window-close"></i>fermer</span>
-            </button>
-          </div>
-          <!--Body-->
-          <div class="modal-body mb-0">
-            <ng-template [ngIf]="dtZone.dtype == 2">
-              <div [innerHtml]="videoZoneMindset|bhSafeHtml" class="md-video text-center"></div>
-            </ng-template>
-
-            <ng-template [ngIf]="dtZone.dtype == 1">
-              <img class="imf" [src]="dtZone.image.url" alt="">
-            </ng-template>
-          </div>
-          <!--/.Content-->
         </div>
       </div>
     </div>
