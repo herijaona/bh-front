@@ -2,6 +2,7 @@ import {
 	Component,
 	OnInit,
 	ViewChild,
+	OnDestroy,
 	ElementRef,
 	HostListener
 } from "@angular/core";
@@ -12,6 +13,7 @@ import { CompanyService } from "../../services/company/company.service";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { ModalDirective } from "angular-bootstrap-md";
 declare var Masonry: any;
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
 	selector: "zone-mindset",
@@ -21,7 +23,7 @@ declare var Masonry: any;
 		"(window:resize)": "onResize($event)"
 	}
 })
-export class ZoneMindsetComponent implements OnInit {
+export class ZoneMindsetComponent implements OnInit, OnDestroy {
 	public stZone: boolean = false;
 	public currentCompanySlug: string = "";
 	public editPAGEstatus: boolean = false;
@@ -33,8 +35,12 @@ export class ZoneMindsetComponent implements OnInit {
 	public dataZoneEdit: any;
 	public existDtype: any;
 	public zoneActionType: string;
+	public mdl_title: string = "";
 	public allZ: any;
 	public allZ1: any;
+	private subscr: {
+		[key: string]: Subscription;
+	} = {};
 	public chrDtype: any;
 	public oneCol: number;
 	public masonry_option: { [key: string]: any } = {
@@ -59,12 +65,12 @@ export class ZoneMindsetComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.activRoute.params.subscribe((params_: any) => {
+		this.subscr.prm = this.activRoute.params.subscribe((params_: any) => {
 			this.currentCompanySlug = params_["slug_acc"];
 			this.formatDataView();
 		});
 
-		this.sh.notifButton$.subscribe((st: any) => {
+		this.subscr.ntb = this.sh.notifButton$.subscribe((st: any) => {
 			if (st.no == "clck") {
 				if (!st.state) {
 					this.editPAGEstatus = false;
@@ -75,7 +81,7 @@ export class ZoneMindsetComponent implements OnInit {
 			}
 		});
 
-		this.sh.busDataIn$.subscribe((st: any) => {
+		this.subscr.bus = this.sh.busDataIn$.subscribe((st: any) => {
 			switch (st.from) {
 				case "modal_new":
 					if (st.data == "end") {
@@ -148,6 +154,13 @@ export class ZoneMindsetComponent implements OnInit {
 	}
 
 	EditZone(znData) {
+		if (znData.dtype == 1) {
+			this.mdl_title = "Edit Mindset Image";
+		} else if (znData.dtype == 2) {
+			this.mdl_title = "Edit Mindset Video";
+		} else if (znData.dtype == 3) {
+			this.mdl_title = "Numbers";
+		}
 		this.addNewState = true;
 		this.zoneActionType = "editZone";
 		this.dataZoneEdit = znData;
@@ -164,7 +177,13 @@ export class ZoneMindsetComponent implements OnInit {
 		if (this.addNewState) this.addNewState = false;
 		if (this.zoneActionType) this.zoneActionType = "";
 		if (this.dataZoneEdit) this.dataZoneEdit = null;
+		if (this.mdl_title) this.mdl_title = "";
 	}
 
 	async ngAfterViewInit() {}
+	ngOnDestroy() {
+		Object.keys(this.subscr).forEach(e => {
+			this.subscr[e].unsubscribe();
+		});
+	}
 }

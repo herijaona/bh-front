@@ -97,6 +97,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 					this.AllowedZone = [1, 2];
 					this.selectedImage = this.data_zone.image.url;
 					this.selectedZone = "imAdd";
+					this.zoneSelectVChange("imAdd");
 					this.imForm.setValue({ imCaption: this.data_zone.caption });
 					break;
 				case 2:
@@ -105,7 +106,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 						vidCaption: this.data_zone.caption,
 						vidYoutubeUrl: this.data_zone.video.url.im_url
 					});
-					console.log(this.data_zone);
 					this.im_poster = this.data_zone.video.url.im_poster;
 					this.selectedZone = "vidAdd";
 					this.zoneSelectVChange("vidAdd");
@@ -384,5 +384,31 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.sh.pushData({});
 		this.sh.notifToast({});
+	}
+
+	changeParity(e) {
+		let m = this.chrForm.value["pariteHomme"];
+		let w = this.chrForm.value["pariteFemme"];
+		if (m < 0 || m > 100) {
+			this.chrForm.controls["pariteHomme"].setValue(0);
+		}
+		if (w < 0 || w > 100) {
+			this.chrForm.controls["pariteFemme"].setValue(0);
+		}
+		if (e == 1) {
+			if (100 - m > 0)
+				this.chrForm.controls["pariteFemme"].setValue(100 - m);
+			else {
+				this.chrForm.controls["pariteHomme"].setValue(0);
+				this.chrForm.controls["pariteFemme"].setValue(100);
+		}
+		} else if (e == 2) {
+			if (100 - w > 0)
+				this.chrForm.controls["pariteHomme"].setValue(100 - w);
+			else{ 
+				this.chrForm.controls["pariteFemme"].setValue(0);
+				this.chrForm.controls["pariteHomme"].setValue(100);
+		}
+		}
 	}
 }

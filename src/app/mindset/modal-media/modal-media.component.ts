@@ -28,10 +28,8 @@ export class ModalMediaComponent implements OnInit, OnDestroy {
 					this.currMedia = st.data;
 					if (this.currMedia.dtype == 1) this.imProcessData();
 					else if (this.currMedia.dtype == 2) this.vidProcessData();
-					console.log(this.currMedia);
 					break;
 				default:
-					console.log("Default");
 			}
 		});
 	}
@@ -65,8 +63,7 @@ export class ModalMediaComponent implements OnInit, OnDestroy {
 		}, 200);
 	}
 
-
-	ngOnDestroy(){
+	ngOnDestroy() {
 		Object.keys(this.subscr).forEach(e => {
 			this.subscr[e].unsubscribe();
 		});

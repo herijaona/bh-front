@@ -30,11 +30,11 @@
 </div>
 
 
-  <div (onHide)="hiddedModal()" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: 'static'}">
+  <div (onHide)="hiddedModal()" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{animated: true, ignoreBackdropClick: true, backdrop: true}">
     <div *ngIf="addNewState"   class="modal-dialog modal-lg" role="document">
       <div  class="modal-content success-content">
         <div class="modal-header">
-          <h4 class="modal-title w-100" id="myModalLabel">Add New Zone </h4>
+          <h4 class="modal-title w-100" id="myModalLabel"> {{mdl_title}} </h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModalAddNEw()">
             <span aria-hidden="true">x</span>
           </button>
