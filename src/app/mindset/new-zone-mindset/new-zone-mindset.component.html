@@ -28,9 +28,6 @@
   </div>
   <!-- end select edit type -->
   <div *ngIf="selctFlag.imAdd && actionAdd" class="imAdd">
-    <span>
-  Add Image
-  </span>
     <div class="row">
       <div class="col-md-5 pl-0">
         <form [formGroup]="imForm" (ngSubmit)="saveImageZone()">
@@ -67,7 +64,6 @@
   </div>
   <!-- Videos Add and edit -->
   <div *ngIf="selctFlag.vidAdd" class="vidAdd">
-    Add Video
     <div class="row">
       <div class="col-md-5 pl-0">
         <form [formGroup]="vidForm" (ngSubmit)="saveVideosZone()">
