@@ -15,6 +15,7 @@ import { ApiHttpService } from "./services/api-http/api-http.service";
 import { TeamsService } from "./services/teams/teams.service";
 import { AuthguardService } from "./services/authguard/authguard.service";
 import { Globals } from "./globals/globals";
+import { Currency } from "./globals/currency";
 import { SharedNotificationService } from "./services/shared-notification/shared-notification.service";
 import { BaseHttpService } from "./services/base-http/base-http.service";
 import { CompanyService } from "./services/company/company.service";
@@ -74,7 +75,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     },
     ApiHttpService,
     AuthguardService,
-    Globals,
+    Globals,Currency,
     RequestInterceptorService,
     SharedNotificationService,
     TeamsService,

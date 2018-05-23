@@ -129,7 +129,10 @@
           </div>
           <div class="">
             <label>Turn Over :</label>
-            <input formControlName="turnOver" type="number">
+            <input  formControlName="turnOver" type="number"> 
+            <select >
+              <option *ngFor="let item of c.curr"> {{item.CURRENCYCODE + ' - '+ item.COUNTRY_NAME }} </option>
+            </select>
           </div>
           <div class="">
             <label>Proposed projects :</label>

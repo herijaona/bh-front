@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from "@angular/core";
 import { Globals } from "./../../globals/globals";
+import { Currency } from "./../../globals/currency";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { CompanyService } from "../../services/company/company.service";
@@ -56,6 +57,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 	constructor(
 		public g: Globals,
 		private auth: AuthserviceService,
+		public c: Currency,
 		private sh: SharedNotificationService,
 		private activRoute: ActivatedRoute,
 		private cs: CompanyService
