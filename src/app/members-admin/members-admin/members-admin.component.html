@@ -67,11 +67,11 @@
           <div class="row brth">
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12  br-1">
               <ul class="navbar-nav mg-4 flex-dt dt-ligne">
-                <li class="nav-item mg-0 mg-no-active"><a class="nav-link no-active-nav">Administration</a></li>
-                <li class="nav-item mg-0"><a class="nav-link active-nav">Community</a></li>
+                <li class="nav-item mg-0 mg-no-active"><a class="nav-link active-nav ">Administration</a></li>
+                <li class="nav-item mg-0"><a class="nav-link no-active-nav">Community</a></li>
               </ul>
             </div>
-           <!--  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 font-all  br-2">
+            <!--  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 font-all  br-2">
               <ul class="navbar-nav mg-4 flex-dt float-right ds-flex">
                 <li class="nav-item"><a class="nav-link"><span class="font-bold">19</span>Teams</a></li>
                 <li class="nav-item"><a class="nav-link"><span class="font-bold">65</span> Comittee</a></li>
@@ -81,67 +81,54 @@
               </ul>
             </div> -->
           </div>
-          <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Job</th>
-                <th>Organisation</th>
-                <th>Interaction</th>
-                <th class="text-center">Remove</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th class="tb">
-                  <a>
-                              <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
-                              John
-                            </a>
-                </th>
-                <td class="tb">Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Otto</td>
-                <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
-              </tr>
-              <tr>
-                <th class="tb">
-                  <a>
-                                <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
-                                Jack
-                            </a>
-                </th>
-                <td class="tb">Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Otto</td>
-                <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
-              </tr>
-              <tr>
-                <th class="tb">
-                  <a>
-                                <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
-                                Janne
-                            </a>
-                </th>
-                <td class="tb">Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Otto</td>
-                <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
+          <ng-template [ngIf]="adminAll">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Function</th>
+                    <th class="text-center">Team</th>
+                    <th class="text-center">Commetee</th>
+                    <th class="text-center">Remove</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of userAdminData">
+                    <th class="tb">
+                      <div class="media">
+                        <img *ngIf="item.imageProfile" [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" style="width:60px;">
+                        <img *ngIf="!item.imageProfile" [src]="img_avatar" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" style="width:60px;">
+                        <div class="media-body">
+                          <h6 class="mb-0">{{item.firstname+" "+item.lastname }} </h6>
+                          <span><i>{{item.email}}</i></span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="tb">{{item.function}}</td>
+                    <td class="text-center">
+                      <label class="custon-ch ch-second">
+                        <input  type="checkbox" (change)="teamCommChange($event,'tAdm', item)"  [checked]="item.isAdm">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td class="text-center">
+                      <label class="custon-ch ch-second">
+                        <input type="checkbox" (change)="teamCommChange($event,'comm', item)" [checked]="item.isComm">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td class="text-center"><i (click)="deleteFromTeamList(item)" style="cursor: pointer;" class="fa fa-trash fa-remove"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <div *ngIf="readyData && !activated" class="container">
   <div class="alert alert-success" role="alert">
     <h4 class="alert-heading">Juste un pas de plus!</h4>
