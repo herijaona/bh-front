@@ -125,6 +125,17 @@ export class AuthserviceService extends BaseHttpService {
       let resp: any = await this.fetch("get", "Admincheck_role").toPromise();
       if (resp.status == "OK") {
         this.cs.storeMycompanyId(resp.data._id);
+        this.sh.pushData({
+          from: "editKeyGeneral",
+          action: "idACCOUNT",
+          data: resp.data._id
+        });
+      } else {
+        this.sh.pushData({
+          from: "editKeyGeneral",
+          action: "idACCOUNT",
+          data: ""
+        });
       }
       return resp;
     } catch (er) {}

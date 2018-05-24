@@ -51,4 +51,16 @@ export class TeamsService extends BaseHttpService {
 	public questionsSendData(arg) {
 		return this.fetch('post', 'question-data', arg ).toPromise();
 	}
+
+	public getTeamData(arg) {
+		return this.fetch('get', 'teamsUsers', arg ).toPromise();
+	}
+
+	public changeRoleAdmin(arg) {
+		return this.fetch('put', 'change_roleAdm', arg ).toPromise();
+	}
+	
+	public deleteFromTeamList(arg) {
+		return this.fetch('delete', 'delete-from-team', arg ).toPromise();
+	}
 }
