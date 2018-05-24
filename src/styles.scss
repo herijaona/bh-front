@@ -251,6 +251,23 @@ select{
         font-family: SourceSansPro-Regular;
         letter-spacing: 0.2px;
 }
+.new-zone-dialog{
+    .modal-body button{
+    @media(max-width:767px){
+        margin-bottom: 25px;
+        width:100%;
+    } 
+  }
+}
 
-
-  
+.card-profile{
+.font-my-3 {
+    padding-left: 25px;
+    padding-top: 15px;
+    }
+}
+.present{
+    color: #4b4d55;
+    font-family: SourceSansPro-Regular;
+    font-size: 15px;
+}

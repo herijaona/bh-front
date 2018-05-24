@@ -33,7 +33,7 @@ export class ModalShowComponent implements OnInit {
 	public applyModal: boolean = false;
 
 	public applyToProjects(arg) {
-		this.modal_size = "modal-lg";
+		this.modal_size = "ask-modal";
 		this.dataModal = arg;
 		this.applyModal = true;
 		this.activeShow = true;

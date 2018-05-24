@@ -8,7 +8,6 @@
   background: black;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
-  width: 88%;
   transition: .5s ease;
   opacity: 0;
   color: white;
@@ -17,10 +16,19 @@
   text-align: center;
   height:100%;
 }
-
-
+.pic{
+  width:100%;
+  @media(max-width:992px){
+  	width: 88%;
+  }
+  span, i{
+  	top: 35%;
+  	position:relative;
+  }
+}
 .font-my-3 {
 	font-family: SourceSansPro-Semibold;
+	margin-top: 15px;
 	@media(max-width:1112px){
 		padding-left: 26px;
 	}
@@ -35,7 +43,6 @@
 .font-weight-bold {
 	color: #000000;
 }
-
 
 .grey-text-bold {
 	font-size: 15px;
@@ -65,5 +72,6 @@
 
 }
 .min-width-avatar{
-	min-width: 105px;
+    min-width: 107px;
+    min-height: 104px;
 }

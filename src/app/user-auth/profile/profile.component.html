@@ -18,8 +18,8 @@
         <div class="title-edit">
           <h4>Personnal info</h4>
           <span>
-            <button *ngIf="!editPInfo" (click)='activeInfoEdit()' type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">edit personnal info</span></button>
-          <button *ngIf="editPInfo" [ngClass]="{'disabled': !EditForm.valid}" type="submit" class="btn  btn-block saveEdit ed"><i class="fa fa-check"></i><span class="edit-person">save edit</span></button>
+            <button *ngIf="!editPInfo" (click)='activeInfoEdit()' type="button" class="btn btn-block ed"><i class="fa fa-pencil"></i><span class="edit-person"></span></button>
+          <button *ngIf="editPInfo" [ngClass]="{'disabled': !EditForm.valid}" type="submit" class="btn btn-unique-edit ed-3 btn-ed3"><i class="fa fa-check"></i><span class="edit-person"></span></button>
           </span>
         </div>
         <div class="flex" style="width: 100%">
@@ -50,7 +50,7 @@
         <div class="title-edit">
           <h4>Connexion</h4>
           <span>
-            <button [ngClass]="{'disabled':!editPassword.valid || editPassword.value.bh_passConf != editPassword.value.bh_pass }" class="btn btn-unique-edit ed-2" type="submit"><i class="fa fa-check"></i><span class="edit-person">Save edit</span></button>
+            <button [ngClass]="{'disabled':!editPassword.valid || editPassword.value.bh_passConf != editPassword.value.bh_pass }" class="btn btn-unique-edit ed-3" type="submit"><i class="fa fa-check"></i><span class="edit-person"></span></button>
           </span>
         </div>
         <div class="flex" style="width: 100%">
@@ -70,7 +70,7 @@
         <div class="title-edit">
           <h4>Edit Organisation</h4>
           <span>
-            <button (click)="activeCmpInfoEdit()" type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span class="edit-person">Edit Organisation</span></button>
+            <button (click)="activeCmpInfoEdit()" type="button" class="btn ed"><i class="fa fa-pencil"></i><span class="edit-person"></span></button>
           </span>
         </div>
         <div class="flex" style="width: 100%">
