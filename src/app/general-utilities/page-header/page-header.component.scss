@@ -107,6 +107,25 @@
     padding-bottom: 0;
     margin-top: -40px;
     max-height: inherit;
+
+    background: #808080de;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 35px;
+    @media(min-width:993px){
+        display:none;
+    }
+    .navbar-nav{
+            position: fixed;
+    right: 0;
+    z-index: 10;
+    background: white !important;
+    width: 50%;
+    height: 100%;
+    top: -1px;
+    }
 }
 .btn-menu{
     position: absolute;
@@ -114,6 +133,10 @@
     top: 8px;
     font-size: 27px;
     color: #d84236 !important;
+}
+.btn-menu-btn{
+    top: 8px;
+    color: #d842368c !important;
 }
 .pl-7{
     padding-left: 7px;

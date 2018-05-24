@@ -73,26 +73,49 @@
   </div>
 </nav>
 
-<div class="collapse nav-one nav-one-two" [class.show]="show">
-  <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4">
-    <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
-      <a [routerLink]="['/open-innovation',currentCompanySlug,'acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
-    </li>
-    <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
-      <a [routerLink]="['/open-innovation',currentCompanySlug,'team']" class="nav-link">Team</a>
-    </li>
-    <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.projet}">
-      <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
-    </li>
-    <!-- <li *ngIf="pagetoShow.pIdeas" class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
-      <a class="nav-link" href="#">Ideas</a>
-    </li> -->
-    <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sstr}">
-      <a class="nav-link" href="#">SuccessStory</a>
-    </li>
-  </ul>
-</div>
+ <!-- menu for ecran small -->
 
+<ng-template [ngIf]="!FrontMenu">
+  <div class="collapse nav-one nav-one-two" [class.show]="show">
+    <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4 mb-ed animated fadeInRight">
+      <li  class="nav-item text-right">
+        <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu-btn" type="button"><i class="fa fa-close"></i></button>
+      </li>
+      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
+        <a  [routerLink]="['/Administration']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+      </li>
+      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
+        <a  [routerLink]="['/members-admin']" class="nav-link">Team</a>
+      </li>
+      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sstr}">
+        <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" href="#">Web Portal</a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+<ng-template [ngIf]="FrontMenu">
+  <div class="collapse nav-one nav-one-two" [class.show]="show">
+    <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4 mb-ed animated fadeInRight">
+      <li  class="nav-item text-right">
+        <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu-btn" type="button"><i class="fa fa-close"></i></button>
+      </li>
+      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
+        <a [routerLink]="['/open-innovation',currentCompanySlug,'acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
+      </li>
+      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
+        <a [routerLink]="['/open-innovation',currentCompanySlug,'team']" class="nav-link">Team</a>
+      </li>
+      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.projet}">
+        <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
+      </li>
+      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sstr}">
+        <a class="nav-link" href="#">SuccessStory</a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<!-- end menu for ecran small -->
 
 <!-- Modal -->
 <div *ngIf="selectingImage" class="">
