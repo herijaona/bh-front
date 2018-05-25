@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QuestionApplicationComponent } from './question-application/question-application.component';
+import { ApplicationReportComponent } from './application-report/application-report.component';
 import { ViewReactionComponent } from './view-reaction/view-reaction.component';
 import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
 
@@ -9,6 +9,6 @@ import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.m
     CommonModule,
     GeneralUtilitiesModule
   ],
-  declarations: [QuestionApplicationComponent, ViewReactionComponent]
+  declarations: [ApplicationReportComponent, ViewReactionComponent]
 })
 export class CompanyDataModule { }

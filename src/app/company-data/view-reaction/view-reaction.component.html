@@ -1,1 +1,35 @@
-<page-header [pageCurrent]="viewreaction_page"></page-header>
+<page-header [pageCurrent]="viewreaction_page">
+</page-header>
+<div class="container-fluid grid grid-top">
+  <span>Questions : </span>
+  <div class="">
+    <!--Table-->
+    <table class="table">
+      <!--Table head-->
+      <thead class="mdb-color darken-3">
+        <tr class="text-white">
+          <th>Date</th>
+          <th>Heure</th>
+          <th>Name</th>
+          <th>Organisation</th>
+          <th>About</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr *ngFor="let item of allQuestions">
+          <th scope="row">{{item.date}}</th>
+          <td>{{item.hour}}</td>
+          <td>{{item.userAsk.name}}</td>
+          <td>{{item.org}}</td>
+          <td>{{item.about}}</td>
+          <td><i class="fa fa-eye"></i></td>
+        </tr>
+      </tbody>
+      <!--Table body-->
+    </table>
+    <!--Table-->
+  </div>
+</div>
