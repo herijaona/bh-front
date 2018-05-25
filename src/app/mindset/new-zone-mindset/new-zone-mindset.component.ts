@@ -75,6 +75,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			collabor: new FormControl(""),
 			createdOpportinuite: new FormControl(""),
 			turnOver: new FormControl(""),
+			curr: new FormControl(""),
 			pariteFemme: new FormControl("", [ValidatePair]),
 			pariteHomme: new FormControl("", [ValidatePair])
 		});

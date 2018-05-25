@@ -118,9 +118,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 	}
 	public userNotSelected: boolean = false;
 
-	onChangeTeamUsers(){
-
-	}
+	onChangeTeamUsers() {}
 
 	async saveTeamVideoFront() {
 		if (this.teamVideoForm.value.tvteamMember == 0) {
@@ -184,20 +182,20 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 
 	reussiAction() {}
 
-	onEditorChange($event) {
-	}
+	onEditorChange($event) {}
 	onChangeEditor(e) {
 		this.cketeamText = e;
 		this.editorChanged = this.textLengthCheck(e);
 	}
 
 	textLengthCheck(txt) {
-		if (txt.length > 950) {
+		let cnt: string = txt.replace(/\n/g, "").replace(/<(?:.|\n)*?>/gm, "");
+		// this.charLength = cnt.length;
+		if (cnt.length > 1000) {
 			return false;
 		}
 		return true;
 	}
-	onChange(vent) {
-	}
+	onChange(vent) {}
 	onReady(vent) {}
 }
