@@ -40,10 +40,9 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     position: relative;
     select{
         background: white;
-        height: 33px;
         min-width: 110px;
         border: 1px solid #e6e9ec;
-        height: 41px;
+        height: 41px !important;
         font-size: 1rem;
         line-height: 1.5;
         border-radius: .25rem;

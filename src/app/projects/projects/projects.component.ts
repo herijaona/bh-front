@@ -25,6 +25,7 @@ export class ProjectsComponent implements OnInit {
 	public editAct: string = "EditAct";
 	public addAct: string = "AddAct";
 	public btnButtontext = "ADD A NEW PROJECT";
+	
 	@ViewChild("newRef", {
 		read: ViewContainerRef
 	})

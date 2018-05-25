@@ -132,10 +132,4 @@
 .new-zone-dialog{
 	height: 100%;
     overflow: auto;
-    .modal-body button{
-    @media(max-width:900px){
-    	margin-bottom: 25px;
-    	width:100%;
-    } 
-  }
 }

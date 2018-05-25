@@ -162,13 +162,22 @@
 .flex{
     display: flex;
     display: -webkit-flex;
+    @media(max-width:575px){
+        display:inline-block;
+    }
 }
 .mg-left{
     width: 50%;
     margin-right: 60px;
+    @media(max-width:575px){
+        width: 100%;
+    }
 }
 .mg-left-wt{
     width: 50%;
+        @media(max-width:575px){
+        width: 100%;
+    }
 }
 .title-edit{
     h4{

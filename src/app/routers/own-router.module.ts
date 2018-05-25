@@ -27,6 +27,7 @@ import { CommitteeComponent } from "../committee/committee/committee.component";
 import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
 import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
 import { ViewReactionComponent } from "../company-data/view-reaction/view-reaction.component";
+import { Project1Component } from "../project1/project1/project1.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
@@ -36,6 +37,7 @@ const routes: Routes = [
 	{ path: "profile-admin", component: ProfileAdminComponent },
 	{ path: "members-admin", component: MembersAdminComponent },
 	{ path: "home", component: HomepageComponent },
+	{ path: "project1", component: Project1Component },
 	{ path: "mindset", component: MindsetComponent },
 	{ path: "open-innovation/:slug_acc/acceuil", component: MindsetComponent },
 	{ path: "open-innovation/:slug_acc/team", component: TeamComponent },

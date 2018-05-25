@@ -47,6 +47,9 @@
     width: 90%;
     margin: 0 auto;
     box-shadow: none;
+    @media(max-width:575px){
+        padding: 0;
+    }
 }
 
 .nav-col {
@@ -195,12 +198,18 @@
 .mg-left {
     width: 50%;
     padding-right: 20px;
+    @media(max-width:575px){
+        width: 100%;
+    }
 }
 
 .mg-left-wt {
     width: 50%;
     padding-left: 20px;
     margin-right: 14px;
+    @media(max-width:575px){
+        width: 100%;
+    }
 
     p {
         margin-top: 15px;
@@ -254,7 +263,10 @@ hr {
 .flex {
     display: flex;
     display: -webkit-flex;
-    width: 100%
+    width: 100%;
+    @media(max-width:575px){
+        display:inline-block;
+    }
 }
 
 .grey-text-form {
@@ -547,6 +559,7 @@ input[type=text][_ngcontent-c3]:focus:not([readonly]), input[type=password][_ngc
 .mbr-team {
     .profile-h5 {
         padding-top: 25px;
+        padding-bottom: 20px;
     }
 
 }
