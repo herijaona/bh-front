@@ -8,8 +8,14 @@
           </a>
         </li>
         <div *ngIf="editPAGEstatus" class="bnt-pr">
-          <button class="btn btn-sm grey darken-3" (click)="editProject(item)">edit</button>
-          <button class="btn btn-sm red darken-4" (click)="deleteProject(item)">delete</button>
+          <!-- <button class="btn btn-sm grey darken-3" (click)="editProject(item)">edit</button>
+          <button class="btn btn-sm red darken-4" (click)="deleteProject(item)">delete</button> -->
+          <div class="itw">
+            <a (click)="editProject(item)"><i class="fa fa-pencil fa-pen"></i></a>
+          </div>
+          <div class="itw">
+            <a (click)="deleteProject(item)"><i class="fa fa-trash fa-del"></i></a>
+          </div>
         </div>
         <li class="resume-text">
           <ul class="navbar-nav nav-down">

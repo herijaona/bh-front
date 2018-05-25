@@ -117,9 +117,30 @@
 }
 
 .bnt-pr {
-    float: right;
-    position: relative;
-    top: -46px;
+/*  position: absolute;
+    top: -5px;
+    right: 22px; */
+    position: absolute;
+    top: -9px;
+    right: 26px;
+    display: inline-flex;
+    .itw{
+        margin:4px
+    }
+    .fa-pen{
+        color: #0077B5;
+        font-size: 20px;
+        background: #dedede9e;
+        border-radius: 45px;
+        padding: 5px 6px 5px 6px;
+    }
+    .fa-del{
+        color: #d61200;
+        font-size: 20px;
+        background: #dedede9e;
+        border-radius: 45px;
+        padding: 5px 6px 5px 6px;
+    }
 }
 
 .titl-text{
