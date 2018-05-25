@@ -67,8 +67,8 @@
           <div class="row brth">
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12  br-1">
               <ul class="navbar-nav mg-4 flex-dt dt-ligne">
-                <li class="nav-item mg-0 mg-no-active"><a class="nav-link active-nav ">Administration</a></li>
-                <li class="nav-item mg-0"><a class="nav-link no-active-nav">Community</a></li>
+                <li class="nav-item mg-0 mg-no-active"><a (click)="viewUsersTeams('admin')" class="nav-link active-nav ">Administration</a></li>
+                <li class="nav-item mg-0"><a (click)="viewUsersTeams('community')" class="nav-link no-active-nav">Community</a></li>
               </ul>
             </div>
             <!--  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 font-all  br-2">
@@ -108,7 +108,7 @@
                     <td class="tb">{{item.function}}</td>
                     <td class="text-center">
                       <label class="custon-ch ch-second">
-                        <input  type="checkbox" (change)="teamCommChange($event,'tAdm', item)"  [checked]="item.isAdm">
+                        <input type="checkbox" (change)="teamCommChange($event,'tAdm', item)" [checked]="item.isAdm">
                         <span class="checkmark"></span>
                       </label>
                     </td>
@@ -119,6 +119,63 @@
                       </label>
                     </td>
                     <td class="text-center"><i (click)="deleteFromTeamList(item)" style="cursor: pointer;" class="fa fa-trash fa-remove"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="communityShow">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Job</th>
+                    <th>Organisation</th>
+                    <th>Interaction</th>
+                    <th class="text-center">Remove</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of userAdminData">
+                    <th class="tb">
+                      <a>
+                              <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
+                              John
+                            </a>
+                    </th>
+                    <td class="tb">Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Otto</td>
+                    <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
+                  </tr>
+                  <tr>
+                    <th class="tb">
+                      <a>
+                                <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
+                                Jack
+                            </a>
+                    </th>
+                    <td class="tb">Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Otto</td>
+                    <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
+                  </tr>
+                  <tr>
+                    <th class="tb">
+                      <a>
+                                <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
+                                Janne
+                            </a>
+                    </th>
+                    <td class="tb">Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Otto</td>
+                    <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
                   </tr>
                 </tbody>
               </table>

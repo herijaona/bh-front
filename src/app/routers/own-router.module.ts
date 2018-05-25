@@ -26,6 +26,7 @@ import { EventOnCompProfileComponent } from "../companies/utilprofile/event-on-c
 import { CommitteeComponent } from "../committee/committee/committee.component";
 import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
 import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
+import { ViewReactionComponent } from "../company-data/view-reaction/view-reaction.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
@@ -59,6 +60,11 @@ const routes: Routes = [
 	{ path: "login", component: PageLoginComponent },
 	{ path: "sign-in", component: SignUpComponent },
 	{ path: "all-companies", component: ListCompaniesComponent },
+	{
+		path: "view-all-reaction",
+		component: ViewReactionComponent,
+		canActivate: [AuthguardService]
+	},
 	{
 		path: "Administration",
 		component: ProfileComponent,

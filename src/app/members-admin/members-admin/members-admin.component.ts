@@ -16,6 +16,7 @@ export class MembersAdminComponent implements OnInit {
 	public activated: boolean = false;
 	public adminAll: boolean = true;
 	public readyData: boolean = false;
+	public communityShow: boolean = true;
 	public userAdminData: any;
 	public inviteForm: FormGroup;
 	constructor(
@@ -80,6 +81,7 @@ export class MembersAdminComponent implements OnInit {
 		var data: any = this.inviteForm.value;
 		var teamInviteRes: any = await this.tms.inviteTeam(data);
 	}
+	
 	async getMember() {
 		try {
 			let team_data: any = await this.tms.getTeamData({});
@@ -90,6 +92,7 @@ export class MembersAdminComponent implements OnInit {
 			console.log(e);
 		}
 	}
+
 	async teamCommChange(ev, ent, it) {
 		console.log(ent);
 		try {
@@ -129,5 +132,21 @@ export class MembersAdminComponent implements OnInit {
 				}
 			}
 		} catch (e) {}
+	}
+
+	viewUsersTeams(scp) {
+		switch (scp) {
+			case "admin":
+				this.adminAll = true;
+				this.communityShow = false;
+				break;
+			case "community":
+				this.adminAll = false;
+				this.communityShow = true;
+				break;
+			default:
+				// code...
+				break;
+		}
 	}
 }

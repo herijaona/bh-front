@@ -36,6 +36,7 @@ import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
 import { ProfileAdminModule } from "./profile-admin/profile-admin.module";
 import { MembersAdminModule } from "./members-admin/members-admin.module";
+import { CompanyDataModule } from "./company-data/company-data.module";
 import { TabModule } from "angular-tabs-component";
 
 /* Component import */
@@ -59,6 +60,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     MembersAdminModule,
     TeamModule,
     NavbarModule,
+    CompanyDataModule,
     ReactiveFormsModule,
     OwnRouterModule,
     CompaniesModule,
@@ -75,7 +77,8 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     },
     ApiHttpService,
     AuthguardService,
-    Globals,Currency,
+    Globals,
+    Currency,
     RequestInterceptorService,
     SharedNotificationService,
     TeamsService,
