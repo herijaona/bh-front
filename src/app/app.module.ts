@@ -36,6 +36,7 @@ import { TeamModule } from "./team/team.module";
 import { CompaniesModule } from "./companies/companies.module";
 import { ProfileAdminModule } from "./profile-admin/profile-admin.module";
 import { MembersAdminModule } from "./members-admin/members-admin.module";
+import { Project1Module } from "./project1/project1.module";
 import { TabModule } from "angular-tabs-component";
 
 /* Component import */
@@ -63,6 +64,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     OwnRouterModule,
     CompaniesModule,
     UserAuthModule,
+    Project1Module,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot()
   ],
