@@ -15,7 +15,7 @@
   <!-- end select add type zone  -->
   <!-- Select Zone type on edit -->
   <div *ngIf="!actionAdd" class="form-group">
-    <select class="form-control" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
+    <select class="form-control set-select" (change)='zoneSelectChange($event)' [(ngModel)]="selectedZone">
       <option value="default">Select the type</option>
       <option *ngIf="inArray(1 , AllowedZone )" value="imAdd">Image</option>
       <option *ngIf="inArray(2 , AllowedZone )" value="vidAdd">Video</option>
@@ -125,10 +125,12 @@
           </div>
           <div class="">
             <label>Turn Over :</label>
-            <input  formControlName="turnOver" type="number"> 
-            <select >
-              <option *ngFor="let item of c.curr"> {{item.CURRENCYCODE + ' - '+ item.COUNTRY_NAME }} </option>
-            </select>
+            <div style="display: flex">
+              <input  formControlName="turnOver" type="number"> 
+              <select class="currence-select">
+                <option *ngFor="let item of c.curr"> {{item.CURRENCYCODE + ' - '+ item.COUNTRY_NAME }} </option>
+              </select>
+            </div>
           </div>
           <div class="">
             <label>Proposed projects :</label>

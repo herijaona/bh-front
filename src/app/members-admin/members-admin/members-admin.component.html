@@ -95,13 +95,13 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of userAdminData">
-                    <th class="tb">
+                    <th class="tb profile-tb">
                       <div class="media">
-                        <img *ngIf="item.imageProfile" [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" style="width:60px;">
+                        <img *ngIf="item.imageProfile" [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="60px" height="58px">
                         <img *ngIf="!item.imageProfile" [src]="img_avatar" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" style="width:60px;">
                         <div class="media-body">
-                          <h6 class="mb-0">{{item.firstname+" "+item.lastname }} </h6>
-                          <span><i>{{item.email}}</i></span>
+                          <span>{{item.firstname+" "+item.lastname }}</span>
+                          <h6 class="mb-0"><i>{{item.email}}</i></h6>
                         </div>
                       </div>
                     </th>

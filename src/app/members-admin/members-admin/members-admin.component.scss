@@ -365,11 +365,14 @@ hr {
 .tb {
     font-weight: bold !important;
 }
+.profile-tb{
+    width: 25%
+}
 
 .flex-dt {
     flex-direction: inherit;
     position: relative;
-    top: 2px;
+    top: 0px;
     font-size: 15px;
 }
 
@@ -425,7 +428,6 @@ hr {
 
     .mg-no-active {
         border-bottom: 2px solid #e83936;
-        margin-top: -4px;
     }
 
 }
