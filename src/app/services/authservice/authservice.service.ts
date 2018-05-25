@@ -230,4 +230,8 @@ export class AuthserviceService extends BaseHttpService {
   public postInvitationVal(arg) {
     return this.fetch("post", "cInvitationValData", arg).toPromise();
   }
+
+  public registerMember(arg) {
+    return this.fetch("post", "register-member", arg).toPromise();
+  }
 }

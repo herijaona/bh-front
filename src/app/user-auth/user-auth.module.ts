@@ -22,6 +22,7 @@ import { PInfoComponent } from './p-info/p-info.component';
 import { PCompletionComponent } from './p-completion/p-completion.component';
 import { InvitedRegisterComponent } from './invited-register/invited-register.component';
 import { PageLoginComponent } from './page-login/page-login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { PageLoginComponent } from './page-login/page-login.component';
     ResetPasswordComponent,
     PInfoComponent,
     PCompletionComponent,
-    InvitedRegisterComponent
+    InvitedRegisterComponent,
+    SignUpComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService], 

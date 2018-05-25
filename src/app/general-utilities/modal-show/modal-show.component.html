@@ -1,4 +1,4 @@
-<div style="overflow: auto;" *ngIf="activeShow" mdbModal #mdl_general="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (onHide)="hiddedModal()">
+<div style="overflow: auto;" *ngIf="activeShow" mdbModal #mdl_general="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="hiddedModal()" [config]="{backdrop: true, ignoreBackdropClick: true}">
   <div class="modal-dialog {{modal_size}}" role="document">
     <div class="modal-content">
       <button type="button" class="close close-md" data-dismiss="modal" aria-label="Close" (click)="mdl_general.hide()">

@@ -56,7 +56,7 @@
               <button [ngClass]="{'disabled':!loginForm.valid}" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign">Sign in</button>
             </div>
           </div>
-          <div class="already-member text-center">not already member ?<a href=""><span class="recovery">sign up</span></a></div>
+          <div class="already-member text-center">not already member ?<a [routerLink]="['/sign-in']"><span class="recovery">sign up</span></a></div>
         </div>
       </form>
     </div>

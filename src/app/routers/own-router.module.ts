@@ -25,6 +25,7 @@ import { JobOnCompProfileComponent } from "../companies/utilprofile/job-on-comp-
 import { EventOnCompProfileComponent } from "../companies/utilprofile/event-on-comp-profile/event-on-comp-profile.component";
 import { CommitteeComponent } from "../committee/committee/committee.component";
 import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
+import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
@@ -55,39 +56,8 @@ const routes: Routes = [
 	{ path: "ideas", component: IdeasComponent },
 	{ path: "registerCompany", component: RegistrationComponent },
 	{ path: "activate/:code", component: ActivationComponent },
-	{
-		path: "company/:name/profile/:_id",
-		component: ProfileCompaniesComponent,
-		children: [
-			{
-				path: "",
-				component: GeneralComponent,
-				outlet: "company"
-			},
-			{
-				path: "user",
-				component: OwnUserComponent,
-				outlet: "company"
-			},
-			{
-				path: "projet",
-				component: ProjetProfileComponent,
-				outlet: "company"
-			},
-			{
-				path: "job",
-				component: JobOnCompProfileComponent,
-				outlet: "company"
-			},
-			{
-				path: "event",
-				component: EventOnCompProfileComponent,
-				outlet: "company"
-			}
-		],
-		canActivate: [AuthguardService]
-	},
 	{ path: "login", component: PageLoginComponent },
+	{ path: "sign-in", component: SignUpComponent },
 	{ path: "all-companies", component: ListCompaniesComponent },
 	{
 		path: "Administration",
@@ -99,7 +69,7 @@ const routes: Routes = [
 		component: ResetPasswordComponent
 	},
 	{
-		path: 'invitation_response/:acc_slug/invitation/:invit_id',
+		path: "invitation_response/:acc_slug/invitation/:invit_id",
 		component: InvitedRegisterComponent
 	}
 ];

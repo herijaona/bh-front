@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild , OnDestroy} from "@angular/core";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { ModalDirective } from "angular-bootstrap-md";
 
@@ -7,13 +7,14 @@ import { ModalDirective } from "angular-bootstrap-md";
 	templateUrl: "./modal-show.component.html",
 	styleUrls: ["./modal-show.component.scss"]
 })
-export class ModalShowComponent implements OnInit {
-	@ViewChild("mdl_general") myModalGen: ModalDirective;
+export class ModalShowComponent implements OnInit, OnDestroy {
+	@ViewChild("mdl_general") public myModalGen: ModalDirective;
 	public askquest_mdl: boolean = false;
 	public lgin_mdl: boolean = false;
 	public dataModal: any;
 	public modal_size: string = "md";
 	public activeShow: boolean = false;
+	public conf_: { [key: string]: any };
 	constructor(private sh: SharedNotificationService) {
 		this.sh.busDataIn$.subscribe((st: any) => {
 			switch (st.from) {
@@ -69,7 +70,7 @@ export class ModalShowComponent implements OnInit {
 			this.applyModal = false;
 			this.dataModal = null;
 			this.modal_size = "";
-		}, 500);
+		}, 100);
 	}
 
 	endMesssage(evnt) {
@@ -88,6 +89,12 @@ export class ModalShowComponent implements OnInit {
 			}, 200);
 		}
 	}
-	
-	ngOnInit() {}
+
+	ngOnInit() {
+		this.conf_ = { backdrop: false };
+	}
+
+	ngOnDestroy(){
+
+	}
 }
