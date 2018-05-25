@@ -119,4 +119,8 @@ export class OneZoneComponent implements OnInit, OnDestroy {
 	getPoster() {
 		return this.sh.getVideoImPoster(this.dtZone.video.url.i_v);
 	}
+
+	getCurrency(cr) {
+		return cr != "default" ? cr.split("|")[0] : "--";
+	}
 }

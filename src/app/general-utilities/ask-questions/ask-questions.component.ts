@@ -35,17 +35,17 @@ export class AskQuestionsComponent implements OnInit {
 		public g: Globals
 	) {}
 
-	ngOnInit() {
-	}
+	ngOnInit() {}
 	loginProcess() {}
 	askQuestion() {}
 	onChangeEditor(t) {
 		this.changeStatus = this.textLengthCheck(t);
-		this.charLength = t.length;
 	}
 
 	textLengthCheck(txt) {
-		if (txt.length > 10000) {
+		let cnt: string = txt.replace(/\n/g, "").replace(/<(?:.|\n)*?>/gm, "");
+		this.charLength = cnt.length;
+		if (cnt.length > 10000) {
 			return false;
 		}
 		return true;

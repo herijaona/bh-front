@@ -85,8 +85,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
-   
-
     try {
       let resp = await this.getProfile();
       if (resp) {
@@ -105,7 +103,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
           let accData: any = await this.auth.isAdminUser();
           if (accData.status == "OK") {
             this.accountData = accData.data;
-         
+
             let urlWebsite =
               "websiteUrl" in this.accountData
                 ? this.accountData.websiteUrl
@@ -243,5 +241,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sh.pushData({});
+  }
+
+  vlp(v, l) {
+    return v && l;
   }
 }
