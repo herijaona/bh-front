@@ -13,7 +13,6 @@ import { PageHeaderComponent } from "./page-header/page-header.component";
 import { AskQuestionsComponent } from "./ask-questions/ask-questions.component";
 import { ModalShowComponent } from "./modal-show/modal-show.component";
 import { LoginModalComponent } from "./login-modal/login-modal.component";
-import { ProjectApplyComponent } from './project-apply/project-apply.component';
 
 @NgModule({
 	imports: [
@@ -31,8 +30,8 @@ import { ProjectApplyComponent } from './project-apply/project-apply.component';
 		AskQuestionsComponent,
 		LoginModalComponent,
 		BhSafeHtmlPipe,
-		ModalShowComponent,
-		ProjectApplyComponent
+		ModalShowComponent
+		
 	],
 	exports: [
 		PageHeaderComponent,

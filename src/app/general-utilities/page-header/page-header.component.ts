@@ -42,6 +42,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		team: false,
 		meet: false,
 		viewreaction:false,
+		applicationreport:false,
 		projet: false,
 		sStr: false
 	};

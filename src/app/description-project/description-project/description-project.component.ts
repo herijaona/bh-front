@@ -52,15 +52,15 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 
 		if (this.auth.isLoggedIn()) {
 			this.sh.pushData({
-				from: "askQuestions",
+				from: "p_askQuestions",
 				message: "askquestions",
 				data: _data
 			});
 		} else {
 			this.sh.pushData({
-				from: "loginModal",
+				from: "p_loginModal",
 				message: "askquestions",
-				data: { after: _data, to: "askQuestions" }
+				data: { after: _data, to: "p_askQuestions" }
 			});
 		}
 	}

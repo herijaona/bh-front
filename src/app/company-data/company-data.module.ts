@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ApplicationReportComponent } from './application-report/application-report.component';
-import { ViewReactionComponent } from './view-reaction/view-reaction.component';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ApplicationReportComponent } from "./application-report/application-report.component";
+import { ViewReactionComponent } from "./view-reaction/view-reaction.component";
 import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
+import { RouterModule } from "@angular/router";
+
+import { ViewApplicationDetailsComponent } from "./view-application-details/view-application-details.component";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    GeneralUtilitiesModule
-  ],
-  declarations: [ApplicationReportComponent, ViewReactionComponent]
+	imports: [CommonModule, GeneralUtilitiesModule, RouterModule],
+	declarations: [
+		ApplicationReportComponent,
+		ViewReactionComponent,
+		ViewApplicationDetailsComponent
+	]
 })
-export class CompanyDataModule { }
+export class CompanyDataModule {}

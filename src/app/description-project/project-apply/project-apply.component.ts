@@ -23,8 +23,11 @@ export class ProjectApplyComponent implements OnInit {
 	public canBeSent: boolean = false;
 
 	public projectApplyData = {
-		prMotivation: "",
-		prProposal: ""
+		mainActivityDomain: "",
+		secondaryActivityDomain: "",
+		skillnCompent: "",
+		userActivityDescrib: "",
+		dataSuppl: ""
 	};
 	constructor(
 		public g: Globals,
@@ -53,25 +56,26 @@ export class ProjectApplyComponent implements OnInit {
 	async sendApplicationOnProject() {
 		console.log(this.currObj);
 		let arg = {
-			data: {
-				proposition: this.projectApplyData.prProposal,
-				background: this.projectApplyData.prMotivation
-			},
+			data: this.projectApplyData,
 			currObj: this.currObj.data
 		};
 		try {
 			let ret: any = await this.pr.sendProjectsApplication(arg);
-			if(ret) {
-				if(ret.status == "OK") {
+			if (ret) {
+				if (ret.status == "OK") {
 					this.sh.notifToast({
 						type: "success",
 						message: "<p>Application sent</p>"
 					});
-					this.endMessage.emit({ status: "OK", after: null, data: null });
+					this.endMessage.emit({
+						status: "OK",
+						after: null,
+						data: null
+					});
 				}
 			}
 		} catch (e) {}
 	}
 
-	onEditorChange($event){}
+	onEditorChange($event) {}
 }

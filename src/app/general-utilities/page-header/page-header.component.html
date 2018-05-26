@@ -67,6 +67,9 @@
           <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.viewreaction}">
             <a [routerLink]="['/view-all-reaction']" class="nav-link">Questions</a>
           </li>
+          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.applicationreport}">
+            <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
+          </li>
           <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
             <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" href="#">Web Portal</a>
           </li>
@@ -90,6 +93,9 @@
       </li>
       <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.viewreaction}">
         <a [routerLink]="['/view-all-reaction']" class="nav-link">Questions</a>
+      </li>
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.applicationreport}">
+        <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
       </li>
       <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
         <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" href="#">Web Portal</a>
