@@ -28,6 +28,7 @@ import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-
 import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
 import { ViewReactionComponent } from "../company-data/view-reaction/view-reaction.component";
 import { ViewApplicationDetailsComponent } from "../company-data/view-application-details/view-application-details.component";
+import { QuestionsDetailsComponent } from "../company-data/questions-details/questions-details.component";
 import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
 import { Project1Component } from "../project1/project1/project1.component";
 
@@ -77,6 +78,11 @@ const routes: Routes = [
 	{
 		path: "candidature/details/:id_appl",
 		component: ViewApplicationDetailsComponent,
+		canActivate: [AuthguardService]
+	},
+	{
+		path: "questions/details/:id_questions",
+		component: QuestionsDetailsComponent,
 		canActivate: [AuthguardService]
 	},
 	{
