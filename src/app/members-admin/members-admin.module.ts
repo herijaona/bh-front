@@ -16,6 +16,9 @@ import { UserAuthModule } from "../user-auth/user-auth.module";
 		UserAuthModule,
 		RouterModule
 	],
-	declarations: [MembersAdminComponent]
+	declarations: [MembersAdminComponent],
+	exports: [
+		MembersAdminComponent
+	]
 })
 export class MembersAdminModule {}

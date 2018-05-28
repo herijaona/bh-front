@@ -5,7 +5,7 @@ import { AuthserviceService } from "../../services/authservice/authservice.servi
 import { TeamsService } from "../../services/teams/teams.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 @Component({
-	selector: "app-members-admin",
+	selector: "members-admin",
 	templateUrl: "./members-admin.component.html",
 	styleUrls: ["./members-admin.component.scss"]
 })
