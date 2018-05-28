@@ -54,4 +54,7 @@ export class ProjectsService extends BaseHttpService {
 			applID: applID
 		}).toPromise();
 	}
+	public getAllCollabTpes() {
+		return this.fetch("get", "bh-projects/getAllCollabtype").toPromise();
+	}
 }

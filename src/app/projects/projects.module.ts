@@ -9,6 +9,7 @@ import { ProjectListComponent } from "./project-list/project-list.component";
 import { ProjectEditAndNewComponent } from "./project-edit-and-new/project-edit-and-new.component";
 
 import { MindsetModule } from "../mindset/mindset.module";
+import { InnovationProjectComponent } from './innovation-project/innovation-project.component';
 
 @NgModule({
 	imports: [
@@ -25,7 +26,9 @@ import { MindsetModule } from "../mindset/mindset.module";
 	declarations: [
 		ProjectsComponent,
 		ProjectListComponent,
-		ProjectEditAndNewComponent
-	]
+		ProjectEditAndNewComponent,
+		InnovationProjectComponent
+	],
+	exports:[InnovationProjectComponent]
 })
 export class ProjectsModule {}

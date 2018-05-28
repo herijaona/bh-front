@@ -19,31 +19,13 @@ declare const CKEDITOR: any;
 	styleUrls: ["./project-edit-and-new.component.scss"]
 })
 export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
-	public prModel: { [key: string]: any } = {
-		pr_contexte_ProjectEditor: "",
-		pr_objectif_ProjectEditor: "",
-		pr_elementProposition_ProjectEditor: "",
-		pr_name: "",
-		pr_responseTimeUnit: "",
-		pr_responseTimeValue: ""
-	};
-
-	public buttSaveErr: { [key: string]: boolean } = {
-		pr_contexte_ProjectEditor: false,
-		pr_objectif_ProjectEditor: false,
-		pr_elementProposition_ProjectEditor: false,
-		pr_name: false,
-		pr_responseTimeUnit: false,
-		pr_responseTimeValue: false
-	};
-	public todoAct: string;
-	public accId: string;
-	public dataCurr: any = {};
-	public noValid: boolean = true;
 	public editAct: string = "EditAct";
 	public addAct: string = "AddAct";
-	public projform: FormGroup;
+	public todoAct: string;
+	public accId: any;
+	public selctCollab: string;
 	public prData: any;
+	public collabTypes: any = [];
 	@Input("todoAct_")
 	set todoAct_(arg) {
 		this.todoAct = arg;
@@ -68,95 +50,28 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
 	}
 	ngOnInit() {
 		if (this.todoAct == this.editAct) {
-			this.getDataProject();
 		}
+
+		this.getAllCollabT();
 	}
 
-	async getDataProject() {
+	async getAllCollabT() {
 		try {
-			let prD: any = await this.pr.getProjectByID(this.prData._id);
-			if (prD.status == "OK") {
-				this.dataCurr = prD;
-				Object.keys(this.prModel).forEach(el => {
-					this.prModel[el] = prD.data[el.split("_")[1]];
-				});
+			let allCT: any = await this.pr.getAllCollabTpes();
+			if (allCT) {
+				if (allCT.status == "OK") {
+					console.log(allCT);
+					this.collabTypes = allCT.data;
+				}
 			}
 		} catch (e) {
 			console.log(e);
 		}
 	}
 
-	async saveProjects() {
-		let new_val: { [key: string]: any } = {};
-		Object.keys(this.prModel).forEach(e => {
-			new_val[e.split("_")[1]] = this.prModel[e];
-		});
-		try {
-			let save_res: any;
-			if (this.todoAct == this.editAct) {
-				let data = { edited: new_val, id_: this.prData._id };
-				save_res = await this.pr.saveEditProject(data);
-			} else {
-				save_res = await this.pr.saveNewsProject(new_val);
-			}
-			if (save_res) {
-				if (save_res.status == "OK") {
-					this.sh.notifToast({
-						type: "success",
-						message: "<p>Configuration saved</p>"
-					});
-					this.sh.pushData({
-						from: "projectNEW",
-						action: "refresh",
-						data: "end"
-					});
-					this.el.nativeElement.style.display = "none";
-				}
-			}
-		} catch (e) {}
+	selectTypeCollab(){
+		console.log(this.selctCollab);
 	}
-	onReady(vent) {
-		if ("status" in this.dataCurr) {
-			if (this.dataCurr["status"] == "OK") {
-				Object.keys(this.prModel).forEach(el => {
-					this.prModel[el] = this.dataCurr.data[el.split("_")[1]];
-				});
-			}
-		}
-	}
-	onChange(event) {
-		Object.keys(this.prModel).forEach(e => {
-			if (this.prModel[e] != null) {
-				if (this.prModel[e].length == 0) {
-					// code...
-					this.buttSaveErr[e] = true;
-				} else {
-					this.buttSaveErr[e] = false;
-				}
-			} else {
-				this.buttSaveErr[e] = true;
-			}
-		});
-
-		let vl = Object.values(this.buttSaveErr);
-		let iter = 0;
-		for (let i of vl) {
-			if (i) {
-				this.noValid = true;
-				break;
-			}
-			++iter;
-		}
-
-		if (iter == vl.length) this.noValid = false;
-	}
-	onEditorChange(vent) {}
-	onBlur(vent) {}
-	onFocus(vent) {}
-	ngOnDestroy() {
-		this.sh.pushData({});
-		/*for (let x in CKEDITOR.instances) {
-			CKEDITOR.instances[x].destroy(true);
-		}*/
-	}
+	
+	ngOnDestroy() {}
 }
