@@ -1,9 +1,17 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
+import {
+	Router,
+	ActivatedRoute,
+	Event,
+	NavigationStart,
+	ResolveStart,
+	NavigationEnd,
+	ResolveEnd
+} from "@angular/router";
 import {
 	trigger,
 	state,
@@ -50,13 +58,23 @@ export class NavbarComponent implements OnInit {
 	private subscr: Subscription;
 	public mess_notif: string;
 	public toast: boolean = false;
+	public isIn: boolean = false;
 
 	constructor(
+		private route: ActivatedRoute,
 		private router: Router,
 		public auth: AuthserviceService,
 		public g: Globals,
 		private sh: SharedNotificationService
 	) {
+		router.events.subscribe((event: Event) => {
+			if (event instanceof NavigationEnd) {
+				let urlAfterredirects = event.urlAfterRedirects
+					.trim()
+					.split("/");
+				this.isIn = this.inArray("project1", urlAfterredirects);
+			}
+		});
 		this.sh.run_loader$.subscribe((mess: any) => {
 			// this.updateState();
 		});
@@ -68,6 +86,14 @@ export class NavbarComponent implements OnInit {
 				this.showToast(m);
 			}
 		});
+	}
+
+	inArray(needle, haystack) {
+		var length = haystack.length;
+		for (var i = 0; i < length; i++) {
+			if (haystack[i].toString() == needle.toString()) return true;
+		}
+		return false;
 	}
 
 	ngOnInit() {

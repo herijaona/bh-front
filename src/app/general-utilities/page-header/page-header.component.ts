@@ -41,8 +41,8 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		ideas: false,
 		team: false,
 		meet: false,
-		viewreaction:false,
-		applicationreport:false,
+		viewreaction: false,
+		applicationreport: false,
 		projet: false,
 		sStr: false
 	};
@@ -102,8 +102,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 	}
 
 	sanitizert(url: string) {
-		return  this.sanitizer.bypassSecurityTrustUrl(url)
-
+		return this.sanitizer.bypassSecurityTrustUrl(url);
 	}
 
 	toggleCollapse() {
@@ -300,6 +299,12 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 		this.compDetails = rsp;
 		this._typeOrganisation = rsp["typeOrganisation"];
 		this._addr = rsp["adresse"];
+	}
+
+	go_toWebSiteUrl(websiteUrl) {
+		console.log(this.websiteUrl);
+		let url = this.websiteUrl.split("(")[1].split(")")[0];
+		window.open(url, "_blank");
 	}
 
 	ngOnDestroy() {

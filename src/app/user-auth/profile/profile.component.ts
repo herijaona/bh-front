@@ -11,6 +11,7 @@ import {
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { CompanyService } from "../../services/company/company.service";
 import { UserDetails } from "../../models/user-detail.model";
+import { ValidateOrgtypes } from "../../services/validators/own.validator";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ModalDirective } from "angular-bootstrap-md";
@@ -33,6 +34,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public editPassword: FormGroup;
   public showInfo: boolean = false;
   public isAdmin: boolean = false;
+  public orgType: any = [];
   public validUser: boolean = false;
   public accountData: any;
   public uform: FormGroup;
@@ -80,7 +82,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       _acc_commercial: new FormControl(""),
       _acc_socialMean: new FormControl(""),
       _acc_websitLink: new FormControl(""),
-      _orgType: new FormControl("")
+      _orgType: new FormControl(0, [ValidateOrgtypes])
     });
   }
 
@@ -126,6 +128,20 @@ export class ProfileComponent implements OnInit, OnDestroy {
     } catch (er) {
       console.log(er);
     }
+
+    this.getOrgtype();
+  }
+
+  async getOrgtype() {
+    try {
+      let gD: any = await this.auth.getallOrgTypes();
+      if (gD) {
+        if (gD.status == "OK") {
+          console.log(gD.data);
+          this.orgType = gD.data;
+        }
+      }
+    } catch (e) {}
   }
 
   async getProfile() {

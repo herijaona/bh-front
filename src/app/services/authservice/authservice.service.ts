@@ -234,4 +234,8 @@ export class AuthserviceService extends BaseHttpService {
   public registerMember(arg) {
     return this.fetch("post", "register-member", arg).toPromise();
   }
+
+  public getallOrgTypes(){
+    return this.fetch('get','org_types').toPromise();
+  }
 }

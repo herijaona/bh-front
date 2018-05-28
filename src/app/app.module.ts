@@ -30,6 +30,7 @@ import { DescriptionProjectModule } from "./description-project/description-proj
 import { HomepageModule } from "./homepage/homepage.module";
 import { IdeasModule } from "./ideas/ideas.module";
 import { MindsetModule } from "./mindset/mindset.module";
+import { GeneralUtilitiesModule } from "./general-utilities/general-utilities.module";
 import { NavbarModule } from "./navbar/navbar.module";
 import { ProjectsModule } from "./projects/projects.module";
 import { CommitteeModule } from "./committee/committee.module";
@@ -53,6 +54,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
     MydeskModule,
     FormsModule,
     HttpClientModule,
+    GeneralUtilitiesModule,
     DescriptionProjectModule,
     HomepageModule,
     ProjectsModule,

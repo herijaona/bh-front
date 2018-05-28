@@ -77,7 +77,7 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 			});
 		} else {
 			this.sh.pushData({
-				from: "loginModal",
+				from: "p_loginModal",
 				message: "apply",
 				data: { after: _data, to: "applytToProjects" }
 			});

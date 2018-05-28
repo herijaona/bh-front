@@ -208,6 +208,22 @@
     padding: 22px !important;
 }
 
+.form-control-slct{
+    width: 100% !important ;
+    height: 48px !important ;
+    font-size: 1rem !important ;
+    line-height: 1.5 !important ;
+    color: #495057 !important ;
+    background-color: #fff !important ;
+    background-clip: padding-box !important ;
+    border: 1px solid #e6e9ec !important ;
+    border-radius: .25rem !important ;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important ;
+    padding-left: 14px !important;
+    box-sizing: border-box !important;
+    padding: 0px !important;
+}
+
 .btn-unique-edit{
     background: linear-gradient(-90deg, #e83936, #f94d37);
     margin:0px;

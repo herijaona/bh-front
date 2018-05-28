@@ -86,8 +86,12 @@
         <br>
         <div class="flex" style="width: 100%">
           <span class="mg-left">
-            <label for="defaultFormRegisterNameEx" class="grey-text-form">type</label>
-            <input [attr.readonly]="!editCompInfo? true : null" type="text" formControlName="_orgType" class="form-control" placeholder="Technologie,Media">
+            <label for="_orgType" class="grey-text-form">type</label>
+            <!-- <input [attr.readonly]="!editCompInfo? true : null" type="text" formControlName="_orgType" class="form-control" placeholder="Technologie,Media"> -->
+            <select  type="text" formControlName="_orgType"   id="_orgType" class="form-control-slct">
+                  <option value='0'>Choose type</option>
+                  <option *ngFor="let item of orgType" value='{{ item._id }}'>{{item.text}}</option>
+                </select>
           </span>
           <span class="mg-left-wt">
             <label for="defaultFormRegisterNameEx" class="grey-text-form">location</label>

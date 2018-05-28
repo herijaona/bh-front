@@ -109,4 +109,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		this.sh.pushData({});
 	}
+
+	trackByFn(index, item) {
+		return item._id; // or item.id
+	}
 }
