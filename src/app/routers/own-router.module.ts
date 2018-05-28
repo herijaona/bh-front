@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 /* Component Import*/
+import { MydeskComponent } from "../mydesk/mydesk/mydesk.component";
 import { IdeasComponent } from "../ideas/ideas/ideas.component";
 import { MindsetComponent } from "../mindset/mindset/mindset.component";
 import { ProjectsComponent } from "../projects/projects/projects.component";
@@ -36,6 +37,7 @@ import { Project1Component } from "../project1/project1/project1.component";
 
 const routes: Routes = [
 	{ path: "", component: HomepageComponent },
+	{ path: "mydesk", component: MydeskComponent },
 	{ path: "committee", component: CommitteeComponent },
 	{ path: "profile-admin", component: ProfileAdminComponent },
 	{ path: "members-admin", component: MembersAdminComponent },

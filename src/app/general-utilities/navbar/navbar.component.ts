@@ -59,6 +59,7 @@ export class NavbarComponent implements OnInit {
 	public mess_notif: string;
 	public toast: boolean = false;
 	public isIn: boolean = false;
+	public tab = ["project1","mydesk"];
 
 	constructor(
 		private route: ActivatedRoute,
@@ -72,7 +73,7 @@ export class NavbarComponent implements OnInit {
 				let urlAfterredirects = event.urlAfterRedirects
 					.trim()
 					.split("/");
-				this.isIn = this.inArray("project1", urlAfterredirects);
+				this.isIn = this.inArray(this.tab, urlAfterredirects);
 			}
 		});
 		this.sh.run_loader$.subscribe((mess: any) => {
@@ -90,8 +91,10 @@ export class NavbarComponent implements OnInit {
 
 	inArray(needle, haystack) {
 		var length = haystack.length;
+		for(let o of needle){
 		for (var i = 0; i < length; i++) {
-			if (haystack[i].toString() == needle.toString()) return true;
+			if (haystack[i].toString() == o.toString()) return true;
+			}
 		}
 		return false;
 	}

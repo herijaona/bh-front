@@ -1,34 +1,54 @@
 <!-- end nav -->
 <nav class="navbar navbar-expand bg-nav">
     <div class="grid-project flex">
+      <a class="icon-bar"><i class="fa fa-bars"></i></a>
       <a class="navbar-brand" href="#"><img class="img-responsive" src="{{header_page_logo}}" width="155px" height="80%"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav mr-auto mr-left-nav ">
+      <div class="mb-nav">
+            <ul class="navbar-nav mr-auto mr-left-nav mr-left-nav-mobile">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">accueil <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">entreprises</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">porteurs de projets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">projets</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">service </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">communautes</a>
+              </li>
+            </ul>
+      </div>
+      <div class="collapse navbar-collapse mobile-nav" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto mr-left-nav desktop-ns    ">
           <li class="nav-item active">
             <a class="nav-link" href="#">accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">entreprises</a>
-          </li><!-- 
+          </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">porteurs de projets</a>
-          </li> -->
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="#">projets</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">service </a>
-          </li><!-- 
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="#">communautes</a>
-          </li> -->
+          </li>
         </ul>
         <div class="form-inline my-2 my-md-0 connexion">
-          <button class="btn-inscrire"><i class="fa fa-user-o"></i>s'inscrire</button>
-          <button class="btn-connect"><i class="fa fa-sign-in"></i>se connecter</button>
+          <button class="btn-inscrire b2"><i class="fa fa-user-o"></i><span class="c-none">s'inscrire</span></button>
+          <button class="btn-connect b2"><i class="fa fa-sign-in"></i><span class="c-none">se connecter</span></button>
         </div>
       </div>
     </div>  
@@ -78,188 +98,163 @@
 <div class="grid-project">
     <div class="after-nav">
         <div class="row mb-12">
-            <div class="col">
-                <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st1.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
+            <div class="col-18">
+                <div class="card-st text-center">
+                    <div class="img-rp">
+                        <img class="img-responsive" src="{{g.base_href}}assets/img/st1.png" width="100%" height="100%">
+                    </div>
+                    <div class="view-st">
+                        <h4>lorem ipsum</h4>
+                        <p>projet programme</p>
+                        <ul>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-18">
                 <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st2.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
+                    <div class="img-rp text-center">
+                        <img class="img-responsive" src="{{g.base_href}}assets/img/st2.png" width="100%" height="100%">
+                    </div>
+                    <div class="view-st">
+                        <h4>lorem ipsum</h4>
+                        <p>projet programme</p>
+                        <ul>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st3.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
+            <div class="col-18">
+                <div class="card-st text-center">
+                    <div class="img-rp">
+                        <img class="img-responsive" src="{{g.base_href}}assets/img/st3.png" width="100%" height="100%">
+                    </div>
+                    <div class="view-st">
+                        <h4>lorem ipsum</h4>
+                        <p>projet programme</p>
+                        <ul>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-18">
                 <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st4.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
+                    <div class="img-rp text-center">
+                        <img class="img-responsive" src="{{g.base_href}}assets/img/st4.png" width="100%" height="100%">
+                    </div>
+                    <div class="view-st">
+                        <h4>lorem ipsum</h4>
+                        <p>projet programme</p>
+                        <ul>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-18">
                 <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st5.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
+                    <div class="img-rp text-center">
+                        <img class="img-responsive" src="{{g.base_href}}assets/img/st5.png" width="100%" height="100%">
+                    </div>
+                    <div class="view-st">
+                        <h4>lorem ipsum</h4>
+                        <p>projet programme</p>
+                        <ul>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row mb-12">
-            <div class="col">
-                <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st1.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
+            <div class="col-18">
+                <div class="card-st text-center">
+                    <div class="img-rp">
+                        <img class="img-responsive" src="{{g.base_href}}assets/img/st1.png" width="100%" height="100%">
+                    </div>
+                    <div class="view-st">
+                        <h4>lorem ipsum</h4>
+                        <p>projet programme</p>
+                        <ul>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-18">
                 <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st2.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
+                    <div class="img-rp text-center">
+                        <img class="img-responsive" src="{{g.base_href}}assets/img/st2.png" width="100%" height="100%">
+                    </div>
+                    <div class="view-st">
+                        <h4>lorem ipsum</h4>
+                        <p>projet programme</p>
+                        <ul>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
+                            </li>
+                            <li>
+                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st3.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st4.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card-st">
-                    <img class="img-responsive" src="{{g.base_href}}assets/img/st5.png" width="195" height="100">
-                    <h4>lorem ipsum</h4>
-                    <p>projet programme</p>
-                    <ul>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                        </li>
-                        <li>
-                            <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+
+            
         </div>
     </div>
 </div>
@@ -280,7 +275,7 @@
     <img src="{{g.base_href}}assets/img/bgfooter.jpg" class="bg">
     <div class="grid-project ">
         <div class="row">
-            <div class="col-5 mt-75">
+            <div class="col-sm-12  col-lg-5 mt-75">
                 <img src="{{g.base_href}}assets/img/logofooter.png">
                 <h3 class="open">Plateforme d'open innovation</h3>
                 <div class="footerlegal">
@@ -289,16 +284,16 @@
                     </p>
                 </div>
             </div>
-            <div class="col-7">
+            <div class="col-sm-12 col-lg-7">
                 <h3 class="request-h3">Demande de Renseignements</h3>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-sm-12 col-xs-12 col-lg-6 pm-0">
                         <input type="email" placeholder="Nom" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
                         <input type="email" placeholder="Prenom" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
                         <input type="email" placeholder="Adresse e-mail*" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
                         <input type="email" placeholder="Numero de telephone" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
                     </div>
-                    <div class="col p-0">
+                    <div class="col-sm-12 col-xs-12 col-lg-6 p-0">
                         <div class="form-group">
                             <textarea placeholder="Votre message*" class="form-control rounded-0 textarea-info" id="exampleFormControlTextarea1" rows="10"></textarea>
                             <button  type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-form btn-footer">Envoyer</button>

@@ -18,7 +18,9 @@
     font-family: 'SourceSansPro-Semibold';
     src: url('assets/fonts/SourceSansPro-Semibold.otf');
 }
-
+body{
+    overflow-x:hidden;
+}
 .md-video iframe {
     width: 560px;
     height: 315px;
