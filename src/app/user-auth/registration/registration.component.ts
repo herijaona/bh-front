@@ -12,6 +12,7 @@ import { ApiHttpService } from "../../services/api-http/api-http.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { NotifComponent } from "../notif/notif.component";
 import { PageLoginComponent } from "../page-login/page-login.component";
+import { ValidateOrgtypes } from "../../services/validators/own.validator";
 import { Router } from "@angular/router";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../globals/globals";
@@ -35,11 +36,12 @@ export class RegistrationComponent implements OnInit {
     userSettings: any = {
         showSearchButton: false,
         showRecentSearch: false,
-        geoTypes:['(regions)', '(cities)'],
+        geoTypes: ["(regions)", "(cities)"],
         showCurrentLocation: false,
         inputPlaceholderText: "Adresse: Ville, Pays ......"
     };
     public em_empty: boolean = false;
+    public orgType: any= [];
     passNotEqual: boolean = false;
     localAdded: boolean = false;
     orgAddr: string = "";
@@ -57,6 +59,18 @@ export class RegistrationComponent implements OnInit {
         }
         this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
         this.img_logo = this.g.base_href + "assets/img/bh.png";
+        this.getOrgtype();
+    }
+    async getOrgtype() {
+        try {
+            let gD: any = await this.auth.getallOrgTypes();
+            if (gD) {
+                if (gD.status == "OK") {
+                    console.log(gD.data);
+                    this.orgType = gD.data;
+                }
+            }
+        } catch (e) {}
     }
 
     autoCompleteCallback1(selectedData: any) {
@@ -69,7 +83,7 @@ export class RegistrationComponent implements OnInit {
             this.localAdded = false;
         }
     }
-    
+
     ngOnInit() {
         this.registerForm = new FormGroup({
             bhemail: new FormControl("", [
@@ -88,7 +102,7 @@ export class RegistrationComponent implements OnInit {
             bh_functions: new FormControl("", [Validators.required]),
             bh_acc_commercial: new FormControl("", [Validators.required]),
             bh_acc_socialMean: new FormControl("", [Validators.required]),
-            bh_orgType: new FormControl("", [Validators.required]),
+            bh_orgType: new FormControl(0, [Validators.required, ValidateOrgtypes]),
             bh_orgLocal: new FormControl("")
         });
     }
@@ -139,7 +153,6 @@ export class RegistrationComponent implements OnInit {
             }
         });
     }
-
 
     formImUpload() {
         // event.preventDefault();
@@ -198,7 +211,6 @@ export class RegistrationComponent implements OnInit {
         var refLogin = this.attachView.createComponent(factoryLogin);
         // ref.changeDetectorRef.detectChanges();
     }
-
 
     /* Email validator complement*/
     public detectEmail() {

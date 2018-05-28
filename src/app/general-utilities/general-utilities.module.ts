@@ -13,6 +13,7 @@ import { PageHeaderComponent } from "./page-header/page-header.component";
 import { AskQuestionsComponent } from "./ask-questions/ask-questions.component";
 import { ModalShowComponent } from "./modal-show/modal-show.component";
 import { LoginModalComponent } from "./login-modal/login-modal.component";
+import { NavbarComponent } from "./navbar/navbar.component";
 
 @NgModule({
 	imports: [
@@ -27,7 +28,7 @@ import { LoginModalComponent } from "./login-modal/login-modal.component";
 		SectionEditButtonComponent,
 		EditPageButtonComponent,
 		ImSelectComponent,
-		AskQuestionsComponent,
+		AskQuestionsComponent,NavbarComponent,
 		LoginModalComponent,
 		BhSafeHtmlPipe,
 		ModalShowComponent
@@ -38,7 +39,7 @@ import { LoginModalComponent } from "./login-modal/login-modal.component";
 		SectionEditButtonComponent,
 		ImSelectComponent,
 		AskQuestionsComponent,
-		LoginModalComponent,
+		LoginModalComponent,NavbarComponent,
 		EditPageButtonComponent,
 		BhSafeHtmlPipe,
 		ModalShowComponent

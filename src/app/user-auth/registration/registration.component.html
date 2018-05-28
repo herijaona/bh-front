@@ -87,11 +87,14 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row lastt">
 						<div class="col-md-6 col-sm-6">
 							<div class="input-md">
 								<label for="bh_orgType">Type Organisation</label>
-								<input type="text" formControlName="bh_orgType" id="bh_orgType" class="form-control" mdbActive>
+								<select formControlName="bh_orgType" id="bh_orgType" class="form-control-slct" mdbActive>
+									<option value='0'>Choose type</option>
+									<option *ngFor="let item of orgType" value='{{ item._id }}'>{{item.text}}</option>
+								</select>
 								<span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Champ Obligatoire</span>
 							</div>
 						</div>

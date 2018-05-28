@@ -1,4 +1,4 @@
-<div *ngFor="let item of listData" class="projects-list">
+<div *ngFor="let item of listData; trackBy: trackByFn" class="projects-list">
   <div class="navbar-expand-lg">
     <div>
       <ul class="list-nav list-ul">

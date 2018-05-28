@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
-import { NavbarComponent } from "./navbar/navbar.component";
+import { SnackbarToastComponent } from './snackbar-toast/snackbar-toast.component';
 
 @NgModule({
 	imports: [CommonModule, RouterModule],
-	declarations: [NavbarComponent],
-	exports: [NavbarComponent]
+	declarations: [SnackbarToastComponent],
+	exports: []
 })
 export class NavbarModule {}

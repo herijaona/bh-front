@@ -30,3 +30,11 @@ export function ValidatePair(control: AbstractControl) {
 
 	return null;
 }
+
+export function ValidateOrgtypes(control: AbstractControl) {
+	if (!control.value || control.value == 0) {
+		return { validOrgTypes: true };
+	}
+
+	return null;
+}

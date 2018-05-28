@@ -17,7 +17,7 @@
               <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span class="pl-7">{{_addr}}</span></a>
             </li>
             <li *ngIf="hasWebSiteUrl" class="nav-item">
-              <a class="nav-link" [href]="sanitizert(websiteUrl)"><i class="fa fa-globe"></i><span class="pl-7">{{websiteUrl}}</span></a>
+              <a class="nav-link" (click)="go_toWebSiteUrl(websiteUrl)"><i class="fa fa-globe"></i><span class="pl-7">{{websiteUrl}}</span></a>
             </li>
           </ul>
         </li>
@@ -71,7 +71,7 @@
             <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
           </li>
           <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
-            <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" href="#">Web Portal</a>
+            <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" target="_blank">Web Portal</a>
           </li>
         </ul>
       </ng-template>
@@ -98,7 +98,7 @@
         <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
       </li>
       <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
-        <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" href="#">Web Portal</a>
+        <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" target="_blank">Web Portal</a>
       </li>
     </ul>
   </div>
