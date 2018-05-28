@@ -1,5 +1,5 @@
   <!-- Modal video play-->
-    <div  (onHide)="hiddedModal()"  style="overflow: auto;" mdbModal #mdModal="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: true, ignoreBackdropClick: true}">
+    <div style="overflow: auto;"  (onHidden)="hiddedModal()"   mdbModal #mdModal="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: true, ignoreBackdropClick: true}">
       <div *ngIf="showDataState"  class="modal-dialog cascading-modal modal-lg" role="document">
         <!--Content-->
         <div class="modal-content md-content">

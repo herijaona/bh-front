@@ -6,7 +6,11 @@ import { Globals } from "./../../globals/globals";
 
 @Injectable()
 export class ProjectsService extends BaseHttpService {
-	constructor(public http: HttpClient, public g: Globals, public sh: SharedNotificationService) {
+	constructor(
+		public http: HttpClient,
+		public g: Globals,
+		public sh: SharedNotificationService
+	) {
 		super(http, g, sh);
 	}
 
@@ -21,18 +25,33 @@ export class ProjectsService extends BaseHttpService {
 	}
 
 	getProjectByID(arg) {
-		return this.fetch("get", "getProjectbyID", { projectID: arg }).toPromise();
+		return this.fetch("get", "getProjectbyID", {
+			projectID: arg
+		}).toPromise();
 	}
 
 	saveEditProject(arg) {
-		return this.fetch("put", "bh-projects", arg ).toPromise();
+		return this.fetch("put", "bh-projects", arg).toPromise();
 	}
 
 	deleteProject(arg) {
-		return this.fetch("delete", "bh-projects", arg ).toPromise();
+		return this.fetch("delete", "bh-projects", arg).toPromise();
 	}
 
-	public sendProjectsApplication(arg){
-		return this.fetch('post', 'bh-projects-apply', arg ).toPromise();
+	public sendProjectsApplication(arg) {
+		return this.fetch("post", "bh-projects-apply", arg).toPromise();
+	}
+
+	public getCompanyApplication() {
+		return this.fetch(
+			"get",
+			"bh-projects/allCompanyApplication"
+		).toPromise();
+	}
+
+	public getDetails(applID) {
+		return this.fetch("get", "bh-projects/ApplicationDetails", {
+			applID: applID
+		}).toPromise();
 	}
 }

@@ -50,7 +50,6 @@
           </li>
         </ul>
       </ng-template>
-
       <ng-template [ngIf]="!FrontMenu">
         <ul class="navbar-nav mg-4">
           <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
@@ -65,7 +64,13 @@
             <li  class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
                 <a class="nav-link" href="#">Ideas</a>
             </li> -->
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sstr}">
+          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.viewreaction}">
+            <a [routerLink]="['/view-all-reaction']" class="nav-link">Questions</a>
+          </li>
+          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.applicationreport}">
+            <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
+          </li>
+          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
             <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" href="#">Web Portal</a>
           </li>
         </ul>
@@ -73,21 +78,26 @@
     </div>
   </div>
 </nav>
- <!-- menu for ecran small -->
-
+<!-- menu for ecran small -->
 <ng-template [ngIf]="!FrontMenu">
   <div class="collapse nav-one nav-one-two" [class.show]="show">
     <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4 mb-ed animated fadeInRight">
-      <li  class="nav-item text-right">
+      <li class="nav-item text-right">
         <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu-btn" type="button"><i class="fa fa-close"></i></button>
       </li>
-      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
-        <a  [routerLink]="['/Administration']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
+        <a [routerLink]="['/Administration']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
-      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
-        <a  [routerLink]="['/members-admin']" class="nav-link">Team</a>
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
+        <a [routerLink]="['/members-admin']" class="nav-link">Team</a>
       </li>
-      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sstr}">
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.viewreaction}">
+        <a [routerLink]="['/view-all-reaction']" class="nav-link">Questions</a>
+      </li>
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.applicationreport}">
+        <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
+      </li>
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
         <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" href="#">Web Portal</a>
       </li>
     </ul>
@@ -96,27 +106,25 @@
 <ng-template [ngIf]="FrontMenu">
   <div class="collapse nav-one nav-one-two" [class.show]="show">
     <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4 mb-ed animated fadeInRight">
-      <li  class="nav-item text-right">
+      <li class="nav-item text-right">
         <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu-btn" type="button"><i class="fa fa-close"></i></button>
       </li>
-      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'acceuil']" class="nav-link" href="#">Mindset <span class="sr-only">(current)</span></a>
       </li>
-      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'team']" class="nav-link">Team</a>
       </li>
-      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.projet}">
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.projet}">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
       </li>
-      <li  class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sstr}">
+      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'success-stories']" class="nav-link" href="#">SuccessStory</a>
       </li>
     </ul>
   </div>
 </ng-template>
-
 <!-- end menu for ecran small -->
-
 <!-- Modal -->
 <div *ngIf="selectingImage" class="">
   <div style="overflow: auto;" mdbModal #form="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">

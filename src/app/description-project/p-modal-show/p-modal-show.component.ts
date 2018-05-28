@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild , OnDestroy} from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { ModalDirective } from "angular-bootstrap-md";
 
 @Component({
-	selector: "modal-show",
-	templateUrl: "./modal-show.component.html",
-	styleUrls: ["./modal-show.component.scss"]
+	selector: "pmodal-show",
+	templateUrl: "./p-modal-show.component.html",
+	styleUrls: ["./p-modal-show.component.scss"]
 })
-export class ModalShowComponent implements OnInit, OnDestroy {
-	@ViewChild("mdl_general") public myModalGen: ModalDirective;
+export class PModalShowComponent implements OnInit, OnDestroy {
+	@ViewChild("p_mdl") public myModalGen: ModalDirective;
 	public askquest_mdl: boolean = false;
 	public lgin_mdl: boolean = false;
 	public dataModal: any;
@@ -18,16 +18,33 @@ export class ModalShowComponent implements OnInit, OnDestroy {
 	constructor(private sh: SharedNotificationService) {
 		this.sh.busDataIn$.subscribe((st: any) => {
 			switch (st.from) {
-				case "askQuestions":
+				case "p_askQuestions":
+					this.activeShow = true;
 					this.askQuestions(st);
 					break;
-				case "loginModal":
+				case "p_loginModal":
+					this.activeShow = true;
 					this.loginModal(st);
+					break;
+				case "applytToProjects":
+					this.activeShow = true;
+					this.applyToProjects(st);
 					break;
 			}
 		});
 	}
 
+	public applyModal: boolean = false;
+
+	public applyToProjects(arg) {
+		this.modal_size = "ask-modal";
+		this.dataModal = arg;
+		this.applyModal = true;
+		this.activeShow = true;
+		setTimeout(() => {
+			this.myModalGen.show();
+		}, 330);
+	}
 	public loginModal(arg) {
 		this.modal_size = "modal-md";
 		this.dataModal = arg;
@@ -53,9 +70,13 @@ export class ModalShowComponent implements OnInit, OnDestroy {
 			this.lgin_mdl = false;
 			this.askquest_mdl = false;
 			this.activeShow = false;
+			this.applyModal = false;
 			this.dataModal = null;
 			this.modal_size = "";
-		}, 100);
+			/*setTimeout(() => {
+				this.activeShow = true;
+			}, 300);*/
+		}, 300);
 	}
 
 	endMesssage(evnt) {
@@ -79,7 +100,5 @@ export class ModalShowComponent implements OnInit, OnDestroy {
 		this.conf_ = { backdrop: false };
 	}
 
-	ngOnDestroy(){
-
-	}
+	ngOnDestroy() {}
 }

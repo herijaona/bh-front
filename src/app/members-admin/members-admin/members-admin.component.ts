@@ -14,10 +14,13 @@ export class MembersAdminComponent implements OnInit {
 	public details: any;
 	public img_avatar: string;
 	public activated: boolean = false;
-	public adminAll: boolean = true;
 	public readyData: boolean = false;
 	public userAdminData: any;
+	public userCommData: any;
 	public inviteForm: FormGroup;
+
+	public adminAll: boolean = true;
+	public communityShow: boolean = false;
 	constructor(
 		public g: Globals,
 		private router: Router,
@@ -42,6 +45,7 @@ export class MembersAdminComponent implements OnInit {
 			if (isAdmin.status == "OK") {
 				this.getProfile();
 				this.getMember();
+				this.getCommunity();
 			} else {
 				this.router.navigateByUrl("/");
 			}
@@ -80,9 +84,10 @@ export class MembersAdminComponent implements OnInit {
 		var data: any = this.inviteForm.value;
 		var teamInviteRes: any = await this.tms.inviteTeam(data);
 	}
+
 	async getMember() {
 		try {
-			let team_data: any = await this.tms.getTeamData({});
+			let team_data: any = await this.tms.getTeamData();
 			if (team_data) {
 				this.userAdminData = team_data.data;
 			}
@@ -90,6 +95,18 @@ export class MembersAdminComponent implements OnInit {
 			console.log(e);
 		}
 	}
+
+	async getCommunity() {
+		try {
+			let cUser: any = await this.tms.getCommunityData();
+			if (cUser) {
+				if (cUser.status == "OK") {
+					this.userCommData = cUser.data.users;
+				}
+			}
+		} catch (e) {}
+	}
+
 	async teamCommChange(ev, ent, it) {
 		console.log(ent);
 		try {
@@ -129,5 +146,21 @@ export class MembersAdminComponent implements OnInit {
 				}
 			}
 		} catch (e) {}
+	}
+
+	viewUsersTeams(scp) {
+		switch (scp) {
+			case "admin":
+				this.adminAll = true;
+				this.communityShow = false;
+				break;
+			case "community":
+				this.adminAll = false;
+				this.communityShow = true;
+				break;
+			default:
+				// code...
+				break;
+		}
 	}
 }

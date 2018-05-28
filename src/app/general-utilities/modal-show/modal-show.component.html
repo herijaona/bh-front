@@ -11,9 +11,6 @@
         <div *ngIf="askquest_mdl" class="askm">
           <ask-questions (endMessage)="endMesssage($event)" [data_]="dataModal"></ask-questions>
         </div>
-        <div *ngIf="applyModal" class="appl">
-          <project-apply (endMessage)="endMesssage($event)" [data_]="dataModal"></project-apply>
-        </div>
       </div>
     </div>
   </div>

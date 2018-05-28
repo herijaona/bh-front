@@ -49,18 +49,32 @@ export class TeamsService extends BaseHttpService {
 	}
 
 	public questionsSendData(arg) {
-		return this.fetch('post', 'question-data', arg ).toPromise();
+		return this.fetch("post", "question-data", arg).toPromise();
 	}
 
-	public getTeamData(arg) {
-		return this.fetch('get', 'teamsUsers', arg ).toPromise();
+	public getTeamData() {
+		return this.fetch("get", "teamsUsers").toPromise();
 	}
 
 	public changeRoleAdmin(arg) {
-		return this.fetch('put', 'change_roleAdm', arg ).toPromise();
+		return this.fetch("put", "change_roleAdm", arg).toPromise();
 	}
-	
+
 	public deleteFromTeamList(arg) {
-		return this.fetch('delete', 'delete-from-team', arg ).toPromise();
+		return this.fetch("delete", "delete-from-team", arg).toPromise();
+	}
+
+	public getCommunityData() {
+		return this.fetch("get", "getAccountCommunity").toPromise();
+	}
+
+	public getAllQuestionsOnCompany() {
+		return this.fetch("get", "getallCompanyQuestions").toPromise();
+	}
+
+	public getDetailsOnQuestion(qID) {
+		return this.fetch("get", "getDetailOnQuestion", {
+			qID: qID
+		}).toPromise();
 	}
 }
