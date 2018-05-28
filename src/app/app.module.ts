@@ -24,6 +24,7 @@ import { RequestInterceptorService } from "./services/request-interceptor/reques
 /*pipe*/
 
 /*Modules impot*/
+import { MydeskModule } from "./mydesk/mydesk.module";
 import { UserAuthModule } from "./user-auth/user-auth.module";
 import { DescriptionProjectModule } from "./description-project/description-project.module";
 import { HomepageModule } from "./homepage/homepage.module";
@@ -49,6 +50,7 @@ import { SpinnerComponent } from "./spinner/spinner.component";
   imports: [
     BrowserModule,
     TabModule,
+    MydeskModule,
     FormsModule,
     HttpClientModule,
     DescriptionProjectModule,
