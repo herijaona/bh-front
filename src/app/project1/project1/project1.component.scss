@@ -72,7 +72,7 @@ button{
 	margin-top: 35px;
 }
 .option-select{
-    margin-left: 24px;
+    margin-left: 10px;
     top: -9px;
     position: absolute;
     z-index: 99999999;
@@ -89,6 +89,7 @@ button{
 	position: relative;
     display: flex;
     margin-top: 14px;
+    margin-right: 15px;
 }
 .btn-pro-project{
 	background:#e83936;
@@ -111,18 +112,22 @@ button{
 	    border: 1px solid #373d494f;
 	    padding-right: 15px;
 	}
-	.select-two{
-		margin-right: 15px;
-		margin-left: 15px;
-	}
 }
 .card-st{
 	border: 1px solid #d6d6d6;
     border-top: 2px solid #d6d6d6;
-    padding: 40px 20px 0px 20px;
+    padding: 47px 20px 0px 20px;
     background: white;
-    max-width: 257px;
     margin-bottom: 10px;
+    min-height: 281px;
+    position:relative;
+    .view-st{
+    	position: absolute;
+    	bottom: 0px;
+    }
+    img{
+    	max-width: 150px;
+    }
     h4{
 		font-size: 1.19rem;
 	    color: #393f4b;
@@ -153,8 +158,40 @@ button{
 }
 .mb-12{
 	margin-bottom:12px;
+	.col{
+		padding:5px;
+	}
 }
+.col-18{
+	width:20%;
+	padding:5px;
 
+}
+@media(max-width:1462px){
+	.col-18{
+		width:20%;
+	}
+}
+@media(max-width:1300px){
+	.col-18{
+		width:25%;
+	}
+}
+@media (max-width: 972px){
+.col-18{
+    width: 33.3%;
+	}
+}
+@media (max-width: 768px){
+.col-18{
+    width: 50%;
+	}
+}
+@media (max-width: 467px){
+.col-18{
+    width: 100%;
+	}
+}
 /* form */
 .form-control, .custom-autocomplete input {
     width: 100% !important;
@@ -199,7 +236,7 @@ button{
 	.bg{
 		position: absolute;
 	    width: 100%;
-	    height: 412px;
+	    height: 342px;
 	    z-index: -1;
 	}
 	.open{
