@@ -5,21 +5,25 @@ import { MembersAdminModule } from "../members-admin/members-admin.module";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
+import { CKEditorModule } from "ng2-ckeditor";
 import { Ng4GeoautocompleteModule } from "ng4-geoautocomplete";
 
 import { ProfileComponent } from "./profile/profile.component";
 import { CollaborationsComponent } from "./collaborations/collaborations.component";
 import { NavbarAdminComponent } from "./navbar-admin/navbar-admin.component";
 import { PInfoComponent } from "./profile/p-info/p-info.component";
+import { ProjectEditAndNewComponent } from "./collaborations/project-edit-and-new/project-edit-and-new.component";
+import { InnovationProjectComponent } from "./collaborations/innovation-project/innovation-project.component";
 import { PCompletionComponent } from "./profile/p-completion/p-completion.component";
 import { MembersAdminComponent } from "./members-admin/members-admin.component";
+import { AdminAllColabComponent } from './collaborations/admin-all-colab/admin-all-colab.component';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		MDBBootstrapModule,
 		Ng4GeoautocompleteModule.forRoot(),
-		ReactiveFormsModule,
+		ReactiveFormsModule,CKEditorModule,
 		FormsModule,
 		RouterModule,
 		MembersAdminModule
@@ -27,13 +31,17 @@ import { MembersAdminComponent } from "./members-admin/members-admin.component";
 	declarations: [
 		MydeskComponent,
 		CollaborationsComponent,
+		ProjectEditAndNewComponent,
+		InnovationProjectComponent,
 		PInfoComponent,
 		MembersAdminComponent,
 		PCompletionComponent,
 		ProfileComponent,
-		NavbarAdminComponent
+		NavbarAdminComponent,
+		AdminAllColabComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
-	exports: [NavbarAdminComponent]
+	exports: [NavbarAdminComponent],
+	entryComponents: [ProjectEditAndNewComponent]
 })
 export class AdministrationInModule {}

@@ -7,7 +7,6 @@ import {
 } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
-import { ProjectEditAndNewComponent } from "../project-edit-and-new/project-edit-and-new.component";
 
 @Component({
 	selector: "app-projects",

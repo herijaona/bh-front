@@ -7,10 +7,6 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 top-team anim">
-        <div *ngIf="projectPageEditStatus" class="" #newRef>
-          <project-edit-and-new [todoAct_]="toDoAction" [prData_]="prData">
-          </project-edit-and-new>
-        </div>
         <div *ngIf="!projectPageEditStatus" class="">
           <project-list></project-list>
         </div>

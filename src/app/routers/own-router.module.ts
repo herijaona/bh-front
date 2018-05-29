@@ -33,6 +33,8 @@ import { ViewApplicationDetailsComponent } from "../company-data/view-applicatio
 import { QuestionsDetailsComponent } from "../company-data/questions-details/questions-details.component";
 import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
 import { Project1Component } from "../project1/project1/project1.component";
+import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
+import { ProjectEditAndNewComponent } from "../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
@@ -117,7 +119,17 @@ const routes: Routes = [
 	{
 		path: "administration-in/collaborations",
 		component: CollaborationsComponent,
-		canActivate: [AuthguardService]
+		canActivate: [AuthguardService],
+		children: [
+			{
+				path: "",
+				component: AdminAllColabComponent
+			},
+			{
+				path: "create-collaboration",
+				component: ProjectEditAndNewComponent
+			}
+		]
 	},
 	{
 		path: "reset-my-pass/:id_/:pass_code",

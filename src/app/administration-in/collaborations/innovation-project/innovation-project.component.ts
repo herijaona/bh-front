@@ -7,9 +7,9 @@ import {
 	ViewChild
 } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ProjectsService } from "../../services/projects/projects.service";
-import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
-import { Globals } from "./../../globals/globals";
+import { ProjectsService } from "../../../services/projects/projects.service";
+import { SharedNotificationService } from "./../../../services/shared-notification/shared-notification.service";
+import { Globals } from "./../../../globals/globals";
 
 declare const CKEDITOR: any
 

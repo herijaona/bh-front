@@ -5,8 +5,8 @@
       <div class="wrapper">
         <div id="sidebar">
           <ul class="list-unstyled components side-title">
-            <li><a href="#"><i class="fa fa-list"></i>List</a></li>
-            <li><a href="#"><i class="fa  fa-share"></i>Create collaboration</a></li>
+            <li><a [routerLink]="['/administration-in','collaborations']"><i class="fa fa-list"></i>List</a></li>
+            <li><a [routerLink]="['/administration-in','collaborations','create-collaboration']"><i class="fa  fa-share"></i>Create collaboration</a></li>
             <li><a href="#"><i class="fa fa-adjust"></i>apply</a></li>
             <li><a href="#"><i class="fa fa-wrench"></i>config</a></li>
             </ul>
@@ -15,7 +15,7 @@
       </div>
       <main class="col-12">
         <div class="ml-16">
-          <members-admin></members-admin>
+          <router-outlet></router-outlet>
         </div>
       </main>
     </div>

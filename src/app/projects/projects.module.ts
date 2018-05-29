@@ -6,10 +6,8 @@ import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.m
 import { ProjectsComponent } from "./projects/projects.component";
 import { CKEditorModule } from "ng2-ckeditor";
 import { ProjectListComponent } from "./project-list/project-list.component";
-import { ProjectEditAndNewComponent } from "./project-edit-and-new/project-edit-and-new.component";
 
 import { MindsetModule } from "../mindset/mindset.module";
-import { InnovationProjectComponent } from './innovation-project/innovation-project.component';
 
 @NgModule({
 	imports: [
@@ -21,14 +19,10 @@ import { InnovationProjectComponent } from './innovation-project/innovation-proj
 		RouterModule,
 		CKEditorModule
 	],
-	entryComponents: [ProjectEditAndNewComponent],
-
 	declarations: [
 		ProjectsComponent,
 		ProjectListComponent,
-		ProjectEditAndNewComponent,
-		InnovationProjectComponent
 	],
-	exports:[InnovationProjectComponent]
+	exports:[]
 })
 export class ProjectsModule {}
