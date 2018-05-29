@@ -8,4 +8,4 @@ import { Project1Component } from './project1/project1.component';
   ],
   declarations: [Project1Component]
 })
-export class Project1Module { }
+export class CCapitalModule { }

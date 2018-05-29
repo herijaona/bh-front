@@ -36,6 +36,8 @@ import { Project1Component } from "../project1/project1/project1.component";
 import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
 import { ProjectEditAndNewComponent } from "../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component";
 
+
+
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
 const routes: Routes = [

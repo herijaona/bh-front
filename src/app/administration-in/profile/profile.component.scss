@@ -2,7 +2,6 @@
 	width: 25%;
 	margin: 0 auto;
 }
-
 .wt-100 {
 	width: 100%;
 }
@@ -14,13 +13,13 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	margin-bottom: 0px !important;
-	margin-top: 15px;
+	margin-top: 60px;
 	text-transform: uppercase;
 	@media(max-width:575px){
 		text-align: center;
-    	margin-top: -25px;
-    	margin-bottom: 15px !important;	
-	}
+    	margin-top: 68px;
+    	margin-bottom: -2px !important
+    }
 }
 @media(max-width:575px){
 .bs-10{

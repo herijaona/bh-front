@@ -1,4 +1,5 @@
 $color1 : #e55037;
+$color2 : #393F4B;
 li{
 	list-style:none;
 }
@@ -22,7 +23,7 @@ li{
     ul li a{
     	font-size: 14px;
 	    font-family: SourceSansPro-Semibold;
-	    color: #606060;
+	    color: $color2;
 	    letter-spacing: 0.3px;
     }
 }

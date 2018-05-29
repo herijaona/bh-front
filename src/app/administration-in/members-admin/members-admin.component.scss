@@ -328,7 +328,8 @@ hr {
 
 .btn-edit-up {
     position: absolute;
-    right: 30px;
+    right: 10px;
+    top: 10px;
 
     @media(max-width:1335px) {
         position: relative;
@@ -555,8 +556,7 @@ hr {
 
 .mbr-team {
     .profile-h5 {
-        padding-top: 25px;
-        padding-bottom: 20px;
+        padding-bottom: 4px;
     }
 
 }
