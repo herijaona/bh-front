@@ -1,16 +1,14 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 
 @Component({
-  selector: 'app-collaborations',
-  templateUrl: './collaborations.component.html',
-  styleUrls: ['./collaborations.component.scss']
+	selector: "app-collaborations",
+	templateUrl: "./collaborations.component.html",
+	styleUrls: ["./collaborations.component.scss"]
 })
 export class CollaborationsComponent implements OnInit {
-  constructor(
-  	public g: Globals) { }
+	public page_name = "page_collabor";
+	constructor(public g: Globals) {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {}
 }

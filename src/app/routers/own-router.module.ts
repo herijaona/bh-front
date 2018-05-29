@@ -32,11 +32,9 @@ import { ViewReactionComponent } from "../company-data/view-reaction/view-reacti
 import { ViewApplicationDetailsComponent } from "../company-data/view-application-details/view-application-details.component";
 import { QuestionsDetailsComponent } from "../company-data/questions-details/questions-details.component";
 import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
-import { Project1Component } from "../project1/project1/project1.component";
 import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
 import { ProjectEditAndNewComponent } from "../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component";
-
-
+import { Project1Component } from "../c-capital/project1/project1.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
