@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ViewChild } from "@angular/core";
 import { ModalDirective } from "angular-bootstrap-md";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
-import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
-import { Globals } from "./../../globals/globals";
+import { AuthserviceService } from "../../../services/authservice/authservice.service";
+import { SharedNotificationService } from "../../../services/shared-notification/shared-notification.service";
+import { Globals } from "./../../../globals/globals";
 
 @Component({
 	selector: "p-info",

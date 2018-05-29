@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MembersAdminComponent } from "./members-admin/members-admin.component";
 import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
@@ -16,9 +15,7 @@ import { UserAuthModule } from "../user-auth/user-auth.module";
 		UserAuthModule,
 		RouterModule
 	],
-	declarations: [MembersAdminComponent],
-	exports: [
-		MembersAdminComponent
-	]
+	declarations: [],
+	exports: []
 })
 export class MembersAdminModule {}
