@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 /* Component Import*/
+import { CollaborationsComponent } from "../mydesk/collaborations/collaborations.component";
 import { MydeskComponent } from "../mydesk/mydesk/mydesk.component";
 import { IdeasComponent } from "../ideas/ideas/ideas.component";
 import { MindsetComponent } from "../mindset/mindset/mindset.component";
@@ -37,6 +38,7 @@ import { Project1Component } from "../project1/project1/project1.component";
 
 const routes: Routes = [
 	{ path: "", component: HomepageComponent },
+	{ path: "collaborations", component: CollaborationsComponent },
 	{ path: "mydesk", component: MydeskComponent },
 	{ path: "committee", component: CommitteeComponent },
 	{ path: "profile-admin", component: ProfileAdminComponent },
@@ -105,6 +107,11 @@ const routes: Routes = [
 				component: ViewReactionComponent
 			}
 		]
+	},
+	{
+		path: "administration-in/collaborations",
+		component: CollaborationsComponent,
+		canActivate: [AuthguardService]
 	},
 	{
 		path: "reset-my-pass/:id_/:pass_code",

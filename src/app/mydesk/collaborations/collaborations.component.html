@@ -48,21 +48,17 @@
       <div class="wrapper">
         <div id="sidebar">
           <ul class="list-unstyled components side-title">
-            <li><a [routerLink]="['/administration-in','desk']"><i class="fa fa-user"></i>Team</a></li>
-            <li><a [routerLink]="['/administration-in','desk','questions']"><i class="fa fa-question-circle"></i>Questions</a></li>
-            <li>
-              <a [routerLink]="['/administration-in','desk', 'applications']"><i class="fa fa-area-chart"></i>Applications</a>
-              <li><a href="#"><i class="fa fa-bookmark"></i>Favorite</a></li>
-              <li><a href="#"><i class="fa fa-building"></i>invited organizations</a></li>
-              <li><a href="#"><i class="fa fa-globe"></i>Web portal</a></li>
+            <li><a href="#"><i class="fa fa-list"></i>List</a></li>
+            <li><a href="#"><i class="fa  fa-share"></i>Create collaboration</a></li>
+            <li><a href="#"><i class="fa fa-adjust"></i>apply</a></li>
+            <li><a href="#"><i class="fa fa-wrench"></i>config</a></li>
             </ul>
           </div>
         </div>
       </div>
       <main class="col-12">
         <div class="ml-16">
-          <!-- <members-admin></members-admin> -->
-           <router-outlet></router-outlet>
+          <members-admin></members-admin>
         </div>
       </main>
     </div>

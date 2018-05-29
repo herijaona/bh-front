@@ -75,3 +75,10 @@
     min-width: 107px;
     min-height: 104px;
 }
+@media(max-width:1220px){
+.mb-responsive{
+	max-width: 100% !important;
+    text-align: center !important;
+    margin: auto;
+    }	
+}
