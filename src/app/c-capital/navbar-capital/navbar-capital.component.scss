@@ -1,0 +1,131 @@
+$color1 : #393f4b;
+$color2: #f8f8fa;
+$color3: #e83936;
+.grid-project{
+	width:90%;
+	margin:0 auto;
+}
+i{
+	padding-right: 8px;
+}
+button{
+    border-radius: 4px;
+}
+.bg-form{
+	background:$color3;
+	text-transform:uppercase;
+}
+/* navbar style all */
+.bg-gri{
+	background-color: #f8f8fa !important;
+    position: absolute;
+    height: 75px;
+    width: 100%;
+    z-index: -99999;
+    margin-top: 218px;
+}
+.bg-nav{
+	background:$color1;
+	padding-top: 1.1px;
+	padding-bottom: 1.1px;
+	.navbar-nav{
+		li{	
+			margin-right: 10px;
+			a{
+				color: white;
+			    font-family: SourceSansPro-Semibold;
+			    text-transform: capitalize;
+			    font-size: 13px;
+			}
+		}		
+	}
+	.connexion{
+		.btn-inscrire{
+			background: linear-gradient(-90deg,#f94d37,#e83936);
+		    color: white;
+		    padding: 10px 25px 10px 25px;
+		    font-size: 14px;
+		    font-family: SourceSansPro-Regular;
+		    border: none;
+		    text-transform: capitalize;
+		    margin-right: 15px;
+		}
+		.btn-connect{
+			background: transparent;
+		    color: white;
+		    padding: 10px 25px 10px 25px;
+		    font-size: 14px;
+		    font-family: SourceSansPro-Regular;
+		    text-transform: capitalize;
+		    border: 1px solid gray;
+		}
+	}
+	.flex{
+		    display: flex;
+	}
+	.mr-left-nav{
+		    margin-left: 45px;
+	}
+}
+	/* mobile navbar */
+@media(max-width:1200px){
+	.mobile-nav{
+		display: block !important;
+	}
+	.connexion{
+		float: right;
+	}
+	.mr-left-nav{
+		float: left;
+	}
+}
+@media(max-width:1000px){
+	.mr-left-nav-mobile{
+		display: block;
+	}
+}
+@media(max-width:1000px){
+	.desktop-ns{
+		display:none !important;
+	}
+	.icon-bar{
+		display:block !important;
+		color: white !important;
+	    position: relative;
+	    top: 11px;
+	    font-size: 25px;
+	    left: -14px;
+	}
+	.my-md-0{
+		margin-top: 0.5rem !important;
+	}
+	
+}
+.mb-nav, .icon-bar, .mr-left-nav-mobile{
+	display:none;
+}
+@media(max-width:590px){
+.c-none{
+	display:none;
+	}
+.b2{
+	width:42px;
+	padding:7px !important;
+	i{
+		padding:0px;
+	}
+	}
+}
+@media(max-width:358px){
+	.connexion{
+		position: absolute;
+		display:inline-table;
+		right: 5px;
+		.btn-inscrire{
+			margin-right: 2px !important;
+		}
+	}
+}
+
+	/* end mobile navbar */
+/* end navbar style all */

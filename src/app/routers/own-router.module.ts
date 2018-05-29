@@ -33,6 +33,8 @@ import { ViewApplicationDetailsComponent } from "../company-data/view-applicatio
 import { QuestionsDetailsComponent } from "../company-data/questions-details/questions-details.component";
 import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
 import { Project1Component } from "../c-capital/project1/project1.component";
+import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
+
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 
@@ -45,6 +47,7 @@ const routes: Routes = [
 	{ path: "members-admin", component: MembersAdminComponent },
 	{ path: "home", component: HomepageComponent },
 	{ path: "project1", component: Project1Component },
+	{ path: "project-description", component: ProjectDescriptionComponent },
 	{ path: "mindset", component: MindsetComponent },
 	{ path: "open-innovation/:slug_acc/acceuil", component: MindsetComponent },
 	{ path: "open-innovation/:slug_acc/team", component: TeamComponent },
@@ -118,6 +121,10 @@ const routes: Routes = [
 		path: "administration-in/collaborations",
 		component: CollaborationsComponent,
 		canActivate: [AuthguardService]
+	},
+	{	
+		path: "c-capital/description-project",
+		component: ProjectDescriptionComponent
 	},
 	{
 		path: "reset-my-pass/:id_/:pass_code",
