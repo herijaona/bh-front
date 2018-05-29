@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid invite_team">
+    <div class="container-fluid invite_team mt-3">
       <div class="">
         <div class="mbr-team">
           <h5 class="profile-h5">Members Team</h5>
@@ -86,6 +86,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Function</th>
                     <th class="text-center">Team</th>
@@ -95,16 +96,19 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of userAdminData">
-                    <th class="tb profile-tb">
+                    <th class="tb">
                       <div class="media">
                         <img *ngIf="item.imageProfile" [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="60px" height="58px">
                         <img *ngIf="!item.imageProfile" [src]="img_avatar" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" style="width:60px;">
-                        <div class="media-body">
-                          <span>{{item.firstname+" "+item.lastname }}</span>
-                          <h6 class="mb-0"><i>{{item.email}}</i></h6>
-                        </div>
+                        
                       </div>
                     </th>
+                    <td class="tb">
+                      <div class="media-body">
+                          <span>{{item.firstname+" "+item.lastname }}</span>
+                          <h6 class="mb-0"><i>{{item.email}}</i></h6>
+                      </div>
+                    </td>
                     <td class="tb">{{item.function}}</td>
                     <td class="text-center">
                       <label class="custon-ch ch-second">

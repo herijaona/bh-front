@@ -278,7 +278,9 @@ hr {
 }
 
 .card-profile {
-    box-shadow: 0px 0px 7px -1px #c1c1c1;
+    border: 1px solid #e6e9ec;
+    box-shadow: none;
+    border-radius: inherit;
     /* 
         @media(min-width:1004px) {
             height: 350px;
@@ -377,10 +379,6 @@ hr {
 .tb {
     font-weight: bold !important;
 }
-.profile-tb{
-    width: 25%
-}
-
 .flex-dt {
     flex-direction: inherit;
     position: relative;
@@ -547,8 +545,7 @@ hr {
 
 /* invite team */
 .invite_team {
-    border-radius: 5px;
-    box-shadow: 0px 0px 7px -1px #c1c1c1;
+    border: 1px solid #e6e9ec;
 }
 
 .row {

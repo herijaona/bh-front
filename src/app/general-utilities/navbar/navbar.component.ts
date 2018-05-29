@@ -59,7 +59,7 @@ export class NavbarComponent implements OnInit {
 	public mess_notif: string;
 	public toast: boolean = false;
 	public isIn: boolean = false;
-	public tab = ["project1","mydesk","administration-in"];
+	public tab = ["project1","mydesk","collaborations","administration-in"];
 
 	constructor(
 		private route: ActivatedRoute,
@@ -73,6 +73,7 @@ export class NavbarComponent implements OnInit {
 				let urlAfterredirects = event.urlAfterRedirects
 					.trim()
 					.split("/");
+					console.log(urlAfterredirects);
 				this.isIn = this.inArray(this.tab, urlAfterredirects);
 			}
 		});
