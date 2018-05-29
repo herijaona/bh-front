@@ -53,7 +53,7 @@
       <ng-template [ngIf]="!FrontMenu">
         <ul class="navbar-nav mg-4">
           <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
-            <a [routerLink]="['/Administration']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+            <a [routerLink]="['/administration-in/desk']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
             <a [routerLink]="['/members-admin']" class="nav-link">Team</a>
@@ -86,7 +86,7 @@
         <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu-btn" type="button"><i class="fa fa-close"></i></button>
       </li>
       <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
-        <a [routerLink]="['/Administration']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+        <a [routerLink]="['/administration-in/desk']" class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
         <a [routerLink]="['/members-admin']" class="nav-link">Team</a>

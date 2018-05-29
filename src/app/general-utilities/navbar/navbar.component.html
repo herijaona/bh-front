@@ -38,7 +38,7 @@
             <a class="nav-link  color-white  recrute-text2" routerLink="/profile">Profile</a>
           </li> -->
           <li *ngIf="auth.isLoggedIn()" class="nav-item">
-            <a class="nav-link color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/Administration"><span class="d-none-admin">Administration</span><span class="d-none-ad">Admin</span></a>
+            <a class="nav-link color-white   recrute-text2" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" id="navbarDropdownMenuLink" routerLink="/administration-in/desk"><span class="d-none-admin">Administration</span><span class="d-none-ad">Admin</span></a>
            <!--  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a *ngFor="let acc of accAdm" [routerLink]="['/company',acc.name, 'profile', acc._id]" class="dropdown-item" href="#">{{acc.name}}</a>
             </div> -->

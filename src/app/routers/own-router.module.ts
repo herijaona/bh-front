@@ -88,8 +88,8 @@ const routes: Routes = [
 		canActivate: [AuthguardService]
 	},
 	{
-		path: "Administration",
-		component: ProfileComponent,
+		path: "administration-in/desk",
+		component: MydeskComponent,
 		canActivate: [AuthguardService]
 	},
 	{

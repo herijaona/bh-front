@@ -59,7 +59,7 @@ export class NavbarComponent implements OnInit {
 	public mess_notif: string;
 	public toast: boolean = false;
 	public isIn: boolean = false;
-	public tab = ["project1","mydesk"];
+	public tab = ["project1","mydesk","administration-in"];
 
 	constructor(
 		private route: ActivatedRoute,
