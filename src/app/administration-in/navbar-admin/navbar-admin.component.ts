@@ -11,8 +11,4 @@ export class NavbarAdminComponent implements OnInit {
 
   ngOnInit() {
   }
-    profileLink() {
-      this.router.navigateByUrl('/profile-admin');
-    }
-
 }

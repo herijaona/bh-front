@@ -2,8 +2,8 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 /* Component Import*/
-import { CollaborationsComponent } from "../mydesk/collaborations/collaborations.component";
-import { MydeskComponent } from "../mydesk/mydesk/mydesk.component";
+import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
+import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
 import { IdeasComponent } from "../ideas/ideas/ideas.component";
 import { MindsetComponent } from "../mindset/mindset/mindset.component";
 import { ProjectsComponent } from "../projects/projects/projects.component";
@@ -14,9 +14,9 @@ import { RegistrationComponent } from "../user-auth/registration/registration.co
 import { ResetPasswordComponent } from "../user-auth/reset-password/reset-password.component";
 import { ActivationComponent } from "../user-auth/activation/activation.component";
 import { PageLoginComponent } from "../user-auth/page-login/page-login.component";
-import { ProfileComponent } from "../user-auth/profile/profile.component";
+import { ProfileComponent } from "../administration-in/profile/profile.component";
 import { ProfileAdminComponent } from "../profile-admin/profile-admin/profile-admin.component";
-import { MembersAdminComponent } from "../members-admin/members-admin/members-admin.component";
+import { MembersAdminComponent } from "../administration-in/members-admin/members-admin.component";
 import { AuthguardService } from "../services/authguard/authguard.service";
 import { ListCompaniesComponent } from "../companies/list-companies/list-companies.component";
 import { ProfileCompaniesComponent } from "../companies/profile-companies/profile-companies.component";
@@ -85,14 +85,34 @@ const routes: Routes = [
 		canActivate: [AuthguardService]
 	},
 	{
+		path: "administration-in/user/profile",
+		component: ProfileComponent,
+		canActivate: [AuthguardService]
+	},
+	{
 		path: "questions/details/:id_questions",
 		component: QuestionsDetailsComponent,
 		canActivate: [AuthguardService]
 	},
+
 	{
 		path: "administration-in/desk",
 		component: MydeskComponent,
-		canActivate: [AuthguardService]
+		canActivate: [AuthguardService],
+		children: [
+			{
+				path: "",
+				component: MembersAdminComponent
+			},
+			{
+				path: "applications",
+				component: ViewReactionComponent
+			},
+			{
+				path: "questions",
+				component: ViewReactionComponent
+			}
+		]
 	},
 	{
 		path: "administration-in/collaborations",
