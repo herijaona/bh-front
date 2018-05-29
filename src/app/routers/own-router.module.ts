@@ -90,7 +90,21 @@ const routes: Routes = [
 	{
 		path: "administration-in/desk",
 		component: MydeskComponent,
-		canActivate: [AuthguardService]
+		canActivate: [AuthguardService],
+		children: [
+			{
+				path: "",
+				component: MembersAdminComponent
+			},
+			{
+				path: "applications",
+				component: ViewReactionComponent
+			},
+			{
+				path: "questions",
+				component: ViewReactionComponent
+			}
+		]
 	},
 	{
 		path: "reset-my-pass/:id_/:pass_code",

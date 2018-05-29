@@ -48,15 +48,10 @@
       <div class="wrapper">
         <div id="sidebar">
           <ul class="list-unstyled components side-title">
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Questions</a></li>
+            <li><a [routerLink]="['/administration-in','desk']">Team</a></li>
+            <li><a [routerLink]="['/administration-in','desk','questions']">Questions</a></li>
             <li>
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Applications</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li><a href="#">Favorite</a></li>
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
-              </ul>
+              <a [routerLink]="['/administration-in','desk', 'applications']">Applications</a>
               <li><a href="#">Favorite</a></li>
               <li><a href="#">invited organizations</a></li>
               <li><a href="#">Web portal</a></li>
@@ -66,7 +61,8 @@
       </div>
       <main class="col-12">
         <div class="ml-16">
-          <members-admin></members-admin>
+          <!-- <members-admin></members-admin> -->
+           <router-outlet></router-outlet>
         </div>
       </main>
     </div>
