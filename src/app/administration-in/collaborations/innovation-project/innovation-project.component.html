@@ -37,6 +37,35 @@
          </div>
       </div>
    </div>
+
+   <label class="grey-text-form">Organisation</label>
+   <div class="form-check">
+        <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio1">
+        <label class="form-check-label" for="radio1">Programmé</label>
+   </div>
+   <div class="form-check">
+     <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio2">
+     <label class="form-check-label" for="radio2">Continu</label>
+   </div>
+   <label class="grey-text-form">Confidentiality</label>
+   <div class="form-check">
+     <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio2">
+     <label class="form-check-label" for="radio2">Continu</label>
+   </div>
+    <div class="mb-20">
+   <label class="grey-text-form">Contenu confidentiel</label>
+      <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
+   </div>
+   <label class="grey-text-form">diffusion</label>
+   <div class="mb-20 unit-display">
+      <label class="grey-text-form">Unit</label>
+      <select>
+         <option value="">continent</option>
+         <option value="">pays</option>
+         <option value="">type de contreparties</option>
+      </select>
+   </div>
+
    <div class="">
       
    </div>
