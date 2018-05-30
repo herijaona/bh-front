@@ -1,75 +1,93 @@
 <div class="">
-   <div class="mb-20">
-      <label class="grey-text-form">Nom du projet </label>
-      <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
-   </div>
-   <div class="mb-20">
-      <label class="grey-text-form"> Project Context</label>
-      <ckeditor #ckeditor1 [(ngModel)]="prModel.pr_contexte_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"  debounce="500">
-      </ckeditor>
-   </div>
-   <div class="mb-20">
-      <label class="grey-text-form"> Project Objectives</label>
-      <ckeditor #ckeditor2 [(ngModel)]="prModel.pr_objectif_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"  debounce="500">
-      </ckeditor>
-   </div>
-   <div class="mb-20">
-      <label class="grey-text-form">Proposal Requirements</label>
-      <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
-      </ckeditor>
-   </div>
-   <div class="row">
-      <div class="col-md-6 col-sm-6">
-         <div class="mb-20">
-            <label class="grey-text-form">Response time</label>
-            <input (change)="onChange($event)" type="number" [(ngModel)]="prModel.pr_responseTimeValue" name="resonseTime" class="form-control-project">
-         </div>
+  <div class="mb-20">
+    <label class="grey-text-form">Nom du projet </label>
+    <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
+  </div>
+  <div class="mb-20">
+    <label class="grey-text-form"> Project Context</label>
+    <ckeditor #ckeditor1 [(ngModel)]="prModel.pr_contexte_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+    </ckeditor>
+  </div>
+  <div class="mb-20">
+    <label class="grey-text-form"> Project Objectives</label>
+    <ckeditor #ckeditor2 [(ngModel)]="prModel.pr_objectif_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+    </ckeditor>
+  </div>
+  <div class="mb-20">
+    <label class="grey-text-form">Proposal Requirements</label>
+    <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+    </ckeditor>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="mb-20">
+        <label class="grey-text-form">Response time</label>
+        <input (change)="onChange($event)" type="number" [(ngModel)]="prModel.pr_responseTimeValue" name="resonseTime" class="form-control-project">
       </div>
-      <div class="col-md-6 col-sm-6">
-         <div class="mb-20 unit-display">
-            <label class="grey-text-form">Unit</label>
-            <select (change)="onChange($event)" [(ngModel)]="prModel.pr_responseTimeUnit">
-            <option value="Hour">Hours</option>
-            <option value="Day">Days</option>
-            <option value="Week">Weeks</option>
-            <option value="Month">Months</option>
-            </select>
-         </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="mb-20 unit-display">
+        <label class="grey-text-form">Unit</label>
+        <select (change)="onChange($event)" [(ngModel)]="prModel.pr_responseTimeUnit">
+          <option value="Hour">Hours</option>
+          <option value="Day">Days</option>
+          <option value="Week">Weeks</option>
+          <option value="Month">Months</option>
+        </select>
       </div>
-   </div>
-
-   <label class="grey-text-form">Organisation</label>
-   <div class="form-check">
-        <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio1">
+    </div>
+  </div>
+  <!--  -->
+  <div class="">
+    <div class="">
+      <label class="grey-text-form">Type</label>
+      <div class="form-check">
+        <input (change)="typeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="continue" [(ngModel)]="prModel.typeCollab" type="radio" id="radio2">
+        <label class="form-check-label" for="radio2">Continu</label>
+      </div>
+      <div class="form-check">
+        <input (change)="typeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="programmed" [(ngModel)]="prModel.typeCollab" type="radio" id="radio1">
         <label class="form-check-label" for="radio1">Programmé</label>
-   </div>
-   <div class="form-check">
-     <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio2">
-     <label class="form-check-label" for="radio2">Continu</label>
-   </div>
-   <label class="grey-text-form">Confidentiality</label>
-   <div class="form-check">
-     <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio2">
-     <label class="form-check-label" for="radio2">Continu</label>
-   </div>
-    <div class="mb-20">
-   <label class="grey-text-form">Contenu confidentiel</label>
-      <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
-   </div>
-   <label class="grey-text-form">diffusion</label>
-   <div class="mb-20 unit-display">
-      <label class="grey-text-form">Unit</label>
-      <select>
-         <option value="">continent</option>
-         <option value="">pays</option>
-         <option value="">type de contreparties</option>
-      </select>
-   </div>
+      </div>
+    </div>
+    <ng-template [ngIf]="shDate">
+      <div class="">
+        <some-date (valueDate)='saveDate($event)'></some-date>
+      </div>
+    </ng-template>
+  </div>
+  <!--  -->
+  <div class="">
+  <label class="grey-text-form">Confidentiality</label>
+    <div class="" style="display: flex">
+      <div class="" >
+        <input value="no" [(ngModel)]="prModel.confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
+        <label class="">No confidential information</label>
+      </div>
+      <div class="">
+        <input value="yes" [(ngModel)]="prModel.confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
+        <label class="">There is some confidential information</label>
+      </div>
+    </div>
 
-   <div class="">
-      
-   </div>
-   <div class="">
-      <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2"><i class="fa fa-check mr-2"></i>Save</button>
-   </div>
+    <div class="">
+      <ng-template [ngIf]="shConfidential" >
+       <label class="grey-text-form">Data Confidentials</label>
+    <ckeditor #ckeditor2 [(ngModel)]="prModel.prdataConfidential" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+    </ckeditor>
+      </ng-template>
+    </div>
+  </div>
+  <label class="grey-text-form">diffusion</label>
+  <div class="mb-20 unit-display">
+    <label class="grey-text-form">Unit</label>
+    <select>
+      <option value="">continent</option>
+      <option value="">pays</option>
+      <option value="">type de contreparties</option>
+    </select>
+  </div>
+  <div class="">
+    <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2"><i class="fa fa-check mr-2"></i>Save</button>
+  </div>
 </div>

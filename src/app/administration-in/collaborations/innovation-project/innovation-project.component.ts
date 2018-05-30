@@ -10,7 +10,6 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ProjectsService } from "../../../services/projects/projects.service";
 import { SharedNotificationService } from "./../../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../../globals/globals";
-
 declare const CKEDITOR: any;
 
 @Component({
@@ -25,9 +24,13 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		pr_elementProposition_ProjectEditor: "",
 		pr_name: "",
 		pr_responseTimeUnit: "",
-		pr_responseTimeValue: ""
+		pr_responseTimeValue: "",
+		prdataConfidential: "",
+		typeCollab: "",
+		confidentialData: ""
 	};
-
+	shDate: boolean = false;
+	public collabDate: { [key: string]: any } = {};
 	public buttSaveErr: { [key: string]: boolean } = {
 		pr_contexte_ProjectEditor: false,
 		pr_objectif_ProjectEditor: false,
@@ -38,6 +41,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 	};
 	public todoAct: string;
 	public accId: string;
+	public shConfidential = false;
 	public dataCurr: any = {};
 	public noValid: boolean = true;
 	public editAct: string = "EditAct";
@@ -150,6 +154,9 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 
 		if (iter == vl.length) this.noValid = false;
 	}
+	typeCollaborationChange() {
+		this.shDate = this.prModel.typeCollab == "programmed" ? true : false;
+	}
 	onEditorChange(vent) {}
 	onBlur(vent) {}
 	onFocus(vent) {}
@@ -158,5 +165,14 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		/*for (let x in CKEDITOR.instances) {
 			CKEDITOR.instances[x].destroy(true);
 		}*/
+	}
+
+	public collabDateObject: { [key: string]: any } = {};
+	saveDate(event) {
+		this.collabDateObject = event;
+	}
+	onConfidentialChange($event) {
+		this.shConfidential =
+			this.prModel.confidentialData == "yes" ? true : false;
 	}
 }

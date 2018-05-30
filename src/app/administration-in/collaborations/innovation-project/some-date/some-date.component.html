@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-4">
+    <my-date-picker (dateChanged)="onDateChanged($event,'limitdate')" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDatelimitdate" required></my-date-picker>
+  </div>
+  <div class="col-4">
+    <my-date-picker (dateChanged)="onDateChanged($event,'discussdate')" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDatediscussdate" required></my-date-picker>
+  </div>
+  <div class="col-4">
+    <my-date-picker (dateChanged)="onDateChanged($event,'applicationselecteddate')" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDate.applicationselecteddate" required></my-date-picker>
+  </div>
+</div>

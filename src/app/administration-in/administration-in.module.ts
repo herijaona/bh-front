@@ -21,7 +21,8 @@ import { MembersAdminComponent } from "./members-admin/members-admin.component";
 import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-all-colab.component";
 import { CommunitiesComponent } from './communities/communities.component';
 import { ApplyCollaborationComponent } from './collaborations/apply-collaboration/apply-collaboration.component';
-
+import { MyDatePickerModule } from 'mydatepicker';
+import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
 @NgModule({
 	imports: [
 		CommonModule,
@@ -29,7 +30,7 @@ import { ApplyCollaborationComponent } from './collaborations/apply-collaboratio
 		Ng4GeoautocompleteModule.forRoot(),
 		ReactiveFormsModule,
 		CKEditorModule,
-		FormsModule,
+		FormsModule,MyDatePickerModule,
 		RouterModule,
 		MembersAdminModule
 	],
@@ -47,7 +48,8 @@ import { ApplyCollaborationComponent } from './collaborations/apply-collaboratio
 		NavbarAdminComponent,
 		AdminAllColabComponent,
 		CommunitiesComponent,
-		ApplyCollaborationComponent
+		ApplyCollaborationComponent,
+		SomeDateComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],
