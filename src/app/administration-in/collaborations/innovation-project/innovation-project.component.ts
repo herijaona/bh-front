@@ -172,6 +172,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		this.collabDateObject = event;
 	}
 	onConfidentialChange($event) {
+		console.log(this.prModel);
 		this.shConfidential =
 			this.prModel.confidentialData == "yes" ? true : false;
 	}
