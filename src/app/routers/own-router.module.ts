@@ -28,7 +28,7 @@ import { CommitteeComponent } from "../committee/committee/committee.component";
 import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
 import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
 import { ViewReactionComponent } from "../company-data/view-reaction/view-reaction.component";
-import { ViewApplicationDetailsComponent } from "../company-data/view-application-details/view-application-details.component";
+import { ViewApplicationDetailsComponent } from "../administration-in/mydesk/view-application-details/view-application-details.component";
 import { QuestionsDetailsComponent } from "../administration-in/mydesk/questions-details/questions-details.component";
 import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
 import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
@@ -144,11 +144,6 @@ const routes: Routes = [
 		canActivate: [AuthguardService]
 	},
 	{
-		path: "candidature/details/:id_appl",
-		component: ViewApplicationDetailsComponent,
-		canActivate: [AuthguardService]
-	},
-	{
 		path: "administration-in/user/profile",
 		component: ProfileComponent,
 		canActivate: [AuthguardService]
@@ -165,6 +160,10 @@ const routes: Routes = [
 			{
 				path: "applications",
 				component: ApplicationReportComponent
+			},
+			{
+				path: "applications/details/:id_appl",
+				component: ViewApplicationDetailsComponent,
 			},
 			{
 				path: "questions",

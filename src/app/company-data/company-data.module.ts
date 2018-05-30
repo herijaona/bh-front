@@ -5,14 +5,8 @@ import { ViewReactionComponent } from "./view-reaction/view-reaction.component";
 import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
 import { RouterModule } from "@angular/router";
 
-import { ViewApplicationDetailsComponent } from "./view-application-details/view-application-details.component";
-
 @NgModule({
 	imports: [CommonModule, GeneralUtilitiesModule, RouterModule],
-	declarations: [
-		ApplicationReportComponent,
-		ViewReactionComponent,
-		ViewApplicationDetailsComponent
-	]
+	declarations: [ApplicationReportComponent, ViewReactionComponent]
 })
 export class CompanyDataModule {}
