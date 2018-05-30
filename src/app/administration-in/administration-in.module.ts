@@ -23,6 +23,8 @@ import { CommunitiesComponent } from './communities/communities.component';
 import { ApplyCollaborationComponent } from './collaborations/apply-collaboration/apply-collaboration.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
+import { ApplyComponent } from './collaborations/apply/apply.component';
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -49,7 +51,8 @@ import { SomeDateComponent } from './collaborations/innovation-project/some-date
 		AdminAllColabComponent,
 		CommunitiesComponent,
 		ApplyCollaborationComponent,
-		SomeDateComponent
+		SomeDateComponent,
+		ApplyComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

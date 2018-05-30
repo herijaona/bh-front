@@ -24,10 +24,15 @@ export class NavbarAdminComponent implements OnInit {
 			}
 		});
 	}
+	public show: boolean = false;
+	public hide: boolean = false;
 
 	constructor(private router: Router, public g: Globals) {}
 
 	ngOnInit() {
 		Object.keys(this.pName)
+	}
+	toggleCollapse() {	
+		this.show = true;
 	}
 }
