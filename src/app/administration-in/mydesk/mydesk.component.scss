@@ -37,8 +37,7 @@ li{
     }
 }
 .ml-16{
-    margin-left: 17%;
-    margin-top: 67px;
+    margin-top: 52px;
 }
 .side-title{
     margin-left: 30px;
@@ -47,3 +46,22 @@ li{
     }
 }
 /* end nav sidebar */
+
+/* sous nav */
+.nav-tel{
+    top: 50px;
+    padding: 10px;
+    background: white !important;
+    box-shadow:none;
+    .ns{
+        margin-left: 60px;
+        li{
+            a{
+                color: #393f4b;
+                font-family: SourceSansPro-Semibold;
+                font-size: 13px;
+            }
+        }
+    }
+}
+/* end sous nav */

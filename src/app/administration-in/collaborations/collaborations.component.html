@@ -1,22 +1,22 @@
 <navbar-admin [p_name]='page_name'></navbar-admin>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-2 col-md-3 col-sm-3 side-nv">
-      <div class="wrapper">
-        <div id="sidebar">
-          <ul class="list-unstyled components side-title">
-            <li><a [routerLink]="['/administration-in','collaborations']"><i class="fa fa-list"></i>List</a></li>
-            <li><a [routerLink]="['/administration-in','collaborations','create-collaboration']"><i class="fa  fa-share"></i>Create collaboration</a></li>
-            <li><a href="#"><i class="fa fa-adjust"></i>apply</a></li>
-            <li><a href="#"><i class="fa fa-wrench"></i>config</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <main class="col-12">
-        <div class="ml-16">
-          <router-outlet></router-outlet>
-        </div>
-      </main>
-    </div>
-</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark nav-tel">
+  <ul class="navbar-nav ns">
+    <li class="nav-item">
+      <a class="nav-link"  [routerLink]="['/administration-in','collaborations']">List</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  [routerLink]="['/administration-in','collaborations','create-collaboration']">Create collaboration</a>
+    </li>
+    <li class="nav-item">
+          <a class="nav-link" >apply</a>
+    </li>
+    <li class="nav-item">
+          <a class="nav-link"  href="#">config</a>
+    </li>
+  </ul>
+</nav>
+<main class="col-12">
+  <div class="ml-16">
+    <router-outlet></router-outlet>
+  </div>
+</main>
