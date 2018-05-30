@@ -82,7 +82,7 @@
           <label class="grey-text-form">diffusion</label>
       <div class="row">
         <div class="col-4">
-          <select (change)="changeDiffusion" [(ngModel)]="prModel.diffusionPlaces">
+          <select (change)="changeDiffusion()" [(ngModel)]="prModel.diffusionPlaces">
             <option value="default" >Select diffusion places</option>
             <option value="continent" >Continent</option>
             <option value="country">Country</option>

@@ -1,11 +1,11 @@
 <div class="row mt-3">
   <div class="col-4">
   	<span>Deadline</span>
-    <my-date-picker (dateChanged)="onDateChanged($event,'limitdate')" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDatelimitdate" required></my-date-picker>
+    <my-date-picker (dateChanged)="onDateChanged($event,'limitdate')" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDate.limitdate" required></my-date-picker>
   </div>
   <div class="col-4">
   	<span>Discussion date</span>
-    <my-date-picker (dateChanged)="onDateChanged($event,'discussdate')" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDatediscussdate" required></my-date-picker>
+    <my-date-picker (dateChanged)="onDateChanged($event,'discussdate')" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDate.discussdate" required></my-date-picker>
   </div>
   <div class="col-4">
   	<span>Application selection</span>

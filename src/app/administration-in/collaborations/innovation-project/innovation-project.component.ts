@@ -181,4 +181,8 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		this.shConfidential =
 			this.prModel.confidentialData == "yes" ? true : false;
 	}
+
+	changeDiffusion(){
+		
+	}
 }
