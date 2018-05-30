@@ -65,3 +65,12 @@ li{
 		padding-right: 10px;
 	}
 }
+.i-bar{
+	color: white;
+    font-size: 23px;
+}
+@media(min-width:767px){
+	.i-bar{
+		display:none;
+	}
+}
