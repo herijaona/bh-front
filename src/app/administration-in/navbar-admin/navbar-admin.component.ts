@@ -32,8 +32,7 @@ export class NavbarAdminComponent implements OnInit {
 	ngOnInit() {
 		Object.keys(this.pName)
 	}
-	toggleCollapse() {
-		
+	toggleCollapse() {	
 		this.show = true;
 	}
 }
