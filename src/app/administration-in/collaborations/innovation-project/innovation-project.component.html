@@ -29,7 +29,8 @@
          <div class="mb-20 unit-display">
             <label class="grey-text-form">Unit</label>
             <select (change)="onChange($event)" [(ngModel)]="prModel.pr_responseTimeUnit">
-            <option value="Hour">Hours</option>
+            <option value="" selected>Choose unit</option>
+            <option value="Hour" selected>Hours</option>
             <option value="Day">Days</option>
             <option value="Week">Weeks</option>
             <option value="Month">Months</option>
@@ -38,37 +39,36 @@
       </div>
    </div>
 
-   <label class="grey-text-form">Organisation</label>
-   <div class="form-check">
-        <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio1">
-        <label class="form-check-label" for="radio1">Programmé</label>
-   </div>
-   <div class="form-check">
-     <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio2">
-     <label class="form-check-label" for="radio2">Continu</label>
-   </div>
+   <label class="grey-text-form">Type</label>
+    <div class="button-holder">
+      <input type="radio" checked="" class="regular-radio" name="radio-1-set" id="radio-1-set"><label for="radio-1-set"></label>
+      <span class="grey-text-form">Programmé</span><br>
+      <input type="radio" checked="" class="regular-radio" name="radio-1-set" id="radio-2-set"><label for="radio-2-set"></label>
+      <span class="grey-text-form">Continu</span><br>
+    </div>
+
    <label class="grey-text-form">Confidentiality</label>
-   <div class="form-check">
-     <input class="form-check-input" mdbInputDirective name="group1" type="radio" id="radio2">
-     <label class="form-check-label" for="radio2">Continu</label>
+    <div class="button-holder">
+      <input type="radio" checked="" class="regular-radio" name="radio-1-set" id="radio-1-set"><label for="radio-1-set"></label>
+      <span class="grey-text-form">No confidential information</span><br>
+      <input type="radio" checked="" class="regular-radio" name="radio-2-set" id="radio-2-set"><label for="radio-2-set"></label>
+      <span class="grey-text-form">some confidential information</span><br>
+    </div>
+
+   <div class="mb-20">
+      <label class="grey-text-form">Contenu confidentiel</label>
+       <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+      </ckeditor>
    </div>
-    <div class="mb-20">
-   <label class="grey-text-form">Contenu confidentiel</label>
-      <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
-   </div>
-   <label class="grey-text-form">diffusion</label>
    <div class="mb-20 unit-display">
-      <label class="grey-text-form">Unit</label>
+      <label class="grey-text-form">diffusion</label>
       <select>
-         <option value="">continent</option>
+         <option value="" selected>continent</option>
          <option value="">pays</option>
          <option value="">type de contreparties</option>
       </select>
    </div>
 
-   <div class="">
-      
-   </div>
    <div class="">
       <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2"><i class="fa fa-check mr-2"></i>Save</button>
    </div>
