@@ -41,13 +41,15 @@
   <div class="">
     <div class="">
       <label class="grey-text-form">Type</label>
-      <div class="form-check">
-        <input (change)="typeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="continue" [(ngModel)]="prModel.typeCollab" type="radio" id="radio2">
-        <label class="form-check-label" for="radio2">Continu</label>
-      </div>
-      <div class="form-check">
-        <input (change)="typeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="programmed" [(ngModel)]="prModel.typeCollab" type="radio" id="radio1">
-        <label class="form-check-label" for="radio1">Programmé</label>
+      <div class="fl">
+         <div class="form-check">
+           <input (change)="typeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="continue" [(ngModel)]="prModel.typeCollab" type="radio" id="radio2">
+           <label class="form-check-label" for="radio2">Continu</label>
+         </div>
+         <div class="form-check ml-5">
+           <input (change)="typeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="programmed" [(ngModel)]="prModel.typeCollab" type="radio" id="radio1">
+           <label class="form-check-label" for="radio1">Programmé</label>
+         </div>
       </div>
     </div>
     <ng-template [ngIf]="shDate">
@@ -58,13 +60,13 @@
   </div>
   <!--  -->
   <div class="">
-  <label class="grey-text-form">Confidentiality</label>
+  <label class="grey-text-form mt-3 mb-3">Confidentiality</label>
     <div class="" style="display: flex">
       <div class="" >
         <input value="no" [(ngModel)]="prModel.confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
         <label class="">No confidential information</label>
       </div>
-      <div class="">
+      <div class="ml-5">
         <input value="yes" [(ngModel)]="prModel.confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
         <label class="">There is some confidential information</label>
       </div>
@@ -72,25 +74,25 @@
 
     <div class="">
       <ng-template [ngIf]="shConfidential" >
-       <label class="grey-text-form">Data Confidentials</label>
+       <label class="grey-text-form mb-3">Data Confidentials</label>
     <ckeditor #ckeditor2 [(ngModel)]="prModel.prdataConfidential" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
     </ckeditor>
       </ng-template>
     </div>
-  </div>
-  <label class="grey-text-form">diffusion</label>
-  <div class="mb-20 unit-display">
-    <label class="grey-text-form">Unit</label>
-    <select>
-      <option value="">continent</option>
-      <option value="">pays</option>
-      <option value="">type de contreparties</option>
-    </select>
-  </div>
-  <div class="">
-    <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2"><i class="fa fa-check mr-2"></i>Save</button>
-  </div>
-</div>
+
+     <div class="mb-20 unit-display mt-2">
+         <label class="grey-text-form">diffusion</label>
+         <select>
+            <option value="" selected>continent</option>
+            <option value="">pays</option>
+            <option value="">type de contreparties</option>
+         </select>
+      </div>
+
+      <div class="">
+          <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2"><i class="fa fa-check mr-2"></i>Save</button>
+        </div>
+      </div>
       <!-- <div class="col-md-6 col-sm-6">
          <div class="mb-20 unit-display">
             <label class="grey-text-form">Unit</label>
