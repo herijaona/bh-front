@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { Globals } from "./../../globals/globals";
 import { Router } from "@angular/router";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Globals } from "./../../globals/globals";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { TeamsService } from "../../services/teams/teams.service";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
 @Component({
 	selector: "members-admin",
 	templateUrl: "./members-admin.component.html",

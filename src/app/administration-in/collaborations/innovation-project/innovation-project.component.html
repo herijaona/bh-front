@@ -15,7 +15,7 @@
    </div>
    <div class="mb-20">
       <label class="grey-text-form">Proposal Requirements</label>
-      <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+      <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
       </ckeditor>
    </div>
    <div class="row">
@@ -66,6 +66,9 @@
       </select>
    </div>
 
+   <div class="">
+      
+   </div>
    <div class="">
       <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2"><i class="fa fa-check mr-2"></i>Save</button>
    </div>

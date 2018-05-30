@@ -14,10 +14,12 @@ import { NavbarAdminComponent } from "./navbar-admin/navbar-admin.component";
 import { PInfoComponent } from "./profile/p-info/p-info.component";
 import { ProjectEditAndNewComponent } from "./collaborations/project-edit-and-new/project-edit-and-new.component";
 import { InnovationProjectComponent } from "./collaborations/innovation-project/innovation-project.component";
+import { ViewApplicationDetailsComponent } from "./mydesk/view-application-details/view-application-details.component";
 import { QuestionsDetailsComponent } from "./mydesk/questions-details/questions-details.component";
 import { PCompletionComponent } from "./profile/p-completion/p-completion.component";
 import { MembersAdminComponent } from "./members-admin/members-admin.component";
 import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-all-colab.component";
+import { CommunitiesComponent } from './communities/communities.component';
 
 @NgModule({
 	imports: [
@@ -34,6 +36,7 @@ import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-a
 		MydeskComponent,
 		CollaborationsComponent,
 		ProjectEditAndNewComponent,
+		ViewApplicationDetailsComponent,
 		InnovationProjectComponent,
 		QuestionsDetailsComponent,
 		PInfoComponent,
@@ -41,7 +44,8 @@ import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-a
 		PCompletionComponent,
 		ProfileComponent,
 		NavbarAdminComponent,
-		AdminAllColabComponent
+		AdminAllColabComponent,
+		CommunitiesComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

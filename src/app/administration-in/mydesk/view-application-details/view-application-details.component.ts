@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Globals } from "./../../globals/globals";
+import { Globals } from "./../../../globals/globals";
 import { Router, ActivatedRoute } from "@angular/router";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
-import { TeamsService } from "../../services/teams/teams.service";
-import { ProjectsService } from "../../services/projects/projects.service";
+import { AuthserviceService } from "../../../services/authservice/authservice.service";
+import { TeamsService } from "../../../services/teams/teams.service";
+import { ProjectsService } from "../../../services/projects/projects.service";
 
 @Component({
 	selector: "view-application-details",
