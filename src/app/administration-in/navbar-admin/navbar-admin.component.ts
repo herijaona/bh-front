@@ -11,6 +11,7 @@ export class NavbarAdminComponent implements OnInit {
 	public pName = {
 		mydesk: false,
 		collabor: false,
+		community: false
 	}
 	@Input("p_name")
 	set p_name(pn) {

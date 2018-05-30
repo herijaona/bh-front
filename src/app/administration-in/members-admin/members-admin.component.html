@@ -127,38 +127,7 @@
               </table>
             </div>
           </ng-template>
-          <ng-template [ngIf]="communityShow">
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Job</th>
-                    <th>Organisation</th>
-                    <th>Interaction</th>
-                    <th class="text-center">Remove</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of userCommData">
-                    <th class="tb">
-                      <a>
-                              <img [src]="item.us.imageProfile" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
-                              {{item.us.firstname}}
-                            </a>
-                    </th>
-                    <td class="tb">{{item.us.lastname}}</td>
-                    <td>{{item.us.function}}</td>
-                    <td>{{item.org}}</td>
-                    <td>{{item.act.join('-')}}</td>
-                    <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
-                  </tr>
-                 
-                </tbody>
-              </table>
-            </div>
-          </ng-template>
+          
         </div>
       </div>
     </div>

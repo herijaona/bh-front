@@ -34,6 +34,7 @@ import { ApplicationReportComponent } from "../company-data/application-report/a
 import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
 import { ProjectEditAndNewComponent } from "../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component";
 import { Project1Component } from "../c-capital/project1/project1.component";
+import { CommunitiesComponent } from "../administration-in/communities/communities.component";
 import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 const routes: Routes = [
@@ -163,7 +164,7 @@ const routes: Routes = [
 			},
 			{
 				path: "applications/details/:id_appl",
-				component: ViewApplicationDetailsComponent,
+				component: ViewApplicationDetailsComponent
 			},
 			{
 				path: "questions",
@@ -189,6 +190,12 @@ const routes: Routes = [
 				component: ProjectEditAndNewComponent
 			}
 		]
+	},
+	{
+		path: "administration-in/communities",
+		component: CommunitiesComponent,
+		canActivate: [AuthguardService],
+		children: []
 	},
 	{
 		path: "c-capital/description-project",

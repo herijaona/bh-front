@@ -19,6 +19,7 @@ import { QuestionsDetailsComponent } from "./mydesk/questions-details/questions-
 import { PCompletionComponent } from "./profile/p-completion/p-completion.component";
 import { MembersAdminComponent } from "./members-admin/members-admin.component";
 import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-all-colab.component";
+import { CommunitiesComponent } from './communities/communities.component';
 
 @NgModule({
 	imports: [
@@ -43,7 +44,8 @@ import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-a
 		PCompletionComponent,
 		ProfileComponent,
 		NavbarAdminComponent,
-		AdminAllColabComponent
+		AdminAllColabComponent,
+		CommunitiesComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

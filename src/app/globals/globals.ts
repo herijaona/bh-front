@@ -9,7 +9,7 @@ export class Globals {
 	// api_baseUrl: string = "http://54.36.98.91:3000";
 	//site_baseUrl: string = "http://54.36.98.91/bh_version";
 	urlArrayLeng: 6;
-	public conf0_editor = { toolbar: [], removePlugins: "elementspath" };
+	public conf0_editor = { removePlugins: "toolbar,elementspath" };
 	public conf_editor = {
 		removePlugins: "elementspath",
 		toolbar: [

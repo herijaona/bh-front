@@ -18,8 +18,8 @@
         <li class="nav-item ">
           <a class="nav-link" href="#">Positions</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Communities</a>
+        <li class="nav-item" [ngClass]="{active: pName.community}">
+          <a class="nav-link" [routerLink]="['/administration-in','communities']">Communities</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Web portal</a>

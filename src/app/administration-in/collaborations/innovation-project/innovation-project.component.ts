@@ -11,7 +11,7 @@ import { ProjectsService } from "../../../services/projects/projects.service";
 import { SharedNotificationService } from "./../../../services/shared-notification/shared-notification.service";
 import { Globals } from "./../../../globals/globals";
 
-declare const CKEDITOR: any
+declare const CKEDITOR: any;
 
 @Component({
 	selector: "innovation-project",
