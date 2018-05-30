@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 /* Component Import*/
+import { ApplyComponent } from "../administration-in/collaborations/apply/apply.component";
 import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
 import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
 import { IdeasComponent } from "../ideas/ideas/ideas.component";
@@ -36,6 +37,8 @@ import { ProjectEditAndNewComponent } from "../administration-in/collaborations/
 import { Project1Component } from "../c-capital/project1/project1.component";
 import { CommunitiesComponent } from "../administration-in/communities/communities.component";
 import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
+
+
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 const routes: Routes = [
 	{
@@ -188,6 +191,10 @@ const routes: Routes = [
 			{
 				path: "create-collaboration",
 				component: ProjectEditAndNewComponent
+			},
+			{
+				path: "apply",
+				component: ApplyComponent
 			}
 		]
 	},

@@ -20,6 +20,7 @@ import { PCompletionComponent } from "./profile/p-completion/p-completion.compon
 import { MembersAdminComponent } from "./members-admin/members-admin.component";
 import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-all-colab.component";
 import { CommunitiesComponent } from './communities/communities.component';
+import { ApplyComponent } from './collaborations/apply/apply.component';
 
 @NgModule({
 	imports: [
@@ -45,7 +46,8 @@ import { CommunitiesComponent } from './communities/communities.component';
 		ProfileComponent,
 		NavbarAdminComponent,
 		AdminAllColabComponent,
-		CommunitiesComponent
+		CommunitiesComponent,
+		ApplyComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

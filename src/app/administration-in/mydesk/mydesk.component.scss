@@ -1,6 +1,7 @@
 $color1 : #e55037;
 $color2 : #393F4B;
 $green : #71BF71;
+$gray : #a7a7a7;
 li{
     list-style:none;
 }
@@ -62,7 +63,14 @@ li{
                 font-family: SourceSansPro-Semibold;
                 font-size: 13px;
             }
+            a:hover{
+                color:$gray;
+            }
+            .isactive{
+                color:red !important;
+            }
         }
     }
 }
+
 /* end sous nav */

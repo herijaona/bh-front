@@ -2,10 +2,10 @@
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav-tel">
   <ul class="navbar-nav ns">
     <li class="nav-item">
-      <a class="nav-link"  [routerLink]="['/administration-in','desk']">Team</a>
+      <a class="nav-link"  [ngClass]="{'isactive': isactivePage.team}" [routerLink]="['/administration-in','desk']">Team</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"  [routerLink]="['/administration-in','desk','questions']">Questions</a>
+      <a class="nav-link" [routerLink]="['/administration-in','desk','questions']">Questions</a>
     </li>
     <li class="nav-item">
           <a class="nav-link"  [routerLink]="['/administration-in','desk', 'applications']">Applications</a>
