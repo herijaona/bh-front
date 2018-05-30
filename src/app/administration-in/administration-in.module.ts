@@ -8,6 +8,7 @@ import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { CKEditorModule } from "ng2-ckeditor";
 import { Ng4GeoautocompleteModule } from "ng4-geoautocomplete";
 
+
 import { ProfileComponent } from "./profile/profile.component";
 import { CollaborationsComponent } from "./collaborations/collaborations.component";
 import { NavbarAdminComponent } from "./navbar-admin/navbar-admin.component";

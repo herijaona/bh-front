@@ -25,9 +25,10 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		pr_name: "",
 		pr_responseTimeUnit: "",
 		pr_responseTimeValue: "",
-		prdataConfidential: "",
-		typeCollab: "",
-		confidentialData: ""
+		pr_dataConfidential: "",
+		pr_durationTypeCollab: "",
+		confidentialData: "",
+		diffusionPlaces: ""
 	};
 	shDate: boolean = false;
 	public collabDate: { [key: string]: any } = {};
@@ -57,6 +58,8 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		this.prData = arg;
 	}
 
+	public diffusionModel: { [key: string]: any } = {};
+
 	constructor(
 		public g: Globals,
 		private pr: ProjectsService,
@@ -70,6 +73,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 			}
 		});
 	}
+
 	ngOnInit() {
 		if (this.todoAct == this.editAct) {
 			this.getDataProject();
@@ -154,8 +158,9 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 
 		if (iter == vl.length) this.noValid = false;
 	}
-	typeCollaborationChange() {
-		this.shDate = this.prModel.typeCollab == "programmed" ? true : false;
+	durationTypeCollaborationChange() {
+		this.shDate =
+			this.prModel.durationTypeCollab == "programmed" ? true : false;
 	}
 	onEditorChange(vent) {}
 	onBlur(vent) {}
