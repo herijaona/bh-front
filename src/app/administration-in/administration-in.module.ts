@@ -14,16 +14,18 @@ import { NavbarAdminComponent } from "./navbar-admin/navbar-admin.component";
 import { PInfoComponent } from "./profile/p-info/p-info.component";
 import { ProjectEditAndNewComponent } from "./collaborations/project-edit-and-new/project-edit-and-new.component";
 import { InnovationProjectComponent } from "./collaborations/innovation-project/innovation-project.component";
+import { QuestionsDetailsComponent } from "./mydesk/questions-details/questions-details.component";
 import { PCompletionComponent } from "./profile/p-completion/p-completion.component";
 import { MembersAdminComponent } from "./members-admin/members-admin.component";
-import { AdminAllColabComponent } from './collaborations/admin-all-colab/admin-all-colab.component';
+import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-all-colab.component";
 
 @NgModule({
 	imports: [
 		CommonModule,
 		MDBBootstrapModule,
 		Ng4GeoautocompleteModule.forRoot(),
-		ReactiveFormsModule,CKEditorModule,
+		ReactiveFormsModule,
+		CKEditorModule,
 		FormsModule,
 		RouterModule,
 		MembersAdminModule
@@ -33,6 +35,7 @@ import { AdminAllColabComponent } from './collaborations/admin-all-colab/admin-a
 		CollaborationsComponent,
 		ProjectEditAndNewComponent,
 		InnovationProjectComponent,
+		QuestionsDetailsComponent,
 		PInfoComponent,
 		MembersAdminComponent,
 		PCompletionComponent,

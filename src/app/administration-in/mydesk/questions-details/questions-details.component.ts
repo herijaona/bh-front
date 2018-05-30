@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Globals } from "./../../globals/globals";
+import { Globals } from "../../../globals/globals";
 import { Router, ActivatedRoute } from "@angular/router";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
-import { TeamsService } from "../../services/teams/teams.service";
+import { AuthserviceService } from "../../../services/authservice/authservice.service";
+import { TeamsService } from "../../../services/teams/teams.service";
 
 @Component({
 	selector: "questions-details",
@@ -17,7 +17,7 @@ export class QuestionsDetailsComponent implements OnInit {
 
 	constructor(private tms: TeamsService, private activRoute: ActivatedRoute) {
 		this.activRoute.params.subscribe((params_: any) => {
-			this.questionsID = params_["id_questions"];
+			this.questionsID = params_["qID"];
 			this.getDetailsOnQuestions();
 		});
 	}

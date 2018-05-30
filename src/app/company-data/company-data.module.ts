@@ -6,15 +6,13 @@ import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.m
 import { RouterModule } from "@angular/router";
 
 import { ViewApplicationDetailsComponent } from "./view-application-details/view-application-details.component";
-import { QuestionsDetailsComponent } from './questions-details/questions-details.component';
 
 @NgModule({
 	imports: [CommonModule, GeneralUtilitiesModule, RouterModule],
 	declarations: [
 		ApplicationReportComponent,
 		ViewReactionComponent,
-		ViewApplicationDetailsComponent,
-		QuestionsDetailsComponent
+		ViewApplicationDetailsComponent
 	]
 })
 export class CompanyDataModule {}

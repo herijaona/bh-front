@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-
 /* Component Import*/
 import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
 import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
@@ -30,29 +29,62 @@ import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-
 import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
 import { ViewReactionComponent } from "../company-data/view-reaction/view-reaction.component";
 import { ViewApplicationDetailsComponent } from "../company-data/view-application-details/view-application-details.component";
-import { QuestionsDetailsComponent } from "../company-data/questions-details/questions-details.component";
+import { QuestionsDetailsComponent } from "../administration-in/mydesk/questions-details/questions-details.component";
 import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
 import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
 import { ProjectEditAndNewComponent } from "../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component";
 import { Project1Component } from "../c-capital/project1/project1.component";
 import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
-
-
 // import { UserAuthModule } from "../user-auth/user-auth.module";
-
 const routes: Routes = [
-	{ path: "", component: HomepageComponent },
-	{ path: "collaborations", component: CollaborationsComponent },
-	{ path: "mydesk", component: MydeskComponent },
-	{ path: "committee", component: CommitteeComponent },
-	{ path: "profile-admin", component: ProfileAdminComponent },
-	{ path: "members-admin", component: MembersAdminComponent },
-	{ path: "home", component: HomepageComponent },
-	{ path: "project1", component: Project1Component },
-	{ path: "project-description", component: ProjectDescriptionComponent },
-	{ path: "mindset", component: MindsetComponent },
-	{ path: "open-innovation/:slug_acc/acceuil", component: MindsetComponent },
-	{ path: "open-innovation/:slug_acc/team", component: TeamComponent },
+	{
+		path: "",
+		component: HomepageComponent
+	},
+	{
+		path: "collaborations",
+		component: CollaborationsComponent
+	},
+	{
+		path: "mydesk",
+		component: MydeskComponent
+	},
+	{
+		path: "committee",
+		component: CommitteeComponent
+	},
+	{
+		path: "profile-admin",
+		component: ProfileAdminComponent
+	},
+	{
+		path: "members-admin",
+		component: MembersAdminComponent
+	},
+	{
+		path: "home",
+		component: HomepageComponent
+	},
+	{
+		path: "project1",
+		component: Project1Component
+	},
+	{
+		path: "project-description",
+		component: ProjectDescriptionComponent
+	},
+	{
+		path: "mindset",
+		component: MindsetComponent
+	},
+	{
+		path: "open-innovation/:slug_acc/acceuil",
+		component: MindsetComponent
+	},
+	{
+		path: "open-innovation/:slug_acc/team",
+		component: TeamComponent
+	},
 	{
 		path: "open-innovation/:slug_acc/projects",
 		component: ProjectsComponent
@@ -65,15 +97,42 @@ const routes: Routes = [
 		path: "open-innovation/:slug_acc/success-stories",
 		component: IdeasComponent
 	},
-	{ path: "team", component: TeamComponent },
-	{ path: "projects", component: ProjectsComponent },
-	{ path: "description-project", component: DescriptionProjectComponent },
-	{ path: "ideas", component: IdeasComponent },
-	{ path: "registerCompany", component: RegistrationComponent },
-	{ path: "activate/:code", component: ActivationComponent },
-	{ path: "login", component: PageLoginComponent },
-	{ path: "sign-in", component: SignUpComponent },
-	{ path: "all-companies", component: ListCompaniesComponent },
+	{
+		path: "team",
+		component: TeamComponent
+	},
+	{
+		path: "projects",
+		component: ProjectsComponent
+	},
+	{
+		path: "description-project",
+		component: DescriptionProjectComponent
+	},
+	{
+		path: "ideas",
+		component: IdeasComponent
+	},
+	{
+		path: "registerCompany",
+		component: RegistrationComponent
+	},
+	{
+		path: "activate/:code",
+		component: ActivationComponent
+	},
+	{
+		path: "login",
+		component: PageLoginComponent
+	},
+	{
+		path: "sign-in",
+		component: SignUpComponent
+	},
+	{
+		path: "all-companies",
+		component: ListCompaniesComponent
+	},
 	{
 		path: "view-project-application",
 		component: ApplicationReportComponent,
@@ -95,12 +154,6 @@ const routes: Routes = [
 		canActivate: [AuthguardService]
 	},
 	{
-		path: "questions/details/:id_questions",
-		component: QuestionsDetailsComponent,
-		canActivate: [AuthguardService]
-	},
-
-	{
 		path: "administration-in/desk",
 		component: MydeskComponent,
 		canActivate: [AuthguardService],
@@ -111,11 +164,15 @@ const routes: Routes = [
 			},
 			{
 				path: "applications",
-				component: ViewReactionComponent
+				component: ApplicationReportComponent
 			},
 			{
 				path: "questions",
 				component: ViewReactionComponent
+			},
+			{
+				path: "questions/details/:qID",
+				component: QuestionsDetailsComponent
 			}
 		]
 	},
@@ -134,7 +191,7 @@ const routes: Routes = [
 			}
 		]
 	},
-	{	
+	{
 		path: "c-capital/description-project",
 		component: ProjectDescriptionComponent
 	},
@@ -147,7 +204,6 @@ const routes: Routes = [
 		component: InvitedRegisterComponent
 	}
 ];
-
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
