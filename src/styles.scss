@@ -335,3 +335,8 @@ tbody td:last-child{
 .flex{
     display:flex;
 }
+.table-respo{
+    display: block;
+    width: 100%;
+    overflow-x: overlay;
+}

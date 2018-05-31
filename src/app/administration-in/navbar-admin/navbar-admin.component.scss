@@ -27,18 +27,19 @@ li{
 }
 @media(max-width:767px){
 .brand-tip{
-	position: absolute;
-    left: 97px;
+	position: relative;
+    left: 10px;
 	}
 .desk-nav{
     height: auto;
-    top: 28px;
     position: relative;
 	}
 }
 @media(max-width:410px){
 .dni-mobile{
 	display:block !important;
+	left: -32px;
+    position: relative;
 	}
 }
 .desk-nav-icon{
@@ -123,4 +124,10 @@ li{
 		display:none;
 	}
 }
-
+@media(max-width:767px){
+	.desk-sh{
+    position: absolute;
+    left: 44px;
+    top: -3px;
+	}
+}
