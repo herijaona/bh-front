@@ -143,7 +143,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		}
 
 		let dataInnovColab = {
-			typeCollab: "INNOVCOLLAB",
+			typeCollab: "COLLABPROJINNOV",
 			dataDetails: {
 				collabDescribData: new_val,
 				collabDurationType: this.cPrModel.pr_collabDurationType,

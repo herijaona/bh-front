@@ -61,4 +61,8 @@ export class ProjectsService extends BaseHttpService {
 	public countryGet() {
 		return this.fetch("get", "countryList").toPromise();
 	}
+
+	public getAllMyCollabList(){
+		return this.fetch('get', 'admin-cca/getCollabLists').toPromise()
+	}
 }

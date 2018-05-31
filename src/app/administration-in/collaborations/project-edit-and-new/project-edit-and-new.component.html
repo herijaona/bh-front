@@ -4,7 +4,7 @@
 	   <option *ngFor="let item of collabTypes" [selected]="item.selected == true" value="{{item.slug}}">{{item.text}}</option>
 	</select>
 	<hr>
-	<ng-template [ngIf]="selctCollab == 'innovationproject'">
+	<ng-template [ngIf]="selctCollab == 'COLLABPROJINNOV'">
 		<innovation-project [todoAct_]="todoAct" [prData_]="prData"></innovation-project>
 	</ng-template>	
 </div>
