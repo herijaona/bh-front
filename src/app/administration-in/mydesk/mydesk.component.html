@@ -1,25 +1,26 @@
 <navbar-admin [p_name]='page_name'></navbar-admin>
- <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav-tel">
+ <nav class="navbar navbar-expand-sm nav-tel">
   <ul class="navbar-nav ns">
-    <li class="nav-item">
-      <a class="nav-link"  [ngClass]="{'isactive': isactivePage.team}" [routerLink]="['/administration-in','desk']">Team</a>
+    <li class="nav-item" >
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/administration-in','desk']">Team</a>
+    </li>
+    <li class="nav-item" >
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk','questions']">Questions</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/administration-in','desk','questions']">Questions</a>
+          <a class="nav-link" routerLinkActive="active"  [routerLink]="['/administration-in','desk', 'applications']">Applications</a>
     </li>
     <li class="nav-item">
-          <a class="nav-link"  [routerLink]="['/administration-in','desk', 'applications']">Applications</a>
+          <a class="nav-link" routerLinkActive="active"  href="#">Favorite</a>
     </li>
     <li class="nav-item">
-          <a class="nav-link"  href="#">Favorite</a>
-    </li>
-    <li class="nav-item">
-          <a class="nav-link"  [routerLink]="['/administration-in','desk', 'applications']">invited organizations</a>
+          <a class="nav-link" routerLinkActive="active"  href="#">invited organizations</a>
     </li>
   </ul>
 </nav>
-<main class="col-12">
+<main class="">
   <div class="ml-16">
      <router-outlet></router-outlet>
   </div>
 </main>
+

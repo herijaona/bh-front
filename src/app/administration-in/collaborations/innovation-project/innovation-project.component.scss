@@ -99,3 +99,12 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     display:flex;
 }
 /* end radio customize */
+.form-check-label{
+    font-family: SourceSansPro-Regular;
+    font-size: 15px;
+}
+.select-mt{
+    select{
+        height: auto !important;
+    }
+}

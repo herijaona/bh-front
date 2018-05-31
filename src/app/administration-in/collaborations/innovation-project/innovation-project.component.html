@@ -19,7 +19,7 @@
     </ckeditor>
   </div>
   <div class="row">
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-6 col-sm-6 pl-0">
       <div class="mb-20">
         <label class="grey-text-form">Response time</label>
         <input (change)="onChange($event)" type="number" [(ngModel)]="prModel.pr_responseTimeValue" name="resonseTime" class="form-control-project">
@@ -64,11 +64,11 @@
     <div class="" style="display: flex">
       <div class="">
         <input value="no" [(ngModel)]="prModel.pr_confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
-        <label class="">No confidential information</label>
+        <label class="form-check-label">No confidential information</label>
       </div>
       <div class="ml-5">
         <input value="yes" [(ngModel)]="prModel.pr_confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
-        <label class="">There is some confidential information</label>
+        <label class="form-check-label">There is some confidential information</label>
       </div>
     </div>
     <div class="">
@@ -78,10 +78,10 @@
         </ckeditor>
       </ng-template>
     </div>
-    <div class="mb-20  mt-2">
+    <div class="mb-20  mt-3">
       <label class="grey-text-form">diffusion</label>
       <div class="row">
-        <div class="col-4">
+        <div class="col-4 pl-0">
           <select (change)="changeDiffusion($event)" [(ngModel)]="prModel.pr_diffusionPlaces">
             <option value="default">Select diffusion places</option>
             <option value="continent">Continent</option>
@@ -94,28 +94,28 @@
             <div class="" style="display: flex;">
               <div class="ml-2 mr-2">
                 <input type="checkbox" [(ngModel)]="diffusionModelContinent.asia" id="asia">
-                <label class="ml-2" for="asia">Asia</label>
+                <label class="ml-2 form-check-label" for="asia">Asia</label>
               </div>
               <div class="ml-2 mr-2">
                 <input type="checkbox" [(ngModel)]="diffusionModelContinent.africa" id="africa">
-                <label class="ml-2" for="africa">Africa</label>
+                <label class="ml-2 form-check-label" for="africa">Africa</label>
               </div>
               <div class="ml-2 mr-2">
                 <input type="checkbox" [(ngModel)]="diffusionModelContinent.europa" id="europa">
-                <label class="ml-2" for="europa">Europa</label>
+                <label class="ml-2 form-check-label" for="europa">Europa</label>
               </div>
               <div class="ml-2 mr-2">
                 <input type="checkbox" [(ngModel)]="diffusionModelContinent.america" id="america">
-                <label class="ml-2" for="america">America</label>
+                <label class="ml-2 form-check-label" for="america">America</label>
               </div>
               <div class="ml-2 mr-2">
                 <input type="checkbox" [(ngModel)]="diffusionModelContinent.oceania" id="oceania">
-                <label class="ml-2" for="oceania">Oceania</label>
+                <label class="ml-2 form-check-label" for="oceania">Oceania</label>
               </div>
             </div>
           </ng-template>
           <ng-template [ngIf]="diffusionTypes.country">
-            <div class="">
+            <div class="select-mt">
               <select [size]="6" multiple="multiple" [(ngModel)]="diffusionModelCountry" (change)="selectCountryDIffusion()">
                 <option  *ngFor="let item of ListCo.default_type" [value]="item.code">{{item.name}}</option>
               </select>

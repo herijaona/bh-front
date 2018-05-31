@@ -39,24 +39,3 @@ li{
 }
 /* end nav sidebar */
 
-/* sous nav */
-.nav-tel{
-    top: 50px;
-    padding: 10px;
-    background: white !important;
-    box-shadow:none;
-    .ns{
-        margin-left: 60px;
-        li{
-            a{
-                color: #393f4b;
-                font-family: SourceSansPro-Semibold;
-                font-size: 13px;
-            }
-            a:hover{
-                color:$gray;
-            }
-        }
-    }
-}
-/* end sous nav */
