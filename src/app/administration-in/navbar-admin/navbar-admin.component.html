@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-md bg-desk">
   <div class="container-fluid">
-    <a (click)="toggleCollapse()" class="menu-bar"><i class="fa fa-bars i-bar"></i>MENU</a>
     <a class="navbar-brand brand-tip" href="#"><img src="{{g.base_href}}assets/img/logo-ccw.png" width="37"></a>
     <ul class="navbar-nav form-inline my-2 my-md-0 desk-nav-icon dni-mobile">
         <li class="nav-item">
@@ -52,6 +51,7 @@
           <a class="nav-link" [routerLink]="['/administration-in','user','profile']"><i class="fa fa-user-circle"></i></a>
         </li>
     </ul>
+    <a (click)="toggleCollapse()" class="menu-bar"><i class="fa fa-bars i-bar"></i>MENU</a>
   </div>
 </nav>
 

@@ -18,6 +18,7 @@ export class NavbarAdminComponent implements OnInit {
 	}
 	toggleCollapse() {
 		this.el.nativeElement.querySelector(".mobil-top").classList.toggle("toggle-in");
+		this.el.nativeElement.querySelector(".mobil-top").classList.replace("nav-link", "fy");
 	}
 
 }
