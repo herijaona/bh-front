@@ -210,7 +210,7 @@ const routes: Routes = [
 				component: ApplyComponent
 			},
 			{
-				path: "config",
+				path: "apply-sent",
 				component: ConfigComponent
 			}
 			

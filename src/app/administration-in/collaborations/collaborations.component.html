@@ -2,16 +2,19 @@
 <nav class="navbar navbar-expand-sm nav-tel">
   <ul class="navbar-nav ns">
     <li class="nav-item">
-      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  [routerLink]="['/administration-in','collaborations']">List</a>
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  [routerLink]="['/administration-in','collaborations']">My collaborations</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','create-collaboration']">Create collaboration</a>
+    </li> -->
+     <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','apply']">Applications received</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','apply']">Apply</a>
-    </li>
+    </li> -->
     <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','config']">Config</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','apply-sent']">Applications sent</a>
     </li>
   </ul>
 </nav>
