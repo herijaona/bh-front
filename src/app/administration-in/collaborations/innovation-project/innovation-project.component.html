@@ -63,11 +63,11 @@
     <label class="grey-text-form mt-3 mb-3">Confidentiality</label>
     <div class="" style="display: flex">
       <div class="">
-        <input value="no" [(ngModel)]="prModel.confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
+        <input value="no" [(ngModel)]="prModel.pr_confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
         <label class="">No confidential information</label>
       </div>
       <div class="ml-5">
-        <input value="yes" [(ngModel)]="prModel.confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
+        <input value="yes" [(ngModel)]="prModel.pr_confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
         <label class="">There is some confidential information</label>
       </div>
     </div>
@@ -79,41 +79,48 @@
       </ng-template>
     </div>
     <div class="mb-20  mt-2">
-          <label class="grey-text-form">diffusion</label>
+      <label class="grey-text-form">diffusion</label>
       <div class="row">
         <div class="col-4">
-          <select (change)="changeDiffusion()" [(ngModel)]="prModel.diffusionPlaces">
-            <option value="default" >Select diffusion places</option>
-            <option value="continent" >Continent</option>
+          <select (change)="changeDiffusion($event)" [(ngModel)]="prModel.pr_diffusionPlaces">
+            <option value="default">Select diffusion places</option>
+            <option value="continent">Continent</option>
             <option value="country">Country</option>
             <option value="parts">Type de contreparties</option>
           </select>
         </div>
         <div class="col-8">
-          <ng-template >
-          <div class="" style="display: flex;">
-           <div class="ml-2 mr-2">
-             <input type="checkbox" [(ngModel)]="diffusionModel.asia" id="asia">
-             <label class="ml-2" for="asia">Asia</label>
-           </div>
-           <div class="ml-2 mr-2">
-             <input type="checkbox" [(ngModel)]="diffusionModel.africa" id="africa">
-             <label class="ml-2" for="africa">Africa</label>
-           </div>
-           <div class="ml-2 mr-2">
-             <input type="checkbox" [(ngModel)]="diffusionModel.europa" id="europa">
-             <label class="ml-2" for="europa">Europa</label>
-           </div>
-           <div class="ml-2 mr-2">
-             <input type="checkbox" [(ngModel)]="diffusionModel.america" id="america">
-             <label class="ml-2" for="america">America</label>
-           </div>
-           <div class="ml-2 mr-2">
-             <input type="checkbox" [(ngModel)]="diffusionModel.oceania" id="oceania">
-             <label class="ml-2" for="oceania">Oceania</label>
-           </div>
-          </div>
-        </ng-template>
+          <ng-template [ngIf]="diffusionTypes.continent">
+            <div class="" style="display: flex;">
+              <div class="ml-2 mr-2">
+                <input type="checkbox" [(ngModel)]="diffusionModelContinent.asia" id="asia">
+                <label class="ml-2" for="asia">Asia</label>
+              </div>
+              <div class="ml-2 mr-2">
+                <input type="checkbox" [(ngModel)]="diffusionModelContinent.africa" id="africa">
+                <label class="ml-2" for="africa">Africa</label>
+              </div>
+              <div class="ml-2 mr-2">
+                <input type="checkbox" [(ngModel)]="diffusionModelContinent.europa" id="europa">
+                <label class="ml-2" for="europa">Europa</label>
+              </div>
+              <div class="ml-2 mr-2">
+                <input type="checkbox" [(ngModel)]="diffusionModelContinent.america" id="america">
+                <label class="ml-2" for="america">America</label>
+              </div>
+              <div class="ml-2 mr-2">
+                <input type="checkbox" [(ngModel)]="diffusionModelContinent.oceania" id="oceania">
+                <label class="ml-2" for="oceania">Oceania</label>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="diffusionTypes.country">
+            <div class="">
+              <select [size]="6" multiple="multiple" [(ngModel)]="diffusionModelCountry" (change)="selectCountryDIffusion()">
+                <option  *ngFor="let item of ListCo.default_type" [value]="item.code">{{item.name}}</option>
+              </select>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>

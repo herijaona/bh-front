@@ -57,4 +57,8 @@ export class ProjectsService extends BaseHttpService {
 	public getAllCollabTpes() {
 		return this.fetch("get", "bh-projects/getAllCollabtype").toPromise();
 	}
+	
+	public countryGet() {
+		return this.fetch("get", "countryList").toPromise();
+	}
 }

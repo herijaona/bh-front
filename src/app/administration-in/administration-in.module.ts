@@ -26,6 +26,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
 import { ApplyComponent } from './collaborations/apply/apply.component';
 
+
 @NgModule({
 	imports: [
 		CommonModule,

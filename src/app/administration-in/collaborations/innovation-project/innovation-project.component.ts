@@ -18,6 +18,14 @@ declare const CKEDITOR: any;
 	styleUrls: ["./innovation-project.component.scss"]
 })
 export class InnovationProjectComponent implements OnInit, OnDestroy {
+	toppingList = [
+		"Extra cheese",
+		"Mushroom",
+		"Onion",
+		"Pepperoni",
+		"Sausage",
+		"Tomato"
+	];
 	public prModel: { [key: string]: any } = {
 		pr_contexte_ProjectEditor: "",
 		pr_objectif_ProjectEditor: "",
@@ -27,8 +35,8 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		pr_responseTimeValue: "",
 		pr_dataConfidential: "",
 		pr_durationTypeCollab: "",
-		confidentialData: "",
-		diffusionPlaces: ""
+		pr_confidentialData: "",
+		pr_diffusionPlaces: "default"
 	};
 	shDate: boolean = false;
 	public collabDate: { [key: string]: any } = {};
@@ -48,6 +56,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 	public editAct: string = "EditAct";
 	public addAct: string = "AddAct";
 	public projform: FormGroup;
+	public diffusionModelCountry: any;
 	public prData: any;
 	@Input("todoAct_")
 	set todoAct_(arg) {
@@ -58,7 +67,19 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		this.prData = arg;
 	}
 
-	public diffusionModel: { [key: string]: any } = {};
+	public diffusionModelContinent = {
+		asia: false,
+		america: false,
+		africa: false,
+		europa: false,
+		oceania: false
+	};
+
+	public diffusionTypes = {
+		country: false,
+		continent: false,
+		part: false
+	};
 
 	constructor(
 		public g: Globals,
@@ -77,7 +98,20 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		if (this.todoAct == this.editAct) {
 			this.getDataProject();
+		} else {
+			this.getCountryList();
 		}
+	}
+	public ListCo: any = [];
+	async getCountryList() {
+		try {
+			let cListres = await this.pr.countryGet();
+			if (cListres) {
+				if (cListres["status"] == "OK") {
+					this.ListCo = cListres["data"];
+				}
+			}
+		} catch (e) {}
 	}
 
 	async getDataProject() {
@@ -133,6 +167,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		}
 	}
 	onChange(event) {
+		console.log(this.prModel);
 		Object.keys(this.prModel).forEach(e => {
 			if (this.prModel[e] != null) {
 				if (this.prModel[e].length == 0) {
@@ -158,6 +193,8 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 
 		if (iter == vl.length) this.noValid = false;
 	}
+
+
 	durationTypeCollaborationChange() {
 		this.shDate =
 			this.prModel.durationTypeCollab == "programmed" ? true : false;
@@ -179,10 +216,22 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 	onConfidentialChange($event) {
 		console.log(this.prModel);
 		this.shConfidential =
-			this.prModel.confidentialData == "yes" ? true : false;
+			this.prModel.pr_confidentialData == "yes" ? true : false;
 	}
 
-	changeDiffusion(){
-		
+	changeDiffusion(ev) {
+		Object.keys(this.diffusionTypes).forEach(el => {
+			console.log(el);
+			console.log(ev.target.value);
+			if (ev.target.value == el) {
+				this.diffusionTypes[el] = true;
+			} else {
+				this.diffusionTypes[el] = false;
+			}
+		});
+	}
+
+	selectCountryDIffusion() {
+		console.log(this.diffusionModelCountry);
 	}
 }
