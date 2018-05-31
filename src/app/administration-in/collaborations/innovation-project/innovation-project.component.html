@@ -43,11 +43,11 @@
       <label class="grey-text-form">Type</label>
       <div class="fl">
         <div class="form-check">
-          <input (change)="durationTypeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="continue" [(ngModel)]="prModel.durationTypeCollab" type="radio" id="radio2">
+          <input (change)="durationTypeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="continue" [(ngModel)]="cPrModel.pr_collabDurationType" type="radio" id="radio2">
           <label class="form-check-label" for="radio2">Continu</label>
         </div>
         <div class="form-check ml-5">
-          <input (change)="durationTypeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="programmed" [(ngModel)]="prModel.durationTypeCollab" type="radio" id="radio1">
+          <input (change)="durationTypeCollaborationChange()" class="form-check-input" mdbInputDirective name="group1" value="programmed" [(ngModel)]="cPrModel.pr_collabDurationType" type="radio" id="radio1">
           <label class="form-check-label" for="radio1">Programmé</label>
         </div>
       </div>
@@ -63,18 +63,18 @@
     <label class="grey-text-form mt-3 mb-3">Confidentiality</label>
     <div class="" style="display: flex">
       <div class="">
-        <input value="no" [(ngModel)]="prModel.pr_confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
+        <input value="no"  (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
         <label class="">No confidential information</label>
       </div>
       <div class="ml-5">
-        <input value="yes" [(ngModel)]="prModel.pr_confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
+        <input value="yes"  (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
         <label class="">There is some confidential information</label>
       </div>
     </div>
     <div class="">
       <ng-template [ngIf]="shConfidential">
         <label class="grey-text-form mb-3">Data Confidentials</label>
-        <ckeditor #ckeditor2 [(ngModel)]="prModel.prdataConfidential" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+        <ckeditor #ckeditor2 [(ngModel)]="cPrModel.pr_dataConfidential" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
         </ckeditor>
       </ng-template>
     </div>
@@ -82,7 +82,7 @@
       <label class="grey-text-form">diffusion</label>
       <div class="row">
         <div class="col-4">
-          <select (change)="changeDiffusion($event)" [(ngModel)]="prModel.pr_diffusionPlaces">
+          <select (change)="changeDiffusion($event)" [(ngModel)]="cPrModel.pr_diffusionPlaces">
             <option value="default">Select diffusion places</option>
             <option value="continent">Continent</option>
             <option value="country">Country</option>
@@ -93,23 +93,23 @@
           <ng-template [ngIf]="diffusionTypes.continent">
             <div class="" style="display: flex;">
               <div class="ml-2 mr-2">
-                <input type="checkbox" [(ngModel)]="diffusionModelContinent.asia" id="asia">
+                <input (change)='continentCh()'  type="checkbox" [(ngModel)]="diffusionModelContinent.asia" id="asia">
                 <label class="ml-2" for="asia">Asia</label>
               </div>
               <div class="ml-2 mr-2">
-                <input type="checkbox" [(ngModel)]="diffusionModelContinent.africa" id="africa">
+                <input (change)='continentCh()'  type="checkbox" [(ngModel)]="diffusionModelContinent.africa" id="africa">
                 <label class="ml-2" for="africa">Africa</label>
               </div>
               <div class="ml-2 mr-2">
-                <input type="checkbox" [(ngModel)]="diffusionModelContinent.europa" id="europa">
+                <input (change)='continentCh()'  type="checkbox" [(ngModel)]="diffusionModelContinent.europa" id="europa">
                 <label class="ml-2" for="europa">Europa</label>
               </div>
               <div class="ml-2 mr-2">
-                <input type="checkbox" [(ngModel)]="diffusionModelContinent.america" id="america">
+                <input (change)='continentCh()'  type="checkbox" [(ngModel)]="diffusionModelContinent.america" id="america">
                 <label class="ml-2" for="america">America</label>
               </div>
               <div class="ml-2 mr-2">
-                <input type="checkbox" [(ngModel)]="diffusionModelContinent.oceania" id="oceania">
+                <input  (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.oceania" id="oceania">
                 <label class="ml-2" for="oceania">Oceania</label>
               </div>
             </div>

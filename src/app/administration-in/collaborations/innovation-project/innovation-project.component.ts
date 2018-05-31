@@ -18,28 +18,21 @@ declare const CKEDITOR: any;
 	styleUrls: ["./innovation-project.component.scss"]
 })
 export class InnovationProjectComponent implements OnInit, OnDestroy {
-	toppingList = [
-		"Extra cheese",
-		"Mushroom",
-		"Onion",
-		"Pepperoni",
-		"Sausage",
-		"Tomato"
-	];
 	public prModel: { [key: string]: any } = {
 		pr_contexte_ProjectEditor: "",
 		pr_objectif_ProjectEditor: "",
 		pr_elementProposition_ProjectEditor: "",
 		pr_name: "",
 		pr_responseTimeUnit: "",
-		pr_responseTimeValue: "",
+		pr_responseTimeValue: ""
+	};
+
+	public cPrModel = {
 		pr_dataConfidential: "",
-		pr_durationTypeCollab: "",
-		pr_confidentialData: "",
+		pr_confidentialExistData: "",
+		pr_collabDurationType: "",
 		pr_diffusionPlaces: "default"
 	};
-	shDate: boolean = false;
-	public collabDate: { [key: string]: any } = {};
 	public buttSaveErr: { [key: string]: boolean } = {
 		pr_contexte_ProjectEditor: false,
 		pr_objectif_ProjectEditor: false,
@@ -48,15 +41,17 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		pr_responseTimeUnit: false,
 		pr_responseTimeValue: false
 	};
+	public shDate: boolean = false;
+	public shConfidential = false;
+
+	public noValid: boolean = true;
+
 	public todoAct: string;
 	public accId: string;
-	public shConfidential = false;
 	public dataCurr: any = {};
-	public noValid: boolean = true;
 	public editAct: string = "EditAct";
 	public addAct: string = "AddAct";
 	public projform: FormGroup;
-	public diffusionModelCountry: any;
 	public prData: any;
 	@Input("todoAct_")
 	set todoAct_(arg) {
@@ -67,6 +62,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		this.prData = arg;
 	}
 
+	public diffusionModelCountry: any = [];
 	public diffusionModelContinent = {
 		asia: false,
 		america: false,
@@ -96,6 +92,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
+		this.todoAct = this.addAct;
 		if (this.todoAct == this.editAct) {
 			this.getDataProject();
 		} else {
@@ -129,10 +126,62 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 	}
 
 	async saveProjects() {
+		console.log(this.prModel);
+		console.log(this.cPrModel);
+
 		let new_val: { [key: string]: any } = {};
 		Object.keys(this.prModel).forEach(e => {
 			new_val[e.split("_")[1]] = this.prModel[e];
 		});
+		let diffData: any;
+		if (this.cPrModel.pr_diffusionPlaces == "continent") {
+			diffData = this.diffusionModelContinent;
+		} else if (this.cPrModel.pr_diffusionPlaces == "country") {
+			diffData = this.diffusionModelCountry;
+		} else if (this.cPrModel.pr_diffusionPlaces == "part") {
+			diffData = [];
+		}
+
+		let dataInnovColab = {
+			typeCollab: "INNOVCOLLAB",
+			dataDetails: {
+				collabDescribData: new_val,
+				collabDurationType: this.cPrModel.pr_collabDurationType,
+				collabDurationData: this.collabDateObject,
+				hasInfoConfidential: this.cPrModel.pr_confidentialExistData,
+				infoConfidentialData: this.cPrModel.pr_dataConfidential,
+				diffusionTypes: this.cPrModel.pr_diffusionPlaces,
+				diffusionDatas: diffData
+			}
+		};
+
+		try {
+			let save_res: any;
+			if (this.todoAct == this.editAct) {
+				let data = { edited: new_val, id_: this.prData._id };
+				save_res = await this.pr.saveEditProject(data);
+			} else {
+				save_res = await this.pr.saveNewsProject(dataInnovColab);
+			}
+
+			if (save_res) {
+				if (save_res.status == "OK") {
+					this.sh.notifToast({
+						type: "success",
+						message: "<p>Configuration saved</p>"
+					});
+					this.sh.pushData({
+						from: "projectNEW",
+						action: "refresh",
+						data: "end"
+					});
+					this.el.nativeElement.style.display = "none";
+				}
+			}
+		} catch (e) {
+			console.log(e);
+		}
+		/*
 		try {
 			let save_res: any;
 			if (this.todoAct == this.editAct) {
@@ -155,7 +204,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 					this.el.nativeElement.style.display = "none";
 				}
 			}
-		} catch (e) {}
+		} catch (e) {}*/
 	}
 	onReady(vent) {
 		if ("status" in this.dataCurr) {
@@ -166,8 +215,9 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 			}
 		}
 	}
+
 	onChange(event) {
-		console.log(this.prModel);
+		let tValid = [];
 		Object.keys(this.prModel).forEach(e => {
 			if (this.prModel[e] != null) {
 				if (this.prModel[e].length == 0) {
@@ -185,53 +235,140 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		let iter = 0;
 		for (let i of vl) {
 			if (i) {
-				this.noValid = true;
+				// this.noValid = true;
 				break;
 			}
 			++iter;
 		}
+		tValid["descr"] = iter == vl.length ? "NOK" : "OK";
 
-		if (iter == vl.length) this.noValid = false;
+		tValid["duration"] = "OK";
+		let drtion = this.cPrModel.pr_collabDurationType;
+
+		if (drtion == "programmed") {
+			if (this.collabDateObject) {
+				if (!this.collabDateObject["limitdate"]) {
+					tValid["duration"] = "OK";
+				} else {
+					tValid["duration"] = "NOK";
+				}
+			}
+		} else if (drtion == "continue") {
+			tValid["duration"] = "NOK";
+		}
+
+		tValid["dataSecret"] = "OK";
+		let scret = this.cPrModel.pr_confidentialExistData;
+		if (scret == "yes") {
+			if (this.cPrModel.pr_dataConfidential != "") {
+				tValid["dataSecret"] = "NOK";
+			}
+		} else if (scret == "no") {
+			tValid["dataSecret"] = "NOK";
+		} else {
+			tValid["dataSecret"] = "OK";
+		}
+
+		tValid["diffsion"] = "OK";
+		let diffType = Object.keys(this.diffusionTypes);
+		for (let r of diffType) {
+			if (this.diffusionTypes[r]) {
+				if (r == "continent") {
+					let ct = Object.keys(this.diffusionModelContinent);
+					for (let ctin of ct) {
+						if (this.diffusionModelContinent[ctin]) {
+							tValid["diffsion"] = "NOK";
+							break;
+						}
+					}
+				} else if (r == "country") {
+					if (this.diffusionModelCountry.length) {
+						tValid["diffsion"] = "NOK";
+					}
+				} else if (r == "part") {
+					tValid["diffsion"] = "NOK";
+				}
+			}
+		}
+
+		this.noValid = !this.IsAllGood(tValid);
 	}
 
+	IsAllGood(tb: any): boolean {
+		var obk = Object.keys(tb);
+		for (var ext of obk) {
+			if (tb[ext] == "OK") {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	durationTypeCollaborationChange() {
 		this.shDate =
-			this.prModel.durationTypeCollab == "programmed" ? true : false;
+			this.cPrModel.pr_collabDurationType == "programmed" ? true : false;
+		if (!this.shDate) {
+			this.collabDateObject = {};
+		}
+		this.onChange("e");
 	}
 	onEditorChange(vent) {}
 	onBlur(vent) {}
 	onFocus(vent) {}
-	ngOnDestroy() {
-		this.sh.pushData({});
-		/*for (let x in CKEDITOR.instances) {
-			CKEDITOR.instances[x].destroy(true);
-		}*/
-	}
 
-	public collabDateObject: { [key: string]: any } = {};
+	public collabDateObject: any;
+
 	saveDate(event) {
+		console.log(event);
 		this.collabDateObject = event;
+		this.onChange(event);
 	}
-	onConfidentialChange($event) {
-		console.log(this.prModel);
+	onConfidentialChange(event) {
+		this.cPrModel.pr_confidentialExistData = event.target.value;
 		this.shConfidential =
-			this.prModel.pr_confidentialData == "yes" ? true : false;
+			this.cPrModel.pr_confidentialExistData == "yes" ? true : false;
+		if (!this.shConfidential) {
+			this.cPrModel.pr_dataConfidential = "";
+		}
+		this.onChange(event);
 	}
 
 	changeDiffusion(ev) {
 		Object.keys(this.diffusionTypes).forEach(el => {
-			console.log(el);
-			console.log(ev.target.value);
 			if (ev.target.value == el) {
 				this.diffusionTypes[el] = true;
 			} else {
 				this.diffusionTypes[el] = false;
 			}
 		});
+
+		switch (ev.target.value) {
+			case "continent":
+				this.diffusionModelCountry = [];
+				break;
+			case "country":
+				Object.keys(this.diffusionModelContinent).forEach(el => {
+					this.diffusionModelContinent[el] = false;
+				});
+				break;
+			case "part":
+				break;
+			default:
+				break;
+		}
+		this.onChange("e");
 	}
 
 	selectCountryDIffusion() {
-		console.log(this.diffusionModelCountry);
+		this.onChange("e");
+	}
+	continentCh() {
+		this.onChange("e");
+	}
+	ngOnDestroy() {
+		this.sh.pushData({});
+		/*for (let x in CKEDITOR.instances) {
+			CKEDITOR.instances[x].destroy(true);
+		}*/
 	}
 }

@@ -11,7 +11,12 @@ export class SomeDateComponent implements OnInit {
 	public myDatePickerOptions: IMyDpOptions = {
 		dateFormat: "dd.mm.yyyy",
 		editableDateField: false,
-		showTodayBtn: false
+		showTodayBtn: false,
+		disableUntil: {
+			year: new Date(Date.now()).getFullYear(),
+			month: new Date(Date.now()).getMonth() + 1,
+			day: new Date(Date.now()).getDate()
+		}
 	};
 
 	public modelDate: { [key: string]: any } = {
@@ -23,20 +28,9 @@ export class SomeDateComponent implements OnInit {
 
 	ngOnInit() {}
 	onDateChanged(event, date_T) {
-		console.log(event);
-		console.log(date_T);
-		Object.keys(this.modelDate).forEach(el => {
-			if (date_T == el) {
-				if (event.jsdate) {
-					if (event.jsdate.valueOf() < Date.now()) {
-						delete this.modelDate[el];
-						this.modelDate[el] = {};
-						this.valueDate.emit(this.modelDate);
-					} else {
-						this.valueDate.emit(this.modelDate);
-					}
-				}
-			}
-		});
+		console.log("--");
+		console.log(this.modelDate);
+		console.log("--");
+		this.valueDate.emit(this.modelDate);
 	}
 }

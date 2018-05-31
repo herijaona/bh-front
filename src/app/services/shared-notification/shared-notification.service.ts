@@ -140,4 +140,13 @@ export class SharedNotificationService {
 			"?controls=1&autoplay=1'></iframe>"
 		);
 	}
+
+	copydata(destination: any, origin: any) {
+		Object.keys(origin).forEach(function(key) {
+			if (key in destination) {
+				destination[key] = origin[key];
+			}
+		});
+		return destination;
+	}
 }
