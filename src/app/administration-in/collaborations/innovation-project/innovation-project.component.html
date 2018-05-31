@@ -1,28 +1,33 @@
 <div class="">
-  <div class="mb-20">
+  <div class="mb-20 p-re">
     <label class="grey-text-form">Nom du projet </label>
     <input (change)="onChange($event)" type="text" [(ngModel)]="prModel.pr_name" name="pName" class="form-control-project prN">
+    <i class="fa fa-check fc"></i>
   </div>
-  <div class="mb-20">
+  <div class="mb-20 p-re">
     <label class="grey-text-form"> Project Context</label>
     <ckeditor #ckeditor1 [(ngModel)]="prModel.pr_contexte_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
     </ckeditor>
+    <i class="fa fa-pencil i-pen"></i>
   </div>
-  <div class="mb-20">
+  <div class="mb-20 p-re">
     <label class="grey-text-form"> Project Objectives</label>
     <ckeditor #ckeditor2 [(ngModel)]="prModel.pr_objectif_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
     </ckeditor>
+    <i class="fa fa-pencil i-pen"></i>
   </div>
-  <div class="mb-20">
+  <div class="mb-20 p-re">
     <label class="grey-text-form">Proposal Requirements</label>
     <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
     </ckeditor>
+    <i class="fa fa-pencil i-pen"></i>
   </div>
   <div class="row">
     <div class="col-md-6 col-sm-6 pl-0">
-      <div class="mb-20">
+      <div class="mb-20 p-re">
         <label class="grey-text-form">Response time</label>
         <input (change)="onChange($event)" type="number" [(ngModel)]="prModel.pr_responseTimeValue" name="resonseTime" class="form-control-project">
+        <i class="fa fa-clock-o i-clock"></i>
       </div>
     </div>
     <div class="col-md-6 col-sm-6">
@@ -39,7 +44,7 @@
   </div>
   <!--  -->
   <div class="">
-    <div class="">
+    <div class="mb-3">
       <label class="grey-text-form">Type</label>
       <div class="fl">
         <div class="form-check">
@@ -60,7 +65,7 @@
   </div>
   <!--  -->
   <div class="">
-    <label class="grey-text-form mt-3 mb-3">Confidentiality</label>
+    <label class="grey-text-form mt-3 mb-2">Confidentiality</label>
     <div class="" style="display: flex">
       <div class="">
         <input value="no" [(ngModel)]="prModel.pr_confidentialData" (change)="onConfidentialChange($event)" type="radio" name="confidential_" class="">
@@ -78,10 +83,10 @@
         </ckeditor>
       </ng-template>
     </div>
-    <div class="mb-20  mt-3">
+    <div class="mb-20  mt-4">
       <label class="grey-text-form">diffusion</label>
       <div class="row">
-        <div class="col-4 pl-0">
+        <div class="col-2 pl-0">
           <select (change)="changeDiffusion($event)" [(ngModel)]="prModel.pr_diffusionPlaces">
             <option value="default">Select diffusion places</option>
             <option value="continent">Continent</option>
@@ -91,7 +96,7 @@
         </div>
         <div class="col-8">
           <ng-template [ngIf]="diffusionTypes.continent">
-            <div class="" style="display: flex;">
+            <div class="mt-2 flex">
               <div class="ml-2 mr-2">
                 <input type="checkbox" [(ngModel)]="diffusionModelContinent.asia" id="asia">
                 <label class="ml-2 form-check-label" for="asia">Asia</label>

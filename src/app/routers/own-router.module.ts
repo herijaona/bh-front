@@ -1,8 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 /* Component Import*/
+import { ConfigComponent } from "../administration-in/collaborations/config/config.component";
 import { ApplyComponent } from "../administration-in/collaborations/apply/apply.component";
 import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
+import { FavoriteComponent } from "../administration-in/mydesk/favorite/favorite.component";
+import { InvitedOrganisationComponent } from "../administration-in/mydesk/invited-organisation/invited-organisation.component";
 import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
 import { IdeasComponent } from "../ideas/ideas/ideas.component";
 import { MindsetComponent } from "../mindset/mindset/mindset.component";
@@ -176,7 +179,16 @@ const routes: Routes = [
 			{
 				path: "questions/details/:qID",
 				component: QuestionsDetailsComponent
+			},
+			{
+				path: "favorite",
+				component: FavoriteComponent
+			},
+			{
+				path: "invited-organisation",
+				component: InvitedOrganisationComponent
 			}
+			
 		]
 	},
 	{
@@ -195,7 +207,12 @@ const routes: Routes = [
 			{
 				path: "apply",
 				component: ApplyComponent
+			},
+			{
+				path: "config",
+				component: ConfigComponent
 			}
+			
 		]
 	},
 	{

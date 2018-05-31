@@ -310,7 +310,7 @@ select{
     }
 }
 /* end sous nav */
-
+.appli-table{
 .head-color{
     background-color: #ffffff !important;
     border-bottom: 1px solid #f3f3f3;
@@ -322,7 +322,16 @@ select{
             color:#393f4b;
             font-family: SourceSansPro-Semibold;
         }
+    }
+tbody td{
+    color: #393f4b;
+    font-family: SourceSansPro-Regular;
+    padding-left: 0;     
+    }
+tbody td:last-child{
+    padding-left: 0.75rem;
+    }
 }
-.cke_reset_all{
-    display:none !important;
+.flex{
+    display:flex;
 }
