@@ -16,7 +16,7 @@ li{
 	li{
 		padding: 8px;
 	}
-		li.active{
+		li.active, li a.active{
 			background:#ec7d738c;
 		}
 	li a{
@@ -123,3 +123,4 @@ li{
 		display:none;
 	}
 }
+

@@ -40,7 +40,8 @@ import { ProjectEditAndNewComponent } from "../administration-in/collaborations/
 import { Project1Component } from "../c-capital/project1/project1.component";
 import { CommunitiesComponent } from "../administration-in/communities/communities.component";
 import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
-
+import { OpportunitiesComponent } from "../administration-in/opportunities/opportunities.component";
+import { PositionsComponent } from "../administration-in/positions/positions.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 const routes: Routes = [
@@ -218,6 +219,18 @@ const routes: Routes = [
 	{
 		path: "administration-in/communities",
 		component: CommunitiesComponent,
+		canActivate: [AuthguardService],
+		children: []
+	},
+	{
+		path: "administration-in/opportunities",
+		component: OpportunitiesComponent,
+		canActivate: [AuthguardService],
+		children: []
+	},
+	{
+		path: "administration-in/positions",
+		component: PositionsComponent,
 		canActivate: [AuthguardService],
 		children: []
 	},

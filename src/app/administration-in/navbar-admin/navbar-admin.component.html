@@ -18,19 +18,19 @@
     </ul>
     <div class="navbar-collapse mobil-top" id="navbarsExample04" style="">
       <ul class="navbar-nav mr-auto desk-nav">
-        <li class="nav-item" [ngClass]="{active: pName.mydesk}">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link " [routerLink]="['/administration-in','desk']">My desk <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item" [ngClass]="{active: pName.collabor}">
-          <a class="nav-link" [routerLink]="['/administration-in','collaborations']">collaborations</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/administration-in','collaborations']">Collaborations</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Opportunities</a>
+        <li class="nav-item fr" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/administration-in','opportunities']">Opportunities</a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="#">Positions</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"  [routerLink]="['/administration-in','positions']">Positions</a>
         </li>
-        <li class="nav-item" [ngClass]="{active: pName.community}">
+        <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/administration-in','communities']">Communities</a>
         </li>
         <li class="nav-item">

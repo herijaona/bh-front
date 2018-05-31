@@ -28,6 +28,8 @@ import { ApplyComponent } from './collaborations/apply/apply.component';
 import { ConfigComponent } from './collaborations/config/config.component';
 import { FavoriteComponent } from './mydesk/favorite/favorite.component';
 import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invited-organisation.component';
+import { OpportunitiesComponent } from './opportunities/opportunities.component';
+import { PositionsComponent } from './positions/positions.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invi
 		ApplyComponent,
 		ConfigComponent,
 		FavoriteComponent,
-		InvitedOrganisationComponent
+		InvitedOrganisationComponent,
+		OpportunitiesComponent,
+		PositionsComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],
