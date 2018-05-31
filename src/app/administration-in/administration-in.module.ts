@@ -25,6 +25,11 @@ import { ApplyCollaborationComponent } from './collaborations/apply-collaboratio
 import { MyDatePickerModule } from 'mydatepicker';
 import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
 import { ApplyComponent } from './collaborations/apply/apply.component';
+import { ConfigComponent } from './collaborations/config/config.component';
+import { FavoriteComponent } from './mydesk/favorite/favorite.component';
+import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invited-organisation.component';
+import { OpportunitiesComponent } from './opportunities/opportunities.component';
+import { PositionsComponent } from './positions/positions.component';
 
 
 @NgModule({
@@ -54,7 +59,12 @@ import { ApplyComponent } from './collaborations/apply/apply.component';
 		CommunitiesComponent,
 		ApplyCollaborationComponent,
 		SomeDateComponent,
-		ApplyComponent
+		ApplyComponent,
+		ConfigComponent,
+		FavoriteComponent,
+		InvitedOrganisationComponent,
+		OpportunitiesComponent,
+		PositionsComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

@@ -10,7 +10,6 @@ import { TeamsService } from "../../services/teams/teams.service";
 	styleUrls: ["./communities.component.scss"]
 })
 export class CommunitiesComponent implements OnInit {
-	public page_name: string = "page_community";
 	public communityShow: boolean = false;
 	public userCommData: any;
 	public img_avatar: string = "";

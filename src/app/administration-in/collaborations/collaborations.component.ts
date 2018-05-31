@@ -7,7 +7,6 @@ import { Globals } from "./../../globals/globals";
 	styleUrls: ["./collaborations.component.scss"]
 })
 export class CollaborationsComponent implements OnInit {
-	public page_name = "page_collabor";
 	constructor(public g: Globals) {}
 
 	ngOnInit() {}

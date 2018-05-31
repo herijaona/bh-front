@@ -1,10 +1,10 @@
 <div *ngIf="readyData  && activated" class="">
-  <div class="container-fluid  grid-top">
+  <div class="col-container">
     <div class="row">
       <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 p-info-team">
         <div class="card card-profile">
           <div class="card-body">
-            <div class="row">
+            <div class="mb-4">
               <p-info [details_]="details"></p-info>
               <div class="btn-edit-up">
                 <button (click)="gotoProfileEdit()" type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span>Edit profile</span></button>

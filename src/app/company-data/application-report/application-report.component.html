@@ -1,7 +1,7 @@
-<div class="container-fluid grid-top">
+<div class="col-container">
   <div class="">
     <!--Table-->
-    <table class="table">
+    <table class="table appli-table">
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
@@ -17,7 +17,7 @@
       <!--Table body-->
       <tbody>
         <tr *ngFor="let item of allApplData">
-          <th scope="row">{{item.date}}</th>
+          <td>{{item.date}}</td>
           <td>{{item.hour}}</td>
           <td>{{item.prjt.name}}</td>
           <td>{{item.usr.name}}</td>

@@ -1,38 +1,23 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ElementRef } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { Router } from "@angular/router";
+
 @Component({
 	selector: "navbar-admin",
 	templateUrl: "./navbar-admin.component.html",
 	styleUrls: ["./navbar-admin.component.scss"]
 })
 export class NavbarAdminComponent implements OnInit {
-	public page_name: string;
-	public pName = {
-		mydesk: false,
-		collabor: false,
-		community: false
-	}
-	@Input("p_name")
-	set p_name(pn) {
-		this.page_name = pn.split("_")[1];
-		Object.keys(this.pName).forEach((val, i) => {
-			if (val == this.page_name) {
-				this.pName[val] = true;
-			} else {
-				this.pName[val] = false;
-			}
-		});
-	}
 	public show: boolean = false;
 	public hide: boolean = false;
 
-	constructor(private router: Router, public g: Globals) {}
+	constructor(private router: Router, public g: Globals, public el: ElementRef) {}
 
 	ngOnInit() {
-		Object.keys(this.pName)
+		
 	}
-	toggleCollapse() {	
-		this.show = true;
+	toggleCollapse() {
+		this.el.nativeElement.querySelector(".mobil-top").classList.toggle("toggle-in");
 	}
+
 }

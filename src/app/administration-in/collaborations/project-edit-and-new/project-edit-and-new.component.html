@@ -1,5 +1,5 @@
 <div class="col-container">
-	<label class="select-col">Select Collaboration type :</label>
+	<label class="select-col">Select Collaboration type &nbsp;&nbsp;:&nbsp;&nbsp;</label>
 	<select (change)="selectTypeCollab()" [(ngModel)]='selctCollab' >
 	   <option *ngFor="let item of collabTypes" [selected]="item.selected == true" value="{{item.slug}}">{{item.text}}</option>
 	</select>

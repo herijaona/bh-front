@@ -1,29 +1,8 @@
 <nav class="navbar navbar-expand-md bg-desk">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="{{g.base_href}}assets/img/logo-ccw.png" width="37"></a>
-    <a (click)="toggleCollapse()"><i class="fa fa-bars i-bar"></i></a>
-    <div class="navbar-collapse" id="navbarsExample04" style="">
-      <ul class="navbar-nav mr-auto desk-nav">
-        <li class="nav-item" [ngClass]="{active: pName.mydesk}">
-          <a class="nav-link " [routerLink]="['/administration-in','desk']">My desk <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item" [ngClass]="{active: pName.collabor}">
-          <a class="nav-link" [routerLink]="['/administration-in','collaborations']">collaborations</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Opportunities</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="#">Positions</a>
-        </li>
-        <li class="nav-item" [ngClass]="{active: pName.community}">
-          <a class="nav-link" [routerLink]="['/administration-in','communities']">Communities</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Web portal</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav form-inline my-2 my-md-0 desk-nav-icon">
+    <a (click)="toggleCollapse()" class="menu-bar"><i class="fa fa-bars i-bar"></i>MENU</a>
+    <a class="navbar-brand brand-tip" href="#"><img src="{{g.base_href}}assets/img/logo-ccw.png" width="37"></a>
+    <ul class="navbar-nav form-inline my-2 my-md-0 desk-nav-icon dni-mobile">
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fa fa-question-circle-o"></i></a>
         </li>
@@ -36,7 +15,43 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/administration-in','user','profile']"><i class="fa fa-user-circle"></i></a>
         </li>
+    </ul>
+    <div class="navbar-collapse mobil-top" id="navbarsExample04" style="">
+      <ul class="navbar-nav mr-auto desk-nav">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link " [routerLink]="['/administration-in','desk']">My desk <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/administration-in','collaborations']">Collaborations</a>
+        </li>
+        <li class="nav-item fr" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/administration-in','opportunities']">Opportunities</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"  [routerLink]="['/administration-in','positions']">Positions</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/administration-in','communities']">Communities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Web portal</a>
+        </li>
       </ul>
     </div>
+    <ul class="navbar-nav form-inline my-2 my-md-0 desk-nav-icon desk-sh">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-question-circle-o"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-bell"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-cog"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/administration-in','user','profile']"><i class="fa fa-user-circle"></i></a>
+        </li>
+    </ul>
   </div>
 </nav>
+
