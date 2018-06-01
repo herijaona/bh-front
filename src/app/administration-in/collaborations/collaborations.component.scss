@@ -44,6 +44,12 @@ li{
     right: 0;
     position: absolute;
     margin-right:74px;
+    li{
+        margin-right: 2px;
+        a{
+            border: 1px solid #8080801f;
+        }
+    }
 }
 .select-col{
     color: #da5445 !important;
@@ -51,4 +57,5 @@ li{
     font-size: 16px !important;
     top: -4px;
     position: relative;
+    border:none !important;
 }
