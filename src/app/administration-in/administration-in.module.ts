@@ -31,6 +31,8 @@ import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invi
 import { OpportunitiesComponent } from './opportunities/opportunities.component';
 import { PositionsComponent } from './positions/positions.component';
 import { ApplyInnovProjectComponent } from './collaborations/apply/apply-innov-project/apply-innov-project.component';
+import { QuestionComponent } from './collaborations/question/question.component';
+import { ApplicationComponent } from './mydesk/application/application.component';
 
 
 @NgModule({
@@ -66,7 +68,9 @@ import { ApplyInnovProjectComponent } from './collaborations/apply/apply-innov-p
 		InvitedOrganisationComponent,
 		OpportunitiesComponent,
 		PositionsComponent,
-		ApplyInnovProjectComponent
+		ApplyInnovProjectComponent,
+		QuestionComponent,
+		ApplicationComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

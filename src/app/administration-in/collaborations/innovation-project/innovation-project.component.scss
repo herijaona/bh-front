@@ -102,7 +102,9 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 /* end radio customize */
 .form-check-label{
     font-family: SourceSansPro-Regular;
-    font-size: 15px;
+    color: #393f4bd9;
+    font-family: SourceSansPro-Regular;
+    font-size: 13px;
 }
 .select-mt{
     select{
@@ -143,5 +145,61 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
         border-radius: 14px;
         padding: 4px;
         font-size: 22px;
+    }
+}
+.innovate {
+    h5{
+        color: #393f4b;
+        font-family: SourceSansPro-Semibold;
+        font-size: 17px;
+        text-transform: uppercase;
+        margin-top: 35px;
+    }
+}
+
+.radiotop{
+/* Masquer le bouton radio d'origine */
+input[type=radio]{
+    display: none;
+}
+/* Affichage par défaut du bouton radio personnalisé */
+input[type=radio] + label:before {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    margin-top: -3px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 17px;
+    height: 17px;
+}
+/* Affichage du bouton radio personnalisé quand il est sélectionné */
+input[type=radio]:checked + label:before {
+    content: "\F00C";
+    font-family: FontAwesome;
+    box-shadow: inset 0px 0px 0px 2px #fff;
+    color: white;
+    font-size: 16px;
+    width: 23px;
+    height: 24px;
+    border-radius: 4px;
+    padding-left: 4px;
+    /* padding-bottom: 7px !important; */
+    position: relative;
+    background: #ff395e;
+    border: none;
+    box-shadow: none;
+}
+.element{
+    margin-bottom:4px;
+    background: #ff00001c;
+}
+label{
+    cursor: pointer;
+    padding-left: 9px;
+    margin-top: 7px;
+    margin-bottom: 7px !important;
     }
 }
