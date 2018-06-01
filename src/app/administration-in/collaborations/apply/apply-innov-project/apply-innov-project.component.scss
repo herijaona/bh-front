@@ -20,7 +20,7 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 }
 
 .t-area {
-    height: 86px;
+    min-height: 240px;
     font-size: 14px;
     color: #495057;
     border: 1px solid #e6e9ec;
@@ -70,7 +70,7 @@ h3 {
     text-transform: uppercase;
     color: #393f4bb0;
     font-family: SourceSansPro-Semibold;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 5px;
 }
 
@@ -121,4 +121,7 @@ h3 {
 
 .inp-icon {
     position: relative;
+}
+.pri{
+    position:relative;
 }

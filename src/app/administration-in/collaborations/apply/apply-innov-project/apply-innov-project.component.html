@@ -46,7 +46,7 @@
 <h3>activity and skills</h3>
 <div class="row pt-4">
   <div class="col-6 pl-0">
-    <div class="mb-20">
+    <div class="mb-20 pr-i">
       <label class="grey-text-form">Main area of activity :</label>
       <textarea [(ngModel)]="projectApplyData.main_activity_domain" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
       <i class="fa fa-pencil i-pen"></i>
@@ -60,12 +60,12 @@
   </div>
   <div class="col-6 pl-0">
     <div class="mb-20">
-      <label class="grey-text-form">Skills and Specificities :</label>
+      <label class="grey-text-form mt-3">Skills and Specificities :</label>
       <textarea [(ngModel)]="projectApplyData.skill_specificities" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
     </div>
   </div>
 </div>
-<h3>Proposition of Collaboration</h3>
+<h3 class="mt-3">Proposition of Collaboration</h3>
 <p class="pr-col">Can you specify infew linesyour proposal, and make sure to explain the link with your activities, projects and skills, to strengthen the credibility of your proposal</p>
 <div class="row pb-4">
   <div class="col-12 p-0">
@@ -77,5 +77,6 @@
 </div>
 
 <!-- <button [ngClass]="{disabled: canBeSent }" class="float-right mb-4 btn-col"><i class="fa fa-send pr-2"></i>send</button> -->
-
-<button (click)="sendApplicationOnProject()" [ngClass]="{disabled: !canBeSent }" class="btn-info btn"><i class="fa fa-send pr-2"></i>send</button>
+<div class="text-right">
+<button (click)="sendApplicationOnProject()" [ngClass]="{disabled: !canBeSent }" class="mb-4 btn-col"><i class="fa fa-send pr-2"></i>send</button>
+</div>
