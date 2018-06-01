@@ -8,6 +8,7 @@ import { Globals } from "./../../../globals/globals";
 	styleUrls: ["./admin-all-colab.component.scss"]
 })
 export class AdminAllColabComponent implements OnInit {
+	public listCollab: any = [];
 	constructor(
 		public g: Globals,
 		private pr: ProjectsService,
@@ -18,7 +19,10 @@ export class AdminAllColabComponent implements OnInit {
 	}
 	async getMyCollabList() {
 		try {
-			let allCollabResp : any = await this.pr.getAllMyCollabList()
+			let allCollabResp: any = await this.pr.getAllMyCollabList();
+			if (allCollabResp["status"] == "OK") {
+				this.listCollab = allCollabResp["data"];
+			}
 		} catch (e) {
 			console.log(e);
 		}

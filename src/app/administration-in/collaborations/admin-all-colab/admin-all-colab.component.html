@@ -5,23 +5,23 @@
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
-          <th>Collaboration type</th>
           <th>Collaboration name</th>
-          <th>Application</th>
           <th>Type</th>
-          <th>views</th>
+          <th>Date</th>
+          <th>Author</th>
+          <th>Number</th>
         </tr>
       </thead>
       <!--Table head-->
       <!--Table body-->
       <tbody>
-        <tr >
-          <td>col type</td>
-          <td>col name</td>
-          <td>applic</td>
-          <td>Asc</td>
+        <tr *ngFor="let item of listCollab" >
+          <td><a href="">{{item.name}}</a></td>
+          <td>{{item.type}}</td>
+          <td>{{item.date}}</td>
+          <td>{{item.author.firstname +" "+ item.author.lastname}}</td>
           <td>
-            <a target="_blank"><i class="fa fa-eye"></i> </a>
+            0
           </td>
         </tr>
       </tbody>

@@ -1,12 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 /* Component Import*/
-import { ConfigComponent } from "../administration-in/collaborations/config/config.component";
-import { ApplyComponent } from "../administration-in/collaborations/apply/apply.component";
-import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
-import { FavoriteComponent } from "../administration-in/mydesk/favorite/favorite.component";
-import { InvitedOrganisationComponent } from "../administration-in/mydesk/invited-organisation/invited-organisation.component";
-import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
 import { IdeasComponent } from "../ideas/ideas/ideas.component";
 import { MindsetComponent } from "../mindset/mindset/mindset.component";
 import { ProjectsComponent } from "../projects/projects/projects.component";
@@ -17,9 +11,7 @@ import { RegistrationComponent } from "../user-auth/registration/registration.co
 import { ResetPasswordComponent } from "../user-auth/reset-password/reset-password.component";
 import { ActivationComponent } from "../user-auth/activation/activation.component";
 import { PageLoginComponent } from "../user-auth/page-login/page-login.component";
-import { ProfileComponent } from "../administration-in/profile/profile.component";
 import { ProfileAdminComponent } from "../profile-admin/profile-admin/profile-admin.component";
-import { MembersAdminComponent } from "../administration-in/members-admin/members-admin.component";
 import { AuthguardService } from "../services/authguard/authguard.service";
 import { ListCompaniesComponent } from "../companies/list-companies/list-companies.component";
 import { ProfileCompaniesComponent } from "../companies/profile-companies/profile-companies.component";
@@ -32,14 +24,23 @@ import { CommitteeComponent } from "../committee/committee/committee.component";
 import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
 import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
 import { ViewReactionComponent } from "../company-data/view-reaction/view-reaction.component";
+import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
+import { Project1Component } from "../c-capital/project1/project1.component";
+import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
+import { ProfileComponent } from "../administration-in/profile/profile.component";
+import { MembersAdminComponent } from "../administration-in/members-admin/members-admin.component";
 import { ViewApplicationDetailsComponent } from "../administration-in/mydesk/view-application-details/view-application-details.component";
 import { QuestionsDetailsComponent } from "../administration-in/mydesk/questions-details/questions-details.component";
-import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
 import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
 import { ProjectEditAndNewComponent } from "../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component";
-import { Project1Component } from "../c-capital/project1/project1.component";
+import { ConfigComponent } from "../administration-in/collaborations/config/config.component";
+import { ApplyComponent } from "../administration-in/collaborations/apply/apply.component";
+import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
+import { FavoriteComponent } from "../administration-in/mydesk/favorite/favorite.component";
+import { InvitedOrganisationComponent } from "../administration-in/mydesk/invited-organisation/invited-organisation.component";
+import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
+import { ReceivedApplyCollaborationComponent } from '../administration-in/collaborations/received-apply-collaboration/received-apply-collaboration.component';
 import { CommunitiesComponent } from "../administration-in/communities/communities.component";
-import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
 import { OpportunitiesComponent } from "../administration-in/opportunities/opportunities.component";
 import { PositionsComponent } from "../administration-in/positions/positions.component";
 
@@ -206,12 +207,16 @@ const routes: Routes = [
 				component: ProjectEditAndNewComponent
 			},
 			{
-				path: "apply",
+				path: "apply/:id_project",
 				component: ApplyComponent
 			},
 			{
 				path: "apply-sent",
 				component: ConfigComponent
+			},
+			{
+				path: "apply-received",
+				component: ReceivedApplyCollaborationComponent
 			}
 			
 		]
