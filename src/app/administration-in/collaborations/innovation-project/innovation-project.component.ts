@@ -23,9 +23,10 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		pr_objectif_ProjectEditor: "",
 		pr_elementProposition_ProjectEditor: "",
 		pr_name: "",
-		pr_responseTimeUnit: "",
-		pr_responseTimeValue: ""
+		pr_processDecision: "",
 	};
+		/*pr_responseTimeUnit: "",
+		pr_responseTimeValue: ""*/
 
 	public cPrModel = {
 		pr_dataConfidential: "",
@@ -38,9 +39,10 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		pr_objectif_ProjectEditor: false,
 		pr_elementProposition_ProjectEditor: false,
 		pr_name: false,
-		pr_responseTimeUnit: false,
-		pr_responseTimeValue: false
+		pr_processDecision: false
 	};
+	/*	pr_responseTimeUnit: false,
+		pr_responseTimeValue: false*/
 	public shDate: boolean = false;
 	public shConfidential = false;
 
