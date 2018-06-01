@@ -36,6 +36,7 @@ import { ProjectEditAndNewComponent } from "../administration-in/collaborations/
 import { ConfigComponent } from "../administration-in/collaborations/config/config.component";
 import { ApplyComponent } from "../administration-in/collaborations/apply/apply.component";
 import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
+import { QuestionComponent } from "../administration-in/collaborations/question/question.component";
 import { FavoriteComponent } from "../administration-in/mydesk/favorite/favorite.component";
 import { InvitedOrganisationComponent } from "../administration-in/mydesk/invited-organisation/invited-organisation.component";
 import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
@@ -217,6 +218,14 @@ const routes: Routes = [
 			{
 				path: "apply-received",
 				component: ReceivedApplyCollaborationComponent
+			},
+			{
+				path: "create/:item-slug",
+				component: ProjectEditAndNewComponent
+			},
+			{
+				path: "question",
+				component: QuestionComponent
 			}
 			
 		]

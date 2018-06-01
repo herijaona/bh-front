@@ -1,10 +1,5 @@
 <div class="col-container">
-	<label class="select-col">Select Collaboration type &nbsp;&nbsp;:&nbsp;&nbsp;</label>
-	<select (change)="selectTypeCollab()" [(ngModel)]='selctCollab' >
-	   <option *ngFor="let item of collabTypes" [selected]="item.selected == true" value="{{item.slug}}">{{item.text}}</option>
-	</select>
-	<hr>
-	<ng-template [ngIf]="selctCollab == 'COLLABPROJINNOV'">
+	<ng-template [ngIf]="slugCollabType == 'COLLABPROJINNOV'">
 		<innovation-project [todoAct_]="todoAct" [prData_]="prData"></innovation-project>
-	</ng-template>	
+	</ng-template>
 </div>
