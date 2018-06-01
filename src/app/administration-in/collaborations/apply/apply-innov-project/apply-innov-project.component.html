@@ -1,0 +1,81 @@
+<div class="row pb-3">
+  <div class="col-6 pl-0">
+    <div class="type-name">
+      <label for="pName" class="grey-text-form">Name</label>
+      <div class="inp-icon">
+        <input readonly="true" type="text" name="pName" [value]="prObjApply.name" class="form-control-project prN" placeholder="name project">
+        <i class="fa fa-check"></i>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 pr-0">
+    <div class="mb-20">
+      <label class="grey-text-form">description</label>
+      <textarea [(ngModel)]="projectApplyData.user_application_describ" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+    </div>
+  </div>
+</div>
+<h3>identity</h3>
+<div class="row">
+  <div class="col-6 pl-0">
+    <div class="mb-20">
+      <label class="grey-text-form">organisation name</label>
+      <input readonly="true" type="text" name="pName" class="form-control-project prN" [value]="UserOrgName" placeholder="organisation name">
+    </div>
+  </div>
+  <div class="col-6 pr-0"></div>
+</div>
+<div class="row pb-4">
+  <div class="col-6 pl-0">
+    <div class="type-name-o">
+      <label class="grey-text-form">date</label>
+      <my-date-picker (dateChanged)="onDateChanged($event)" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDate" required></my-date-picker>
+      <i class="fa fa-calendar"></i>
+    </div>
+  </div>
+  <div class="col-6 pr-0">
+    <div class="ds-g">
+      <label class="grey-text-form">country</label>
+      <select (change)="onChangeEditor($event)" [(ngModel)]="modelCountry">
+        <option value="default">select a country</option>
+        <option *ngFor="let item of ListCo.default_type" [value]="item.code">{{item.name}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<h3>activity and skills</h3>
+<div class="row pt-4">
+  <div class="col-6 pl-0">
+    <div class="mb-20">
+      <label class="grey-text-form">Main area of activity :</label>
+      <textarea [(ngModel)]="projectApplyData.main_activity_domain" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+      <i class="fa fa-pencil i-pen"></i>
+    </div>
+  </div>
+  <div class="col-6 pr-0">
+    <div class="mb-20">
+      <label class="grey-text-form">Related Activity :</label>
+      <textarea [(ngModel)]="projectApplyData.secondary_activity_domain" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+    </div>
+  </div>
+  <div class="col-6 pl-0">
+    <div class="mb-20">
+      <label class="grey-text-form">Skills and Specificities :</label>
+      <textarea [(ngModel)]="projectApplyData.skill_specificities" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+    </div>
+  </div>
+</div>
+<h3>Proposition of Collaboration</h3>
+<p class="pr-col">Can you specify infew linesyour proposal, and make sure to explain the link with your activities, projects and skills, to strengthen the credibility of your proposal</p>
+<div class="row pb-4">
+  <div class="col-12 p-0">
+    <div class="mb-20">
+      <label class="grey-text-form">description</label>
+      <textarea [(ngModel)]="projectApplyData.collab_proposal_describ" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- <button [ngClass]="{disabled: canBeSent }" class="float-right mb-4 btn-col"><i class="fa fa-send pr-2"></i>send</button> -->
+
+<button (click)="sendApplicationOnProject()" [ngClass]="{disabled: !canBeSent }" class="btn-info btn"><i class="fa fa-send pr-2"></i>send</button>

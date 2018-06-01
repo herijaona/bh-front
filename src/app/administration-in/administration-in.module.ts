@@ -30,6 +30,7 @@ import { FavoriteComponent } from './mydesk/favorite/favorite.component';
 import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invited-organisation.component';
 import { OpportunitiesComponent } from './opportunities/opportunities.component';
 import { PositionsComponent } from './positions/positions.component';
+import { ApplyInnovProjectComponent } from './collaborations/apply/apply-innov-project/apply-innov-project.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { PositionsComponent } from './positions/positions.component';
 		FavoriteComponent,
 		InvitedOrganisationComponent,
 		OpportunitiesComponent,
-		PositionsComponent
+		PositionsComponent,
+		ApplyInnovProjectComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

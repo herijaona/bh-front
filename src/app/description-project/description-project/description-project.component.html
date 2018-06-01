@@ -29,7 +29,7 @@
         <p [innerHtml]="detailsData.elementProposition | bhSafeHtml"></p>
         <p class="text-right">
           <a (click)="ask_questions_aboutProject($event)" class="btn btn-primary btn-lg btn-question" href="#" role="button"><span>Question</span><i class="fa fa-question-circle"></i></a>
-          <a [routerLink]="['/administration-in','collaborations','apply', detailsData._id ]" class="btn btn-primary btn-lg btn-apply" href="#" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
+          <a (click)="applyto($event)" class="btn btn-primary btn-lg btn-apply" href="#" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
         </p>
       </div>
     </div>

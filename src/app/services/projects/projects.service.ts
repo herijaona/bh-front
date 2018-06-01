@@ -57,12 +57,18 @@ export class ProjectsService extends BaseHttpService {
 	public getAllCollabTpes() {
 		return this.fetch("get", "bh-projects/getAllCollabtype").toPromise();
 	}
-	
+
 	public countryGet() {
 		return this.fetch("get", "countryList").toPromise();
 	}
 
-	public getAllMyCollabList(){
-		return this.fetch('get', 'admin-cca/getCollabLists').toPromise()
+	public getAllMyCollabList() {
+		return this.fetch("get", "admin-cca/getCollabLists").toPromise();
+	}
+
+	public getDataforApply(idPR) {
+		return this.fetch("get", "getDataForApplication", {
+			projectID: idPR
+		}).toPromise();
 	}
 }

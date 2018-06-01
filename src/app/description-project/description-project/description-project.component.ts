@@ -20,6 +20,7 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 		public g: Globals,
 		public sh: SharedNotificationService,
 		public activRoute: ActivatedRoute,
+		private router: Router,
 		private auth: AuthserviceService,
 		private pr: ProjectsService
 	) {
@@ -67,14 +68,18 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 
 	applyto(ev) {
 		ev.preventDefault();
-		let _data =  this.detailsData;
-		
-		if (this.auth.isLoggedIn()) {
-			this.sh.pushData({
-				from: "applytToProjects",
-				message: "apply",
-				data: _data
-			});
+		let _data = this.detailsData;
+
+		if (this.auth.isLoggedIn()) {			
+			this.router.navigateByUrl(
+				"/" +
+					[
+						"administration-in",
+						"collaborations",
+						"apply",
+						this.detailsData._id
+					].join("/")
+			);
 		} else {
 			this.sh.pushData({
 				from: "p_loginModal",
