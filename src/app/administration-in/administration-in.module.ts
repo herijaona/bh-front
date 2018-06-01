@@ -31,6 +31,7 @@ import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invi
 import { OpportunitiesComponent } from './opportunities/opportunities.component';
 import { PositionsComponent } from './positions/positions.component';
 import { QuestionComponent } from './collaborations/question/question.component';
+import { ApplicationComponent } from './mydesk/application/application.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { QuestionComponent } from './collaborations/question/question.component'
 		InvitedOrganisationComponent,
 		OpportunitiesComponent,
 		PositionsComponent,
-		QuestionComponent
+		QuestionComponent,
+		ApplicationComponent
 	],
 	schemas: [NO_ERRORS_SCHEMA],
 	exports: [NavbarAdminComponent],

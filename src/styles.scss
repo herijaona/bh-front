@@ -23,7 +23,15 @@ body{
 }
 $color1 : #e55037;
 $color2 : #393F4B;
-$gray : #a7a7a7;    
+$gray : #a7a7a7;   
+$green : #71BF71; 
+$gray:#393f4b;
+.green-color{
+    background:$green !important;
+}
+.gray-color{
+    background: $gray !important;
+}
 .md-video iframe {
     width: 560px;
     height: 315px;

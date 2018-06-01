@@ -38,6 +38,7 @@ import { ApplyComponent } from "../administration-in/collaborations/apply/apply.
 import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
 import { QuestionComponent } from "../administration-in/collaborations/question/question.component";
 import { FavoriteComponent } from "../administration-in/mydesk/favorite/favorite.component";
+import { ApplicationComponent } from "../administration-in/mydesk/application/application.component";
 import { InvitedOrganisationComponent } from "../administration-in/mydesk/invited-organisation/invited-organisation.component";
 import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
 import { ReceivedApplyCollaborationComponent } from '../administration-in/collaborations/received-apply-collaboration/received-apply-collaboration.component';
@@ -190,6 +191,11 @@ const routes: Routes = [
 			{
 				path: "invited-organisation",
 				component: InvitedOrganisationComponent
+			}
+			,
+			{
+				path: "application",
+				component: ApplicationComponent
 			}
 			
 		]
