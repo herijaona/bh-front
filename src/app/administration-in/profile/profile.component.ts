@@ -8,15 +8,36 @@ import {
   ViewContainerRef,
   OnDestroy
 } from "@angular/core";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
-import { CompanyService } from "../../services/company/company.service";
-import { UserDetails } from "../../models/user-detail.model";
-import { ValidateOrgtypes } from "../../services/validators/own.validator";
-import { ActivatedRoute, Router } from "@angular/router";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ModalDirective } from "angular-bootstrap-md";
-import { Globals } from "./../../globals/globals";
-import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
+import {
+  AuthserviceService
+} from "../../services/authservice/authservice.service";
+import {
+  CompanyService
+} from "../../services/company/company.service";
+import {
+  UserDetails
+} from "../../models/user-detail.model";
+import {
+  ValidateOrgtypes
+} from "../../services/validators/own.validator";
+import {
+  ActivatedRoute,
+  Router
+} from "@angular/router";
+import {
+  FormControl,
+  FormGroup,
+  Validators
+} from "@angular/forms";
+import {
+  ModalDirective
+} from "angular-bootstrap-md";
+import {
+  Globals
+} from "./../../globals/globals";
+import {
+  SharedNotificationService
+} from "../../services/shared-notification/shared-notification.service";
 
 // import { resolve } from "dns";
 @Component({
@@ -107,9 +128,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
             this.accountData = accData.data;
 
             let urlWebsite =
-              "websiteUrl" in this.accountData
-                ? this.accountData.websiteUrl
-                : "";
+              "websiteUrl" in this.accountData ?
+              this.accountData.websiteUrl :
+              "";
             this.uform.setValue({
               _acc_commercial: this.accountData.enseigneCommerciale,
               _acc_socialMean: this.accountData.raisonSociale,
@@ -225,7 +246,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   /* Handle Company Update Data Info*/
   onUpdateFormSubmit() {
-    var cr: { [key: string]: any } = {
+    var cr: {
+      [key: string]: any
+    } = {
       raisonSociale: this.uform.value._acc_socialMean,
       enseigneCommerciale: this.uform.value._acc_commercial,
       websiteUrl: this.uform.value._acc_websitLink,
@@ -243,7 +266,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
           type: "success",
           message: "<p>Mis a jour Reussi</p>"
         });
-        this.sh.pushData({ from: "editData", action: "refresh" });
+        this.editCompInfo = false
+        this.sh.pushData({
+          from: "editData",
+          action: "refresh"
+        });
       },
       err => {
         console.log(err.error);
