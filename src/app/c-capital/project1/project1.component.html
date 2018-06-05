@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 text-right">
-                <button class="btn-pro-project"><i class="fa fa-plus"></i>se connecter</button>
+                <button class="btn-pro-project" *ngIf="!auth.isLoggedIn()"><i class="fa fa-plus"></i>se connecter</button>
             </div>
         </div>
     </div>
@@ -197,9 +197,6 @@
                     </div>
                 </div>
             </div>
-
-
-            
         </div>
     </div>
 </div>
