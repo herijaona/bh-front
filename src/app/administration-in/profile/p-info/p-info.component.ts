@@ -85,7 +85,7 @@ export class PInfoComponent implements OnInit {
       if (resp.status == "OK") {
         this.sh.notifToast({
           type: "success",
-          message: "<p>Mis a jour Reussi</p>"
+          message: "<p>Saved</p>"
         });
         return "DONE";
       }

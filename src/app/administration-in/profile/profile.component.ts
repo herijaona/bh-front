@@ -226,7 +226,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   successAction() {
     this.sh.notifToast({
       type: "success",
-      message: "<p>Mis a jour Reussi</p>"
+      message: "<p>Saved</p>"
     });
   }
 
@@ -264,7 +264,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.cs.setDataC(resp);
         this.sh.notifToast({
           type: "success",
-          message: "<p>Mis a jour Reussi</p>"
+          message: "<p>Saved</p>"
         });
         this.editCompInfo = false
         this.sh.pushData({
