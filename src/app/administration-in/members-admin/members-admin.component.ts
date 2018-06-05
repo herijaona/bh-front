@@ -78,7 +78,7 @@ export class MembersAdminComponent implements OnInit {
 		}
 	}
 	gotoProfileEdit() {
-		this.router.navigateByUrl("/administration-in/desk");
+		this.router.navigateByUrl("/administration-in/user/profile");
 	}
 	async submitinvite() {
 		var data: any = this.inviteForm.value;

@@ -1,13 +1,14 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MydeskComponent } from "./mydesk/mydesk.component";
-import { MembersAdminModule } from "../members-admin/members-admin.module";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { CKEditorModule } from "ng2-ckeditor";
 import { Ng4GeoautocompleteModule } from "ng4-geoautocomplete";
 
+import { MembersAdminModule } from "../members-admin/members-admin.module";
+import { GeneralUtilitiesModule } from "../general-utilities/general-utilities.module";
 
 import { ProfileComponent } from "./profile/profile.component";
 import { CollaborationsComponent } from "./collaborations/collaborations.component";
@@ -20,60 +21,61 @@ import { QuestionsDetailsComponent } from "./mydesk/questions-details/questions-
 import { PCompletionComponent } from "./profile/p-completion/p-completion.component";
 import { MembersAdminComponent } from "./members-admin/members-admin.component";
 import { AdminAllColabComponent } from "./collaborations/admin-all-colab/admin-all-colab.component";
-import { CommunitiesComponent } from './communities/communities.component';
-import { ReceivedApplyCollaborationComponent } from './collaborations/received-apply-collaboration/received-apply-collaboration.component';
-import { MyDatePickerModule } from 'mydatepicker';
-import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
-import { ApplyComponent } from './collaborations/apply/apply.component';
-import { ConfigComponent } from './collaborations/config/config.component';
-import { FavoriteComponent } from './mydesk/favorite/favorite.component';
-import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invited-organisation.component';
-import { OpportunitiesComponent } from './opportunities/opportunities.component';
-import { PositionsComponent } from './positions/positions.component';
-import { ApplyInnovProjectComponent } from './collaborations/apply/apply-innov-project/apply-innov-project.component';
-import { QuestionComponent } from './collaborations/question/question.component';
-import { ApplicationComponent } from './mydesk/application/application.component';
-
+import { CommunitiesComponent } from "./communities/communities.component";
+import { ReceivedApplyCollaborationComponent } from "./collaborations/received-apply-collaboration/received-apply-collaboration.component";
+import { MyDatePickerModule } from "mydatepicker";
+import { SomeDateComponent } from "./collaborations/innovation-project/some-date/some-date.component";
+import { ApplyComponent } from "./collaborations/apply/apply.component";
+import { ConfigComponent } from "./collaborations/config/config.component";
+import { FavoriteComponent } from "./mydesk/favorite/favorite.component";
+import { InvitedOrganisationComponent } from "./mydesk/invited-organisation/invited-organisation.component";
+import { OpportunitiesComponent } from "./opportunities/opportunities.component";
+import { PositionsComponent } from "./positions/positions.component";
+import { ApplyInnovProjectComponent } from "./collaborations/apply/apply-innov-project/apply-innov-project.component";
+import { QuestionComponent } from "./collaborations/question/question.component";
+import { ApplicationComponent } from "./mydesk/application/application.component";
 
 @NgModule({
-	imports: [
-		CommonModule,
-		MDBBootstrapModule,
-		Ng4GeoautocompleteModule.forRoot(),
-		ReactiveFormsModule,
-		CKEditorModule,
-		FormsModule,MyDatePickerModule,
-		RouterModule,
-		MembersAdminModule
-	],
-	declarations: [
-		MydeskComponent,
-		CollaborationsComponent,
-		ProjectEditAndNewComponent,
-		ViewApplicationDetailsComponent,
-		InnovationProjectComponent,
-		QuestionsDetailsComponent,
-		PInfoComponent,
-		MembersAdminComponent,
-		PCompletionComponent,
-		ProfileComponent,
-		NavbarAdminComponent,
-		AdminAllColabComponent,
-		CommunitiesComponent,
-		ReceivedApplyCollaborationComponent,
-		SomeDateComponent,
-		ApplyComponent,
-		ConfigComponent,
-		FavoriteComponent,
-		InvitedOrganisationComponent,
-		OpportunitiesComponent,
-		PositionsComponent,
-		ApplyInnovProjectComponent,
-		QuestionComponent,
-		ApplicationComponent
-	],
-	schemas: [NO_ERRORS_SCHEMA],
-	exports: [NavbarAdminComponent],
-	entryComponents: [ProjectEditAndNewComponent]
+  imports: [
+    CommonModule,
+    MDBBootstrapModule,
+    Ng4GeoautocompleteModule.forRoot(),
+    ReactiveFormsModule,
+    CKEditorModule,
+    FormsModule,
+    MyDatePickerModule,
+    RouterModule,
+    MembersAdminModule,
+    GeneralUtilitiesModule
+  ],
+  declarations: [
+    MydeskComponent,
+    CollaborationsComponent,
+    ProjectEditAndNewComponent,
+    ViewApplicationDetailsComponent,
+    InnovationProjectComponent,
+    QuestionsDetailsComponent,
+    PInfoComponent,
+    MembersAdminComponent,
+    PCompletionComponent,
+    ProfileComponent,
+    NavbarAdminComponent,
+    AdminAllColabComponent,
+    CommunitiesComponent,
+    ReceivedApplyCollaborationComponent,
+    SomeDateComponent,
+    ApplyComponent,
+    ConfigComponent,
+    FavoriteComponent,
+    InvitedOrganisationComponent,
+    OpportunitiesComponent,
+    PositionsComponent,
+    ApplyInnovProjectComponent,
+    QuestionComponent,
+    ApplicationComponent
+  ],
+  schemas: [NO_ERRORS_SCHEMA],
+  exports: [NavbarAdminComponent],
+  entryComponents: [ProjectEditAndNewComponent]
 })
 export class AdministrationInModule {}
