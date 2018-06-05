@@ -7,7 +7,10 @@
             <div class="mb-4">
               <p-info [details_]="details"></p-info>
               <div class="btn-edit-up">
-                <button (click)="gotoProfileEdit()" type="button" class="btn  btn-block darken-edit ed"><i class="fa fa-pencil"></i><span>Edit profile</span></button>
+                <button (click)="gotoProfileEdit()" type="button" class="btn  btn-block darken-edit ed">
+                  <i class="fa fa-pencil"></i>
+                  <span>Edit profile</span>
+                </button>
               </div>
             </div>
             <p-completion></p-completion>
@@ -37,23 +40,25 @@
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <span class="mg-left-wt">
-                            <label for="invite-for" class="grey-text-form">invited for</label>
-                            <p id="invite-for">
-                                <label class="custon-ch">
-                                    <span>team</span>
-                  <input formControlName="invAsTeam" type="checkbox" checked="checked">
-                  <span class="checkmark"></span>
-                  </label>
-                  <label class="custon-ch ch-second">
-                    <span>comittee</span>
-                    <input formControlName="invAsComm" type="checkbox">
-                    <span class="checkmark"></span>
-                  </label>
-                  </p>
+                    <label for="invite-for" class="grey-text-form">invited for</label>
+                    <p id="invite-for">
+                      <label class="custon-ch">
+                        <span>team</span>
+                        <input formControlName="invAsTeam" type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="custon-ch ch-second">
+                        <span>comittee</span>
+                        <input formControlName="invAsComm" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </p>
                   </span>
                 </div>
               </div>
-              <button [ngClass]="{disabled: !inviteForm.valid}" class="btn btn-unique-edit btn-width ed-2" type="submit"><span class="edit-person send-edit">Send invite</span></button>
+              <button [ngClass]="{disabled: !inviteForm.valid}" class="btn btn-unique-edit btn-width ed-2" type="submit">
+                <span class="edit-person send-edit">Send invite</span>
+              </button>
             </form>
           </div>
         </div>
@@ -66,8 +71,12 @@
           <div class="row brth">
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12  br-1">
               <ul class="navbar-nav mg-4 flex-dt dt-ligne">
-                <li class="nav-item mg-0 mg-no-active admin" [ngClass]="{'mg-no-active': adminAll}"><a (click)="viewUsersTeams('admin')" [ngClass]="{'active-nav': adminAll,'no-active-nav': !adminAll  }" class="nav-link">Administration</a></li>
-                <li class="nav-item mg-0" [ngClass]="{'mg-no-active': communityShow}"><a (click)="viewUsersTeams('community')" class="nav-link" [ngClass]="{'active-nav': communityShow,'no-active-nav': !communityShow  }">Community</a></li>
+                <li class="nav-item mg-0 mg-no-active admin" [ngClass]="{'mg-no-active': adminAll}">
+                  <a (click)="viewUsersTeams('admin')" [ngClass]="{'active-nav': adminAll,'no-active-nav': !adminAll  }" class="nav-link">Administration</a>
+                </li>
+               <!--  <li class="nav-item mg-0" [ngClass]="{'mg-no-active': communityShow}">
+                  <a (click)="viewUsersTeams('community')" class="nav-link" [ngClass]="{'active-nav': communityShow,'no-active-nav': !communityShow  }">Community</a>
+                </li> -->
               </ul>
             </div>
             <!--  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 font-all  br-2">
@@ -97,15 +106,19 @@
                   <tr *ngFor="let item of userAdminData">
                     <th class="tb">
                       <div class="media">
-                        <img *ngIf="item.imageProfile" [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="60px" height="58px">
-                        <img *ngIf="!item.imageProfile" [src]="img_avatar" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" style="width:60px;">
-                        
+                        <img *ngIf="item.imageProfile" [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle"
+                          width="60px" height="58px">
+                        <img *ngIf="!item.imageProfile" [src]="img_avatar" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle"
+                          style="width:60px;">
+
                       </div>
                     </th>
                     <td class="tb">
                       <div class="media-body">
-                          <span>{{item.firstname+" "+item.lastname }}</span>
-                          <h6 class="mb-0"><i>{{item.email}}</i></h6>
+                        <span>{{item.firstname+" "+item.lastname }}</span>
+                        <h6 class="mb-0">
+                          <i>{{item.email}}</i>
+                        </h6>
                       </div>
                     </td>
                     <td class="tb">{{item.function}}</td>
@@ -121,13 +134,15 @@
                         <span class="checkmark"></span>
                       </label>
                     </td>
-                    <td class="text-center"><i (click)="deleteFromTeamList(item)" style="cursor: pointer;" class="fa fa-trash fa-remove"></i></td>
+                    <td class="text-center">
+                      <i (click)="deleteFromTeamList(item)" style="cursor: pointer;" class="fa fa-trash fa-remove"></i>
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </ng-template>
-          
+
         </div>
       </div>
     </div>
@@ -136,7 +151,9 @@
 <div *ngIf="readyData && !activated" class="container">
   <div class="alert alert-success" role="alert">
     <h4 class="alert-heading">Juste un pas de plus!</h4>
-    <p>Oui, votre compte a été créé avec succès, ce message d'alerte est important. Pour accéder à l'ensemble de votre compte et à celui de votre entreprise, veuillez consulter votre adresse e-mail utilisée lors de l'inscription. Un e-mail a été envoyé pour activer votre compte.</p>
+    <p>Oui, votre compte a été créé avec succès, ce message d'alerte est important. Pour accéder à l'ensemble de votre compte
+      et à celui de votre entreprise, veuillez consulter votre adresse e-mail utilisée lors de l'inscription. Un e-mail a
+      été envoyé pour activer votre compte.</p>
     <p class="mb-0"> Je vous remercie. </p>
   </div>
 </div>
