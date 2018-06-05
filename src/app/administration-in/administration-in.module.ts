@@ -33,8 +33,9 @@ import { ViewApplicationDetailsComponent } from './mydesk/view-application-detai
 import { FavoriteComponent } from './mydesk/favorite/favorite.component';
 import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invited-organisation.component';
 import { MydeskComponent } from './mydesk/mydesk.component';
-import { ApplicationComponent } from './mydesk/application/application.component';
+import { ApplicationComponent } from './collaborations/application/application.component';
 import { ViewReactionComponent } from './mydesk/view-reaction/view-reaction.component';
+import { ApplicationReportComponent } from './collaborations/application-report/application-report.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ViewReactionComponent } from './mydesk/view-reaction/view-reaction.comp
     GeneralUtilitiesModule
   ],
   declarations: [
-    MydeskComponent,ViewReactionComponent,
+    MydeskComponent,
+    ViewReactionComponent,
     CollaborationsComponent,
     ProjectEditAndNewComponent,
     ViewApplicationDetailsComponent,
@@ -73,7 +75,7 @@ import { ViewReactionComponent } from './mydesk/view-reaction/view-reaction.comp
     OpportunitiesComponent,
     PositionsComponent,
     ApplyInnovProjectComponent,
-    QuestionComponent,
+    QuestionComponent, ApplicationReportComponent,
     ApplicationComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
