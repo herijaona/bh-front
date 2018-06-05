@@ -13,7 +13,7 @@
             </div>
             <div class="col-sm-12 col-lg-7">
                 <h3 class="request-h3">Demande de Renseignements</h3>
-                <div class="row">
+                <div class="row" [formGroup]="myGroup">
                     <div class="col-sm-12 col-xs-12 col-lg-6 pm-0">
                         <input type="email" placeholder="Nom" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
                         <input type="email" placeholder="Prenom" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">

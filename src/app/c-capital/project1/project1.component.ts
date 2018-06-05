@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Globals } from "./../../globals/globals";
+import { AuthserviceService } from "../../services/authservice/authservice.service";
+
 @Component({
   selector: 'app-project1',
   templateUrl: './project1.component.html',
@@ -9,9 +11,11 @@ export class Project1Component implements OnInit {
   	public header_page_logo: string = this.g.base_href + "assets/img/logo-collaboration.png";
   constructor(
   	public g: Globals,
+  	private auth: AuthserviceService,
   	) {}
 
   ngOnInit() {
   }
+
 
 }
