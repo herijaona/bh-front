@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Globals } from "./../../globals/globals";
+import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { TeamsService } from "../../services/teams/teams.service";
 @Component({
@@ -24,6 +25,7 @@ export class MembersAdminComponent implements OnInit {
   constructor(
     public g: Globals,
     private router: Router,
+    private sh: SharedNotificationService,
     private tms: TeamsService,
     private auth: AuthserviceService
   ) {
@@ -32,7 +34,7 @@ export class MembersAdminComponent implements OnInit {
       lastname: new FormControl("", [Validators.required]),
       firstname: new FormControl("", [Validators.required]),
       invAsTeam: new FormControl(true),
-      invAsComm: new FormControl(true),
+      invAsComm: new FormControl(false),
       email: new FormControl("", [
         Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$"),
         Validators.required
@@ -84,7 +86,11 @@ export class MembersAdminComponent implements OnInit {
       var data: any = this.inviteForm.value;
       var teamInviteRes: any = await this.tms.inviteTeam(data);
       if (teamInviteRes.status == "OK") {
-        console.log("ok");
+        this.sh.notifToast({
+          type: "success",
+          message: "<p>Invitation sent</p>"
+        });
+        this.inviteForm.reset();
       }
     } catch (error) {
       console.log(error);
@@ -133,7 +139,9 @@ export class MembersAdminComponent implements OnInit {
   }
   async deleteFromTeamList(it) {
     try {
-      let rm: any = await this.tms.deleteFromTeamList({ usr_id: it._id });
+      let rm: any = await this.tms.deleteFromTeamList({
+        usr_id: it._id
+      });
       if (rm) {
         if (rm.status == "OK") {
           this.userAdminData = [];
@@ -154,7 +162,6 @@ export class MembersAdminComponent implements OnInit {
         this.communityShow = true;
         break;
       default:
-        // code...
         break;
     }
   }
