@@ -23,7 +23,6 @@ import { EventOnCompProfileComponent } from "../companies/utilprofile/event-on-c
 import { CommitteeComponent } from "../committee/committee/committee.component";
 import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
 import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
-import { ViewReactionComponent } from "../company-data/view-reaction/view-reaction.component";
 import { ApplicationReportComponent } from "../company-data/application-report/application-report.component";
 import { Project1Component } from "../c-capital/project1/project1.component";
 import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
@@ -45,6 +44,7 @@ import { ReceivedApplyCollaborationComponent } from '../administration-in/collab
 import { CommunitiesComponent } from "../administration-in/communities/communities.component";
 import { OpportunitiesComponent } from "../administration-in/opportunities/opportunities.component";
 import { PositionsComponent } from "../administration-in/positions/positions.component";
+import { ViewReactionComponent } from "../administration-in/mydesk/view-reaction/view-reaction.component";
 
 // import { UserAuthModule } from "../user-auth/user-auth.module";
 const routes: Routes = [

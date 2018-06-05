@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Title } from "@angular/platform-browser";
-import { Globals } from "./../../globals/globals";
+import { Globals } from "../../../globals/globals";
 import { Router } from "@angular/router";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
-import { TeamsService } from "../../services/teams/teams.service";
+import { AuthserviceService } from "../../../services/authservice/authservice.service";
+import { TeamsService } from "../../../services/teams/teams.service";
 
 @Component({
 	selector: "view-reaction",
@@ -23,7 +23,7 @@ export class ViewReactionComponent implements OnInit {
 	async getAllQuestions() {
 		this.allQuestions = [];
 		try {
-			let quest : any = await this.tms.getAllQuestionsOnCompany();
+			let quest : any = await this.tms.getAllQuestionsOnCompany('no-project');
 			if (quest) {
 				if(quest.status == "OK") {
 					this.allQuestions = quest.data;
