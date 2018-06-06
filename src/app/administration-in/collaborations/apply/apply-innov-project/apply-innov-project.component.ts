@@ -63,7 +63,7 @@ export class ApplyInnovProjectComponent implements OnInit {
 
   async getCountryList() {
     try {
-      let cListres = await this.pr.countryGet();
+      let cListres = await this.pr.countryGet('all');
       if (cListres["status"] == "OK") {
         this.ListCo = cListres["data"];
         console.log(this.ListCo);

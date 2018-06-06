@@ -105,7 +105,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   }
   async getCountryList() {
     try {
-      const cListres = await this.pr.countryGet();
+      const cListres = await this.pr.countryGet('continent');
       if (cListres) {
         if (cListres['status'] === 'OK') {
           this.ListCo = cListres['data'];
