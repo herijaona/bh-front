@@ -25,6 +25,10 @@ import { Globals } from "./../../globals/globals";
 export class RegistrationComponent implements OnInit {
   public img_logo: string;
   public img_avatar: string;
+  public free: string;
+  public img_logo2: string;
+  public assisted: string;
+  public automnomous: string;
   public registerForm: FormGroup;
   fileError: any = false;
   used_email: boolean = false;
@@ -59,6 +63,10 @@ export class RegistrationComponent implements OnInit {
     }
     this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
     this.img_logo = this.g.base_href + "assets/img/bh.png";
+    this.img_logo2 = this.g.base_href + "assets/img/logo-ccw.png";
+    this.free = this.g.base_href + "assets/img/free-8.png";
+    this.automnomous = this.g.base_href + "assets/img/automnomous-8.png";
+    this.assisted = this.g.base_href + "assets/img/assisted-8.png";
     this.getOrgtype();
   }
   async getOrgtype() {

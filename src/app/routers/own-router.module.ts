@@ -41,6 +41,9 @@ import { ApplicationComponent } from '../administration-in/collaborations/applic
 import { InvitedOrganisationComponent } from '../administration-in/mydesk/invited-organisation/invited-organisation.component';
 import { MydeskComponent } from '../administration-in/mydesk/mydesk.component';
 import { CommunitiesComponent } from '../administration-in/communities/communities.component';
+import { EcosystemComponent } from '../administration-in/communities/ecosystem/ecosystem.component';
+import { QuestionCommunitiesComponent } from '../administration-in/communities/question-communities/question-communities.component';
+import { IdeasCommunitiesComponent } from '../administration-in/communities/ideas/ideas.component';
 import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
 import { PositionsComponent } from '../administration-in/positions/positions.component';
 import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction/view-reaction.component';
@@ -236,7 +239,18 @@ const routes: Routes = [
     path: 'administration-in/communities',
     component: CommunitiesComponent,
     canActivate: [AuthguardService],
-    children: []
+    children: [{
+        path: 'ecosystem',
+        component: EcosystemComponent
+    },
+    {
+        path: 'ideas',
+        component: IdeasCommunitiesComponent
+    },
+    {
+        path: 'questions',
+        component: QuestionCommunitiesComponent
+    }]
   },
   {
     path: 'administration-in/opportunities',
