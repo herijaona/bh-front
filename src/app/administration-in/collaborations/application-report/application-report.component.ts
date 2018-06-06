@@ -21,6 +21,8 @@ export class ApplicationReportComponent implements OnInit {
     this.allApplData = [];
     try {
       const appl: any = await this.pr.getCompanyApplication();
+      console.log('Apply');
+      console.log(appl);
       if (appl.data) {
         this.allApplData = appl.data;
       }
