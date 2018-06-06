@@ -19,7 +19,6 @@ import { PCompletionComponent } from './profile/p-completion/p-completion.compon
 import { MembersAdminComponent } from './members-admin/members-admin.component';
 import { AdminAllColabComponent } from './collaborations/admin-all-colab/admin-all-colab.component';
 import { CommunitiesComponent } from './communities/communities.component';
-import { ReceivedApplyCollaborationComponent } from './collaborations/received-apply-collaboration/received-apply-collaboration.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
 import { ApplyComponent } from './collaborations/apply/apply.component';
@@ -66,7 +65,6 @@ import { ApplicationReportComponent } from './collaborations/application-report/
     NavbarAdminComponent,
     AdminAllColabComponent,
     CommunitiesComponent,
-    ReceivedApplyCollaborationComponent,
     SomeDateComponent,
     ApplyComponent,
     ApplicationSentComponent,
