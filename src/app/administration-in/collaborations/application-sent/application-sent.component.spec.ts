@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfigComponent } from './config.component';
+import { ConfigComponent } from "./application-sent.component";
 
 describe('ConfigComponent', () => {
   let component: ConfigComponent;

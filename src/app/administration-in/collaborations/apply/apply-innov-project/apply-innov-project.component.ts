@@ -1,21 +1,21 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { IMyDpOptions } from "mydatepicker";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { ProjectsService } from "../../../../services/projects/projects.service";
-import { SharedNotificationService } from "./../../../../services/shared-notification/shared-notification.service";
-import { Globals } from "./../../../../globals/globals";
+import { Component, OnInit, Input } from '@angular/core';
+import { IMyDpOptions } from 'mydatepicker';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProjectsService } from '../../../../services/projects/projects.service';
+import { SharedNotificationService } from './../../../../services/shared-notification/shared-notification.service';
+import { Globals } from './../../../../globals/globals';
 
 @Component({
-  selector: "apply-innov-project",
-  templateUrl: "./apply-innov-project.component.html",
-  styleUrls: ["./apply-innov-project.component.scss"]
+  selector: 'apply-innov-project',
+  templateUrl: './apply-innov-project.component.html',
+  styleUrls: ['./apply-innov-project.component.scss']
 })
 export class ApplyInnovProjectComponent implements OnInit {
   public prObjApply: any;
   public UserOrgName: any;
   public canBeSent: boolean = false;
-  public modelCountry: string = "default";
+  public modelCountry: string = 'default';
   public modelDate: any = {
     date: {
       year: new Date(Date.now()).getFullYear(),
@@ -25,23 +25,23 @@ export class ApplyInnovProjectComponent implements OnInit {
   };
   public ListCo: any = [];
   public myDatePickerOptions: IMyDpOptions = {
-    dateFormat: "dd-mm-yyyy",
+    dateFormat: 'dd-mm-yyyy',
     editableDateField: false,
     componentDisabled: true,
     showClearDateBtn: false,
     showTodayBtn: false
   };
-  @Input("data_in")
+  @Input('data_in')
   set data_in(o) {
     this.prObjApply = o;
   }
 
   public projectApplyData = {
-    main_activity_domain: "",
-    secondary_activity_domain: "",
-    skill_specificities: "",
-    user_application_describ: "",
-    collab_proposal_describ: ""
+    main_activity_domain: '',
+    secondary_activity_domain: '',
+    skill_specificities: '',
+    user_application_describ: '',
+    collab_proposal_describ: ''
   };
   constructor(
     public g: Globals,
@@ -52,11 +52,11 @@ export class ApplyInnovProjectComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.prObjApply);
-    if (this.prObjApply["hasAcc"]) {
+    if (this.prObjApply['hasAcc']) {
       /* the default */
-      this.UserOrgName = this.prObjApply["userACC"][0].enseigneCommerciale;
+      this.UserOrgName = this.prObjApply['userACC'][0].enseigneCommerciale;
     } else {
-      this.UserOrgName = this.prObjApply["userACC"]["enseigneCommerciale"];
+      this.UserOrgName = this.prObjApply['userACC']['enseigneCommerciale'];
     }
     this.getCountryList();
   }
@@ -64,15 +64,15 @@ export class ApplyInnovProjectComponent implements OnInit {
   async getCountryList() {
     try {
       let cListres = await this.pr.countryGet('all');
-      if (cListres["status"] == "OK") {
-        this.ListCo = cListres["data"];
+      if (cListres['status'] == 'OK') {
+        this.ListCo = cListres['data'];
         console.log(this.ListCo);
       }
     } catch (e) {}
   }
 
   applicationDescription(event, modelData) {
-    let s = event.target.value.replace(/\r?\n/g, "<br>");
+    let s = event.target.value.replace(/\r?\n/g, '<br>');
     console.log(s);
   }
 
@@ -89,7 +89,7 @@ export class ApplyInnovProjectComponent implements OnInit {
       }
     }
     let countryModel = true;
-    if (this.modelCountry == "default") countryModel = false;
+    if (this.modelCountry == 'default') countryModel = false;
 
     this.canBeSent = canSent && countryModel;
   }
@@ -99,7 +99,7 @@ export class ApplyInnovProjectComponent implements OnInit {
       for (let el of Object.keys(this.projectApplyData)) {
         this.projectApplyData[el] = this.projectApplyData[el].replace(
           /\r?\n/g,
-          "<br>"
+          '<br>'
         );
       }
 
@@ -111,15 +111,15 @@ export class ApplyInnovProjectComponent implements OnInit {
       try {
         let ret: any = await this.pr.sendProjectsApplication(arg);
 
-        if (ret.status == "OK") {
+        if (ret.status == 'OK') {
           this.sh.notifToast({
-            type: "success",
-            message: "<p>Application sent</p>"
+            type: 'success',
+            message: '<p>Application sent</p>'
           });
           setTimeout(() => {
             this.router.navigateByUrl(
-              "/" +
-                ["administration-in", "collaborations", "apply-sent"].join("/")
+              '/' +
+                ['administration-in', 'collaborations', 'apply-sent'].join('/')
             );
           }, 500);
         }

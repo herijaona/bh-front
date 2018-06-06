@@ -32,7 +32,7 @@ import { ViewApplicationDetailsComponent } from '../administration-in/mydesk/vie
 import { QuestionsDetailsComponent } from '../administration-in/mydesk/questions-details/questions-details.component';
 import { AdminAllColabComponent } from '../administration-in/collaborations/admin-all-colab/admin-all-colab.component';
 import { ProjectEditAndNewComponent } from '../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component';
-import { ConfigComponent } from '../administration-in/collaborations/config/config.component';
+import { ApplicationSentComponent } from '../administration-in/collaborations/application-sent/application-sent.component';
 import { ApplyComponent } from '../administration-in/collaborations/apply/apply.component';
 import { CollaborationsComponent } from '../administration-in/collaborations/collaborations.component';
 import { QuestionComponent } from '../administration-in/collaborations/question/question.component';
@@ -49,218 +49,218 @@ import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomepageComponent
   },
   {
-    path: 'collaborations',
+    path: "collaborations",
     component: CollaborationsComponent
   },
   {
-    path: 'mydesk',
+    path: "mydesk",
     component: MydeskComponent
   },
   {
-    path: 'committee',
+    path: "committee",
     component: CommitteeComponent
   },
   {
-    path: 'profile-admin',
+    path: "profile-admin",
     component: ProfileAdminComponent
   },
   {
-    path: 'members-admin',
+    path: "members-admin",
     component: MembersAdminComponent
   },
   {
-    path: 'home',
+    path: "home",
     component: HomepageComponent
   },
   {
-    path: 'project1',
+    path: "project1",
     component: Project1Component
   },
   {
-    path: 'project-description',
+    path: "project-description",
     component: ProjectDescriptionComponent
   },
   {
-    path: 'mindset',
+    path: "mindset",
     component: MindsetComponent
   },
   {
-    path: 'open-innovation/:slug_acc/acceuil',
+    path: "open-innovation/:slug_acc/acceuil",
     component: MindsetComponent
   },
   {
-    path: 'open-innovation/:slug_acc/team',
+    path: "open-innovation/:slug_acc/team",
     component: TeamComponent
   },
   {
-    path: 'open-innovation/:slug_acc/projects',
+    path: "open-innovation/:slug_acc/projects",
     component: ProjectsComponent
   },
   {
-    path: 'open-innovation/:slug_acc/details-project/:project_id',
+    path: "open-innovation/:slug_acc/details-project/:project_id",
     component: DescriptionProjectComponent
   },
   {
-    path: 'open-innovation/:slug_acc/success-stories',
+    path: "open-innovation/:slug_acc/success-stories",
     component: IdeasComponent
   },
   {
-    path: 'team',
+    path: "team",
     component: TeamComponent
   },
   {
-    path: 'projects',
+    path: "projects",
     component: ProjectsComponent
   },
   {
-    path: 'description-project',
+    path: "description-project",
     component: DescriptionProjectComponent
   },
   {
-    path: 'ideas',
+    path: "ideas",
     component: IdeasComponent
   },
   {
-    path: 'registerCompany',
+    path: "registerCompany",
     component: RegistrationComponent
   },
   {
-    path: 'activate/:code',
+    path: "activate/:code",
     component: ActivationComponent
   },
   {
-    path: 'login',
+    path: "login",
     component: PageLoginComponent
   },
   {
-    path: 'sign-in',
+    path: "sign-in",
     component: SignUpComponent
   },
   {
-    path: 'all-companies',
+    path: "all-companies",
     component: ListCompaniesComponent
   },
   {
-    path: 'view-project-application',
+    path: "view-project-application",
     component: ApplicationReportComponent,
     canActivate: [AuthguardService]
   },
   {
-    path: 'view-all-reaction',
+    path: "view-all-reaction",
     component: ViewReactionComponent,
     canActivate: [AuthguardService]
   },
   {
-    path: 'administration-in/user/profile',
+    path: "administration-in/user/profile",
     component: ProfileComponent,
     canActivate: [AuthguardService]
   },
   {
-    path: 'administration-in/desk',
+    path: "administration-in/desk",
     component: MydeskComponent,
     canActivate: [AuthguardService],
     children: [
       {
-        path: '',
+        path: "",
         component: MembersAdminComponent
       },
       {
-        path: 'applications/details/:id_appl',
+        path: "applications/details/:id_appl",
         component: ViewApplicationDetailsComponent
       },
       {
-        path: 'questions',
+        path: "questions",
         component: ViewReactionComponent
       },
       {
-        path: 'questions/details/:qID',
+        path: "questions/details/:qID",
         component: QuestionsDetailsComponent
       },
       {
-        path: 'favorite',
+        path: "favorite",
         component: FavoriteComponent
       },
       {
-        path: 'invited-organisation',
+        path: "invited-organisation",
         component: InvitedOrganisationComponent
       },
       {
-        path: 'application',
+        path: "application",
         component: ApplicationComponent
       }
     ]
   },
   {
-    path: 'administration-in/collaborations',
+    path: "administration-in/collaborations",
     component: CollaborationsComponent,
     canActivate: [AuthguardService],
     children: [
       {
-        path: '',
+        path: "",
         component: AdminAllColabComponent
       },
       {
-        path: 'create-collaboration',
+        path: "create-collaboration",
         component: ProjectEditAndNewComponent
       },
       {
-        path: 'applications',
+        path: "applications",
         component: ApplicationReportComponent
       },
       {
-        path: 'apply/:id_project',
+        path: "apply/:id_project",
         component: ApplyComponent
       },
       {
-        path: 'apply-sent',
-        component: ConfigComponent
+        path: "apply-sent",
+        component: ApplicationSentComponent
       },
       {
-        path: 'apply-received',
+        path: "apply-received",
         component: ApplicationReportComponent
       },
       {
-        path: 'create/:item-slug',
+        path: "create/:item-slug",
         component: ProjectEditAndNewComponent
       },
       {
-        path: 'question',
+        path: "question",
         component: QuestionComponent
       }
     ]
   },
   {
-    path: 'administration-in/communities',
+    path: "administration-in/communities",
     component: CommunitiesComponent,
     canActivate: [AuthguardService],
     children: []
   },
   {
-    path: 'administration-in/opportunities',
+    path: "administration-in/opportunities",
     component: OpportunitiesComponent,
     canActivate: [AuthguardService],
     children: []
   },
   {
-    path: 'administration-in/positions',
+    path: "administration-in/positions",
     component: PositionsComponent,
     canActivate: [AuthguardService],
     children: []
   },
   {
-    path: 'c-capital/description-project',
+    path: "c-capital/description-project",
     component: ProjectDescriptionComponent
   },
   {
-    path: 'reset-my-pass/:id_/:pass_code',
+    path: "reset-my-pass/:id_/:pass_code",
     component: ResetPasswordComponent
   },
   {
-    path: 'invitation_response/:acc_slug/invitation/:invit_id',
+    path: "invitation_response/:acc_slug/invitation/:invit_id",
     component: InvitedRegisterComponent
   }
 ];

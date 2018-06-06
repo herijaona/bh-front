@@ -23,7 +23,7 @@ import { ReceivedApplyCollaborationComponent } from './collaborations/received-a
 import { MyDatePickerModule } from 'mydatepicker';
 import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
 import { ApplyComponent } from './collaborations/apply/apply.component';
-import { ConfigComponent } from './collaborations/config/config.component';
+import { ApplicationSentComponent } from "./collaborations/application-sent/application-sent.component";
 import { OpportunitiesComponent } from './opportunities/opportunities.component';
 import { PositionsComponent } from './positions/positions.component';
 import { ApplyInnovProjectComponent } from './collaborations/apply/apply-innov-project/apply-innov-project.component';
@@ -69,13 +69,14 @@ import { ApplicationReportComponent } from './collaborations/application-report/
     ReceivedApplyCollaborationComponent,
     SomeDateComponent,
     ApplyComponent,
-    ConfigComponent,
+    ApplicationSentComponent,
     FavoriteComponent,
     InvitedOrganisationComponent,
     OpportunitiesComponent,
     PositionsComponent,
     ApplyInnovProjectComponent,
-    QuestionComponent, ApplicationReportComponent,
+    QuestionComponent,
+    ApplicationReportComponent,
     ApplicationComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
