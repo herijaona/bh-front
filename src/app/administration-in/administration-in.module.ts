@@ -35,6 +35,9 @@ import { MydeskComponent } from './mydesk/mydesk.component';
 import { ApplicationComponent } from './collaborations/application/application.component';
 import { ViewReactionComponent } from './mydesk/view-reaction/view-reaction.component';
 import { ApplicationReportComponent } from './collaborations/application-report/application-report.component';
+import { EcosystemComponent } from './communities/ecosystem/ecosystem.component';
+import { IdeasCommunitiesComponent } from './communities/ideas/ideas.component';
+import { QuestionCommunitiesComponent } from './communities/question-communities/question-communities.component';
 
 
 @NgModule({
@@ -75,7 +78,10 @@ import { ApplicationReportComponent } from './collaborations/application-report/
     ApplyInnovProjectComponent,
     QuestionComponent,
     ApplicationReportComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    EcosystemComponent,
+    IdeasCommunitiesComponent,
+    QuestionCommunitiesComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

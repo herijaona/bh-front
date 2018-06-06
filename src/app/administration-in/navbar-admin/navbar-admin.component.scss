@@ -1,76 +1,110 @@
-$color1 : #e94e45;
-li{
-	list-style:none;
+$color1: #e94e45;
+li {
+    list-style: none;
 }
-.bg-desk{
-	top:0px;
-	background:$color1 ;
-	padding: 0;
-	position: fixed;
+
+.bg-desk {
+    top: 0px;
+    background: $color1;
+    padding: 0;
+    position: fixed;
     width: 100%;
     z-index: 9;
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
+
 .desk-nav {
-	    height: 50px;
-	li{
-		padding: 8px;
-	}
-		li.active, li a.active{
-			background:#ec7d738c;
-		}
-	li a{
-		color: white;
-	    font-family: SourceSansPro-Bold;
-	    font-size: 13px;
-	}
-}
-@media(max-width:767px){
-.brand-tip{
-	position: relative;
-    left: 10px;
-	}
-.desk-nav{
-    height: auto;
-    position: relative;
-	}
-}
-@media(max-width:410px){
-.dni-mobile{
-	display:block !important;
-	left: -32px;
-    position: relative;
-	}
-}
-.desk-nav-icon{
-		display: inline-block;
-		li{
-			display: inline-block;
-		}
-		li a{
-		color: white;
-	    font-family: SourceSansPro-Semibold;
-	    font-size: 18px;
-	}
-}
-.dni-mobile{
-	display:none;
+    height: 50px;
+    li {
+        padding: 8px;
+    }
+    li.active,
+    li a.active {
+        background: #ec7d738c;
+    }
+    li a {
+        color: white;
+        font-family: SourceSansPro-Bold;
+        font-size: 13px;
+    }
 }
 
-.toggle-in{
-    display:block !important;
-}
-.toggle-in{
-	@media(min-width:825px){
-		display:flex !important;
-		}
-}
-.mobil-top{
-    display:none;
+.i-co {
+    i {
+        position: relative;
+    }
+    .fa-circle {
+        color: #82bf73;
+        position: relative;
+        margin-top: -2px;
+        font-size: 8px;
+        margin-left: -8px;
+        border: 2px solid #e94e45;
+        border-radius: 7px;
+        width: 10px;
+        padding: 0px;
+        height: 10px;
+        background: #e94e45;
+        top: -7.8px;
+        padding-bottom: 0px !important;
+    }
+    .fa-circle:before {
+        top: -1px;
+        position: relative;
+    }
 }
 
-.side-nv{
-	position: fixed;
+@media(max-width:767px) {
+    .brand-tip {
+        position: relative;
+        left: 10px;
+    }
+    .desk-nav {
+        height: auto;
+        position: relative;
+    }
+}
+
+@media(max-width:410px) {
+    .dni-mobile {
+        display: block !important;
+        left: -32px;
+        position: relative;
+    }
+}
+
+.desk-nav-icon {
+    display: inline-block;
+    li {
+        display: inline-block;
+    }
+    li a {
+        color: white;
+        font-family: SourceSansPro-Semibold;
+        font-size: 18px;
+    }
+}
+
+.dni-mobile {
+    display: none;
+}
+
+.toggle-in {
+    display: block !important;
+}
+
+.toggle-in {
+    @media(min-width: 825px) {
+        display: flex !important;
+    }
+}
+
+.mobil-top {
+    display: none;
+}
+
+.side-nv {
+    position: fixed;
     top: 65px;
     bottom: 0;
     left: 0;
@@ -79,55 +113,68 @@ li{
     overflow-x: hidden;
     overflow-y: auto;
     border-right: 1px solid #eee;
-    .wrapper{
-    	margin-top: -30px;
+    .wrapper {
+        margin-top: -30px;
     }
-    ul li{
-    	margin-top: 15px;
+    ul li {
+        margin-top: 15px;
     }
-    ul li a{
-    	font-size: 14px;
-	    font-family: SourceSansPro-Semibold;
-	    color: #606060;
-	    letter-spacing: 0.3px;
+    ul li a {
+        font-size: 14px;
+        font-family: SourceSansPro-Semibold;
+        color: #606060;
+        letter-spacing: 0.3px;
     }
 }
-.ml-16{
-	margin-left: 20%;
-	margin-top: 67px;
+
+.ml-16 {
+    margin-left: 20%;
+    margin-top: 67px;
 }
-.side-title{
-	margin-left: 30px;
-	i{
-		padding-right: 10px;
-	}
+
+.side-title {
+    margin-left: 30px;
+    i {
+        padding-right: 10px;
+    }
 }
-.i-bar{
-	color: white;
+
+.i-bar {
+    color: white;
     font-size: 21px;
     padding-right: 8px;
 }
-@media(min-width:767px){
-	.i-bar,.menu-bar{
-		display:none;
-	}
+
+@media(min-width:767px) {
+    .i-bar,
+    .menu-bar {
+        display: none;
+    }
 }
-.menu-bar{
-	margin-left: 10px;
+
+.menu-bar {
+    margin-left: 10px;
     font-size: 17px;
     color: white !important;
     font-family: SourceSansPro-Semibold;
 }
-@media(max-width:410px){
-	.desk-sh{
-		visibility:hidden;
-		display:none;
-	}
+
+@media(max-width:410px) {
+    .desk-sh {
+        visibility: hidden;
+        display: none;
+    }
 }
-@media(max-width:767px){
-	.desk-sh{
-    position: absolute;
-    left: 44px;
-    top: -3px;
-	}
+
+@media(max-width:767px) {
+    .desk-sh {
+        position: absolute;
+        left: 44px;
+        top: -3px;
+    }
+}
+
+.img-reel {
+    top: -2px;
+    position: relative;
 }

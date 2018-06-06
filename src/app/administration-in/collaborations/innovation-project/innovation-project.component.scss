@@ -247,3 +247,133 @@ textarea.md-textarea:focus:not([readonly]) {
 .diffSelect {
     background: #fff0f0;
 }
+
+
+/* checkbox */
+
+.custon-ch {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    span:first-child {
+        font-family: SourceSansPro-Regular;
+        top: 4px;
+        position: relative;
+    }
+}
+
+.custon-ch input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.custon-ch:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.custon-ch input:checked~.checkmark {
+    background: #ff395e;
+    border-radius: 4px;
+    border: 0px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custon-ch input:checked~.checkmark:after {
+    display: block;
+}
+
+.custon-ch .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* end checkbox */
+
+.continent-f {
+    label {
+        background: #d2d2d21c !important;
+        padding-bottom: 8px;
+        margin-right: 1%;
+    }
+}
+
+.col2 {
+    width: 20%;
+}
+
+.continent-table {
+    .tc {
+        width: 250px;
+        border-top: 2px solid white !important;
+        border-left: 2px solid white !important;
+        select {
+            border: none;
+            width: 100%;
+            padding-left: 9px;
+            text-transform: uppercase;
+            font-family: SourceSansPro-Semibold;
+            font-size: 13px;
+        }
+    }
+    .st {
+        background: #393f4b !important;
+        color: white;
+        font-family: SourceSansPro-Semibold;
+        font-size: 13px;
+        text-align: center;
+        border-right: 1.5px solid #c3c3c3a1;
+        span {
+            top: 11px;
+            position: relative;
+        }
+    }
+    .table-bordered thead th,
+    .table-bordered thead td {
+        padding: 0;
+    }
+    table-bordered th,
+    .table-bordered td {
+        border: 1.5px solid #373d4957;
+    }
+    tbody {
+        font-family: SourceSansPro-Regular;
+        font-size: 13px;
+        color: #373d49;
+    }
+    .checkmark {
+        position: absolute;
+        left: 45%;
+        top: 18px;
+    }
+    .custon-ch {
+        position: relative;
+    }
+}
