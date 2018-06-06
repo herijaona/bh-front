@@ -6,26 +6,29 @@
       <thead class="head-color">
         <tr class="text-bl">
           <th>Date</th>
-          <th>Heure</th>
-          <th>Project Name</th>
-          <th>UserName</th>
+          <th>Country</th>
           <th>Organisation</th>
-          <th>Details</th>
+          <th>Type</th>
+          <th>Collaboration name</th>
+          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <!--Table head-->
       <!--Table body-->
       <tbody>
-        <tr *ngFor="let item of allApplData">
+      <!--   <tr *ngFor="let item of allApplData">
           <td>{{item.date}}</td>
           <td>{{item.hour}}</td>
           <td>{{item.prjt.name}}</td>
           <td>{{item.usr.name}}</td>
           <td>{{item.usr.org}}</td>
           <td>
-            <a [routerLink]="['/candidature','details', item._id ]" target="_blank"><i class="fa fa-eye"></i> </a>
+            <a [routerLink]="['/candidature','details', item._id ]" target="_blank">
+              <i class="fa fa-eye"></i>
+            </a>
           </td>
-        </tr>
+        </tr> -->
       </tbody>
       <!--Table body-->
     </table>
