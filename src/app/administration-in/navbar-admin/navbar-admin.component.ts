@@ -31,7 +31,7 @@ export class NavbarAdminComponent implements OnInit {
     private router: Router,
     public g: Globals,
     public el: ElementRef,
-    private auth: AuthserviceService,
+    public auth: AuthserviceService,
     private tms: TeamsService
   ) {
     this.getDataOnCompany();

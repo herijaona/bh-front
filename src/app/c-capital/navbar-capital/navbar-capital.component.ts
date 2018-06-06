@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { ModalDirective } from "angular-bootstrap-md";
 
@@ -8,12 +8,13 @@ import { Router } from "@angular/router";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 
 @Component({
-  selector: 'navbar-capital',
-  templateUrl: './navbar-capital.component.html',
-  styleUrls: ['./navbar-capital.component.scss']
+  selector: "navbar-capital",
+  templateUrl: "./navbar-capital.component.html",
+  styleUrls: ["./navbar-capital.component.scss"]
 })
 export class NavbarCapitalComponent implements OnInit {
-  public header_page_logo: string = this.g.base_href + "assets/img/logo-collaboration.png";
+  public header_page_logo: string =
+    this.g.base_href + "assets/img/logo-collaboration.png";
   public logo_cca: string = this.g.base_href + "assets/img/logo-cca.png";
   public login_cca: string = this.g.base_href + "assets/img/login.png";
   public mdp_cca: string = this.g.base_href + "assets/img/mdp.png";
@@ -28,22 +29,22 @@ export class NavbarCapitalComponent implements OnInit {
   type_ = "notif";
   text_ = "Success de registration";
   error_log: boolean = false;
- 
+
   @ViewChild("modalconect") connModal: ModalDirective;
   @ViewChild("modalregister") registerModal: ModalDirective;
   @ViewChild("modalpass") passModal: ModalDirective;
 
   constructor(
-  	public g: Globals,
-    private auth: AuthserviceService,
+    public g: Globals,
+    public auth: AuthserviceService,
     private router: Router,
     private sh: SharedNotificationService
-  	) {
-  	this.show = false;
+  ) {
+    this.show = false;
   }
 
   ngOnInit() {
-  	this.resetpassForm = new FormGroup({
+    this.resetpassForm = new FormGroup({
       bhemail: new FormControl("", [
         Validators.required,
         Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
@@ -62,32 +63,30 @@ export class NavbarCapitalComponent implements OnInit {
     });
   }
 
-addModalconn() {
-		setTimeout(() => {
-			this.connModal.show();
-		}, 330);
-	}
-closemodalsstr() {
-		this.connModal.hide();
-		setTimeout(() => {
-		}, 330);
-	}
-addModalregister() {
-		setTimeout(() => {
-			this.registerModal.show();
-		}, 330);
-	}
-closemodaregister() {
-		this.registerModal.hide();
-		setTimeout(() => {
-		}, 330);
-	}
+  addModalconn() {
+    setTimeout(() => {
+      this.connModal.show();
+    }, 330);
+  }
+  closemodalsstr() {
+    this.connModal.hide();
+    setTimeout(() => {}, 330);
+  }
+  addModalregister() {
+    setTimeout(() => {
+      this.registerModal.show();
+    }, 330);
+  }
+  closemodaregister() {
+    this.registerModal.hide();
+    setTimeout(() => {}, 330);
+  }
 
-password() {
+  password() {
     this.show = !this.show;
-}
+  }
 
-onFormSubmit() {
+  onFormSubmit() {
     let credential = {
       email: this.loginForm.value.bhemail,
       password: this.loginForm.value.bh_pass
@@ -96,7 +95,7 @@ onFormSubmit() {
       (data: any) => {
         this.auth.profile().then(
           (res: any) => {
-          	this.connModal.hide();
+            this.connModal.hide();
             this.router.navigateByUrl("/project1");
           },
           err => {
@@ -119,12 +118,12 @@ onFormSubmit() {
     );
   }
 
-closeModalConn() {
-	this.connModal.hide();
-	setTimeout(() => {
-			this.passModal.show();
-		}, 400);
-	}
+  closeModalConn() {
+    this.connModal.hide();
+    setTimeout(() => {
+      this.passModal.show();
+    }, 400);
+  }
 
   resetFormSubmit() {
     var afterSubmit = new Promise((resolve, reject) => {
@@ -135,7 +134,7 @@ closeModalConn() {
           (res: any) => {
             setTimeout(() => {
               if (res.status == "OK") {
-              	this.passModal.hide();
+                this.passModal.hide();
                 this.type_ = "success";
                 this.text_ =
                   "Demande de reinitialisation de mot passe effectuer avec success <br>" +
@@ -165,9 +164,8 @@ closeModalConn() {
     });
   }
 
-  logout(){
-  	this.auth.logout();	
-  	this.router.navigateByUrl("/project1");	
+  logout() {
+    this.auth.logout();
+    this.router.navigateByUrl("/project1");
   }
-
 }
