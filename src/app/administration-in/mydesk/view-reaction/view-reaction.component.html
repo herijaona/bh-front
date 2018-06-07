@@ -6,7 +6,7 @@
       <thead class="head-color">
         <tr class="text-bl">
           <th>&nbsp; Date &nbsp;</th>
-          <th>hour</th>
+          <!-- <th>hour</th> -->
           <th>Name</th>
           <th>About</th>
           <th>Action</th>
@@ -17,7 +17,7 @@
       <tbody>
         <tr *ngFor="let item of allQuestions">
           <td class="no-wrp">{{item.date}}</td>
-          <td>{{item.hour}}</td>
+          <!-- <td>{{item.hour}}</td> -->
           <td>{{item.userAsk.name}}</td>
           <td>
             <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
