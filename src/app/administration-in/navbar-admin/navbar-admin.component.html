@@ -5,15 +5,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-question-circle-o"></i></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-bell"></i></a>
+            <li class="nav-item i-co">
+                <a class="nav-link" href="#"><i class="fa fa-bell"><i *ngIf="auth.isLoggedIn()" class="fa fa-circle"></i></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-cog"></i></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/administration-in','user','profile']"><i class="fa fa-user-circle"></i></a>
+            <li class="nav-item  myclass" *ngFor="let item of userAdminData">
+                <a class="nav-link img-reel" *ngIf="item.imageProfile" [routerLink]="['/administration-in','user','profile']"><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
             </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/administration-in','user','profile']"><i class="fa fa-user-circle"></i></a>
+            </li> -->
         </ul>
         <div class="navbar-collapse mobil-top" id="navbarsExample04">
             <ul class="navbar-nav mr-auto desk-nav">
@@ -51,6 +54,6 @@
                 <a class="nav-link img-reel" *ngIf="item.imageProfile" [routerLink]="['/administration-in','user','profile']"><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
             </li>
         </ul>
-        <a (click)="toggleCollapse()" class="menu-bar"><i class="fa fa-bars i-bar"></i>MENU</a>
+        <a (click)="toggleCollapse()" class="menu-bar"><i class="fa fa-bars i-bar"></i></a>
     </div>
 </nav>
