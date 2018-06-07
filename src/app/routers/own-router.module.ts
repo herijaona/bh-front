@@ -151,10 +151,6 @@ const routes: Routes = [
         component: AdminAllColabComponent,
       },
       {
-        path: 'create-collaboration',
-        component: ProjectEditAndNewComponent,
-      },
-      {
         path: 'apply/:id_project',
         component: ApplyComponent,
       },
