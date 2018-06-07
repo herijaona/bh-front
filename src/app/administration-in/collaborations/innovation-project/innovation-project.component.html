@@ -190,19 +190,19 @@
                                 <td>{{item.country}}</td>
                                 <td (click)="selectPartC($event , item, 'startUps')" [ngClass]="{diffSelect: checkItems(item, 'startUps') }" class="text-center curs_pointer custon-ch">
                                     <input [checked]="checkItems(item, 'startUps')" type="checkbox">
-                                    <span class="checkmark"></span>
+                                    <span [ngClass]="{visible: checkItems(item, 'startUps')}" class="checkmark hidden-ch"></span>
                                 </td>
                                 <td (click)="selectPartC($event, item, 'incubators')" [ngClass]="{diffSelect:checkItems(item, 'incubators') }" class="text-center curs_pointer custon-ch">
                                     <input [checked]="checkItems(item, 'incubators')" type="checkbox">
-                                    <span class="checkmark"></span>
+                                    <span [ngClass]="{visible:checkItems(item, 'incubators') }" class="checkmark hidden-ch"></span>
                                 </td>
                                 <td (click)="selectPartC($event, item, 'research')" [ngClass]="{diffSelect: checkItems(item, 'research') }" class="text-center curs_pointer custon-ch">
                                     <input [checked]="checkItems(item, 'research')" type="checkbox">
-                                    <span class="checkmark"></span>
+                                    <span [ngClass]="{visible: checkItems(item, 'research') }" class="checkmark hidden-ch"></span>
                                 </td>
                                 <td (click)="selectPartC($event, item, 'ventureCapital')" [ngClass]="{diffSelect: checkItems(item, 'ventureCapital') }" class="text-center curs_pointer custon-ch">
                                     <input [checked]="checkItems(item, 'ventureCapital')" type="checkbox">
-                                    <span class="checkmark"></span>
+                                    <span [ngClass]="{visible: checkItems(item, 'ventureCapital') }" class="checkmark hidden-ch"></span>
                                 </td>
                             </tr>
                         </tbody>
