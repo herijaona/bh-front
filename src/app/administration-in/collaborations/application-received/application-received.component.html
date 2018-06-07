@@ -1,6 +1,16 @@
 <div class="col-container">
   <div class="table-respo">
     <!--Table-->
+    <div *ngIf="byApplication">
+      <div>
+        <span>
+          Application for the Collaboration:
+        </span>
+        <span>
+          {{dataCollab.name}}
+        </span>
+      </div>
+    </div>
     <table class="table appli-table">
       <!--Table head-->
       <thead class="head-color">
