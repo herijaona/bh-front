@@ -12,6 +12,7 @@ import { SharedNotificationService } from "./../../services/shared-notification/
 })
 export class SignUpComponent implements OnInit {
 	public img_avatar: string;
+	public img_bg: string;
 	public em_empty: boolean = false;
 	public used_email: boolean = false;
 	public registerForm: FormGroup;
@@ -29,6 +30,7 @@ export class SignUpComponent implements OnInit {
 		}
 		this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
 		this.img_logo = this.g.base_href + "assets/img/bh.png";
+		this.img_bg = this.g.base_href + "assets/img/bg-0.png";
 	}
 
 	ngOnInit() {
@@ -112,4 +114,10 @@ export class SignUpComponent implements OnInit {
 				"<p>Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.</p>"
 		});
 	}
+
+	getUrl()
+	{
+	  return "url(" + this.img_bg + ")";
+	}
+	
 }

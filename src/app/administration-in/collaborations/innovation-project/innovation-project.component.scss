@@ -248,6 +248,10 @@ textarea.md-textarea:focus:not([readonly]) {
     background: #fff0f0;
 }
 
+.visible {
+    visibility: visible;
+}
+
 
 /* checkbox */
 
@@ -372,8 +376,12 @@ textarea.md-textarea:focus:not([readonly]) {
         position: absolute;
         left: 45%;
         top: 18px;
+        border: 1.3px solid #ccc;
     }
     .custon-ch {
         position: relative;
+    }
+    .hidden-ch {
+        visibility: hidden;
     }
 }

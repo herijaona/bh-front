@@ -1,12 +1,15 @@
-$color1 : #e55037;
-$color2 : #393F4B;
-$green : #71BF71;
-$gray : #a7a7a7;
-li{
-    list-style:none;
+$color1: #e55037;
+$color2: #393F4B;
+$green: #71BF71;
+$gray: #a7a7a7;
+li {
+    list-style: none;
 }
+
+
 /* nav sidebar */
-.side-nv{
+
+.side-nv {
     position: fixed;
     top: 65px;
     bottom: 0;
@@ -16,41 +19,43 @@ li{
     overflow-x: hidden;
     overflow-y: auto;
     border-right: 1px solid #eee;
-    .wrapper{
+    .wrapper {
         margin-top: -30px;
     }
-    ul li{
+    ul li {
         margin-top: 7px;
-        padding:7px;
+        padding: 7px;
     }
-    ul li:hover{
+    ul li:hover {
         background: #f7f7f7;
-        cursor:pointer;
-        a{
-          color:gray;  
+        cursor: pointer;
+        a {
+            color: gray;
         }
     }
-    ul li a{
+    ul li a {
         font-size: 14px;
         font-family: SourceSansPro-Semibold;
         color: $color2;
         letter-spacing: 0.3px;
     }
 }
-.ml-16{
+
+.ml-16 {
     margin-top: 52px;
 }
-.side-title{
+
+.side-title {
     margin-left: 30px;
-    i{
+    i {
         padding-right: 10px;
     }
 }
+
+
 /* end nav sidebar */
 
-.nav-tel .navbar-nav > li > a.router-link-active {
-  color: #555;
-  background-color: #e7e7e7;
+.nav-tel .navbar-nav>li>a.router-link-active {
+    color: #555;
+    background-color: #e7e7e7;
 }
-
-

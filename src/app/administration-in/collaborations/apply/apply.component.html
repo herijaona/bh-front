@@ -1,9 +1,9 @@
 <div class="col-container">
-  <h2>Application form</h2>
-  <hr>
-  <h3>{{ dataForApplication.type }}</h3>
+    <h2 class="pt-3">Application form</h2>
+    <hr>
+    <h3>{{ dataForApplication.type }}</h3>
 
-  <ng-template [ngIf]="typeOfCollab.type1">
-    <apply-innov-project [data_in]='dataForApplication'> </apply-innov-project>
-  </ng-template>
+    <ng-template [ngIf]="typeOfCollab.type1">
+        <apply-innov-project [data_in]='dataForApplication'> </apply-innov-project>
+    </ng-template>
 </div>
