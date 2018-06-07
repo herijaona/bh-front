@@ -28,7 +28,6 @@ import { Project1Component } from '../c-capital/project1/project1.component';
 import { ProjectDescriptionComponent } from '../c-capital/project-description/project-description.component';
 import { ProfileComponent } from '../administration-in/profile/profile.component';
 import { MembersAdminComponent } from '../administration-in/members-admin/members-admin.component';
-import { ViewApplicationDetailsComponent } from '../administration-in/mydesk/view-application-details/view-application-details.component';
 import { QuestionsDetailsComponent } from '../administration-in/mydesk/questions-details/questions-details.component';
 import { AdminAllColabComponent } from '../administration-in/collaborations/admin-all-colab/admin-all-colab.component';
 import { ProjectEditAndNewComponent } from '../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component';
@@ -123,10 +122,6 @@ const routes: Routes = [
       {
         path: '',
         component: MembersAdminComponent,
-      },
-      {
-        path: 'applications/details/:id_appl',
-        component: ViewApplicationDetailsComponent,
       },
       {
         path: 'questions',

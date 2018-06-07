@@ -28,7 +28,6 @@ import { PositionsComponent } from './positions/positions.component';
 import { ApplyInnovProjectComponent } from './collaborations/apply/apply-innov-project/apply-innov-project.component';
 import { QuestionComponent } from './collaborations/question/question.component';
 import { QuestionsDetailsComponent } from './mydesk/questions-details/questions-details.component';
-import { ViewApplicationDetailsComponent } from './mydesk/view-application-details/view-application-details.component';
 import { FavoriteComponent } from './mydesk/favorite/favorite.component';
 import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invited-organisation.component';
 import { MydeskComponent } from './mydesk/mydesk.component';
@@ -57,7 +56,6 @@ import { QuestionCommunitiesComponent } from './communities/question-communities
     ViewReactionComponent,
     CollaborationsComponent,
     ProjectEditAndNewComponent,
-    ViewApplicationDetailsComponent,
     InnovationProjectComponent,
     QuestionsDetailsComponent,
     PInfoComponent,
