@@ -23,7 +23,7 @@ import { EventOnCompProfileComponent } from '../companies/utilprofile/event-on-c
 import { CommitteeComponent } from '../committee/committee/committee.component';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
-import { ApplicationReportComponent } from '../administration-in/collaborations/application-report/application-report.component';
+import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
 import { ProjectDescriptionComponent } from '../c-capital/project-description/project-description.component';
 import { ProfileComponent } from '../administration-in/profile/profile.component';
@@ -147,11 +147,6 @@ const routes: Routes = [
     component: ListCompaniesComponent,
   },
   {
-    path: 'view-project-application',
-    component: ApplicationReportComponent,
-    canActivate: [AuthguardService],
-  },
-  {
     path: 'view-all-reaction',
     component: ViewReactionComponent,
     canActivate: [AuthguardService],
@@ -215,14 +210,14 @@ const routes: Routes = [
       },
       {
         path: 'application-received',
-        component: ApplicationReportComponent,
+        component: ApplicationReceivedComponent,
       },
       {
         path: 'create/:item-slug',
         component: ProjectEditAndNewComponent,
       },
       {
-        path: 'application',
+        path: 'application/details/:applicationID',
         component: ApplicationComponent,
       },
       {

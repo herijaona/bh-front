@@ -6,11 +6,11 @@ import { TeamsService } from '../../../services/teams/teams.service';
 import { ProjectsService } from '../../../services/projects/projects.service';
 
 @Component({
-  selector: 'app-application-report',
-  templateUrl: './application-report.component.html',
-  styleUrls: ['./application-report.component.scss']
+  selector: 'app-application-received',
+  templateUrl: './application-received.component.html',
+  styleUrls: ['./application-received.component.scss']
 })
-export class ApplicationReportComponent implements OnInit {
+export class ApplicationReceivedComponent implements OnInit {
   public applicationreport_page = 'applicationreport_page';
   public allApplData: any = [];
   constructor(private pr: ProjectsService) {}

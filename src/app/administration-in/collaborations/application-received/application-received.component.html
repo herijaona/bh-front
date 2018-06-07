@@ -21,7 +21,7 @@
       <tbody>
         <tr *ngFor="let item of allApplData">
           <td>{{item.date}}</td>
-<td>{{item.countryCD}}</td>
+          <td>{{item.countryCD}}</td>
 
           <td>{{item.usr.org}}</td>
           <td>{{item.prjt.type}}</td>
@@ -30,7 +30,11 @@
           <td>{{item.prjt.name}}</td>
           <td>p</td>
           <td>
-            <a [routerLink]="['/candidature','details', item._id ]" target="_blank"><i class="fa fa-eye"></i> </a>
+            <a [routerLink]="['/administration-in','collaborations','application','details', item._id ]" target="_blank">
+
+              <i class="fa fa-eye"></i>
+            </a>
+
           </td>
         </tr>
       </tbody>

@@ -22,7 +22,7 @@ import { CommunitiesComponent } from './communities/communities.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
 import { ApplyComponent } from './collaborations/apply/apply.component';
-import { ApplicationSentComponent } from "./collaborations/application-sent/application-sent.component";
+import { ApplicationSentComponent } from './collaborations/application-sent/application-sent.component';
 import { OpportunitiesComponent } from './opportunities/opportunities.component';
 import { PositionsComponent } from './positions/positions.component';
 import { ApplyInnovProjectComponent } from './collaborations/apply/apply-innov-project/apply-innov-project.component';
@@ -34,11 +34,10 @@ import { InvitedOrganisationComponent } from './mydesk/invited-organisation/invi
 import { MydeskComponent } from './mydesk/mydesk.component';
 import { ApplicationComponent } from './collaborations/application/application.component';
 import { ViewReactionComponent } from './mydesk/view-reaction/view-reaction.component';
-import { ApplicationReportComponent } from './collaborations/application-report/application-report.component';
+import { ApplicationReceivedComponent } from './collaborations/application-received/application-received.component';
 import { EcosystemComponent } from './communities/ecosystem/ecosystem.component';
 import { IdeasCommunitiesComponent } from './communities/ideas/ideas.component';
 import { QuestionCommunitiesComponent } from './communities/question-communities/question-communities.component';
-
 
 @NgModule({
   imports: [
@@ -51,7 +50,7 @@ import { QuestionCommunitiesComponent } from './communities/question-communities
     MyDatePickerModule,
     RouterModule,
     MembersAdminModule,
-    GeneralUtilitiesModule
+    GeneralUtilitiesModule,
   ],
   declarations: [
     MydeskComponent,
@@ -77,14 +76,14 @@ import { QuestionCommunitiesComponent } from './communities/question-communities
     PositionsComponent,
     ApplyInnovProjectComponent,
     QuestionComponent,
-    ApplicationReportComponent,
+    ApplicationReceivedComponent,
     ApplicationComponent,
     EcosystemComponent,
     IdeasCommunitiesComponent,
-    QuestionCommunitiesComponent
+    QuestionCommunitiesComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],
-  entryComponents: [ProjectEditAndNewComponent]
+  entryComponents: [ProjectEditAndNewComponent],
 })
 export class AdministrationInModule {}
