@@ -1,3 +1,24 @@
 .no-wrp {
-  white-space: nowrap;
+    white-space: nowrap;
+}
+
+.text-bl {
+    .about {
+        width: 18%;
+    }
+    .action {
+        width: 2%;
+    }
+    .hour {
+        width: 7%;
+    }
+    .date {
+        width: 10%;
+    }
+    .name {
+        width: 11%;
+    }
+    .organisation {
+        width: 11%;
+    }
 }

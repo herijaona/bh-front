@@ -34,7 +34,7 @@ li {
         position: relative;
     }
     .fa-circle {
-        color: #82bf73;
+        color: #35ac19;
         position: relative;
         margin-top: -2px;
         font-size: 8px;
@@ -55,10 +55,10 @@ li {
 }
 
 @media(max-width:767px) {
-    .brand-tip {
-        position: relative;
-        left: 10px;
-    }
+    // .brand-tip {
+    //     position: relative;
+    //     left: 10px;
+    // }
     .desk-nav {
         height: auto;
         position: relative;
@@ -68,8 +68,9 @@ li {
 @media(max-width:410px) {
     .dni-mobile {
         display: block !important;
-        left: -32px;
+        left: -103px;
         position: relative;
+        margin: 0 !important;
     }
 }
 
@@ -159,13 +160,12 @@ li {
     font-family: SourceSansPro-Semibold;
 }
 
-@media(max-width:410px) {
-    .desk-sh {
-        visibility: hidden;
-        display: none;
-    }
-}
-
+// @media(max-width:410px) {
+//     .desk-sh {
+//         visibility: hidden;
+//         display: none;
+//     }
+// }
 @media(max-width:767px) {
     .desk-sh {
         position: absolute;
@@ -177,4 +177,20 @@ li {
 .img-reel {
     top: -2px;
     position: relative;
+}
+
+@media(max-width:767px) {
+    .menu-bar {
+        position: absolute;
+        right: 12px;
+        top: 12px
+    }
+}
+
+@media(max-width: 855px) {
+    .desk-nav-icon {
+        position: absolute;
+        float: right;
+        right: -16px;
+    }
 }

@@ -1,86 +1,86 @@
 .avatar:hover .overlay_ {
-	opacity: 0.8
+    opacity: 0.8
 }
 
 .overlay_ {
-  position: absolute;
-  top: 0;
-  background: black;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  transition: .5s ease;
-  opacity: 0;
-  color: white;
-  font-size: 20px;
-  padding: 20px;
-  text-align: center;
-  height:100%;
+    position: absolute;
+    top: 0;
+    background: black;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    height: 100%;
 }
-.pic{
-  width:100%;
-  @media(max-width:992px){
-  	width: 88%;
-  }
-  span, i{
-  	top: 35%;
-  	position:relative;
-  }
+
+.pic {
+    width: 100%;
+    @media(max-width: 992px) {
+        width: 88%;
+    }
+    span,
+    i {
+        top: 35%;
+        position: relative;
+    }
 }
+
 .font-my-3 {
-	font-family: SourceSansPro-Semibold;
-	margin-top: 15px;
-	@media(max-width:1112px){
-		padding-left: 26px;
-	}
-	@media(max-width:575px){
-		text-align: center !important;
-	}
-	@media all and (min-width:768px) and (max-width:991px){
-    text-align: center !important;
+    font-family: SourceSansPro-Semibold;
+    margin-top: 15px;
+    @media(max-width: 1112px) {
+        padding-left: 26px;
+    }
+    @media(max-width:575px) {
+        text-align: center !important;
+    }
+    @media all and (min-width:768px) and (max-width:991px) {
+        text-align: center !important;
     }
 }
 
 .font-weight-bold {
-	color: #000000;
+    color: #000000;
 }
 
 .grey-text-bold {
-	font-size: 15px;
-	color: #6b6767;
-	font-family: SourceSansPro-Regular;
-	letter-spacing: 0.2px;
-
-	span {
-		text-transform: capitalize;
-	}
-
+    font-size: 15px;
+    color: #6b6767;
+    font-family: SourceSansPro-Regular;
+    letter-spacing: 0.2px;
+    span {
+        text-transform: capitalize;
+    }
 }
 
 .span-connect {
-	font-size: 15px;
-	color: #6b6767;
-	font-family: SourceSansPro-Regular;
-	letter-spacing: 0.2px;
-
-	span {
-		color: #e84d3f;
-	}
-
-	span:last-child {
-		margin-left: 10px;
-	}
-
+    font-size: 15px;
+    color: #6b6767;
+    font-family: SourceSansPro-Regular;
+    letter-spacing: 0.2px;
+    span {
+        color: #e84d3f;
+    }
+    span:last-child {
+        margin-left: 10px;
+    }
 }
-.min-width-avatar{
+
+.min-width-avatar {
     min-width: 107px;
-    min-height: 104px;
+    min-height: 107px;
 }
-@media(max-width:1220px){
-.mb-responsive{
-	max-width: 100% !important;
-    text-align: center !important;
-    margin: auto;
-    }	
+
+@media(max-width:1220px) {
+    .mb-responsive {
+        max-width: 100% !important;
+        text-align: center !important;
+        margin: auto;
+    }
 }
 
 .modal-dialog {
