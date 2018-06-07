@@ -14,6 +14,8 @@ import { ProjectsService } from '../../../services/projects/projects.service';
 export class ApplicationReceivedComponent implements OnInit {
   public applicationreport_page = 'applicationreport_page';
   public allApplData: any = [];
+  public dataCollab: any = {};
+  public byApplication: boolean = false;
   private currentCollabID = '';
   constructor(private pr: ProjectsService, private activRoute: ActivatedRoute) {}
   ngOnInit() {
@@ -42,6 +44,12 @@ export class ApplicationReceivedComponent implements OnInit {
   async getAllApplicationByCollab(cCollabID) {
     try {
       const applyByCollab = await this.pr.getApplByCollabID(cCollabID);
+      if (applyByCollab['status'] === 'OK') {
+        this.byApplication = true;
+        console.log(applyByCollab);
+        this.allApplData = applyByCollab['data']['allApplication'];
+        this.dataCollab = applyByCollab['data']['collabData'];
+      }
     } catch (error) {
       console.log(error);
     }

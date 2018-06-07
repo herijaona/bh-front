@@ -17,7 +17,7 @@
       <tbody>
         <tr *ngFor="let item of listCollab">
           <td>
-            <a [routerLink]="['/administration-in','collaborations','application-received','by-collaborations', item._id ]">{{item.name}}</a>
+            <a target="_blanck" [routerLink]="['/administration-in','collaborations','application-received','by-collaborations', item._id ]">{{item.name}}</a>
           </td>
           <td>{{item.type}}</td>
           <td>{{item.date}}</td>
