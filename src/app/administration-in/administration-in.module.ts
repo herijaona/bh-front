@@ -37,6 +37,7 @@ import { ApplicationReceivedComponent } from './collaborations/application-recei
 import { EcosystemComponent } from './communities/ecosystem/ecosystem.component';
 import { IdeasCommunitiesComponent } from './communities/ideas/ideas.component';
 import { QuestionCommunitiesComponent } from './communities/question-communities/question-communities.component';
+import { OneCollabApplicationComponent } from './collaborations/one-collab-application/one-collab-application.component';
 
 @NgModule({
   imports: [
@@ -79,6 +80,7 @@ import { QuestionCommunitiesComponent } from './communities/question-communities
     EcosystemComponent,
     IdeasCommunitiesComponent,
     QuestionCommunitiesComponent,
+    OneCollabApplicationComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

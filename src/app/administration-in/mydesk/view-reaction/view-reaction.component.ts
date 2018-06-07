@@ -11,7 +11,7 @@ import { TeamsService } from '../../../services/teams/teams.service';
   styleUrls: ['./view-reaction.component.scss'],
 })
 export class ViewReactionComponent implements OnInit {
-  public viewreaction_page: string = 'viewreaction_page';
+  public viewreaction_page = 'viewreaction_page';
   public allQuestions: any = [];
   constructor(private tms: TeamsService, private titl: Title) {}
 
