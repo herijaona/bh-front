@@ -48,8 +48,11 @@
                 <a class="nav-link" href="#"><i class="fa fa-cog"></i></a>
             </li>
             <li class="nav-item  myclass" *ngFor="let item of userAdminData">
-                <a class="nav-link img-reel" *ngIf="item.imageProfile" [routerLink]="['/administration-in','user','profile']"><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
-                <a class="nav-link" *ngIf="!item.imageProfile" [routerLink]="['/administration-in','user','profile']"><i class="fa fa-user-circle"></i></a>
+                <a class="nav-link img-reel" *ngIf="item.imageProfile ; else templateName" [routerLink]="['/administration-in','user','profile']"><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
+
+                <ng-template #templateName>
+                    <a class="nav-link" *ngIf="!item.imageProfile" [routerLink]="['/administration-in','user','profile']"><i class="fa fa-user-circle"></i></a>
+                </ng-template>
             </li>
         </ul>
         <a (click)="toggleCollapse()" class="menu-bar"><i class="fa fa-bars i-bar"></i>MENU</a>

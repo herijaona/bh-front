@@ -12,7 +12,7 @@ export class Globals {
   public conf0_editor = {
     removePlugins: "toolbar,elementspath",
     resize_enabled: false,
-    height: 100
+    height: 200
   };
   public conf_editor = {
     removePlugins: "elementspath",

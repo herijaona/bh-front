@@ -23,6 +23,7 @@ import { Globals } from "./../../globals/globals";
   styleUrls: ["./registration.component.scss"]
 })
 export class RegistrationComponent implements OnInit {
+  public img_bg: string;
   public img_logo: string;
   public img_avatar: string;
   public free: string;
@@ -67,6 +68,7 @@ export class RegistrationComponent implements OnInit {
     this.free = this.g.base_href + "assets/img/free-8.png";
     this.automnomous = this.g.base_href + "assets/img/automnomous-8.png";
     this.assisted = this.g.base_href + "assets/img/assisted-8.png";
+    this.img_bg = this.g.base_href + "assets/img/bg-0.png";
     this.getOrgtype();
   }
   async getOrgtype() {
@@ -247,4 +249,9 @@ export class RegistrationComponent implements OnInit {
       }
     }
   }
+
+  getUrl()
+	{
+	  return "url(" + this.img_bg + ")";
+	}
 }
