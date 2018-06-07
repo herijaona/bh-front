@@ -190,10 +190,6 @@ const routes: Routes = [
         path: 'invited-organisation',
         component: InvitedOrganisationComponent,
       },
-      {
-        path: 'application',
-        component: ApplicationComponent,
-      },
     ],
   },
   {
@@ -218,12 +214,16 @@ const routes: Routes = [
         component: ApplicationSentComponent,
       },
       {
-        path: 'apply-received',
+        path: 'application-received',
         component: ApplicationReportComponent,
       },
       {
         path: 'create/:item-slug',
         component: ProjectEditAndNewComponent,
+      },
+      {
+        path: 'application',
+        component: ApplicationComponent,
       },
       {
         path: 'question',
