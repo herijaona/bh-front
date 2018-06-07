@@ -55,24 +55,12 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
-    path: 'collaborations',
-    component: CollaborationsComponent,
-  },
-  {
-    path: 'mydesk',
-    component: MydeskComponent,
-  },
-  {
     path: 'committee',
     component: CommitteeComponent,
   },
   {
     path: 'profile-admin',
     component: ProfileAdminComponent,
-  },
-  {
-    path: 'members-admin',
-    component: MembersAdminComponent,
   },
   {
     path: 'home',
@@ -85,10 +73,6 @@ const routes: Routes = [
   {
     path: 'project-description',
     component: ProjectDescriptionComponent,
-  },
-  {
-    path: 'mindset',
-    component: MindsetComponent,
   },
   {
     path: 'open-innovation/:slug_acc/acceuil',
@@ -111,22 +95,6 @@ const routes: Routes = [
     component: IdeasComponent,
   },
   {
-    path: 'team',
-    component: TeamComponent,
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent,
-  },
-  {
-    path: 'description-project',
-    component: DescriptionProjectComponent,
-  },
-  {
-    path: 'ideas',
-    component: IdeasComponent,
-  },
-  {
     path: 'registerCompany',
     component: RegistrationComponent,
   },
@@ -141,15 +109,6 @@ const routes: Routes = [
   {
     path: 'sign-in',
     component: SignUpComponent,
-  },
-  {
-    path: 'all-companies',
-    component: ListCompaniesComponent,
-  },
-  {
-    path: 'view-all-reaction',
-    component: ViewReactionComponent,
-    canActivate: [AuthguardService],
   },
   {
     path: 'administration-in/user/profile',
