@@ -52,114 +52,114 @@ import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent
+    component: HomepageComponent,
   },
   {
     path: 'collaborations',
-    component: CollaborationsComponent
+    component: CollaborationsComponent,
   },
   {
     path: 'mydesk',
-    component: MydeskComponent
+    component: MydeskComponent,
   },
   {
     path: 'committee',
-    component: CommitteeComponent
+    component: CommitteeComponent,
   },
   {
     path: 'profile-admin',
-    component: ProfileAdminComponent
+    component: ProfileAdminComponent,
   },
   {
     path: 'members-admin',
-    component: MembersAdminComponent
+    component: MembersAdminComponent,
   },
   {
     path: 'home',
-    component: HomepageComponent
+    component: HomepageComponent,
   },
   {
     path: 'project1',
-    component: Project1Component
+    component: Project1Component,
   },
   {
     path: 'project-description',
-    component: ProjectDescriptionComponent
+    component: ProjectDescriptionComponent,
   },
   {
     path: 'mindset',
-    component: MindsetComponent
+    component: MindsetComponent,
   },
   {
     path: 'open-innovation/:slug_acc/acceuil',
-    component: MindsetComponent
+    component: MindsetComponent,
   },
   {
     path: 'open-innovation/:slug_acc/team',
-    component: TeamComponent
+    component: TeamComponent,
   },
   {
     path: 'open-innovation/:slug_acc/projects',
-    component: ProjectsComponent
+    component: ProjectsComponent,
   },
   {
     path: 'open-innovation/:slug_acc/details-project/:project_id',
-    component: DescriptionProjectComponent
+    component: DescriptionProjectComponent,
   },
   {
     path: 'open-innovation/:slug_acc/success-stories',
-    component: IdeasComponent
+    component: IdeasComponent,
   },
   {
     path: 'team',
-    component: TeamComponent
+    component: TeamComponent,
   },
   {
     path: 'projects',
-    component: ProjectsComponent
+    component: ProjectsComponent,
   },
   {
     path: 'description-project',
-    component: DescriptionProjectComponent
+    component: DescriptionProjectComponent,
   },
   {
     path: 'ideas',
-    component: IdeasComponent
+    component: IdeasComponent,
   },
   {
     path: 'registerCompany',
-    component: RegistrationComponent
+    component: RegistrationComponent,
   },
   {
     path: 'activate/:code',
-    component: ActivationComponent
+    component: ActivationComponent,
   },
   {
     path: 'login',
-    component: PageLoginComponent
+    component: PageLoginComponent,
   },
   {
     path: 'sign-in',
-    component: SignUpComponent
+    component: SignUpComponent,
   },
   {
     path: 'all-companies',
-    component: ListCompaniesComponent
+    component: ListCompaniesComponent,
   },
   {
     path: 'view-project-application',
     component: ApplicationReportComponent,
-    canActivate: [AuthguardService]
+    canActivate: [AuthguardService],
   },
   {
     path: 'view-all-reaction',
     component: ViewReactionComponent,
-    canActivate: [AuthguardService]
+    canActivate: [AuthguardService],
   },
   {
     path: 'administration-in/user/profile',
     component: ProfileComponent,
-    canActivate: [AuthguardService]
+    canActivate: [AuthguardService],
   },
   {
     path: 'administration-in/desk',
@@ -168,33 +168,33 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: MembersAdminComponent
+        component: MembersAdminComponent,
       },
       {
         path: 'applications/details/:id_appl',
-        component: ViewApplicationDetailsComponent
+        component: ViewApplicationDetailsComponent,
       },
       {
         path: 'questions',
-        component: ViewReactionComponent
+        component: ViewReactionComponent,
       },
       {
         path: 'questions/details/:qID',
-        component: QuestionsDetailsComponent
+        component: QuestionsDetailsComponent,
       },
       {
         path: 'favorite',
-        component: FavoriteComponent
+        component: FavoriteComponent,
       },
       {
         path: 'invited-organisation',
-        component: InvitedOrganisationComponent
+        component: InvitedOrganisationComponent,
       },
       {
         path: 'application',
-        component: ApplicationComponent
-      }
-    ]
+        component: ApplicationComponent,
+      },
+    ],
   },
   {
     path: 'administration-in/collaborations',
@@ -203,82 +203,84 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: AdminAllColabComponent
+        component: AdminAllColabComponent,
       },
       {
         path: 'create-collaboration',
-        component: ProjectEditAndNewComponent
-      },
-      {
-        path: 'applications',
-        component: ApplicationReportComponent
+        component: ProjectEditAndNewComponent,
       },
       {
         path: 'apply/:id_project',
-        component: ApplyComponent
+        component: ApplyComponent,
       },
       {
-        path: 'apply-sent',
-        component: ApplicationSentComponent
+        path: 'application-sent',
+        component: ApplicationSentComponent,
       },
       {
         path: 'apply-received',
-        component: ApplicationReportComponent
+        component: ApplicationReportComponent,
       },
       {
         path: 'create/:item-slug',
-        component: ProjectEditAndNewComponent
+        component: ProjectEditAndNewComponent,
       },
       {
         path: 'question',
-        component: QuestionComponent
-      }
-    ]
+        component: QuestionComponent,
+      },
+    ],
   },
   {
     path: 'administration-in/communities',
     component: CommunitiesComponent,
     canActivate: [AuthguardService],
-    children: [{
+    children: [
+      {
+        path: '',
+        component: EcosystemComponent,
+      },
+      {
         path: 'ecosystem',
-        component: EcosystemComponent
-    },
-    {
+        component: EcosystemComponent,
+      },
+      {
         path: 'ideas',
-        component: IdeasCommunitiesComponent
-    },
-    {
+        component: IdeasCommunitiesComponent,
+      },
+      {
         path: 'questions',
-        component: QuestionCommunitiesComponent
-    }]
+        component: QuestionCommunitiesComponent,
+      },
+    ],
   },
   {
     path: 'administration-in/opportunities',
     component: OpportunitiesComponent,
     canActivate: [AuthguardService],
-    children: []
+    children: [],
   },
   {
     path: 'administration-in/positions',
     component: PositionsComponent,
     canActivate: [AuthguardService],
-    children: []
+    children: [],
   },
   {
     path: 'c-capital/description-project',
-    component: ProjectDescriptionComponent
+    component: ProjectDescriptionComponent,
   },
   {
     path: 'reset-my-pass/:id_/:pass_code',
-    component: ResetPasswordComponent
+    component: ResetPasswordComponent,
   },
   {
     path: 'invitation_response/:acc_slug/invitation/:invit_id',
-    component: InvitedRegisterComponent
-  }
+    component: InvitedRegisterComponent,
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class OwnRouterModule {}
