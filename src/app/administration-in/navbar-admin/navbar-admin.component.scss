@@ -160,13 +160,12 @@ li {
     font-family: SourceSansPro-Semibold;
 }
 
-@media(max-width:410px) {
-    .desk-sh {
-        visibility: hidden;
-        display: none;
-    }
-}
-
+// @media(max-width:410px) {
+//     .desk-sh {
+//         visibility: hidden;
+//         display: none;
+//     }
+// }
 @media(max-width:767px) {
     .desk-sh {
         position: absolute;
@@ -185,5 +184,13 @@ li {
         position: absolute;
         right: 12px;
         top: 12px
+    }
+}
+
+@media(max-width: 855px) {
+    .desk-nav-icon {
+        position: absolute;
+        float: right;
+        right: -16px;
     }
 }

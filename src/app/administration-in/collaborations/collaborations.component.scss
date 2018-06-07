@@ -72,3 +72,20 @@ li {
     text-transform: uppercase;
     color: white !important;
 }
+
+@media(max-width: 1280px) {
+    .nav-tel {
+        display: inline-block;
+        width: 100%;
+    }
+    .float-r {
+        position: relative;
+        margin-right: 0px;
+        float: left;
+        margin-top: 9px;
+        border-top: 0.2px solid dimgrey;
+        width: 100%;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
