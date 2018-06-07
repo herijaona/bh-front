@@ -15,8 +15,10 @@
       <!--Table head-->
       <!--Table body-->
       <tbody>
-        <tr *ngFor="let item of listCollab" >
-          <td><a href="">{{item.name}}</a></td>
+        <tr *ngFor="let item of listCollab">
+          <td>
+            <a [routerLink]="['/administration-in','collaborations','application-received','by-collaborations', item._id ]">{{item.name}}</a>
+          </td>
           <td>{{item.type}}</td>
           <td>{{item.date}}</td>
           <td>{{item.author.firstname +" "+ item.author.lastname}}</td>

@@ -159,6 +159,10 @@ const routes: Routes = [
         component: ApplicationSentComponent,
       },
       {
+        path: 'application-received/by-collaborations/:idCollab',
+        component: ApplicationReceivedComponent,
+      },
+      {
         path: 'application-received',
         component: ApplicationReceivedComponent,
       },
