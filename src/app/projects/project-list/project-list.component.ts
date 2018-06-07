@@ -65,8 +65,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     this.listData = [];
     try {
       allProject = await this.pr.getCompanyProject(this.currentCompanySlug);
-      if (allProject.status == 'OK') {
-        if (allProject.status == 'OK') {
+      if (allProject.status === 'OK') {
+        if (allProject.status === 'OK') {
           this.listData = allProject.data;
           for (let xe in this.listData) {
             let cnt: string = this.listData[xe].contexte.replace(/\n/g, '').replace(/<(?:.|\n)*?>/gm, '');

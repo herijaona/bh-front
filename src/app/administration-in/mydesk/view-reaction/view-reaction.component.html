@@ -19,7 +19,9 @@
           <td class="no-wrp">{{item.date}}</td>
           <td>{{item.hour}}</td>
           <td>{{item.userAsk.name}}</td>
-          <td><p [innerHtml]="item.quest_part|bhSafeHtml"></p></td>
+          <td>
+            <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
+          </td>
           <td>
             <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
               <i class="fa fa-eye"></i>
