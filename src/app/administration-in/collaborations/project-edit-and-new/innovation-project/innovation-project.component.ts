@@ -1,43 +1,36 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  Input,
-  OnDestroy,
-  ViewChild
-} from "@angular/core";
-import { Router } from "@angular/router";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ProjectsService } from "../../../services/projects/projects.service";
-import { SharedNotificationService } from "./../../../services/shared-notification/shared-notification.service";
-import { Globals } from "./../../../globals/globals";
+import { Component, OnInit, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProjectsService } from '../../../../services/projects/projects.service';
+import { SharedNotificationService } from './../../../../services/shared-notification/shared-notification.service';
+import { Globals } from './../../../../globals/globals';
 declare const CKEDITOR: any;
 
 @Component({
-  selector: "innovation-project",
-  templateUrl: "./innovation-project.component.html",
-  styleUrls: ["./innovation-project.component.scss"]
+  selector: 'innovation-project',
+  templateUrl: './innovation-project.component.html',
+  styleUrls: ['./innovation-project.component.scss'],
 })
 export class InnovationProjectComponent implements OnInit, OnDestroy {
   public prModel: { [key: string]: any } = {
-    pr_contexte_ProjectEditor: "",
-    pr_objectif_ProjectEditor: "",
-    pr_elementProposition_ProjectEditor: "",
-    pr_name: "",
-    pr_processDecision: ""
+    pr_contexte_ProjectEditor: '',
+    pr_objectif_ProjectEditor: '',
+    pr_elementProposition_ProjectEditor: '',
+    pr_name: '',
+    pr_processDecision: '',
   };
 
   public cPrModel = {
-    pr_dataConfidential: "",
-    pr_confidentialExistData: "",
-    pr_collabDurationType: ""
+    pr_dataConfidential: '',
+    pr_confidentialExistData: '',
+    pr_collabDurationType: '',
   };
   public buttSaveErr: { [key: string]: boolean } = {
     pr_contexte_ProjectEditor: false,
     pr_objectif_ProjectEditor: false,
     pr_elementProposition_ProjectEditor: false,
     pr_name: false,
-    pr_processDecision: false
+    pr_processDecision: false,
   };
 
   public shDate = false;
@@ -48,19 +41,19 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   public selContinent: any = [];
 
   public todoAct: string;
-  public c_part = "europa";
+  public c_part = 'europa';
   public accId: string;
   public dataCurr: any = {};
-  public editAct: string = "EditAct";
+  public editAct: string = 'EditAct';
   public collabDateObject: any;
-  public addAct: string = "AddAct";
+  public addAct: string = 'AddAct';
   public projform: FormGroup;
   public prData: any;
-  @Input("todoAct_")
+  @Input('todoAct_')
   set todoAct_(arg) {
     this.todoAct = arg;
   }
-  @Input("prData_")
+  @Input('prData_')
   set prData_(arg) {
     this.prData = arg;
   }
@@ -71,14 +64,14 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
     europa: [],
     oceania: [],
     asia: [],
-    america: []
+    america: [],
   };
   public diffusionModelContinent = {
     asia: false,
     america: false,
     africa: false,
     europa: false,
-    oceania: false
+    oceania: false,
   };
 
   constructor(
@@ -92,7 +85,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sh.busDataIn$.subscribe((st: any) => {
       switch (st.from) {
-        case "editKeyGeneral":
+        case 'editKeyGeneral':
           this.accId = st.data;
       }
     });
@@ -105,12 +98,12 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   }
   async getCountryList() {
     try {
-      const cListres = await this.pr.countryGet("continent");
+      const cListres = await this.pr.countryGet('continent');
       if (cListres) {
-        if (cListres["status"] === "OK") {
-          this.ListCo = cListres["data"];
+        if (cListres['status'] === 'OK') {
+          this.ListCo = cListres['data'];
           this.dataReadyIn = true;
-          this.selContinent = this.ListCo["europa"];
+          this.selContinent = this.ListCo['europa'];
         }
       }
     } catch (e) {}
@@ -119,10 +112,10 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   async getDataProject() {
     try {
       let prD: any = await this.pr.getProjectByID(this.prData._id);
-      if (prD.status == "OK") {
+      if (prD.status == 'OK') {
         this.dataCurr = prD;
         Object.keys(this.prModel).forEach(el => {
-          this.prModel[el] = prD.data[el.split("_")[1]];
+          this.prModel[el] = prD.data[el.split('_')[1]];
         });
       }
     } catch (e) {
@@ -136,11 +129,11 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 
     let new_val: { [key: string]: any } = {};
     Object.keys(this.prModel).forEach(e => {
-      new_val[e.split("_")[1]] = this.prModel[e];
+      new_val[e.split('_')[1]] = this.prModel[e];
     });
 
     const dataInnovColab = {
-      typeCollab: "COLLABPROJINNOV",
+      typeCollab: 'COLLABPROJINNOV',
       name: new_val.name,
       dataDetails: {
         collabDescribData: new_val,
@@ -150,9 +143,9 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
         infoConfidentialData: this.cPrModel.pr_dataConfidential,
         diffusionDatas: {
           continent: this.diffusionModelContinent,
-          partCountry: this.diffusionModelCountry
-        }
-      }
+          partCountry: this.diffusionModelCountry,
+        },
+      },
     };
 
     try {
@@ -165,22 +158,20 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
       }
 
       if (save_res) {
-        if (save_res.status == "OK") {
+        if (save_res.status == 'OK') {
           this.sh.notifToast({
-            type: "success",
-            message: "<p>Project saved successfully</p>"
+            type: 'success',
+            message: '<p>Project saved successfully</p>',
           });
           setTimeout(() => {
-            this.router.navigateByUrl(
-              "/" + ["administration-in", "collaborations"].join("/")
-            );
+            this.router.navigateByUrl('/' + ['administration-in', 'collaborations'].join('/'));
           }, 500);
           this.sh.pushData({
-            from: "projectNEW",
-            action: "refresh",
-            data: "end"
+            from: 'projectNEW',
+            action: 'refresh',
+            data: 'end',
           });
-          this.el.nativeElement.style.display = "none";
+          this.el.nativeElement.style.display = 'none';
         }
       }
     } catch (e) {
@@ -212,10 +203,10 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
 		} catch (e) {}*/
   }
   onReady(vent) {
-    if ("status" in this.dataCurr) {
-      if (this.dataCurr["status"] == "OK") {
+    if ('status' in this.dataCurr) {
+      if (this.dataCurr['status'] == 'OK') {
         Object.keys(this.prModel).forEach(el => {
-          this.prModel[el] = this.dataCurr.data[el.split("_")[1]];
+          this.prModel[el] = this.dataCurr.data[el.split('_')[1]];
         });
       }
     }
@@ -245,33 +236,33 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
       }
       ++iter;
     }
-    tValid["descr"] = iter == vl.length ? "NOK" : "OK";
+    tValid['descr'] = iter == vl.length ? 'NOK' : 'OK';
 
-    tValid["duration"] = "OK";
+    tValid['duration'] = 'OK';
     let drtion = this.cPrModel.pr_collabDurationType;
 
-    if (drtion == "programmed") {
+    if (drtion == 'programmed') {
       if (this.collabDateObject) {
-        if (!this.collabDateObject["limitdate"]) {
-          tValid["duration"] = "OK";
+        if (!this.collabDateObject['limitdate']) {
+          tValid['duration'] = 'OK';
         } else {
-          tValid["duration"] = "NOK";
+          tValid['duration'] = 'NOK';
         }
       }
-    } else if (drtion == "continue") {
-      tValid["duration"] = "NOK";
+    } else if (drtion == 'continue') {
+      tValid['duration'] = 'NOK';
     }
 
-    tValid["dataSecret"] = "OK";
+    tValid['dataSecret'] = 'OK';
     let scret = this.cPrModel.pr_confidentialExistData;
-    if (scret == "yes") {
-      if (this.cPrModel.pr_dataConfidential != "") {
-        tValid["dataSecret"] = "NOK";
+    if (scret == 'yes') {
+      if (this.cPrModel.pr_dataConfidential != '') {
+        tValid['dataSecret'] = 'NOK';
       }
-    } else if (scret == "no") {
-      tValid["dataSecret"] = "NOK";
+    } else if (scret == 'no') {
+      tValid['dataSecret'] = 'NOK';
     } else {
-      tValid["dataSecret"] = "OK";
+      tValid['dataSecret'] = 'OK';
     }
 
     /* tValid['diffsion'] = 'OK';
@@ -302,7 +293,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   IsAllGood(tb: any): boolean {
     const obk = Object.keys(tb);
     for (let ext of obk) {
-      if (tb[ext] === "OK") {
+      if (tb[ext] === 'OK') {
         return false;
       }
     }
@@ -310,11 +301,11 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   }
 
   durationTypeCollaborationChange() {
-    this.shDate = this.cPrModel.pr_collabDurationType === "programmed";
+    this.shDate = this.cPrModel.pr_collabDurationType === 'programmed';
     if (!this.shDate) {
       this.collabDateObject = {};
     }
-    this.onChange("e");
+    this.onChange('e');
   }
   onEditorChange(vent) {}
   onBlur(vent) {}
@@ -327,18 +318,18 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   }
   onConfidentialChange(event) {
     this.cPrModel.pr_confidentialExistData = event.target.value;
-    this.shConfidential = this.cPrModel.pr_confidentialExistData === "yes";
+    this.shConfidential = this.cPrModel.pr_confidentialExistData === 'yes';
     if (!this.shConfidential) {
-      this.cPrModel.pr_dataConfidential = "";
+      this.cPrModel.pr_dataConfidential = '';
     }
     this.onChange(event);
   }
 
   selectCountryDIffusion() {
-    this.onChange("e");
+    this.onChange('e');
   }
   continentCh() {
-    this.onChange("e");
+    this.onChange('e');
   }
 
   changeCountryPart() {
@@ -347,7 +338,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   addNewItemCC(it, c_part, pType) {
     const newItem = {
       code: it.code,
-      country: it.country
+      country: it.country,
     };
     newItem[pType] = true;
     this.diffusionModelCountry[c_part].push(newItem);
@@ -379,9 +370,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
         this.addNewItemCC(item, this.c_part, part_type);
         // this.viewChnge(e, true);
       } else {
-        this.diffusionModelCountry[this.c_part] = this.diffusionModelCountry[
-          this.c_part
-        ].map((el, indx) => {
+        this.diffusionModelCountry[this.c_part] = this.diffusionModelCountry[this.c_part].map((el, indx) => {
           if (el.code === item.code) {
             if (el.hasOwnProperty(part_type)) {
               if (el[part_type]) {
