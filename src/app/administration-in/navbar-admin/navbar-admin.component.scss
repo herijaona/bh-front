@@ -54,6 +54,12 @@ li {
     }
 }
 
+@media(min-width: 767px) {
+    .brand-tip {
+        margin-left: -6px;
+    }
+}
+
 @media(max-width:767px) {
     // .brand-tip {
     //     position: relative;

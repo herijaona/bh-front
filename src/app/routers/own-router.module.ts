@@ -45,6 +45,11 @@ import { QuestionCommunitiesComponent } from '../administration-in/communities/q
 import { IdeasCommunitiesComponent } from '../administration-in/communities/ideas/ideas.component';
 import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
 import { PositionsComponent } from '../administration-in/positions/positions.component';
+import { DealSpaceComponent } from '../administration-in/deal-space/deal-space.component';
+import { QuestionAnswersComponent } from '../administration-in/deal-space/question-answers/question-answers.component';
+import { ApplicationDealComponent } from '../administration-in/deal-space/application-deal/application-deal.component';
+import { FilesDealComponent } from '../administration-in/deal-space/files-deal/files-deal.component';
+import { PlanningDealComponent } from '../administration-in/deal-space/planning-deal/planning-deal.component';
 import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction/view-reaction.component';
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
@@ -215,6 +220,30 @@ const routes: Routes = [
     canActivate: [AuthguardService],
     children: [],
   },
+  {
+    path: 'administration-in/deal-space',
+    component: DealSpaceComponent,
+    canActivate: [AuthguardService],
+    children: [
+      {
+          path: 'question-answers',
+          component: QuestionAnswersComponent,
+      },
+      {
+        path: 'application',
+        component: ApplicationDealComponent,
+      },
+      {
+        path: 'files',
+        component: FilesDealComponent,
+      },
+      {
+        path: 'planning',
+        component: PlanningDealComponent,
+      },     
+    ],  
+},
+
   {
     path: 'c-capital/description-project',
     component: ProjectDescriptionComponent,
