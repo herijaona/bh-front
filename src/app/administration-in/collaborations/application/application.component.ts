@@ -15,7 +15,7 @@ export class ApplicationComponent implements OnInit {
   public applicationreport_page: string = 'applicationreport_page';
   public currentCandidatureID: string = '';
   public readytoshow: boolean = false;
-  public detailsAll = {};
+  public detailsAll: any = {};
   constructor(private pr: ProjectsService, private activRoute: ActivatedRoute, private titl: Title) {
     this.activRoute.params.subscribe((params_: any) => {
       this.currentCandidatureID = params_['applicationID'];

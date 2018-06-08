@@ -71,4 +71,10 @@ export class ProjectsService extends BaseHttpService {
   public getApplByCollabID(cID) {
     return this.fetch('get', 'bh-projects/getApplicationByCollabID', { cID: cID }).toPromise();
   }
+  /**
+   * getUserApplicationSent
+   */
+  public getUserApplicationSent() {
+    return this.fetch('get', 'bh-projects/getUserSentApplication').toPromise();
+  }
 }

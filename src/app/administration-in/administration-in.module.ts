@@ -14,13 +14,13 @@ import { CollaborationsComponent } from './collaborations/collaborations.compone
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { PInfoComponent } from './profile/p-info/p-info.component';
 import { ProjectEditAndNewComponent } from './collaborations/project-edit-and-new/project-edit-and-new.component';
-import { InnovationProjectComponent } from './collaborations/innovation-project/innovation-project.component';
+import { InnovationProjectComponent } from './collaborations/project-edit-and-new/innovation-project/innovation-project.component';
 import { PCompletionComponent } from './profile/p-completion/p-completion.component';
 import { MembersAdminComponent } from './members-admin/members-admin.component';
 import { AdminAllColabComponent } from './collaborations/admin-all-colab/admin-all-colab.component';
 import { CommunitiesComponent } from './communities/communities.component';
 import { MyDatePickerModule } from 'mydatepicker';
-import { SomeDateComponent } from './collaborations/innovation-project/some-date/some-date.component';
+import { SomeDateComponent } from './collaborations/project-edit-and-new/innovation-project/some-date/some-date.component';
 import { ApplyComponent } from './collaborations/apply/apply.component';
 import { ApplicationSentComponent } from './collaborations/application-sent/application-sent.component';
 import { OpportunitiesComponent } from './opportunities/opportunities.component';

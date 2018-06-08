@@ -29,6 +29,9 @@ export class ApplicationReceivedComponent implements OnInit {
       }
     });
   }
+  /**
+   * getAllCProjectApplication
+   */
   async getAllCProjectApplication() {
     this.allApplData = [];
     try {
@@ -46,7 +49,6 @@ export class ApplicationReceivedComponent implements OnInit {
       const applyByCollab = await this.pr.getApplByCollabID(cCollabID);
       if (applyByCollab['status'] === 'OK') {
         this.byApplication = true;
-        console.log(applyByCollab);
         this.allApplData = applyByCollab['data']['allApplication'];
         this.dataCollab = applyByCollab['data']['collabData'];
       }
