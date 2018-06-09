@@ -325,3 +325,52 @@ img::after{
     z-index: 9;
     left: 13px;
 }
+.card-profile {
+  margin-top: 20px;
+}
+
+.col-8-edit {
+  width: 82%;
+  padding: 12px 20px 0px 34px;
+  @media(max-width: 1105px) {
+    width: 78%;
+  }
+  @media(max-width:872px) {
+    width: 70%;
+  }
+  @media(max-width:450px) {
+    width: 100%;
+    padding: 5px;
+  }
+}
+.col-3-edit {
+  width: 18%;
+  @media(max-width: 1105px) {
+    width: 21%;
+  }
+  @media(max-width:872px) {
+    width: 30%;
+  }
+  @media(max-width:450px) {
+    width: 100%;
+  }
+}
+
+.font-weight-bold {
+  color: #000000;
+  font-size: 21px;
+  span {
+    color: #e93a35;
+    font-size: 13px;
+    text-transform: capitalize;
+    padding-left: 7px;
+  }
+}
+
+.status-person>p {
+  color: gray;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  font-family: SourceSansPro-Regular;
+}

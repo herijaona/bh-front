@@ -74,7 +74,7 @@ export class TeamContentComponent implements OnInit {
           } else if (st.action == "edit") {
             this.editTmVideo(st.data);
           } else if (st.action == "show") {
-            this.showTeamVideo(st.data);
+            this.showTeamVideo(st.data['data']);
           }
           break;
         default:

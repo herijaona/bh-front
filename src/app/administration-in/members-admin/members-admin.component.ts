@@ -1,17 +1,18 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { Router } from "@angular/router";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Globals } from "./../../globals/globals";
-import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
-import { TeamsService } from "../../services/teams/teams.service";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Globals } from './../../globals/globals';
+import { SharedNotificationService } from '../../services/shared-notification/shared-notification.service';
+import { AuthserviceService } from '../../services/authservice/authservice.service';
+import { TeamsService } from '../../services/teams/teams.service';
 @Component({
-  selector: "members-admin",
-  templateUrl: "./members-admin.component.html",
-  styleUrls: ["./members-admin.component.scss"]
+  selector: 'members-admin',
+  templateUrl: './members-admin.component.html',
+  styleUrls: ['./members-admin.component.scss'],
 })
 export class MembersAdminComponent implements OnInit {
-  public team_page: string = "team_page";
+  public team_page: string = 'team_page';
   public details: any;
   public img_avatar: string;
   public activated: boolean = false;
@@ -27,28 +28,28 @@ export class MembersAdminComponent implements OnInit {
     private router: Router,
     private sh: SharedNotificationService,
     private tms: TeamsService,
-    private auth: AuthserviceService
+    private auth: AuthserviceService,
+    private titl: Title
   ) {
-    this.img_avatar = this.g.base_href + "assets/img/profile.JPG";
+    this.titl.setTitle('Admin Team');
+
+    this.img_avatar = this.g.base_href + 'assets/img/profile.JPG';
     this.inviteForm = new FormGroup({
-      lastname: new FormControl("", [Validators.required]),
-      firstname: new FormControl("", [Validators.required]),
+      lastname: new FormControl('', [Validators.required]),
+      firstname: new FormControl('', [Validators.required]),
       invAsTeam: new FormControl(true),
       invAsComm: new FormControl(false),
-      email: new FormControl("", [
-        Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$"),
-        Validators.required
-      ])
+      email: new FormControl('', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'), Validators.required]),
     });
   }
   async ngOnInit() {
     try {
       let isAdmin = await this.auth.isAdminUser();
-      if (isAdmin.status == "OK") {
+      if (isAdmin.status == 'OK') {
         this.getProfile();
         this.getMember();
       } else {
-        this.router.navigateByUrl("/");
+        this.router.navigateByUrl('/');
       }
     } catch (e) {}
   }
@@ -63,14 +64,14 @@ export class MembersAdminComponent implements OnInit {
           return prdata;
         } else {
           throw new Object({
-            type: "NotActivate"
+            type: 'NotActivate',
           });
         }
       }
     } catch (ee) {
       this.readyData = true;
-      if ("type" in ee) {
-        if (ee.type == "NotActivate") {
+      if ('type' in ee) {
+        if (ee.type == 'NotActivate') {
           this.activated = false;
         }
       } else {
@@ -79,16 +80,16 @@ export class MembersAdminComponent implements OnInit {
     }
   }
   gotoProfileEdit() {
-    this.router.navigateByUrl("/administration-in/user/profile");
+    this.router.navigateByUrl('/administration-in/user/profile');
   }
   async submitinvite() {
     try {
       var data: any = this.inviteForm.value;
       var teamInviteRes: any = await this.tms.inviteTeam(data);
-      if (teamInviteRes.status == "OK") {
+      if (teamInviteRes.status == 'OK') {
         this.sh.notifToast({
-          type: "success",
-          message: "<p>Invitation sent</p>"
+          type: 'success',
+          message: '<p>Invitation sent</p>',
         });
         this.inviteForm.reset();
       }
@@ -114,23 +115,23 @@ export class MembersAdminComponent implements OnInit {
       let d: {
         [key: string]: any;
       } = {};
-      if (ent == "tAdm") {
+      if (ent == 'tAdm') {
         d = {
           _id: it._id,
           value: !it.isAdm,
-          reg: "adm"
+          reg: 'adm',
         };
-      } else if (ent == "comm") {
+      } else if (ent == 'comm') {
         d = {
           _id: it._id,
           value: !it.isComm,
-          reg: "com"
+          reg: 'com',
         };
       }
       let r: any = await this.tms.changeRoleAdmin(d);
       if (r) {
-        if (r.status == "OK") {
-          console.log("Success");
+        if (r.status == 'OK') {
+          console.log('Success');
           this.userAdminData = [];
           this.getMember();
         }
@@ -140,10 +141,10 @@ export class MembersAdminComponent implements OnInit {
   async deleteFromTeamList(it) {
     try {
       let rm: any = await this.tms.deleteFromTeamList({
-        usr_id: it._id
+        usr_id: it._id,
       });
       if (rm) {
-        if (rm.status == "OK") {
+        if (rm.status == 'OK') {
           this.userAdminData = [];
           this.getMember();
         }
@@ -153,11 +154,11 @@ export class MembersAdminComponent implements OnInit {
 
   viewUsersTeams(scp) {
     switch (scp) {
-      case "admin":
+      case 'admin':
         this.adminAll = true;
         this.communityShow = false;
         break;
-      case "community":
+      case 'community':
         this.adminAll = false;
         this.communityShow = true;
         break;
