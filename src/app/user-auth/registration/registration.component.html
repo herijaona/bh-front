@@ -90,8 +90,12 @@
             <div class="col-md-6 col-sm-6">
               <div class="input-md">
                 <label for="bh_acc_socialMean">Activity area</label>
-                <input placeholder="Enter your activity area" type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control"
-                  mdbActive>
+                <!-- <input placeholder="Enter your activity area" type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control"
+                  mdbActive> -->
+                <select formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control-slct" mdbActive>
+                  <option value='0'>Choose type</option>
+                  <option *ngFor="let item of orgType" value='{{ item._id }}'>{{item.text}}</option>
+                </select>
                 <span class="err_msg" *ngIf="registerForm.controls.bh_acc_socialMean.invalid && registerForm.controls.bh_acc_socialMean.touched">Champ Obligatoire</span>
               </div>
             </div>
@@ -101,8 +105,11 @@
               <div class="input-md">
                 <label for="bh_orgType">Type Organisation</label>
                 <select formControlName="bh_orgType" id="bh_orgType" class="form-control-slct" mdbActive>
-                  <option value='0'>Choose type</option>
-                  <option *ngFor="let item of orgType" value='{{ item._id }}'>{{item.text}}</option>
+                  <option value="startup">Startup</option>
+                  <option value="searcher">Searcher</option>
+                  <option value="established_company">Established company</option>
+                  <option value="research_laboratory">Research Laboratory</option>
+                  <option value="incubator">Incubator</option>
                 </select>
                 <span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Champ Obligatoire</span>
               </div>
@@ -121,9 +128,11 @@
             <div class="col-md-6 col-sm-6 input-md">
               <label>Your logo</label>
               <div class="file-field">
-                <input id="logoFile" type="file" accept="image/*" mdbFileSelect class="inputfile" mdbActive>
+                <input (change)="upImChanged($event, 'logoFile')" id="logoFile" type="file" accept="image/*" mdbFileSelect class="inputfile"
+                  mdbActive>
                 <label for="logoFile" class="label-file">
                   <strong>Browse file</strong>
+                  <span style="color: black" id="fileNameSelected">{{fileSelectName}}</span>
                 </label>
                 <span class="ferr_msg" *ngIf="fileError">Champ Obligatoire</span>
               </div>

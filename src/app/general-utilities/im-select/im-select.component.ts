@@ -11,6 +11,7 @@ import { ApiHttpService } from '../../services/api-http/api-http.service';
 export class ImSelectComponent implements OnInit, OnDestroy {
   @Input('im_to') dest_file: string;
   @Input('entity') entity: string;
+  public changeOk: boolean = false;
   public hasImage: boolean = false;
   public imbiblio: any;
   @Output() onOk = new EventEmitter<{}>();
@@ -100,7 +101,6 @@ export class ImSelectComponent implements OnInit, OnDestroy {
     });
     this.changeOk = true;
   }
-  public changeOk: boolean = false;
 
   Okchange() {
     this.onOk.emit({});
