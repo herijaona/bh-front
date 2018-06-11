@@ -14,7 +14,7 @@ export class ViewReactionComponent implements OnInit {
   @ViewChild("modalHist") public myModalHist: ModalDirective;
   public viewreaction_page = 'viewreaction_page';
   public allQuestions: any = [];
-  constructor(private tms: TeamsService, private titl: Title) {}
+  constructor(private tms: TeamsService, private titl: Title, public g: Globals) {}
 
   ngOnInit() {
     this.getAllQuestions();

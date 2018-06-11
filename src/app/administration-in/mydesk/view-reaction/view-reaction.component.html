@@ -43,7 +43,7 @@
 
         <p class="text-right">
             <a class="btn btn-primary btn-lg btn-question" role="button"><span>delete</span><i class="fa fa-remove"></i></a>
-            <a (click)="showMod()" class="btn btn-primary btn-lg btn-apply" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
+            <a (click)="showMod()" class="btn btn-primary btn-lg btn-apply" role="button"><span>Reply</span><i class="fa fa-check"></i></a>
         </p>
         <!--Table-->
     </div>
@@ -62,7 +62,7 @@
                         <div class="quest_">
                             <div class="">
                                 <label>Your Questions :</label>
-                                <ckeditor [config]="" [readonly]="false" debounce="100">
+                                <ckeditor [config]="g.getConfig('conf0_editor')" [readonly]="false" debounce="100">
                                 </ckeditor>
                             </div>
                             <div class="mt-2">
