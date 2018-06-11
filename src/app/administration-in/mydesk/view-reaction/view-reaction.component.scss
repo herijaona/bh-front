@@ -2,6 +2,13 @@
     white-space: nowrap;
 }
 
+.table {
+    width: 99%;
+    .text-tr {
+        border: 1px solid #dee2e6;
+    }
+}
+
 .btn-apply {
     background: #e83936;
     border: 1px solid #e83936;
