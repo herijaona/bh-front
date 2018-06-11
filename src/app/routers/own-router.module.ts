@@ -28,6 +28,7 @@ import { ApplicationSentComponent } from '../administration-in/collaborations/ap
 import { ApplyComponent } from '../administration-in/collaborations/apply/apply.component';
 import { CollaborationsComponent } from '../administration-in/collaborations/collaborations.component';
 import { QuestionComponent } from '../administration-in/collaborations/question/question.component';
+import { IdeasDeskComponent } from '../administration-in/mydesk/ideas-desk/ideas-desk.component';
 import { FavoriteComponent } from '../administration-in/mydesk/favorite/favorite.component';
 import { ApplicationComponent } from '../administration-in/collaborations/application/application.component';
 import { InvitedOrganisationComponent } from '../administration-in/mydesk/invited-organisation/invited-organisation.component';
@@ -126,6 +127,11 @@ const routes: Routes = [
         path: 'questions',
         component: ViewReactionComponent,
       },
+      {
+        path: 'ideas',
+        component: IdeasDeskComponent,
+      },
+      
       {
         path: 'questions/details/:qID',
         component: QuestionsDetailsComponent,

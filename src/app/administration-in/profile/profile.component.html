@@ -15,7 +15,7 @@
             <!-- Personal Info data -->
             <form id="editForm_" class="" [formGroup]="EditForm" (ngSubmit)="EditProfile()">
                 <div class="title-edit">
-                    <h4>Personnal info</h4>
+                    <h4>Personnal information</h4>
                     <span>
             <button *ngIf="!editPInfo" (click)='activeInfoEdit()' type="button" class="btn btn-block ed"><i class="fa fa-pencil"></i><span class="edit-person"></span></button>
                     <button *ngIf="editPInfo" [ngClass]="{'disabled': !EditForm.valid}" type="submit" class="btn btn-unique-edit ed-3 btn-ed3"><i class="fa fa-save"></i><span class="edit-person"></span></button>
@@ -67,7 +67,7 @@
             <!--   company Data  -->
             <form *ngIf="isAdmin" class="swe" id="ewd" [formGroup]="uform" (ngSubmit)="onUpdateFormSubmit()">
                 <div class="title-edit">
-                    <h4>Edit Organisation</h4>
+                    <h4>Organizational Information</h4>
                     <span *ngIf="!editCompInfo">
             <button (click)="activeCmpInfoEdit()" type="button" class="btn ed"><i class="fa fa-pencil"></i><span class="edit-person"></span></button>
                     </span>
@@ -81,7 +81,7 @@
             <input [attr.readonly]="!editCompInfo? true : null" type="text" formControlName="_acc_commercial"  class="form-control" placeholder="Enter your company name">
           </span>
                     <span class="mg-left-wt">
-            <label for="defaultFormRegisterNameEx" class="grey-text-form">activity</label>
+            <label for="defaultFormRegisterNameEx" class="grey-text-form">activity type</label>
             <input [attr.readonly]="!editCompInfo? true : null" type="text" formControlName="_acc_socialMean" class="form-control" placeholder="Enter your activity">
           </span>
                 </div>

@@ -9,7 +9,7 @@ export class Globals {
   // api_baseUrl: string = "http://54.36.98.91:3000";
   //site_baseUrl: string = "http://54.36.98.91/bh_version";
   urlArrayLeng: 6;
-  public conf0_editor = {
+  private conf0_editor = {
     removePlugins: "toolbar,elementspath",
     resize_enabled: false,
     height: 200
@@ -54,4 +54,7 @@ export class Globals {
       { name: "colors", items: ["TextColor", "BGColor"] }
     ]
   };
+  public getConfig(arg) {
+    return this[arg];
+  }
 }

@@ -20,7 +20,7 @@ export class PageLoginComponent implements OnInit {
   type_ = "notif";
   text_ = "Success de registration";
   error_log: boolean = false;
-  public img_bg: string;
+
   constructor(
     public g: Globals,
     private auth: AuthserviceService,
@@ -29,7 +29,6 @@ export class PageLoginComponent implements OnInit {
   ) {
     this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
     this.img_logo = this.g.base_href + "assets/img/bh.png";
-    this.img_bg = this.g.base_href + "assets/img/bg-0.png";
   }
   ngOnInit() {
     this.resetpassForm = new FormGroup({
@@ -130,9 +129,4 @@ export class PageLoginComponent implements OnInit {
         );
     });
   }
-
-  getUrl()
-	{
-	  return "url(" + this.img_bg + ")";
-	}
 }

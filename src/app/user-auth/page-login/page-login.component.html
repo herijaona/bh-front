@@ -1,41 +1,79 @@
-<div class="bg-fr-color log-in-register">
+<!-- <div class="bg-fr-color log-in-register">
     <img [src]="img_avatar" class="rty" alt="First sample avatar image" width="100%" height="100%" style="position:absolute;">
-</div>
+</div> -->
 <div class="section-login">
-    <div class="container">
-        <message-notif *ngIf="error_log" [message]="text_" [type]="type_"></message-notif>
-    </div>
 
     <!-- Rest passWord  -->
-    <section class="form-dark" *ngIf='!loginFormFlag'>
-        <div class="card card-image bg-login">
+    <section class="form-dark row" *ngIf='!loginFormFlag'>
+        <div class="bg-login col-xl-7 col-lg-7 col-md-7 col-sm-6 col-xs-6">
+            <div class="container">
+                <message-notif *ngIf="error_log" [message]="text_" [type]="type_"></message-notif>
+            </div>
             <form class="form-up" [formGroup]="resetpassForm" (ngSubmit)="resetFormSubmit()">
-                <div class="text-white content-rgba py-5 px-5-edit z-depth-4">
-                    <div class="text-center text-logo">
-                        <img [src]="img_logo" class="rty" alt="First sample avatar image" width="53%" height="100%">
+                <div class="text-white content-rgba py-5 px-5-edit">
+                    <div class="text-left text-logo">
+                        <!-- <img [src]="img_logo" class="rty" alt="First sample avatar image" width="53%" height="100%"> -->
                         <h4>Reinitialiser mot de passe</h4>
                     </div>
                     <div class="md-form">
                         <input type="email" placeholder="Your email" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
                     </div>
-                    <div class="row d-flex align-items-center">
-                        <div class="text-center mb-3 col-md-12">
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6  p-0">
                             <button [ngClass]="{'disabled':!resetpassForm.valid }" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign">Sign in</button>
                         </div>
+                        <div class="col-md-6 col-sm-6">
+                            <p class="agree mb-agree">se connecter? click&nbsp;?&nbsp;
+                                <a [routerLink]="['/sign-in']"><a (click)='forgotPasswordInit($event)' ><span>here</span></a></a>
+                            </p>
+                        </div>
                     </div>
-                    <div class="already-member text-center">se connecter? click<a (click)='forgotPasswordInit($event)' href=""><span class="recovery">ici</span></a></div>
                 </div>
             </form>
+        </div>
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-6">
+            <div class="meet-future" [ngStyle]="{'background-image': getUrl()}">
+                <img class="img-l" src="{{g.base_href}}assets/img/logo-ccw.png" width="95px">
+
+                <h2 class="mt-4 mb-5">Meet the future</h2>
+                <ul>
+                    <li>
+                        <a>
+                            <img src="{{g.base_href}}assets/img/free-8.png" width="35px">
+                        </a>Free
+                        <br>
+
+                        <span>It's free for the Freemium offer</span>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="{{g.base_href}}assets/img/automnomous-8.png" width="37px">
+                        </a>autonomous
+                        <br>
+
+                        <span>You are autonomous to do everything</span>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="{{g.base_href}}assets/img/assisted-8.png" width="45px">
+                        </a>assisted
+                        <br>
+
+                        <span>We are here to help you</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- Login Form -->
-    <section class="form-dark" *ngIf='loginFormFlag'>
-        <div class="card card-image bg-login">
+    <section class="form-dark row" *ngIf='loginFormFlag'>
+        <div class="bg-login col-xl-7 col-lg-7 col-md-7 col-sm-6 col-xs-6">
             <form class="form-up" [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
-                <div class="text-white content-rgba py-5 px-5-edit z-depth-4">
-                    <div class="text-center text-logo">
-                        <img [src]="img_logo" class="rty" alt="First sample avatar image" width="53%" height="100%">
+                <div class="text-white content-rgba py-5 px-5-edit">
+                    <div class="text-left text-logo">
+                        <!-- <img [src]="img_logo" class="rty" alt="First sample avatar image" width="53%" height="100%"> -->
                         <h4>Login to your account</h4>
                         <p>Collaborate with innovative ecosystems</p>
                     </div>
@@ -51,14 +89,49 @@
                         <span class="remember-me">Remember me</span>
                         <span class="forgot-pwd">Forgot password ?<a (click)='forgotPasswordInit($event)'  href=""><u class="recovery">Recovery</u></a></span>
                     </div>
-                    <div class="row d-flex align-items-center">
-                        <div class="text-center mb-3 col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
                             <button [ngClass]="{'disabled':!loginForm.valid}" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign">Sign in</button>
                         </div>
+                        <div class="col-md-6 col-sm-6">
+                            <p class="agree mb-agree">not already member ?&nbsp;?&nbsp;
+                                <a [routerLink]="['/sign-in']"><span>sign in</span></a>
+                            </p>
+                        </div>
                     </div>
-                    <div class="already-member text-center">not already member ?<a [routerLink]="['/sign-in']"><span class="recovery">sign up</span></a></div>
                 </div>
             </form>
+        </div>
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-6">
+            <div class="meet-future" [ngStyle]="{'background-image': getUrl()}">
+                <img class="img-l" src="{{g.base_href}}assets/img/logo-ccw.png" width="95px">
+
+                <h2 class="mt-4 mb-5">Meet the future</h2>
+                <ul>
+                    <li>
+                        <a>
+                            <img src="{{g.base_href}}assets/img/free-8.png" width="35px">
+                        </a>Free
+                        <br>
+
+                        <span>It's free for the Freemium offer</span>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="{{g.base_href}}assets/img/automnomous-8.png" width="37px">
+                        </a>autonomous
+                        <br>
+                        <span>You are autonomous to do everything</span>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="{{g.base_href}}assets/img/assisted-8.png" width="45px">
+                        </a>assisted
+                        <br>
+                        <span>We are here to help you</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 </div>
