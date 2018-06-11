@@ -13,13 +13,6 @@ import { ActivationComponent } from '../user-auth/activation/activation.componen
 import { PageLoginComponent } from '../user-auth/page-login/page-login.component';
 import { ProfileAdminComponent } from '../profile-admin/profile-admin/profile-admin.component';
 import { AuthguardService } from '../services/authguard/authguard.service';
-import { ListCompaniesComponent } from '../companies/list-companies/list-companies.component';
-import { ProfileCompaniesComponent } from '../companies/profile-companies/profile-companies.component';
-import { GeneralComponent } from '../companies/utilprofile/general/general.component';
-import { OwnUserComponent } from '../companies/utilprofile/own-user/own-user.component';
-import { ProjetProfileComponent } from '../companies/utilprofile/projet-profile/projet-profile.component';
-import { JobOnCompProfileComponent } from '../companies/utilprofile/job-on-comp-profile/job-on-comp-profile.component';
-import { EventOnCompProfileComponent } from '../companies/utilprofile/event-on-comp-profile/event-on-comp-profile.component';
 import { CommitteeComponent } from '../committee/committee/committee.component';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
