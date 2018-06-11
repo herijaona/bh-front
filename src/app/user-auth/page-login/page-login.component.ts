@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthserviceService } from '../../services/authservice/authservice.service';
 import { Router } from '@angular/router';
-import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
 
+
+
+
+import { AuthserviceService } from '../../services/authservice/authservice.service';
+import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
 import { Globals } from './../../globals/globals';
+
 @Component({
   selector: 'page-login',
   templateUrl: './page-login.component.html',
@@ -92,7 +96,7 @@ export class PageLoginComponent implements OnInit {
         .then(
           (res: any) => {
             setTimeout(() => {
-              if (res.status == 'OK') {
+              if (res.status === 'OK') {
                 this.type_ = 'success';
                 this.text_ =
                   'Demande de reinitialisation de mot passe effectuer avec success <br>' +
