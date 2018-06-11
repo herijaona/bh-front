@@ -51,6 +51,7 @@ import { ApplicationDealComponent } from '../administration-in/deal-space/applic
 import { FilesDealComponent } from '../administration-in/deal-space/files-deal/files-deal.component';
 import { PlanningDealComponent } from '../administration-in/deal-space/planning-deal/planning-deal.component';
 import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction/view-reaction.component';
+import { HistoricalComponent } from '../administration-in/mydesk/historical/historical.component';
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
@@ -143,6 +144,10 @@ const routes: Routes = [
       {
         path: 'invited-organisation',
         component: InvitedOrganisationComponent,
+      },
+      {
+        path: 'historical',
+        component: HistoricalComponent,
       },
     ],
   },

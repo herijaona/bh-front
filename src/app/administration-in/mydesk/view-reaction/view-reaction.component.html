@@ -1,36 +1,68 @@
 <div class="col-container">
-  <div class="table-respo">
-    <!--Table-->
-    <table class="table appli-table">
-      <!--Table head-->
-      <thead class="head-color">
-        <tr class="text-bl">
-          <th>&nbsp; Date &nbsp;</th>
-          <!-- <th>hour</th> -->
-          <th>Name</th>
-          <th>About</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <!--Table head-->
-      <!--Table body-->
-      <tbody>
-        <tr *ngFor="let item of allQuestions">
-          <td class="no-wrp">{{item.date}}</td>
-          <!-- <td>{{item.hour}}</td> -->
-          <td>{{item.userAsk.name}}</td>
-          <td>
-            <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
-          </td>
-          <td>
-            <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
-              <i class="fa fa-eye"></i>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-      <!--Table body-->
-    </table>
-    <!--Table-->
-  </div>
+    <div class="table-respo">
+        <!--Table-->
+        <table class="table appli-table">
+            <!--Table head-->
+            <thead class="head-color">
+                <tr class="text-bl">
+                    <th>&nbsp; Date &nbsp;</th>
+                    <!-- <th>hour</th> -->
+                    <th>Name</th>
+                    <th>About</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+                <tr *ngFor="let item of allQuestions">
+                    <td class="no-wrp">{{item.date}}</td>
+                    <!-- <td>{{item.hour}}</td> -->
+                    <td>{{item.userAsk.name}}</td>
+                    <td>
+                        <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
+                    </td>
+                    <td>
+                        <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+            <!--Table body-->
+        </table>
+        <p class="text-right">
+            <a class="btn btn-primary btn-lg btn-question" role="button"><span>delete</span><i class="fa fa-remove"></i></a>
+            <a (click)="showMod()" class="btn btn-primary btn-lg btn-apply" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
+        </p>
+        <!--Table-->
+    </div>
+</div>
+
+
+<div class="">
+    <div style="overflow: auto;" mdbModal #modalHist="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" [config]="{backdrop: true, ignoreBackdropClick: true}">
+        <div class="modal-dialog {{modal_size}}" role="document">
+            <div class="modal-content">
+                <button type="button" class="close close-md close-m" data-dismiss="modal" aria-label="Close" (click)="hideModal()">
+      <span aria-hidden="true">×</span>
+    </button>
+                <div class="modal-body">
+                    <div class="askm">
+                        <div class="quest_">
+                            <div class="">
+                                <label>Your Questions :</label>
+                                <ckeditor [config]="" [readonly]="false" debounce="100">
+                                </ckeditor>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-md btn-info bg-sign"><i class="fa fa-send mr-3"></i>send </button>
+                            </div>
+                            <div><label class="mr-2">Length:</label> {{ charLength}} <span class="ml-2"> (max: 10000 )</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

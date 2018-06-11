@@ -1,40 +1,42 @@
 <page-header [pageCurrent]="projet_page"></page-header>
 <div class="container-fluid grid grid-top">
-  <div *ngIf="hasData" class="project-list ">
-    <div class="navbar-expand-lg">
-      <div>
-        <ul class="list-nav">
-          <li>
-            <h3><i class="fa fa-square"></i><span>{{detailsData.name}}</span></h3></li>
-          <li>
-            <ul class="navbar-nav nav-down">
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-clock-o"></i><span>Answer delay: {{detailsData.responseTimeValue}} {{detailsData.responseTimeUnit}}</span></a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4 class="title-propos">A propos</h4></li>
-        </ul>
-      </div>
-      <div>
-        <p [innerHtml]="detailsData.contexte | bhSafeHtml"></p>
-        <p [innerHtml]="detailsData.objectif | bhSafeHtml"></p>
-        <p [innerHtml]="detailsData.elementProposition | bhSafeHtml"></p>
-        <p class="text-right">
-          <a (click)="ask_questions_aboutProject($event)" class="btn btn-primary btn-lg btn-question" href="#" role="button"><span>Question</span><i class="fa fa-question-circle"></i></a>
-          <a (click)="applyto($event)" class="btn btn-primary btn-lg btn-apply" href="#" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
-        </p>
-      </div>
+    <div *ngIf="hasData" class="project-list ">
+        <div class="navbar-expand-lg">
+            <div>
+                <ul class="list-nav">
+                    <li>
+                        <h3><i class="fa fa-square"></i><span>{{detailsData.name}}</span></h3>
+                    </li>
+                    <li>
+                        <ul class="navbar-nav nav-down">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fa fa-calendar"></i><span>Meetings</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fa fa-map-marker"></i><span>Paris</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fa fa-clock-o"></i><span>Answer delay: {{detailsData.responseTimeValue}} {{detailsData.responseTimeUnit}}</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4 class="title-propos">A propos</h4>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p [innerHtml]="detailsData.contexte | bhSafeHtml"></p>
+                <p [innerHtml]="detailsData.objectif | bhSafeHtml"></p>
+                <p [innerHtml]="detailsData.elementProposition | bhSafeHtml"></p>
+                <p class="text-right">
+                    <a (click)="ask_questions_aboutProject($event)" class="btn btn-primary btn-lg btn-question" href="#" role="button"><span>Question</span><i class="fa fa-question-circle"></i></a>
+                    <a (click)="applyto($event)" class="btn btn-primary btn-lg btn-apply" href="#" role="button"><span>Apply</span><i class="fa fa-check"></i></a>
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div class="">
-  <pmodal-show></pmodal-show>
+    <pmodal-show></pmodal-show>
 </div>
