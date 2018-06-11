@@ -38,6 +38,11 @@ import { EcosystemComponent } from './communities/ecosystem/ecosystem.component'
 import { IdeasCommunitiesComponent } from './communities/ideas/ideas.component';
 import { QuestionCommunitiesComponent } from './communities/question-communities/question-communities.component';
 import { OneCollabApplicationComponent } from './collaborations/one-collab-application/one-collab-application.component';
+import { DealSpaceComponent } from './deal-space/deal-space.component';
+import { QuestionAnswersComponent } from './deal-space/question-answers/question-answers.component';
+import { ApplicationDealComponent } from './deal-space/application-deal/application-deal.component';
+import { FilesDealComponent } from './deal-space/files-deal/files-deal.component';
+import { PlanningDealComponent } from './deal-space/planning-deal/planning-deal.component';
 
 @NgModule({
   imports: [
@@ -81,6 +86,11 @@ import { OneCollabApplicationComponent } from './collaborations/one-collab-appli
     IdeasCommunitiesComponent,
     QuestionCommunitiesComponent,
     OneCollabApplicationComponent,
+    DealSpaceComponent,
+    QuestionAnswersComponent,
+    ApplicationDealComponent,
+    FilesDealComponent,
+    PlanningDealComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],
