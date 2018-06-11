@@ -11,7 +11,8 @@
   <div class="col-6 pr-0">
     <div class="mb-20">
       <label class="grey-text-form">description</label>
-      <textarea [(ngModel)]="projectApplyData.user_application_describ" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+      <textarea [(ngModel)]="projectApplyData.user_application_describ" (change)="onChangeEditor($event)" placeholder="description project"
+        type="text" name="" class="t-area"></textarea>
     </div>
   </div>
 </div>
@@ -29,7 +30,8 @@
   <div class="col-6 pl-0">
     <div class="type-name-o">
       <label class="grey-text-form">date</label>
-      <my-date-picker (dateChanged)="onDateChanged($event)" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDate" required></my-date-picker>
+      <my-date-picker (dateChanged)="onDateChanged($event)" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDate"
+        required></my-date-picker>
       <i class="fa fa-calendar"></i>
     </div>
   </div>
@@ -48,35 +50,42 @@
   <div class="col-6 pl-0">
     <div class="mb-20 pr-i">
       <label class="grey-text-form">Main area of activity :</label>
-      <textarea [(ngModel)]="projectApplyData.main_activity_domain" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+      <textarea [(ngModel)]="projectApplyData.main_activity_domain" (change)="onChangeEditor($event)" placeholder="Main area of activity ..."
+        type="text" name="" class="t-area"></textarea>
       <i class="fa fa-pencil i-pen"></i>
     </div>
   </div>
   <div class="col-6 pr-0">
     <div class="mb-20">
-      <label class="grey-text-form">Related Activity :</label>
-      <textarea [(ngModel)]="projectApplyData.secondary_activity_domain" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+      <label class="grey-text-form">Related activity :</label>
+      <textarea [(ngModel)]="projectApplyData.secondary_activity_domain" (change)="onChangeEditor($event)" placeholder="Related activity ..."
+        type="text" name="" class="t-area"></textarea>
+
     </div>
   </div>
   <div class="col-6 pl-0">
     <div class="mb-20">
-      <label class="grey-text-form mt-3">Skills and Specificities :</label>
-      <textarea [(ngModel)]="projectApplyData.skill_specificities" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+      <label class="grey-text-form mt-3">Skills and specificities :</label>
+      <textarea [(ngModel)]="projectApplyData.skill_specificities" (change)="onChangeEditor($event)" placeholder="skills, Specificities ..."
+        type="text" name="" class="t-area"></textarea>
     </div>
   </div>
 </div>
-<h3 class="mt-3">Proposition of Collaboration</h3>
-<p class="pr-col">Can you specify infew linesyour proposal, and make sure to explain the link with your activities, projects and skills, to strengthen the credibility of your proposal</p>
+<h3 class="mt-3">Proposition of collaboration</h3>
+<p class="pr-col">Can you specify infew linesyour proposal, and make sure to explain the link with your activities, projects and skills, to
+  strengthen the credibility of your proposal</p>
 <div class="row pb-4">
   <div class="col-12 p-0">
     <div class="mb-20">
-      <label class="grey-text-form">description</label>
-      <textarea [(ngModel)]="projectApplyData.collab_proposal_describ" (change)="onChangeEditor($event)" placeholder="description project" type="text" name="" class="t-area"></textarea>
+      <!-- <label class="grey-text-form">description</label> -->
+      <textarea [(ngModel)]="projectApplyData.collab_proposal_describ" (change)="onChangeEditor($event)" placeholder="Proposition of collaboration ..."
+        type="text" name="" class="t-area"></textarea>
     </div>
   </div>
 </div>
 
 <!-- <button [ngClass]="{disabled: canBeSent }" class="float-right mb-4 btn-col"><i class="fa fa-send pr-2"></i>send</button> -->
 <div class="text-right">
-<button (click)="sendApplicationOnProject()" [ngClass]="{disabled: !canBeSent }" class="mb-4 btn-col btn"><i class="fa fa-send pr-2"></i>send</button>
+  <button (click)="sendApplicationOnProject()" [ngClass]="{disabled: !canBeSent }" class="mb-4 btn-col btn">
+    <i class="fa fa-send pr-2"></i>send</button>
 </div>

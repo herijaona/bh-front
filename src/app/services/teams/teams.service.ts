@@ -40,8 +40,8 @@ export class TeamsService extends BaseHttpService {
     }).toPromise();
   }
 
-  public getUsersTeamsNameFn(arg) {
-    return this.fetch('get', 'team-details', { id_user: arg }).toPromise();
+  public getUsersTeamsNameFn(arg1, arg2) {
+    return this.fetch('get', 'team-details', { id_user: arg1, accountID: arg2 }).toPromise();
   }
 
   public questionsSendData(arg) {
