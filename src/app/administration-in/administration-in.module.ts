@@ -43,6 +43,8 @@ import { QuestionAnswersComponent } from './deal-space/question-answers/question
 import { ApplicationDealComponent } from './deal-space/application-deal/application-deal.component';
 import { FilesDealComponent } from './deal-space/files-deal/files-deal.component';
 import { PlanningDealComponent } from './deal-space/planning-deal/planning-deal.component';
+import { HistoricalComponent } from './mydesk/historical/historical.component';
+import { ModalHistoricalComponent } from './mydesk/historical/modal-historical/modal-historical.component';
 
 @NgModule({
   imports: [
@@ -91,6 +93,8 @@ import { PlanningDealComponent } from './deal-space/planning-deal/planning-deal.
     ApplicationDealComponent,
     FilesDealComponent,
     PlanningDealComponent,
+    HistoricalComponent,
+    ModalHistoricalComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],
