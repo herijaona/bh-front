@@ -200,10 +200,6 @@ const routes: Routes = [
         component: EcosystemComponent,
       },
       {
-        path: 'ecosystem',
-        component: EcosystemComponent,
-      },
-      {
         path: 'ideas',
         component: IdeasCommunitiesComponent,
       },
