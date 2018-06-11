@@ -226,8 +226,8 @@ const routes: Routes = [
     canActivate: [AuthguardService],
     children: [
       {
-          path: 'question-answers',
-          component: QuestionAnswersComponent,
+        path: 'question-answers',
+        component: QuestionAnswersComponent,
       },
       {
         path: 'application',
@@ -240,9 +240,9 @@ const routes: Routes = [
       {
         path: 'planning',
         component: PlanningDealComponent,
-      },     
-    ],  
-},
+      },
+    ],
+  },
 
   {
     path: 'c-capital/description-project',

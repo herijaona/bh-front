@@ -10,7 +10,6 @@ import { AuthserviceService } from '../services/authservice/authservice.service'
 
 /* Component Imports*/
 import { RegistrationComponent } from './registration/registration.component';
-import { NewCompanyComponent } from './new-company/new-company.component';
 import { ActivationComponent } from './activation/activation.component';
 import { NotifComponent } from './notif/notif.component';
 
@@ -33,7 +32,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   entryComponents: [PageLoginComponent, NotifComponent],
   declarations: [
     RegistrationComponent,
-    NewCompanyComponent,
     ActivationComponent,
     PageLoginComponent,
     NotifComponent,
