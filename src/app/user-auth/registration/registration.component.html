@@ -1,15 +1,11 @@
-<!-- <div class="bg-fr-color">
-    <img [src]="img_avatar" class="rty img-top" alt="First sample avatar image" width="100%" height="100%" style="position:absolute;">
-</div> -->
-
 <div class="section-login">
+
     <section class="form-dark row">
-        <div class="bg-register col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+        <div class=" bg-register col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
             <div #attachAll></div>
             <form id="registerForm_" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" class="form-up">
                 <div class="text-white content-rgba py-5 px-5-edit">
                     <div class="text-left text-logo">
-                        <!-- <img [src]="img_logo" class="rty" alt="First sample avatar image" width="200px" height="100%"> -->
                         <h4>Sign up</h4>
                         <p>Registration is free</p>
                     </div>
@@ -67,6 +63,7 @@
                                 <input placeholder="Confirm password" (keyup)="passCheck()" type="password" formControlName="bh_pass_conf" id="bh_pass_conf" class="form-control" mdbActive>
                                 <span class="err_msg" *ngIf="passNotEqual">password not equal</span>
 
+
                             </div>
                         </div>
                     </div>
@@ -82,14 +79,12 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="input-md">
-                                <label for="bh_acc_socialMean">Activity area</label>
-                                <!-- <input placeholder="Enter your activity area" type="text" formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control"
-                  mdbActive> -->
-                                <select formControlName="bh_acc_socialMean" id="bh_acc_socialMean" class="form-control-slct" mdbActive>
-                  <option value='0'>Choose type</option>
+                                <label for="bh_acc_activityArea">Activity area</label>
+                                <select formControlName="bh_orgType" id="bh_acc_activityArea" class="form-control-slct" mdbActive>
+                  <option value='0'>Choose activity area</option>
                   <option *ngFor="let item of orgType" value='{{ item._id }}'>{{item.text}}</option>
                 </select>
-                                <span class="err_msg" *ngIf="registerForm.controls.bh_acc_socialMean.invalid && registerForm.controls.bh_acc_socialMean.touched">Champ Obligatoire</span>
+                                <span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Champ Obligatoire</span>
                             </div>
                         </div>
                     </div>
@@ -97,23 +92,22 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="input-md">
                                 <label for="bh_orgType">Type Organisation</label>
-                                <select formControlName="bh_orgType" id="bh_orgType" class="form-control-slct" mdbActive>
+                                <select formControlName="bh_acc_activityArea" id="bh_orgType" class="form-control-slct" mdbActive>
+                  <option value='0'>Choose type</option>
                   <option value="startup">Startup</option>
                   <option value="searcher">Searcher</option>
                   <option value="established_company">Established company</option>
                   <option value="research_laboratory">Research Laboratory</option>
                   <option value="incubator">Incubator</option>
                 </select>
-                                <span class="err_msg" *ngIf="registerForm.controls.bh_orgType.invalid && registerForm.controls.bh_orgType.touched">Champ Obligatoire</span>
+
+                                <span class="err_msg" *ngIf="registerForm.controls.bh_acc_activityArea.invalid && registerForm.controls.bh_acc_activityArea.touched">Champ Obligatoire</span>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="input-md">
                                 <label>Adresse</label>
                                 <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete>
-                                <!-- <input type="text" formControlName="bh_orgLocal" id="bh_orgLocal" class="form-control" mdbActive>
-								<span class="err_msg" *ngIf="registerForm.controls.bh_orgLocal.invalid && registerForm.controls.bh_orgLocal.touched">Champ Obligatoire</span>
-								<label for="bh_orgLocal">Localisation</label> -->
                             </div>
                         </div>
                     </div>
@@ -123,6 +117,7 @@
                             <div class="file-field">
                                 <input (change)="upImChanged($event, 'logoFile')" id="logoFile" type="file" accept="image/*" mdbFileSelect class="inputfile" mdbActive>
                                 <label for="logoFile" class="label-file">
+
                   <strong>Browse file</strong>
                   <span style="color: black" id="fileNameSelected">{{fileSelectName}}</span>
                 </label>
@@ -137,7 +132,8 @@
               <p id="invite-for">
                 <label class="custon-ch">
                   <span class="agree">I agree all statments in terms of service</span>
-                        <input type="checkbox" checked="checked">
+
+                        <input (change)="termsOfServices($event)" type="checkbox">
                         <span class="checkmark"></span>
                         </label>
                     </p>
@@ -145,15 +141,17 @@
                     </p>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <button [ngClass]="{'disabled': !registerForm.valid || registerForm.value.bh_pass_conf != registerForm.value.bh_pass || registerForm.controls.bh_pass.untouched || !localAdded }" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign"
-                                mdbRippleRadius>Sign up</button>
+                            <button [ngClass]="{'disabled': activeRegistersubmit() }" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign" mdbRippleRadius>Sign up</button>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 p-0">
                             <p class="agree mb-agree">already member &nbsp;?&nbsp;
-                                <a><span [routerLink]="['/login']">sign in</span></a>
+                                <span>sign in</span>
                             </p>
+
                         </div>
                     </div>
+
+
                 </div>
             </form>
         </div>

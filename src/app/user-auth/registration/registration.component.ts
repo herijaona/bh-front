@@ -30,6 +30,7 @@ export class RegistrationComponent implements OnInit {
   public img_logo2: string;
   public assisted: string;
   public automnomous: string;
+  public fileFlag: boolean = false;
   public registerForm: FormGroup;
   fileError: any = false;
   used_email: boolean = false;
@@ -51,6 +52,8 @@ export class RegistrationComponent implements OnInit {
   passNotEqual: boolean = false;
   localAdded: boolean = false;
   orgAddr: string = '';
+  private agreeTermsOfService: boolean = false;
+
   constructor(
     public g: Globals,
     private el: ElementRef,
@@ -85,7 +88,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   autoCompleteCallback1(selectedData: any) {
-    //do any necessery stuff.
     if (selectedData.response) {
       this.orgAddr = JSON.stringify(selectedData.data);
       this.localAdded = true;
@@ -104,7 +106,7 @@ export class RegistrationComponent implements OnInit {
       bh_firstname: new FormControl('', [Validators.required]),
       bh_functions: new FormControl('', [Validators.required]),
       bh_acc_commercial: new FormControl('', [Validators.required]),
-      bh_acc_socialMean: new FormControl('', [Validators.required]),
+      bh_acc_activityArea: new FormControl(0, [Validators.required]),
       bh_orgType: new FormControl(0, [Validators.required, ValidateOrgtypes]),
       bh_orgLocal: new FormControl(''),
     });
@@ -120,7 +122,7 @@ export class RegistrationComponent implements OnInit {
       password: this.registerForm.value.bh_pass,
       function: this.registerForm.value.bh_functions,
       enseigneCommerciale: this.registerForm.value.bh_acc_commercial,
-      raisonSociale: this.registerForm.value.bh_acc_socialMean,
+      activityArea: this.registerForm.value.bh_acc_activityArea,
       Logo: '',
       typeOrganisation: this.registerForm.value.bh_orgType,
       adresse: this.orgAddr,
@@ -140,7 +142,8 @@ export class RegistrationComponent implements OnInit {
               action: 'hide',
             });
             formEl.remove();
-            this.notifAndLogin();
+            // this.notifAndLogin();
+            this.router.navigateByUrl("/login");
           },
           err => {
             this.sh.runloader({
@@ -230,19 +233,35 @@ export class RegistrationComponent implements OnInit {
   }
 
   upImChanged(event, id) {
-    let inpt: HTMLInputElement = this.el.nativeElement.querySelector('#' + id);
-    let lbs: HTMLInputElement = this.el.nativeElement.querySelector('#fileNameSelected');
-    let labelVal = 'Error';
+    const inpt: HTMLInputElement = this.el.nativeElement.querySelector('#' + id);
+    const lbs: HTMLInputElement = this.el.nativeElement.querySelector('#fileNameSelected');
     let fileName = '';
     if (inpt.files && inpt.files.length > 1) {
       fileName = inpt.files.length.toString() + ' selected';
     } else {
       fileName = event.target.value.split('\\').pop();
     }
+
     if (fileName) {
       lbs.innerHTML = fileName;
+      this.fileFlag = true;
     } else {
-      lbs.innerHTML = labelVal;
+      lbs.innerHTML = 'Error';
+      this.fileFlag = false;
     }
+  }
+
+  activeRegistersubmit(): boolean {
+    return (
+      !this.registerForm.valid ||
+      this.registerForm.value.bh_pass_conf !== this.registerForm.value.bh_pass ||
+      this.registerForm.controls.bh_pass.untouched ||
+      !this.localAdded ||
+      !this.agreeTermsOfService ||
+      !this.fileFlag
+    );
+  }
+  public termsOfServices(event) {
+    this.agreeTermsOfService = event.target.checked;
   }
 }

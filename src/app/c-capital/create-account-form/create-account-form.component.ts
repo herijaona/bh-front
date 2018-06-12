@@ -49,7 +49,7 @@ export class CreateAccountFormComponent implements OnInit {
       ]),
       bh_lastname: new FormControl("", [Validators.required]),
       bh_firstname: new FormControl("", [Validators.required]),
-      bh_acc_socialMean: new FormControl("", [Validators.required])
+      bh_acc_activityArea: new FormControl("", [Validators.required])
     });
   }
   /* Show notification after registration */

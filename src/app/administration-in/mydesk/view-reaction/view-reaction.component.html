@@ -37,14 +37,16 @@
                         <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
                     </th>
                 </tr>
+                <tr class="text-right">
+                    <th colspan="5">
+                        <a class="btn btn-primary btn-lg btn-question" role="button"><span>delete</span><i class="fa fa-remove"></i></a>
+                        <a (click)="showMod()" class="btn btn-primary btn-lg btn-apply" role="button"><span>Reply</span><i class="fa fa-check"></i></a>
+                    </th>
+                </tr>
             </tbody>
             <!--Table body-->
         </table>
 
-        <p class="text-right">
-            <a class="btn btn-primary btn-lg btn-question" role="button"><span>delete</span><i class="fa fa-remove"></i></a>
-            <a (click)="showMod()" class="btn btn-primary btn-lg btn-apply" role="button"><span>Reply</span><i class="fa fa-check"></i></a>
-        </p>
         <!--Table-->
     </div>
 </div>

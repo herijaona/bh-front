@@ -14,6 +14,7 @@ import { OwnRouterModule } from './routers/own-router.module';
 import { ApiHttpService } from './services/api-http/api-http.service';
 import { TeamsService } from './services/teams/teams.service';
 import { AuthguardService } from './services/authguard/authguard.service';
+import { IsloggedVerifyGuard } from './services/authguard/islogged-verify.guard';
 import { Globals } from './globals/globals';
 import { Currency } from './globals/currency';
 import { SharedNotificationService } from './services/shared-notification/shared-notification.service';
@@ -68,27 +69,28 @@ import { SpinnerComponent } from './spinner/spinner.component';
     UserAuthModule,
     CCapitalModule,
     BrowserAnimationsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
   ],
   exports: [RouterModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptorService,
-      multi: true
+      multi: true,
     },
     ApiHttpService,
     AuthguardService,
     Globals,
     Currency,
+    IsloggedVerifyGuard,
     RequestInterceptorService,
     SharedNotificationService,
     TeamsService,
     BaseHttpService,
     ProjectsService,
-    CompanyService
+    CompanyService,
   ],
   bootstrap: [AppComponent],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}
