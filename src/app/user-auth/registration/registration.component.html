@@ -84,8 +84,8 @@
             </div>
             <div class="col-md-6 col-sm-6">
               <div class="input-md">
-                <label for="bh_acc_socialMean">Activity area</label>
-                <select formControlName="bh_orgType" id="bh_acc_socialMean" class="form-control-slct" mdbActive>
+                <label for="bh_acc_activityArea">Activity area</label>
+                <select formControlName="bh_orgType" id="bh_acc_activityArea" class="form-control-slct" mdbActive>
                   <option value='0'>Choose activity area</option>
                   <option *ngFor="let item of orgType" value='{{ item._id }}'>{{item.text}}</option>
                 </select>
@@ -97,7 +97,7 @@
             <div class="col-md-6 col-sm-6">
               <div class="input-md">
                 <label for="bh_orgType">Type Organisation</label>
-                <select formControlName="bh_acc_socialMean" id="bh_orgType" class="form-control-slct" mdbActive>
+                <select formControlName="bh_acc_activityArea" id="bh_orgType" class="form-control-slct" mdbActive>
                   <option value='0'>Choose type</option>
                   <option value="startup">Startup</option>
                   <option value="searcher">Searcher</option>
@@ -105,7 +105,7 @@
                   <option value="research_laboratory">Research Laboratory</option>
                   <option value="incubator">Incubator</option>
                 </select>
-                <span class="err_msg" *ngIf="registerForm.controls.bh_acc_socialMean.invalid && registerForm.controls.bh_acc_socialMean.touched">Champ Obligatoire</span>
+                <span class="err_msg" *ngIf="registerForm.controls.bh_acc_activityArea.invalid && registerForm.controls.bh_acc_activityArea.touched">Champ Obligatoire</span>
               </div>
             </div>
             <div class="col-md-6 col-sm-6">
@@ -136,7 +136,7 @@
               <p id="invite-for">
                 <label class="custon-ch">
                   <span class="agree">I agree all statments in terms of service</span>
-                  <input (change)="termsOfServices($event)" type="checkbox" checked="checked">
+                  <input (change)="termsOfServices($event)" type="checkbox">
                   <span class="checkmark"></span>
                 </label>
               </p>
