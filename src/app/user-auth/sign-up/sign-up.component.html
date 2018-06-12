@@ -3,7 +3,7 @@
 </div> -->
 <div class="section-login">
     <section class="form-dark row">
-        <div class=" bg-register col-xl-7 col-lg-7 col-md-7 col-sm-6 col-xs-6">
+        <div class=" bg-register col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
             <form id="registerForm_" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" class="">
                 <div class="text-white content-rgba py-5 px-5-edit">
                     <div class="text-left text-logo">
@@ -82,44 +82,16 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <p class="agree mb-agree">already member &nbsp;?&nbsp;
-                                <span>sign in</span>
+                                <a><span [routerLink]="['/login']">sign in</span></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-6">
+        <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 p-0">
             <div class="meet-future" [ngStyle]="{'background-image': getUrl()}">
-                <img class="img-l" src="{{g.base_href}}assets/img/logo-ccw.png" width="95px">
-
-                <h2 class="mt-4 mb-5">Meet the future</h2>
-                <ul>
-                    <li>
-                        <a>
-                            <img src="{{g.base_href}}assets/img/free-8.png" width="35px">
-                        </a>Free
-                        <br>
-
-                        <span>It's free for the Freemium offer</span>
-                    </li>
-                    <li>
-                        <a>
-                            <img src="{{g.base_href}}assets/img/automnomous-8.png" width="37px">
-                        </a>autonomous
-                        <br>
-
-                        <span>You are autonomous to do everything</span>
-                    </li>
-                    <li>
-                        <a>
-                            <img src="{{g.base_href}}assets/img/assisted-8.png" width="45px">
-                        </a>assisted
-                        <br>
-
-                        <span>We are here to help you</span>
-                    </li>
-                </ul>
+                <aside></aside>
             </div>
         </div>
     </section>

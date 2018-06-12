@@ -142,7 +142,8 @@ export class RegistrationComponent implements OnInit {
               action: 'hide',
             });
             formEl.remove();
-            this.notifAndLogin();
+            // this.notifAndLogin();
+            this.router.navigateByUrl("/login");
           },
           err => {
             this.sh.runloader({

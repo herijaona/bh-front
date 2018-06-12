@@ -18,6 +18,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { InvitedRegisterComponent } from './invited-register/invited-register.component';
 import { PageLoginComponent } from './page-login/page-login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AsideComponent } from './page-login/aside/aside.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     NotifComponent,
     ResetPasswordComponent,
     InvitedRegisterComponent,
-    SignUpComponent
+    SignUpComponent,
+    AsideComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService],

@@ -32,7 +32,8 @@
 </div>
 <nav class="nav-one">
     <div class="navbar navbar-expand-lg navbar-light grid">
-        <a class="navbar-brand" href="#"><img class="img-responsive img-logo" [src]="header_page_logo" height="175" width="175"></a>
+        <canvas #canvas class="canvas-img"></canvas>
+        <!-- <a class="navbar-brand" href="#"><img class="img-responsive img-logo" [src]="header_page_logo" height="175" width="175"></a> -->
         <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu" type="button"><i class="fa fa-bars"></i></button>
         <!-- <section-edit-button *ngIf="editPAGEstatus" class="butt_" [section_]="company_logo"></section-edit-button> -->
         <div class="nav-col " ng-class="textType" id="navbarNav">

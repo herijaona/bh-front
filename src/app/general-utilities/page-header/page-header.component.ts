@@ -23,6 +23,11 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
       }
     });
   }
+  @Input() public width = 200;
+  @Input() public height = 200;
+  @ViewChild("canvas") canvas: ElementRef;
+  private cx: CanvasRenderingContext2D;
+  public image: any;
   public show: boolean = false;
   public hide: boolean = false;
   public pCurrent: string;
@@ -100,6 +105,26 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     this.show = !this.show;
     this.el.nativeElement.querySelector('.nav-col').classList.add('foo');
   }
+
+
+   ngAfterViewInit() {
+    const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
+    this.cx = HTMLCanvasElement = this.canvas.nativeElement.getContext('2d')!;
+     this.image = new Image();
+
+    canvasEl.width = this.width;
+    canvasEl.height = this.height;
+
+    this.cx.lineWidth = 3;
+    this.cx.lineCap = 'round';
+    this.cx.strokeStyle = '#000';
+    this.image.onload = ()=> {
+        this.cx.drawImage(this.image, 0, 0, this.width, this.height);
+    }
+    
+    this.image.src = this.header_page_logo;
+
+}
 
   ngOnInit() {
     // this.editPAGEstatus = false;
@@ -274,6 +299,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
   showData(rsp: any) {
     this.pagetoShow = JSON.parse(rsp['pagetoShow']);
     this.header_page_logo = rsp['Logo'];
+    this.image.src = rsp['Logo'];
     if (rsp['coverImage']) {
       this.header_page_cover = 'url(' + rsp['coverImage'] + ')';
     }
