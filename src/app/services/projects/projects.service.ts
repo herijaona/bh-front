@@ -77,4 +77,12 @@ export class ProjectsService extends BaseHttpService {
   public getUserApplicationSent() {
     return this.fetch('get', 'bh-projects/getUserSentApplication').toPromise();
   }
+
+  /**
+   *  get project as opportuinity
+   */
+
+  public getadminProjectAsOpportuinity() {
+    return this.fetch('get', 'getOpportuinity-collaborations').toPromise();
+  }
 }
