@@ -12,6 +12,7 @@ import { ResetPasswordComponent } from '../user-auth/reset-password/reset-passwo
 import { ActivationComponent } from '../user-auth/activation/activation.component';
 import { PageLoginComponent } from '../user-auth/page-login/page-login.component';
 import { ProfileAdminComponent } from '../profile-admin/profile-admin/profile-admin.component';
+import { IsloggedVerifyGuard } from '../services/authguard/islogged-verify.guard';
 import { AuthguardService } from '../services/authguard/authguard.service';
 import { CommitteeComponent } from '../committee/committee/committee.component';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
@@ -94,8 +95,9 @@ const routes: Routes = [
     component: IdeasComponent,
   },
   {
-    path: 'registerCompany',
+    path: 'register-organisation',
     component: RegistrationComponent,
+    canActivate: [IsloggedVerifyGuard],
   },
   {
     path: 'activate/:code',
@@ -131,7 +133,6 @@ const routes: Routes = [
         path: 'ideas',
         component: IdeasDeskComponent,
       },
-      
       {
         path: 'questions/details/:qID',
         component: QuestionsDetailsComponent,

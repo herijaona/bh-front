@@ -51,6 +51,8 @@ export class RegistrationComponent implements OnInit {
   passNotEqual: boolean = false;
   localAdded: boolean = false;
   orgAddr: string = '';
+  private agreeTermsOfService: boolean = false;
+
   constructor(
     public g: Globals,
     private el: ElementRef,
@@ -244,5 +246,18 @@ export class RegistrationComponent implements OnInit {
     } else {
       lbs.innerHTML = labelVal;
     }
+  }
+
+  activeRegistersubmit(): boolean {
+    return (
+      !this.registerForm.valid ||
+      this.registerForm.value.bh_pass_conf !== this.registerForm.value.bh_pass ||
+      this.registerForm.controls.bh_pass.untouched ||
+      !this.localAdded ||
+      !this.agreeTermsOfService
+    );
+  }
+  public termsOfServices(event) {
+    this.agreeTermsOfService = event.target.checked;
   }
 }
