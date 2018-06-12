@@ -160,10 +160,11 @@ input[type=search],
 textarea.md-textarea {
     border: 2px solid #f4f3f3;
     border-radius: 4px;
-    height: 20px;
+    height: 45px;
     padding-left: 16px;
     width: 100%;
     font-size: 13.5px;
+    box-sizing: border-box;
 }
 
 input[type=text]:focus:not([readonly]),
@@ -243,7 +244,6 @@ textarea.md-textarea:focus:not([readonly]) {
 .mdp-me {
     margin-top: -10px;
     margin-bottom: 24px;
-    padding-left: 15px;
 }
 
 .recovery {
@@ -271,6 +271,11 @@ textarea.md-textarea:focus:not([readonly]) {
 .px-5-edit {
     padding-right: 4.5rem !important;
     padding-left: 4.5rem !important;
+    @media(max-width: 760px) {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        padding-top: 2px !important;
+    }
 }
 
 .meet-future {

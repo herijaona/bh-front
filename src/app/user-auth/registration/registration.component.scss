@@ -222,7 +222,7 @@
         width: 75%;
     }
     @media(max-width:870px) {
-        width: 85%;
+        width: 100%;
     }
     @media(max-width:474px) {
         width: 100%;
@@ -531,6 +531,16 @@ textarea.md-textarea:focus:not([readonly]) {
 
 
 /* end checkbox */
+
+@media(max-width: 991px) {
+    .meet-future {
+        position: relative !important;
+    }
+    .px-5-edit {
+        padding-right: 0rem !important;
+        padding-left: 0rem !important;
+    }
+}
 
 .meet-future {
     padding-left: 7rem;
