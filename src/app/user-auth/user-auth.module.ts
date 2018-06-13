@@ -18,7 +18,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { InvitedRegisterComponent } from './invited-register/invited-register.component';
 import { PageLoginComponent } from './page-login/page-login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+
 import { AsideComponent } from './page-login/aside/aside.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   imports: [
@@ -42,7 +44,7 @@ import { AsideComponent } from './page-login/aside/aside.component';
     AsideComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthserviceService],
+  providers: [AuthserviceService,CookieService],
   exports: [PageLoginComponent],
 })
 export class UserAuthModule {}

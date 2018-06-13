@@ -29,6 +29,7 @@ import { ApplicationSentComponent } from '../administration-in/collaborations/ap
 import { ApplyComponent } from '../administration-in/collaborations/apply/apply.component';
 import { CollaborationsComponent } from '../administration-in/collaborations/collaborations.component';
 import { QuestionComponent } from '../administration-in/collaborations/question/question.component';
+import { ApplicationFormComponent } from '../administration-in/collaborations/application-form/application-form.component';
 import { IdeasDeskComponent } from '../administration-in/mydesk/ideas-desk/ideas-desk.component';
 import { FavoriteComponent } from '../administration-in/mydesk/favorite/favorite.component';
 import { ApplicationComponent } from '../administration-in/collaborations/application/application.component';
@@ -187,6 +188,10 @@ const routes: Routes = [
       {
         path: 'question',
         component: QuestionComponent,
+      },
+      {
+        path: 'application-form',
+        component: ApplicationFormComponent,
       },
     ],
   },

@@ -1,5 +1,5 @@
 <navbar-admin></navbar-admin>
-<nav class="navbar navbar-expand-sm nav-tel">
+<nav class="navbar navbar-expand-sm nav-tel" *ngIf="dp">
     <ul class="navbar-nav ns">
         <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/administration-in','collaborations']">My collaborations</a>

@@ -8,6 +8,7 @@ import { ProjectDescriptionComponent } from './project-description/project-descr
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NotifComponentUser } from "./notif/notif.component";
+import { OptionListComponent } from './project1/option-list/option-list.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { NotifComponentUser } from "./notif/notif.component";
     ReactiveFormsModule,MDBBootstrapModule.forRoot(),
     FormsModule
   ],
-  declarations: [Project1Component, NavbarCapitalComponent, CreateAccountFormComponent, RequestInfoComponent, ProjectDescriptionComponent, NotifComponentUser],
+  declarations: [Project1Component, NavbarCapitalComponent, CreateAccountFormComponent, RequestInfoComponent, ProjectDescriptionComponent, NotifComponentUser, OptionListComponent],
   exports: [NavbarCapitalComponent]
 })
 export class CCapitalModule { }

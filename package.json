@@ -37,6 +37,7 @@
     "ng2-ckeditor": "1.1.9",
     "ng4-geoautocomplete": "^0.1.0",
     "ngx-agile-slider": "^1.0.0-alpha.8",
+    "ngx-cookie-service": "^1.0.10",
     "ngx-masonry": "^1.0.7",
     "ngx-mydatepicker": "^2.4.5",
     "ngx-quill": "^1.6.0",
