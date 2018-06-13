@@ -9,9 +9,9 @@ import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 export class InvitedOrganisationComponent implements OnInit {
   public invoiceForm: FormGroup;
   public itemrow: any;
-  
-  constructor( private _fb: FormBuilder ) {}
-  
+
+  constructor(private _fb: FormBuilder) { }
+
   ngOnInit() {
     this.invoiceForm = this._fb.group({
       itemRows: this._fb.array([this.initItemRows()])
@@ -27,9 +27,14 @@ export class InvitedOrganisationComponent implements OnInit {
   addNewRow() {
     const control = <FormArray>this.invoiceForm.controls['itemRows'];
     control.push(this.initItemRows());
+
   }
-    deleteRow(index: number) {
-        const control = <FormArray>this.invoiceForm.controls['itemRows'];
-        control.removeAt(index);
-    }
+  deleteRow(index: number) {
+    const control = <FormArray>this.invoiceForm.controls['itemRows'];
+    control.removeAt(index);
+  }
+  getcontrols() {
+    return this.invoiceForm.controls.itemRows['controls'];
+  }
+
 }

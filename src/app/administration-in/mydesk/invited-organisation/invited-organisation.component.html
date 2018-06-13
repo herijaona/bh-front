@@ -1,9 +1,9 @@
 <div class="col-container">
     <p class="invite">You can invite other organizations to participate in your projects.</p>
-    <div class="add-form text-right" (click)="addNewRow()">
-        <i class="fa fa-plus"></i>
+    <div class="add-form text-right">
+        <span (click)="addNewRow()"><i class="fa fa-plus"></i></span>
     </div>
-    <div class="row position-realtive" *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index">
+    <div class="row position-realtive" *ngFor="let itemrow of getcontrols(); let i=index">
         <div class="col-3">
             <label class="grey-text-form">First name</label>
             <div class="input-md">
@@ -28,7 +28,7 @@
                 <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
             </div>
         </div>
-        <a *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="i-remove">
+        <a *ngIf="invoiceForm.controls.itemRows.length > 1" (click)="deleteRow(i)" class="i-remove">
             <i class="fa fa-remove"></i>
         </a>
     </div>

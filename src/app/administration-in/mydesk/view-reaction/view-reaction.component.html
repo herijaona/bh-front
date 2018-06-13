@@ -54,11 +54,10 @@
 
 <div class="">
     <div style="overflow: auto;" mdbModal #modalHist="mdb-modal" class="modal fade" id="modalZoneForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" [config]="{backdrop: true, ignoreBackdropClick: true}">
-        <div class="modal-dialog {{modal_size}}" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <button type="button" class="close close-md close-m" data-dismiss="modal" aria-label="Close" (click)="hideModal()">
-      <span aria-hidden="true">×</span>
-    </button>
+                <span aria-hidden="true">×</span></button>
                 <div class="modal-body">
                     <div class="askm">
                         <div class="quest_">
@@ -70,7 +69,7 @@
                             <div class="mt-2">
                                 <button class="btn btn-md btn-info bg-sign"><i class="fa fa-send mr-3"></i>send </button>
                             </div>
-                            <div><label class="mr-2">Length:</label> {{ charLength}} <span class="ml-2"> (max: 10000 )</span> </div>
+                            <div><label class="mr-2">Length:</label><span class="ml-2"> (max: 10000 )</span> </div>
                         </div>
                     </div>
                 </div>

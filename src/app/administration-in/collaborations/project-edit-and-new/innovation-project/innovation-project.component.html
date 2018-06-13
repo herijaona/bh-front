@@ -7,25 +7,25 @@
     </div>
     <div class="mb-20 p-re">
         <label class="grey-text-form"> Project Context</label>
-        <ckeditor height="100px" rows="40" cols="40" placeholder="Project context" #ckeditor1 [(ngModel)]="prModel.pr_contexte_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)"
-            (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+        <ckeditor height="100px" rows="40" cols="40" placeholder="Project context" #ckeditor1 [(ngModel)]="prModel.pr_contexte_ProjectEditor" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)"
+            (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
         </ckeditor>
     </div>
     <div class="mb-20 p-re">
         <label class="grey-text-form">Proposal Requirements</label>
-        <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"
-            debounce="500">
+        <ckeditor #ckeditor3 [(ngModel)]="prModel.pr_elementProposition_ProjectEditor" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)"
+            (blur)="onChange($event)" debounce="500">
         </ckeditor>
     </div>
     <div class="mb-20 p-re">
         <label class="grey-text-form"> Project Objectives</label>
-        <ckeditor #ckeditor2 [(ngModel)]="prModel.pr_objectif_ProjectEditor" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"
+        <ckeditor #ckeditor2 [(ngModel)]="prModel.pr_objectif_ProjectEditor" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"
             debounce="500">
         </ckeditor>
     </div>
     <div class="mb-20 p-re">
         <label class="grey-text-form"> Decision process</label>
-        <ckeditor #ckeditor2 [(ngModel)]="prModel.pr_processDecision" [config]="g.conf0_editor" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"
+        <ckeditor #ckeditor2 [(ngModel)]="prModel.pr_processDecision" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)"
             debounce="500">
         </ckeditor>
     </div>
