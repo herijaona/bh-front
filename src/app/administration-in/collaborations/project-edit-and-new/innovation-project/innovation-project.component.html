@@ -101,69 +101,37 @@
             </div>
         </div>
         <div class="mb-20  mt-4">
-            <h5 class="mb-2">Country broadcast</h5>
+            <h5 class="mb-2">Country broadcast &nbsp; ({{getCountryNumber()}})</h5>
             <label class="grey-text-form">continent</label>
             <div class="row">
-                <!-- <div class="col-4 pl-0">
-                <select (change)="changeDiffusion($event)" [(ngModel)]="cPrModel.pr_diffusionPlaces">
-                
-                  <option value="default">Select diffusion places</option>
-                  <option value="continent">Continent</option>
-                  <option value="country">Country</option>
-                  <option value="parts">Type de contreparties</option>
-                </select>
-                </div> -->
-                <!-- <div class="col-12">
-                <div class="mt-2 flex">
-                    <div class="ml-2 mr-2">
-                        <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.asia" id="asia">
-                        <label class="ml-2 form-check-label" for="asia">Asia</label>
-                    </div>
-                    <div class="ml-2 mr-2">
-                        <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.africa" id="africa">
-                        <label class="ml-2 form-check-label" for="africa">Africa</label>
-                    </div>
-                    <div class="ml-2 mr-2">
-                        <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.europa" id="europa">
-                        <label class="ml-2 form-check-label" for="europa">Europa</label>
-                    </div>
-                    <div class="ml-2 mr-2">
-                        <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.america" id="america">
-                        <label class="ml-2 form-check-label" for="america">America</label>
-                    </div>
-                    <div class="ml-2 mr-2">
-                        <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.oceania" id="oceania">
-                        <label class="ml-2 form-check-label" for="oceania">Oceania</label>
-                    </div>
-                </div>
-                </div> -->
+
                 <div class="col-12 p-0">
                     <div class="mt-2 flex continent-f">
-                        <label class="custon-ch col-2">
-                   <span class="agree ml-2 form-check-labe" for="asia">Asia</span>
-                   <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.asia" id="asia" >
-                   <span class="checkmark"></span>
-                   </label>
-                        <label class="custon-ch col-2">
-                   <span class="agree ml-2 form-check-labe" for="asia">Africa</span>
-                   <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.africa" id="africa">
-                   <span class="checkmark"></span>
-                   </label>
-                        <label class="custon-ch col2">
-                   <span class="agree ml-2 form-check-labe" for="asia">Europa</span>
-                   <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.europa" id="europa">
-                   <span class="checkmark"></span>
-                   </label>
-                        <label class="custon-ch col2">
-                   <span class="agree ml-2 form-check-labe" for="asia">America</span>
-                   <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.america" id="america">
-                   <span class="checkmark"></span>
-                   </label>
-                        <label class="custon-ch col2">
-                   <span class="agree ml-2 form-check-labe" for="asia">Oceania</span>
-                   <input (change)='continentCh()' type="checkbox" [(ngModel)]="diffusionModelContinent.oceania" id="oceania">
-                   <span class="checkmark"></span>
-                   </label>
+                        <label (click)="changeContinent('asia')" class="custon-ch col-2">
+              <span class="agree ml-2 form-check-labe" for="asia">Asia</span>
+              <input type="checkbox" id="asia" readonly>
+              <span class="checkmark"></span>
+            </label>
+                        <label (click)="changeContinent('africa')" class="custon-ch col-2">
+              <span class="agree ml-2 form-check-labe" for="asia">Africa</span>
+              <input type="checkbox" id="africa">
+              <span class="checkmark"></span>
+            </label>
+                        <label (click)="changeContinent('europa')" class="custon-ch col2">
+              <span class="agree ml-2 form-check-labe" for="asia">Europa</span>
+              <input type="checkbox" id="europa">
+              <span class="checkmark"></span>
+            </label>
+                        <label (click)="changeContinent('america')" class="custon-ch col2">
+              <span class="agree ml-2 form-check-labe" for="asia">America</span>
+              <input type="checkbox" id="america">
+              <span class="checkmark"></span>
+            </label>
+                        <label (click)="changeContinent('oceania')" class="custon-ch col2">
+              <span class="agree ml-2 form-check-labe" for="asia">Oceania</span>
+              <input value="false" type="checkbox" id="oceania">
+              <span class="checkmark"></span>
+            </label>
                     </div>
                 </div>
                 <div class="col-12 p-0 mt-4 continent-table">
@@ -172,17 +140,28 @@
                             <tr>
                                 <td class="tc">
                                     <select (change)='changeCountryPart()' [(ngModel)]='c_part' id="">
-                            <option value="europa">Europa</option>
-                            <option value="america">America</option>
-                            <option value="africa">Africa</option>
-                            <option value="asia">Asia</option>
-                            <option value="oceania">Oceania</option>
-                            </select>
+                    <option value="europa">Europa</option>
+                    <option value="america">America</option>
+                    <option value="africa">Africa</option>
+                    <option value="asia">Asia</option>
+                    <option value="oceania">Oceania</option>
+                  </select>
                                 </td>
-                                <td class="st"><span>STARTUPS</span></td>
-                                <td class="st"><span>INCUBATORS</span></td>
-                                <td class="st"><span>RESEARCH</span></td>
-                                <td class="st"><span>CAPITAL</span></td>
+                                <td class="st">
+                                    <span>STARTUPS</span>
+                                </td>
+                                <td class="st">
+                                    <span>INCUBATORS</span>
+                                </td>
+                                <td class="st">
+                                    <span>RESEARCH</span>
+                                </td>
+                                <td class="st">
+                                    <span>CORPORATE</span>
+                                </td>
+                                <td class="st">
+                                    <span>VENTURE CAPITAL</span>
+                                </td>
                             </tr>
                         </thead>
                         <tbody *ngIf="dataReadyIn">
@@ -200,6 +179,10 @@
                                     <input [checked]="checkItems(item, 'research')" type="checkbox">
                                     <span [ngClass]="{visible: checkItems(item, 'research') }" class="checkmark hidden-ch"></span>
                                 </td>
+                                <td (click)="selectPartC($event, item, 'corporate')" [ngClass]="{diffSelect: checkItems(item, 'corporate') }" class="text-center curs_pointer custon-ch">
+                                    <input [checked]="checkItems(item, 'corporate')" type="checkbox">
+                                    <span [ngClass]="{visible: checkItems(item, 'corporate') }" class="checkmark hidden-ch"></span>
+                                </td>
                                 <td (click)="selectPartC($event, item, 'ventureCapital')" [ngClass]="{diffSelect: checkItems(item, 'ventureCapital') }" class="text-center curs_pointer custon-ch">
                                     <input [checked]="checkItems(item, 'ventureCapital')" type="checkbox">
                                     <span [ngClass]="{visible: checkItems(item, 'ventureCapital') }" class="checkmark hidden-ch"></span>
@@ -212,6 +195,6 @@
         </div>
         <div class="col-2 pl-0">
             <button (click)="saveProjects()" [ngClass]="{'disabled': noValid }" class="btn btn-unique-edit ed-2">
-          <i class="fa fa-check mr-2"></i>Save</button>
+        <i class="fa fa-check mr-2"></i>Save</button>
         </div>
     </div>

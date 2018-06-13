@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProjectsService } from '../../../../services/projects/projects.service';
 import { SharedNotificationService } from './../../../../services/shared-notification/shared-notification.service';
 import { Globals } from './../../../../globals/globals';
+import { ElementFinder } from 'protractor';
 declare const CKEDITOR: any;
 
 @Component({
@@ -265,28 +266,6 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
       tValid['dataSecret'] = 'OK';
     }
 
-    /* tValid['diffsion'] = 'OK';
-    let diffType = Object.keys(this.diffusionTypes);
-    for (let r of diffType) {
-      if (this.diffusionTypes[r]) {
-        if (r == 'continent') {
-          let ct = Object.keys(this.diffusionModelContinent);
-          for (let ctin of ct) {
-            if (this.diffusionModelContinent[ctin]) {
-              tValid['diffsion'] = 'NOK';
-              break;
-            }
-          }
-        } else if (r == 'country') {
-          if (this.diffusionModelCountry.length) {
-            tValid['diffsion'] = 'NOK';
-          }
-        } else if (r == 'part') {
-          tValid['diffsion'] = 'NOK';
-        }
-      }
-    } */
-
     this.noValid = !this.IsAllGood(tValid);
   }
 
@@ -328,9 +307,6 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   selectCountryDIffusion() {
     this.onChange('e');
   }
-  continentCh() {
-    this.onChange('e');
-  }
 
   changeCountryPart() {
     this.selContinent = this.ListCo[this.c_part];
@@ -343,20 +319,6 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
     newItem[pType] = true;
     this.diffusionModelCountry[c_part].push(newItem);
   }
-
-  /*  viewChnge(event, flag) {
-    const myNodelist = event.target.childNodes;
-    console.log(this.diffusionModelCountry);
-    for (let i = 0; i < myNodelist.length; i++) {
-      if (myNodelist[i].tagName === 'INPUT') {
-        if (flag) {
-          myNodelist[i].checked = true;
-        } else {
-          myNodelist[i].checked = false;
-        }
-      }
-    }
-  } */
 
   selectPartC(e, item, part_type) {
     const curr_continent = this.diffusionModelCountry[this.c_part];
@@ -397,14 +359,14 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
     console.log(item);
   }
 
-  checkItems(item, pT) {
+  checkItems(item, pT): boolean {
     const curr_continent = this.diffusionModelCountry[this.c_part];
     const cc_len = curr_continent.length;
-    if (cc_len === 0) {
+    if (cc_len == 0) {
       return false;
     } else {
-      const existIN = curr_continent.filter(el => el.code === item.code);
-      if (existIN.length === 0) {
+      const existIN = curr_continent.filter(el => el.code == item.code);
+      if (existIN.length == 0) {
         return false;
       } else {
         if (existIN[0].hasOwnProperty(pT)) {
@@ -416,6 +378,38 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
         }
       }
     }
+  }
+
+  checkContinentIN(cnt) {
+    return false;
+  }
+  changeContinent(cnt) {
+    this.selContinent = this.ListCo[cnt];
+    this.c_part = cnt;
+  }
+
+  getCountryNumber() {
+    let kk = Object.keys(this.diffusionModelCountry);
+    let numberI = 0;
+    for (const it of kk) {
+      let po = this.diffusionModelCountry[it];
+      let sf = po.filter(el => {
+        if (
+          !('startUps' in el) &&
+          !('incubators' in el) &&
+          !('research' in el) &&
+          !('corporate' in el) &&
+          !('ventureCapital' in el)
+        ) {
+          return false;
+        }
+        return true;
+      });
+      numberI += sf.length;
+      this.diffusionModelCountry[it] = sf;
+    }
+    console.log(kk);
+    return numberI;
   }
 
   ngOnDestroy() {

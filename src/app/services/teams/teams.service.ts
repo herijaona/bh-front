@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseHttpService } from '../base-http/base-http.service';
 import { SharedNotificationService } from '../shared-notification/shared-notification.service';
 import { Globals } from './../../globals/globals';
+import { INTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser/src/browser';
 
 @Injectable()
 export class TeamsService extends BaseHttpService {
@@ -74,5 +75,12 @@ export class TeamsService extends BaseHttpService {
     return this.fetch('get', 'getDetailOnQuestion', {
       qID: qID,
     }).toPromise();
+  }
+
+  public getAllInvitationSent() {
+    return this.fetch('get', 'getInvitationSent').toPromise();
+  }
+  public reviveInvitation(invID) {
+    return this.fetch('post', 'revive-invitation', { invID: invID }).toPromise();
   }
 }
