@@ -40,6 +40,7 @@
     border-radius: 45px;
     width: 45px;
     height: 45px;
+    cursor: pointer;
 }
 
 .btn-col {
@@ -52,5 +53,15 @@
     box-shadow: none;
     i {
         font-size: 12px;
+    }
+}
+
+.i-remove {
+    position: absolute;
+    right: -11px;
+    top: 28px;
+    font-size: 18px;
+    i {
+        color: #da5445;
     }
 }
