@@ -74,9 +74,9 @@
                                 <li class="nav-item mg-0 mg-no-active admin" [ngClass]="{'mg-no-active': adminAll}">
                                     <a (click)="viewUsersTeams('admin')" [ngClass]="{'active-nav': adminAll,'no-active-nav': !adminAll  }" class="nav-link">Administration</a>
                                 </li>
-                                <!--  <li class="nav-item mg-0" [ngClass]="{'mg-no-active': communityShow}">
-                  <a (click)="viewUsersTeams('community')" class="nav-link" [ngClass]="{'active-nav': communityShow,'no-active-nav': !communityShow  }">Community</a>
-                </li> -->
+                                <li class="nav-item mg-0" [ngClass]="{'mg-no-active': communityShow}">
+                                    <a (click)="viewUsersTeams('community')" class="nav-link" [ngClass]="{'active-nav': communityShow,'no-active-nav': !communityShow  }">Community</a>
+                                </li>
                             </ul>
                         </div>
                         <!--  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 font-all  br-2">

@@ -233,7 +233,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
       if (res_update) {
         this.sh.notifToast({
           type: 'success',
-          message: '<p>Enregistree</p>',
+          message: '<p>Saved</p>',
         });
       }
       this.logoItem = {};
@@ -255,7 +255,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
         (resp: any) => {
           this.sh.notifToast({
             type: 'success',
-            message: '<p>Enregistree</p>',
+            message: '<p>Saved</p>',
           });
           this.company_nameEditMode = false;
           setTimeout(() => {

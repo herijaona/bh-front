@@ -262,7 +262,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			if (res_save) {
 				this.sh.notifToast({
 					type: "success",
-					message: "<p>Modification enregistré</p>"
+					message: "<p>Update completed</p>"
 				});
 				this.saveFinished();
 				return res_save;
@@ -271,7 +271,7 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
 			this.sh.notifToast({
 				type: "error",
 				message:
-					"<p>Donnée non enregistre, une erreur est survenu au cours de l'operation</p>"
+					"<p>Data not saved, an error occurred during the operation</p>"
 			});
 		}
 	}
