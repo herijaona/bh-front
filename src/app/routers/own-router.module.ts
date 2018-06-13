@@ -17,6 +17,7 @@ import { AuthguardService } from '../services/authguard/authguard.service';
 import { CommitteeComponent } from '../committee/committee/committee.component';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
+import { ReceivedInvitationsComponent } from '../administration-in/collaborations/received-invitations/received-invitations.component';
 import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
 import { ProjectDescriptionComponent } from '../c-capital/project-description/project-description.component';
@@ -29,6 +30,7 @@ import { ApplicationSentComponent } from '../administration-in/collaborations/ap
 import { ApplyComponent } from '../administration-in/collaborations/apply/apply.component';
 import { CollaborationsComponent } from '../administration-in/collaborations/collaborations.component';
 import { QuestionComponent } from '../administration-in/collaborations/question/question.component';
+import { ApplicationFormComponent } from '../administration-in/collaborations/application-form/application-form.component';
 import { IdeasDeskComponent } from '../administration-in/mydesk/ideas-desk/ideas-desk.component';
 import { FavoriteComponent } from '../administration-in/mydesk/favorite/favorite.component';
 import { ApplicationComponent } from '../administration-in/collaborations/application/application.component';
@@ -187,6 +189,14 @@ const routes: Routes = [
       {
         path: 'question',
         component: QuestionComponent,
+      },
+      {
+        path: 'application-form',
+        component: ApplicationFormComponent,
+      },
+      {
+        path: 'received-invitations',
+        component: ReceivedInvitationsComponent,
       },
     ],
   },

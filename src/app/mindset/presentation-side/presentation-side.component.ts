@@ -68,7 +68,7 @@ export class PresentationSideComponent implements OnInit {
 					this.getCurrentCompanyPresentation(this.currentCompanySlug);
 					this.sh.notifToast({
 						type: "success",
-						message: "<p>Enregistree</p>"
+						message: "<p>Saved</p>"
 					});
 				}
 			}

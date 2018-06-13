@@ -266,8 +266,8 @@ a::after {
 /* end header */
 
 .canvas-img {
-    position: absolute;
-    margin-top: -89px;
+    position: relative;
+    top: -124px;
     @media(max-width: 577px) {
         width: 134px;
     }
@@ -276,11 +276,16 @@ a::after {
 @media(max-width: 991px) {
     .canvas-img {
         position: relative;
-        top: -53px;
+        /* top: -53px; */
         right: 24px;
     }
 }
 
 .navbar-nav {
-    margin-left: 225px;
+    /* margin-left: 225px; */
+    margin-left: 19px;
+    margin-top: -58px;
+    @media(max-width: 991px) {
+        margin-top: 0px;
+    }
 }

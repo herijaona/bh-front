@@ -160,11 +160,9 @@ input[type=search],
 textarea.md-textarea {
     border: 2px solid #f4f3f3;
     border-radius: 4px;
-    height: 45px;
+    height: 23px;
     padding-left: 16px;
-    width: 100%;
-    font-size: 13.5px;
-    box-sizing: border-box;
+    width: 95%;
 }
 
 input[type=text]:focus:not([readonly]),
@@ -185,32 +183,32 @@ textarea.md-textarea:focus:not([readonly]) {
 }
 
 .text-logo {
-    margin-top: -14px;
-    margin-bottom: 40px;
-    padding-right: 15px;
-    padding-left: 15px;
+    margin-bottom: 34px;
+    h1 {
+        color: #393f4b;
+        font-size: 26px;
+        font-family: SourceSansPro-Semibold;
+        text-transform: capitalize;
+        letter-spacing: 0.5px;
+    }
     h4 {
         color: #e83936;
-        font-size: 27px;
+        font-size: 21px;
         font-family: SourceSansPro-Regular;
         letter-spacing: 0.5px;
-        margin-top: 10px;
-        text-transform: capitalize;
+        margin-top: 25px;
     }
     p {
-        font-size: 16px;
+        color: #393f4b;
+        font-size: 14px;
         letter-spacing: -0.1px;
-        color: #393f4bde;
-        font-family: SourceSansPro-Regular;
     }
 }
 
 .input-md {
-    padding-right: 15px;
-    padding-left: 15px;
     label {
         text-transform: uppercase;
-        font-size: 13px;
+        font-size: 14px;
         font-family: SourceSansPro-Semibold;
         color: #606060;
         letter-spacing: 0.3px;
@@ -244,6 +242,7 @@ textarea.md-textarea:focus:not([readonly]) {
 .mdp-me {
     margin-top: -10px;
     margin-bottom: 24px;
+    padding-left: 4px;
 }
 
 .recovery {
@@ -269,66 +268,78 @@ textarea.md-textarea:focus:not([readonly]) {
 }
 
 .px-5-edit {
-    padding-right: 4.5rem !important;
-    padding-left: 4.5rem !important;
-    @media(max-width: 760px) {
-        padding-right: 0px !important;
-        padding-left: 0px !important;
-        padding-top: 2px !important;
-    }
+    padding-right: 4rem !important;
+    padding-left: 4rem !important;
 }
 
-.meet-future {
-    padding-left: 7rem;
-    color: white;
+
+/* checkbox */
+
+.custon-ch {
     position: relative;
-    width: 104%;
-    background-attachment: fixed;
-    background-position: right;
-    height: 765px;
-    .img-l {
-        margin-left: -17px;
-        margin-top: 55px
-    }
-    h2 {
-        font-size: 25px;
-        font-family: SourceSansPro-Semibold;
-        letter-spacing: 0.2px;
-    }
-    ul {
-        li {
-            margin-top: 75px;
-            font-size: 21px;
-            font-family: SourceSansPro-Semibold;
-            a {
-                img {
-                    padding-right: 14px;
-                }
-            }
-            span {
-                margin-top: 75px;
-                font-size: 13px;
-            }
-        }
+    padding-left: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    span:first-child {
+        font-family: SourceSansPro-Regular;
+        font-size: 15px;
+        text-transform: capitalize;
+        top: -2px;
+        position: relative;
     }
 }
 
-.agree {
-    font-size: 14px;
-    font-family: SourceSansPro-Semibold;
-    color: #606060;
-    padding-right: 15px;
-    padding-left: 15px;
-    span {
-        color: #e83936;
-        padding-bottom: 2px;
-        border-bottom: 1px solid;
-    }
+.custon-ch input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
 }
 
-.mb-agree {
-    text-transform: uppercase;
-    font-size: 12px;
-    margin-top: 16px;
-    letter-spacing: 0.5px;
+.checkmark {
+    position: absolute;
+    top: -7px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 1px solid #6060601f;
+    border-radius: 4px;
 }
+
+.custon-ch:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.custon-ch input:checked~.checkmark {
+    background: linear-gradient(-90deg, #e83936, #f94d37);
+    border-radius: 4px;
+    border: 0px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custon-ch input:checked~.checkmark:after {
+    display: block;
+}
+
+.custon-ch .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* end checkbox */

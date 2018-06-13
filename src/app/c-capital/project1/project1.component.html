@@ -3,35 +3,7 @@
     <div class="after-nav">
         <div class="row">
             <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
-                <div class="form-inline my-2 my-md-0 option-list">
-                    <div class="option-div">
-                    <select class="">
-                        <option value="" disabled selected>Projets d'open innovation</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                    <span class="option-select">Types de projets</span>
-                    </div>
-                    <div class="option-div">
-                    <select class="select-two">
-                        <option value="" disabled selected>Toutes les categories</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                    <span class="option-select">categories</span>
-                    </div>
-                    <div class="option-div">
-                    <select class="">
-                        <option value="" disabled selected>France</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                    <span class="option-select">pays</span>
-                    </div>
-                </div>
+                <option-list></option-list>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 text-right">
                 <button class="btn-pro-project" *ngIf="!auth.isLoggedIn()"><i class="fa fa-plus"></i>se connecter</button>
