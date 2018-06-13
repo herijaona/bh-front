@@ -18,11 +18,11 @@ export class MembersAdminComponent implements OnInit {
   public activated: boolean = false;
   public readyData: boolean = false;
   public userAdminData: any;
-  public userCommData: any;
+  public userInvitedData: any;
   public inviteForm: FormGroup;
 
   public adminAll: boolean = true;
-  public communityShow: boolean = false;
+  public invitedShow: boolean = false;
   constructor(
     public g: Globals,
     private router: Router,
@@ -44,10 +44,12 @@ export class MembersAdminComponent implements OnInit {
   }
   async ngOnInit() {
     try {
+      this.auth.userDataRole();
       let isAdmin = await this.auth.isAdminUser();
       if (isAdmin.status == 'OK') {
         this.getProfile();
         this.getMember();
+        this.getInvitationSend();
       } else {
         this.router.navigateByUrl('/');
       }
@@ -156,14 +158,40 @@ export class MembersAdminComponent implements OnInit {
     switch (scp) {
       case 'admin':
         this.adminAll = true;
-        this.communityShow = false;
+        this.invitedShow = false;
         break;
       case 'community':
         this.adminAll = false;
-        this.communityShow = true;
+        this.invitedShow = true;
         break;
       default:
         break;
+    }
+  }
+
+  async getInvitationSend() {
+    try {
+      const allInvitation: any = await this.tms.getAllInvitationSent();
+      if (allInvitation.status === 'OK') {
+        let i = 0;
+        for (let it of allInvitation.data) {
+          allInvitation.data[i].dateAdd = new Date(it.dateAdd).toDateString();
+          console.log(allInvitation.data[i].dateAdd);
+          i++;
+        }
+        this.userInvitedData = allInvitation.data;
+      }
+    } catch (e) {}
+  }
+
+  async reviveInvitation(itemID) {
+    try {
+      let rvv : any = await this.tms.reviveInvitation(itemID);
+      if (rvv.status === 'OK') {
+        this.sh.notifToast({ type: 'success', message: rvv.message });
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 }

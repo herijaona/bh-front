@@ -153,6 +153,7 @@ export class AuthserviceService extends BaseHttpService {
           (d: any) => {
             if (d.token) {
               this.saveToken(d.token);
+              this.userDataRole();
             }
             resolve(d);
           },
@@ -237,5 +238,25 @@ export class AuthserviceService extends BaseHttpService {
 
   public getallOrgTypes() {
     return this.fetch('get', 'org_types').toPromise();
+  }
+
+  async userDataRole() {
+    try {
+      const dataRole = await this.fetch('get', 'getUserRoleData').toPromise();
+      if (dataRole['status'] === 'OK') {
+        let rl: { [key: string]: any } = dataRole['data'];
+        if (rl['hsAc']) {
+          if (rl['isAdm']) {
+            rl['admDefl'] = rl['admAc'].length === 1 ? rl.admAc[0]._id : '';
+          }
+          if (rl['isInCom']) {
+            rl['commDefl'] = rl['inCom'].length === 1 ? rl['inCom'][0]._id : '';
+          }
+        }
+        localStorage.setItem('_data_role_', JSON.stringify(rl));
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

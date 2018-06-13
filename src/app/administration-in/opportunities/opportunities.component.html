@@ -19,30 +19,33 @@
   </ul>
   opportunity
 </nav> -->
+
 <div class="col-container mt-5">
-    <table class="table appli-table">
-        <thead class="head-color">
-            <tr class="text-bl">
-                <th>Organisation</th>
-                <th>Name</th>
-                <th>Tpe</th>
-                <th>Duree</th>
-                <th>Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John</td>
-                <td>doe</td>
-                <td>bg</td>
-                <td>org</td>
-                <td>hj</td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table appli-table">
+    <thead class="head-color">
+      <tr class="text-bl">
+        <th>Country</th>
+        <th>Organisation</th>
+        <th>Type</th>
+        <th>Collaboration Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of opportuinityList">
+        <td>{{item.country}}</td>
+        <td>{{item.organisation}}</td>
+        <td>{{getCollabtypetext(item.typeCollab)}}</td>
+        <td>
+          <a target="_blank" [routerLink]="[ '/open-innovation' , item.org_slug , 'details-project' , item._id ]">
+            {{item.name}}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <main class="">
-    <div class="ml-16">
-        <!-- <router-outlet></router-outlet> -->
-    </div>
+  <div class="ml-16">
+    <!-- <router-outlet></router-outlet> -->
+  </div>
 </main>
