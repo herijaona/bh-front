@@ -37,6 +37,13 @@
             <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
           </th>
         </tr>
+        <tr *ngIf="item.hasresp">
+          <td colspan="5">
+            <div style="border: 1px solid grey" *ngFor="let resp_item of item.responseIN">
+              <p [innerHtml]="resp_item.respText | bhSafeHtml"></p>
+            </div>
+          </td>
+        </tr>
         <tr class="text-right">
           <th colspan="5">
             <a (click)="archivequestions(item, indx)" class="btn btn-primary btn-lg btn-question" role="button">
