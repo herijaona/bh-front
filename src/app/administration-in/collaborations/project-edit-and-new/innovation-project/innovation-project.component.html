@@ -107,30 +107,25 @@
 
                 <div class="col-12 p-0">
                     <div class="mt-2 flex continent-f">
-                        <label (click)="changeContinent('asia')" class="custon-ch col-2">
-              <span class="agree ml-2 form-check-labe" for="asia">Asia</span>
-              <input type="checkbox" id="asia" readonly>
-              <span class="checkmark"></span>
+                        <label   [ngClass]="{ccur: c_part == 'asia'}" (click)="changeContinent('asia')" class="custon-ch col-2">
+              <span class="agree ml-2 form-check-labe">Asia</span>
+              <span [ngClass]="{'cc cselct': hasCountryIN('asia'), 'no-cselct': !hasCountryIN('asia')}" class="checkmark_cc"></span>
             </label>
-                        <label (click)="changeContinent('africa')" class="custon-ch col-2">
-              <span class="agree ml-2 form-check-labe" for="asia">Africa</span>
-              <input type="checkbox" id="africa">
-              <span class="checkmark"></span>
+                        <label [ngClass]="{ccur: c_part == 'africa'}" (click)="changeContinent('africa')" class="custon-ch col-2">
+              <span class="agree ml-2 form-check-labe">Africa</span>
+              <span [ngClass]="{'cc cselct': hasCountryIN('africa'), 'no-cselct': !hasCountryIN('africa')}" class="checkmark_cc"></span>
             </label>
-                        <label (click)="changeContinent('europa')" class="custon-ch col2">
-              <span class="agree ml-2 form-check-labe" for="asia">Europa</span>
-              <input type="checkbox" id="europa">
-              <span class="checkmark"></span>
+                        <label [ngClass]="{ccur: c_part == 'europa'}" (click)="changeContinent('europa')" class="custon-ch col2">
+              <span class="agree ml-2 form-check-labe">Europa</span>
+              <span [ngClass]="{'cc cselct': hasCountryIN('europa'), 'no-cselct': !hasCountryIN('europa')}" class="checkmark_cc"></span>
             </label>
-                        <label (click)="changeContinent('america')" class="custon-ch col2">
-              <span class="agree ml-2 form-check-labe" for="asia">America</span>
-              <input type="checkbox" id="america">
-              <span class="checkmark"></span>
+                        <label [ngClass]="{ccur: c_part == 'america'}" (click)="changeContinent('america')" class="custon-ch col2">
+              <span class="agree ml-2 form-check-labe">America</span>
+              <span [ngClass]="{'cc cselct': hasCountryIN('america'), 'no-cselct': !hasCountryIN('america')}" class="checkmark_cc"></span>
             </label>
-                        <label (click)="changeContinent('oceania')" class="custon-ch col2">
-              <span class="agree ml-2 form-check-labe" for="asia">Oceania</span>
-              <input value="false" type="checkbox" id="oceania">
-              <span class="checkmark"></span>
+                        <label [ngClass]="{ccur: c_part == 'oceania'}" (click)="changeContinent('oceania')" class="custon-ch col2">
+              <span class="agree ml-2 form-check-labe">Oceania</span>
+              <span [ngClass]="{'cc cselct': hasCountryIN('oceania'), 'no-cselct': !hasCountryIN('oceania')}" class="checkmark_cc"></span>
             </label>
                     </div>
                 </div>

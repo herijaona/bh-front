@@ -1,5 +1,5 @@
-.bg-mind{
-    background-image:url(/assets/img/london.jpg);
+.bg-mind {
+    background-image: url(/assets/img/london.jpg);
     background-size: cover;
     background-position: center;
     min-height: 355px;
@@ -7,66 +7,84 @@
     padding: 0px;
     border-radius: 0px;
 }
-.nr-brand{
+
+.nr-brand {
     visibility: hidden;
 }
-.nav-two{
+
+.nav-two {
     background-color: transparent !important;
     height: 75px;
     top: 261px;
-    h1{
+
+    h1 {
         color: white;
         font-family: "SourceSansPro-bold";
     }
-    ul li ul li a{
+
+    ul li ul li a {
         color: white;
         font-family: "SourceSansPro-Lighter";
         font-style: italic;
     }
+
 }
-.grid{
+
+.grid {
     width: 90%;
     margin: 0 auto;
     box-shadow: none;
 }
-.nav-col{
+
+.nav-col {
     margin-top: -37px;
 }
-.nav-one{
+
+.nav-one {
     margin-bottom: 45px;
     max-height: 51px;
     box-shadow: 0px 1px 2px 0px grey;
     padding-bottom: 0;
-    .nav-link{
+
+    .nav-link {
         background: transparent !important;
         color: rgba(0, 0, 0, 0.5) !important;
     }
-    ul li a{
+
+    ul li a {
         font-family: "SourceSansPro-bold";
     }
-    .active .nav-link{
+
+    .active .nav-link {
         border-bottom: 3px solid #e84d3f;
         color: rgba(0, 0, 0, 0.9) !important;
     }
+
 }
-.img-logo{
+
+.img-logo {
     margin-top: -45px;
 }
-.presentation{
+
+.presentation {
     text-align: justify;
-    h2{
+
+    h2 {
         border-bottom: 1px solid #b9b7b7;
         font-size: 19px;
         padding-bottom: 17px;
         font-family: "SourceSansPro-bold";
     }
-    p{
+
+    p {
         color: gray;
         font-size: 15px;
         font-family: "SourceSansPro-Lighter";
     }
+
 }
-.btn-apply{
+
+.btn-apply {
     background: #e83936;
     border: 1px solid #e83936;
     color: white !important;
@@ -77,11 +95,14 @@
     padding: 7px 0 7px 0px;
     box-shadow: none;
     font-size: 14px;
-    span{
-        padding-right:10px;
+
+    span {
+        padding-right: 10px;
     }
+
 }
-.btn-question{
+
+.btn-question {
     background: black;
     border: 1px solid black;
     border-radius: 0;
@@ -91,43 +112,56 @@
     width: 145px;
     padding: 7px 0 7px 0px;
     font-size: 14px;
-    span{
-        padding-right:10px;
+
+    span {
+        padding-right: 10px;
     }
+
 }
-.hr{
+
+.hr {
     margin-bottom: 20px;
 }
-.grid-top{
+
+.grid-top {
     margin-bottom: 20px;
 }
-.nav-down{
+
+.nav-down {
     font-size: 13px;
-    span{
+
+    span {
         color: gray;
-        padding-left:5px;
+        padding-left: 5px;
     }
-    svg{
+
+    svg {
         color: gray;
     }
+
 }
-.nav-down li a{
+
+.nav-down li a {
     color: gray;
 }
-.project-list{
+
+.project-list {
     box-shadow: 0px 0px 3px 1px #b9b9b9;
     padding: 42px 42px 5px 42px;
 }
-.list-nav{
+
+.list-nav {
     padding: 0;
     list-style: none;
-    h3{
+
+    h3 {
         color: #e84d3f;
         font-size: 13px;
         margin-left: -25px;
         color: #e83936;
         font-family: "SourceSansPro-Semibold";
-        svg{
+
+        svg {
             font-size: 27px;
             transform: -5px;
             transform: rotate(90deg);
@@ -136,24 +170,48 @@
             left: -27px;
             position: relative;
         }
+
     }
-    h4{
+
+    h4 {
         font-size: 18px;
         font-family: "SourceSansPro-Semibold";
     }
-    ul li a{
+
+    ul li a {
         padding: 14px 15px 14px 0px;
     }
+
 }
+
 .list-nav h3 span {
     padding-left: 10px;
     font-size: 16px;
 }
-@media (max-width: 491px){
-.nav-down li{
-    margin-bottom: -15px;
+
+@media (max-width:491px) {
+    .nav-down li {
+        margin-bottom: -15px;
     }
-.title-propos{
-    margin-top: 21px;
-    }
+
+}
+
+.text-it {
+    font-weight: bolder;
+}
+
+.specialField {
+    background-color: pink;
+    width: 100%;
+    padding: 15px;
+    padding-bottom: 2px;
+}
+
+.title-propos {
+    font-size: 18px;
+    font-family: "SourceSansPro-Semibold";
+}
+
+.flx {
+    display: flex
 }

@@ -45,15 +45,19 @@ export class AskQuestionsComponent implements OnInit {
   }
 
   async sendQuestions() {
-    let _data_ = {
+    let accAA = this.currObj.data.objectData.account;
+    if (this.currObj.data.objectRef === 'PRT') {
+      accAA = this.currObj.data.objectData.account._id;
+    }
+    const _data_ = {
       objectRef: this.currObj.data.objectRef,
       objectRefID: this.currObj.data.objectData._id,
       question_content: this.questionText,
       dataAbout: {
-        account: this.currObj.data.objectData.account,
+        account: accAA,
       },
     };
-
+    console.log(_data_);
     try {
       let qRES = await this.tms.questionsSendData(_data_);
       if (qRES) {

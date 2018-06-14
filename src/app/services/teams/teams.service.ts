@@ -70,7 +70,9 @@ export class TeamsService extends BaseHttpService {
       qtype: type,
     }).toPromise();
   }
-
+  public archiveQuestions(idQ) {
+    return this.fetch('post', 'archives_questions', { idQ: idQ }).toPromise();
+  }
   public getDetailsOnQuestion(qID) {
     return this.fetch('get', 'getDetailOnQuestion', {
       qID: qID,
