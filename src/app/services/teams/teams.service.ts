@@ -70,6 +70,12 @@ export class TeamsService extends BaseHttpService {
       qtype: type,
     }).toPromise();
   }
+  public getAllArchivesOnCompany(type) {
+    return this.fetch('get', 'getallCompanyArchives', {
+      qtype: type,
+    }).toPromise();
+  }
+
   public archiveQuestions(idQ) {
     return this.fetch('post', 'archives_questions', { idQ: idQ }).toPromise();
   }

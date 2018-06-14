@@ -15,13 +15,13 @@ export class HistoricalComponent implements OnInit {
   constructor(private tms: TeamsService, public g: Globals) { }
   public allQuestions: any = [];
   ngOnInit() {
-    this.getAllQuestions();
+    this.getAllarchives();
   }
 
-  async getAllQuestions() {
+  async getAllarchives() {
     this.allQuestions = [];
     try {
-      const quest: any = await this.tms.getAllQuestionsOnCompany('no-project');
+      const quest: any = await this.tms.getAllArchivesOnCompany('no-project');
       if (quest) {
         if (quest.status === 'OK') {
           this.allQuestions = quest.data;

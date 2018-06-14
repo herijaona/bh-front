@@ -59,6 +59,7 @@ export class ViewReactionComponent implements OnInit {
     console.log(indx);
     try {
       const archResp = await this.tms.archiveQuestions(item._id);
+      console.log("archiv",archResp);
       if (archResp['status'] === 'OK') {
         this.allQuestions.splice(indx, 1);
       }
