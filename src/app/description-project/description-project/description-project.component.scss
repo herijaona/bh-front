@@ -16,18 +16,15 @@
     background-color: transparent !important;
     height: 75px;
     top: 261px;
-
     h1 {
         color: white;
         font-family: "SourceSansPro-bold";
     }
-
     ul li ul li a {
         color: white;
         font-family: "SourceSansPro-Lighter";
         font-style: italic;
     }
-
 }
 
 .grid {
@@ -45,21 +42,17 @@
     max-height: 51px;
     box-shadow: 0px 1px 2px 0px grey;
     padding-bottom: 0;
-
     .nav-link {
         background: transparent !important;
         color: rgba(0, 0, 0, 0.5) !important;
     }
-
     ul li a {
         font-family: "SourceSansPro-bold";
     }
-
     .active .nav-link {
         border-bottom: 3px solid #e84d3f;
         color: rgba(0, 0, 0, 0.9) !important;
     }
-
 }
 
 .img-logo {
@@ -68,20 +61,17 @@
 
 .presentation {
     text-align: justify;
-
     h2 {
         border-bottom: 1px solid #b9b7b7;
         font-size: 19px;
         padding-bottom: 17px;
         font-family: "SourceSansPro-bold";
     }
-
     p {
         color: gray;
         font-size: 15px;
         font-family: "SourceSansPro-Lighter";
     }
-
 }
 
 .btn-apply {
@@ -95,11 +85,9 @@
     padding: 7px 0 7px 0px;
     box-shadow: none;
     font-size: 14px;
-
     span {
         padding-right: 10px;
     }
-
 }
 
 .btn-question {
@@ -112,11 +100,9 @@
     width: 145px;
     padding: 7px 0 7px 0px;
     font-size: 14px;
-
     span {
         padding-right: 10px;
     }
-
 }
 
 .hr {
@@ -129,16 +115,13 @@
 
 .nav-down {
     font-size: 13px;
-
     span {
         color: gray;
         padding-left: 5px;
     }
-
     svg {
         color: gray;
     }
-
 }
 
 .nav-down li a {
@@ -153,14 +136,12 @@
 .list-nav {
     padding: 0;
     list-style: none;
-
     h3 {
         color: #e84d3f;
         font-size: 13px;
         margin-left: -25px;
         color: #e83936;
         font-family: "SourceSansPro-Semibold";
-
         svg {
             font-size: 27px;
             transform: -5px;
@@ -170,18 +151,14 @@
             left: -27px;
             position: relative;
         }
-
     }
-
     h4 {
         font-size: 18px;
         font-family: "SourceSansPro-Semibold";
     }
-
     ul li a {
         padding: 14px 15px 14px 0px;
     }
-
 }
 
 .list-nav h3 span {
@@ -193,7 +170,6 @@
     .nav-down li {
         margin-bottom: -15px;
     }
-
 }
 
 .text-it {
@@ -213,5 +189,8 @@
 }
 
 .flx {
-    display: flex
+    display: flex;
+    span {
+        font-weight: bolder;
+    }
 }
