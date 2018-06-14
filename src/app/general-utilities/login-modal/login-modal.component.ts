@@ -1,33 +1,33 @@
-import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { AuthserviceService } from "../../services/authservice/authservice.service";
-import { Router } from "@angular/router";
-import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthserviceService } from '../../services/authservice/authservice.service';
+import { Router } from '@angular/router';
+import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
 
-import { Globals } from "./../../globals/globals";
+import { Globals } from './../../globals/globals';
 @Component({
-  selector: "login-modal",
-  templateUrl: "./login-modal.component.html",
-  styleUrls: ["./login-modal.component.scss"]
+  selector: 'login-modal',
+  templateUrl: './login-modal.component.html',
+  styleUrls: ['./login-modal.component.scss'],
 })
 export class LoginModalComponent implements OnInit {
   public currObj: any;
-  @Input("data_")
+  @Input('data_')
   set data_(d) {
     this.currObj = d;
   }
   public img_logo: string;
   public img_avatar: string;
   public alrt_type: string;
-  public msg_error: string = "";
+  public msg_error: string = '';
   public loginForm: FormGroup;
   public resetpassForm: FormGroup;
   @Output() endMessage = new EventEmitter<{}>();
   public notifReset: boolean = false;
   public hasNotif: boolean = false;
   public loginFormFlag: boolean = true;
-  type_ = "notif";
-  text_ = "Success de registration";
+  type_ = 'notif';
+  text_ = 'Success de registration';
   error_log: boolean = false;
 
   constructor(
@@ -36,32 +36,23 @@ export class LoginModalComponent implements OnInit {
     private router: Router,
     private sh: SharedNotificationService
   ) {
-    this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
-    this.img_logo = this.g.base_href + "assets/img/bh.png";
+    this.img_avatar = this.g.base_href + 'assets/img/bg-accueil.jpg';
+    this.img_logo = this.g.base_href + 'assets/img/bh.png';
   }
   ngOnInit() {
     this.resetpassForm = new FormGroup({
-      bhemail: new FormControl("", [
-        Validators.required,
-        Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
-      ])
+      bhemail: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
     });
 
     this.loginForm = new FormGroup({
-      bhemail: new FormControl("", [
-        Validators.required,
-        Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
-      ]),
-      bh_pass: new FormControl("", [
-        Validators.required,
-        Validators.minLength(8)
-      ])
+      bhemail: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
+      bh_pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
     });
   }
   async onFormSubmit() {
     let credential = {
       email: this.loginForm.value.bhemail,
-      password: this.loginForm.value.bh_pass
+      password: this.loginForm.value.bh_pass,
     };
 
     try {
@@ -71,21 +62,17 @@ export class LoginModalComponent implements OnInit {
         if (pr) {
           let aft: any = null;
           let aft_data: any = null;
-          if ("after" in this.currObj.data) {
+          if ('after' in this.currObj.data) {
             aft = this.currObj.data.to;
             aft_data = this.currObj.data.after;
           }
-          this.endAll({ status: "OK", after: aft, data: aft_data });
+          this.endAll({ status: 'OK', after: aft, data: aft_data });
         }
       }
     } catch (e) {
       console.log(e);
       this.hasNotif = false;
-      this.notifMessage(
-        "warning",
-        "Error type: " + e.error_type + ". Message: " + e.message,
-        500
-      );
+      this.notifMessage('warning', 'Error type: ' + e.error_type + '. Message: ' + e.message, 500);
     }
   }
 
@@ -111,20 +98,18 @@ export class LoginModalComponent implements OnInit {
             this.hasNotif = true;
 
             setTimeout(() => {
-              if (res.status == "OK") {
+              if (res.status == 'OK') {
                 this.notifMessage(
-                  "success",
-                  "Demande de reinitialisation de mot passe effectuer avec success <br>" +
+                  'success',
+                  'Demande de reinitialisation de mot passe effectuer avec success <br>' +
                     res.message +
-                    " <br> Veuiller consulter votre email .",
+                    ' <br> Veuiller consulter votre email .',
                   500
                 );
               } else {
                 this.notifMessage(
-                  "warning",
-                  "Un erreur est survenue au cours de votre demande<br>" +
-                    res.message +
-                    " <br> Merci.",
+                  'warning',
+                  'Un erreur est survenue au cours de votre demande<br>' + res.message + ' <br> Merci.',
                   500
                 );
               }
@@ -134,10 +119,8 @@ export class LoginModalComponent implements OnInit {
           },
           error => {
             this.notifMessage(
-              "warning",
-              "Un erreur est survenue au cours de votre demande<br>" +
-                error.error.text +
-                " <br> Merci.",
+              'warning',
+              'Un erreur est survenue au cours de votre demande<br>' + error.error.text + ' <br> Merci.',
               500
             );
             this.resetpassForm.reset();

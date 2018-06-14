@@ -1,34 +1,40 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Globals } from '../../../globals/globals';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../../../services/authservice/authservice.service';
 import { TeamsService } from '../../../services/teams/teams.service';
-import { ModalDirective } from "angular-bootstrap-md";
+import { ModalDirective } from 'angular-bootstrap-md';
 @Component({
   selector: 'view-reaction',
   templateUrl: './view-reaction.component.html',
   styleUrls: ['./view-reaction.component.scss'],
 })
 export class ViewReactionComponent implements OnInit {
-  @ViewChild("modalHist") public myModalHist: ModalDirective;
+  public responseForm: FormGroup;
+  private itemTOReply: any;
+  @ViewChild('modalHist') public myModalHist: ModalDirective;
   public viewreaction_page = 'viewreaction_page';
   public allQuestions: any = [];
-  constructor(private tms: TeamsService, private titl: Title, public g: Globals) {}
+  constructor(private tms: TeamsService, private titl: Title, public g: Globals) {
+    this.responseForm = new FormGroup({ respValue: new FormControl('', [Validators.required]) });
+  }
 
   ngOnInit() {
     this.getAllQuestions();
     this.titl.setTitle('Questions Report');
   }
-  public showMod() {
-		setTimeout(() => {
-			this.myModalHist.show();
-		}, 330);
+  public showMod(item) {
+    this.itemTOReply = item;
+    setTimeout(() => {
+      this.myModalHist.show();
+    }, 330);
   }
   public hideModal() {
-		setTimeout(() => {
-			this.myModalHist.hide();
-		}, 330);
+    setTimeout(() => {
+      this.myModalHist.hide();
+    }, 330);
   }
 
   async getAllQuestions() {
@@ -39,6 +45,22 @@ export class ViewReactionComponent implements OnInit {
         if (quest.status === 'OK') {
           this.allQuestions = quest.data;
         }
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  sendQReply(){
+    console.log(this.itemTOReply);
+  }
+
+  async archivequestions(item, indx) {
+    console.log(indx);
+    try {
+      const archResp = await this.tms.archiveQuestions(item._id);
+      if (archResp['status'] === 'OK') {
+        this.allQuestions.splice(indx, 1);
       }
     } catch (e) {
       console.log(e);
