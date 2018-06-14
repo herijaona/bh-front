@@ -13,6 +13,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class DescriptionProjectComponent implements OnInit, OnDestroy {
 	public projet_page: string = "projet_page";
 	public currentCompanySlug: string;
+	public collabTypedescr: string = '';
 	public detailsData: any;
 	public project_id: string;
 	public hasData: boolean = false;
@@ -37,7 +38,9 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 			let prDet: any = await this.pr.getProjectByID(this.project_id);
 			if (prDet.status == "OK") {
 				this.detailsData = prDet.data;
+				console.log(this.detailsData);
 				this.hasData = true;
+				this.collabTypedescr = this.detailsData.typeCollab;
 			}
 		} catch (e) {
 			console.log(e);
@@ -87,6 +90,10 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 				data: { after: _data, to: "applytToProjects" }
 			});
 		}
+	}
+
+	getDateString(dt) {
+		return new Date(dt).toDateString();
 	}
 
 	ngOnInit() {}

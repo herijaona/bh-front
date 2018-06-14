@@ -385,3 +385,39 @@ textarea.md-textarea:focus:not([readonly]) {
         visibility: hidden;
     }
 }
+
+.checkmark_cc{
+    
+    border-radius: 4px;
+    border: 0px;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    height: 20px;
+    width: 20px;
+}
+.cselct{
+    background: #ff395e;
+}
+
+.no-cselct{
+    background: #f2f2f2;
+}
+
+.cc:after {
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    content: "";
+    position: absolute;
+}
+
+
+.ccur{
+    border: solid .5px #8080804d;
+    border-radius: 5px;
+}
