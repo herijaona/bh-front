@@ -51,8 +51,20 @@ export class ViewReactionComponent implements OnInit {
     }
   }
 
-  sendQReply(){
-    console.log(this.itemTOReply);
+  async sendQReply() {
+    try {
+      const dsend = {
+        qID: this.itemTOReply._id,
+        response_value: this.responseForm.value.respValue,
+      };
+      const respRes = await this.tms.sendResponseTOQuestions(dsend);
+      if (respRes['status'] === 'OK') {
+        this.hideModal();
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    console.log(this.itemTOReply, this.responseForm.value);
   }
 
   async archivequestions(item, indx) {

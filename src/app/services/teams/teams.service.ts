@@ -73,6 +73,9 @@ export class TeamsService extends BaseHttpService {
   public archiveQuestions(idQ) {
     return this.fetch('post', 'archives_questions', { idQ: idQ }).toPromise();
   }
+  public sendResponseTOQuestions(arg) {
+    return this.fetch('post', 'reply_questions', arg).toPromise();
+  }
   public getDetailsOnQuestion(qID) {
     return this.fetch('get', 'getDetailOnQuestion', {
       qID: qID,
