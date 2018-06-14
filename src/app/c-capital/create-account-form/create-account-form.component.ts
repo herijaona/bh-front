@@ -24,10 +24,6 @@ import { NotifComponentUser } from "../notif/notif.component";
 export class CreateAccountFormComponent implements OnInit {
   public registerForm: FormGroup;
   private form_el: ElementRef;
-  @ViewChild("attachAll", {
-    read: ViewContainerRef
-  })
-  attachView: ViewContainerRef;
   used_email: boolean = false;
   passNotEqual: boolean = false;
   public em_empty: boolean = false;
@@ -44,24 +40,15 @@ export class CreateAccountFormComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = new FormGroup({
-      bhemail: new FormControl("", [
-        Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
-      ]),
-      bh_lastname: new FormControl("", [Validators.required]),
-      bh_firstname: new FormControl("", [Validators.required]),
-      bh_acc_activityArea: new FormControl("", [Validators.required])
+      bhemail: new FormControl('', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
+      bh_pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      bh_pass_conf: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      bh_lastname: new FormControl('', [Validators.required]),
+      bh_firstname: new FormControl('', [Validators.required]),
+      bh_functions: new FormControl('', [Validators.required]),
     });
   }
-  /* Show notification after registration */
-  private notifAndLogin() {
-    var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
-      NotifComponentUser
-    );
-    var refNotif = this.attachView.createComponent(factoryNotif);
-    refNotif.instance.type = "success";
-    refNotif.instance.message =
-      "Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.";
-  }
+
   /* Email validator complement*/
   public detectEmail() {
     if (this.registerForm.value.bhemail == "") {
@@ -73,8 +60,32 @@ export class CreateAccountFormComponent implements OnInit {
       this.used_email = false;
     }
   }
+  async onFormSubmit() {
+    let credential = {
+      email: this.registerForm.value.bhemail,
+      lastname: this.registerForm.value.bh_lastname,
+      firstname: this.registerForm.value.bh_firstname,
+      password: this.registerForm.value.bh_pass,
+      function: this.registerForm.value.bh_functions,
+    };
 
-  resetFormSubmit() {
-    console.log("here");
+    try {
+      let reg_res: any = await this.auth.registerMember(credential);
+      if (reg_res) {
+        if (reg_res.status === 'OK') {
+          this.successAction();
+        }
+      }
+    } catch (e) {
+      if (e.status === 409) {
+        this.used_email = true;
+      }
+    }
+  }
+  successAction() {
+    this.sh.notifToast({
+      type: 'success',
+      message: '<p>Compte créer avec succes <br> Consulter votre Boite email pour Activer votre compte.</p>',
+    });
   }
 }

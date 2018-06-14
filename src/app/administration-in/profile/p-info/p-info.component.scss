@@ -2,6 +2,11 @@
     opacity: 0.8
 }
 
+.ftw {
+    margin-bottom: -10px;
+    margin-top: -5px !important;
+}
+
 .overlay_ {
     position: absolute;
     top: 0;
@@ -12,12 +17,22 @@
     opacity: 0;
     color: white;
     font-size: 20px;
-    padding: 20px;
+    padding: 26px;
     text-align: center;
-    height: 100%;
+    cursor: pointer;
 }
 
 .pic {
+    width: 107px;
+    height: 107px;
+}
+
+.pve {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.rounded-circle:after .pic {
     width: 100%;
     @media(max-width: 992px) {
         width: 88%;
@@ -31,7 +46,6 @@
 
 .font-my-3 {
     font-family: SourceSansPro-Semibold;
-    margin-top: 15px;
     @media(max-width: 1112px) {
         padding-left: 26px;
     }
