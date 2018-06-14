@@ -75,7 +75,6 @@ export class SignUpComponent implements OnInit {
       password: this.registerForm.value.bh_pass,
       function: this.registerForm.value.bh_functions,
     };
-
     try {
       let reg_res: any = await this.auth.registerMember(credential);
       if (reg_res) {
@@ -91,6 +90,7 @@ export class SignUpComponent implements OnInit {
         this.used_email = true;
       }
     }
+    
   }
 
   successAction() {
