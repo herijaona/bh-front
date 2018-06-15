@@ -51,8 +51,8 @@
                             </div>
                         </div>
                         <div class="flx mt-2">
-                            <h4 class="title-propos">CONFIDENTIALITY : </h4> &nbsp;<span class="ml-3" *ngIf="detailsData.dataDetails.hasInfoConfidential == 'yes'"> This collaboration has some confidential data that will communicated after application review</span>
-                            <span *ngIf="detailsData.dataDetails.hasInfoConfidential == 'no'"> This collaboration don't have data confidential</span>
+                            <h4 class="title-propos">CONFIDENTIAL PART : </h4> &nbsp;<span class="text-capitalize ml-3"> {{detailsData.dataDetails.hasInfoConfidential}}</span>
+                            
                         </div>
                     </div>
                     <p class="text-right">
