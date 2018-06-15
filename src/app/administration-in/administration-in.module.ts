@@ -16,7 +16,7 @@ import { PInfoComponent } from './profile/p-info/p-info.component';
 import { ProjectEditAndNewComponent } from './collaborations/project-edit-and-new/project-edit-and-new.component';
 import { InnovationProjectComponent } from './collaborations/project-edit-and-new/innovation-project/innovation-project.component';
 import { PCompletionComponent } from './profile/p-completion/p-completion.component';
-import { MembersAdminComponent } from './members-admin/members-admin.component';
+import { MembersAdminComponent } from './mydesk/members-admin/members-admin.component';
 import { AdminAllColabComponent } from './collaborations/admin-all-colab/admin-all-colab.component';
 import { CommunitiesComponent } from './communities/communities.component';
 import { MyDatePickerModule } from 'mydatepicker';
@@ -47,6 +47,8 @@ import { HistoricalComponent } from './mydesk/historical/historical.component';
 import { IdeasDeskComponent } from './mydesk/ideas-desk/ideas-desk.component';
 import { ApplicationFormComponent } from './collaborations/application-form/application-form.component';
 import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
+import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
+import { ApplicationReceivedbyCollaborationComponent } from './collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
 
 @NgModule({
   imports: [
@@ -99,6 +101,8 @@ import { ReceivedInvitationsComponent } from './collaborations/received-invitati
     IdeasDeskComponent,
     ApplicationFormComponent,
     ReceivedInvitationsComponent,
+    InactiveAccountComponent,
+    ApplicationReceivedbyCollaborationComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

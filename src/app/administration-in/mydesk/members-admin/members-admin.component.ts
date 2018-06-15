@@ -2,10 +2,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Globals } from './../../globals/globals';
-import { SharedNotificationService } from '../../services/shared-notification/shared-notification.service';
-import { AuthserviceService } from '../../services/authservice/authservice.service';
-import { TeamsService } from '../../services/teams/teams.service';
+import { Globals } from './../../../globals/globals';
+import { SharedNotificationService } from '../../../services/shared-notification/shared-notification.service';
+import { AuthserviceService } from '../../../services/authservice/authservice.service';
+import { TeamsService } from '../../../services/teams/teams.service';
 @Component({
   selector: 'members-admin',
   templateUrl: './members-admin.component.html',

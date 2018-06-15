@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 /* Component Import*/
 import { IdeasComponent } from '../ideas/ideas/ideas.component';
 import { MindsetComponent } from '../mindset/mindset/mindset.component';
+import { DescriptionProjectComponent } from '../projects/description-project/description-project.component';
 import { ProjectsComponent } from '../projects/projects/projects.component';
-import { DescriptionProjectComponent } from '../description-project/description-project/description-project.component';
 import { TeamComponent } from '../team/team/team.component';
 import { HomepageComponent } from '../homepage/homepage/homepage.component';
 import { RegistrationComponent } from '../user-auth/registration/registration.component';
@@ -14,15 +14,17 @@ import { PageLoginComponent } from '../user-auth/page-login/page-login.component
 import { ProfileAdminComponent } from '../profile-admin/profile-admin/profile-admin.component';
 import { IsloggedVerifyGuard } from '../services/authguard/islogged-verify.guard';
 import { AuthguardService } from '../services/authguard/authguard.service';
+import { IsActiveGuardService } from '../services/authguard/is-active-guard.service';
 import { CommitteeComponent } from '../committee/committee/committee.component';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
 import { ReceivedInvitationsComponent } from '../administration-in/collaborations/received-invitations/received-invitations.component';
 import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
+import { ApplicationReceivedbyCollaborationComponent } from '../administration-in/collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
 import { ProjectDescriptionComponent } from '../c-capital/project-description/project-description.component';
 import { ProfileComponent } from '../administration-in/profile/profile.component';
-import { MembersAdminComponent } from '../administration-in/members-admin/members-admin.component';
+import { MembersAdminComponent } from '../administration-in/mydesk/members-admin/members-admin.component';
 import { QuestionsDetailsComponent } from '../administration-in/mydesk/questions-details/questions-details.component';
 import { AdminAllColabComponent } from '../administration-in/collaborations/admin-all-colab/admin-all-colab.component';
 import { ProjectEditAndNewComponent } from '../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component';
@@ -49,6 +51,8 @@ import { FilesDealComponent } from '../administration-in/deal-space/files-deal/f
 import { PlanningDealComponent } from '../administration-in/deal-space/planning-deal/planning-deal.component';
 import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction/view-reaction.component';
 import { HistoricalComponent } from '../administration-in/mydesk/historical/historical.component';
+import { InactiveAccountComponent } from '../administration-in/extra/inactive-account/inactive-account.component';
+
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
@@ -61,20 +65,12 @@ const routes: Routes = [
     component: CommitteeComponent,
   },
   {
-    path: 'profile-admin',
-    component: ProfileAdminComponent,
-  },
-  {
     path: 'home',
     component: HomepageComponent,
   },
   {
     path: 'project1',
     component: Project1Component,
-  },
-  {
-    path: 'project-description',
-    component: ProjectDescriptionComponent,
   },
   {
     path: 'open-innovation/:slug_acc/acceuil',
@@ -117,6 +113,11 @@ const routes: Routes = [
     path: 'administration-in/user/profile',
     component: ProfileComponent,
     canActivate: [AuthguardService],
+  },
+  {
+    path: 'administration-in/account-note',
+    component: InactiveAccountComponent,
+    canActivate: [IsActiveGuardService]
   },
   {
     path: 'administration-in/desk',
@@ -172,7 +173,7 @@ const routes: Routes = [
       },
       {
         path: 'application-received/by-collaborations/:idCollab',
-        component: ApplicationReceivedComponent,
+        component: ApplicationReceivedbyCollaborationComponent,
       },
       {
         path: 'application-received',
