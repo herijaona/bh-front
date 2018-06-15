@@ -37,6 +37,13 @@
                         <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
                     </th>
                 </tr>
+                <tr *ngIf="item.hasresp">
+                    <td colspan="5">
+                        <div class="reply-box" *ngFor="let resp_item of item.responseIN" [innerHtml]="resp_item.respText | bhSafeHtml">
+
+                        </div>
+                    </td>
+                </tr>
             </tbody>
             <!--Table body-->
         </table>

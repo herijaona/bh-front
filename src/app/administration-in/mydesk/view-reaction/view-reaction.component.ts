@@ -44,6 +44,7 @@ export class ViewReactionComponent implements OnInit {
       if (quest) {
         if (quest.status === 'OK') {
           this.allQuestions = quest.data;
+          console.log("archives",this.allQuestions);
         }
       }
     } catch (e) {

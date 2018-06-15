@@ -25,6 +25,7 @@ export class HistoricalComponent implements OnInit {
       if (quest) {
         if (quest.status === 'OK') {
           this.allQuestions = quest.data;
+          console.log("archives",quest.data);
         }
       }
     } catch (e) {
