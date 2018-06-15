@@ -244,7 +244,7 @@ export class AuthserviceService extends BaseHttpService {
     try {
       const dataRole = await this.fetch('get', 'getUserRoleData').toPromise();
       if (dataRole['status'] === 'OK') {
-        let rl: { [key: string]: any } = dataRole['data'];
+        const rl: { [key: string]: any } = dataRole['data'];
         if (rl['hsAc']) {
           if (rl['isAdm']) {
             rl['admDefl'] = rl['admAc'].length === 1 ? rl.admAc[0]._id : '';

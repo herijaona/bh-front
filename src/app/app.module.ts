@@ -22,12 +22,13 @@ import { BaseHttpService } from './services/base-http/base-http.service';
 import { CompanyService } from './services/company/company.service';
 import { ProjectsService } from './services/projects/projects.service';
 import { RequestInterceptorService } from './services/request-interceptor/request-interceptor.service';
+import { IsActiveGuardService } from './services/authguard/is-active-guard.service';
+
 /*pipe*/
 
 /*Modules impot*/
 import { AdministrationInModule } from './administration-in/administration-in.module';
 import { UserAuthModule } from './user-auth/user-auth.module';
-import { DescriptionProjectModule } from './description-project/description-project.module';
 import { HomepageModule } from './homepage/homepage.module';
 import { IdeasModule } from './ideas/ideas.module';
 import { MindsetModule } from './mindset/mindset.module';
@@ -53,7 +54,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FormsModule,
     HttpClientModule,
     GeneralUtilitiesModule,
-    DescriptionProjectModule,
     HomepageModule,
     ProjectsModule,
     CommitteeModule,
@@ -89,6 +89,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BaseHttpService,
     ProjectsService,
     CompanyService,
+    IsActiveGuardService
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

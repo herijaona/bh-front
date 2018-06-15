@@ -3,7 +3,7 @@ import { Router, CanActivate } from "@angular/router";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 
 @Injectable()
-export class AuthguardService {
+export class IsActiveGuardService {
 	constructor(private auth: AuthserviceService, private router: Router) {}
 	async canActivate() {
 		if (!this.auth.isLoggedIn()) {
@@ -13,8 +13,8 @@ export class AuthguardService {
 		try {
 			let prfl = await this.auth.profile();
 			console.log(prfl);
-			if (prfl.active === false) {
-				this.router.navigateByUrl("/administration-in/account-note");
+			if (prfl.active === true) {
+				this.router.navigateByUrl("/administration-in/desk");
 				return false;
 			}
 			return true;
