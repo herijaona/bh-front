@@ -17,14 +17,14 @@
             <!--Table body-->
             <tbody>
                 <tr *ngFor="let item of allQuestions">
-                    <td class="no-wrp">{{item.date}}</td>
-                    <td>{{item.hour}}</td>
-                    <td>{{item.userAsk.name}}</td>
-                    <td>{{item.userAsk.org}}</td>
-                    <td>
+                    <td class="t1">{{item.date}}</td>
+                    <td class="t1">{{item.hour}}</td>
+                    <td class="t2">{{item.userAsk.name}}</td>
+                    <td class="t2">{{item.userAsk.org}}</td>
+                    <td class="t3">
                         <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
                     </td>
-                    <td>
+                    <td class="t4">
                         <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
                             <i class="fa fa-eye"></i>
                         </a>
