@@ -54,10 +54,34 @@
 }
 
 .reply-box {
-    border: 1px solid #71BF71;
+    border: 1.5px solid #71BF71;
     padding: 9px;
     margin-bottom: 10px;
     p {
         margin: 0px;
     }
+}
+
+.reply-b {
+    padding: 9px;
+}
+
+.m-d {
+    margin: auto;
+    max-width: 75%;
+    margin-top: 17px;
+    .close {
+        margin-top: 7px !important
+    }
+}
+
+@media(max-width: 574px) {
+    .m-d {
+        max-width: 95%;
+    }
+}
+
+.style-text {
+    color: #393f4b;
+    font-family: SourceSansPro-Semibold;
 }

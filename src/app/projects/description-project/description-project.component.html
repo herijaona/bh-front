@@ -37,15 +37,15 @@
                             <h4 class="title-propos">PROJECT TYPE :</h4>&nbsp;<span class="text-capitalize">{{detailsData.dataDetails.collabDurationType}}</span>
                         </div>
                         <div class="row" *ngIf="detailsData.dataDetails.collabDurationType == 'programmed'">
-                            <div *ngIf="detailsData.dataDetails.collabDurationData.limitdate" class="col-4">
+                            <div *ngIf="detailsData.dataDetails.collabDurationData.limitdate" class="col-4 programmed">
                                 <p>Deadline for receipt of applications</p>
                                 <h6>{{getDateString(detailsData.dataDetails.collabDurationData.limitdate.jsdate)}}</h6>
                             </div>
-                            <div *ngIf="detailsData.dataDetails.collabDurationData.applicationselecteddate" class="col-4">
+                            <div *ngIf="detailsData.dataDetails.collabDurationData.applicationselecteddate" class="col-4 programmed">
                                 <p>Date of the selected appications</p>
                                 <h6>{{getDateString(detailsData.dataDetails.collabDurationData.applicationselecteddate.jsdate)}}</h6>
                             </div>
-                            <div *ngIf="detailsData.dataDetails.collabDurationData.discussdate" class="col-4">
+                            <div *ngIf="detailsData.dataDetails.collabDurationData.discussdate" class="col-4 programmed">
                                 <p>Planned date of discussion</p>
                                 <h6>{{getDateString(detailsData.dataDetails.collabDurationData.discussdate.jsdate)}}</h6>
                             </div>
