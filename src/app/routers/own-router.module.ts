@@ -15,7 +15,7 @@ import { ProfileAdminComponent } from '../profile-admin/profile-admin/profile-ad
 import { IsloggedVerifyGuard } from '../services/authguard/islogged-verify.guard';
 import { AuthguardService } from '../services/authguard/authguard.service';
 import { IsActiveGuardService } from '../services/authguard/is-active-guard.service';
-import { CommitteeComponent } from '../committee/committee/committee.component';
+import { CommitteeComponent } from '../team/committee/committee.component';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
 import { ReceivedInvitationsComponent } from '../administration-in/collaborations/received-invitations/received-invitations.component';
@@ -184,7 +184,7 @@ const routes: Routes = [
         component: ProjectEditAndNewComponent,
       },
       {
-        path: 'application/details/:applicationID',
+        path: 'application-received/details/:applicationID',
         component: ApplicationComponent,
       },
       {

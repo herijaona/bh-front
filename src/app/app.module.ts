@@ -35,7 +35,6 @@ import { MindsetModule } from './mindset/mindset.module';
 import { GeneralUtilitiesModule } from './general-utilities/general-utilities.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ProjectsModule } from './projects/projects.module';
-import { CommitteeModule } from './committee/committee.module';
 import { TeamModule } from './team/team.module';
 import { ProfileAdminModule } from './profile-admin/profile-admin.module';
 import { MembersAdminModule } from './members-admin/members-admin.module';
@@ -56,7 +55,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     GeneralUtilitiesModule,
     HomepageModule,
     ProjectsModule,
-    CommitteeModule,
     IdeasModule,
     MindsetModule,
     ProfileAdminModule,
