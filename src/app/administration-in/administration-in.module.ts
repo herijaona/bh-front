@@ -49,6 +49,7 @@ import { ApplicationFormComponent } from './collaborations/application-form/appl
 import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
 import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
 import { ApplicationReceivedbyCollaborationComponent } from './collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
+import { ErrorNotificationComponent } from './extra/error-notification/error-notification.component';
 
 @NgModule({
   imports: [
@@ -103,6 +104,7 @@ import { ApplicationReceivedbyCollaborationComponent } from './collaborations/ap
     ReceivedInvitationsComponent,
     InactiveAccountComponent,
     ApplicationReceivedbyCollaborationComponent,
+    ErrorNotificationComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

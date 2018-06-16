@@ -1,14 +1,18 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
-import { Globals } from './../../globals/globals';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ValidateUrl, ValidateYear, ValidatePair } from '../../services/validators/own.validator';
-import { TeamsService } from '../../services/teams/teams.service';
+import { Component, OnInit, OnDestroy, Input } from "@angular/core";
+import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
+import { Globals } from "./../../globals/globals";
+import { Router, ActivatedRoute } from "@angular/router";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {
+  ValidateUrl,
+  ValidateYear,
+  ValidatePair
+} from "../../services/validators/own.validator";
+import { TeamsService } from "../../services/teams/teams.service";
 @Component({
-  selector: 'team-front-new',
-  templateUrl: './team-front-new.component.html',
-  styleUrls: ['./team-front-new.component.scss'],
+  selector: "team-front-new",
+  templateUrl: "./team-front-new.component.html",
+  styleUrls: ["./team-front-new.component.scss"]
 })
 export class TeamFrontNewComponent implements OnInit, OnDestroy {
   public userNotSelected: boolean = false;
@@ -16,24 +20,24 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
   public idVidYouTube: { [key: string]: string } = {};
   public im_poster: string;
   public editorChanged: boolean = false;
-  public cpy_entity: string = 'account';
+  public cpy_entity: string = "account";
   private toDoAction: string;
   private tmvDATA: any;
-  private editAct: string = 'tmVEdit';
-  private addAct: string = 'tmVAdd';
+  private editAct: string = "tmVEdit";
+  private addAct: string = "tmVAdd";
   public teamText: string;
-  public dest_file = 'teamCommitee';
+  public dest_file = "teamCommitee";
   public currentCompanySlug: string;
   public team_person: any;
-  public cketeamText: string = '...';
+  public cketeamText: string = "...";
   public selectedType: number = 0;
   public imData: { [key: string]: any } = {};
 
-  @Input('do_action')
+  @Input("do_action")
   set do_action(to_do: string) {
     this.toDoAction = to_do;
   }
-  @Input('tmv_data')
+  @Input("tmv_data")
   set tmv_data(tdta: any) {
     this.tmvDATA = tdta;
   }
@@ -45,14 +49,14 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
     public g: Globals
   ) {
     this.teamVideoForm = new FormGroup({
-      tvCaption: new FormControl('', [Validators.required]),
+      tvCaption: new FormControl("", [Validators.required]),
       tvteamMember: new FormControl(0, [Validators.required]),
       editorTest: new FormControl(0, [Validators.required]),
-      tvVideoUrl: new FormControl(''),
+      tvVideoUrl: new FormControl("")
     });
 
     this.activRoute.params.subscribe((params_: any) => {
-      this.currentCompanySlug = params_['slug_acc'];
+      this.currentCompanySlug = params_["slug_acc"];
     });
   }
 
@@ -60,7 +64,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
     try {
       const altM: any = await this.tms.getTeamUsers(this.currentCompanySlug);
       if (altM) {
-        if ((altM.status = 'OK')) {
+        if ((altM.status = "OK")) {
           return altM.data;
         }
       }
@@ -83,19 +87,27 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
 
     if (this.toDoAction === this.editAct) {
       this.teamVideoForm.setValue({
-        tvCaption: this.tmvDATA['data'].caption,
-        tvteamMember: this.tmvDATA['data'].team_users,
-        editorTest: this.tmvDATA['data'].textTeam,
-        tvVideoUrl: '',
+        tvCaption: this.tmvDATA["data"].caption,
+        tvteamMember: this.tmvDATA["data"].team_users,
+        editorTest: this.tmvDATA["data"].textTeam,
+        tvVideoUrl: ""
       });
       console.log(this.tmvDATA);
       if (this.tmvDATA.type == 1) {
         this.selectedType = 1;
-        this.teamVideoForm.patchValue({ tvVideoUrl: this.tmvDATA['data'].video_url });
-        this.im_poster = this.sh.getVideoImPoster(this.tmvDATA['data'].id_video);
+        this.teamVideoForm.patchValue({
+          tvVideoUrl: this.tmvDATA["data"].video_url
+        });
+        let i_vi = this.getIdVideo(this.tmvDATA["data"].video_url);
+        if (!i_vi) {
+          this.idVidYouTube = {};
+        }
+        this.im_poster = this.sh.getVideoImPoster(
+          this.tmvDATA["data"].id_video
+        );
       } else {
         this.selectedType = 0;
-        this.im_poster = this.tmvDATA['data'].url;
+        this.im_poster = this.tmvDATA["data"].url;
       }
     } else if (this.toDoAction == this.addAct) {
       // code...
@@ -110,18 +122,21 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
   }
 
   getIdVideo(r) {
-    let video_id = '';
-    if (!this.teamVideoForm.get('tvVideoUrl').errors) {
-      video_id = r.split('v=')[1];
-      let ampersandPosition = video_id.indexOf('&');
+    let video_id = "";
+    if (!this.teamVideoForm.get("tvVideoUrl").errors) {
+      video_id = r.split("v=")[1];
+      let ampersandPosition = video_id.indexOf("&");
       if (ampersandPosition != -1) {
         video_id = video_id.substring(0, ampersandPosition);
       }
       this.idVidYouTube = {
-        im_poster: 'https://img.youtube.com/vi/' + video_id + '/hqdefault.jpg',
+        im_poster: "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg",
         id_video: video_id,
         video_url: r,
-        iframe_: "<iframe src='https://www.youtube.com/embed/" + video_id + "?controls=1&autoplay=1'></iframe>",
+        iframe_:
+          "<iframe src='https://www.youtube.com/embed/" +
+          video_id +
+          "?controls=1&autoplay=1'></iframe>"
       };
       this.im_poster = this.sh.getVideoImPoster(this.idVidYouTube.id_video);
       return video_id;
@@ -150,26 +165,28 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
  */
         let d = {};
         if (this.selectedType == 0) {
-          this.imData['team_users'] = this.teamVideoForm.value.tvteamMember;
-          this.imData['caption'] = this.teamVideoForm.value.tvCaption;
-          this.imData['textTeam'] = this.cketeamText;
+          this.imData["team_users"] = this.teamVideoForm.value.tvteamMember;
+          this.imData["caption"] = this.teamVideoForm.value.tvCaption;
+          this.imData["textTeam"] = this.cketeamText;
           d = this.imData;
         } else if (this.selectedType == 1) {
-          this.idVidYouTube['caption'] = this.teamVideoForm.value.tvCaption;
-          this.idVidYouTube['team_users'] = this.teamVideoForm.value.tvteamMember;
-          this.idVidYouTube['textTeam'] = this.cketeamText;
+          this.idVidYouTube["caption"] = this.teamVideoForm.value.tvCaption;
+          this.idVidYouTube[
+            "team_users"
+          ] = this.teamVideoForm.value.tvteamMember;
+          this.idVidYouTube["textTeam"] = this.cketeamText;
           d = this.idVidYouTube;
         }
         let tFrontGenData = { type: this.selectedType, data: d };
         let tmvUpdate: any = await this.tms.updatetmvData({
           id_: this.tmvDATA._id,
-          dataUpdate: tFrontGenData,
+          dataUpdate: tFrontGenData
         });
         if (tmvUpdate) {
-          if (tmvUpdate.status == 'OK') {
+          if (tmvUpdate.status == "OK") {
             this.sh.pushData({
-              from: 'tmodal_new',
-              data: 'end',
+              from: "tmodal_new",
+              data: "end"
             });
           }
           /* } */
@@ -177,23 +194,25 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
       } else if (this.toDoAction === this.addAct) {
         let d: any;
         if (this.selectedType == 0) {
-          this.imData['team_users'] = this.teamVideoForm.value.tvteamMember;
-          this.imData['caption'] = this.teamVideoForm.value.tvCaption;
-          this.imData['textTeam'] = this.cketeamText;
+          this.imData["team_users"] = this.teamVideoForm.value.tvteamMember;
+          this.imData["caption"] = this.teamVideoForm.value.tvCaption;
+          this.imData["textTeam"] = this.cketeamText;
           d = this.imData;
         } else if (this.selectedType == 1) {
-          this.idVidYouTube['caption'] = this.teamVideoForm.value.tvCaption;
-          this.idVidYouTube['team_users'] = this.teamVideoForm.value.tvteamMember;
-          this.idVidYouTube['textTeam'] = this.cketeamText;
+          this.idVidYouTube["caption"] = this.teamVideoForm.value.tvCaption;
+          this.idVidYouTube[
+            "team_users"
+          ] = this.teamVideoForm.value.tvteamMember;
+          this.idVidYouTube["textTeam"] = this.cketeamText;
           d = this.idVidYouTube;
         }
         let tFrontGenData = {
           type: this.selectedType,
-          data: d,
+          data: d
         };
         let resp: any = await this.tms.teamFrontSaveData(tFrontGenData);
         if (resp) {
-          this.sh.pushData({ from: 'tmodal_new', data: 'end' });
+          this.sh.pushData({ from: "tmodal_new", data: "end" });
         }
       }
     } catch (e) {}
@@ -212,7 +231,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
   }
 
   textLengthCheck(txt) {
-    let cnt: string = txt.replace(/\n/g, '').replace(/<(?:.|\n)*?>/gm, '');
+    let cnt: string = txt.replace(/\n/g, "").replace(/<(?:.|\n)*?>/gm, "");
     // this.charLength = cnt.length;
     if (cnt.length > 1000) {
       return false;
@@ -221,19 +240,49 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
   }
   onChange(vent) {}
   onReady(vent) {}
+
   chooseType(event) {
     this.selectedType = event.target.value;
-    this.im_poster = '';
-    this.imData = {};
+
+    if (this.toDoAction === this.editAct) {
+      this.teamVideoForm.setValue({
+        tvCaption: this.tmvDATA["data"].caption,
+        tvteamMember: this.tmvDATA["data"].team_users,
+        editorTest: this.tmvDATA["data"].textTeam,
+        tvVideoUrl: ""
+      });
+      if (this.tmvDATA.type == 1) {
+        this.teamVideoForm.patchValue({
+          tvVideoUrl: this.tmvDATA["data"].video_url
+        });
+        let i_vi = this.getIdVideo(this.tmvDATA["data"].video_url);
+        if (!i_vi) {
+          this.idVidYouTube = {};
+        }
+        this.im_poster = this.sh.getVideoImPoster(
+          this.tmvDATA["data"].id_video
+        );
+      } else {
+        this.im_poster = this.tmvDATA["data"].url;
+      }
+    } else if (this.toDoAction == this.addAct) {
+      // code...
+      this.im_poster = "";
+      this.imData = {};
+    }
   }
 
   validDataEntry() {
     if (this.selectedType == 0) {
-      if ('url' in this.imData) {
+      if ("url" in this.imData) {
         return true;
       }
     } else if (this.selectedType == 1) {
-      if (this.teamVideoForm.value['tvVideoUrl'].startsWith('https://www.youtube.com')) {
+      if (
+        this.teamVideoForm.value["tvVideoUrl"].startsWith(
+          "https://www.youtube.com" && this.idVidYouTube != {}
+        )
+      ) {
         return true;
       }
     }

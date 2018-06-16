@@ -86,7 +86,9 @@ export class ApplyInnovProjectComponent implements OnInit {
             );
           }, 500);
         }
-      } catch (e) {}
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 

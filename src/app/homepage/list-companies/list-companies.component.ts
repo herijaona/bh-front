@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Globals } from '../../globals/globals';
-import { ApiHttpService } from '../../services/api-http/api-http.service';
-import { SharedNotificationService } from '../../services/shared-notification/shared-notification.service';
-import { CompanyService } from '../../services/company/company.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Globals } from "../../globals/globals";
+import { ApiHttpService } from "../../services/api-http/api-http.service";
+import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
+import { CompanyService } from "../../services/company/company.service";
 
 @Component({
-  selector: 'list-companies',
-  templateUrl: './list-companies.component.html',
-  styleUrls: ['./list-companies.component.scss'],
+  selector: "list-companies",
+  templateUrl: "./list-companies.component.html",
+  styleUrls: ["./list-companies.component.scss"]
 })
 export class ListCompaniesComponent implements OnInit {
-  public companies_data = undefined;
+  public companies_data = [];
   constructor(
     private cs: CompanyService,
     public g: Globals,
     private apiHttp: ApiHttpService,
-    private sh: SharedNotificationService
+    private sh: SharedNotificationService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -26,12 +28,12 @@ export class ListCompaniesComponent implements OnInit {
         return el;
       });
       this.companies_data = er;
-      this.sh.runloader({ action: 'hide' });
+      // this.sh.runloader({ action: "hide" });
     });
   }
 
   getAllCompanies() {
-    this.sh.runloader({ action: 'show' });
+    // this.sh.runloader({ action: "show" });
     return new Promise((resolve, reject) => {
       this.cs.getAllCompanies().then(
         (data: any) => {
@@ -39,9 +41,12 @@ export class ListCompaniesComponent implements OnInit {
         },
         error => {
           console.log(error);
-          alert(error.message);
+          this.router.navigateByUrl("/administration-in/account-note");
         }
       );
     });
+  }
+  getACTIVITY(r) {
+    return r.replace("_", " ");
   }
 }

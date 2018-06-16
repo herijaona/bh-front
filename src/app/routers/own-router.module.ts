@@ -52,6 +52,7 @@ import { PlanningDealComponent } from '../administration-in/deal-space/planning-
 import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction/view-reaction.component';
 import { HistoricalComponent } from '../administration-in/mydesk/historical/historical.component';
 import { InactiveAccountComponent } from '../administration-in/extra/inactive-account/inactive-account.component';
+import { ErrorNotificationComponent } from '../administration-in/extra/error-notification/error-notification.component';
 
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
@@ -118,6 +119,10 @@ const routes: Routes = [
     path: 'administration-in/account-note',
     component: InactiveAccountComponent,
     canActivate: [IsActiveGuardService]
+  },
+  {
+    path: 'error-notification',
+    component: ErrorNotificationComponent
   },
   {
     path: 'administration-in/desk',
