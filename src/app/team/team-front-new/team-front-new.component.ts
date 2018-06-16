@@ -51,7 +51,7 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
     this.teamVideoForm = new FormGroup({
       tvCaption: new FormControl("", [Validators.required]),
       tvteamMember: new FormControl(0, [Validators.required]),
-      editorTest: new FormControl(0, [Validators.required]),
+      editorText: new FormControl(0, [Validators.required]),
       tvVideoUrl: new FormControl("")
     });
 
@@ -280,8 +280,8 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
     } else if (this.selectedType == 1) {
       if (
         this.teamVideoForm.value["tvVideoUrl"].startsWith(
-          "https://www.youtube.com" && this.idVidYouTube != {}
-        )
+          "https://www.youtube.com") && ('im_poster' in this.idVidYouTube) 
+        
       ) {
         return true;
       }

@@ -42,8 +42,8 @@
 
                             <span [innerHtml]="resp_item.respText | bhSafeHtml"></span>
                             <div class="reply-name">
-                                <span [innerHtml]="getDateString(resp_item.rDate)"></span><br>
-                                <span>{{resp_item.user.firstname}}&nbsp;{{resp_item.user.lastname}}</span>
+                                <span class="mr-2" [innerHtml]="getDateString(resp_item.rDate)"></span> 
+                                <span>{{resp_item.user.firstname+" "+resp_item.user.lastname}}</span>
                             </div>
                         </div>
                     </td>
