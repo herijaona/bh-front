@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
+
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
 import { ModalDirective } from "angular-bootstrap-md";
 
@@ -15,7 +17,7 @@ export class PModalShowComponent implements OnInit, OnDestroy {
 	public modal_size: string = "md";
 	public activeShow: boolean = false;
 	public conf_: { [key: string]: any };
-	constructor(private sh: SharedNotificationService) {
+	constructor(private sh: SharedNotificationService, private router: Router) {
 		this.sh.busDataIn$.subscribe((st: any) => {
 			switch (st.from) {
 				case "p_askQuestions":
@@ -26,7 +28,7 @@ export class PModalShowComponent implements OnInit, OnDestroy {
 					this.activeShow = true;
 					this.loginModal(st);
 					break;
-				case "applytToProjects":
+				case "p_applytToProjects":
 					this.activeShow = true;
 					this.applyToProjects(st);
 					break;
@@ -37,13 +39,13 @@ export class PModalShowComponent implements OnInit, OnDestroy {
 	public applyModal: boolean = false;
 
 	public applyToProjects(arg) {
-		this.modal_size = "ask-modal";
-		this.dataModal = arg;
-		this.applyModal = true;
-		this.activeShow = true;
-		setTimeout(() => {
-			this.myModalGen.show();
-		}, 330);
+		console.log(arg);
+		this.router.navigateByUrl(
+			"/" +
+				["administration-in", "collaborations", "apply-to", arg.data._id].join(
+					"/"
+				)
+		);
 	}
 	public loginModal(arg) {
 		this.modal_size = "modal-md";
@@ -81,6 +83,7 @@ export class PModalShowComponent implements OnInit, OnDestroy {
 
 	endMesssage(evnt) {
 		if (evnt["after"]) {
+			console.log(evnt);
 			this.myModalGen.hide();
 			setTimeout(() => {
 				this.sh.pushData({

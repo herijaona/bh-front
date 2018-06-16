@@ -58,19 +58,23 @@ export class Globals {
   private collab_types: any = [
     {
       slug: "COLLABSUBJINNOV",
-      text: "Suggestions"
+      text: "Suggestions",
+      type: 2
     },
     {
       slug: "COLLABPROJINNOV",
-      text: "Project"
+      text: "Project",
+      type: 1
     },
     {
       slug: "COLLABINCUB",
-      text: "Incubation"
+      text: "Incubation",
+      type: 3
     },
     {
       slug: "COLLABINVEST",
-      text: "Investment"
+      text: "Investment",
+      type: 4
     }
   ];
   public getConfig(arg) {

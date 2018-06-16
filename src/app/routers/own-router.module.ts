@@ -164,7 +164,7 @@ const routes: Routes = [
         component: AdminAllColabComponent,
       },
       {
-        path: 'apply/:id_project',
+        path: 'apply-to/:id_project',
         component: ApplyComponent,
       },
       {

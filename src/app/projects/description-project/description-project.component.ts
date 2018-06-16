@@ -79,7 +79,7 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 					[
 						"administration-in",
 						"collaborations",
-						"apply",
+						"apply-to",
 						this.detailsData._id
 					].join("/")
 			);
@@ -87,7 +87,7 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 			this.sh.pushData({
 				from: "p_loginModal",
 				message: "apply",
-				data: { after: _data, to: "applytToProjects" }
+				data: { after: _data, to: "p_applytToProjects" }
 			});
 		}
 	}

@@ -1,91 +1,56 @@
-<div class="row pb-3">
-  <div class="col-6 pl-0">
-    <div class="type-name">
-      <label for="pName" class="grey-text-form">Name</label>
-      <div class="inp-icon">
-        <input readonly="true" type="text" name="pName" [value]="prObjApply.name" class="form-control-project prN" placeholder="name project">
-        <i class="fa fa-check"></i>
+<div class="header-text">
+  <div [innerHtml]="prObjApply.collabData.contexte"></div>
+  <hr>
+</div>
+<div class="proposal">
+  <h2>the collaborative proposal</h2>
+  <label class="grey-text-form">collaboration name</label>
+  <div class="input-md position-realtive">
+    <input readonly="true" type="text" name="pName" [value]="prObjApply.name" class="form-control-project">
+    <i class="fa fa-check"></i>
+  </div>
+  <label class="grey-text-form">project objectives</label>
+  <div class="" [innerHtml]="prObjApply.collabData.objectif"></div>
+  <form [formGroup]="applyToForm" (ngSubmit)="sendApplicationOnProject()">
+    <h3>activity and skills</h3>
+    <div class="row pt-2">
+      <div class="col-12 pl-0">
+        <div class="mb-20 pr-i">
+          <label class="grey-text-form">Main area of activity :</label>
+          <ckeditor height="100px" rows="40" cols="40" placeholder="Main area of activity ..." formControlName="main_activity_domain" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+          </ckeditor>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-6 pr-0">
-    <div class="mb-20">
-      <label class="grey-text-form">description</label>
-      <textarea [(ngModel)]="projectApplyData.user_application_describ" (change)="onChangeEditor($event)" placeholder="description project"
-        type="text" name="" class="t-area"></textarea>
+    <div class="row pt-4">
+      <div class="col-12 pl-0">
+        <div class="mb-20 pr-i">
+          <label class="grey-text-form">Related activity :</label>
+          <ckeditor height="100px" rows="40" cols="40" placeholder="Related activity ..." formControlName="secondary_activity_domain" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+          </ckeditor>
+        </div>
+      </div>
+      <div class="col-12 pl-0">
+        <div class="mb-20">
+          <label class="grey-text-form mt-3">Skills and specificities :</label>
+          <ckeditor height="100px" rows="40" cols="40" placeholder="skills, Specificities ..." formControlName="skill_specificities" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+          </ckeditor>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<h3>identity</h3>
-<div class="row">
-  <div class="col-6 pl-0">
-    <div class="mb-20">
-      <label class="grey-text-form">organisation name</label>
-      <input readonly="true" type="text" name="pName" class="form-control-project prN" [value]="UserOrgName" placeholder="organisation name">
+    <h2>the collaboration proposal</h2>
+    <label class="grey-text-form  grey-text-form-proposal">can you specify in few lines your proposal, and make sure to explain the link with your activities, projects and skills, to strengthen the credibility of your proposal</label>
+    <div class="row pb-4">
+      <div class="col-12 p-0">
+        <div class="mb-20">
+          <ckeditor height="100px" rows="40" cols="40" placeholder="Proposition of collaboration ..." formControlName="collab_proposal_describ" [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)" (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+          </ckeditor>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col-6 pr-0"></div>
-</div>
-<div class="row pb-4">
-  <div class="col-6 pl-0">
-    <div class="type-name-o">
-      <label class="grey-text-form">date</label>
-      <my-date-picker (dateChanged)="onDateChanged($event)" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="modelDate"
-        required></my-date-picker>
-      <i class="fa fa-calendar"></i>
+    <div class="text-right">
+      <button (click)="sendApplicationOnProject()" [ngClass]="{disabled: !applyToForm.valid }" class="mb-4 btn-col btn">
+        <i class="fa fa-send pr-2"></i>send</button>
     </div>
-  </div>
-  <div class="col-6 pr-0">
-    <div class="ds-g">
-      <label class="grey-text-form">country</label>
-      <select (change)="onChangeEditor($event)" [(ngModel)]="modelCountry">
-        <option value="default">select a country</option>
-        <option *ngFor="let item of ListCo.default_type" [value]="item.code">{{item.name}}</option>
-      </select>
-    </div>
-  </div>
-</div>
-<h3>activity and skills</h3>
-<div class="row pt-4">
-  <div class="col-6 pl-0">
-    <div class="mb-20 pr-i">
-      <label class="grey-text-form">Main area of activity :</label>
-      <textarea [(ngModel)]="projectApplyData.main_activity_domain" (change)="onChangeEditor($event)" placeholder="Main area of activity ..."
-        type="text" name="" class="t-area"></textarea>
-      <i class="fa fa-pencil i-pen"></i>
-    </div>
-  </div>
-  <div class="col-6 pr-0">
-    <div class="mb-20">
-      <label class="grey-text-form">Related activity :</label>
-      <textarea [(ngModel)]="projectApplyData.secondary_activity_domain" (change)="onChangeEditor($event)" placeholder="Related activity ..."
-        type="text" name="" class="t-area"></textarea>
-
-    </div>
-  </div>
-  <div class="col-6 pl-0">
-    <div class="mb-20">
-      <label class="grey-text-form mt-3">Skills and specificities :</label>
-      <textarea [(ngModel)]="projectApplyData.skill_specificities" (change)="onChangeEditor($event)" placeholder="skills, Specificities ..."
-        type="text" name="" class="t-area"></textarea>
-    </div>
-  </div>
-</div>
-<h3 class="mt-3">Proposition of collaboration</h3>
-<p class="pr-col">Can you specify infew linesyour proposal, and make sure to explain the link with your activities, projects and skills, to
-  strengthen the credibility of your proposal</p>
-<div class="row pb-4">
-  <div class="col-12 p-0">
-    <div class="mb-20">
-      <!-- <label class="grey-text-form">description</label> -->
-      <textarea [(ngModel)]="projectApplyData.collab_proposal_describ" (change)="onChangeEditor($event)" placeholder="Proposition of collaboration ..."
-        type="text" name="" class="t-area"></textarea>
-    </div>
-  </div>
-</div>
-
-<!-- <button [ngClass]="{disabled: canBeSent }" class="float-right mb-4 btn-col"><i class="fa fa-send pr-2"></i>send</button> -->
-<div class="text-right">
-  <button (click)="sendApplicationOnProject()" [ngClass]="{disabled: !canBeSent }" class="mb-4 btn-col btn">
-    <i class="fa fa-send pr-2"></i>send</button>
+  </form>
 </div>
