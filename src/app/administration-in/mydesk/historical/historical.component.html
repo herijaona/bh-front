@@ -33,10 +33,22 @@
 
                 </tr>
                 <tr class="text-tr">
-                    <th colspan="5">
-                        <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
+                    <th colspan="5" [innerHtml]="item.quest_part|bhSafeHtml" class="reply-b">
                     </th>
                 </tr>
+                <tr *ngIf="item.hasresp">
+                    <td colspan="5">
+                        <div class="reply-box position-realtive" *ngFor="let resp_item of item.responseIN">
+
+                            <span [innerHtml]="resp_item.respText | bhSafeHtml"></span>
+                            <div class="reply-name">
+                                <span [innerHtml]="getDateString(resp_item.rDate)"></span><br>
+                                <span>{{resp_item.user.firstname}}&nbsp;{{resp_item.user.lastname}}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <div class="mb-3"></div>
             </tbody>
             <!--Table body-->
         </table>

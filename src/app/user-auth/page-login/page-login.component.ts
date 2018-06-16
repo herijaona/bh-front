@@ -28,7 +28,7 @@ export class PageLoginComponent implements OnInit {
     private sh: SharedNotificationService
   ) {
     this.img_avatar = this.g.base_href + 'assets/img/bg-accueil.jpg';
-    this.img_logo = this.g.base_href + 'assets/img/bh.png';
+    this.img_logo = this.g.base_href + 'assets/img/logo-cca.png';
   }
   ngOnInit() {
     this.resetpassForm = new FormGroup({
@@ -54,7 +54,7 @@ export class PageLoginComponent implements OnInit {
           err => {
             this.sh.notifToast({
               type: 'warning',
-              message: '<p>Erreur inattendu</p>',
+              message: '<p>Inaccepted error</p>',
             });
 
             setTimeout(() => {

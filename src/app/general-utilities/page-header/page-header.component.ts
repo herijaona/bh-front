@@ -58,7 +58,8 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
   public _addr: string = '----';
   public FrontMenu: boolean = true;
   public pagetoShow: any;
-  public header_page_logo: string = this.g.base_href + 'assets/img/logo2.png';
+  public header_page_logo: string ;
+  /* public header_page_logo: string = this.g.base_href + 'assets/img/logo2.png'; */
   public header_page_cover: string = 'url(' + this.g.base_href + 'assets/img/logo2.png' + ')';
   public company_comm_name: string = '';
   public websiteUrl: string = '';
@@ -121,7 +122,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     this.image.onload = ()=> {
         this.cx.drawImage(this.image, 0, 0, this.width, this.height);
     }
-    
     this.image.src = this.header_page_logo;
 
 }

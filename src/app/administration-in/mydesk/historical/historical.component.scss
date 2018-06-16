@@ -1,0 +1,39 @@
+.table {
+    width: 99%;
+    .text-tr {
+        border: 1px solid #dee2e6;
+    }
+    tbody+tbody {
+        border-top: 0px solid #dee2e6;
+    }
+    .text-bl {
+        background: #da544517;
+    }
+}
+
+.no-wrp {
+    white-space: nowrap;
+}
+
+.reply-box {
+    border: 0.5px solid #71BF71;
+    padding: 9px;
+    background: #00800003;
+    margin-bottom: 10px;
+    p {
+        margin: 0px;
+    }
+}
+
+.reply-b {
+    padding: 9px;
+    background: #d0d0d00d;
+}
+
+.reply-name {
+    font-size: 14px;
+    color: #393f4bad;
+    position: absolute;
+    right: 9px;
+    bottom: 2px;
+}
