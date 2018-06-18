@@ -30,26 +30,29 @@
   </div>
   <div class="center-idem">
     <h4 id="title_collab" class="open-sans-regular">Titre de collaboration</h4>
-    <div>
+    <div class="comment-collab-div">
       <div class="separator"></div>
       <table class="table-afqap">
         <tr>
-          <td id="tab-1" class="td-afqap" (click)="changeTab (event, this.id)">
-            <h4 class="afqap">Application</h4>
+          <td id="tab-1" class="td-afqap" (click)="changeTab (event, 'h-afqap-1')">
+            <h4 id="h-afqap-1" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-1') "  (mouseleave) ="tabMouseLeave('h-afqap-1')">Application</h4>
           </td>
-          <td id="tab-2" class="td-afqap" (click)="changeTab (event, this.id)">
-            <h4 class="afqap">Files</h4>
+          <td id="tab-2" class="td-afqap" (click)="changeTab (event, 'h-afqap-2')">
+            <h4 id="h-afqap-2" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-2') "  (mouseleave) ="tabMouseLeave('h-afqap-2')">Files</h4>
           </td>
-          <td id="tab-3" class="td-afqap" (click)="changeTab (event, this.id)">
-            <h4 class="afqap">Questions-Answers</h4>
+          <td id="tab-3" class="td-afqap" (click)="changeTab (event, 'h-afqap-3')">
+            <h4 id="h-afqap-3" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-3') "  (mouseleave) ="tabMouseLeave('h-afqap-3')">Questions-Answers</h4>
           </td>
-          <td id="tab-4" class="td-afqap" (click)="changeTab (event, this.id)">
-            <h4 class="afqap">Planning</h4>
+          <td id="tab-4" class="td-afqap" (click)="changeTab (event, 'h-afqap-4')">
+            <h4 id="h-afqap-4" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-4') "  (mouseleave) ="tabMouseLeave('h-afqap-4')">Planning</h4>
           </td>
         </tr>
       </table>
 
-
+      <div class="container-textarea">
+        <textarea class="comment-txt"></textarea>
+        <div class="text-area icon-example"></div>
+      </div>
     </div>
   </div>
   <div class="right-idem-disc">

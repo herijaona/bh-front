@@ -102,4 +102,13 @@ export class CommunitiesComponent implements OnInit {
 		this.activeTab = td;
 	}
 
+	public tabMouseEnter (id) {
+		document.getElementById(id).style.borderBottom = "solid 3px rgba(0,0,0,1)";
+	}
+
+	public tabMouseLeave (id) {
+		if (this.activeTab != null && this.activeTab == id) return true;
+		document.getElementById(id).style.borderBottom = "solid 3px rgba(0,0,0,0)";
+	}
+
 }

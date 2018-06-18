@@ -85,13 +85,12 @@
 .afqap {
   font-size: 22px;
   margin-right: 20px;
-  z-index: 50000;
-
+  border-bottom: solid 3px rgba(0, 0, 0, 0);
 }
 
 .table-afqap {
   z-index: 50000;
-  margin-top: -40px;
+  margin-top: -30px;
 }
 
 .table-afqap tr {
@@ -99,11 +98,10 @@
 }
 
 .td-afqap {
-  border-bottom: solid 3px rgba(0, 0, 0, 0);
   z-index: 50000;
 }
 
-.td-afqap:hover {
+.afqap:hover {
   border-bottom: solid 3px rgba(0, 0, 0, 1);
   cursor: pointer;
 }
@@ -112,5 +110,43 @@
   width: 100%;
   height: 2px;
   background-color: #D5DCE0;
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+.comment-collab-div {
+  width: 100%;
+  height: 100%;
+}
+
+.container-textarea {
+  width: 90%;
+  height: 50px;
+  background-color: #DDDDDD;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  padding-right: 90px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.comment-txt {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+}
+
+.icon-example:after {
+  content: url(http://www.stat.ncsu.edu/dept-icons/camera-icon.gif);
+  position:absolute;
+  z-index:9999;
+  right: 3px;
+  bottom: 6px;
 }
