@@ -1,17 +1,92 @@
 <navbar-admin></navbar-admin>
-<nav class="navbar navbar-expand-sm nav-tel">
-  <ul class="navbar-nav ns">
-    <li class="nav-item">
-      <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities']">Ecosystem</a>
-    </li>
-    <!-- <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','ideas']">Ideas</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities', 'questions']">Questions</a>
-    </li> -->
-  </ul>
-</nav>
+<!--<nav class="navbar navbar-expand-sm nav-tel">
+    <ul class="navbar-nav ns">
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities']">Ecosystem</a>
+        </li>
+        <p>Pfffffffffff</p>
+        &lt;!&ndash; <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','ideas']">Ideas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities', 'questions']">Questions</a>
+        </li> &ndash;&gt;
+    </ul>
+</nav>-->
+<div class="container-deal">
+
+  <div class="left-col">
+    <h4 class="open-sans-regular">Applications</h4>
+
+    <div class="organiser-by">
+      <h5 style="color: #8B97A5; font-size: 16px;">Organiser par</h5>
+    </div>
+
+    <div id="{{item._id}}" class="collab-list-div" *ngFor="let item of collablists; let myIndex = index" (click)="getCollabData($event, item)">
+      <img class="logo-com" ng-src="{{user.imageProfile}}">
+      <h5 class="title-project-left">{{item.name}}</h5>
+      <h5 class="auteur-project-left">{{item.author.firstname}} {{item.author.lastname}}</h5>
+    </div>
+  </div>
+  <div class="center-idem">
+    <h4 id="title_collab" class="open-sans-regular">Titre de collaboration</h4>
+    <div>
+      <div class="separator"></div>
+      <table class="table-afqap">
+        <tr>
+          <td id="tab-1" class="td-afqap" (click)="changeTab (event, this.id)">
+            <h4 class="afqap">Application</h4>
+          </td>
+          <td id="tab-2" class="td-afqap" (click)="changeTab (event, this.id)">
+            <h4 class="afqap">Files</h4>
+          </td>
+          <td id="tab-3" class="td-afqap" (click)="changeTab (event, this.id)">
+            <h4 class="afqap">Questions-Answers</h4>
+          </td>
+          <td id="tab-4" class="td-afqap" (click)="changeTab (event, this.id)">
+            <h4 class="afqap">Planning</h4>
+          </td>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+  <div class="right-idem-disc">
+    <h4 class="open-sans-regular">Observations</h4>
+  </div>
+</div>
 <div class="col-container mt-5">
-  <router-outlet></router-outlet>
+  <ng-template [ngIf]="communityShow">
+    <div class="">
+      <table class="table appli-table">
+        <thead class="head-color">
+        <tr class="text-bl">
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Job</th>
+          <th>Organisation</th>
+          <th>Interaction</th>
+          <th class="text-center">Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of userCommData">
+          <th class="tb">
+            <a>
+              <img [src]="item.us.imageProfile" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
+            </a>
+          </th>
+          <td class="tb">{{item.us.firstname}}</td>
+          <td class="tb">{{item.us.lastname}}</td>
+          <td>{{item.us.function}}</td>
+          <td>{{item.org}}</td>
+          <td>{{item.act.join('-')}}</td>
+          <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
 </div>

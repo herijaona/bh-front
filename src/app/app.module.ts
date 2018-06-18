@@ -23,6 +23,7 @@ import { CompanyService } from './services/company/company.service';
 import { ProjectsService } from './services/projects/projects.service';
 import { RequestInterceptorService } from './services/request-interceptor/request-interceptor.service';
 import { IsActiveGuardService } from './services/authguard/is-active-guard.service';
+import {CollaborationsService} from "./services/collaborations/collaborations.service";
 
 /*pipe*/
 
@@ -87,7 +88,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BaseHttpService,
     ProjectsService,
     CompanyService,
-    IsActiveGuardService
+    IsActiveGuardService,
+    CollaborationsService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
