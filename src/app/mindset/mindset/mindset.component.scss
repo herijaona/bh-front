@@ -6,3 +6,17 @@
     margin: 0 auto;
     width: 90%;
 }
+
+.btn-add {
+    background: #4abde8 !important;
+    padding: 0.375rem 0.75rem !important;
+    margin-top: -32px;
+    margin-bottom: 12px;
+    right: 108px;
+    z-index: 9;
+    position: absolute;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    i {
+        padding-right: 11px;
+    }
+}
