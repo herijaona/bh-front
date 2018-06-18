@@ -1,17 +1,26 @@
 <navbar-admin></navbar-admin>
 <nav class="navbar navbar-expand-sm nav-tel">
-  <ul class="navbar-nav ns">
-    <li class="nav-item">
-      <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities']">Ecosystem</a>
-    </li>
-    <!-- <li class="nav-item">
+    <ul class="navbar-nav ns">
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/administration-in','communities','members']">Members</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','communities']">Communities</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','community-space']">Community spaces</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','ecosystem']">Ecosystem</a>
+        </li>
+        <!-- <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','ideas']">Ideas</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities', 'questions']">Questions</a>
     </li> -->
-  </ul>
+    </ul>
 </nav>
 <div class="col-container mt-5">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>

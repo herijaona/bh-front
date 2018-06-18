@@ -40,8 +40,9 @@ import { InvitedOrganisationComponent } from '../administration-in/mydesk/invite
 import { MydeskComponent } from '../administration-in/mydesk/mydesk.component';
 import { CommunitiesComponent } from '../administration-in/communities/communities.component';
 import { EcosystemComponent } from '../administration-in/communities/ecosystem/ecosystem.component';
-import { QuestionCommunitiesComponent } from '../administration-in/communities/question-communities/question-communities.component';
-import { IdeasCommunitiesComponent } from '../administration-in/communities/ideas/ideas.component';
+import { MembersCommunitiesComponent } from '../administration-in/communities/members-communities/members-communities.component';
+import { UnderCommunitiesComponent } from '../administration-in/communities/under-communities/under-communities.component';
+import { CommunitySpaceComponent } from '../administration-in/communities/community-space/community-space.component';
 import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
 import { PositionsComponent } from '../administration-in/positions/positions.component';
 import { DealSpaceComponent } from '../administration-in/deal-space/deal-space.component';
@@ -212,17 +213,23 @@ const routes: Routes = [
     canActivate: [AuthguardService],
     children: [
       {
-        path: '',
+        path: 'ecosystem',
         component: EcosystemComponent,
       },
       {
-        path: 'ideas',
-        component: IdeasCommunitiesComponent,
+        path: 'members',
+        component: MembersCommunitiesComponent,
       },
       {
-        path: 'questions',
-        component: QuestionCommunitiesComponent,
+        path: 'communities',
+        component: UnderCommunitiesComponent,
       },
+      {
+        path: 'community-space',
+        component: CommunitySpaceComponent,
+      },
+
+      
     ],
   },
   {
