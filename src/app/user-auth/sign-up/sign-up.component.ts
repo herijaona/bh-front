@@ -96,7 +96,7 @@ export class SignUpComponent implements OnInit {
   successAction() {
     this.sh.notifToast({
       type: 'success',
-      message: '<p>Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.</p>',
+      message: '<p>Account create successfully<br>Consult your email box to activate your account.</p>',
     });
   }
 

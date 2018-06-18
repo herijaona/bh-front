@@ -15,15 +15,15 @@
                     <div class="row">
                         <div class="col-md-6  col-sm-6">
                             <div class="input-md">
-                                <label for="bh_firstname">Firstname</label>
-                                <input placeholder="Enter your firstname" [ngClass]="{'err_sh' : registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched }" type="text" formControlName="bh_firstname" id="bh_firstname" class="form-control" mdbActive>
+                                <label for="bh_firstname">First Name</label>
+                                <input placeholder="Enter your first name" [ngClass]="{'err_sh' : registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched }" type="text" formControlName="bh_firstname" id="bh_firstname" class="form-control" mdbActive>
                                 <span class="err_msg" *ngIf="registerForm.controls.bh_firstname.invalid && registerForm.controls.bh_firstname.touched">Champ Obligatoire</span>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="input-md">
-                                <label for="bh_lastname">Lastname</label>
-                                <input placeholder="Enter your lastname" type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" mdbActive>
+                                <label for="bh_lastname">Last Name</label>
+                                <input placeholder="Enter your last name" type="text" formControlName="bh_lastname" id="bh_lastname" class="form-control" mdbActive>
                                 <span class="err_msg" *ngIf="registerForm.controls.bh_lastname.invalid && registerForm.controls.bh_lastname.touched">Champ Obligatoire</span>
                             </div>
                         </div>

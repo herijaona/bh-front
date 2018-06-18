@@ -487,3 +487,13 @@ h6 {
         }
     }
 }
+
+.presentation {
+    section-edit-button {
+        .bt_edit {
+            .tooltip-top {
+                visibility: hidden;
+            }
+        }
+    }
+}
