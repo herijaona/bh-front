@@ -14,6 +14,9 @@ export class Globals {
     resize_enabled: false,
     height: 200
   };
+  public static localStorageString = {
+    DATAROLE : '_data_role_'    
+  }
   public conf_editor = {
     removePlugins: "elementspath",
     toolbar: [

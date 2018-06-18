@@ -6,7 +6,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
-import { MembersAdminModule } from '../members-admin/members-admin.module';
 import { GeneralUtilitiesModule } from '../general-utilities/general-utilities.module';
 
 import { ProfileComponent } from './profile/profile.component';
@@ -46,7 +45,7 @@ import { PlanningDealComponent } from './deal-space/planning-deal/planning-deal.
 import { HistoricalComponent } from './mydesk/historical/historical.component';
 import { IdeasDeskComponent } from './mydesk/ideas-desk/ideas-desk.component';
 import { ApplicationFormComponent } from './collaborations/application-form/application-form.component';
-import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
+import { ReceivedInvitationsComponent } from './mydesk/invited-organisation/received-invitations/received-invitations.component';
 import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
 import { ApplicationReceivedbyCollaborationComponent } from './collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
 import { ErrorNotificationComponent } from './extra/error-notification/error-notification.component';
@@ -61,7 +60,6 @@ import { ErrorNotificationComponent } from './extra/error-notification/error-not
     FormsModule,
     MyDatePickerModule,
     RouterModule,
-    MembersAdminModule,
     GeneralUtilitiesModule,
   ],
   declarations: [

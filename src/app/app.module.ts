@@ -37,7 +37,6 @@ import { NavbarModule } from './navbar/navbar.module';
 import { ProjectsModule } from './projects/projects.module';
 import { TeamModule } from './team/team.module';
 import { ProfileAdminModule } from './profile-admin/profile-admin.module';
-import { MembersAdminModule } from './members-admin/members-admin.module';
 import { CCapitalModule } from './c-capital/c-capital.module';
 import { TabModule } from 'angular-tabs-component';
 
@@ -58,7 +57,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     IdeasModule,
     MindsetModule,
     ProfileAdminModule,
-    MembersAdminModule,
     TeamModule,
     NavbarModule,
     ReactiveFormsModule,

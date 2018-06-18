@@ -1,12 +1,14 @@
 <div class="col-container">
   <div class="table-respo">
     <!--Table-->
+    <ng-template>
+      
     <table class="table appli-table">
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
           <th>Date</th>
-          <th>Country</th>
+          <!-- <th>Country</th> -->
           <th>Organisation</th>
           <th>Type</th>
           <th>Collaboration name</th>
@@ -19,7 +21,7 @@
       <tbody>
         <tr *ngFor="let item of allApplData">
           <td>{{item.date}}</td>
-          <td>{{item.country}}</td>
+          <!-- <td>{{item.country}}</td> -->
           <td>{{item.orgName}}</td>
           <td>{{item.typeCollab}}</td>
           <td>{{item.collabName}}</td>
@@ -34,6 +36,7 @@
       </tbody>
       <!--Table body-->
     </table>
+    </ng-template>
     <!--Table-->
   </div>
 </div>
