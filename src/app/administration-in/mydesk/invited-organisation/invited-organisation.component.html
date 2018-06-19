@@ -1,7 +1,18 @@
 <div class="col-container">
   <p class="invite">You can invite other organizations to participate in your projects.</p>
+  <div *ngIf="showResult" >
+    <div *ngIf="!hasError" >
+      <span class="green">Invitation(s) sent succesfully</span>
+    </div>
+
+    <div *ngIf="hasError" >
+      <span *ngFor="let item of invitationResult"  [ngClass]="{ red : item.res_value.value == 'NOK', green : item.res_value.value == 'OK'  }" >{{item.objInv.invitation_email+' : '+ item.res_value.motif}}</span> <br>
+    </div>
+  </div>
   <div class="add-form text-right">
-    <span (click)="addNewRow()"><i class="fa fa-plus"></i></span>
+    <span (click)="addNewRow()">
+      <i class="fa fa-plus"></i>
+    </span>
   </div>
   <form [formGroup]='inviteForm' (ngSubmit)="sendInvitation()">
     <div formArrayName="inviteItem" class="">
@@ -21,18 +32,20 @@
         <div class="col-3">
           <label class="grey-text-form">Organisation name</label>
           <div class="input-md">
-            <input type="text" placeholder="" id="" formControlName="organisationName" class="form-control-project" mdbActive validate required="required">
+            <input type="text" placeholder="" id="" formControlName="organisationName" class="form-control-project" mdbActive validate
+              required="required">
           </div>
         </div>
         <div class="col-3">
           <label class="grey-text-form">Email</label>
           <div class="input-md">
-            <input type="text" placeholder="" id="" formControlName="bhEmail" class="form-control-project" mdbActive validate required="required">
+            <input type="text" placeholder="" id="" formControlName="invitation_email" class="form-control-project" mdbActive validate
+              required="required">
           </div>
         </div>
         <a *ngIf="inviteForm.controls.inviteItem.length > 1" (click)="deleteRow(i)" class="i-remove">
-                <i class="fa fa-remove"></i>
-            </a>
+          <i class="fa fa-remove"></i>
+        </a>
       </div>
       <div class="row">
         <div class="text-right">
@@ -44,4 +57,4 @@
   </form>
 </div>
 
-    {{ inviteForm.value | json }}
+{{ inviteForm.value | json }}
