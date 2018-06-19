@@ -416,6 +416,7 @@ h6 {
         .text-bl {
             color: #393f4b;
             font-family: SourceSansPro-Semibold;
+            text-transform: capitalize;
         }
     }
     tbody td {
@@ -466,3 +467,33 @@ h6 {
 }
 
  */
+
+.text-tr {
+    p {
+        display: inline-block;
+        color: #0000008c;
+        font-size: 14px;
+        font-family: SourceSansPro-Regular;
+        line-height: 24px;
+    }
+}
+
+.wd {
+    span {
+        p {
+            display: -webkit-inline-box;
+            margin-left: 10px;
+            line-height: 24px;
+        }
+    }
+}
+
+.presentation {
+    section-edit-button {
+        .bt_edit {
+            .tooltip-top {
+                visibility: hidden;
+            }
+        }
+    }
+}

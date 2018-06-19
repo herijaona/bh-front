@@ -199,7 +199,7 @@ export class RegistrationComponent implements OnInit {
     var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifComponent);
     var refNotif = this.attachView.createComponent(factoryNotif);
     refNotif.instance.type = 'success';
-    refNotif.instance.message = 'Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.';
+    refNotif.instance.message = 'Account create successfully<br>Consult your email box to activate your account.';
     var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(PageLoginComponent);
     var refLogin = this.attachView.createComponent(factoryLogin);
     // ref.changeDetectorRef.detectChanges();

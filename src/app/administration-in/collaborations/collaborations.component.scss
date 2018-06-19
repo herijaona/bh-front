@@ -50,8 +50,13 @@ li {
     right: 0;
     position: absolute;
     margin-right: 74px;
+    li:first-child {
+        border: none;
+    }
     li {
         margin-right: 2px;
+        border: dotted 0.2px #ffffff6b;
+        text-align: center;
         a {
             padding: 5px;
             padding-left: 8px !important;

@@ -34,8 +34,6 @@ import { ApplicationComponent } from './collaborations/application/application.c
 import { ViewReactionComponent } from './mydesk/view-reaction/view-reaction.component';
 import { ApplicationReceivedComponent } from './collaborations/application-received/application-received.component';
 import { EcosystemComponent } from './communities/ecosystem/ecosystem.component';
-import { IdeasCommunitiesComponent } from './communities/ideas/ideas.component';
-import { QuestionCommunitiesComponent } from './communities/question-communities/question-communities.component';
 import { OneCollabApplicationComponent } from './collaborations/one-collab-application/one-collab-application.component';
 import { DealSpaceComponent } from './deal-space/deal-space.component';
 import { QuestionAnswersComponent } from './deal-space/question-answers/question-answers.component';
@@ -49,6 +47,9 @@ import { ReceivedInvitationsComponent } from './mydesk/invited-organisation/rece
 import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
 import { ApplicationReceivedbyCollaborationComponent } from './collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
 import { ErrorNotificationComponent } from './extra/error-notification/error-notification.component';
+import { MembersCommunitiesComponent } from './communities/members-communities/members-communities.component';
+import { UnderCommunitiesComponent } from './communities/under-communities/under-communities.component';
+import { CommunitySpaceComponent } from './communities/community-space/community-space.component';
 
 @NgModule({
   imports: [
@@ -88,8 +89,6 @@ import { ErrorNotificationComponent } from './extra/error-notification/error-not
     ApplicationReceivedComponent,
     ApplicationComponent,
     EcosystemComponent,
-    IdeasCommunitiesComponent,
-    QuestionCommunitiesComponent,
     OneCollabApplicationComponent,
     DealSpaceComponent,
     QuestionAnswersComponent,
@@ -103,6 +102,9 @@ import { ErrorNotificationComponent } from './extra/error-notification/error-not
     InactiveAccountComponent,
     ApplicationReceivedbyCollaborationComponent,
     ErrorNotificationComponent,
+    MembersCommunitiesComponent,
+    UnderCommunitiesComponent,
+    CommunitySpaceComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

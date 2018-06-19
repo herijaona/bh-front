@@ -1,7 +1,7 @@
 <div class="col-container">
     <div class="table-respo">
         <!--Table-->
-        <table class="table appli-table">
+        <table class="table appli-table mt-3">
             <!--Table head-->
             <thead class="head-color">
                 <tr class="text-bl">
@@ -16,7 +16,7 @@
             <!--Table head-->
             <!--Table body-->
             <tbody *ngFor="let item of allQuestions, let indx = index ">
-                <tr>
+                <tr class="htl">
                     <td class="no-wrp">{{item.date}}</td>
                     <td>{{item.hour}}</td>
                     <td>{{item.userAsk.name}}</td>
@@ -33,16 +33,17 @@
 
                 </tr>
                 <tr class="text-tr">
-                    <th colspan="5" [innerHtml]="item.quest_part|bhSafeHtml" class="reply-b">
+                    <th colspan="5" [innerHtml]="item.quest_part|bhSafeHtml" class="fa fa-comment-o reply-b">
+
                     </th>
                 </tr>
                 <tr *ngIf="item.hasresp">
                     <td colspan="5">
-                        <div class="reply-box position-realtive" *ngFor="let resp_item of item.responseIN">
+                        <div class="reply-box wd position-realtive" *ngFor="let resp_item of item.responseIN">
 
-                            <span [innerHtml]="resp_item.respText | bhSafeHtml"></span>
+                            <span [innerHtml]="resp_item.respText | bhSafeHtml" class="fa fa-reply"></span>
                             <div class="reply-name">
-                                <span class="mr-2" [innerHtml]="getDateString(resp_item.rDate)"></span> 
+                                <span class="mr-2" [innerHtml]="getDateString(resp_item.rDate)"></span>
                                 <span>{{resp_item.user.firstname+" "+resp_item.user.lastname}}</span>
                             </div>
                         </div>

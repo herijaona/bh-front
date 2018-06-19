@@ -1,58 +1,60 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 /* Component Import*/
-import { IdeasComponent } from "../ideas/ideas/ideas.component";
-import { MindsetComponent } from "../mindset/mindset/mindset.component";
-import { DescriptionProjectComponent } from "../projects/description-project/description-project.component";
-import { ProjectsComponent } from "../projects/projects/projects.component";
-import { TeamComponent } from "../team/team/team.component";
-import { HomepageComponent } from "../homepage/homepage/homepage.component";
-import { RegistrationComponent } from "../user-auth/registration/registration.component";
-import { ResetPasswordComponent } from "../user-auth/reset-password/reset-password.component";
-import { ActivationComponent } from "../user-auth/activation/activation.component";
-import { PageLoginComponent } from "../user-auth/page-login/page-login.component";
-import { ProfileAdminComponent } from "../profile-admin/profile-admin/profile-admin.component";
-import { IsloggedVerifyGuard } from "../services/authguard/islogged-verify.guard";
-import { AuthguardService } from "../services/authguard/authguard.service";
-import { IsActiveGuardService } from "../services/authguard/is-active-guard.service";
-import { CommitteeComponent } from "../team/committee/committee.component";
-import { InvitedRegisterComponent } from "../user-auth/invited-register/invited-register.component";
-import { SignUpComponent } from "../user-auth/sign-up/sign-up.component";
-import { ApplicationReceivedComponent } from "../administration-in/collaborations/application-received/application-received.component";
-import { ApplicationReceivedbyCollaborationComponent } from "../administration-in/collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component";
-import { Project1Component } from "../c-capital/project1/project1.component";
-import { ProjectDescriptionComponent } from "../c-capital/project-description/project-description.component";
+import { IdeasComponent } from '../ideas/ideas/ideas.component';
+import { MindsetComponent } from '../mindset/mindset/mindset.component';
+import { DescriptionProjectComponent } from '../projects/description-project/description-project.component';
+import { ProjectsComponent } from '../projects/projects/projects.component';
+import { TeamComponent } from '../team/team/team.component';
+import { HomepageComponent } from '../homepage/homepage/homepage.component';
+import { RegistrationComponent } from '../user-auth/registration/registration.component';
+import { ResetPasswordComponent } from '../user-auth/reset-password/reset-password.component';
+import { ActivationComponent } from '../user-auth/activation/activation.component';
+import { PageLoginComponent } from '../user-auth/page-login/page-login.component';
+import { ProfileAdminComponent } from '../profile-admin/profile-admin/profile-admin.component';
+import { IsloggedVerifyGuard } from '../services/authguard/islogged-verify.guard';
+import { AuthguardService } from '../services/authguard/authguard.service';
+import { IsActiveGuardService } from '../services/authguard/is-active-guard.service';
+import { CommitteeComponent } from '../team/committee/committee.component';
+import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
+import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
 import { ReceivedInvitationsComponent } from "../administration-in/mydesk/invited-organisation/received-invitations/received-invitations.component";
-import { ProfileComponent } from "../administration-in/profile/profile.component";
-import { MembersAdminComponent } from "../administration-in/mydesk/members-admin/members-admin.component";
-import { QuestionsDetailsComponent } from "../administration-in/mydesk/questions-details/questions-details.component";
-import { AdminAllColabComponent } from "../administration-in/collaborations/admin-all-colab/admin-all-colab.component";
-import { ProjectEditAndNewComponent } from "../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component";
-import { ApplicationSentComponent } from "../administration-in/collaborations/application-sent/application-sent.component";
-import { ApplyComponent } from "../administration-in/collaborations/apply/apply.component";
-import { CollaborationsComponent } from "../administration-in/collaborations/collaborations.component";
-import { QuestionComponent } from "../administration-in/collaborations/question/question.component";
-import { ApplicationFormComponent } from "../administration-in/collaborations/application-form/application-form.component";
-import { IdeasDeskComponent } from "../administration-in/mydesk/ideas-desk/ideas-desk.component";
-import { FavoriteComponent } from "../administration-in/mydesk/favorite/favorite.component";
-import { ApplicationComponent } from "../administration-in/collaborations/application/application.component";
-import { InvitedOrganisationComponent } from "../administration-in/mydesk/invited-organisation/invited-organisation.component";
-import { MydeskComponent } from "../administration-in/mydesk/mydesk.component";
-import { CommunitiesComponent } from "../administration-in/communities/communities.component";
-import { EcosystemComponent } from "../administration-in/communities/ecosystem/ecosystem.component";
-import { QuestionCommunitiesComponent } from "../administration-in/communities/question-communities/question-communities.component";
-import { IdeasCommunitiesComponent } from "../administration-in/communities/ideas/ideas.component";
-import { OpportunitiesComponent } from "../administration-in/opportunities/opportunities.component";
-import { PositionsComponent } from "../administration-in/positions/positions.component";
-import { DealSpaceComponent } from "../administration-in/deal-space/deal-space.component";
-import { QuestionAnswersComponent } from "../administration-in/deal-space/question-answers/question-answers.component";
-import { ApplicationDealComponent } from "../administration-in/deal-space/application-deal/application-deal.component";
-import { FilesDealComponent } from "../administration-in/deal-space/files-deal/files-deal.component";
-import { PlanningDealComponent } from "../administration-in/deal-space/planning-deal/planning-deal.component";
-import { ViewReactionComponent } from "../administration-in/mydesk/view-reaction/view-reaction.component";
-import { HistoricalComponent } from "../administration-in/mydesk/historical/historical.component";
-import { InactiveAccountComponent } from "../administration-in/extra/inactive-account/inactive-account.component";
-import { ErrorNotificationComponent } from "../administration-in/extra/error-notification/error-notification.component";
+import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
+import { ApplicationReceivedbyCollaborationComponent } from '../administration-in/collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
+import { Project1Component } from '../c-capital/project1/project1.component';
+import { ProjectDescriptionComponent } from '../c-capital/project-description/project-description.component';
+import { ProfileComponent } from '../administration-in/profile/profile.component';
+import { MembersAdminComponent } from '../administration-in/mydesk/members-admin/members-admin.component';
+import { QuestionsDetailsComponent } from '../administration-in/mydesk/questions-details/questions-details.component';
+import { AdminAllColabComponent } from '../administration-in/collaborations/admin-all-colab/admin-all-colab.component';
+import { ProjectEditAndNewComponent } from '../administration-in/collaborations/project-edit-and-new/project-edit-and-new.component';
+import { ApplicationSentComponent } from '../administration-in/collaborations/application-sent/application-sent.component';
+import { ApplyComponent } from '../administration-in/collaborations/apply/apply.component';
+import { CollaborationsComponent } from '../administration-in/collaborations/collaborations.component';
+import { QuestionComponent } from '../administration-in/collaborations/question/question.component';
+import { ApplicationFormComponent } from '../administration-in/collaborations/application-form/application-form.component';
+import { IdeasDeskComponent } from '../administration-in/mydesk/ideas-desk/ideas-desk.component';
+import { FavoriteComponent } from '../administration-in/mydesk/favorite/favorite.component';
+import { ApplicationComponent } from '../administration-in/collaborations/application/application.component';
+import { InvitedOrganisationComponent } from '../administration-in/mydesk/invited-organisation/invited-organisation.component';
+import { MydeskComponent } from '../administration-in/mydesk/mydesk.component';
+import { CommunitiesComponent } from '../administration-in/communities/communities.component';
+import { EcosystemComponent } from '../administration-in/communities/ecosystem/ecosystem.component';
+import { MembersCommunitiesComponent } from '../administration-in/communities/members-communities/members-communities.component';
+import { UnderCommunitiesComponent } from '../administration-in/communities/under-communities/under-communities.component';
+import { CommunitySpaceComponent } from '../administration-in/communities/community-space/community-space.component';
+import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
+import { PositionsComponent } from '../administration-in/positions/positions.component';
+import { DealSpaceComponent } from '../administration-in/deal-space/deal-space.component';
+import { QuestionAnswersComponent } from '../administration-in/deal-space/question-answers/question-answers.component';
+import { ApplicationDealComponent } from '../administration-in/deal-space/application-deal/application-deal.component';
+import { FilesDealComponent } from '../administration-in/deal-space/files-deal/files-deal.component';
+import { PlanningDealComponent } from '../administration-in/deal-space/planning-deal/planning-deal.component';
+import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction/view-reaction.component';
+import { HistoricalComponent } from '../administration-in/mydesk/historical/historical.component';
+import { InactiveAccountComponent } from '../administration-in/extra/inactive-account/inactive-account.component';
+import { ErrorNotificationComponent } from '../administration-in/extra/error-notification/error-notification.component';
+
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
@@ -211,18 +213,24 @@ const routes: Routes = [
     canActivate: [AuthguardService],
     children: [
       {
-        path: "",
-        component: EcosystemComponent
+        path: 'ecosystem',
+        component: EcosystemComponent,
       },
       {
-        path: "ideas",
-        component: IdeasCommunitiesComponent
+        path: 'members',
+        component: MembersCommunitiesComponent,
       },
       {
-        path: "questions",
-        component: QuestionCommunitiesComponent
-      }
-    ]
+        path: 'communities',
+        component: UnderCommunitiesComponent,
+      },
+      {
+        path: 'community-space',
+        component: CommunitySpaceComponent,
+      },
+
+      
+    ],
   },
   {
     path: "administration-in/opportunities",

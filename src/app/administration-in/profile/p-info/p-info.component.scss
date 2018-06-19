@@ -103,3 +103,36 @@
 .modal-dialog {
     max-width: 75% !important;
 }
+
+.tooltip .tooltiptext {
+    display: none;
+}
+
+.tooltip-top {
+    display: none;
+}
+
+.pve:hover {
+    .tooltip-top {
+        display: block;
+        position: absolute;
+        background: #373d49;
+        border-radius: 3px;
+        text-align: whi;
+        color: #ffffff9c;
+        margin-top: -25px;
+        margin-left: -11px;
+        font-size: 12px;
+        width: 129px;
+    }
+    .tooltip-top::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #373d49 transparent transparent transparent;
+    }
+}

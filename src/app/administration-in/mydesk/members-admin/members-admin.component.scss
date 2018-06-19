@@ -223,6 +223,7 @@ hr {
     box-shadow: 0.2px 0px 0.1px 1px #e84d3f;
     width: 48.5%;
     margin: 10px 0px 10px 0px;
+    height: 45px;
     @media(max-width: 767px) {
         width: 100%;
     }
@@ -611,4 +612,16 @@ hr {
 
 .top-r {
     margin-top: 70px;
+}
+
+.nb-team {
+    font-family: SourceSansPro-Regular;
+    color: #524a4a;
+    font-size: 14px;
+    p {
+        margin-bottom: 0px;
+    }
+    strong {
+        font-family: SourceSansPro-Semibold;
+    }
 }
