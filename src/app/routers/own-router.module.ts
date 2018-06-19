@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 /* Component Import*/
 import { IdeasComponent } from '../ideas/ideas/ideas.component';
 import { MindsetComponent } from '../mindset/mindset/mindset.component';
@@ -15,10 +15,9 @@ import { ProfileAdminComponent } from '../profile-admin/profile-admin/profile-ad
 import { IsloggedVerifyGuard } from '../services/authguard/islogged-verify.guard';
 import { AuthguardService } from '../services/authguard/authguard.service';
 import { IsActiveGuardService } from '../services/authguard/is-active-guard.service';
-import { CommitteeComponent } from '../team/committee/committee.component';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
-import { ReceivedInvitationsComponent } from "../administration-in/mydesk/invited-organisation/received-invitations/received-invitations.component";
+import { ReceivedInvitationsComponent }  from '../administration-in/mydesk/invited-organisation/received-invitations/received-invitations.component';
 import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
 import { ApplicationReceivedbyCollaborationComponent } from '../administration-in/collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
@@ -54,161 +53,158 @@ import { ViewReactionComponent } from '../administration-in/mydesk/view-reaction
 import { HistoricalComponent } from '../administration-in/mydesk/historical/historical.component';
 import { InactiveAccountComponent } from '../administration-in/extra/inactive-account/inactive-account.component';
 import { ErrorNotificationComponent } from '../administration-in/extra/error-notification/error-notification.component';
+import { ReplyOrgInvitationComponent } from '../user-auth/reply-org-invitation/reply-org-invitation.component';
 
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: HomepageComponent
   },
   {
-    path: "committee",
-    component: CommitteeComponent
-  },
-  {
-    path: "home",
+    path: 'home',
     component: HomepageComponent
   },
   {
-    path: "project1",
+    path: 'project1',
     component: Project1Component
   },
   {
-    path: "open-innovation/:slug_acc/acceuil",
+    path: 'open-innovation/:slug_acc/acceuil',
     component: MindsetComponent
   },
   {
-    path: "open-innovation/:slug_acc/team",
+    path: 'open-innovation/:slug_acc/team',
     component: TeamComponent
   },
   {
-    path: "open-innovation/:slug_acc/projects",
+    path: 'open-innovation/:slug_acc/projects',
     component: ProjectsComponent
   },
   {
-    path: "open-innovation/:slug_acc/details-project/:project_id",
+    path: 'open-innovation/:slug_acc/details-project/:project_id',
     component: DescriptionProjectComponent
   },
   {
-    path: "open-innovation/:slug_acc/success-stories",
+    path: 'open-innovation/:slug_acc/success-stories',
     component: IdeasComponent
   },
   {
-    path: "register-organisation",
+    path: 'register-organisation',
     component: RegistrationComponent,
     canActivate: [IsloggedVerifyGuard]
   },
   {
-    path: "activate/:code",
+    path: 'activate/:code',
     component: ActivationComponent
   },
   {
-    path: "login",
+    path: 'login',
     component: PageLoginComponent
   },
   {
-    path: "sign-in",
+    path: 'sign-in',
     component: SignUpComponent
   },
   {
-    path: "administration-in/user/profile",
+    path: 'administration-in/user/profile',
     component: ProfileComponent,
     canActivate: [AuthguardService]
   },
   {
-    path: "administration-in/account-note",
+    path: 'administration-in/account-note',
     component: InactiveAccountComponent,
     canActivate: [IsActiveGuardService]
   },
   {
-    path: "error-notification",
+    path: 'error-notification',
     component: ErrorNotificationComponent
   },
   {
-    path: "administration-in/desk",
+    path: 'administration-in/desk',
     component: MydeskComponent,
     canActivate: [AuthguardService],
     children: [
       {
-        path: "",
+        path: '',
         component: MembersAdminComponent
       },
       {
-        path: "questions",
+        path: 'questions',
         component: ViewReactionComponent
       },
       {
-        path: "ideas",
+        path: 'ideas',
         component: IdeasDeskComponent
       },
       {
-        path: "questions/details/:qID",
+        path: 'questions/details/:qID',
         component: QuestionsDetailsComponent
       },
       {
-        path: "favorite",
+        path: 'favorite',
         component: FavoriteComponent
       },
       {
-        path: "invited-organisation",
+        path: 'invited-organisation',
         component: InvitedOrganisationComponent
       },
       {
-        path: "historical",
+        path: 'historical',
         component: HistoricalComponent
       },
       {
-        path: "received-invitations",
+        path: 'received-invitations',
         component: ReceivedInvitationsComponent
       }
     ]
   },
   {
-    path: "administration-in/collaborations",
+    path: 'administration-in/collaborations',
     component: CollaborationsComponent,
     canActivate: [AuthguardService],
     children: [
       {
-        path: "",
+        path: '',
         component: AdminAllColabComponent
       },
       {
-        path: "apply-to/:id_project",
+        path: 'apply-to/:id_project',
         component: ApplyComponent
       },
       {
-        path: "application-sent",
+        path: 'application-sent',
         component: ApplicationSentComponent
       },
       {
-        path: "application-received/by-collaborations/:idCollab",
+        path: 'application-received/by-collaborations/:idCollab',
         component: ApplicationReceivedbyCollaborationComponent
       },
       {
-        path: "application-received",
+        path: 'application-received',
         component: ApplicationReceivedComponent
       },
       {
-        path: "create/:item-slug",
+        path: 'create/:item-slug',
         component: ProjectEditAndNewComponent
       },
       {
-        path: "application-received/details/:applicationID",
+        path: 'application-received/details/:applicationID',
         component: ApplicationComponent
       },
       {
-        path: "question",
+        path: 'question',
         component: QuestionComponent
       },
       {
-        path: "application-form",
+        path: 'application-form',
         component: ApplicationFormComponent
       }
     ]
   },
   {
-    path: "administration-in/communities",
+    path: 'administration-in/communities',
     component: CommunitiesComponent,
     canActivate: [AuthguardService],
     children: [
@@ -229,60 +225,64 @@ const routes: Routes = [
         component: CommunitySpaceComponent,
       },
 
-      
+
     ],
   },
   {
-    path: "administration-in/opportunities",
+    path: 'administration-in/opportunities',
     component: OpportunitiesComponent,
     canActivate: [AuthguardService],
     children: []
   },
   {
-    path: "administration-in/positions",
+    path: 'administration-in/positions',
     component: PositionsComponent,
     canActivate: [AuthguardService],
     children: []
   },
   {
-    path: "administration-in/deal-space",
+    path: 'administration-in/deal-space',
     component: DealSpaceComponent,
     canActivate: [AuthguardService],
     children: [
       {
-        path: "question-answers",
+        path: 'question-answers',
         component: QuestionAnswersComponent
       },
       {
-        path: "application",
+        path: 'application',
         component: ApplicationDealComponent
       },
       {
-        path: "files",
+        path: 'files',
         component: FilesDealComponent
       },
       {
-        path: "planning",
+        path: 'planning',
         component: PlanningDealComponent
       }
     ]
   },
 
   {
-    path: "c-capital/description-project",
+    path: 'c-capital/description-project',
     component: ProjectDescriptionComponent
   },
   {
-    path: "reset-my-pass/:id_/:pass_code",
+    path: 'reset-my-pass/:id_/:pass_code',
     component: ResetPasswordComponent
   },
   {
-    path: "invitation_response/:acc_slug/invitation/:invit_id",
+    path: 'invitation_response/:acc_slug/invitation/:invit_id',
     component: InvitedRegisterComponent
+  },
+  {
+    path: 'reply-invitation/organisation/:id_invitation',
+    component: ReplyOrgInvitationComponent
   }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class OwnRouterModule {}
+export class OwnRouterModule { }
