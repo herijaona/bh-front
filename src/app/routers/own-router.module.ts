@@ -17,7 +17,7 @@ import { AuthguardService } from '../services/authguard/authguard.service';
 import { IsActiveGuardService } from '../services/authguard/is-active-guard.service';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
-import { ReceivedInvitationsComponent }  from '../administration-in/mydesk/invited-organisation/received-invitations/received-invitations.component';
+import { ReceivedInvitationsComponent } from '../administration-in/mydesk/invited-organisation/received-invitations/received-invitations.component';
 import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
 import { ApplicationReceivedbyCollaborationComponent } from '../administration-in/collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
@@ -116,10 +116,6 @@ const routes: Routes = [
     path: 'administration-in/account-note',
     component: InactiveAccountComponent,
     canActivate: [IsActiveGuardService]
-  },
-  {
-    path: 'error-notification',
-    component: ErrorNotificationComponent
   },
   {
     path: 'administration-in/desk',
@@ -279,7 +275,12 @@ const routes: Routes = [
   {
     path: 'reply-invitation/organisation/:id_invitation',
     component: ReplyOrgInvitationComponent
-  }
+  },
+  {
+    path: 'error-notification',
+    component: ErrorNotificationComponent
+  },
+  { path: '**', redirectTo: '/error-notification' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
