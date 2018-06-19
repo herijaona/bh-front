@@ -51,6 +51,7 @@ import { ErrorNotificationComponent } from './extra/error-notification/error-not
 import { MembersCommunitiesComponent } from './communities/members-communities/members-communities.component';
 import { UnderCommunitiesComponent } from './communities/under-communities/under-communities.component';
 import { CommunitySpaceComponent } from './communities/community-space/community-space.component';
+import { SettingComponent } from './setting/setting.component';
 
 @NgModule({
   imports: [
@@ -107,6 +108,7 @@ import { CommunitySpaceComponent } from './communities/community-space/community
     MembersCommunitiesComponent,
     UnderCommunitiesComponent,
     CommunitySpaceComponent,
+    SettingComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

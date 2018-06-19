@@ -81,8 +81,9 @@
 }
 
 .nav-col {
-    margin-bottom: 87px;
-    margin-left: 10px;
+    top: -42px;
+    position: relative;
+    margin-left: 5px;
     @media(max-width: 991px) {
         display: none;
     }

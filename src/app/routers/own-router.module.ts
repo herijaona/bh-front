@@ -45,6 +45,7 @@ import { UnderCommunitiesComponent } from '../administration-in/communities/unde
 import { CommunitySpaceComponent } from '../administration-in/communities/community-space/community-space.component';
 import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
 import { PositionsComponent } from '../administration-in/positions/positions.component';
+import { SettingComponent } from '../administration-in/setting/setting.component';
 import { DealSpaceComponent } from '../administration-in/deal-space/deal-space.component';
 import { QuestionAnswersComponent } from '../administration-in/deal-space/question-answers/question-answers.component';
 import { ApplicationDealComponent } from '../administration-in/deal-space/application-deal/application-deal.component';
@@ -231,6 +232,11 @@ const routes: Routes = [
 
       
     ],
+  },
+  {
+    path: 'administration-in/setting',
+    component: SettingComponent,
+    canActivate: [AuthguardService]
   },
   {
     path: 'administration-in/opportunities',
