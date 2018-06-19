@@ -6,7 +6,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
-import { MembersAdminModule } from '../members-admin/members-admin.module';
 import { GeneralUtilitiesModule } from '../general-utilities/general-utilities.module';
 
 import { ProfileComponent } from './profile/profile.component';
@@ -44,7 +43,6 @@ import { PlanningDealComponent } from './deal-space/planning-deal/planning-deal.
 import { HistoricalComponent } from './mydesk/historical/historical.component';
 import { IdeasDeskComponent } from './mydesk/ideas-desk/ideas-desk.component';
 import { ApplicationFormComponent } from './collaborations/application-form/application-form.component';
-import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
 import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
 import { ApplicationReceivedbyCollaborationComponent } from './collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
 import { ErrorNotificationComponent } from './extra/error-notification/error-notification.component';
@@ -52,6 +50,10 @@ import { MembersCommunitiesComponent } from './communities/members-communities/m
 import { UnderCommunitiesComponent } from './communities/under-communities/under-communities.component';
 import { CommunitySpaceComponent } from './communities/community-space/community-space.component';
 import { SettingComponent } from './setting/setting.component';
+import { FavoritePage1Component } from './mydesk/invited-organisation/favorite-page1/favorite-page1.component';
+import { FavoritePage2Component } from './mydesk/invited-organisation/favorite-page2/favorite-page2.component';
+import { FavoritePage3Component } from './mydesk/invited-organisation/favorite-page3/favorite-page3.component';
+import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
 
 @NgModule({
   imports: [
@@ -63,7 +65,6 @@ import { SettingComponent } from './setting/setting.component';
     FormsModule,
     MyDatePickerModule,
     RouterModule,
-    MembersAdminModule,
     GeneralUtilitiesModule,
   ],
   declarations: [
@@ -101,7 +102,6 @@ import { SettingComponent } from './setting/setting.component';
     HistoricalComponent,
     IdeasDeskComponent,
     ApplicationFormComponent,
-    ReceivedInvitationsComponent,
     InactiveAccountComponent,
     ApplicationReceivedbyCollaborationComponent,
     ErrorNotificationComponent,
@@ -109,6 +109,10 @@ import { SettingComponent } from './setting/setting.component';
     UnderCommunitiesComponent,
     CommunitySpaceComponent,
     SettingComponent,
+    FavoritePage1Component,
+    FavoritePage2Component,
+    FavoritePage3Component,
+    ReceivedInvitationsComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

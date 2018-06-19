@@ -356,6 +356,11 @@ h6 {
     padding: 0px !important;
     background: #393f4b !important;
     box-shadow: none !important;
+    @media(min-width: 1280px) {
+        .ns {
+            margin-left: 87px !important;
+        }
+    }
     .ns {
         margin-left: 77px;
         li {
@@ -412,6 +417,8 @@ h6 {
         th {
             border-bottom: none !important;
             padding-left: 0px !important;
+            padding-left: 3px !important;
+            padding-right: 3px !important;
         }
         .text-bl {
             color: #393f4b;
@@ -422,7 +429,8 @@ h6 {
     tbody td {
         color: #393f4b;
         font-family: SourceSansPro-Regular;
-        padding-left: 0;
+        padding-left: 7px !important;
+        padding-right: 7px !important;
     }
     tbody td:last-child {
         padding-left: 0.75rem;
@@ -496,4 +504,10 @@ h6 {
             }
         }
     }
+}
+
+.innovate,
+.top-r {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
 }

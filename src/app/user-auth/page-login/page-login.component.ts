@@ -49,7 +49,7 @@ export class PageLoginComponent implements OnInit {
       (data: any) => {
         this.auth.profile().then(
           (res: any) => {
-            this.router.navigateByUrl('/administration-in/desk');
+            this.router.navigateByUrl('/administration-in/collaborations');
           },
           err => {
             this.sh.notifToast({
