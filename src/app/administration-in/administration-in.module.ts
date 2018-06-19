@@ -43,13 +43,17 @@ import { PlanningDealComponent } from './deal-space/planning-deal/planning-deal.
 import { HistoricalComponent } from './mydesk/historical/historical.component';
 import { IdeasDeskComponent } from './mydesk/ideas-desk/ideas-desk.component';
 import { ApplicationFormComponent } from './collaborations/application-form/application-form.component';
-import { ReceivedInvitationsComponent } from './mydesk/invited-organisation/received-invitations/received-invitations.component';
 import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
 import { ApplicationByCollaborationComponent } from './collaborations/application-by-collaboration/application-by-collaboration.component';
 import { ErrorNotificationComponent } from './extra/error-notification/error-notification.component';
 import { MembersCommunitiesComponent } from './communities/members-communities/members-communities.component';
 import { UnderCommunitiesComponent } from './communities/under-communities/under-communities.component';
 import { CommunitySpaceComponent } from './communities/community-space/community-space.component';
+import { SettingComponent } from './setting/setting.component';
+import { FavoritePage1Component } from './mydesk/invited-organisation/favorite-page1/favorite-page1.component';
+import { FavoritePage2Component } from './mydesk/invited-organisation/favorite-page2/favorite-page2.component';
+import { FavoritePage3Component } from './mydesk/invited-organisation/favorite-page3/favorite-page3.component';
+import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
 
 @NgModule({
   imports: [
@@ -98,13 +102,17 @@ import { CommunitySpaceComponent } from './communities/community-space/community
     HistoricalComponent,
     IdeasDeskComponent,
     ApplicationFormComponent,
-    ReceivedInvitationsComponent,
     InactiveAccountComponent,
     ApplicationByCollaborationComponent,
     ErrorNotificationComponent,
     MembersCommunitiesComponent,
     UnderCommunitiesComponent,
     CommunitySpaceComponent,
+    SettingComponent,
+    FavoritePage1Component,
+    FavoritePage2Component,
+    FavoritePage3Component,
+    ReceivedInvitationsComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

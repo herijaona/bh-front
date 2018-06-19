@@ -17,7 +17,7 @@ import { AuthguardService } from '../services/authguard/authguard.service';
 import { IsActiveGuardService } from '../services/authguard/is-active-guard.service';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
-import { ReceivedInvitationsComponent } from '../administration-in/mydesk/invited-organisation/received-invitations/received-invitations.component';
+import { ReceivedInvitationsComponent } from '../administration-in/collaborations/received-invitations/received-invitations.component';
 import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
 import { ApplicationByCollaborationComponent } from '../administration-in/collaborations/application-by-collaboration/application-by-collaboration.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
@@ -34,6 +34,9 @@ import { QuestionComponent } from '../administration-in/collaborations/question/
 import { ApplicationFormComponent } from '../administration-in/collaborations/application-form/application-form.component';
 import { IdeasDeskComponent } from '../administration-in/mydesk/ideas-desk/ideas-desk.component';
 import { FavoriteComponent } from '../administration-in/mydesk/favorite/favorite.component';
+import { FavoritePage1Component } from '../administration-in/mydesk/invited-organisation/favorite-page1/favorite-page1.component';
+import { FavoritePage2Component } from '../administration-in/mydesk/invited-organisation/favorite-page2/favorite-page2.component';
+import { FavoritePage3Component } from '../administration-in/mydesk/invited-organisation/favorite-page3/favorite-page3.component';
 import { ApplicationComponent } from '../administration-in/collaborations/application/application.component';
 import { InvitedOrganisationComponent } from '../administration-in/mydesk/invited-organisation/invited-organisation.component';
 import { MydeskComponent } from '../administration-in/mydesk/mydesk.component';
@@ -44,6 +47,7 @@ import { UnderCommunitiesComponent } from '../administration-in/communities/unde
 import { CommunitySpaceComponent } from '../administration-in/communities/community-space/community-space.component';
 import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
 import { PositionsComponent } from '../administration-in/positions/positions.component';
+import { SettingComponent } from '../administration-in/setting/setting.component';
 import { DealSpaceComponent } from '../administration-in/deal-space/deal-space.component';
 import { QuestionAnswersComponent } from '../administration-in/deal-space/question-answers/question-answers.component';
 import { ApplicationDealComponent } from '../administration-in/deal-space/application-deal/application-deal.component';
@@ -145,18 +149,30 @@ const routes: Routes = [
       {
         path: 'favorite',
         component: FavoriteComponent,
+        canActivate: [AuthguardService],
       },
       {
         path: 'invited-organisation',
         component: InvitedOrganisationComponent,
+        canActivate: [AuthguardService],
+        children: [
+          {
+            path: 'favorite1',
+            component: FavoritePage1Component,
+          },
+          {
+            path: 'favorite2',
+            component: FavoritePage2Component,
+          },
+          {
+            path: 'favorite3',
+            component: FavoritePage3Component,
+          },
+        ],
       },
       {
         path: 'historical',
         component: HistoricalComponent,
-      },
-      {
-        path: 'received-invitations',
-        component: ReceivedInvitationsComponent,
       },
     ],
   },
@@ -184,6 +200,10 @@ const routes: Routes = [
       {
         path: 'application-received',
         component: ApplicationReceivedComponent,
+      },
+      {
+        path: 'received-invitations',
+        component: ReceivedInvitationsComponent,
       },
       {
         path: 'create/:item-slug',
@@ -225,6 +245,11 @@ const routes: Routes = [
         component: CommunitySpaceComponent,
       },
     ],
+  },
+  {
+    path: 'administration-in/setting',
+    component: SettingComponent,
+    canActivate: [AuthguardService],
   },
   {
     path: 'administration-in/opportunities',
