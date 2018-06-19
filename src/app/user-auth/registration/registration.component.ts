@@ -7,13 +7,13 @@ import {
   ViewEncapsulation,
   ViewContainerRef,
 } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiHttpService } from '../../services/api-http/api-http.service';
 import { AuthserviceService } from '../../services/authservice/authservice.service';
 import { NotifComponent } from '../notif/notif.component';
 import { PageLoginComponent } from '../page-login/page-login.component';
 import { ValidateOrgtypes } from '../../services/validators/own.validator';
-import { Router } from '@angular/router';
 import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
 import { Globals } from './../../globals/globals';
 @Component({
@@ -24,13 +24,9 @@ import { Globals } from './../../globals/globals';
 })
 export class RegistrationComponent implements OnInit {
   public img_bg: string;
-  public img_logo: string;
-  public img_avatar: string;
-  public free: string;
-  public img_logo2: string;
-  public assisted: string;
-  public automnomous: string;
   public fileFlag = false;
+  public invitationdd: any;
+  public byinvitation = false;
   public registerForm: FormGroup;
   fileError: any = false;
   used_email = false;
@@ -49,11 +45,11 @@ export class RegistrationComponent implements OnInit {
   };
   public em_empty = false;
   public orgType: any = [];
+  public invitationID = '';
   passNotEqual = false;
   localAdded = false;
   orgAddr = '';
   private agreeTermsOfService = false;
-
   constructor(
     public g: Globals,
     private el: ElementRef,
@@ -61,17 +57,12 @@ export class RegistrationComponent implements OnInit {
     private auth: AuthserviceService,
     private componentFactoryResolver: ComponentFactoryResolver,
     private router: Router,
+    private activRoute: ActivatedRoute,
     private sh: SharedNotificationService
   ) {
-    if (auth.isLoggedIn()) {
-      this.router.navigateByUrl('/profile');
-    }
-    this.img_avatar = this.g.base_href + 'assets/img/bg-accueil.jpg';
-    this.img_logo = this.g.base_href + 'assets/img/bh.png';
-    this.img_logo2 = this.g.base_href + 'assets/img/logo-ccw.png';
-    this.free = this.g.base_href + 'assets/img/free-8.png';
-    this.automnomous = this.g.base_href + 'assets/img/automnomous-8.png';
-    this.assisted = this.g.base_href + 'assets/img/assisted-8.png';
+    this.activRoute.params.subscribe((params_: any) => {
+      this.invitationID = params_['id_invitation'];
+    });
     this.img_bg = this.g.base_href + 'assets/img/bg-0.png';
     this.getOrgtype();
   }
@@ -97,7 +88,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.registerForm = new FormGroup({
       bhemail: new FormControl('', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
       bh_pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -110,6 +101,20 @@ export class RegistrationComponent implements OnInit {
       bh_orgType: new FormControl(0, [Validators.required, ValidateOrgtypes]),
       bh_orgLocal: new FormControl(''),
     });
+
+    if (this.invitationID) {
+      const rec_check = await this.auth.checkInvitationState({ invitID: this.invitationID });
+      if (rec_check['status'] === 'OK') {
+        this.invitationdd = rec_check['data'];
+        this.registerForm.patchValue({
+          bhemail: this.invitationdd.dataDetails.invitation_email,
+          bh_lastname: this.invitationdd.dataDetails.lastname,
+          bh_firstname: this.invitationdd.dataDetails.firstname,
+          bh_acc_commercial: this.invitationdd.dataDetails.organisationName,
+        });
+        this.byinvitation = true;
+      }
+    }
   }
 
   onFormSubmit() {
@@ -127,6 +132,11 @@ export class RegistrationComponent implements OnInit {
       typeOrganisation: this.registerForm.value.bh_orgType,
       adresse: this.orgAddr,
     };
+
+    if (this.byinvitation) {
+      credential['invitationId'] = this.invitationID;
+    }
+
     hasFile.then((resFile: any) => {
       if (resFile.status === 0) {
         this.fileError = true;

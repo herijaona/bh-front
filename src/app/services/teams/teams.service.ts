@@ -6,11 +6,7 @@ import { Globals } from './../../globals/globals';
 
 @Injectable()
 export class TeamsService extends BaseHttpService {
-  constructor(
-    public http: HttpClient,
-    public g: Globals,
-    public sh: SharedNotificationService
-  ) {
+  constructor(public http: HttpClient, public g: Globals, public sh: SharedNotificationService) {
     super(http, g, sh);
   }
 
@@ -20,13 +16,13 @@ export class TeamsService extends BaseHttpService {
 
   teamFrontGetData(arg: any) {
     return this.fetch('get', 'team_front_video', {
-      company_slug: arg
+      company_slug: arg,
     }).toPromise();
   }
 
   deleteTmV(arg) {
     return this.fetch('delete', 'team_front_video', {
-      tm_video_id: arg
+      tm_video_id: arg,
     }).toPromise();
   }
 
@@ -40,14 +36,14 @@ export class TeamsService extends BaseHttpService {
 
   public getTeamUsers(slug) {
     return this.fetch('get', 'teams-users', {
-      company_slug: slug
+      company_slug: slug,
     }).toPromise();
   }
 
   public getUsersTeamsNameFn(arg1, arg2) {
     return this.fetch('get', 'team-details', {
       id_user: arg1,
-      accountID: arg2
+      accountID: arg2,
     }).toPromise();
   }
 
@@ -73,12 +69,12 @@ export class TeamsService extends BaseHttpService {
 
   public getAllQuestionsOnCompany(type) {
     return this.fetch('get', 'getallCompanyQuestions', {
-      qtype: type
+      qtype: type,
     }).toPromise();
   }
-  public getAllArchivesOnCompany(type) {
+  public getAllArchivesOnCompany(typeq) {
     return this.fetch('get', 'getallCompanyArchives', {
-      qtype: type
+      qtype: typeq,
     }).toPromise();
   }
 
@@ -90,7 +86,7 @@ export class TeamsService extends BaseHttpService {
   }
   public getDetailsOnQuestion(qID) {
     return this.fetch('get', 'getDetailOnQuestion', {
-      qID: qID
+      qID: qID,
     }).toPromise();
   }
 
@@ -99,15 +95,11 @@ export class TeamsService extends BaseHttpService {
   }
   public reviveInvitation(invID) {
     return this.fetch('post', 'revive-invitation', {
-      invID: invID
+      invID: invID,
     }).toPromise();
   }
 
   public sendOrgnisationInvitation(argDATA) {
     return this.fetch('post', 'invite_organisation', argDATA).toPromise();
-  }
-
-  public checkInvitationState(argDATA) {
-    return this.fetch('get', 'checkinvitation/organisation', argDATA).toPromise();
   }
 }

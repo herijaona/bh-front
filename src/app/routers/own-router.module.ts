@@ -178,7 +178,7 @@ const routes: Routes = [
         component: ApplicationSentComponent,
       },
       {
-        path: 'application-received/by-collaborations/:idCoApplicationReceivedbyCollaborationComponentllab',
+        path: 'application-received/by-collaborations/:idCollab',
         component: ApplicationByCollaborationComponent,
       },
       {

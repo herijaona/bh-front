@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TeamsService } from '../../services/teams/teams.service';
-import { SharedNotificationService } from '../../services/shared-notification/shared-notification.service';
 import { Globals } from './../../globals/globals';
+import { AuthserviceService } from '../../services/authservice/authservice.service';
+
 
 @Component({
   selector: 'app-reply-org-invitation',
@@ -17,9 +17,8 @@ export class ReplyOrgInvitationComponent implements OnInit {
   constructor(
     private activRoute: ActivatedRoute,
     private router: Router,
-    private tms: TeamsService,
-    private sh: SharedNotificationService,
-    public g: Globals
+    public g: Globals,
+    private auth: AuthserviceService
   ) {
     this.img_logo = this.g.base_href + 'assets/img/logo-cca.png';
     this.activRoute.params.subscribe((params_: any) => {
@@ -32,7 +31,7 @@ export class ReplyOrgInvitationComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const rec_check = await this.tms.checkInvitationState({ invitID: this.invitationID });
+      const rec_check = await this.auth.checkInvitationState({ invitID: this.invitationID });
       if (rec_check['status'] === 'OK') {
         this.router.navigateByUrl('/register-organisation/byInvitation/' + this.invitationID);
       } else {
