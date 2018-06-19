@@ -1,40 +1,47 @@
 <div class="col-container">
-    <p class="invite">You can invite other organizations to participate in your projects.</p>
-    <div class="add-form text-right">
-        <span (click)="addNewRow()"><i class="fa fa-plus"></i></span>
-    </div>
-    <div class="row position-realtive" *ngFor="let itemrow of getcontrols(); let i=index">
+  <p class="invite">You can invite other organizations to participate in your projects.</p>
+  <div class="add-form text-right">
+    <span (click)="addNewRow()"><i class="fa fa-plus"></i></span>
+  </div>
+  <form [formGroup]='inviteForm' (ngSubmit)="sendInvitation()">
+    <div formArrayName="inviteItem" class="">
+      <div class="row position-realtive" *ngFor="let itemrow of getcontrols(); let i=index" [formGroupName]="i">
         <div class="col-3">
-            <label class="grey-text-form">First name</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
+          <label class="grey-text-form">First name</label>
+          <div class="input-md">
+            <input type="text" placeholder="" id="" formControlName="firstname" class="form-control-project" mdbActive validate required="required">
+          </div>
         </div>
         <div class="col-3">
-            <label class="grey-text-form">Last name</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
+          <label class="grey-text-form">Last name</label>
+          <div class="input-md">
+            <input type="text" placeholder="" id="" formControlName="lastname" class="form-control-project" mdbActive validate required="required">
+          </div>
         </div>
         <div class="col-3">
-            <label class="grey-text-form">Organisation name</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
+          <label class="grey-text-form">Organisation name</label>
+          <div class="input-md">
+            <input type="text" placeholder="" id="" formControlName="organisationName" class="form-control-project" mdbActive validate required="required">
+          </div>
         </div>
         <div class="col-3">
-            <label class="grey-text-form">Email</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
+          <label class="grey-text-form">Email</label>
+          <div class="input-md">
+            <input type="text" placeholder="" id="" formControlName="bhEmail" class="form-control-project" mdbActive validate required="required">
+          </div>
         </div>
-        <a *ngIf="invoiceForm.controls.itemRows.length > 1" (click)="deleteRow(i)" class="i-remove">
-            <i class="fa fa-remove"></i>
-        </a>
-    </div>
-    <div class="row">
+        <a *ngIf="inviteForm.controls.inviteItem.length > 1" (click)="deleteRow(i)" class="i-remove">
+                <i class="fa fa-remove"></i>
+            </a>
+      </div>
+      <div class="row">
         <div class="text-right">
-            <button class="mb-4 btn-col btn">
-				<i class="fa fa-send pr-2"></i>to send</button>
+          <button [ngClass]="{disabled: !inviteForm.valid}" class="mb-4 btn-col btn">
+            <i class="fa fa-send pr-2"></i>to send</button>
         </div>
+      </div>
     </div>
+  </form>
+</div>
+
+    {{ inviteForm.value | json }}
