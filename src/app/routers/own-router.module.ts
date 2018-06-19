@@ -19,7 +19,7 @@ import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
 import { ReceivedInvitationsComponent } from '../administration-in/mydesk/invited-organisation/received-invitations/received-invitations.component';
 import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
-import { ApplicationReceivedbyCollaborationComponent } from '../administration-in/collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
+import { ApplicationByCollaborationComponent } from '../administration-in/collaborations/application-by-collaboration/application-by-collaboration.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
 import { ProjectDescriptionComponent } from '../c-capital/project-description/project-description.component';
 import { ProfileComponent } from '../administration-in/profile/profile.component';
@@ -55,67 +55,71 @@ import { InactiveAccountComponent } from '../administration-in/extra/inactive-ac
 import { ErrorNotificationComponent } from '../administration-in/extra/error-notification/error-notification.component';
 import { ReplyOrgInvitationComponent } from '../user-auth/reply-org-invitation/reply-org-invitation.component';
 
-
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent
+    component: HomepageComponent,
   },
   {
     path: 'home',
-    component: HomepageComponent
+    component: HomepageComponent,
   },
   {
     path: 'project1',
-    component: Project1Component
+    component: Project1Component,
   },
   {
     path: 'open-innovation/:slug_acc/acceuil',
-    component: MindsetComponent
+    component: MindsetComponent,
   },
   {
     path: 'open-innovation/:slug_acc/team',
-    component: TeamComponent
+    component: TeamComponent,
   },
   {
     path: 'open-innovation/:slug_acc/projects',
-    component: ProjectsComponent
+    component: ProjectsComponent,
   },
   {
     path: 'open-innovation/:slug_acc/details-project/:project_id',
-    component: DescriptionProjectComponent
+    component: DescriptionProjectComponent,
   },
   {
     path: 'open-innovation/:slug_acc/success-stories',
-    component: IdeasComponent
+    component: IdeasComponent,
   },
   {
     path: 'register-organisation',
     component: RegistrationComponent,
-    canActivate: [IsloggedVerifyGuard]
+    canActivate: [IsloggedVerifyGuard],
+  },
+  {
+    path: 'register-organisation/byInvitation/:id_invitation',
+    component: RegistrationComponent,
+    canActivate: [IsloggedVerifyGuard],
   },
   {
     path: 'activate/:code',
-    component: ActivationComponent
+    component: ActivationComponent,
   },
   {
     path: 'login',
-    component: PageLoginComponent
+    component: PageLoginComponent,
   },
   {
     path: 'sign-in',
-    component: SignUpComponent
+    component: SignUpComponent,
   },
   {
     path: 'administration-in/user/profile',
     component: ProfileComponent,
-    canActivate: [AuthguardService]
+    canActivate: [AuthguardService],
   },
   {
     path: 'administration-in/account-note',
     component: InactiveAccountComponent,
-    canActivate: [IsActiveGuardService]
+    canActivate: [IsActiveGuardService],
   },
   {
     path: 'administration-in/desk',
@@ -124,37 +128,37 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: MembersAdminComponent
+        component: MembersAdminComponent,
       },
       {
         path: 'questions',
-        component: ViewReactionComponent
+        component: ViewReactionComponent,
       },
       {
         path: 'ideas',
-        component: IdeasDeskComponent
+        component: IdeasDeskComponent,
       },
       {
         path: 'questions/details/:qID',
-        component: QuestionsDetailsComponent
+        component: QuestionsDetailsComponent,
       },
       {
         path: 'favorite',
-        component: FavoriteComponent
+        component: FavoriteComponent,
       },
       {
         path: 'invited-organisation',
-        component: InvitedOrganisationComponent
+        component: InvitedOrganisationComponent,
       },
       {
         path: 'historical',
-        component: HistoricalComponent
+        component: HistoricalComponent,
       },
       {
         path: 'received-invitations',
-        component: ReceivedInvitationsComponent
-      }
-    ]
+        component: ReceivedInvitationsComponent,
+      },
+    ],
   },
   {
     path: 'administration-in/collaborations',
@@ -163,41 +167,41 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: AdminAllColabComponent
+        component: AdminAllColabComponent,
       },
       {
         path: 'apply-to/:id_project',
-        component: ApplyComponent
+        component: ApplyComponent,
       },
       {
         path: 'application-sent',
-        component: ApplicationSentComponent
+        component: ApplicationSentComponent,
       },
       {
-        path: 'application-received/by-collaborations/:idCollab',
-        component: ApplicationReceivedbyCollaborationComponent
+        path: 'application-received/by-collaborations/:idCoApplicationReceivedbyCollaborationComponentllab',
+        component: ApplicationByCollaborationComponent,
       },
       {
         path: 'application-received',
-        component: ApplicationReceivedComponent
+        component: ApplicationReceivedComponent,
       },
       {
         path: 'create/:item-slug',
-        component: ProjectEditAndNewComponent
+        component: ProjectEditAndNewComponent,
       },
       {
         path: 'application-received/details/:applicationID',
-        component: ApplicationComponent
+        component: ApplicationComponent,
       },
       {
         path: 'question',
-        component: QuestionComponent
+        component: QuestionComponent,
       },
       {
         path: 'application-form',
-        component: ApplicationFormComponent
-      }
-    ]
+        component: ApplicationFormComponent,
+      },
+    ],
   },
   {
     path: 'administration-in/communities',
@@ -220,21 +224,19 @@ const routes: Routes = [
         path: 'community-space',
         component: CommunitySpaceComponent,
       },
-
-
     ],
   },
   {
     path: 'administration-in/opportunities',
     component: OpportunitiesComponent,
     canActivate: [AuthguardService],
-    children: []
+    children: [],
   },
   {
     path: 'administration-in/positions',
     component: PositionsComponent,
     canActivate: [AuthguardService],
-    children: []
+    children: [],
   },
   {
     path: 'administration-in/deal-space',
@@ -243,47 +245,47 @@ const routes: Routes = [
     children: [
       {
         path: 'question-answers',
-        component: QuestionAnswersComponent
+        component: QuestionAnswersComponent,
       },
       {
         path: 'application',
-        component: ApplicationDealComponent
+        component: ApplicationDealComponent,
       },
       {
         path: 'files',
-        component: FilesDealComponent
+        component: FilesDealComponent,
       },
       {
         path: 'planning',
-        component: PlanningDealComponent
-      }
-    ]
+        component: PlanningDealComponent,
+      },
+    ],
   },
 
   {
     path: 'c-capital/description-project',
-    component: ProjectDescriptionComponent
+    component: ProjectDescriptionComponent,
   },
   {
     path: 'reset-my-pass/:id_/:pass_code',
-    component: ResetPasswordComponent
+    component: ResetPasswordComponent,
   },
   {
     path: 'invitation_response/:acc_slug/invitation/:invit_id',
-    component: InvitedRegisterComponent
+    component: InvitedRegisterComponent,
   },
   {
     path: 'reply-invitation/organisation/:id_invitation',
-    component: ReplyOrgInvitationComponent
+    component: ReplyOrgInvitationComponent,
   },
   {
     path: 'error-notification',
-    component: ErrorNotificationComponent
+    component: ErrorNotificationComponent,
   },
-  { path: '**', redirectTo: '/error-notification' }
+  { path: '**', redirectTo: '/error-notification' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class OwnRouterModule { }
+export class OwnRouterModule {}

@@ -1,9 +1,8 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { BaseHttpService } from "../base-http/base-http.service";
-import { SharedNotificationService } from "../shared-notification/shared-notification.service";
-import { Globals } from "./../../globals/globals";
-import { INTERNAL_BROWSER_PLATFORM_PROVIDERS } from "@angular/platform-browser/src/browser";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BaseHttpService } from '../base-http/base-http.service';
+import { SharedNotificationService } from '../shared-notification/shared-notification.service';
+import { Globals } from './../../globals/globals';
 
 @Injectable()
 export class TeamsService extends BaseHttpService {
@@ -16,95 +15,99 @@ export class TeamsService extends BaseHttpService {
   }
 
   teamFrontSaveData(arg: any) {
-    return this.fetch("post", "team_front_video", arg).toPromise();
+    return this.fetch('post', 'team_front_video', arg).toPromise();
   }
 
   teamFrontGetData(arg: any) {
-    return this.fetch("get", "team_front_video", {
+    return this.fetch('get', 'team_front_video', {
       company_slug: arg
     }).toPromise();
   }
 
   deleteTmV(arg) {
-    return this.fetch("delete", "team_front_video", {
+    return this.fetch('delete', 'team_front_video', {
       tm_video_id: arg
     }).toPromise();
   }
 
   updatetmvData(arg) {
-    return this.fetch("put", "team_front_video", arg).toPromise();
+    return this.fetch('put', 'team_front_video', arg).toPromise();
   }
 
   public inviteTeam(da) {
-    return this.fetch("post", "invite-in-team", da).toPromise();
+    return this.fetch('post', 'invite-in-team', da).toPromise();
   }
 
   public getTeamUsers(slug) {
-    return this.fetch("get", "teams-users", {
+    return this.fetch('get', 'teams-users', {
       company_slug: slug
     }).toPromise();
   }
 
   public getUsersTeamsNameFn(arg1, arg2) {
-    return this.fetch("get", "team-details", {
+    return this.fetch('get', 'team-details', {
       id_user: arg1,
       accountID: arg2
     }).toPromise();
   }
 
   public questionsSendData(arg) {
-    return this.fetch("post", "question-data", arg).toPromise();
+    return this.fetch('post', 'question-data', arg).toPromise();
   }
 
   public getTeamData() {
-    return this.fetch("get", "teamsUsers").toPromise();
+    return this.fetch('get', 'teamsUsers').toPromise();
   }
 
   public changeRoleAdmin(arg) {
-    return this.fetch("put", "change_roleAdm", arg).toPromise();
+    return this.fetch('put', 'change_roleAdm', arg).toPromise();
   }
 
   public deleteFromTeamList(arg) {
-    return this.fetch("delete", "delete-from-team", arg).toPromise();
+    return this.fetch('delete', 'delete-from-team', arg).toPromise();
   }
 
   public getCommunityData() {
-    return this.fetch("get", "getAccountCommunity").toPromise();
+    return this.fetch('get', 'getAccountCommunity').toPromise();
   }
 
   public getAllQuestionsOnCompany(type) {
-    return this.fetch("get", "getallCompanyQuestions", {
+    return this.fetch('get', 'getallCompanyQuestions', {
       qtype: type
     }).toPromise();
   }
   public getAllArchivesOnCompany(type) {
-    return this.fetch("get", "getallCompanyArchives", {
+    return this.fetch('get', 'getallCompanyArchives', {
       qtype: type
     }).toPromise();
   }
 
   public archiveQuestions(idQ) {
-    return this.fetch("post", "archives_questions", { idQ: idQ }).toPromise();
+    return this.fetch('post', 'archives_questions', { idQ: idQ }).toPromise();
   }
   public sendResponseTOQuestions(arg) {
-    return this.fetch("post", "reply_questions", arg).toPromise();
+    return this.fetch('post', 'reply_questions', arg).toPromise();
   }
   public getDetailsOnQuestion(qID) {
-    return this.fetch("get", "getDetailOnQuestion", {
+    return this.fetch('get', 'getDetailOnQuestion', {
       qID: qID
     }).toPromise();
   }
 
   public getAllInvitationSent() {
-    return this.fetch("get", "getInvitationSent").toPromise();
+    return this.fetch('get', 'getInvitationSent').toPromise();
   }
   public reviveInvitation(invID) {
-    return this.fetch("post", "revive-invitation", {
+    return this.fetch('post', 'revive-invitation', {
       invID: invID
     }).toPromise();
   }
 
   public sendOrgnisationInvitation(argDATA) {
-    return this.fetch("post", "invite_organisation", argDATA).toPromise();
+    return this.fetch('post', 'invite_organisation', argDATA).toPromise();
+  }
+
+  public checkInvitationState(argDATA) {
+    return this.fetch('get', 'checkinvitation/organisation', argDATA).toPromise();
   }
 }

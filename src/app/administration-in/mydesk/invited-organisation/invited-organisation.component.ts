@@ -17,7 +17,7 @@ export class InvitedOrganisationComponent implements OnInit {
   public showResult = false;
   public hasError = false;
 
-  constructor(private _fb: FormBuilder, private tms: TeamsService) { }
+  constructor(private _fb: FormBuilder, private tms: TeamsService) {}
 
   ngOnInit() {
     this.inviteForm = this._fb.group({
@@ -30,7 +30,10 @@ export class InvitedOrganisationComponent implements OnInit {
       firstname: new FormControl('', [Validators.required]),
       lastname: new FormControl('', [Validators.required]),
       organisationName: new FormControl('', [Validators.required]),
-      invitation_email: new FormControl('', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'), Validators.required]),
+      invitation_email: new FormControl('', [
+        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+        Validators.required,
+      ]),
     });
   }
 
@@ -57,8 +60,10 @@ export class InvitedOrganisationComponent implements OnInit {
       const invitRes = await this.tms.sendOrgnisationInvitation(argDATA);
       if (invitRes['status'] === 'OK') {
         this.invitationResult = invitRes['data'];
-        const er = this.invitationResult.filter((el) => {
-          if (el.res_value.value === 'NOK') { return true; }
+        const er = this.invitationResult.filter(el => {
+          if (el.res_value.value === 'NOK') {
+            return true;
+          }
         });
         this.hasError = er.length > 0;
         this.showResult = true;

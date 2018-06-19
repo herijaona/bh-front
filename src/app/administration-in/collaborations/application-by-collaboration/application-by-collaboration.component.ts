@@ -7,12 +7,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectsService } from '../../../services/projects/projects.service';
 
 @Component({
-  selector: 'app-application-receivedby-collaboration',
-  templateUrl: './application-receivedby-collaboration.component.html',
-  styleUrls: ['./application-receivedby-collaboration.component.scss']
+  selector: 'app-application-by-collaboration',
+  templateUrl: './application-by-collaboration.component.html',
+  styleUrls: ['./application-by-collaboration.component.scss']
 })
 
-export class ApplicationReceivedbyCollaborationComponent implements OnInit {
+export class ApplicationByCollaborationComponent implements OnInit {
   public allApplData: any = [];
   public dataCollab: any = {};
   private currentCollabID = '';

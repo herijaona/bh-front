@@ -45,7 +45,7 @@ import { IdeasDeskComponent } from './mydesk/ideas-desk/ideas-desk.component';
 import { ApplicationFormComponent } from './collaborations/application-form/application-form.component';
 import { ReceivedInvitationsComponent } from './mydesk/invited-organisation/received-invitations/received-invitations.component';
 import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
-import { ApplicationReceivedbyCollaborationComponent } from './collaborations/application-receivedby-collaboration/application-receivedby-collaboration.component';
+import { ApplicationByCollaborationComponent } from './collaborations/application-by-collaboration/application-by-collaboration.component';
 import { ErrorNotificationComponent } from './extra/error-notification/error-notification.component';
 import { MembersCommunitiesComponent } from './communities/members-communities/members-communities.component';
 import { UnderCommunitiesComponent } from './communities/under-communities/under-communities.component';
@@ -100,7 +100,7 @@ import { CommunitySpaceComponent } from './communities/community-space/community
     ApplicationFormComponent,
     ReceivedInvitationsComponent,
     InactiveAccountComponent,
-    ApplicationReceivedbyCollaborationComponent,
+    ApplicationByCollaborationComponent,
     ErrorNotificationComponent,
     MembersCommunitiesComponent,
     UnderCommunitiesComponent,

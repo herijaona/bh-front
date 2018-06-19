@@ -30,12 +30,12 @@ export class RegistrationComponent implements OnInit {
   public img_logo2: string;
   public assisted: string;
   public automnomous: string;
-  public fileFlag: boolean = false;
+  public fileFlag = false;
   public registerForm: FormGroup;
   fileError: any = false;
-  used_email: boolean = false;
+  used_email = false;
   private form_el: ElementRef;
-  public fileSelectName: string = '';
+  public fileSelectName = '';
   @ViewChild('attachAll', {
     read: ViewContainerRef,
   })
@@ -47,12 +47,12 @@ export class RegistrationComponent implements OnInit {
     showCurrentLocation: false,
     inputPlaceholderText: 'Adresse: Ville, Pays ......',
   };
-  public em_empty: boolean = false;
+  public em_empty = false;
   public orgType: any = [];
-  passNotEqual: boolean = false;
-  localAdded: boolean = false;
-  orgAddr: string = '';
-  private agreeTermsOfService: boolean = false;
+  passNotEqual = false;
+  localAdded = false;
+  orgAddr = '';
+  private agreeTermsOfService = false;
 
   constructor(
     public g: Globals,
@@ -77,9 +77,9 @@ export class RegistrationComponent implements OnInit {
   }
   async getOrgtype() {
     try {
-      let gD: any = await this.auth.getallOrgTypes();
+      const gD: any = await this.auth.getallOrgTypes();
       if (gD) {
-        if (gD.status == 'OK') {
+        if (gD.status === 'OK') {
           console.log(gD.data);
           this.orgType = gD.data;
         }
@@ -113,9 +113,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   onFormSubmit() {
-    let formEl: HTMLInputElement = this.el.nativeElement.querySelector('#registerForm_');
-    var hasFile = this.formImUpload();
-    let credential = {
+    const formEl: HTMLInputElement = this.el.nativeElement.querySelector('#registerForm_');
+    const hasFile = this.formImUpload();
+    const credential = {
       email: this.registerForm.value.bhemail,
       lastname: this.registerForm.value.bh_lastname,
       firstname: this.registerForm.value.bh_firstname,
@@ -128,7 +128,7 @@ export class RegistrationComponent implements OnInit {
       adresse: this.orgAddr,
     };
     hasFile.then((resFile: any) => {
-      if (resFile.status == 0) {
+      if (resFile.status === 0) {
         this.fileError = true;
       } else {
         credential.Logo = resFile.data.imID;
@@ -143,13 +143,13 @@ export class RegistrationComponent implements OnInit {
             });
             formEl.remove();
             // this.notifAndLogin();
-            this.router.navigateByUrl("/login");
+            this.router.navigateByUrl('/login');
           },
           err => {
             this.sh.runloader({
               action: 'hide',
             });
-            if (err.status == 409) {
+            if (err.status === 409) {
               this.used_email = true;
             }
           }
@@ -160,12 +160,11 @@ export class RegistrationComponent implements OnInit {
 
   formImUpload() {
     // event.preventDefault();
-    let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#logoFile');
-    let imID: string;
-    let fileCount: number = inputEl.files.length;
-    let formData = new FormData();
-    let promise = new Promise((resolve, reject) => {
-      if (fileCount == 0) {
+    const inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#logoFile');
+    const fileCount: number = inputEl.files.length;
+    const formData = new FormData();
+    const promise = new Promise((resolve, reject) => {
+      if (fileCount === 0) {
         resolve({
           status: 0,
           data: null,
@@ -182,7 +181,7 @@ export class RegistrationComponent implements OnInit {
             this.sh.runloader({
               action: 'hide',
             });
-            if (resp.status == 'OK') {
+            if (resp.status === 'OK') {
               resolve({
                 status: 1,
                 data: resp,
@@ -196,18 +195,18 @@ export class RegistrationComponent implements OnInit {
 
   /* Show notification after registration */
   private notifAndLogin() {
-    var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifComponent);
-    var refNotif = this.attachView.createComponent(factoryNotif);
+    const factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifComponent);
+    const refNotif = this.attachView.createComponent(factoryNotif);
     refNotif.instance.type = 'success';
     refNotif.instance.message = 'Account create successfully<br>Consult your email box to activate your account.';
-    var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(PageLoginComponent);
-    var refLogin = this.attachView.createComponent(factoryLogin);
+    const factoryLogin = this.componentFactoryResolver.resolveComponentFactory(PageLoginComponent);
+    this.attachView.createComponent(factoryLogin);
     // ref.changeDetectorRef.detectChanges();
   }
 
   /* Email validator complement*/
   public detectEmail() {
-    if (this.registerForm.value.bhemail == '') {
+    if (this.registerForm.value.bhemail === '') {
       this.em_empty = true;
     } else {
       this.em_empty = false;
@@ -219,8 +218,8 @@ export class RegistrationComponent implements OnInit {
 
   /*Chech if password typed is the same*/
   public passCheck() {
-    if (this.registerForm.value.bh_pass != '' && this.registerForm.value.bh_pass_conf != '') {
-      if (this.registerForm.value.bh_pass != this.registerForm.value.bh_pass_conf) {
+    if (this.registerForm.value.bh_pass !== '' && this.registerForm.value.bh_pass_conf !== '') {
+      if (this.registerForm.value.bh_pass !== this.registerForm.value.bh_pass_conf) {
         this.passNotEqual = true;
       } else {
         this.passNotEqual = false;

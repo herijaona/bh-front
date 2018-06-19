@@ -4,24 +4,24 @@ import { AuthserviceService } from '../../services/authservice/authservice.servi
 
 @Injectable()
 export class AuthguardService {
-	constructor(private auth: AuthserviceService, private router: Router) { }
-	async canActivate() {
-		if (!this.auth.isLoggedIn()) {
-			this.router.navigateByUrl('/login');
-			return false;
-		}
-		try {
-			let prfl = await this.auth.profile();
-			console.log(prfl);
-			if (prfl.active === false) {
-				this.router.navigateByUrl('/administration-in/account-note');
-				return false;
-			}
-			return true;
-		} catch (e) {
-			console.log(e);
-			this.router.navigateByUrl('/error-notification');
-			return false;
-		}
-	}
+  constructor(private auth: AuthserviceService, private router: Router) {}
+  async canActivate() {
+    if (!this.auth.isLoggedIn()) {
+      this.router.navigateByUrl('/login');
+      return false;
+    }
+    try {
+      const prfl = await this.auth.profile();
+      console.log(prfl);
+      if (prfl.active === false) {
+        this.router.navigateByUrl('/administration-in/account-note');
+        return false;
+      }
+      return true;
+    } catch (e) {
+      console.log(e);
+      this.router.navigateByUrl('/error-notification');
+      return false;
+    }
+  }
 }
