@@ -11,13 +11,11 @@ import { RegistrationComponent } from '../user-auth/registration/registration.co
 import { ResetPasswordComponent } from '../user-auth/reset-password/reset-password.component';
 import { ActivationComponent } from '../user-auth/activation/activation.component';
 import { PageLoginComponent } from '../user-auth/page-login/page-login.component';
-import { ProfileAdminComponent } from '../profile-admin/profile-admin/profile-admin.component';
 import { IsloggedVerifyGuard } from '../services/authguard/islogged-verify.guard';
 import { AuthguardService } from '../services/authguard/authguard.service';
 import { IsActiveGuardService } from '../services/authguard/is-active-guard.service';
 import { InvitedRegisterComponent } from '../user-auth/invited-register/invited-register.component';
 import { SignUpComponent } from '../user-auth/sign-up/sign-up.component';
-import { ReceivedInvitationsComponent } from '../administration-in/collaborations/received-invitations/received-invitations.component';
 import { ApplicationReceivedComponent } from '../administration-in/collaborations/application-received/application-received.component';
 import { ApplicationByCollaborationComponent } from '../administration-in/collaborations/application-by-collaboration/application-by-collaboration.component';
 import { Project1Component } from '../c-capital/project1/project1.component';
@@ -161,7 +159,7 @@ const routes: Routes = [
             component: AcceptedInvitationsComponent,
           },
           {
-            path: 'favorite2',
+            path: 'invitations-organisation',
             component: InviteOrganisationsComponent,
           },
           {
@@ -200,10 +198,6 @@ const routes: Routes = [
       {
         path: 'application-received',
         component: ApplicationReceivedComponent,
-      },
-      {
-        path: 'received-invitations',
-        component: ReceivedInvitationsComponent,
       },
       {
         path: 'create/:item-slug',

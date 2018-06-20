@@ -53,7 +53,6 @@ import { SettingComponent } from './setting/setting.component';
 import { AcceptedInvitationsComponent } from './mydesk/invited-organisation/accepted-invitations/accepted-invitations.component';
 import { InviteOrganisationsComponent } from './mydesk/invited-organisation/invite-organisations/invite-organisations.component';
 import { InvitationsSentComponent } from './mydesk/invited-organisation/invitations-sent/invitations-sent.component';
-import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
 
 @NgModule({
   imports: [
@@ -112,7 +111,6 @@ import { ReceivedInvitationsComponent } from './collaborations/received-invitati
     AcceptedInvitationsComponent,
     InviteOrganisationsComponent,
     InvitationsSentComponent,
-    ReceivedInvitationsComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],
