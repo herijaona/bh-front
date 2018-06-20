@@ -10,12 +10,14 @@
 .profile-h5 {
     font-family: SourceSansPro-Semibold;
     color: #e84d3f;
-    background: -webkit-linear-gradient(55deg, #f94d37 50%, #e84d3f 60%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* background: -webkit-linear-gradient(55deg, #f94d37 50%, #e84d3f 60%); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
     margin-bottom: 0px !important;
     margin-top: 60px;
     text-transform: uppercase;
+    color: #ff0000b8;
+    font-size: 17.5px;
     @media(max-width: 575px) {
         text-align: center;
         margin-top: 68px;
@@ -121,9 +123,10 @@
 .title-edit {
     h4 {
         position: absolute;
-        font-family: SourceSansPro-Semibold;
+        font-family: SourceSansPro-Regular;
         text-transform: capitalize;
-        color: #606060;
+        color: #ff0000b8;
+        font-size: 18.5px;
     }
     span {
         float: right;
@@ -142,11 +145,11 @@
 }
 
 .ed {
-    background: #ababab26;
-    color: #9a9a9a !important;
+    background: #9a9a9a;
     box-shadow: 0px 1px 6px -1px #808080a1;
     padding: 7px;
     font-size: 14px;
+    color: white !important;
 }
 
 .edit-person {
@@ -172,6 +175,7 @@
 
 .mg-left-wt {
     width: 50%;
+    margin-top: 2px;
     @media(max-width: 575px) {
         width: 100%;
         margin-right: 0px;
@@ -180,7 +184,7 @@
 
 .grey-text-form {
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13.5px;
     font-family: SourceSansPro-Semibold;
     color: #606060;
     letter-spacing: 0.3px;
@@ -190,7 +194,7 @@
 .custom-autocomplete input {
     width: 100% !important;
     height: 25px !important;
-    font-size: 1rem !important;
+    font-size: 13.5px !important;
     line-height: 1.5 !important;
     color: #495057 !important;
     background-color: #fff !important;
@@ -200,13 +204,13 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
     padding-left: 14px !important;
     box-sizing: border-box !important;
-    padding: 22px !important;
+    padding: 20px !important;
 }
 
 .form-control-slct {
     width: 100% !important;
-    height: 48px !important;
-    font-size: 1rem !important;
+    height: 42px !important;
+    font-size: 13.5px !important;
     line-height: 1.5 !important;
     color: #495057 !important;
     background-color: #fff !important;
@@ -265,4 +269,23 @@
 
 .btn-ed3 {
     background: linear-gradient(-90deg, #4CAF50, #058432) !important;
+}
+
+.bg-conex {
+    background: #6abfd814 !important;
+    padding-bottom: 1px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.up-span {
+    background: #e94e45;
+    border-radius: 4px;
+}
+
+.btn-red-up {
+    background: #e94e45;
+    i {
+        color: white;
+    }
 }
