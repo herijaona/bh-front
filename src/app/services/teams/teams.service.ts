@@ -106,4 +106,8 @@ export class TeamsService extends BaseHttpService {
   public getInProgressInvitations() {
     return this.fetch('get', 'get-org-invitations-inprogress').toPromise();
   }
+
+  public getAcceptedInvitations() {
+    return this.fetch('get', 'get-accepted-invitations').toPromise();
+  }
 }
