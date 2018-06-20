@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 /* Component Import*/
-import { IdeasComponent } from '../ideas/ideas/ideas.component';
+import { SuccessStoriesComponent } from '../success-stories/success-stories/success-stories.component';
 import { MindsetComponent } from '../mindset/mindset/mindset.component';
 import { DescriptionProjectComponent } from '../projects/description-project/description-project.component';
 import { ProjectsComponent } from '../projects/projects/projects.component';
@@ -89,7 +89,7 @@ const routes: Routes = [
   },
   {
     path: 'open-innovation/:slug_acc/success-stories',
-    component: IdeasComponent,
+    component: SuccessStoriesComponent,
   },
   {
     path: 'register-organisation',

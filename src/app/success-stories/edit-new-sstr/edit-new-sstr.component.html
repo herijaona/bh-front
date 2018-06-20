@@ -7,11 +7,13 @@
       </div>
       <div class="sc">
         <label>Youtube url</label>
-        <input class="input-story" (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="sstrVideoUrl" type="url" name="">
+        <input class="input-story" (change)="urlSetted($event)" (blur)="urlSetted($event)" (keyup)="urlSetted($event)" formControlName="sstrVideoUrl"
+          type="url" name="">
       </div>
       <div class="d-flex">
         <button type="button" class="col-6 btn btn-secondary btn-sm black cancel-btn" (click)="emitCloseModal()" mdbWavesEffect>Close</button>
-        <button [ngClass]="{'disabled': !sstrForm.valid }" type="submit" class="col-6 btn btn-success btn-block btn-rounded z-depth-1 bg-sign" mdbWavesEffect>Save changes</button>
+        <button [ngClass]="{'disabled': !sstrForm.valid }" type="submit" class="col-6 btn btn-success btn-block btn-rounded z-depth-1 bg-sign"
+          mdbWavesEffect>Save changes</button>
       </div>
     </div>
     <div class="col-md-6">
