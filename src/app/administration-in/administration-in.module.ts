@@ -50,9 +50,9 @@ import { MembersCommunitiesComponent } from './communities/members-communities/m
 import { UnderCommunitiesComponent } from './communities/under-communities/under-communities.component';
 import { CommunitySpaceComponent } from './communities/community-space/community-space.component';
 import { SettingComponent } from './setting/setting.component';
-import { FavoritePage1Component } from './mydesk/invited-organisation/favorite-page1/favorite-page1.component';
-import { FavoritePage2Component } from './mydesk/invited-organisation/favorite-page2/favorite-page2.component';
-import { FavoritePage3Component } from './mydesk/invited-organisation/favorite-page3/favorite-page3.component';
+import { AcceptedInvitationsComponent } from './mydesk/invited-organisation/accepted-invitations/accepted-invitations.component';
+import { InviteOrganisationsComponent } from './mydesk/invited-organisation/invite-organisations/invite-organisations.component';
+import { InvitationsSentComponent } from './mydesk/invited-organisation/invitations-sent/invitations-sent.component';
 import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
 
 @NgModule({
@@ -109,9 +109,9 @@ import { ReceivedInvitationsComponent } from './collaborations/received-invitati
     UnderCommunitiesComponent,
     CommunitySpaceComponent,
     SettingComponent,
-    FavoritePage1Component,
-    FavoritePage2Component,
-    FavoritePage3Component,
+    AcceptedInvitationsComponent,
+    InviteOrganisationsComponent,
+    InvitationsSentComponent,
     ReceivedInvitationsComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],

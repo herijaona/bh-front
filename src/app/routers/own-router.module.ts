@@ -34,9 +34,9 @@ import { QuestionComponent } from '../administration-in/collaborations/question/
 import { ApplicationFormComponent } from '../administration-in/collaborations/application-form/application-form.component';
 import { IdeasDeskComponent } from '../administration-in/mydesk/ideas-desk/ideas-desk.component';
 import { FavoriteComponent } from '../administration-in/mydesk/favorite/favorite.component';
-import { FavoritePage1Component } from '../administration-in/mydesk/invited-organisation/favorite-page1/favorite-page1.component';
-import { FavoritePage2Component } from '../administration-in/mydesk/invited-organisation/favorite-page2/favorite-page2.component';
-import { FavoritePage3Component } from '../administration-in/mydesk/invited-organisation/favorite-page3/favorite-page3.component';
+import { AcceptedInvitationsComponent } from '../administration-in/mydesk/invited-organisation/accepted-invitations/accepted-invitations.component';
+import { InviteOrganisationsComponent } from '../administration-in/mydesk/invited-organisation/invite-organisations/invite-organisations.component';
+import { InvitationsSentComponent } from '../administration-in/mydesk/invited-organisation/invitations-sent/invitations-sent.component';
 import { ApplicationComponent } from '../administration-in/collaborations/application/application.component';
 import { InvitedOrganisationComponent } from '../administration-in/mydesk/invited-organisation/invited-organisation.component';
 import { MydeskComponent } from '../administration-in/mydesk/mydesk.component';
@@ -157,16 +157,16 @@ const routes: Routes = [
         canActivate: [AuthguardService],
         children: [
           {
-            path: 'favorite1',
-            component: FavoritePage1Component,
+            path: '',
+            component: AcceptedInvitationsComponent,
           },
           {
             path: 'favorite2',
-            component: FavoritePage2Component,
+            component: InviteOrganisationsComponent,
           },
           {
-            path: 'favorite3',
-            component: FavoritePage3Component,
+            path: 'invitations-sent',
+            component: InvitationsSentComponent,
           },
         ],
       },

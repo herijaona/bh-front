@@ -7,11 +7,11 @@ import { AuthserviceService } from '../../../../services/authservice/authservice
 import { TeamsService } from '../../../../services/teams/teams.service';
 
 @Component({
-  selector: 'app-favorite-page2',
-  templateUrl: './favorite-page2.component.html',
-  styleUrls: ['./favorite-page2.component.scss']
+  selector: 'app-invite-organisations',
+  templateUrl: './invite-organisations.component.html',
+  styleUrls: ['./invite-organisations.component.scss']
 })
-export class FavoritePage2Component implements OnInit {
+export class InviteOrganisationsComponent implements OnInit {
   public inviteForm: FormGroup;
   public itemrow: any;
   public invitationResult = [];
