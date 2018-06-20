@@ -21,8 +21,8 @@
           <td class="no-wrp"> {{item.activeDate}} </td>
           <td>{{item.orgName}}</td>
           <td>{{item.orgCountry}}</td>
-          <td><!-- {{item.userOrg.firstname}} --></td>
-          <td><!-- {{item.userOrg.lastname}} --></td>
+          <td>{{item.userOrg.firstname}}</td>
+          <td>{{item.userOrg.lastname}}</td>
           <td>
             <!-- {{item.dataDetails.organisationName}} -->
             <span *ngIf="item.collabNum == 1 "></span>
@@ -30,7 +30,7 @@
           </td>
           <td>
             <!-- {{item.byUser.firstname+' '+item.byUser.lastname}} -->
-            <button (click)='selectCollaboration(item)' class="red btn">Select</button>
+            <button (click)='selectCollaboration(item)' class="red btn select-btn">Select</button>
           </td>
         </tr>
       </tbody>
@@ -47,12 +47,20 @@
       <button type="button" class="close close-md close-m" data-dismiss="modal" aria-label="Close" (click)="hideModal()">
         <span aria-hidden="true">×</span>
       </button>
-      <div class="modal-body">
+      <div class="modal-body p-5">
         <div  *ngIf="showData"  class="askm">
           <div *ngFor="let item of allCollab, let indx = index">
-            <input [checked]="checkItems(item)" type="checkbox" id="collab-{{indx}}">
-            <label for="collab-{{indx}}">{{item.name}}</label>
+            <p id="invite-for">
+                <label class="custon-ch">
+                  <span for="collab-{{indx}}" class="agree">{{item.name}}</span>
+                    <input [checked]="checkItems(item)" type="checkbox" id="collab-{{indx}}" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </p>
           </div>
+        </div>
+        <div class="text-center">
+          <button class="red btn select-btn">Valider</button>
         </div>
       </div>
     </div>
