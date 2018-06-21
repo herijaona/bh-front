@@ -1,0 +1,21 @@
+.float-r{
+    float: left;
+    position: absolute;
+    right: 0;
+    color: white;
+    background: #e94e45;
+    right: 52px;
+    i{
+        margin-right: 5px;
+    }
+}
+.nav-tel{
+    height: 43px;
+}
+.nav-tel .ns li .active {
+    padding-bottom: 12px;
+}
+
+.nav-tel .ns li {
+    margin-right: 7px;
+}
