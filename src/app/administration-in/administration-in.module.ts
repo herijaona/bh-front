@@ -53,6 +53,7 @@ import { SettingComponent } from './setting/setting.component';
 import { AcceptedInvitationsComponent } from './mydesk/invited-organisation/accepted-invitations/accepted-invitations.component';
 import { InviteOrganisationsComponent } from './mydesk/invited-organisation/invite-organisations/invite-organisations.component';
 import { InvitationsSentComponent } from './mydesk/invited-organisation/invitations-sent/invitations-sent.component';
+import { SpinDataReadyComponent } from './extra/spin-data-ready/spin-data-ready.component';
 
 @NgModule({
   imports: [
@@ -111,6 +112,7 @@ import { InvitationsSentComponent } from './mydesk/invited-organisation/invitati
     AcceptedInvitationsComponent,
     InviteOrganisationsComponent,
     InvitationsSentComponent,
+    SpinDataReadyComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

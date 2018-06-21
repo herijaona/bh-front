@@ -11,8 +11,10 @@ import { TeamsService } from '../../../services/teams/teams.service';
   styleUrls: ['./question.component.scss'],
 })
 export class QuestionComponent implements OnInit {
-  public viewreaction_page: string = 'viewreaction_page';
+  public viewreaction_page = 'viewreaction_page';
   public allQuestions: any = [];
+  public readyData = false;
+  public hasData = false;
   constructor(private tms: TeamsService, private titl: Title) {}
 
   ngOnInit() {
@@ -27,6 +29,10 @@ export class QuestionComponent implements OnInit {
       if (quest) {
         if (quest.status === 'OK') {
           this.allQuestions = quest.data;
+          if (this.allQuestions.length > 0) {
+            this.hasData = true;
+          }
+          this.readyData = true;
         }
       }
     } catch (e) {

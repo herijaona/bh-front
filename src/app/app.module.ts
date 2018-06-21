@@ -30,7 +30,7 @@ import { IsActiveGuardService } from './services/authguard/is-active-guard.servi
 import { AdministrationInModule } from './administration-in/administration-in.module';
 import { UserAuthModule } from './user-auth/user-auth.module';
 import { HomepageModule } from './homepage/homepage.module';
-import { IdeasModule } from './ideas/ideas.module';
+import { SuccessStoriesModule } from './success-stories/success-stories.module';
 import { MindsetModule } from './mindset/mindset.module';
 import { GeneralUtilitiesModule } from './general-utilities/general-utilities.module';
 import { NavbarModule } from './navbar/navbar.module';
@@ -54,7 +54,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     GeneralUtilitiesModule,
     HomepageModule,
     ProjectsModule,
-    IdeasModule,
+    SuccessStoriesModule,
     MindsetModule,
     ProfileAdminModule,
     TeamModule,
@@ -85,7 +85,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BaseHttpService,
     ProjectsService,
     CompanyService,
-    IsActiveGuardService
+    IsActiveGuardService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

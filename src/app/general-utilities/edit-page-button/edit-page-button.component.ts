@@ -7,7 +7,7 @@ import { CompanyService } from '../../services/company/company.service';
 @Component({
   selector: 'edit-page-button',
   templateUrl: './edit-page-button.component.html',
-  styleUrls: ['./edit-page-button.component.scss']
+  styleUrls: ['./edit-page-button.component.scss'],
 })
 export class EditPageButtonComponent implements OnInit, OnDestroy {
   public button_text: string = 'Edit';
@@ -56,7 +56,7 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
       this.sh.pushData({
         from: 'editKeyGeneral',
         action: 'idACCOUNT',
-        data: ''
+        data: '',
       });
       this.sh.setLocalEditState(0);
       this.edit_state = false;
@@ -66,7 +66,7 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
       this.sh.pushData({
         from: 'editKeyGeneral',
         action: 'idACCOUNT',
-        data: this.currAccId
+        data: this.currAccId,
       });
       this.sh.setLocalEditState(1);
       this.edit_state = true;
@@ -86,20 +86,20 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
       this.sh.pushData({
         from: 'editKeyGeneral',
         action: 'idACCOUNT',
-        data: ''
+        data: '',
       });
       this.edit_state = false;
       this.button_text = 'Edit';
       this.sh.pushData({
         from: 'commEditpage',
         message: 'stateChange',
-        data: false
+        data: false,
       });
     } else {
       this.sh.pushData({
         from: 'editKeyGeneral',
         action: 'idACCOUNT',
-        data: this.currAccId
+        data: this.currAccId,
       });
 
       this.edit_state = true;
@@ -107,8 +107,15 @@ export class EditPageButtonComponent implements OnInit, OnDestroy {
       this.sh.pushData({
         from: 'commEditpage',
         message: 'stateChange',
-        data: true
+        data: true,
       });
     }
+  }
+  addNewEvent(event) {
+    this.sh.pushData({
+      from: 'add_new_event',
+      message: 'kfid',
+      data: true,
+    });
   }
 }

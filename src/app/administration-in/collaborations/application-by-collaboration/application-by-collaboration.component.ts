@@ -9,14 +9,15 @@ import { ProjectsService } from '../../../services/projects/projects.service';
 @Component({
   selector: 'app-application-by-collaboration',
   templateUrl: './application-by-collaboration.component.html',
-  styleUrls: ['./application-by-collaboration.component.scss']
+  styleUrls: ['./application-by-collaboration.component.scss'],
 })
-
 export class ApplicationByCollaborationComponent implements OnInit {
   public allApplData: any = [];
   public dataCollab: any = {};
+  hasData = false;
+  readyData = false;
   private currentCollabID = '';
-  constructor(private pr: ProjectsService, private activRoute: ActivatedRoute) {}
+  constructor(private pr: ProjectsService, private activRoute: ActivatedRoute, public g: Globals) {}
   ngOnInit() {
     this.activRoute.params.subscribe((params_: any) => {
       this.currentCollabID = params_['idCollab'];
@@ -34,7 +35,11 @@ export class ApplicationByCollaborationComponent implements OnInit {
       if (applyByCollab['status'] === 'OK') {
         this.allApplData = applyByCollab['data']['allApplication'];
         this.dataCollab = applyByCollab['data']['collabData'];
+        if (this.allApplData.length !== 0) {
+          this.hasData = true;
+        }
       }
+      this.readyData = true;
     } catch (error) {
       console.log(error);
     }

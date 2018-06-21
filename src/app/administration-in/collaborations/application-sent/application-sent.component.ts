@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../../../services/projects/projects.service';
+import { Globals } from './../../../globals/globals';
 
 @Component({
   selector: 'app-application-sent',
@@ -8,7 +9,8 @@ import { ProjectsService } from '../../../services/projects/projects.service';
 })
 export class ApplicationSentComponent implements OnInit {
   public allApplData: any = [];
-  constructor(private pr: ProjectsService) {}
+  public hasData: boolean;
+  constructor(private pr: ProjectsService, public g: Globals) {}
 
   ngOnInit() {
     this.getAllCApplicationSent();
@@ -19,6 +21,7 @@ export class ApplicationSentComponent implements OnInit {
       const appl: any = await this.pr.getUserApplicationSent();
       if (appl.status === 'OK') {
         this.allApplData = appl.data;
+        this.hasData = this.allApplData.length > 0 ? true : false;
       }
     } catch (e) {
       console.log(e);

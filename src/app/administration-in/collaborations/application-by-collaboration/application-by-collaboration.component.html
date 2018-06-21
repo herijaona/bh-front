@@ -1,7 +1,15 @@
 <div class="col-container">
-  <div>
-    <div class="table-respo">
-      <!--Table-->
+  <div *ngIf="readyData" class="table-respo">
+    <!-- Hasn't Data -->
+    <div *ngIf="!hasData">
+      <p>
+        Hello,
+        <br> You did not received any applications to this collaboration proposals
+      </p>
+    </div>
+
+    <!--Table-->
+    <div *ngIf="hasData">
       <div>
         <div class="receivedBy">
           <span class="title-propos">
@@ -22,7 +30,7 @@
               <th>Organisation</th>
               <th>Type</th>
               <!-- <th>Firstname</th>
-            <th>Lastname</th> -->
+                <th>Lastname</th> -->
               <th>Collaboration name</th>
               <th>Status</th>
               <th>Action</th>
@@ -42,8 +50,8 @@
               <td>p</td>
               <td>
                 <a [routerLink]="['/administration-in','collaborations','application-received','details', item._id ]" target="_blank">
-                <i class="fa fa-eye"></i>
-              </a>
+                  <i class="fa fa-eye"></i>
+                </a>
               </td>
             </tr>
           </tbody>

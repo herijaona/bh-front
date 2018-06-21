@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { AuthserviceService } from '../../../services/authservice/authservice.service';
 import { TeamsService } from '../../../services/teams/teams.service';
 import { ModalDirective } from 'angular-bootstrap-md';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-historical',
   templateUrl: './historical.component.html',

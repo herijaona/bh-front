@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IdeasComponent } from './ideas.component';
+import { SpinDataReadyComponent } from './spin-data-ready.component';
 
-describe('IdeasComponent', () => {
-  let component: IdeasComponent;
-  let fixture: ComponentFixture<IdeasComponent>;
+describe('SpinDataReadyComponent', () => {
+  let component: SpinDataReadyComponent;
+  let fixture: ComponentFixture<SpinDataReadyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IdeasComponent ]
+      declarations: [ SpinDataReadyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IdeasComponent);
+    fixture = TestBed.createComponent(SpinDataReadyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

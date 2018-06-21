@@ -1,59 +1,52 @@
 <div class="col-container">
-    <div class="table-respo">
-        <!--Table-->
-        <table class="table appli-table mt-3">
-            <!--Table head-->
-            <thead class="head-color">
-                <tr class="text-bl">
-                    <th>&nbsp; Date &nbsp;</th>
-                    <th>hour</th>
-                    <th>Name</th>
-                    <th>organisation</th>
-                    <!-- <th>Action</th> -->
-                    <th></th>
-                </tr>
-            </thead>
-            <!--Table head-->
-            <!--Table body-->
-            <tbody *ngFor="let item of allQuestions, let indx = index ">
-                <tr class="htl">
-                    <td class="no-wrp">{{item.date}}</td>
-                    <td>{{item.hour}}</td>
-                    <td>{{item.userAsk.name}}</td>
-                    <td>
-                        {{item.userAsk.org}}
-                    </td>
-                    <td>
-                    </td>
-                    <!-- <td>
+  <div class="table-respo">
+    <!--Table-->
+    <table class="table appli-table mt-3">
+      <!--Table head-->
+      <thead class="head-color">
+        <tr class="text-bl">
+          <th>&nbsp; Date &nbsp;</th>
+          <th>hour</th>
+          <th>Last name</th>
+          <th>First name</th>
+          <th>About</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+      <!--Table body-->
+      <tbody *ngFor="let item of allQuestions, let indx = index ">
+        <tr class="htl">
+          <td class="no-wrp">{{item.date}}</td>
+          <td>{{item.hour}}</td>
+          <td>{{item.userAsk.lastname}}</td>
+          <td>{{item.userAsk.firstname}}</td>
+          <td>
+            <span *ngIf="item.abType === 'prt'">{{g.getCollabtypetext(item.about)}} </span>
+            <span *ngIf="item.abType !== 'prt'">{{item.about}} </span>
+          </td>
+          <!-- <td>
                           <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
                               <i class="fa fa-eye"></i>
                           </a>
                       </td> -->
 
-                </tr>
-                <tr class="text-tr">
-                    <th colspan="5" [innerHtml]="item.quest_part|bhSafeHtml" class="fa fa-comment-o reply-b">
+        </tr>
+        <tr class="text-tr">
+          <th colspan="5" class="fa fa-comment-o reply-b">
+            <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
+            <a *ngIf="item.abType !== 'prt'" class="ml-2 text-blue" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
+              More
+            </a>
+            <a *ngIf="item.abType === 'prt'" class="ml-2 text-blue" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
+              More
+            </a>
+          </th>
+        </tr>
+        <div class="mb-3"></div>
+      </tbody>
+      <!--Table body-->
+    </table>
 
-                    </th>
-                </tr>
-                <tr *ngIf="item.hasresp">
-                    <td colspan="5">
-                        <div class="reply-box wd position-realtive" *ngFor="let resp_item of item.responseIN">
-
-                            <span [innerHtml]="resp_item.respText | bhSafeHtml" class="fa fa-reply"></span>
-                            <div class="reply-name">
-                                <span class="mr-2" [innerHtml]="getDateString(resp_item.rDate)"></span>
-                                <span>{{resp_item.user.firstname+" "+resp_item.user.lastname}}</span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <div class="mb-3"></div>
-            </tbody>
-            <!--Table body-->
-        </table>
-
-        <!--Table-->
-    </div>
+    <!--Table-->
+  </div>
 </div>
