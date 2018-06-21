@@ -208,8 +208,12 @@ const routes: Routes = [
         component: ApplicationComponent,
       },
       {
-        path: 'question',
+        path: 'questions',
         component: QuestionComponent,
+      },
+      {
+        path: 'questions/details/:qID',
+        component: QuestionsDetailsComponent,
       },
       {
         path: 'application-form',

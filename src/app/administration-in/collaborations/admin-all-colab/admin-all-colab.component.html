@@ -1,7 +1,17 @@
 <div class="col-container">
-  <div class="table-respo">
+<app-spin-data-ready [ready]='!readyData'></app-spin-data-ready>
+  <div *ngIf="readyData"  class="table-respo">
+    <!-- Don't has data -->
+    <div *ngIf="!hasData">
+      <p>
+        Hello,
+        <br> You did not apply to collaboration proposals, we invite you to discover these proposals, and check if you are interested
+        in one of the business opportunities
+
+      </p>
+    </div>
     <!--Table-->
-    <table class="table appli-table">
+    <table *ngIf="hasData" class="table appli-table">
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">

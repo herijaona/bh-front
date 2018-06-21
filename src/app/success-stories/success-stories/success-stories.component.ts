@@ -11,23 +11,23 @@ import { Globals } from './../../globals/globals';
   styleUrls: ['./success-stories.component.scss'],
 })
 export class SuccessStoriesComponent implements OnInit {
-  public showDataState: boolean = false;
+  public showDataState = false;
   public dataToSHow: any;
   public videoTeamPlay: any;
-  public sstr_page: string = 'sStr_page';
+  public sstr_page = 'sStr_page';
   public currentCompanySlug: string;
-  public modalStateCnt: boolean = false;
+  public modalStateCnt = false;
   public sstrAll: any = [];
   public SelectedSstr: any = {};
-  public readySstrData: boolean = false;
+  public readySstrData = false;
   public toDoAction: string;
-  public editAct: string = 'editAct';
-  public newAct: string = 'newAct';
+  public editAct = 'editAct';
+  public newAct = 'newAct';
 
-  public editPAGEstatus: boolean = false;
+  public editPAGEstatus = false;
   @ViewChild('modalsstr') sstrModal: ModalDirective;
   @ViewChild('showVideoPlay') showModalPlay: ModalDirective;
-  public contentEditState: boolean = false;
+  public contentEditState = false;
   constructor(
     public g: Globals,
     private cs: CompanyService,
@@ -78,7 +78,7 @@ export class SuccessStoriesComponent implements OnInit {
   async getDataSuccessStoryFront(curr_slug) {
     this.sstrAll = [];
     try {
-      let all: any = await this.cs.getAllSstr(curr_slug);
+      const all: any = await this.cs.getAllSstr(curr_slug);
       if (all.data) {
         all.data.forEach(el => {
           el.im_poster = this.sh.getVideoImPoster(el.id_video);
@@ -112,7 +112,7 @@ export class SuccessStoriesComponent implements OnInit {
 
   async deleteSstr(item) {
     try {
-      let delRes: any = await this.cs.deleteSstr(item);
+      const delRes: any = await this.cs.deleteSstr(item);
       if (delRes.status === 'OK') {
         this.readySstrData = false;
         this.sstrAll = [];

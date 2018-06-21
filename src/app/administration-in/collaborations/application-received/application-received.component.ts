@@ -10,6 +10,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class ApplicationReceivedComponent implements OnInit {
   public allApplData: any = [];
+  hasData = false;
+  readyData = false;
   constructor(private pr: ProjectsService, public g: Globals, private titl: Title) {
     this.titl.setTitle('All Received Application');
   }
@@ -25,7 +27,11 @@ export class ApplicationReceivedComponent implements OnInit {
       const appl: any = await this.pr.getCompanyApplication();
       if (appl.data) {
         this.allApplData = appl.data;
+        if (this.allApplData.length > 0) {
+          this.hasData = true;
+        }
       }
+      this.readyData = true;
     } catch (e) {
       console.log(e);
     }
