@@ -95,15 +95,15 @@
                 <li class="nav-item icon-th"><a class="nav-link"><i class="fa fa-bars bars-size"></i></a></li>
               </ul>
             </div> -->
-                    </div>
+            </div>
                     <ng-template [ngIf]="adminAll">
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr class="head-ad">
                                         <th>Photo</th>
                                         <th>Name</th>
-                                        <th>Function</th>
+                                        <th>Job</th>
                                         <th class="text-center">Team</th>
                                         <th class="text-center">Committee</th>
                                         <th class="text-center">Remove</th>
@@ -119,14 +119,14 @@
                                             </div>
                                         </th>
                                         <td class="tb">
-                                            <div class="media-body">
+                                            <div class="media-body fh">
                                                 <span>{{item.firstname+" "+item.lastname }}</span>
                                                 <h6 class="mb-0">
                                                     <i>{{item.email}}</i>
                                                 </h6>
                                             </div>
                                         </td>
-                                        <td class="tb">{{item.function}}</td>
+                                        <td class="tb fh">{{item.function}}</td>
                                         <td class="text-center">
                                             <label class="custon-ch ch-second">
                         <input type="checkbox" (change)="teamCommChange($event,'tAdm', item)" [checked]="item.isAdm">
@@ -151,7 +151,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr class="head-ad">
                                         <th>Date</th>
                                         <th>Author</th>
                                         <th>Guest</th>
@@ -160,7 +160,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of userInvitedData">
+                                    <tr *ngFor="let item of userInvitedData" class="tr-pending">
                                         <td>{{item.dateAdd}}</td>
                                         <td>{{item.invintedbyUser.lastname+' '+item.invintedbyUser.firstname }}</td>
                                         <td>

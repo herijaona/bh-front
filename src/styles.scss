@@ -402,6 +402,8 @@ h6 {
     color: white;
     font-size: 18px;
     margin-right: 7px;
+    width: 100%;
+    cursor: pointer;
     @media(min-width: 767px) {
         display: none;
     }

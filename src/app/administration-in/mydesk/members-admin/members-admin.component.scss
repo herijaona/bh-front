@@ -254,12 +254,19 @@ hr {
 
 .grey-text-form {
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13.5px;
     font-family: SourceSansPro-Semibold;
     color: #606060;
     letter-spacing: 0.3px;
 }
-
+.fh{
+    font-family: SourceSansPro-Semibold;
+    h6{
+        font-family: SourceSansPro-Regular;
+        color: #524a4a;
+        font-size: 14px;
+    }
+}
 .card-profile {
     border: 1px solid #e6e9ec;
     box-shadow: none;
@@ -393,16 +400,12 @@ hr {
         background: linear-gradient(-90deg, #e83936, #f94d37);
         color: white;
         padding: 10px 25px 10px 25px;
-        font-size: 14px;
-        font-family: SourceSansPro-Light;
+        font-size: 13px;
+        font-family: SourceSansPro-Semibold;
         -webkit-animation: fadein 2s;
-        /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein 2s;
-        /* Firefox < 16 */
         -ms-animation: fadein 2s;
-        /* Internet Explorer */
         -o-animation: fadein 2s;
-        /* Opera < 12.1 */
         animation: fadein 2s;
     }
     @keyframes fadein {
@@ -447,8 +450,8 @@ hr {
     }
     .no-active-nav {
         padding: 10px 25px 10px 25px;
-        font-size: 14px;
-        font-family: SourceSansPro-Regular;
+        font-size: 13px;
+        font-family: SourceSansPro-Semibold;
     }
     .font-all {
         font-family: SourceSansPro-Light;
@@ -462,7 +465,16 @@ hr {
         animation: fadeInLeft .30s linear;
     }
 }
-
+.head-ad{
+    font-size: 13px;
+    font-family: SourceSansPro-Semibold;
+}
+.tr-pending{
+    td{
+        font-size: 13px;
+        font-family: SourceSansPro-Regular;
+    }
+}
 .font-bold {
     font-weight: bold;
     color: black;
@@ -522,7 +534,7 @@ hr {
     height: 20px;
     width: 20px;
     background-color: #eee;
-    border: 1px solid #606060;
+    border: 1px solid #6060607a;
     border-radius: 4px;
 }
 
