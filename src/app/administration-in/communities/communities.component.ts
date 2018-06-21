@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Headers } from '@angular/http';
 import { SharedNotificationService } from "../../services/shared-notification/shared-notification.service";
-import { CollaborationsService } from "../../services/collaborations/collaborations.service";
+import { DealSpaceService } from "../../services/deal-space/deal-space.service";
 
 
 @Component({
@@ -34,7 +34,7 @@ export class CommunitiesComponent implements OnInit {
 		private auth: AuthserviceService,
 		private tms: TeamsService,
 		private httpClient: HttpClient,
-		private colServ: CollaborationsService
+		private colServ: DealSpaceService
 	) {
 		this.img_avatar = this.g.base_href + "assets/img/profile.JPG";
 		this.user = this.auth.getUser();

@@ -173,7 +173,7 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
           });
           setTimeout(() => {
             this.router.navigateByUrl(
-              "/" + ["administration-in", "collaborations"].join("/")
+              "/" + ["administration-in", "deal-space"].join("/")
             );
           }, 500);
           this.sh.pushData({

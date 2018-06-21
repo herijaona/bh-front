@@ -80,7 +80,7 @@ export class ApplyInnovProjectComponent implements OnInit {
               "/" +
                 [
                   "administration-in",
-                  "collaborations",
+                  "deal-space",
                   "application-sent"
                 ].join("/")
             );
