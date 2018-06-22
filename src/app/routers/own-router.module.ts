@@ -228,11 +228,11 @@ const routes: Routes = [
     children: [
       {
         path: 'ecosystem',
-        component: EcosystemComponent,
+        component: MembersCommunitiesComponent,
       },
       {
-        path: 'members',
-        component: MembersCommunitiesComponent,
+        path: '',
+        component: EcosystemComponent,
       },
       {
         path: 'communities',
