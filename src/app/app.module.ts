@@ -40,10 +40,11 @@ import { ProfileAdminModule } from './profile-admin/profile-admin.module';
 import { MembersAdminModule } from './members-admin/members-admin.module';
 import { CCapitalModule } from './c-capital/c-capital.module';
 import { TabModule } from 'angular-tabs-component';
-
+ 
 /* Component import */
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { PortalWebModule } from './portal-web/portal-web.module';
 
 @NgModule({
   declarations: [AppComponent, SpinnerComponent],
@@ -69,6 +70,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     UserAuthModule,
     CCapitalModule,
     BrowserAnimationsModule,
+    PortalWebModule,
     MDBBootstrapModule.forRoot(),
   ],
   exports: [RouterModule],

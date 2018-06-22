@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AcceuilComponent } from './acceuil.component';
 
-import { MainDefltsComponent } from './main-deflts.component';
 
 describe('MainDefltsComponent', () => {
-  let component: MainDefltsComponent;
-  let fixture: ComponentFixture<MainDefltsComponent>;
+  let component: AcceuilComponent;
+  let fixture: ComponentFixture<AcceuilComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainDefltsComponent ]
+      declarations: [ AcceuilComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainDefltsComponent);
+    fixture = TestBed.createComponent(AcceuilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
