@@ -34,10 +34,10 @@
         <tr class="text-tr">
           <th colspan="5" class="fa fa-comment-o reply-b">
             <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
-            <a *ngIf="item.abType !== 'prt'" class="ml-2 text-blue" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
+            <a *ngIf="item.abType !== 'prt'" class="ml-2 text-blue more" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
               More
             </a>
-            <a *ngIf="item.abType === 'prt'" class="ml-2 text-blue" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
+            <a *ngIf="item.abType === 'prt'" class="ml-2 text-blue more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
               More
             </a>
           </th>

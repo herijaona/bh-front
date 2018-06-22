@@ -412,7 +412,13 @@ h6 {
 
 
 /* end sous nav */
-
+.appli-table tbody tr:hover {
+    background: #ff00001a !important;
+    cursor: pointer;
+}
+.appli-table .head-color tr{
+    box-shadow: 0px 0px 2px 0px;
+}
 .appli-table {
     .head-color {
         background-color: #ffffff !important;
