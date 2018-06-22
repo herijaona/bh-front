@@ -354,7 +354,8 @@ h6 {
 .nav-tel {
     top: 50px;
     padding: 0px !important;
-    background: #393f4b !important;
+    /* background: #393f4b !important; */
+    background: #393f4be6 !important;
     box-shadow: none !important;
     @media(min-width: 1280px) {
         .ns {
@@ -514,10 +515,7 @@ h6 {
     padding-right: 7px !important;
 }
 .more{
-    background: #0275d8;
-    color: white !important;
-    padding: 7px 15px 7px 15px;
-    font-family: SourceSansPro-Bold;
+    color: #0275d8 !important;
     margin-left: 15px !important;
 }
 .hasdata{

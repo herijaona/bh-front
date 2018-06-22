@@ -63,8 +63,8 @@
     <div class="respDATA valeur-name">
       <div *ngFor="let item of responseIN">
         <div>
-          <span>{{item.user.firstname+ ' '+ item.user.lastname}} </span> -
-          <span>{{timeStrng(item.rDate)}} </span>
+          <span class="hour-name">{{item.user.firstname+ ' '+ item.user.lastname}} </span> -
+          <span class="hour-name">{{timeStrng(item.rDate)}} </span>
         </div>
         <div [innerHtml]="item.respText"></div>
       </div>
