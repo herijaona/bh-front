@@ -31,7 +31,7 @@
               <th>Type</th>
               <!-- <th>Firstname</th>
                 <th>Lastname</th> -->
-              <th>Collaboration name</th>
+              <th>Application name</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -46,8 +46,8 @@
               <td>{{g.getCollabtypetext(item.prjt.type)}}</td>
               <!-- <td>{{item.usr.firstname}}</td>
             <td>{{item.usr.lastname}}</td> -->
-              <td>{{item.prjt.name}}</td>
-              <td>p</td>
+              <td>{{item.applicationName}}</td>
+              <td>{{item.status}}</td>
               <td>
                 <a [routerLink]="['/administration-in','collaborations','application-received','details', item._id ]" target="_blank">
                   <i class="fa fa-eye"></i>

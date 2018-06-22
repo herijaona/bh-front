@@ -22,15 +22,16 @@
     <h4>Skills and specificite :</h4>
     <p [innerHtml]="detailsAll.applDetail.skill_specificities | bhSafeHtml"></p>
     <h3>Proposition of collaboration</h3>
-    <p class="toupper">Ad do consectetur consectetur consequat esse mollit proident enim cillum occaecat laborum dolore nostrud eiusmod sunt nisi ea ea do dolore sit dolore ut officia.</p>
+    <p class="toupper">Ad do consectetur consectetur consequat esse mollit proident enim cillum occaecat laborum dolore nostrud eiusmod sunt
+      nisi ea ea do dolore sit dolore ut officia.</p>
     <p [innerHtml]="detailsAll.applDetail.collab_proposal_describ | bhSafeHtml"></p>
   </ng-template>
   <div class="text-right btn-app mb-4">
-    <button class="btn btn-success green-color">
+    <button (click)="acceptApplication()" class="btn btn-success green-color">
       <i class="fa fa-check"></i>Accept</button>
     <button class="btn btn-success red-color">
       <i class="fa fa-ban"></i>refuse</button>
-    <button class="btn btn-success gray-color">
+    <button (click)="closeAction()" class="btn btn-success gray-color">
       <i class="fa fa-close"></i>close</button>
   </div>
 </div>
