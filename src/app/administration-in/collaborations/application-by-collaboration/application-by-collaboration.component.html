@@ -2,7 +2,7 @@
   <div *ngIf="readyData" class="table-respo">
     <!-- Hasn't Data -->
     <div *ngIf="!hasData">
-      <p>
+      <p class="hasdata">
         Hello,
         <br> You did not received any applications to this collaboration proposals
       </p>
@@ -15,7 +15,7 @@
           <span class="title-propos">
             Application for the Collaboration :
           </span>
-          <span> &nbsp; {{dataCollab.name}}
+          <span class="hasdata"> &nbsp; {{dataCollab.name}}
           </span>
         </div>
       </div>

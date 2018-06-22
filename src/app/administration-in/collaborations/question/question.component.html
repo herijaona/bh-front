@@ -5,7 +5,7 @@
   <div *ngIf="readyData" class="table-respo">
     <!-- has no Data -->
     <div *ngIf="!hasData">
-      <p>
+      <p class="hasdata">
         Hello,
         <br> You did not apply to collaboration proposals, we invite you to discover these proposals, and check if you are interested
         in one of the business opportunities
@@ -39,7 +39,7 @@
         <tr>
           <th colspan="6" class="reply-b">
             <span [innerHtml]="item.quest_part|bhSafeHtml"> </span>
-            <a target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
+            <a class="more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
               More
             </a>
           </th>
