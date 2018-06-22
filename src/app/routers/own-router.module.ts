@@ -227,11 +227,11 @@ const routes: Routes = [
     canActivate: [AuthguardService],
     children: [
       {
-        path: 'ecosystem',
+        path: '',
         component: MembersCommunitiesComponent,
       },
       {
-        path: '',
+        path: 'ecosystem',
         component: EcosystemComponent,
       },
       {
