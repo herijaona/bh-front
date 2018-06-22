@@ -63,3 +63,12 @@
     transform: rotate(360deg);
   }
 }
+.tb-items{
+  td, th {
+    border-top: none;
+}
+}
+.reply-bm:hover{
+  background: transparent !important;
+  cursor: auto;
+}

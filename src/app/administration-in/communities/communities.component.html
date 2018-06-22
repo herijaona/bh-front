@@ -22,10 +22,42 @@
     </ul>
     <ul class="navbar-nav ns float-r">
         <li class="nav-item">
-            <a class="nav-link select-col"><i class="fa fa-plus"></i>New Community</a>
+            <a class="nav-link select-col" (click)="showMod()"><i class="fa fa-plus"></i>New Community</a>
         </li>
     </ul>
 </nav>
 <div class="col-container mt-5">
     <router-outlet></router-outlet>
 </div>
+
+
+<!-- Modal video play-->
+<div style="overflow: auto;" mdbModal #modalHist="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: false}">
+    <div  class="modal-dialog" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header md-new">
+            <h2><i class="fa fa-users"></i>Create new Community</h2>
+        </div>
+        <!--Body-->
+        <div class="modal-body mb-0">
+                <div class="input-md">
+                    <label>Name</label>
+                    <input placeholder="Community name" type="email" id="bhemail" class="form-control" mdbActive validate
+                          required="required">
+                </div>
+                <div class="pb-3 input-md">
+                    <label>Description</label>
+                    <textarea  placeholder="Overall Satisfaction Question" type="text"  class="">
+                    </textarea>
+                </div>
+                <div class="flex fx">
+                    <a class="nav-link select-col fca" (click)="hideModal()">Cancel</a>
+                    <a class="nav-link select-col fc">Create Community</a>
+                </div>
+          </div>
+        </div>
+        <!--/.Content-->
+      </div>
+    </div>

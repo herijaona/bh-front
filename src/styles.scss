@@ -354,7 +354,8 @@ h6 {
 .nav-tel {
     top: 50px;
     padding: 0px !important;
-    background: #393f4b !important;
+    /* background: #393f4b !important; */
+    background: #393f4be6 !important;
     box-shadow: none !important;
     @media(min-width: 1280px) {
         .ns {
@@ -375,7 +376,7 @@ h6 {
                 font-family: SourceSansPro-Bold;
             }
             .active {
-                border-bottom: 3px solid #da5445;
+                border-bottom: 3px solid #f73547;
                 padding-bottom: 7px;
                 padding-left: 0;
                 padding-right: 0;
@@ -411,7 +412,13 @@ h6 {
 
 
 /* end sous nav */
-
+.appli-table tbody tr:hover {
+    background: #ff00001a !important;
+    cursor: pointer;
+}
+.appli-table .head-color tr{
+    box-shadow: 0px 0px 2px 0px;
+}
 .appli-table {
     .head-color {
         background-color: #ffffff !important;
@@ -513,3 +520,16 @@ h6 {
     padding-left: 7px !important;
     padding-right: 7px !important;
 }
+.more{
+    color: #0275d8 !important;
+    margin-left: 15px !important;
+}
+.hasdata{
+    color: #393f4b;
+    font-family: SourceSansPro-Regular;
+    text-transform: capitalize;
+}
+.question-data p{
+    color: #393f4b;
+    font-family: SourceSansPro-Regular;
+  }

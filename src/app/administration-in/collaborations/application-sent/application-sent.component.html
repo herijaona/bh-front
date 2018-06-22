@@ -1,7 +1,7 @@
 <div class="col-container">
   <div class="table-respo">
     <div *ngIf="!hasData" >
-      <p>
+      <p class="hasdata">
         Hello,
         <br> 
         You did not apply to collaboration proposals, we invite you to discover these proposals, and check if you are interested
@@ -10,7 +10,7 @@
       </p>
     </div>
     <!--Table-->
-    <table *ngIf="hasData"  class="table appli-table">
+    <table *ngIf="hasData"  class="table appli-table table-striped">
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">

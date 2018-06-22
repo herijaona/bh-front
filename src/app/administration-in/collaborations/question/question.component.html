@@ -5,7 +5,7 @@
   <div *ngIf="readyData" class="table-respo">
     <!-- has no Data -->
     <div *ngIf="!hasData">
-      <p>
+      <p class="hasdata">
         Hello,
         <br> You did not apply to collaboration proposals, we invite you to discover these proposals, and check if you are interested
         in one of the business opportunities
@@ -13,7 +13,7 @@
       </p>
     </div>
     <!--Table-->
-    <table *ngIf="hasData" class="table appli-table">
+    <table *ngIf="hasData" class="table appli-table table-striped">
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
@@ -27,7 +27,7 @@
       </thead>
       <!--Table head-->
       <!--Table body-->
-      <tbody *ngFor="let item of allQuestions">
+      <tbody *ngFor="let item of allQuestions" class="tb-items">
         <tr>
           <td class="t1">{{item.date}}</td>
           <td class="t1">{{item.hour}}</td>
@@ -36,10 +36,10 @@
           <td class="t2">{{item.userAsk.org}}</td>
           <td class="t2">{{item.about.name}}</td>
         </tr>
-        <tr>
+        <tr class="reply-bm">
           <th colspan="6" class="reply-b">
             <span [innerHtml]="item.quest_part|bhSafeHtml"> </span>
-            <a target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
+            <a class="more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
               More
             </a>
           </th>

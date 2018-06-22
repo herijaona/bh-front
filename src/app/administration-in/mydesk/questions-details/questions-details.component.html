@@ -1,29 +1,29 @@
 <div class="container-fluid grid grid-top">
-  <div class="row" *ngIf="readytoshow">
+  <div class="row mt-m" *ngIf="readytoshow">
     <div class="col-6">
-      <span>Organisation name :</span>
-      <span>{{allQDet.usr.org}}</span>
+      <span class="title-name">Organisation name :</span>
+      <span class="valeur-name">{{allQDet.usr.org}}</span>
     </div>
     <div class="col-6">
-      <span>Country :</span>
-      <span>{{allQDet.usr.orgAddr}}</span>
+      <span class="title-name">Country :</span>
+      <span class="valeur-name">{{allQDet.usr.orgAddr}}</span>
     </div>
     <div class="col-6">
-      <span>First name :</span>
-      <span>{{allQDet.usr.firstname}}</span>
+      <span class="title-name">First name :</span>
+      <span class="valeur-name">{{allQDet.usr.firstname}}</span>
     </div>
     <div class="col-6">
-      <span>Last name :</span>
-      <span>{{allQDet.usr.lastname}}</span>
+      <span class="title-name">Last name :</span>
+      <span class="valeur-name">{{allQDet.usr.lastname}}</span>
     </div>
 
     <div class="col-6">
-      <span>Date :</span>
-      <span>{{allQDet.date}}</span>
+      <span class="title-name">Date :</span>
+      <span class="valeur-name">{{allQDet.date}}</span>
     </div>
     <div class="col-6">
-      <span>Hour :</span>
-      <span>{{allQDet.hour}}</span>
+      <span class="title-name">Hour :</span>
+      <span class="valeur-name">{{allQDet.hour}}</span>
     </div>
 
     <!-- <div class="col-md-6">
@@ -55,16 +55,16 @@
   </div>
   <hr>
   <div class="mt-4" *ngIf="readytoshow">
-    Questions Details:
+    <span class="title-name">Questions Details:</span>
     <br>
-    <div [innerHtml]="allQDet.question_content" class="mb-2 ml-2 ">
+    <div [innerHtml]="allQDet.question_content" class="mb-2 ml-2 question-data">
       <span>Questions</span>
     </div>
-    <div class="respDATA">
+    <div class="respDATA valeur-name">
       <div *ngFor="let item of responseIN">
         <div>
-          <span>{{item.user.firstname+ ' '+ item.user.lastname}} </span> -
-          <span>{{timeStrng(item.rDate)}} </span>
+          <span class="hour-name">{{item.user.firstname+ ' '+ item.user.lastname}} </span> -
+          <span class="date-r">{{timeStrng(item.rDate)}} </span>
         </div>
         <div [innerHtml]="item.respText"></div>
       </div>

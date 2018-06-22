@@ -1,14 +1,14 @@
 <div class="col-container">
   <div *ngIf="readyData" class="table-respo">
     <div *ngIf="!hasData">
-      <p>
+      <p class="hasdata">
         Hello,
         <br> You did not received any applications your collaborations proposals.
       </p>
     </div>
     <!-- NgIf collabtype == collabinnov c-a-d Project -->
     <div *ngIf="hasData">
-      <table class="table appli-table">
+      <table class="table appli-table table-striped">
         <!--Table head-->
         <thead class="head-color">
           <tr class="text-bl">

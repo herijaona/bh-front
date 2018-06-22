@@ -39,8 +39,8 @@
 }
 
 .btn-apply {
-  background: #e83936;
-  border: 1px solid #e83936;
+  background: #f73547;
+  border: 1px solid #f73547;
   color: white !important;
   font-size: 16px;
   border-radius: 0px;
@@ -56,4 +56,27 @@
   span {
     padding-right: 10px;
   }
+}
+
+.title-name{
+  color: #393f4b;
+  font-family: SourceSansPro-Semibold;
+}
+.valeur-name{
+  color: #393f4b;
+  font-family: SourceSansPro-Regular;
+}
+.mt-m{
+  margin-top: 4rem !important;
+}
+.respDATA{
+  margin-left: 25px;
+}
+.hour-name{
+  color: #f73547;
+  font-size: 15px;
+}
+.date-r{
+  color: gray;
+  font-size: 13px;
 }
