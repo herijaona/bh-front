@@ -17,7 +17,7 @@ export class CommunitiesComponent implements OnInit {
   }
   ngOnInit() {}
 
-  public showMod(item) {
+  public showMod() {
     setTimeout(() => {
       this.myModalHist.show();
     }, 330);
