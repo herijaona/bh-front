@@ -1,13 +1,12 @@
 <div class="col-container">
-<app-spin-data-ready [ready]='!readyData'></app-spin-data-ready>
-  <div *ngIf="readyData"  class="table-respo">
+  <app-spin-data-ready [ready]='!readyData'></app-spin-data-ready>
+  <div *ngIf="readyData" class="table-respo">
     <!-- Don't has data -->
     <div *ngIf="!hasData">
       <p class="hasdata">
         Hello,
-        <br> You did not apply to collaboration proposals, we invite you to discover these proposals, and check if you are interested
-        in one of the business opportunities
-
+        <br> For the moment you do not have an offer of collaborations but you can create some on the menu "CREATE A COLLABORATION
+        TYPE"
       </p>
     </div>
     <!--Table-->

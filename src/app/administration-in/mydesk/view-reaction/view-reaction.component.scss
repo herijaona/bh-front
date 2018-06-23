@@ -12,10 +12,6 @@
   }
 }
 
-
-
-
-
 .close-m {
   z-index: 1;
 }
@@ -54,5 +50,29 @@
 }
 
 .text-blue {
-    color: blue
+  color: blue
+}
+
+.appli-table {
+  td a {
+    color: #0275d8;
+  }
+  td a:hover {
+    border-bottom: 1px solid #0275d8;
+  }
+  tbody tr:hover {
+    background: #ff00001a !important;
+    cursor: pointer;
+  }
+  tbody {
+    td {
+      border-top: none;
+    }
+  }
+  .text-bl {
+    box-shadow: 0px 0px 0px 0px;
+  }
+  .bn {
+    padding-left: 7px;
+  }
 }

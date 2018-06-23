@@ -3,7 +3,7 @@
     <div *ngIf="!hasData">
       <p class="hasdata">
         Hello,
-        <br> You did not received any applications your collaborations proposals.
+        <br> You did not received any applications on your collaborations proposals.
       </p>
     </div>
     <!-- NgIf collabtype == collabinnov c-a-d Project -->
@@ -19,6 +19,7 @@
             <!-- <th>Firstname</th>
             <th>Lastname</th> -->
             <th>Collaboration name</th>
+            <th>Application name</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -34,6 +35,7 @@
             <!-- <td>{{item.usr.firstname}}</td>
             <td>{{item.usr.lastname}}</td> -->
             <td>{{item.prjt.name}}</td>
+            <td>{{item.applicationName}}</td>
             <td>p</td>
             <td>
               <a [routerLink]="['/administration-in','collaborations','application-received','details', item._id ]" target="_blank">

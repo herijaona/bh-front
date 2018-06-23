@@ -32,7 +32,7 @@
 
         </tr>
         <tr class="text-tr">
-          <th colspan="5" class="fa fa-comment-o reply-b">
+          <td colspan="5" class="reply-b">
             <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
             <a *ngIf="item.abType !== 'prt'" class="ml-2 text-blue more" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
               More
@@ -40,7 +40,7 @@
             <a *ngIf="item.abType === 'prt'" class="ml-2 text-blue more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
               More
             </a>
-          </th>
+          </td>
         </tr>
         <div class="mb-3"></div>
       </tbody>

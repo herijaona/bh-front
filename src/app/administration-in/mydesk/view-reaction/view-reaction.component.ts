@@ -11,6 +11,8 @@ import { ModalDirective } from 'angular-bootstrap-md';
   styleUrls: ['./view-reaction.component.scss'],
 })
 export class ViewReactionComponent implements OnInit {
+  public hasData = false;
+  public readyData = false;
   private itemTOReply: any;
   @ViewChild('modalHist') public myModalHist: ModalDirective;
   public viewreaction_page = 'viewreaction_page';
@@ -41,6 +43,10 @@ export class ViewReactionComponent implements OnInit {
         if (quest.status === 'OK') {
           this.allQuestions = quest.data;
           console.log('archives', this.allQuestions);
+          if (this.allQuestions.length > 0) {
+            this.hasData = true;
+          }
+          this.readyData = true;
         }
       }
     } catch (e) {

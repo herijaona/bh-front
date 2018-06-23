@@ -19,8 +19,8 @@
 </ul>
 opportunity
 </nav> -->
-<div class="col-container mt-5">
-  <table class="table appli-table">
+<div class="col-container mt-custom">
+  <table class="table appli-table table-striped">
     <thead class="head-color">
       <tr class="text-bl">
         <th>Organisation</th>
@@ -39,8 +39,8 @@ opportunity
         <td>{{getCollabtypetext(item.typeCollab)}}</td>
         <td>
           <a target="_blank" [routerLink]="[ '/open-innovation' , item.org_slug , 'details-project' , item._id ]">
-          {{item.name}}
-        </a>
+            {{item.name}}
+          </a>
         </td>
         <td>{{item.byUser.firstname}}</td>
         <td>{{item.byUser.lastname}}</td>

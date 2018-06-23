@@ -1,55 +1,62 @@
 <div class="col-container">
-  <div class="table-respo">
-    <!--Table-->
-    <table class="table appli-table">
-      <!--Table head-->
-      <thead class="head-color">
-        <tr class="text-bl">
-          <th>&nbsp; Date &nbsp;</th>
-          <th>hour</th>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>organisation</th>
-          <!-- <th>Action</th> -->
-          <th></th>
-        </tr>
-      </thead>
-      <!--Table head-->
-      <!--Table body-->
-      <tbody *ngFor="let item of allQuestions, let indx = index ">
-        <tr>
-          <td class="no-wrp">{{item.date}}</td>
-          <td>{{item.hour}}</td>
-          <td>{{item.userAsk.firstname}}</td>
-          <td>{{item.userAsk.lastname}}</td>
-          <td>
-            {{item.userAsk.org}}
-          </td>
-          <td>
-          </td>
-          <!-- <td>
+  <div *ngIf="readyData" class="table-respo">
+    <div *ngIf="!hasData">
+      <p class="hasdata">
+        Hello,
+        <br> You did not received any questions.
+      </p>
+    </div>
+    <div *ngIf="hasData" class="table-respo">
+      <!--Table-->
+      <table class="table appli-table ">
+        <!--Table head-->
+        <thead class="head-color">
+          <tr class="text-bl">
+            <th>&nbsp; Date &nbsp;</th>
+            <th>hour</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>organisation</th>
+            <!-- <th>Action</th> -->
+            <th></th>
+          </tr>
+        </thead>
+        <!--Table head-->
+        <!--Table body-->
+        <tbody *ngFor="let item of allQuestions, let indx = index ">
+          <tr>
+            <td class="no-wrp">{{item.date}}</td>
+            <td>{{item.hour}}</td>
+            <td>{{item.userAsk.firstname}}</td>
+            <td>{{item.userAsk.lastname}}</td>
+            <td>
+              {{item.userAsk.org}}
+            </td>
+            <td>
+            </td>
+            <!-- <td>
                         <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
                             <i class="fa fa-eye"></i>
                         </a>
                     </td> -->
 
-        </tr>
-        <tr class="text-tr">
-          <th colspan="5" class="reply-b">
-            <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
-            <a class="ml-2 text-blue" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
-              More
-            </a>
-          </th>
-        </tr>
-        <!-- <tr *ngIf="item.hasresp">
+          </tr>
+          <tr class="text-tr">
+            <th colspan="5" class="reply-b">
+              <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
+              <a class="ml-2 text-blue" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
+                More
+              </a>
+            </th>
+          </tr>
+          <!-- <tr *ngIf="item.hasresp">
           <td colspan="5">
             <div class="reply-box" *ngFor="let resp_item of item.responseIN" [innerHtml]="resp_item.respText | bhSafeHtml">
               <span [innerHtml]="resp_item.rDate | bhSafeHtml"></span>
             </div>
           </td>
         </tr> -->
-        <!--  <tr class="text-right">
+          <!--  <tr class="text-right">
           <th colspan="5" class="border-0">
             <a (click)="archivequestions(item, indx)" class="btn btn-primary btn-lg btn-question" role="button">
               <span>delete</span>
@@ -61,10 +68,11 @@
             </a>
           </th>
         </tr> -->
-      </tbody>
-      <!--Table body-->
-    </table>
+        </tbody>
+        <!--Table body-->
+      </table>
 
-    <!--Table-->
+      <!--Table-->
+    </div>
   </div>
 </div>
