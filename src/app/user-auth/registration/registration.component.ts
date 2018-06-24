@@ -36,12 +36,13 @@ export class RegistrationComponent implements OnInit {
     read: ViewContainerRef,
   })
   attachView: ViewContainerRef;
+  /*   geoTypes: ['(regions)', '(cities)'], */
+
   userSettings: any = {
     showSearchButton: false,
     showRecentSearch: false,
-    geoTypes: ['(regions)', '(cities)'],
     showCurrentLocation: false,
-    inputPlaceholderText: 'Adresse: Ville, Pays ......',
+    inputPlaceholderText: 'Adresse: City, Country ......',
   };
   public em_empty = false;
   public orgType: any = [];
