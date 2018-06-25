@@ -609,6 +609,9 @@ hr {
 
 .invite_team_form {
     padding-bottom: 10px;
+    .form-control{
+        padding-left: 4px; 
+    }
 }
 
 .over-flow {

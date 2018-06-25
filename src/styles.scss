@@ -348,7 +348,9 @@ h6 {
   top: 50px;
   padding: 0px !important;
   /* background: #393f4b !important; */
-  background: #393f4be6 !important;
+  /*  background: #393f4be6 !important; */
+  background: rgb(57,63,75);
+  opacity: 0.8;
   box-shadow: none !important;
   @media(min-width: 1280px) {
     .ns {
@@ -395,7 +397,7 @@ h6 {
   padding-top: 10px;
   color: white;
   font-size: 18px;
-  margin-right: 7px;
+  margin-left: -6px;
   width: 100%;
   cursor: pointer;
   @media(min-width: 767px) {
@@ -529,4 +531,27 @@ h6 {
 .question-data p {
   color: #393f4b;
   font-family: SourceSansPro-Regular;
+  margin-bottom: 0px !important;
+}
+
+.btn-tab1{
+  background: #f73547;
+  padding: 7px 13px 7px 13px;
+  color: white !important;
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.btn-tab2{
+  background: #ff00000a;
+  padding: 7px 13px 7px 13px;
+  color: #f73547 !important;
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.btn-tab3{
+  background: #ff00000a;
+  padding: 7px 13px 7px 13px;
+  color: #f73547 !important;
+  font-weight: 700;
+  font-size: 13.5px;
 }

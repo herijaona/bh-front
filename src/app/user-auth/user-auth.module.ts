@@ -22,6 +22,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AsideComponent } from './page-login/aside/aside.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ReplyOrgInvitationComponent } from './reply-org-invitation/reply-org-invitation.component';
+import { NotifRegisterComponent } from './notif-register/notif-register.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { ReplyOrgInvitationComponent } from './reply-org-invitation/reply-org-in
     InvitedRegisterComponent,
     SignUpComponent,
     AsideComponent,
-    ReplyOrgInvitationComponent
+    ReplyOrgInvitationComponent,
+    NotifRegisterComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthserviceService, CookieService],

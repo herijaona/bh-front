@@ -12,6 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiHttpService } from '../../services/api-http/api-http.service';
 import { AuthserviceService } from '../../services/authservice/authservice.service';
 import { NotifComponent } from '../notif/notif.component';
+import { NotifRegisterComponent } from '../notif-register/notif-register.component';
 import { PageLoginComponent } from '../page-login/page-login.component';
 import { ValidateOrgtypes } from '../../services/validators/own.validator';
 import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
@@ -64,7 +65,8 @@ export class RegistrationComponent implements OnInit {
     this.activRoute.params.subscribe((params_: any) => {
       this.invitationID = params_['id_invitation'];
     });
-    this.img_bg = this.g.base_href + 'assets/img/bg-0.png';
+    /* this.img_bg = this.g.base_href + 'assets/img/bg-0.png'; */
+    this.img_bg = this.g.base_href + 'assets/img/imgbanner-100.jpg';
     this.getOrgtype();
   }
   async getOrgtype() {
@@ -153,8 +155,8 @@ export class RegistrationComponent implements OnInit {
               action: 'hide',
             });
             formEl.remove();
-            // this.notifAndLogin();
-            this.router.navigateByUrl('/login');
+            this.notifAndLogin();
+           /*  this.router.navigateByUrl('/login'); */
           },
           err => {
             this.sh.runloader({
@@ -209,7 +211,7 @@ export class RegistrationComponent implements OnInit {
     const factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifComponent);
     const refNotif = this.attachView.createComponent(factoryNotif);
     refNotif.instance.type = 'success';
-    refNotif.instance.message = 'Account create successfully<br>Consult your email box to activate your account.';
+    refNotif.instance.message = '" Great ! Now, to confirm the creation of your account,Click on the link sent by email"';
     const factoryLogin = this.componentFactoryResolver.resolveComponentFactory(PageLoginComponent);
     this.attachView.createComponent(factoryLogin);
     // ref.changeDetectorRef.detectChanges();

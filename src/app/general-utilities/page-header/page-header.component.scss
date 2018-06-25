@@ -179,7 +179,8 @@
 }
 
 .bg-mind:before {
-    background: linear-gradient(-159deg, rgba(112, 50, 92, 0.8) 0%, rgba(120, 25, 10, 0.8) 100%);
+    /* background: linear-gradient(-159deg, rgba(112, 50, 92, 0.8) 0%, rgba(120, 25, 10, 0.8) 100%); */
+    background: #0000002e;
     content: '';
     display: block;
     min-height: 189px;
