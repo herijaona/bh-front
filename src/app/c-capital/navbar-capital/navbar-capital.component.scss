@@ -15,7 +15,7 @@ button{
 	background:$color3;
 	text-transform:uppercase;
 }
-/* navbar style all */
+/* navbar style all*/
 .bg-gri{
 	background-color: #f8f8fa !important;
     position: absolute;
@@ -25,7 +25,7 @@ button{
     margin-top: 218px;
 }
 .bg-nav{
-	background:$color1;
+	background:#6a6d84;
 	padding-top: 1.1px;
 	padding-bottom: 1.1px;
 	.navbar-nav{
@@ -37,7 +37,11 @@ button{
 			    text-transform: capitalize;
 			    font-size: 13px;
 			}
-		}		
+        }
+        li.active,
+        li a.active {
+            border-bottom: 3px solid #da5445;
+        }		
 	}
 	.connexion{
 		.btn-inscrire{

@@ -6,7 +6,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
-import { MembersAdminModule } from '../members-admin/members-admin.module';
 import { GeneralUtilitiesModule } from '../general-utilities/general-utilities.module';
 
 import { ProfileComponent } from './profile/profile.component';
@@ -16,7 +15,7 @@ import { PInfoComponent } from './profile/p-info/p-info.component';
 import { ProjectEditAndNewComponent } from './collaborations/project-edit-and-new/project-edit-and-new.component';
 import { InnovationProjectComponent } from './collaborations/project-edit-and-new/innovation-project/innovation-project.component';
 import { PCompletionComponent } from './profile/p-completion/p-completion.component';
-import { MembersAdminComponent } from './members-admin/members-admin.component';
+import { MembersAdminComponent } from './mydesk/members-admin/members-admin.component';
 import { AdminAllColabComponent } from './collaborations/admin-all-colab/admin-all-colab.component';
 import { CommunitiesComponent } from './communities/communities.component';
 import { MyDatePickerModule } from 'mydatepicker';
@@ -35,8 +34,6 @@ import { ApplicationComponent } from './collaborations/application/application.c
 import { ViewReactionComponent } from './mydesk/view-reaction/view-reaction.component';
 import { ApplicationReceivedComponent } from './collaborations/application-received/application-received.component';
 import { EcosystemComponent } from './communities/ecosystem/ecosystem.component';
-import { IdeasCommunitiesComponent } from './communities/ideas/ideas.component';
-import { QuestionCommunitiesComponent } from './communities/question-communities/question-communities.component';
 import { OneCollabApplicationComponent } from './collaborations/one-collab-application/one-collab-application.component';
 import { DealSpaceComponent } from './deal-space/deal-space.component';
 import { QuestionAnswersComponent } from './deal-space/question-answers/question-answers.component';
@@ -46,7 +43,18 @@ import { PlanningDealComponent } from './deal-space/planning-deal/planning-deal.
 import { HistoricalComponent } from './mydesk/historical/historical.component';
 import { IdeasDeskComponent } from './mydesk/ideas-desk/ideas-desk.component';
 import { ApplicationFormComponent } from './collaborations/application-form/application-form.component';
-import { ReceivedInvitationsComponent } from './collaborations/received-invitations/received-invitations.component';
+import { InactiveAccountComponent } from './extra/inactive-account/inactive-account.component';
+import { ApplicationByCollaborationComponent } from './collaborations/application-by-collaboration/application-by-collaboration.component';
+import { ErrorNotificationComponent } from './extra/error-notification/error-notification.component';
+import { MembersCommunitiesComponent } from './communities/members-communities/members-communities.component';
+import { UnderCommunitiesComponent } from './communities/under-communities/under-communities.component';
+import { CommunitySpaceComponent } from './communities/community-space/community-space.component';
+import { SettingComponent } from './setting/setting.component';
+import { AcceptedInvitationsComponent } from './mydesk/invited-organisation/accepted-invitations/accepted-invitations.component';
+import { InviteOrganisationsComponent } from './mydesk/invited-organisation/invite-organisations/invite-organisations.component';
+import { InvitationsSentComponent } from './mydesk/invited-organisation/invitations-sent/invitations-sent.component';
+import { SpinDataReadyComponent } from './extra/spin-data-ready/spin-data-ready.component';
+import { ConfigComponent } from './setting/config/config.component';
 
 @NgModule({
   imports: [
@@ -58,7 +66,6 @@ import { ReceivedInvitationsComponent } from './collaborations/received-invitati
     FormsModule,
     MyDatePickerModule,
     RouterModule,
-    MembersAdminModule,
     GeneralUtilitiesModule,
   ],
   declarations: [
@@ -87,8 +94,6 @@ import { ReceivedInvitationsComponent } from './collaborations/received-invitati
     ApplicationReceivedComponent,
     ApplicationComponent,
     EcosystemComponent,
-    IdeasCommunitiesComponent,
-    QuestionCommunitiesComponent,
     OneCollabApplicationComponent,
     DealSpaceComponent,
     QuestionAnswersComponent,
@@ -98,7 +103,18 @@ import { ReceivedInvitationsComponent } from './collaborations/received-invitati
     HistoricalComponent,
     IdeasDeskComponent,
     ApplicationFormComponent,
-    ReceivedInvitationsComponent,
+    InactiveAccountComponent,
+    ApplicationByCollaborationComponent,
+    ErrorNotificationComponent,
+    MembersCommunitiesComponent,
+    UnderCommunitiesComponent,
+    CommunitySpaceComponent,
+    SettingComponent,
+    AcceptedInvitationsComponent,
+    InviteOrganisationsComponent,
+    InvitationsSentComponent,
+    SpinDataReadyComponent,
+    ConfigComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

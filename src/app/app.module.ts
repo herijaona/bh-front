@@ -22,29 +22,27 @@ import { BaseHttpService } from './services/base-http/base-http.service';
 import { CompanyService } from './services/company/company.service';
 import { ProjectsService } from './services/projects/projects.service';
 import { RequestInterceptorService } from './services/request-interceptor/request-interceptor.service';
+import { IsActiveGuardService } from './services/authguard/is-active-guard.service';
+
 /*pipe*/
 
 /*Modules impot*/
 import { AdministrationInModule } from './administration-in/administration-in.module';
 import { UserAuthModule } from './user-auth/user-auth.module';
-import { DescriptionProjectModule } from './description-project/description-project.module';
 import { HomepageModule } from './homepage/homepage.module';
-import { IdeasModule } from './ideas/ideas.module';
+import { SuccessStoriesModule } from './success-stories/success-stories.module';
 import { MindsetModule } from './mindset/mindset.module';
 import { GeneralUtilitiesModule } from './general-utilities/general-utilities.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ProjectsModule } from './projects/projects.module';
-import { CommitteeModule } from './committee/committee.module';
 import { TeamModule } from './team/team.module';
 import { ProfileAdminModule } from './profile-admin/profile-admin.module';
-import { MembersAdminModule } from './members-admin/members-admin.module';
 import { CCapitalModule } from './c-capital/c-capital.module';
 import { TabModule } from 'angular-tabs-component';
  
 /* Component import */
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { PortalWebModule } from './portal-web/portal-web.module';
 
 @NgModule({
   declarations: [AppComponent, SpinnerComponent],
@@ -54,14 +52,11 @@ import { PortalWebModule } from './portal-web/portal-web.module';
     FormsModule,
     HttpClientModule,
     GeneralUtilitiesModule,
-    DescriptionProjectModule,
     HomepageModule,
     ProjectsModule,
-    CommitteeModule,
-    IdeasModule,
+    SuccessStoriesModule,
     MindsetModule,
     ProfileAdminModule,
-    MembersAdminModule,
     TeamModule,
     NavbarModule,
     ReactiveFormsModule,
@@ -70,7 +65,6 @@ import { PortalWebModule } from './portal-web/portal-web.module';
     UserAuthModule,
     CCapitalModule,
     BrowserAnimationsModule,
-    PortalWebModule,
     MDBBootstrapModule.forRoot(),
   ],
   exports: [RouterModule],
@@ -91,6 +85,7 @@ import { PortalWebModule } from './portal-web/portal-web.module';
     BaseHttpService,
     ProjectsService,
     CompanyService,
+    IsActiveGuardService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

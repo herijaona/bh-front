@@ -49,9 +49,14 @@ li {
 .float-r {
     right: 0;
     position: absolute;
-    margin-right: 74px;
+    margin-right: 53px;
+    li:first-child {
+        border: none;
+    }
     li {
         margin-right: 2px;
+        border: dotted 0.2px #ffffff6b;
+        text-align: center;
         a {
             padding: 5px;
             padding-left: 8px !important;
@@ -77,15 +82,20 @@ li {
     .nav-tel {
         display: inline-block;
         width: 100%;
+        padding-left: 1rem !important;
     }
     .float-r {
         position: relative;
-        margin-right: 0px;
+        margin-right: 8px;
         float: left;
         margin-top: 9px;
         border-top: 0.2px solid dimgrey;
         width: 100%;
         padding-top: 7px;
         padding-bottom: 7px;
+    }
+    .nav-tel .ns {
+        margin-left: 0px;
+        text-align: center;
     }
 }

@@ -19,7 +19,7 @@ import {
 export class CollaborationsComponent implements OnInit {
   public isIn: boolean = false;
   public dp: boolean = true;
-  public tab = ['application-form'];
+  public tab = ['apply-to'];
   constructor(public g: Globals, private pr: ProjectsService, private router: Router, public el: ElementRef) {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {

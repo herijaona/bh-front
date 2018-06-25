@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Globals } from './../../../globals/globals';
-import { AuthserviceService } from '../../../services/authservice/authservice.service';
-import { TeamsService } from '../../../services/teams/teams.service';
-import { Router, ActivatedRoute } from '@angular/router';
-
 import { ProjectsService } from '../../../services/projects/projects.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-application-received',
@@ -12,22 +9,14 @@ import { ProjectsService } from '../../../services/projects/projects.service';
   styleUrls: ['./application-received.component.scss'],
 })
 export class ApplicationReceivedComponent implements OnInit {
-  public applicationreport_page = 'applicationreport_page';
   public allApplData: any = [];
-  public dataCollab: any = {};
-  public byApplication: boolean = false;
-  private currentCollabID = '';
-  constructor(private pr: ProjectsService, private activRoute: ActivatedRoute) {}
+  hasData = false;
+  readyData = false;
+  constructor(private pr: ProjectsService, public g: Globals, private titl: Title) {
+    this.titl.setTitle('All Received Application');
+  }
   ngOnInit() {
-    this.activRoute.params.subscribe((params_: any) => {
-      this.currentCollabID = params_['idCollab'];
-      console.log(this.currentCollabID);
-      if (this.currentCollabID) {
-        this.getAllApplicationByCollab(this.currentCollabID);
-      } else {
-        this.getAllCProjectApplication();
-      }
-    });
+    this.getAllCProjectApplication();
   }
   /**
    * getAllCProjectApplication
@@ -38,22 +27,13 @@ export class ApplicationReceivedComponent implements OnInit {
       const appl: any = await this.pr.getCompanyApplication();
       if (appl.data) {
         this.allApplData = appl.data;
+        if (this.allApplData.length > 0) {
+          this.hasData = true;
+        }
       }
+      this.readyData = true;
     } catch (e) {
       console.log(e);
-    }
-  }
-
-  async getAllApplicationByCollab(cCollabID) {
-    try {
-      const applyByCollab = await this.pr.getApplByCollabID(cCollabID);
-      if (applyByCollab['status'] === 'OK') {
-        this.byApplication = true;
-        this.allApplData = applyByCollab['data']['allApplication'];
-        this.dataCollab = applyByCollab['data']['collabData'];
-      }
-    } catch (error) {
-      console.log(error);
     }
   }
 }

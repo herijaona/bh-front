@@ -28,7 +28,7 @@ export class PageLoginComponent implements OnInit {
     private sh: SharedNotificationService
   ) {
     this.img_avatar = this.g.base_href + 'assets/img/bg-accueil.jpg';
-    this.img_logo = this.g.base_href + 'assets/img/bh.png';
+    this.img_logo = this.g.base_href + 'assets/img/logo-cca.png';
   }
   ngOnInit() {
     this.resetpassForm = new FormGroup({
@@ -49,12 +49,12 @@ export class PageLoginComponent implements OnInit {
       (data: any) => {
         this.auth.profile().then(
           (res: any) => {
-            this.router.navigateByUrl('/administration-in/desk');
+            this.router.navigateByUrl('/administration-in/collaborations');
           },
           err => {
             this.sh.notifToast({
               type: 'warning',
-              message: '<p>Erreur inattendu</p>',
+              message: '<p>Inaccepted error</p>',
             });
 
             setTimeout(() => {
@@ -94,12 +94,12 @@ export class PageLoginComponent implements OnInit {
               if (res.status == 'OK') {
                 this.type_ = 'success';
                 this.text_ =
-                  'Demande de reinitialisation de mot passe effectuer avec success <br>' +
+                  'Request for password reset to perform with success<br>' +
                   res.message +
-                  ' <br> Veuiller consulter votre email .';
+                  ' <br>Please consult your email.';
               } else {
                 this.type_ = 'warning';
-                this.text_ = 'Un erreur est survenue au cours de votre demande<br>' + res.message + ' <br> Merci.';
+                this.text_ = 'An error occurred during your request<br>' + res.message + ' <br> Thank you.';
               }
               this.resetpassForm.reset();
               this.error_log = true;
@@ -107,7 +107,7 @@ export class PageLoginComponent implements OnInit {
           },
           error => {
             this.type_ = 'warning';
-            this.text_ = 'Un erreur est survenue au cours de votre demande<br>' + error.error.text + ' <br> Merci.';
+            this.text_ = 'An error occurred during your request<br>' + error.error.text + ' <br> Thank you.';
             this.resetpassForm.reset();
             this.error_log = true;
           }

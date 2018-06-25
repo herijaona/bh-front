@@ -10,14 +10,6 @@ import { SharedNotificationService } from '../shared-notification/shared-notific
 
 import { CompanyService } from '../company/company.service';
 
-export interface userDataPaylod {
-  email: string;
-  password: string;
-  name?: string;
-  lastname?: string;
-  firstname?: string;
-}
-
 interface TokenResponse {
   token: string;
 }
@@ -41,7 +33,7 @@ export class AuthserviceService extends BaseHttpService {
   }
 
   public getUser(): any {
-    var u = localStorage.getItem('bh-user');
+    const u = localStorage.getItem('bh-user');
     if (u) {
       return JSON.parse(u);
     } else {
@@ -85,13 +77,13 @@ export class AuthserviceService extends BaseHttpService {
   public isAdmin(curr_slug) {
     return new Promise((resolve, reject) => {
       if (this.isLoggedIn()) {
-        let u = this.getUser();
+        const u = this.getUser();
         if (u) {
           this.fetch('get', 'check_role', { slug_chk: curr_slug })
             .toPromise()
             .then(
               (re: any) => {
-                let rs = {
+                const rs = {
                   resp: re.data_check_response,
                 };
 
@@ -120,10 +112,21 @@ export class AuthserviceService extends BaseHttpService {
     });
   }
 
-  async isAdminUser() {
+  async isAdminUserV2() {
     try {
-      let resp: any = await this.fetch('get', 'Admincheck_role').toPromise();
-      if (resp.status == 'OK') {
+      const roleObj = localStorage.getItem(Globals.localStorageString.DATAROLE);
+      console.log('Role');
+      console.log(roleObj);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async isAdminUser() {
+    this.isAdminUserV2();
+    try {
+      const resp: any = await this.fetch('get', 'Admincheck_role').toPromise();
+      if (resp.status === 'OK') {
         this.cs.storeMycompanyId(resp.data._id);
         this.sh.pushData({
           from: 'editKeyGeneral',
@@ -244,7 +247,7 @@ export class AuthserviceService extends BaseHttpService {
     try {
       const dataRole = await this.fetch('get', 'getUserRoleData').toPromise();
       if (dataRole['status'] === 'OK') {
-        let rl: { [key: string]: any } = dataRole['data'];
+        const rl: { [key: string]: any } = dataRole['data'];
         if (rl['hsAc']) {
           if (rl['isAdm']) {
             rl['admDefl'] = rl['admAc'].length === 1 ? rl.admAc[0]._id : '';
@@ -258,5 +261,8 @@ export class AuthserviceService extends BaseHttpService {
     } catch (e) {
       console.log(e);
     }
+  }
+  public checkInvitationState(argDATA) {
+    return this.fetch('get', 'checkinvitation/organisation', argDATA).toPromise();
   }
 }

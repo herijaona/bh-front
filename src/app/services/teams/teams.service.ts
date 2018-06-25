@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseHttpService } from '../base-http/base-http.service';
 import { SharedNotificationService } from '../shared-notification/shared-notification.service';
 import { Globals } from './../../globals/globals';
-import { INTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser/src/browser';
 
 @Injectable()
 export class TeamsService extends BaseHttpService {
@@ -42,7 +41,10 @@ export class TeamsService extends BaseHttpService {
   }
 
   public getUsersTeamsNameFn(arg1, arg2) {
-    return this.fetch('get', 'team-details', { id_user: arg1, accountID: arg2 }).toPromise();
+    return this.fetch('get', 'team-details', {
+      id_user: arg1,
+      accountID: arg2,
+    }).toPromise();
   }
 
   public questionsSendData(arg) {
@@ -70,8 +72,17 @@ export class TeamsService extends BaseHttpService {
       qtype: type,
     }).toPromise();
   }
+  public getAllArchivesOnCompany(typeq) {
+    return this.fetch('get', 'getallCompanyArchives', {
+      qtype: typeq,
+    }).toPromise();
+  }
+
   public archiveQuestions(idQ) {
     return this.fetch('post', 'archives_questions', { idQ: idQ }).toPromise();
+  }
+  public sendResponseTOQuestions(arg) {
+    return this.fetch('post', 'reply_questions', arg).toPromise();
   }
   public getDetailsOnQuestion(qID) {
     return this.fetch('get', 'getDetailOnQuestion', {
@@ -83,6 +94,20 @@ export class TeamsService extends BaseHttpService {
     return this.fetch('get', 'getInvitationSent').toPromise();
   }
   public reviveInvitation(invID) {
-    return this.fetch('post', 'revive-invitation', { invID: invID }).toPromise();
+    return this.fetch('post', 'revive-invitation', {
+      invID: invID,
+    }).toPromise();
+  }
+
+  public sendOrgnisationInvitation(argDATA) {
+    return this.fetch('post', 'invite_organisation', argDATA).toPromise();
+  }
+
+  public getInProgressInvitations() {
+    return this.fetch('get', 'get-org-invitations-inprogress').toPromise();
+  }
+
+  public getAcceptedInvitations() {
+    return this.fetch('get', 'get-accepted-invitations').toPromise();
   }
 }

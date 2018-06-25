@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Globals } from '../../../globals/globals';
 import { Router } from '@angular/router';
@@ -12,14 +11,13 @@ import { ModalDirective } from 'angular-bootstrap-md';
   styleUrls: ['./view-reaction.component.scss'],
 })
 export class ViewReactionComponent implements OnInit {
-  public responseForm: FormGroup;
+  public hasData = false;
+  public readyData = false;
   private itemTOReply: any;
   @ViewChild('modalHist') public myModalHist: ModalDirective;
   public viewreaction_page = 'viewreaction_page';
   public allQuestions: any = [];
-  constructor(private tms: TeamsService, private titl: Title, public g: Globals) {
-    this.responseForm = new FormGroup({ respValue: new FormControl('', [Validators.required]) });
-  }
+  constructor(private tms: TeamsService, private titl: Title, public g: Globals) {}
 
   ngOnInit() {
     this.getAllQuestions();
@@ -44,23 +42,12 @@ export class ViewReactionComponent implements OnInit {
       if (quest) {
         if (quest.status === 'OK') {
           this.allQuestions = quest.data;
+          console.log('archives', this.allQuestions);
+          if (this.allQuestions.length > 0) {
+            this.hasData = true;
+          }
+          this.readyData = true;
         }
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  sendQReply(){
-    console.log(this.itemTOReply);
-  }
-
-  async archivequestions(item, indx) {
-    console.log(indx);
-    try {
-      const archResp = await this.tms.archiveQuestions(item._id);
-      if (archResp['status'] === 'OK') {
-        this.allQuestions.splice(indx, 1);
       }
     } catch (e) {
       console.log(e);

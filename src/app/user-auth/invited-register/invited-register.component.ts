@@ -27,7 +27,7 @@ export class InvitedRegisterComponent implements OnInit {
 	) {
 
 	    this.img_avatar = this.g.base_href + "assets/img/bg-accueil.jpg";
-	    this.img_logo = this.g.base_href + "assets/img/bh.png";
+	    this.img_logo = this.g.base_href + "assets/img/logo-cca.png";
 		this.newpassForm = new FormGroup({
 			bh_pass_conf: new FormControl("", [Validators.minLength(8)]),
 			bh_new_pass: new FormControl("", [Validators.minLength(8)])

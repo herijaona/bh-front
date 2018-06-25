@@ -35,7 +35,7 @@
         <canvas #canvas class="canvas-img"></canvas>
         <!-- <a class="navbar-brand" href="#"><img class="img-responsive img-logo" [src]="header_page_logo" height="175" width="175"></a> -->
         <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu" type="button"><i class="fa fa-bars"></i></button>
-        <!-- <section-edit-button *ngIf="editPAGEstatus" class="butt_" [section_]="company_logo"></section-edit-button> -->
+        <!-- <section-edit-button *ngIf="editPAGEstatus" class="butt_" [section_]="company_logo"></section-edit-button>-->
         <div class="nav-col " ng-class="textType" id="navbarNav">
             <ng-template [ngIf]="FrontMenu">
                 <ul *ngIf="pagetoShow" class="navbar-nav mg-4">
@@ -46,7 +46,7 @@
                         <a [routerLink]="['/open-innovation',currentCompanySlug,'team']" class="nav-link">Committee</a>
                     </li>
                     <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.projet}">
-                        <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
+                        <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Collaborations</a>
                     </li>
                     <!-- <li *ngIf="pagetoShow.pIdeas" class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
                 <a class="nav-link" href="#">Ideas</a>

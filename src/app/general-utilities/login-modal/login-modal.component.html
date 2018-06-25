@@ -1,7 +1,7 @@
 <div class="mdb_genModal">
   <div *ngIf="hasNotif" class="login_notif">
     <div class=" logg alert alert-{{alrt_type}}">
-      <span [innerHtml]="msg_error" ></span>
+      <span [innerHtml]="msg_error"></span>
     </div>
   </div>
   <!-- Section Login -->
@@ -14,14 +14,19 @@
             <h4>Reinitialiser mot de passe</h4>
           </div>
           <div class="md-form">
-            <input type="email" placeholder="Your email" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
+            <input type="email" placeholder="Your email" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate
+              required="required">
           </div>
           <div class="row d-flex align-items-center">
             <div class="text-center mb-3 col-md-12">
               <button [ngClass]="{'disabled':!resetpassForm.valid }" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign">Sign in</button>
             </div>
           </div>
-          <div class="already-member text-center">se connecter? click<a (click)='forgotPasswordInit($event)' href=""><span class="recovery">ici</span></a></div>
+          <div class="already-member text-center">se connecter? click
+            <a (click)='forgotPasswordInit($event)' href="">
+              <span class="recovery">ici</span>
+            </a>
+          </div>
         </div>
       </form>
     </div>
@@ -38,7 +43,8 @@
           </div>
           <div class="input-md">
             <label>Email</label>
-            <input placeholder="Your email" type="email" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate required="required">
+            <input placeholder="Your email" type="email" formControlName="bhemail" id="bhemail" class="form-control" mdbActive validate
+              required="required">
           </div>
           <div class="pb-3 input-md">
             <label>password</label>
@@ -46,14 +52,22 @@
           </div>
           <div class="mdp-me">
             <span class="remember-me">Remember me</span>
-            <span class="forgot-pwd">Forgot password ?<a (click)='forgotPasswordInit($event)'  href=""><u class="recovery">Recovery</u></a></span>
+            <span class="forgot-pwd">Forgot password ?
+              <a (click)='forgotPasswordInit($event)' href="">
+                <u class="recovery">Recovery</u>
+              </a>
+            </span>
           </div>
           <div class="row d-flex align-items-center">
             <div class="text-center mb-3 col-md-12">
               <button [ngClass]="{'disabled':!loginForm.valid}" type="submit" class="btn btn-success btn-block btn-rounded z-depth-1 bg-sign">Sign in</button>
             </div>
           </div>
-          <div class="already-member text-center">not already member ?<a [routerLink]="['/sign-in']"><span class="recovery">sign up</span></a></div>
+          <div class="already-member text-center">not already member ?
+            <a [routerLink]="['/register-organisation']">
+              <span class="recovery">sign up</span>
+            </a>
+          </div>
         </div>
       </form>
     </div>

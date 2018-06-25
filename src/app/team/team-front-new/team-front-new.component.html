@@ -8,7 +8,7 @@
 
       <div class="label-text">
         <label>Type</label>
-        <select (change)="chooseType($event)">
+        <select (change)="chooseType($event)" [value]='selectedType'>
           <option value="0">Image</option>
           <option value="1">Video</option>
         </select>
@@ -44,7 +44,7 @@
     <label>
       Team Texte:
     </label>
-    <ckeditor name="myEditor" formControlName="editorTest" [config]="g.conf_editor" [readonly]="false" (change)="onChangeEditor($event)"
+    <ckeditor name="myEditor" placeholder="" formControlName="editorText" [config]="g.conf_editor" [readonly]="false" (change)="onChangeEditor($event)"
       (editorChange)="onEditorChange($event)" (ready)="onReady($event)" debounce="500">
     </ckeditor>
   </div>

@@ -10,6 +10,8 @@ import { Globals } from './../../../globals/globals';
 })
 export class AdminAllColabComponent implements OnInit {
   public listCollab: any = [];
+  public hasData = false;
+  public readyData = false;
   constructor(
     public g: Globals,
     private pr: ProjectsService,
@@ -23,9 +25,13 @@ export class AdminAllColabComponent implements OnInit {
   }
   async getMyCollabList() {
     try {
-      let allCollabResp: any = await this.pr.getAllMyCollabList();
-      if (allCollabResp['status'] == 'OK') {
+      const allCollabResp: any = await this.pr.getAllMyCollabList();
+      if (allCollabResp['status'] === 'OK') {
         this.listCollab = allCollabResp['data'];
+        if (this.listCollab.length > 0) {
+          this.hasData = true;
+        }
+        this.readyData = true;
       }
     } catch (e) {
       console.log(e);

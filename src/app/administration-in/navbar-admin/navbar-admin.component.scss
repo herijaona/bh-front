@@ -5,12 +5,14 @@ li {
 
 .bg-desk {
     top: 0px;
-    background: $color1;
+    /* background: $color1; */
+    background: #f73547;
     padding: 0;
     position: fixed;
     width: 100%;
     z-index: 9;
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    padding-left: 1rem !important;
 }
 
 .desk-nav {
@@ -175,7 +177,7 @@ li {
 @media(max-width:767px) {
     .desk-sh {
         position: absolute;
-        left: 44px;
+        left: 54px;
         top: -3px;
     }
 }

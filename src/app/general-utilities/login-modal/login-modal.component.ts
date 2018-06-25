@@ -27,7 +27,7 @@ export class LoginModalComponent implements OnInit {
   public hasNotif: boolean = false;
   public loginFormFlag: boolean = true;
   type_ = 'notif';
-  text_ = 'Success de registration';
+  text_ = 'Success of registration';
   error_log: boolean = false;
 
   constructor(
@@ -101,15 +101,15 @@ export class LoginModalComponent implements OnInit {
               if (res.status == 'OK') {
                 this.notifMessage(
                   'success',
-                  'Demande de reinitialisation de mot passe effectuer avec success <br>' +
+                  'Request for password reset to perform with success<br>' +
                     res.message +
-                    ' <br> Veuiller consulter votre email .',
+                    ' <br> Please consult your email .',
                   500
                 );
               } else {
                 this.notifMessage(
                   'warning',
-                  'Un erreur est survenue au cours de votre demande<br>' + res.message + ' <br> Merci.',
+                  'An error occurred during your request<br>' + res.message + ' <br> Thank you.',
                   500
                 );
               }
@@ -120,7 +120,7 @@ export class LoginModalComponent implements OnInit {
           error => {
             this.notifMessage(
               'warning',
-              'Un erreur est survenue au cours de votre demande<br>' + error.error.text + ' <br> Merci.',
+              'An error occurred during your request<br>' + error.error.text + ' <br> Thank you.',
               500
             );
             this.resetpassForm.reset();

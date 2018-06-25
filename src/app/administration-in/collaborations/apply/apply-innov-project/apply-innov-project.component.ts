@@ -14,41 +14,28 @@ import { Globals } from './../../../../globals/globals';
 export class ApplyInnovProjectComponent implements OnInit {
   public prObjApply: any;
   public UserOrgName: any;
-  public canBeSent: boolean = false;
-  public modelCountry: string = 'default';
-  public modelDate: any = {
-    date: {
-      year: new Date(Date.now()).getFullYear(),
-      month: new Date(Date.now()).getMonth() + 1,
-      day: new Date(Date.now()).getDate(),
-    },
-  };
-  public ListCo: any = [];
-  public myDatePickerOptions: IMyDpOptions = {
-    dateFormat: 'dd-mm-yyyy',
-    editableDateField: false,
-    componentDisabled: true,
-    showClearDateBtn: false,
-    showTodayBtn: false,
-  };
+  public canBeSent= false;
+  public applyToForm: FormGroup;
+
   @Input('data_in')
   set data_in(o) {
     this.prObjApply = o;
   }
 
-  public projectApplyData: { [key: string]: any } = {
-    main_activity_domain: '',
-    secondary_activity_domain: '',
-    skill_specificities: '',
-    user_application_describ: '',
-    collab_proposal_describ: '',
-  };
   constructor(
     public g: Globals,
     private router: Router,
     private pr: ProjectsService,
     private sh: SharedNotificationService
-  ) {}
+  ) {
+    this.applyToForm = new FormGroup({
+      main_activity_domain: new FormControl('', [Validators.required]),
+      secondary_activity_domain: new FormControl('', [Validators.required]),
+      skill_specificities: new FormControl('', [Validators.required]),
+      collab_proposal_describ: new FormControl('', [Validators.required]),
+      applicationName: new FormControl('', [Validators.required]),
+    });
+  }
 
   ngOnInit() {
     console.log(this.prObjApply);
@@ -58,52 +45,22 @@ export class ApplyInnovProjectComponent implements OnInit {
     } else {
       this.UserOrgName = this.prObjApply['userACC']['enseigneCommerciale'];
     }
-    this.getCountryList();
-  }
-
-  async getCountryList() {
-    try {
-      const cListres = await this.pr.countryGet('all');
-      if (cListres['status'] === 'OK') {
-        this.ListCo = cListres['data'];
-      }
-    } catch (e) {}
-  }
-
-  applicationDescription(event, modelData) {
-    let s = event.target.value.replace(/\r?\n/g, '<br>');
-    console.log(s);
-  }
-
-  onDateChanged(event) {
-    console.log(event);
-  }
-
-  onChangeEditor(ev) {
-    let canSent = true;
-    for (const el of Object.keys(this.projectApplyData)) {
-      if (this.projectApplyData[el].length === 0) {
-        canSent = false;
-        break;
-      }
-    }
-    let countryModel = true;
-    if (this.modelCountry === 'default') {
-      countryModel = false;
-    }
-
-    this.canBeSent = canSent && countryModel;
   }
 
   async sendApplicationOnProject() {
-    if (this.canBeSent) {
-      for (let el of Object.keys(this.projectApplyData)) {
-        this.projectApplyData[el] = this.projectApplyData[el].replace(/\r?\n/g, '<br>');
+    if (this.applyToForm.valid) {
+      // this.projectApplyData['countryCD'] = this.modelCountry;
+      let candidatAccID = '';
+      const roleData = JSON.parse(localStorage.getItem('_data_role_'));
+      if (roleData) {
+        if (roleData.hsAc) {
+          candidatAccID = roleData.admDefl;
+        }
       }
-      this.projectApplyData['countryCD'] = this.modelCountry;
-      let arg = {
-        data: this.projectApplyData,
+      const arg = {
+        data: this.applyToForm.value,
         currObj: this.prObjApply,
+        candidatAccID: candidatAccID,
       };
       try {
         const ret: any = await this.pr.sendProjectsApplication(arg);
@@ -117,7 +74,13 @@ export class ApplyInnovProjectComponent implements OnInit {
             this.router.navigateByUrl('/' + ['administration-in', 'collaborations', 'application-sent'].join('/'));
           }, 500);
         }
-      } catch (e) {}
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
+
+  onChange(t) {}
+  onReady($event) {}
+  onEditorChange($event) {}
 }

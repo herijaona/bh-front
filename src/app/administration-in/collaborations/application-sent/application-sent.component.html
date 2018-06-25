@@ -1,17 +1,25 @@
 <div class="col-container">
   <div class="table-respo">
+    <div *ngIf="!hasData" >
+      <p class="hasdata">
+        Hello,
+        <br> 
+        You did not apply to collaboration proposals, we invite you to discover these proposals, and check if you are interested
+        in one of the business opportunities
+
+      </p>
+    </div>
     <!--Table-->
-    <table class="table appli-table">
+    <table *ngIf="hasData"  class="table appli-table table-striped">
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
           <th>Date</th>
-          <th>Country</th>
           <th>Organisation</th>
           <th>Type</th>
           <th>Collaboration name</th>
+          <th>Application name</th>
           <th>Status</th>
-          <th>Action</th>
         </tr>
       </thead>
       <!--Table head-->
@@ -19,17 +27,14 @@
       <tbody>
         <tr *ngFor="let item of allApplData">
           <td>{{item.date}}</td>
-          <td>{{item.country}}</td>
           <td>{{item.orgName}}</td>
-          <td>{{item.typeCollab}}</td>
+          <td>{{g.getCollabtypetext(item.typeCollab)}}</td>
           <td>{{item.collabName}}</td>
+          <td>
+            <a>{{item.applicationName}}</a>
+          </td>
           <td>{{item.status}}</td>
           <!-- [routerLink]="['/candidature','details', item._id ]" -->
-          <td>
-            <a target="_blank">
-              <i class="fa fa-eye"></i>
-            </a>
-          </td>
         </tr>
       </tbody>
       <!--Table body-->

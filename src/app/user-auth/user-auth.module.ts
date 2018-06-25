@@ -21,6 +21,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { AsideComponent } from './page-login/aside/aside.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ReplyOrgInvitationComponent } from './reply-org-invitation/reply-org-invitation.component';
 
 @NgModule({
   imports: [
@@ -41,10 +42,11 @@ import { CookieService } from 'ngx-cookie-service';
     ResetPasswordComponent,
     InvitedRegisterComponent,
     SignUpComponent,
-    AsideComponent
+    AsideComponent,
+    ReplyOrgInvitationComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthserviceService,CookieService],
+  providers: [AuthserviceService, CookieService],
   exports: [PageLoginComponent],
 })
-export class UserAuthModule {}
+export class UserAuthModule { }

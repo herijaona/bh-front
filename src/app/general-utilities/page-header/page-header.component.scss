@@ -27,7 +27,7 @@
     background-image: url(/assets/img/london.jpg);
     background-size: cover;
     background-position: center;
-    min-height: 236px;
+    min-height: 189px;
     margin: 0px;
     padding: 0px;
     border-radius: 0px;
@@ -52,6 +52,9 @@
         font-family: SourceSansPro-Semibold;
         font-size: 32px;
         text-transform: capitalize;
+        @media(max-width: 637px) {
+            font-size: 24px;
+        }
         @media(max-width: 454px) {
             font-size: 21px;
         }
@@ -66,8 +69,9 @@
 .list-nav {
     list-style: none;
     padding: 0;
-    margin-bottom: 268px;
     margin-left: 40px;
+    position: absolute;
+    bottom: 159px;
 }
 
 .grid {
@@ -77,8 +81,9 @@
 }
 
 .nav-col {
-    margin-bottom: 87px;
-    margin-left: 10px;
+    top: -42px;
+    position: relative;
+    margin-left: 5px;
     @media(max-width: 991px) {
         display: none;
     }
@@ -177,7 +182,7 @@
     background: linear-gradient(-159deg, rgba(112, 50, 92, 0.8) 0%, rgba(120, 25, 10, 0.8) 100%);
     content: '';
     display: block;
-    min-height: 236px;
+    min-height: 189px;
     position: absolute;
     width: 100%;
 }
@@ -210,13 +215,6 @@
         @media(max-width: 515px) {
             margin-left: 142px;
         }
-    }
-}
-
-@media(max-width:650px) {
-    .list-nav {
-        bottom: -139px;
-        position: absolute;
     }
 }
 
@@ -266,9 +264,10 @@ a::after {
 /* end header */
 
 .canvas-img {
+    background: white;
     position: relative;
     top: -124px;
-    @media(max-width: 577px) {
+    @media(max-width: 517px) {
         width: 134px;
     }
 }

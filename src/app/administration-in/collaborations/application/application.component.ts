@@ -12,11 +12,11 @@ import { ProjectsService } from '../../../services/projects/projects.service';
   styleUrls: ['./application.component.scss'],
 })
 export class ApplicationComponent implements OnInit {
-  public applicationreport_page: string = 'applicationreport_page';
-  public currentCandidatureID: string = '';
-  public readytoshow: boolean = false;
+  public applicationreport_page = 'applicationreport_page';
+  public currentCandidatureID = '';
+  public readytoshow = false;
   public detailsAll: any = {};
-  constructor(private pr: ProjectsService, private activRoute: ActivatedRoute, private titl: Title) {
+  constructor(private pr: ProjectsService, private activRoute: ActivatedRoute, private titl: Title, public g: Globals) {
     this.activRoute.params.subscribe((params_: any) => {
       this.currentCandidatureID = params_['applicationID'];
       this.getDetailsOnCandidature();
@@ -41,5 +41,19 @@ export class ApplicationComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
+  }
+  async acceptApplication() {
+    try {
+      const acceptResData = await this.pr.sendacceptApplicationData({ applicationID: this.currentCandidatureID });
+      if (acceptResData['status'] === 'OK') {
+        console.log(acceptResData);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  closeAction() {
+    window.close();
   }
 }
