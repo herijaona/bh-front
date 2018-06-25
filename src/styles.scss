@@ -348,7 +348,9 @@ h6 {
   top: 50px;
   padding: 0px !important;
   /* background: #393f4b !important; */
-  background: #393f4be6 !important;
+  /*  background: #393f4be6 !important; */
+  background: rgb(57,63,75);
+  opacity: 0.8;
   box-shadow: none !important;
   @media(min-width: 1280px) {
     .ns {
@@ -529,6 +531,7 @@ h6 {
 .question-data p {
   color: #393f4b;
   font-family: SourceSansPro-Regular;
+  margin-bottom: 0px !important;
 }
 
 .btn-tab1{

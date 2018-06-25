@@ -25,6 +25,7 @@ export class NavbarAdminComponent implements OnInit {
   public show: boolean = false;
   public hide: boolean = false;
   public currentSlug: string = "";
+  public isOn: boolean = false;
 
   constructor(
     private cs: CompanyService,
@@ -83,6 +84,9 @@ export class NavbarAdminComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
+  }
+  tif(){
+    this.isOn = true;
   }
   toggleCollapse() {
     this.el.nativeElement
