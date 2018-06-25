@@ -36,7 +36,7 @@
             <td>{{item.usr.lastname}}</td> -->
             <td>{{item.prjt.name}}</td>
             <td>{{item.applicationName}}</td>
-            <td>p</td>
+            <td class="text-capitalize">{{item.status}}</td>
             <td>
               <a [routerLink]="['/administration-in','collaborations','application-received','details', item._id ]" target="_blank">
 

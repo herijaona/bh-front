@@ -15,11 +15,11 @@ export class PageLoginComponent implements OnInit {
   public img_avatar: string;
   public loginForm: FormGroup;
   public resetpassForm: FormGroup;
-  public notifReset: boolean = false;
-  public loginFormFlag: boolean = true;
+  public notifReset = false;
+  public loginFormFlag = true;
   type_ = 'notif';
   text_ = 'Success de registration';
-  error_log: boolean = false;
+  error_log = false;
 
   constructor(
     public g: Globals,
@@ -40,35 +40,33 @@ export class PageLoginComponent implements OnInit {
       bh_pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
     });
   }
-  onFormSubmit() {
-    let credential = {
+  async onFormSubmit() {
+    const credential = {
       email: this.loginForm.value.bhemail,
       password: this.loginForm.value.bh_pass,
     };
-    this.auth.login(credential).then(
+    try {
+      const loginResp = await this.auth.login(credential);
+      if (loginResp) {
+        this.router.navigateByUrl('/administration-in/collaborations');
+        return;
+      }
+    } catch (err) {
+      console.log(err);
+      this.error_log = true;
+      this.text_ = err.message;
+      this.type_ = 'danger';
+    }
+    /* this.auth.login(credential).then(
       (data: any) => {
-        this.auth.profile().then(
-          (res: any) => {
-            this.router.navigateByUrl('/administration-in/collaborations');
-          },
-          err => {
-            this.sh.notifToast({
-              type: 'warning',
-              message: '<p>Inaccepted error</p>',
-            });
-
-            setTimeout(() => {
-              this.auth.logout();
-            }, 2000);
-          }
-        );
+        this.router.navigateByUrl('/administration-in/collaborations');
       },
       error => {
         this.error_log = true;
         this.text_ = error.message;
         this.type_ = 'danger';
       }
-    );
+    ); */
   }
 
   forgotPasswordInit(e) {
@@ -84,14 +82,14 @@ export class PageLoginComponent implements OnInit {
   }
 
   resetFormSubmit() {
-    var afterSubmit = new Promise((resolve, reject) => {
+    const afterSubmit = new Promise((resolve, reject) => {
       this.auth
         .requestresetpass({ email: this.resetpassForm.value.bhemail })
         .toPromise()
         .then(
           (res: any) => {
             setTimeout(() => {
-              if (res.status == 'OK') {
+              if (res.status === 'OK') {
                 this.type_ = 'success';
                 this.text_ =
                   'Request for password reset to perform with success<br>' +

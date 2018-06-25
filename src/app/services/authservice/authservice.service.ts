@@ -204,17 +204,6 @@ export class AuthserviceService extends BaseHttpService {
     return this.fetch('post', 'reset-password-submit-new', data);
   }
 
-  public logout(): void {
-    this.token = '';
-    window.localStorage.removeItem('bh-token');
-    window.localStorage.removeItem('accAdmin');
-    window.localStorage.removeItem('accCUR');
-    window.localStorage.removeItem('gen_flag');
-    window.localStorage.removeItem('bh-user');
-    window.localStorage.removeItem('my_company');
-    this.router.navigateByUrl('/');
-  }
-
   removeUserItem() {
     window.localStorage.removeItem('bh-user');
   }
@@ -264,5 +253,17 @@ export class AuthserviceService extends BaseHttpService {
   }
   public checkInvitationState(argDATA) {
     return this.fetch('get', 'checkinvitation/organisation', argDATA).toPromise();
+  }
+
+  public logout(): void {
+    this.token = '';
+    window.localStorage.removeItem(Globals.localStorageString.TOKEN);
+    window.localStorage.removeItem(Globals.localStorageString.DATAROLE);
+    window.localStorage.removeItem('accAdmin');
+    window.localStorage.removeItem('accCUR');
+    window.localStorage.removeItem('gen_flag');
+    window.localStorage.removeItem('bh-user');
+    window.localStorage.removeItem('my_company');
+    this.router.navigateByUrl('/');
   }
 }

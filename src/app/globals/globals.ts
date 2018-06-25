@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class Globals {
   public static localStorageString = {
     DATAROLE: '_data_role_',
+    TOKEN: 'bh-token',
   };
 
   /**
