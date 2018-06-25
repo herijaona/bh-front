@@ -140,3 +140,7 @@
         font-size: 16px;
     }
 }
+
+.inputfile:focus + label, .inputfile + label:hover {
+    background-color: #8f9283;
+}
