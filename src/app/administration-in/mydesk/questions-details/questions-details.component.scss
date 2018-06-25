@@ -61,16 +61,25 @@
 .title-name{
   color: #393f4b;
   font-family: SourceSansPro-Semibold;
+  font-size: 14px;
 }
 .valeur-name{
   color: #393f4b;
   font-family: SourceSansPro-Regular;
+  font-size: 14px;
 }
 .mt-m{
   margin-top: 4rem !important;
+  background: #ff00000f !important;
 }
-.respDATA{
-  margin-left: 25px;
+.rvn{
+  border: 1px solid #8080803d;
+  padding: 17px;
+}
+@media(min-width:500px){
+  .vn{
+  margin-left: 40px;
+  }
 }
 .hour-name{
   color: #f73547;
@@ -79,4 +88,9 @@
 .date-r{
   color: gray;
   font-size: 13px;
+}
+.question-data{
+  background: #9ee9ff26;
+  padding: 8px;
+  margin: 0px;
 }

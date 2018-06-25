@@ -27,15 +27,15 @@
     </div>
 
   </div>
-  <hr>
   <div class="mt-4" *ngIf="readytoshow">
     <span class="title-name">Questions Details:</span>
     <br>
-    <div [innerHtml]="allQDet.question_content" class="mb-2 ml-2 question-data">
+    <div [innerHtml]="allQDet.question_content" class="mb-2 mt-2 question-data">
       <span>Questions</span>
     </div>
-    <div class="respDATA valeur-name">
-      <div *ngFor="let item of responseIN">
+    <div class="respDATA valeur-name vn">
+      <span class="title-name">My answer</span>
+      <div class="rvn mb-2" *ngFor="let item of responseIN">
         <div>
           <span class="hour-name">{{item.user.firstname+ ' '+ item.user.lastname}} </span> -
           <span class="date-r">{{timeStrng(item.rDate)}} </span>
