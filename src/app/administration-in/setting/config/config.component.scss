@@ -53,7 +53,24 @@
     border-radius: 50%;
   }
   .st{
-    margin-top: 80px;
-    margin-left: 94px;
+    position: relative;
+    top: 25px;
   }
   /* end switch */
+
+  .general-set{
+    padding-left: 9px;
+    .mindset{
+    font-family: SourceSansPro-Regular;
+    color: #4b505b;
+    font-size: 15px;
+  }
+  .flw{
+    width: 240px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 18px;
+    label{
+      float: right;
+    }
+  }
+}
