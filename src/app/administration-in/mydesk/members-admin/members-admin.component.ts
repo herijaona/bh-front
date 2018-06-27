@@ -21,6 +21,8 @@ export class MembersAdminComponent implements OnInit {
   public userInvitedData: any;
   public inviteForm: FormGroup;
 
+  public st: any;
+
   public adminAll: boolean = true;
   public invitedShow: boolean = false;
   constructor(
@@ -46,7 +48,8 @@ export class MembersAdminComponent implements OnInit {
     try {
       this.auth.userDataRole();
       let isAdmin = await this.auth.isAdminUser();
-      if (isAdmin.status == 'OK') {
+      this.st = isAdmin;
+      if (this.st.status === 'OK') {
         this.getProfile();
         this.getMember();
         this.getInvitationSend();
