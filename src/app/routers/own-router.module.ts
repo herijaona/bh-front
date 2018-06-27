@@ -109,10 +109,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: PageLoginComponent,
+    canActivate: [IsloggedVerifyGuard],
   },
   {
     path: 'sign-in',
     component: SignUpComponent,
+    canActivate: [IsloggedVerifyGuard],
   },
   {
     path: 'administration-in/user/profile',
@@ -253,7 +255,8 @@ const routes: Routes = [
       {
         path: 'config',
         component: ConfigComponent,
-      },],
+      },
+    ],
   },
   {
     path: 'administration-in/opportunities',

@@ -22,7 +22,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AsideComponent } from './page-login/aside/aside.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ReplyOrgInvitationComponent } from './reply-org-invitation/reply-org-invitation.component';
-import { NotifRegisterComponent } from './notif-register/notif-register.component';
+import { NotifRegisterComponent } from './registration/notif-register/notif-register.component';
 
 @NgModule({
   imports: [
@@ -34,7 +34,7 @@ import { NotifRegisterComponent } from './notif-register/notif-register.componen
     RouterModule,
     Ng4GeoautocompleteModule.forRoot(),
   ],
-  entryComponents: [PageLoginComponent, NotifComponent],
+  entryComponents: [PageLoginComponent, NotifRegisterComponent],
   declarations: [
     RegistrationComponent,
     ActivationComponent,
