@@ -193,8 +193,8 @@ export class RegistrationComponent implements OnInit {
   private notifAndLogin() {
     const factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifRegisterComponent);
     const refNotif = this.attachView.createComponent(factoryNotif);
-    refNotif.instance.message =
-      '" Great ! Now, to confirm the creation of your account,Click on the link sent by email"';
+    /* refNotif.instance.message =
+      '" Great ! Now, to confirm the creation of your account,Click on the link sent by email"'; */
     // ref.changeDetectorRef.detectChanges();
   }
 

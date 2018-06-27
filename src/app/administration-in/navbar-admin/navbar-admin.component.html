@@ -53,8 +53,8 @@
             <li  (click)="toggleCollapse2()" class="nav-item  myclass position-realtive" *ngFor="let item of userAdminData">
                 <a class="nav-link img-reel" *ngIf="item.imageProfile" ><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
                 <span class="m-deconnect">
-                    <b class="cursor-p"><a [routerLink]="['/administration-in','user','profile']">My profile</a></b><hr>
-                    <b class="cursor-p" (click)="auth.logout()">Deconnexion</b>
+                    <span class="cursor-p"><a [routerLink]="['/administration-in','user','profile']">My profile</a></span><hr>
+                    <span class="cursor-p" (click)="auth.logout()">Deconnexion</span>
                 </span>
             </li>
         </ul>

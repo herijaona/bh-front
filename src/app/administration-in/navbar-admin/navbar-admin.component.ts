@@ -100,14 +100,14 @@ export class NavbarAdminComponent implements OnInit {
   }
   toggleCollapse2() {
     this.el.nativeElement
-      .querySelector(".profile-top").classList.toggle("toggle-in");
+    .querySelector(".m-deconnect").classList.toggle("toggle-i"); 
   }
 
   async getDataOnCompany() {
     try {
       const isAdmin = await this.auth.isAdminUser();
-      this.st = isAdmin;
-      if (this.st.status === "OK") {
+      this.st = isAdmin; 
+      if (this.st.status === "OK") { 
         const getRes = await this.cs.getMyCompanData();
         if (getRes) {
           if (getRes.hasOwnProperty("_slug")) {
