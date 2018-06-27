@@ -96,6 +96,10 @@ export class NavbarAdminComponent implements OnInit {
       .querySelector(".mobil-top")
       .classList.replace("nav-link", "fy");
   }
+  toggleCollapse2() {
+    this.el.nativeElement
+      .querySelector(".m-deconnect").classList.toggle("toggle-i");
+  }
 
   async getDataOnCompany() {
     try {
