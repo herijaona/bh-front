@@ -3,21 +3,19 @@
     <table class="table appli-table">
       <thead class="head-color">
         <tr class="text-bl">
-          <th>Date</th>
-          <th>Organisation</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Activity</th>
-          <th>Last</th>
-          <th>About</th>
-          <th>Community</th>
+          <th class="date">Date</th>
+          <th class="org">Organisation</th>
+          <th class="org">First Name</th>
+          <th class="org">Last Name</th>
+          <th class="org">Activity</th>
+          <th class="org">Last</th>
+          <th class="about">About</th>
+          <th class="org">Community</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of userCommData">
-          <th class="tb">
-            {{getDateString(item.last_date)}}
-          </th>
+          <td>{{getDateString(item.last_date)}}</td>
           <td>{{item.org}}</td>
           <td class="tb">{{item.us.firstname}}</td>
           <td class="tb">{{item.us.lastname}}</td>
@@ -31,7 +29,7 @@
               {{item.lastPrName}}
             </span>
           </td>
-          <td class="text-center">
+          <td class="">
             <span *ngIf="item.last_act !='application'" class="text-capitalize">
               Passive
             </span>
