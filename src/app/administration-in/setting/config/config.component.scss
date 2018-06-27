@@ -1,9 +1,9 @@
 /* switch */ 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 45px;
-    height: 23px;
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
   }
   
   .switch input {display:none;}
@@ -11,22 +11,21 @@
   .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0px;
+    left: -9px;
+    right: -1px;
     bottom: 0;
     background-color: #4b505b;
-    -webkit-transition: .4s;
     transition: .4s;
   }
   
   .slider:before {
     position: absolute;
     content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: 4px;
+    height: 14px;
+    width: 14px;
+    left: 1px;
+    bottom: 3px;
     background-color: white;
     transition: .4s;
   }
@@ -66,7 +65,7 @@
     font-size: 15px;
   }
   .flw{
-    width: 240px;
+    width: 482px;
     border-bottom: 1px solid #dedede;
     padding-bottom: 18px;
     label{

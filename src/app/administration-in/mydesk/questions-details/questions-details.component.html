@@ -31,7 +31,6 @@
     <span class="title-name ptn">Questions Details:</span>
     <br>
     <div [innerHtml]="allQDet.question_content" class="mb-2 mt-2 question-data">
-      <span>Questions</span>
     </div>
     <div class="respDATA valeur-name vn">
       <span class="title-name">My answer</span>
@@ -56,14 +55,6 @@
         <a *ngIf="allQDet.stateAdmin === 'active'" (click)="archivequestions()" class="btn btn-primary btn-lg btn-question" role="button">
           <span>delete</span>
           <i class="fa fa-remove"></i>
-        </a>
-        <a (click)="closeAction()" class="btn btn-primary btn-lg btn-apply btn-gr" role="button">
-            <span>I send my answer</span>
-            <i class="fa fa-save"></i>
-          </a>
-        <a (click)="closeAction()" class="btn btn-primary btn-lg btn-apply btn-black" role="button">
-              <span>Delete</span>
-              <i class="fa fa-remove"></i>
         </a>
         <a (click)="closeAction()" class="btn btn-primary btn-lg btn-apply" role="button">
           <span>Close</span>

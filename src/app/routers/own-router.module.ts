@@ -43,6 +43,8 @@ import { EcosystemComponent } from '../administration-in/communities/ecosystem/e
 import { MembersCommunitiesComponent } from '../administration-in/communities/members-communities/members-communities.component';
 import { UnderCommunitiesComponent } from '../administration-in/communities/under-communities/under-communities.component';
 import { CommunitySpaceComponent } from '../administration-in/communities/community-space/community-space.component';
+import { ApplicationSpaceComponent } from '../administration-in/communities/community-space/application-space/application-space.component';
+import { FileSpaceComponent } from '../administration-in/communities/community-space/file-space/file-space.component';
 import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
 import { PositionsComponent } from '../administration-in/positions/positions.component';
 import { SettingComponent } from '../administration-in/setting/setting.component';
@@ -245,6 +247,16 @@ const routes: Routes = [
       {
         path: 'community-space',
         component: CommunitySpaceComponent,
+        children: [
+          {
+              path: 'application-space',    
+              component: ApplicationSpaceComponent,
+          },
+          {
+            path: 'files',    
+            component: FileSpaceComponent,
+          },
+        ],
       },
     ],
   },

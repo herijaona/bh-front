@@ -525,6 +525,7 @@ h6 {
 }
 
 .question-data p {
+  font-size: 14px;
   color: #393f4b;
   font-family: SourceSansPro-Regular;
   margin-bottom: 0px !important;
@@ -550,4 +551,17 @@ h6 {
   color: #f73547 !important;
   font-weight: 700;
   font-size: 13.5px;
+}
+.question-data{
+  p:last-child{
+    display: none;
+  }
+}
+.rvn{
+  p{
+    margin-bottom: 0px;
+    color: #393f4b;
+    font-family: SourceSansPro-Regular;
+    font-size: 14px;
+  }
 }
