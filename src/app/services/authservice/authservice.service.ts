@@ -114,34 +114,35 @@ export class AuthserviceService extends BaseHttpService {
 
   async isAdminUserV2() {
     try {
-      const roleObj = localStorage.getItem(Globals.localStorageString.DATAROLE);
-      console.log('Role');
+      const roleObj = JSON.parse(localStorage.getItem(Globals.localStorageString.DATAROLE));
       console.log(roleObj);
     } catch (e) {
       console.log(e);
     }
   }
 
-  async isAdminUser() {
-    this.isAdminUserV2();
-    try {
-      const resp: any = await this.fetch('get', 'Admincheck_role').toPromise();
-      if (resp.status === 'OK') {
-        this.cs.storeMycompanyId(resp.data._id);
-        this.sh.pushData({
-          from: 'editKeyGeneral',
-          action: 'idACCOUNT',
-          data: resp.data._id,
-        });
-      } else {
-        this.sh.pushData({
-          from: 'editKeyGeneral',
-          action: 'idACCOUNT',
-          data: '',
-        });
+  getXCompanyID(): string {
+    const _roleData = JSON.parse(localStorage.getItem(Globals.localStorageString.DATAROLE));
+    if (_roleData) {
+      if ('admDefl' in _roleData) {
+        if (_roleData['admDefl']) {
+          return _roleData['admDefl'];
+        }
       }
-      return resp;
-    } catch (er) {}
+    }
+    return '';
+  }
+
+  async isAdminUser() {
+    const cID = this.getXCompanyID();
+    if (!cID) {
+      return Promise.resolve({ status: 'NOK' });
+    }
+    try {
+      return this.fetch('get', 'Admincheck_role', { idCompany: cID }).toPromise();
+    } catch (er) {
+      return Promise.resolve({ status: 'NOK' });
+    }
   }
 
   public register(user: any): Observable<any> {

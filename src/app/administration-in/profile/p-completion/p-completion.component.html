@@ -1,8 +1,8 @@
 <div class="profile-text">
-    <div>Your profile is 97% complete</div>
-    <div class="progress-out">
-        <div class="progress-in"></div>
-    </div>
+  <div>Your profile is {{completion}}% complete</div>
+  <div class="progress-out">
+    <div [style.width]='completion+"%"' class="progress-in"></div>
+  </div>
 </div>
 <!-- <div class="enter-text">
   <p>Enter your commerciale name</p>
