@@ -46,7 +46,7 @@ export class MembersAdminComponent implements OnInit {
     try {
       this.auth.userDataRole();
       let isAdmin = await this.auth.isAdminUser();
-      if (isAdmin.status == 'OK') {
+      if (isAdmin['status'] === 'OK') {
         this.getProfile();
         this.getMember();
         this.getInvitationSend();
@@ -186,7 +186,7 @@ export class MembersAdminComponent implements OnInit {
 
   async reviveInvitation(itemID) {
     try {
-      let rvv : any = await this.tms.reviveInvitation(itemID);
+      let rvv: any = await this.tms.reviveInvitation(itemID);
       if (rvv.status === 'OK') {
         this.sh.notifToast({ type: 'success', message: rvv.message });
       }

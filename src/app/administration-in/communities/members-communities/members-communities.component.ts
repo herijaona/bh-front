@@ -22,7 +22,7 @@ export class MembersCommunitiesComponent implements OnInit {
   async ngOnInit() {
     try {
       let isAdmin = await this.auth.isAdminUser();
-      if (isAdmin.status === 'OK') {
+      if (isAdmin['status'] === 'OK') {
         this.getCommunity();
       } else {
         this.router.navigateByUrl('/');

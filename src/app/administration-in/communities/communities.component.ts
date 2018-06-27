@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Globals } from './../../globals/globals';
 import { Router } from '@angular/router';
-import { AuthserviceService } from '../../services/authservice/authservice.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TeamsService } from '../../services/teams/teams.service';
 import { ModalDirective } from 'angular-bootstrap-md';
 @Component({
@@ -12,8 +12,14 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class CommunitiesComponent implements OnInit {
   public img_a: string;
   @ViewChild('modalHist') public myModalHist: ModalDirective;
+  public newCommForm: FormGroup;
   constructor(public g: Globals) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.newCommForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+    });
+  }
 
   public showMod() {
     setTimeout(() => {
