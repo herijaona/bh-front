@@ -552,16 +552,28 @@ h6 {
   font-weight: 700;
   font-size: 13.5px;
 }
-.question-data{
+/* .question-data{
   p:last-child{
     display: none;
   }
-}
+} */
 .rvn{
   p{
     margin-bottom: 0px;
     color: #393f4b;
     font-family: SourceSansPro-Regular;
     font-size: 14px;
+  }
+}
+.object-project{
+  p{
+    font-family: SourceSansPro-Semibold;
+    padding: 7px;
+    border: 1px solid #e6e9ec;
+    border-radius: .25rem;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #495057;
+    padding-left: 14px;
   }
 }
