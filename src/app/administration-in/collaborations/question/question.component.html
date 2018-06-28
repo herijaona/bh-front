@@ -1,38 +1,50 @@
 <div class="col-container">
-    <div class="table-respo">
-        <!--Table-->
-        <table class="table appli-table">
-            <!--Table head-->
-            <thead class="head-color">
-                <tr class="text-bl">
-                    <th class="date">&nbsp; Date &nbsp;</th>
-                    <th class="hour">hour</th>
-                    <th class="name">Name</th>
-                    <th class="organisation">Organisation</th>
-                    <th class="about">About</th>
-                    <th class="action">Action</th>
-                </tr>
-            </thead>
-            <!--Table head-->
-            <!--Table body-->
-            <tbody>
-                <tr *ngFor="let item of allQuestions">
-                    <td class="t1">{{item.date}}</td>
-                    <td class="t1">{{item.hour}}</td>
-                    <td class="t2">{{item.userAsk.name}}</td>
-                    <td class="t2">{{item.userAsk.org}}</td>
-                    <td class="t3">
-                        <p [innerHtml]="item.quest_part|bhSafeHtml"></p>
-                    </td>
-                    <td class="t4">
-                        <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-            <!--Table body-->
-        </table>
-        <!--Table-->
+  <div *ngIf="!readyData">
+    <div class="loader"></div>
+  </div>
+  <div *ngIf="readyData" class="table-respo">
+    <!-- has no Data -->
+    <div *ngIf="!hasData">
+      <p class="hasdata">
+        Hello,
+        <br> You did not received any questions about your collaborations.
+      </p>
     </div>
+    <!--Table-->
+    <table *ngIf="hasData" class="table appli-table table-striped">
+      <!--Table head-->
+      <thead class="head-color">
+        <tr class="text-bl">
+          <th class="date">&nbsp; Date &nbsp;</th>
+          <th class="hour">hour</th>
+          <th class="name">First name</th>
+          <th class="name">Last name</th>
+          <th class="organisation">Organisation</th>
+          <th class="about">About</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+      <!--Table body-->
+      <tbody *ngFor="let item of allQuestions" class="tb-items">
+        <tr>
+          <td class="t1">{{item.date}}</td>
+          <td class="t1">{{item.hour}}</td>
+          <td class="t2">{{item.userAsk.firstname}}</td>
+          <td class="t2">{{item.userAsk.lastname}}</td>
+          <td class="t2">{{item.userAsk.org}}</td>
+          <td class="t2">{{item.about.name}}</td>
+        </tr>
+        <tr class="reply-bm">
+          <th colspan="6" class="reply-b">
+            <span [innerHtml]="item.quest_part|bhSafeHtml"> </span>
+            <a class="more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
+              More
+            </a>
+          </th>
+        </tr>
+      </tbody>
+      <!--Table body-->
+    </table>
+    <!--Table-->
+  </div>
 </div>

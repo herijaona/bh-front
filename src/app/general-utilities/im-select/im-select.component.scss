@@ -4,8 +4,22 @@
     margin-top: 5px;
     margin-bottom: 0px;
     .img-thumbnail {
-        width: 100px;
+        width: 100%;
         height: 75px;
+    }
+}
+
+@media(max-width:542px) {
+    .cs_grid {
+        width: 33%;
+    }
+}
+
+@media(max-width:348px) {
+    .cs_grid {
+        .img-hidden {
+            width: auto;
+        }
     }
 }
 
@@ -70,7 +84,7 @@
 .img-hidden {
     position: relative;
     overflow: hidden;
-    width: 150px;
+    width: 100px;
 }
 
 .btn-unique-edit {
@@ -125,4 +139,8 @@
         padding-right: 10px;
         font-size: 16px;
     }
+}
+
+.inputfile:focus + label, .inputfile + label:hover {
+    background-color: #8f9283;
 }

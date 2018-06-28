@@ -1,33 +1,27 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { IMyDpOptions } from "mydatepicker";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { ProjectsService } from "../../../../services/projects/projects.service";
-import { SharedNotificationService } from "./../../../../services/shared-notification/shared-notification.service";
-import { Globals } from "./../../../../globals/globals";
+import { Component, OnInit, Input } from '@angular/core';
+import { IMyDpOptions } from 'mydatepicker';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProjectsService } from '../../../../services/projects/projects.service';
+import { SharedNotificationService } from './../../../../services/shared-notification/shared-notification.service';
+import { Globals } from './../../../../globals/globals';
 
 @Component({
-  selector: "apply-innov-project",
-  templateUrl: "./apply-innov-project.component.html",
-  styleUrls: ["./apply-innov-project.component.scss"]
+  selector: 'apply-innov-project',
+  templateUrl: './apply-innov-project.component.html',
+  styleUrls: ['./apply-innov-project.component.scss'],
 })
 export class ApplyInnovProjectComponent implements OnInit {
   public prObjApply: any;
   public UserOrgName: any;
-  public canBeSent: boolean = false;
+  public canBeSent= false;
   public applyToForm: FormGroup;
 
-  @Input("data_in")
+  @Input('data_in')
   set data_in(o) {
     this.prObjApply = o;
   }
 
-  /*public projectApplyData: { [key: string]: any } = {
-    main_activity_domain: "",
-    secondary_activity_domain: "",
-    skill_specificities: "",
-    collab_proposal_describ: ""
-  };*/
   constructor(
     public g: Globals,
     private router: Router,
@@ -35,55 +29,49 @@ export class ApplyInnovProjectComponent implements OnInit {
     private sh: SharedNotificationService
   ) {
     this.applyToForm = new FormGroup({
-      main_activity_domain: new FormControl("", [Validators.required]),
-      secondary_activity_domain: new FormControl("", [Validators.required]),
-      skill_specificities: new FormControl("", [Validators.required]),
-      collab_proposal_describ: new FormControl("", [Validators.required])
+      main_activity_domain: new FormControl('', [Validators.required]),
+      secondary_activity_domain: new FormControl('', [Validators.required]),
+      skill_specificities: new FormControl('', [Validators.required]),
+      collab_proposal_describ: new FormControl('', [Validators.required]),
+      applicationName: new FormControl('', [Validators.required]),
     });
   }
 
   ngOnInit() {
     console.log(this.prObjApply);
-    if (this.prObjApply["hasAcc"]) {
+    if (this.prObjApply['hasAcc']) {
       /* the default */
-      this.UserOrgName = this.prObjApply["userACC"][0].enseigneCommerciale;
+      this.UserOrgName = this.prObjApply['userACC'][0].enseigneCommerciale;
     } else {
-      this.UserOrgName = this.prObjApply["userACC"]["enseigneCommerciale"];
+      this.UserOrgName = this.prObjApply['userACC']['enseigneCommerciale'];
     }
   }
 
   async sendApplicationOnProject() {
     if (this.applyToForm.valid) {
       // this.projectApplyData['countryCD'] = this.modelCountry;
-      let candidatAccID: string = "";
-      let roleData = JSON.parse(localStorage.getItem("_data_role_"));
+      let candidatAccID = '';
+      const roleData = JSON.parse(localStorage.getItem('_data_role_'));
       if (roleData) {
         if (roleData.hsAc) {
           candidatAccID = roleData.admDefl;
         }
       }
-      let arg = {
+      const arg = {
         data: this.applyToForm.value,
         currObj: this.prObjApply,
-        candidatAccID: candidatAccID
+        candidatAccID: candidatAccID,
       };
       try {
         const ret: any = await this.pr.sendProjectsApplication(arg);
 
-        if (ret.status === "OK") {
+        if (ret.status === 'OK') {
           this.sh.notifToast({
-            type: "success",
-            message: "<p>Application sent</p>"
+            type: 'success',
+            message: '<p>Application sent</p>',
           });
           setTimeout(() => {
-            this.router.navigateByUrl(
-              "/" +
-                [
-                  "administration-in",
-                  "deal-space",
-                  "application-sent"
-                ].join("/")
-            );
+            this.router.navigateByUrl('/' + ['administration-in', 'collaborations', 'application-sent'].join('/'));
           }, 500);
         }
       } catch (e) {

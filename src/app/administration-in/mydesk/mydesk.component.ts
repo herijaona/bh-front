@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ElementRef } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 @Component({
 	selector: "app-mydesk",
@@ -23,8 +23,12 @@ export class MydeskComponent implements OnInit {
 		team: false,
 		question: false
 	};
-	constructor(public g: Globals) {}
+	constructor(public g: Globals, public el: ElementRef) {}
 
 	ngOnInit() {}
+	toggleCollapse2() {
+		this.el.nativeElement.querySelector('.ns').classList.toggle('ln');
+		this.el.nativeElement.querySelector('.float-r').classList.toggle('ln');
+	  }
 
 }

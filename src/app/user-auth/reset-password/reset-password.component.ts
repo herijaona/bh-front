@@ -99,14 +99,14 @@ export class ResetPasswordComponent implements OnInit {
               state.text +
               '<br> click <a href="' +
               this.g.base_href +
-              'login" class="">ici</a> pour se connecter';
+              'login" class="">ici</a>to log in';
             this.showNotif(txt, true);
             this.resetpassFormFlag = false;
           }
         },
         error => {
           this.showNotif(
-            "Un erreur est survenue lors du reinitialisation de votre mot de passe <br> Reessayer s'il vous plait",
+            "An error occurred while resetting your password<br>Please try again",
             true,
             "warning"
           );

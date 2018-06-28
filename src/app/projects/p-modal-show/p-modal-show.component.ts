@@ -42,7 +42,7 @@ export class PModalShowComponent implements OnInit, OnDestroy {
 		console.log(arg);
 		this.router.navigateByUrl(
 			"/" +
-				["administration-in", "deal-space", "apply-to", arg.data._id].join(
+				["administration-in", "collaborations", "apply-to", arg.data._id].join(
 					"/"
 				)
 		);

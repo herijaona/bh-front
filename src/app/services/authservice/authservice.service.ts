@@ -10,14 +10,6 @@ import { SharedNotificationService } from '../shared-notification/shared-notific
 
 import { CompanyService } from '../company/company.service';
 
-export interface userDataPaylod {
-  email: string;
-  password: string;
-  name?: string;
-  lastname?: string;
-  firstname?: string;
-}
-
 interface TokenResponse {
   token: string;
 }
@@ -41,7 +33,7 @@ export class AuthserviceService extends BaseHttpService {
   }
 
   public getUser(): any {
-    var u = localStorage.getItem('bh-user');
+    const u = localStorage.getItem('bh-user');
     if (u) {
       return JSON.parse(u);
     } else {
@@ -85,13 +77,13 @@ export class AuthserviceService extends BaseHttpService {
   public isAdmin(curr_slug) {
     return new Promise((resolve, reject) => {
       if (this.isLoggedIn()) {
-        let u = this.getUser();
+        const u = this.getUser();
         if (u) {
           this.fetch('get', 'check_role', { slug_chk: curr_slug })
             .toPromise()
             .then(
               (re: any) => {
-                let rs = {
+                const rs = {
                   resp: re.data_check_response,
                 };
 
@@ -120,25 +112,37 @@ export class AuthserviceService extends BaseHttpService {
     });
   }
 
-  async isAdminUser() {
+  async isAdminUserV2() {
     try {
-      let resp: any = await this.fetch('get', 'Admincheck_role').toPromise();
-      if (resp.status == 'OK') {
-        this.cs.storeMycompanyId(resp.data._id);
-        this.sh.pushData({
-          from: 'editKeyGeneral',
-          action: 'idACCOUNT',
-          data: resp.data._id,
-        });
-      } else {
-        this.sh.pushData({
-          from: 'editKeyGeneral',
-          action: 'idACCOUNT',
-          data: '',
-        });
+      const roleObj = JSON.parse(localStorage.getItem(Globals.localStorageString.DATAROLE));
+      console.log(roleObj);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  getXCompanyID(): string {
+    const _roleData = JSON.parse(localStorage.getItem(Globals.localStorageString.DATAROLE));
+    if (_roleData) {
+      if ('admDefl' in _roleData) {
+        if (_roleData['admDefl']) {
+          return _roleData['admDefl'];
+        }
       }
-      return resp;
-    } catch (er) {}
+    }
+    return '';
+  }
+
+  async isAdminUser() {
+    const cID = this.getXCompanyID();
+    if (!cID) {
+      return Promise.resolve({ status: 'NOK' });
+    }
+    try {
+      return this.fetch('get', 'Admincheck_role', { idCompany: cID }).toPromise();
+    } catch (er) {
+      return Promise.resolve({ status: 'NOK' });
+    }
   }
 
   public register(user: any): Observable<any> {
@@ -201,17 +205,6 @@ export class AuthserviceService extends BaseHttpService {
     return this.fetch('post', 'reset-password-submit-new', data);
   }
 
-  public logout(): void {
-    this.token = '';
-    window.localStorage.removeItem('bh-token');
-    window.localStorage.removeItem('accAdmin');
-    window.localStorage.removeItem('accCUR');
-    window.localStorage.removeItem('gen_flag');
-    window.localStorage.removeItem('bh-user');
-    window.localStorage.removeItem('my_company');
-    this.router.navigateByUrl('/');
-  }
-
   removeUserItem() {
     window.localStorage.removeItem('bh-user');
   }
@@ -258,5 +251,20 @@ export class AuthserviceService extends BaseHttpService {
     } catch (e) {
       console.log(e);
     }
+  }
+  public checkInvitationState(argDATA) {
+    return this.fetch('get', 'checkinvitation/organisation', argDATA).toPromise();
+  }
+
+  public logout(): void {
+    this.token = '';
+    window.localStorage.removeItem(Globals.localStorageString.TOKEN);
+    window.localStorage.removeItem(Globals.localStorageString.DATAROLE);
+    window.localStorage.removeItem('accAdmin');
+    window.localStorage.removeItem('accCUR');
+    window.localStorage.removeItem('gen_flag');
+    window.localStorage.removeItem('bh-user');
+    window.localStorage.removeItem('my_company');
+    this.router.navigateByUrl('/');
   }
 }

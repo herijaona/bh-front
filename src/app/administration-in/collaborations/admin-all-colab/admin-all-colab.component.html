@@ -1,7 +1,16 @@
 <div class="col-container">
-  <div class="table-respo">
+  <app-spin-data-ready [ready]='!readyData'></app-spin-data-ready>
+  <div *ngIf="readyData" class="table-respo">
+    <!-- Don't has data -->
+    <div *ngIf="!hasData">
+      <p class="hasdata">
+        Hello,
+        <br> For the moment you do not have an offer of collaborations but you can create some on the menu "CREATE A COLLABORATION
+        TYPE"
+      </p>
+    </div>
     <!--Table-->
-    <table class="table appli-table">
+    <table *ngIf="hasData" class="table appli-table table-striped">
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
@@ -17,13 +26,13 @@
       <tbody>
         <tr *ngFor="let item of listCollab">
           <td>
-            <a target="_blanck" [routerLink]="['/administration-in','collaborations','application-received','by-collaborations', item._id ]">{{item.name}}</a>
+            <a class="bn" target="_blanck" [routerLink]="['/administration-in','collaborations','application-received','by-collaborations', item._id ]">{{item.name}}</a>
           </td>
           <td>{{g.getCollabtypetext(item.type)}}</td>
           <td>{{item.date}}</td>
           <td>{{item.author.firstname +" "+ item.author.lastname}}</td>
           <td>
-            0
+            {{item.interaction_number}}
           </td>
         </tr>
       </tbody>

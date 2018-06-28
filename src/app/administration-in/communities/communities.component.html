@@ -1,95 +1,67 @@
 <navbar-admin></navbar-admin>
-<!--<nav class="navbar navbar-expand-sm nav-tel">
-    <ul class="navbar-nav ns">
-        <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities']">Ecosystem</a>
-        </li>
-        <p>Pfffffffffff</p>
-        &lt;!&ndash; <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','ideas']">Ideas</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities', 'questions']">Questions</a>
-        </li> &ndash;&gt;
-    </ul>
-</nav>-->
-<div class="container-deal">
+<nav class="navbar navbar-expand-sm nav-tel">
+  <ul class="navbar-nav ns">
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/administration-in','communities']">Members</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','communities']">Communities</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','community-space']">Community spaces</a>
+    </li>
+    <!-- <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','ecosystem']">Ecosystem</a>
+        </li> -->
+    <!-- <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities','ideas']">Ideas</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','communities', 'questions']">Questions</a>
+    </li> -->
+  </ul>
+  <ul class="navbar-nav ns float-r">
+    <li class="nav-item">
+      <a class="nav-link select-col" (click)="showMod()">
+        <i class="fa fa-plus"></i>New Community</a>
+    </li>
+  </ul>
+</nav>
+<div class="">
+  <router-outlet></router-outlet>
+</div>
 
-  <div class="left-col">
-    <h4 class="open-sans-regular">Applications</h4>
 
-    <div class="organiser-by">
-      <h5 style="color: #8B97A5; font-size: 16px;">Organiser par</h5>
-    </div>
-
-    <div id="{{item._id}}" class="collab-list-div" *ngFor="let item of collablists; let myIndex = index" (click)="getCollabData($event, item)">
-      <img class="logo-com" ng-src="{{user.imageProfile}}">
-      <h5 class="title-project-left">{{item.name}}</h5>
-      <h5 class="auteur-project-left">{{item.author.firstname}} {{item.author.lastname}}</h5>
-    </div>
-  </div>
-  <div class="center-idem">
-    <h4 id="title_collab" class="open-sans-regular">Titre de collaboration</h4>
-    <div class="comment-collab-div">
-      <div class="separator"></div>
-      <table class="table-afqap">
-        <tr>
-          <td id="tab-1" class="td-afqap" (click)="changeTab (event, 'h-afqap-1')">
-            <h4 id="h-afqap-1" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-1') "  (mouseleave) ="tabMouseLeave('h-afqap-1')">Application</h4>
-          </td>
-          <td id="tab-2" class="td-afqap" (click)="changeTab (event, 'h-afqap-2')">
-            <h4 id="h-afqap-2" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-2') "  (mouseleave) ="tabMouseLeave('h-afqap-2')">Files</h4>
-          </td>
-          <td id="tab-3" class="td-afqap" (click)="changeTab (event, 'h-afqap-3')">
-            <h4 id="h-afqap-3" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-3') "  (mouseleave) ="tabMouseLeave('h-afqap-3')">Questions-Answers</h4>
-          </td>
-          <td id="tab-4" class="td-afqap" (click)="changeTab (event, 'h-afqap-4')">
-            <h4 id="h-afqap-4" class="afqap" (mouseenter) ="tabMouseEnter('h-afqap-4') "  (mouseleave) ="tabMouseLeave('h-afqap-4')">Planning</h4>
-          </td>
-        </tr>
-      </table>
-
-      <div class="container-textarea">
-        <textarea class="comment-txt"></textarea>
-        <div class="text-area icon-example"></div>
+<!-- Modal video play-->
+<div style="overflow: auto;" mdbModal #modalHist="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header md-new">
+        <h2>
+          <img class="img-responsive cnc" src="{{g.base_href}}assets/img/cnc.png">Create new Community
+        </h2>
+      </div>
+      <!--Body-->
+      <div class="modal-body mb-0">
+        <form [formGroup]='newCommForm' (ngSubmit)="onSubmitNewCommunities()" >
+          <div class="input-md">
+            <label>Name</label>
+            <input placeholder="Community name" formControlName="name" class="form-control" mdbActive validate required="required">
+          </div>
+          <div class="pb-3 input-md">
+            <label>Description</label>
+            <textarea formControlName="description" rows="7" cols="50" placeholder="Overall Satisfaction Question" type="text" class="osq"></textarea>
+          </div>
+          <div class="flex fx">
+            <a class="nav-link select-col fca" (click)="hideModal()">Cancel</a>
+            <a type="submit" class="nav-link select-col fc">Create Community</a>
+          </div>
+        </form>
       </div>
     </div>
+    <!--/.Content-->
   </div>
-  <div class="right-idem-disc">
-    <h4 class="open-sans-regular">Observations</h4>
-  </div>
-</div>
-<div class="col-container mt-5">
-  <ng-template [ngIf]="communityShow">
-    <div class="">
-      <table class="table appli-table">
-        <thead class="head-color">
-        <tr class="text-bl">
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Job</th>
-          <th>Organisation</th>
-          <th>Interaction</th>
-          <th class="text-center">Remove</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of userCommData">
-          <th class="tb">
-            <a>
-              <img [src]="item.us.imageProfile" class="rounded-circle img-fluid" alt="First sample avatar image" width="60px">
-            </a>
-          </th>
-          <td class="tb">{{item.us.firstname}}</td>
-          <td class="tb">{{item.us.lastname}}</td>
-          <td>{{item.us.function}}</td>
-          <td>{{item.org}}</td>
-          <td>{{item.act.join('-')}}</td>
-          <td class="text-center"><i class="fa fa-trash fa-remove"></i></td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </ng-template>
 </div>

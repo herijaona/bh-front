@@ -83,6 +83,13 @@ export class ProjectsService extends BaseHttpService {
    */
 
   public getadminProjectAsOpportuinity() {
-    return this.fetch('get', 'getOpportuinity-deal-space').toPromise();
+    return this.fetch('get', 'getOpportuinity-collaborations').toPromise();
+  }
+
+  /**
+   * Accepte Application
+   */
+  public sendacceptApplicationData(argData) {
+    return this.fetch('post', 'accept-application', argData).toPromise();
   }
 }

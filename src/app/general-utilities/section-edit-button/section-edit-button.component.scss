@@ -24,3 +24,34 @@
     position: relative !important;
     float: left;
 }
+
+.tooltip-top {
+    display: none;
+}
+
+.tp:hover {
+    .tooltip-top {
+        display: block;
+        position: absolute;
+        background: #373d49;
+        border-radius: 3px;
+        text-align: whi;
+        color: #ffffff9c;
+        margin-top: -19px;
+        margin-left: 35px;
+        font-size: 12px;
+        width: 129px;
+        z-index: 1;
+        text-transform: capitalize;
+    }
+    .tooltip-top::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent #373d49 transparent transparent;
+    }
+}

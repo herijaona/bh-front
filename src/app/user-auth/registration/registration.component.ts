@@ -7,13 +7,14 @@ import {
   ViewEncapsulation,
   ViewContainerRef,
 } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiHttpService } from '../../services/api-http/api-http.service';
 import { AuthserviceService } from '../../services/authservice/authservice.service';
 import { NotifComponent } from '../notif/notif.component';
+import { NotifRegisterComponent } from './notif-register/notif-register.component';
 import { PageLoginComponent } from '../page-login/page-login.component';
 import { ValidateOrgtypes } from '../../services/validators/own.validator';
-import { Router } from '@angular/router';
 import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
 import { Globals } from './../../globals/globals';
 @Component({
@@ -24,36 +25,33 @@ import { Globals } from './../../globals/globals';
 })
 export class RegistrationComponent implements OnInit {
   public img_bg: string;
-  public img_logo: string;
-  public img_avatar: string;
-  public free: string;
-  public img_logo2: string;
-  public assisted: string;
-  public automnomous: string;
-  public fileFlag: boolean = false;
+  public fileFlag = false;
+  public invitationdd: any;
+  public byinvitation = false;
   public registerForm: FormGroup;
   fileError: any = false;
-  used_email: boolean = false;
+  used_email = false;
   private form_el: ElementRef;
-  public fileSelectName: string = '';
+  public fileSelectName = '';
   @ViewChild('attachAll', {
     read: ViewContainerRef,
   })
   attachView: ViewContainerRef;
+  /*   geoTypes: ['(regions)', '(cities)'], */
   userSettings: any = {
     showSearchButton: false,
     showRecentSearch: false,
-    geoTypes: ['(regions)', '(cities)'],
     showCurrentLocation: false,
-    inputPlaceholderText: 'Adresse: Ville, Pays ......',
+    inputPlaceholderText: 'Adresse: City, Country ......',
   };
-  public em_empty: boolean = false;
+  public register_pre = true;
+  public em_empty = false;
   public orgType: any = [];
-  passNotEqual: boolean = false;
-  localAdded: boolean = false;
-  orgAddr: string = '';
-  private agreeTermsOfService: boolean = false;
-
+  public invitationID = '';
+  passNotEqual = false;
+  localAdded = false;
+  orgAddr = '';
+  private agreeTermsOfService = false;
   constructor(
     public g: Globals,
     private el: ElementRef,
@@ -61,25 +59,21 @@ export class RegistrationComponent implements OnInit {
     private auth: AuthserviceService,
     private componentFactoryResolver: ComponentFactoryResolver,
     private router: Router,
+    private activRoute: ActivatedRoute,
     private sh: SharedNotificationService
   ) {
-    if (auth.isLoggedIn()) {
-      this.router.navigateByUrl('/profile');
-    }
-    this.img_avatar = this.g.base_href + 'assets/img/bg-accueil.jpg';
-    this.img_logo = this.g.base_href + 'assets/img/bh.png';
-    this.img_logo2 = this.g.base_href + 'assets/img/logo-ccw.png';
-    this.free = this.g.base_href + 'assets/img/free-8.png';
-    this.automnomous = this.g.base_href + 'assets/img/automnomous-8.png';
-    this.assisted = this.g.base_href + 'assets/img/assisted-8.png';
-    this.img_bg = this.g.base_href + 'assets/img/bg-0.png';
+    this.activRoute.params.subscribe((params_: any) => {
+      this.invitationID = params_['id_invitation'];
+    });
+    /* this.img_bg = this.g.base_href + 'assets/img/bg-0.png'; */
+    this.img_bg = this.g.base_href + 'assets/img/imgbanner-100.jpg';
     this.getOrgtype();
   }
   async getOrgtype() {
     try {
-      let gD: any = await this.auth.getallOrgTypes();
+      const gD: any = await this.auth.getallOrgTypes();
       if (gD) {
-        if (gD.status == 'OK') {
+        if (gD.status === 'OK') {
           console.log(gD.data);
           this.orgType = gD.data;
         }
@@ -97,7 +91,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.registerForm = new FormGroup({
       bhemail: new FormControl('', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
       bh_pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -110,12 +104,26 @@ export class RegistrationComponent implements OnInit {
       bh_orgType: new FormControl(0, [Validators.required, ValidateOrgtypes]),
       bh_orgLocal: new FormControl(''),
     });
+
+    if (this.invitationID) {
+      const rec_check = await this.auth.checkInvitationState({ invitID: this.invitationID });
+      if (rec_check['status'] === 'OK') {
+        this.invitationdd = rec_check['data'];
+        this.registerForm.patchValue({
+          bhemail: this.invitationdd.dataDetails.invitation_email,
+          bh_lastname: this.invitationdd.dataDetails.lastname,
+          bh_firstname: this.invitationdd.dataDetails.firstname,
+          bh_acc_commercial: this.invitationdd.dataDetails.organisationName,
+        });
+        this.byinvitation = true;
+      }
+    }
   }
 
   onFormSubmit() {
-    let formEl: HTMLInputElement = this.el.nativeElement.querySelector('#registerForm_');
-    var hasFile = this.formImUpload();
-    let credential = {
+    const formEl: HTMLInputElement = this.el.nativeElement.querySelector('#registerForm_');
+    const hasFile = this.formImUpload();
+    const credential = {
       email: this.registerForm.value.bhemail,
       lastname: this.registerForm.value.bh_lastname,
       firstname: this.registerForm.value.bh_firstname,
@@ -127,29 +135,23 @@ export class RegistrationComponent implements OnInit {
       typeOrganisation: this.registerForm.value.bh_orgType,
       adresse: this.orgAddr,
     };
+
+    if (this.byinvitation) {
+      credential['invitationId'] = this.invitationID;
+    }
+
     hasFile.then((resFile: any) => {
-      if (resFile.status == 0) {
+      if (resFile.status === 0) {
         this.fileError = true;
       } else {
         credential.Logo = resFile.data.imID;
-        this.sh.runloader({
-          action: 'show',
-        });
         this.auth.register(credential).subscribe(
           (r: any) => {
-            // this.router.navigateByUrl("/profile");
-            this.sh.runloader({
-              action: 'hide',
-            });
-            formEl.remove();
-            // this.notifAndLogin();
-            this.router.navigateByUrl("/login");
+            this.register_pre = false;
+            this.notifAndLogin();
           },
           err => {
-            this.sh.runloader({
-              action: 'hide',
-            });
-            if (err.status == 409) {
+            if (err.status === 409) {
               this.used_email = true;
             }
           }
@@ -160,29 +162,22 @@ export class RegistrationComponent implements OnInit {
 
   formImUpload() {
     // event.preventDefault();
-    let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#logoFile');
-    let imID: string;
-    let fileCount: number = inputEl.files.length;
-    let formData = new FormData();
-    let promise = new Promise((resolve, reject) => {
-      if (fileCount == 0) {
+    const inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#logoFile');
+    const fileCount: number = inputEl.files.length;
+    const formData = new FormData();
+    const promise = new Promise((resolve, reject) => {
+      if (fileCount === 0) {
         resolve({
           status: 0,
           data: null,
         });
       } else {
-        this.sh.runloader({
-          action: 'show',
-        });
         formData.append('im_up', inputEl.files.item(0), inputEl.files.item(0).name);
         this.apiHttp
           .postUpImages(formData)
           .toPromise()
           .then((resp: any) => {
-            this.sh.runloader({
-              action: 'hide',
-            });
-            if (resp.status == 'OK') {
+            if (resp.status === 'OK') {
               resolve({
                 status: 1,
                 data: resp,
@@ -196,18 +191,16 @@ export class RegistrationComponent implements OnInit {
 
   /* Show notification after registration */
   private notifAndLogin() {
-    var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifComponent);
-    var refNotif = this.attachView.createComponent(factoryNotif);
-    refNotif.instance.type = 'success';
-    refNotif.instance.message = 'Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.';
-    var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(PageLoginComponent);
-    var refLogin = this.attachView.createComponent(factoryLogin);
+    const factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifRegisterComponent);
+    const refNotif = this.attachView.createComponent(factoryNotif);
+    /* refNotif.instance.message =
+      '" Great ! Now, to confirm the creation of your account,Click on the link sent by email"'; */
     // ref.changeDetectorRef.detectChanges();
   }
 
   /* Email validator complement*/
   public detectEmail() {
-    if (this.registerForm.value.bhemail == '') {
+    if (this.registerForm.value.bhemail === '') {
       this.em_empty = true;
     } else {
       this.em_empty = false;
@@ -219,8 +212,8 @@ export class RegistrationComponent implements OnInit {
 
   /*Chech if password typed is the same*/
   public passCheck() {
-    if (this.registerForm.value.bh_pass != '' && this.registerForm.value.bh_pass_conf != '') {
-      if (this.registerForm.value.bh_pass != this.registerForm.value.bh_pass_conf) {
+    if (this.registerForm.value.bh_pass !== '' && this.registerForm.value.bh_pass_conf !== '') {
+      if (this.registerForm.value.bh_pass !== this.registerForm.value.bh_pass_conf) {
         this.passNotEqual = true;
       } else {
         this.passNotEqual = false;

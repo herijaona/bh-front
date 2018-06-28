@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit {
     }
     this.img_avatar = this.g.base_href + 'assets/img/bg-accueil.jpg';
     this.img_logo = this.g.base_href + 'assets/img/bh.png';
-    this.img_bg = this.g.base_href + 'assets/img/bg-0.png';
+    this.img_bg = this.g.base_href + 'assets/img/imgbanner-100.png';
   }
 
   ngOnInit() {
@@ -96,7 +96,7 @@ export class SignUpComponent implements OnInit {
   successAction() {
     this.sh.notifToast({
       type: 'success',
-      message: '<p>Compte creer avec succes <br> Consulter votre Boite email pour Activer votre compte.</p>',
+      message: '<p>"Great ! Now, to confirm the creation of your account,Click on the link sent by email"</p>',
     });
   }
 

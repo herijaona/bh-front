@@ -78,7 +78,7 @@ export class DescriptionProjectComponent implements OnInit, OnDestroy {
 				"/" +
 					[
 						"administration-in",
-						"deal-space",
+						"collaborations",
 						"apply-to",
 						this.detailsData._id
 					].join("/")

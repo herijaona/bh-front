@@ -7,9 +7,9 @@
         <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk','questions']">Questions</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk','ideas']">Ideas</a>
-        </li>
+        </li> -->
         <!-- <li class="nav-item">
           <a class="nav-link" routerLinkActive="active"  [routerLink]="['/administration-in','desk', 'applications']">Applications</a>
     </li> -->
@@ -17,12 +17,15 @@
             <a class="nav-link disabled" routerLinkActive="active" [routerLink]="['/administration-in','desk', 'favorite']">Favorite</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk', 'invited-organisation']">Invitations</a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk', 'invited-organisation']">Organizations</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk', 'historical']">Historical</a>
         </li>
     </ul>
+    <div class="icon-plus" (click)="toggleCollapse2()">
+        <i class="tp fa fa-plus"></i>
+    </div>
 </nav>
 <main class="">
     <div class="ml-16">

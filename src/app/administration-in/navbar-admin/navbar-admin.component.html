@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-desk">
     <div class="container-fluid">
-        <a class="navbar-brand brand-tip" href="#"><img src="{{g.base_href}}assets/img/logo-ccw.png" width="37"></a>
+        <a class="navbar-brand brand-tip"><img src="{{g.base_href}}assets/img/logo-ccw.png" width="37"></a>
         <ul class="navbar-nav form-inline my-2 my-md-0 desk-nav-icon dni-mobile">
             <!-- <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-question-circle-o"></i></a>
@@ -48,10 +48,14 @@
                 <a class="nav-link" href="#"><i class="fa fa-bell"><i *ngIf="auth.isLoggedIn()" class="fa fa-circle"></i></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-cog"></i></a>
+                <a class="nav-link" href="#" [routerLink]="['/administration-in','setting','config']"><i class="fa fa-cog"></i></a>
             </li>
-            <li class="nav-item  myclass" *ngFor="let item of userAdminData">
-                <a class="nav-link img-reel" *ngIf="item.imageProfile" [routerLink]="['/administration-in','user','profile']"><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
+            <li  (click)="toggleCollapse2()" class="nav-item  myclass position-realtive" *ngFor="let item of userAdminData">
+                <a class="nav-link img-reel" *ngIf="item.imageProfile" ><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
+                <span class="m-deconnect">
+                    <span class="cursor-p"><a [routerLink]="['/administration-in','user','profile']">My profile</a></span><hr>
+                    <span class="cursor-p" (click)="auth.logout()">Deconnexion</span>
+                </span>
             </li>
         </ul>
         <a (click)="toggleCollapse()" class="menu-bar"><i class="fa fa-bars i-bar"></i></a>

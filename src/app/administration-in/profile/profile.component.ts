@@ -1,20 +1,10 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  ViewEncapsulation,
-  ComponentFactoryResolver,
-  ViewContainerRef,
-  OnDestroy,
-} from '@angular/core';
+import { Component, OnInit, ElementRef, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { AuthserviceService } from '../../services/authservice/authservice.service';
 import { CompanyService } from '../../services/company/company.service';
 import { UserDetails } from '../../models/user-detail.model';
 import { ValidateOrgtypes } from '../../services/validators/own.validator';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ModalDirective } from 'angular-bootstrap-md';
 import { Globals } from './../../globals/globals';
 import { SharedNotificationService } from '../../services/shared-notification/shared-notification.service';
 
@@ -54,7 +44,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private auth: AuthserviceService,
     private cs: CompanyService,
     public sh: SharedNotificationService,
-    private route: Router,
+    private router: Router,
     public g: Globals
   ) {
     this.details = new UserDetails();
@@ -80,53 +70,48 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     try {
-      let resp = await this.getProfile();
-      if (resp) {
-        if (!this.details.active) {
-          this.auth.removeUserItem();
-          this.showInfo = true;
-        } else {
-          this.EditForm.setValue({
-            bh_lastname: this.details.lastname,
-            bh_firstname: this.details.firstname,
-            bh_functions: this.details.function,
-            bh_email: this.details.email,
+      const prdata = await this.auth.profile();
+      if (prdata) {
+        this.details = prdata;
+        this.EditForm.setValue({
+          bh_lastname: this.details.lastname,
+          bh_firstname: this.details.firstname,
+          bh_functions: this.details.function,
+          bh_email: this.details.email,
+        });
+        this.validUser = true;
+
+        const accData: any = await this.auth.isAdminUser();
+        if (accData.status === 'OK') {
+          this.accountData = accData.data;
+          const urlWebsite = 'websiteUrl' in this.accountData ? this.accountData.websiteUrl : '';
+          this.uform.setValue({
+            _acc_commercial: this.accountData.enseigneCommerciale,
+            _acc_activityArea: this.accountData.activityArea,
+            _acc_websitLink: urlWebsite,
+            _orgType: this.accountData.typeOrganisation,
           });
-          this.validUser = true;
-
-          const accData: any = await this.auth.isAdminUser();
-          console.log('-----object-----');
-          console.log(accData);
-          if (accData.status === 'OK') {
-            this.accountData = accData.data;
-            const urlWebsite = 'websiteUrl' in this.accountData ? this.accountData.websiteUrl : '';
-            this.uform.setValue({
-              _acc_commercial: this.accountData.enseigneCommerciale,
-              _acc_activityArea: this.accountData.activityArea,
-              _acc_websitLink: urlWebsite,
-              _orgType: this.accountData.typeOrganisation,
-            });
-
-            this.isAdmin = true;
-            const addr: any = JSON.parse(this.accountData.adresse);
-            const addrAcc = addr.description;
-            this.userSettings['inputString'] = addrAcc;
-            this.userSettings = Object.assign({}, this.userSettings);
-          }
+          this.isAdmin = true;
+          const addr: any = JSON.parse(this.accountData.adresse);
+          const addrAcc = addr.description;
+          this.userSettings['inputString'] = addrAcc;
+          this.userSettings = Object.assign({}, this.userSettings);
+        } else {
+          this.isAdmin = false;
         }
       }
     } catch (er) {
       console.log(er);
+      this.router.navigateByUrl('/administration-in/account-note');
     }
-
     this.getOrgtype();
   }
 
   async getOrgtype() {
     try {
-      let gD: any = await this.auth.getallOrgTypes();
+      const gD: any = await this.auth.getallOrgTypes();
       if (gD) {
-        if (gD.status == 'OK') {
+        if (gD.status === 'OK') {
           console.log(gD.data);
           this.orgType = gD.data;
         }
@@ -134,20 +119,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     } catch (e) {}
   }
 
-  async getProfile() {
-    try {
-      let prdata = await this.auth.profile();
-      if (prdata) {
-        this.details = prdata;
-        return prdata;
-      }
-    } catch (ee) {
-      this.auth.logout();
-    }
-  }
-
   async EditProfile() {
-    let credential = {
+    const credential = {
       lastname: this.EditForm.value.bh_lastname,
       firstname: this.EditForm.value.bh_firstname,
       email: this.EditForm.value.bh_email,
@@ -165,7 +138,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     try {
       let resp: any = await this.auth.editprofile(arg);
       if (resp) {
-        if (resp.status == 'OK') {
+        if (resp.status === 'OK') {
           this.saveUser(resp.data);
           this.successAction();
           return 'DONE';
@@ -177,13 +150,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   saveUser(user: any) {
-    var d = this.auth.copydata(this.details, user);
+    const d = this.auth.copydata(this.details, user);
     this.details = d;
     this.auth.saveUser(this.details);
   }
 
   EditPassword() {
-    let credential = {
+    const credential = {
       password: this.editPassword.value.bh_pass,
     };
     this.auth.editpass(credential).subscribe(user => {
@@ -215,7 +188,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   /* Handle Company Update Data Info*/
   onUpdateFormSubmit() {
-    var cr: {
+    const cr: {
       [key: string]: any;
     } = {
       activityArea: this.uform.value._acc_activityArea,

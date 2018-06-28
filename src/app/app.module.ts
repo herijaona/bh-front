@@ -23,7 +23,6 @@ import { CompanyService } from './services/company/company.service';
 import { ProjectsService } from './services/projects/projects.service';
 import { RequestInterceptorService } from './services/request-interceptor/request-interceptor.service';
 import { IsActiveGuardService } from './services/authguard/is-active-guard.service';
-import {DealSpaceService} from "./services/deal-space/deal-space.service";
 
 /*pipe*/
 
@@ -31,14 +30,13 @@ import {DealSpaceService} from "./services/deal-space/deal-space.service";
 import { AdministrationInModule } from './administration-in/administration-in.module';
 import { UserAuthModule } from './user-auth/user-auth.module';
 import { HomepageModule } from './homepage/homepage.module';
-import { IdeasModule } from './ideas/ideas.module';
+import { SuccessStoriesModule } from './success-stories/success-stories.module';
 import { MindsetModule } from './mindset/mindset.module';
 import { GeneralUtilitiesModule } from './general-utilities/general-utilities.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ProjectsModule } from './projects/projects.module';
 import { TeamModule } from './team/team.module';
 import { ProfileAdminModule } from './profile-admin/profile-admin.module';
-import { MembersAdminModule } from './members-admin/members-admin.module';
 import { CCapitalModule } from './c-capital/c-capital.module';
 import { TabModule } from 'angular-tabs-component';
 
@@ -56,10 +54,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
     GeneralUtilitiesModule,
     HomepageModule,
     ProjectsModule,
-    IdeasModule,
+    SuccessStoriesModule,
     MindsetModule,
     ProfileAdminModule,
-    MembersAdminModule,
     TeamModule,
     NavbarModule,
     ReactiveFormsModule,
@@ -89,7 +86,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ProjectsService,
     CompanyService,
     IsActiveGuardService,
-    DealSpaceService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

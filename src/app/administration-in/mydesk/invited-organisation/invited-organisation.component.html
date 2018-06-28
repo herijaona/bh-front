@@ -1,40 +1,18 @@
-<div class="col-container">
-    <p class="invite">You can invite other organizations to participate in your projects.</p>
-    <div class="add-form text-right">
-        <span (click)="addNewRow()"><i class="fa fa-plus"></i></span>
-    </div>
-    <div class="row position-realtive" *ngFor="let itemrow of getcontrols(); let i=index">
-        <div class="col-3">
-            <label class="grey-text-form">First name</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
-        </div>
-        <div class="col-3">
-            <label class="grey-text-form">Last name</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
-        </div>
-        <div class="col-3">
-            <label class="grey-text-form">Organisation name</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
-        </div>
-        <div class="col-3">
-            <label class="grey-text-form">Email</label>
-            <div class="input-md">
-                <input type="text" placeholder="" id="" class="form-control-project" mdbActive validate required="required">
-            </div>
-        </div>
-        <a *ngIf="invoiceForm.controls.itemRows.length > 1" (click)="deleteRow(i)" class="i-remove">
-            <i class="fa fa-remove"></i>
-        </a>
-    </div>
-    <div class="row">
-        <div class="text-right">
-            <button class="mb-4 btn-col btn">
-				<i class="fa fa-send pr-2"></i>to send</button>
-        </div>
-    </div>
+<nav class="navbar navbar-expand-sm nav-tel">
+  <ul class="navbar-nav ns vs">
+    <li class="nav-item">
+<a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/administration-in','desk', 'invited-organisation']">Accepted organizations</a>
+    </li>
+    <li class="nav-item">
+<a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk', 'invited-organisation','invitations-sent']">Invited organizations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','desk', 'invited-organisation','invitations-organisation']">Insert organizations </a>
+    </li>
+  </ul>
+</nav>
+<main class="collaboration-container">
+  <div class="ml-16">
+    <router-outlet></router-outlet>
+  </div>
+</main>

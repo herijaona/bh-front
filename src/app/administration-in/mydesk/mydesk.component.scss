@@ -59,3 +59,14 @@ li {
     color: #555;
     background-color: #e7e7e7;
 }
+@media(max-width: 767px){
+    .nav-tel{
+        width: 100%;
+        display: inline-block;
+        padding-left: 1rem !important;
+    }
+    .ns{
+        text-align: center;
+        margin: 0 auto;
+    }
+}

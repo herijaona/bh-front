@@ -1,8 +1,29 @@
 .appli-table {
-    td a {
-        color: #0275d8;
+  td a {
+    color: #0275d8;
+  }
+  td a:hover {
+    border-bottom: 1px solid #0275d8;
+  }
+  tbody tr:hover {
+    background: #ff00001a !important;
+    cursor: pointer;
+  }
+  tbody {
+    td {
+      border-top: none;
     }
-    td a:hover {
-        border-bottom: 1px solid #0275d8;
+  }
+  .text-bl {
+    th{
+      width: 20%;
     }
+  }
+  .bn {
+    padding-left: 7px;
+  }
+}
+
+.mt-custom {
+  margin-top: 4rem
 }

@@ -550,6 +550,7 @@ textarea.md-textarea:focus:not([readonly]) {
     height: 100%;
     background-attachment: fixed;
     background-position: right;
+    background-size: cover;
     .img-l {
         margin-left: -17px;
         margin-top: 55px
@@ -575,4 +576,19 @@ textarea.md-textarea:focus:not([readonly]) {
             }
         }
     }
+}
+
+.registre-invite {
+    text-align: center;
+    margin-top: -27px;
+    margin-bottom: 25px;
+    color: #e83936;
+    font-family: SourceSansPro-Regular;
+    font-size: 18px;
+}
+
+.row-invite {
+    color: #606060;
+    font-size: 15px;
+    margin-top: 14px;
 }
