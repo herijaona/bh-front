@@ -48,8 +48,7 @@ export class MembersAdminComponent implements OnInit {
     try {
       this.auth.userDataRole();
       let isAdmin = await this.auth.isAdminUser();
-      this.st = isAdmin;
-      if (this.st.status === 'OK') {
+      if (isAdmin['status'] === 'OK') {
         this.getProfile();
         this.getMember();
         this.getInvitationSend();
@@ -76,7 +75,7 @@ export class MembersAdminComponent implements OnInit {
     } catch (ee) {
       this.readyData = true;
       if ('type' in ee) {
-        if (ee.type == 'NotActivate') {
+        if (ee.type === 'NotActivate') {
           this.activated = false;
         }
       } else {
@@ -91,7 +90,7 @@ export class MembersAdminComponent implements OnInit {
     try {
       var data: any = this.inviteForm.value;
       var teamInviteRes: any = await this.tms.inviteTeam(data);
-      if (teamInviteRes.status == 'OK') {
+      if (teamInviteRes.status === 'OK') {
         this.sh.notifToast({
           type: 'success',
           message: '<p>Invitation sent</p>',
@@ -177,7 +176,7 @@ export class MembersAdminComponent implements OnInit {
       const allInvitation: any = await this.tms.getAllInvitationSent();
       if (allInvitation.status === 'OK') {
         let i = 0;
-        for (let it of allInvitation.data) {
+        for (const it of allInvitation.data) {
           allInvitation.data[i].dateAdd = new Date(it.dateAdd).toDateString();
           console.log(allInvitation.data[i].dateAdd);
           i++;
@@ -189,7 +188,7 @@ export class MembersAdminComponent implements OnInit {
 
   async reviveInvitation(itemID) {
     try {
-      let rvv : any = await this.tms.reviveInvitation(itemID);
+      let rvv: any = await this.tms.reviveInvitation(itemID);
       if (rvv.status === 'OK') {
         this.sh.notifToast({ type: 'success', message: rvv.message });
       }

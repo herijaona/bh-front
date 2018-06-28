@@ -16,7 +16,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
   set pageCurrent(e) {
     this.pCurrent = e.split('_')[0];
     Object.keys(this.isactivePage).forEach((val, i) => {
-      if (val == this.pCurrent) {
+      if (val === this.pCurrent) {
         this.isactivePage[val] = true;
       } else {
         this.isactivePage[val] = false;
@@ -25,7 +25,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
   }
   @Input() public width = 200;
   @Input() public height = 200;
-  @ViewChild("canvas") canvas: ElementRef;
+  @ViewChild('canvas') canvas: ElementRef;
   private cx: CanvasRenderingContext2D;
   public image: any;
   public show: boolean = false;
@@ -58,7 +58,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
   public _addr: string = '----';
   public FrontMenu: boolean = true;
   public pagetoShow: any;
-  public header_page_logo: string ;
+  public header_page_logo: string;
   /* public header_page_logo: string = this.g.base_href + 'assets/img/logo2.png'; */
   public header_page_cover: string = 'url(' + this.g.base_href + 'assets/img/logo2.png' + ')';
   public company_comm_name: string = '';
@@ -91,7 +91,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     });
 
     this.sh.busDataIn$.subscribe((st: any) => {
-      if (st.from == 'editData') {
+      if (st.from === 'editData') {
         this.getDataDetails();
       }
     });
@@ -107,11 +107,10 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     this.el.nativeElement.querySelector('.nav-col').classList.add('foo');
   }
 
-
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     const canvasEl: HTMLCanvasElement = this.canvas.nativeElement;
     this.cx = HTMLCanvasElement = this.canvas.nativeElement.getContext('2d')!;
-     this.image = new Image();
+    this.image = new Image();
 
     canvasEl.width = this.width;
     canvasEl.height = this.height;
@@ -119,17 +118,16 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     this.cx.lineWidth = 3;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = '#000';
-    this.image.onload = ()=> {
-        this.cx.drawImage(this.image, 0, 0, this.width, this.height);
-    }
+    this.image.onload = () => {
+      this.cx.drawImage(this.image, 0, 0, this.width, this.height);
+    };
     this.image.src = this.header_page_logo;
-
-}
+  }
 
   ngOnInit() {
     // this.editPAGEstatus = false;
     this.subscr.notifB = this.sh.notifButton$.subscribe((st: any) => {
-      if (st.no == 'clck') {
+      if (st.no === 'clck') {
         if (!st.state) {
           this.company_nameEditMode = false;
           this.editPAGEstatus = false;
@@ -140,32 +138,32 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     });
     this.subscr.imSelect = this.sh.im_Selected$.subscribe((st: any) => {
       if (st.select) {
-        if (st.destFile == this.logoDestFile) {
+        if (st.destFile === this.logoDestFile) {
           this.logoItem = st.data;
           this.header_page_logo = this.logoItem.url;
-        } else if (st.destFile == this.coverDestFile) {
+        } else if (st.destFile === this.coverDestFile) {
           this.coverItem = st.data;
           this.header_page_cover = 'url(' + st.data.url + ')';
         }
       }
     });
     this.subscr.editEv = this.sh.editEvent$.subscribe((arg_: any) => {
-      if (arg_.section == this.company_name) {
-        if (arg_.action == 'edit') {
+      if (arg_.section === this.company_name) {
+        if (arg_.action === 'edit') {
           this.editCompanyNameSection();
-        } else if (arg_.action == 'save') {
+        } else if (arg_.action === 'save') {
           this.saveCompanyNameSection();
         }
-      } else if (arg_.section == this.company_logo) {
-        if (arg_.action == 'edit') {
+      } else if (arg_.section === this.company_logo) {
+        if (arg_.action === 'edit') {
           this.editCompanyLogo();
-        } else if (arg_.action == 'save') {
+        } else if (arg_.action === 'save') {
           this.saveCompanyLogo();
         }
-      } else if (arg_.section == this.company_cover) {
-        if (arg_.action == 'edit') {
+      } else if (arg_.section === this.company_cover) {
+        if (arg_.action === 'edit') {
           this.editCompanyCover();
-        } else if (arg_.action == 'save') {
+        } else if (arg_.action === 'save') {
           this.saveCompanyCover();
         }
       }
@@ -229,7 +227,7 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
 
   async saveUpdateIm(arg: any) {
     try {
-      let res_update = await this.cs.updateDataInfo(arg);
+      const res_update = await this.cs.updateDataInfo(arg);
       if (res_update) {
         this.sh.notifToast({
           type: 'success',
@@ -304,19 +302,14 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
       this.header_page_cover = 'url(' + rsp['coverImage'] + ')';
     }
     if (rsp['websiteUrl']) {
-      this.websiteUrl = 'url(' + rsp['websiteUrl'] + ')';
+      this.websiteUrl = rsp['websiteUrl'];
+      console.log(this.websiteUrl);
       this.hasWebSiteUrl = true;
     }
     this.company_comm_name = rsp['enseigneCommerciale'];
     this.compDetails = rsp;
     this._typeOrganisation = rsp['typeOrganisation'];
     this._addr = rsp['adresse'];
-  }
-
-  go_toWebSiteUrl(websiteUrl) {
-    console.log(this.websiteUrl);
-    let url = this.websiteUrl.split('(')[1].split(')')[0];
-    window.open(url, '_blank');
   }
 
   ngOnDestroy() {
