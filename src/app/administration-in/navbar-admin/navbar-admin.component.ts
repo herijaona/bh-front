@@ -27,6 +27,7 @@ export class NavbarAdminComponent implements OnInit {
   public currentSlug: string = '';
   public isOn: boolean = false;
 
+  public st: any;
   constructor(
     private cs: CompanyService,
     private router: Router,
@@ -91,6 +92,9 @@ export class NavbarAdminComponent implements OnInit {
   toggleCollapse() {
     this.el.nativeElement.querySelector('.mobil-top').classList.toggle('toggle-in');
     this.el.nativeElement.querySelector('.mobil-top').classList.replace('nav-link', 'fy');
+  }
+  toggleCollapse2() {
+    this.el.nativeElement.querySelector('.m-deconnect').classList.toggle('toggle-i');
   }
 
   async getDataOnCompany() {

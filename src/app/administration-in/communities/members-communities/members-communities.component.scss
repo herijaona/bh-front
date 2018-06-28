@@ -15,7 +15,6 @@
     }
   }
   .text-bl {
-    box-shadow: 0px 0px 0px 0px;
   }
   .bn {
     padding-left: 7px;
@@ -30,4 +29,17 @@
   font-family: SourceSansPro-Regular;
   top: 15px;
   position: relative;
+}
+.about{
+  width: 20%;
+}
+.date{
+  width: 10%;
+}
+.firstname{
+  max-width: 97px;
+}
+.org{
+  max-width: 97px;
+  min-width: 154px;
 }

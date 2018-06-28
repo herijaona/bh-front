@@ -43,10 +43,13 @@ import { EcosystemComponent } from '../administration-in/communities/ecosystem/e
 import { MembersCommunitiesComponent } from '../administration-in/communities/members-communities/members-communities.component';
 import { UnderCommunitiesComponent } from '../administration-in/communities/under-communities/under-communities.component';
 import { CommunitySpaceComponent } from '../administration-in/communities/community-space/community-space.component';
+import { ApplicationSpaceComponent } from '../administration-in/communities/community-space/application-space/application-space.component';
+import { FileSpaceComponent } from '../administration-in/communities/community-space/file-space/file-space.component';
 import { OpportunitiesComponent } from '../administration-in/opportunities/opportunities.component';
 import { PositionsComponent } from '../administration-in/positions/positions.component';
 import { SettingComponent } from '../administration-in/setting/setting.component';
 import { ConfigComponent } from '../administration-in/setting/config/config.component';
+import { SubscriptionComponent } from '../administration-in/setting/subscription/subscription.component';
 import { DealSpaceComponent } from '../administration-in/deal-space/deal-space.component';
 import { QuestionAnswersComponent } from '../administration-in/deal-space/question-answers/question-answers.component';
 import { ApplicationDealComponent } from '../administration-in/deal-space/application-deal/application-deal.component';
@@ -244,6 +247,16 @@ const routes: Routes = [
       {
         path: 'community-space',
         component: CommunitySpaceComponent,
+        children: [
+          {
+              path: 'application-space',    
+              component: ApplicationSpaceComponent,
+          },
+          {
+            path: 'files',    
+            component: FileSpaceComponent,
+          },
+        ],
       },
     ],
   },
@@ -255,6 +268,10 @@ const routes: Routes = [
       {
         path: 'config',
         component: ConfigComponent,
+      },
+      {
+        path: 'subscription',
+        component: SubscriptionComponent,
       },
     ],
   },

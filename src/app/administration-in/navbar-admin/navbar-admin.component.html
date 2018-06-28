@@ -50,11 +50,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" [routerLink]="['/administration-in','setting','config']"><i class="fa fa-cog"></i></a>
             </li>
-            <li (click)="tif()" class="nav-item  myclass position-realtive" *ngFor="let item of userAdminData">
+            <li  (click)="toggleCollapse2()" class="nav-item  myclass position-realtive" *ngFor="let item of userAdminData">
                 <a class="nav-link img-reel" *ngIf="item.imageProfile" ><img [src]="item.imageProfile" alt="{{item.firstname+' '+item.lastname }}" class="mr-3 rounded-circle" width="25px" height="25px"></a>
-                <span *ngIf="isOn" class="m-deconnect">
-                    <b class="cursor-p"><span [routerLink]="['/administration-in','user','profile']">My profile</span></b><hr>
-                    <b class="cursor-p" (click)="auth.logout()">Deconnexion</b>
+                <span class="m-deconnect">
+                    <span class="cursor-p"><a [routerLink]="['/administration-in','user','profile']">My profile</a></span><hr>
+                    <span class="cursor-p" (click)="auth.logout()">Deconnexion</span>
                 </span>
             </li>
         </ul>

@@ -21,6 +21,8 @@ export class MembersAdminComponent implements OnInit {
   public userInvitedData: any;
   public inviteForm: FormGroup;
 
+  public st: any;
+
   public adminAll: boolean = true;
   public invitedShow: boolean = false;
   constructor(
@@ -73,7 +75,7 @@ export class MembersAdminComponent implements OnInit {
     } catch (ee) {
       this.readyData = true;
       if ('type' in ee) {
-        if (ee.type == 'NotActivate') {
+        if (ee.type === 'NotActivate') {
           this.activated = false;
         }
       } else {
@@ -88,7 +90,7 @@ export class MembersAdminComponent implements OnInit {
     try {
       var data: any = this.inviteForm.value;
       var teamInviteRes: any = await this.tms.inviteTeam(data);
-      if (teamInviteRes.status == 'OK') {
+      if (teamInviteRes.status === 'OK') {
         this.sh.notifToast({
           type: 'success',
           message: '<p>Invitation sent</p>',
@@ -174,7 +176,7 @@ export class MembersAdminComponent implements OnInit {
       const allInvitation: any = await this.tms.getAllInvitationSent();
       if (allInvitation.status === 'OK') {
         let i = 0;
-        for (let it of allInvitation.data) {
+        for (const it of allInvitation.data) {
           allInvitation.data[i].dateAdd = new Date(it.dateAdd).toDateString();
           console.log(allInvitation.data[i].dateAdd);
           i++;

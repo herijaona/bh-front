@@ -10,6 +10,7 @@ import { TeamsService } from '../../../services/teams/teams.service';
   styleUrls: ['./members-communities.component.scss'],
 })
 export class MembersCommunitiesComponent implements OnInit {
+  public st: any;
   public communityShow = false;
   public userCommData: any;
   public img_avatar = '';
@@ -50,3 +51,4 @@ export class MembersCommunitiesComponent implements OnInit {
     return new Date(dt).toDateString();
   }
 }
+
