@@ -1,15 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamsService } from '../../../services/teams/teams.service';
 
 @Component({
   selector: 'app-under-communities',
   templateUrl: './under-communities.component.html',
-  styleUrls: ['./under-communities.component.scss']
+  styleUrls: ['./under-communities.component.scss'],
 })
 export class UnderCommunitiesComponent implements OnInit {
-
-  constructor() { }
+  public allcommDataList = [];
+  public currcommDataList = [];
+  public pageNum = [];
+  showPagination = false;
+  currPage = 1;
+  constructor(private tms: TeamsService) {}
 
   ngOnInit() {
+    this.getCommDataList();
   }
 
+  async getCommDataList() {
+    try {
+      const dataList = await this.tms.getCommunitiesDataList();
+      if (dataList['status'] === 'OK') {
+        this.allcommDataList = dataList['data'];
+        if (this.allcommDataList.length > 100) {
+          const nn = Math.floor(this.allcommDataList.length / 100) + 1;
+          this.pageNum = Array(nn).map((x, i) => i + 1);
+          this.currcommDataList = this.allcommDataList.slice(0, 99);
+          this.showPagination = true;
+        } else {
+          this.currcommDataList = this.allcommDataList;
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }

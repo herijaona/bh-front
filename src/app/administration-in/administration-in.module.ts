@@ -58,6 +58,7 @@ import { ConfigComponent } from './setting/config/config.component';
 import { SubscriptionComponent } from './setting/subscription/subscription.component';
 import { ApplicationSpaceComponent } from './communities/community-space/application-space/application-space.component';
 import { FileSpaceComponent } from './communities/community-space/file-space/file-space.component';
+import { PaginationInComponent } from './extra/pagination-in/pagination-in.component';
 
 @NgModule({
   imports: [
@@ -121,6 +122,7 @@ import { FileSpaceComponent } from './communities/community-space/file-space/fil
     SubscriptionComponent,
     ApplicationSpaceComponent,
     FileSpaceComponent,
+    PaginationInComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

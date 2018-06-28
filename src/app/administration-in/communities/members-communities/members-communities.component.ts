@@ -22,7 +22,7 @@ export class MembersCommunitiesComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      let isAdmin = await this.auth.isAdminUser();
+      const isAdmin = await this.auth.isAdminUser();
       if (isAdmin['status'] === 'OK') {
         this.getCommunity();
       } else {
@@ -33,7 +33,7 @@ export class MembersCommunitiesComponent implements OnInit {
 
   async getCommunity() {
     try {
-      let cUser: any = await this.tms.getCommunityData();
+      const cUser: any = await this.tms.getCommunityData();
       if (cUser) {
         if (cUser.status === 'OK') {
           this.userCommData = cUser.data.users;

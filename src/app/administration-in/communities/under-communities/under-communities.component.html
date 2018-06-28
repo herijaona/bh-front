@@ -25,67 +25,25 @@
       <!--Table head-->
       <!--Table body-->
       <tbody>
-        <tr>
+        <tr *ngFor="let item of currcommDataList">
           <td>
-            <a>communinty</a>
+            <a>{{item.name}}</a>
           </td>
-          <td>Sat Jun 16 2018</td>
-          <td>Manage</td>
+          <td>{{item.creationDate}}</td>
+          <td>{{item.byUser.firstname+' '+item.byUser.lastname}}</td>
           <td>
-            <a>22</a>
+            <a>{{item.memberNum}}</a>
           </td>
-          <td>22</td>
-          <td>Lasr
-          </td>
+          <td>{{item.exchangeNum}}</td>
+          <td>{{item.lastTime}} </td>
         </tr>
-        <tr>
-          <td>
-            <a>communinty</a>
-          </td>
-          <td>Sat Jun 16 2018</td>
-          <td>Manage</td>
-          <td>
-            <a>22</a>
-          </td>
-          <td>22</td>
-          <td>Lasr
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a>communinty</a>
-          </td>
-          <td>Sat Jun 16 2018</td>
-          <td>Manage</td>
-          <td>
-            <a>22</a>
-          </td>
-          <td>22</td>
-          <td>Lasr
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a>communinty</a>
-          </td>
-          <td>Sat Jun 16 2018</td>
-          <td>Manage</td>
-          <td>
-            <a>22</a>
-          </td>
-          <td>22</td>
-          <td>Lasr
-          </td>
-        </tr>
+
       </tbody>
       <!--Table body-->
     </table>
     <!--Table-->
   </div>
-  <div class="text-right">
-    <a class="btn-tab1">1</a>
-    <a class="btn-tab2">2</a>
-    <a class="btn-tab2">2</a>
-    <a class="btn-tab3">Suivant</a>
+  <div *ngIf="showPagination" class="text-right">
+    <a [ngClass]="{currentPage: it === currPage}" *ngFor="let item of pageNum; let it = index" class="btn-tab1">{{item}}</a>
   </div>
 </div>

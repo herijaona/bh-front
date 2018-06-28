@@ -117,4 +117,11 @@ export class TeamsService extends BaseHttpService {
   public addNewCommunities(arg) {
     return this.fetch('post', 'addAccountNewCommunity', arg).toPromise();
   }
+
+  /**
+   * getCommunitiesDataList
+   */
+  public getCommunitiesDataList() {
+    return this.fetch('get', 'getAccountCommDataList').toPromise();
+  }
 }
