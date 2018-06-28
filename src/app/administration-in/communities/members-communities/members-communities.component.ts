@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Globals } from './../../../globals/globals';
 import { AuthserviceService } from '../../../services/authservice/authservice.service';
 import { TeamsService } from '../../../services/teams/teams.service';
-
+import { ModalDirective } from 'angular-bootstrap-md';
 @Component({
   selector: 'app-members-communities',
   templateUrl: './members-communities.component.html',
@@ -18,6 +18,17 @@ export class MembersCommunitiesComponent implements OnInit {
   public anyUser = false;
   constructor(public g: Globals, private router: Router, private auth: AuthserviceService, private tms: TeamsService) {
     this.img_avatar = this.g.base_href + 'assets/img/profile.JPG';
+  }
+  @ViewChild('modalSet') public myModalHist: ModalDirective;
+  public showModal() {
+    setTimeout(() => {
+      this.myModalHist.show();
+    }, 330);
+  }
+  public hideModal() {
+    setTimeout(() => {
+      this.myModalHist.hide();
+    }, 330);
   }
 
   async ngOnInit() {
