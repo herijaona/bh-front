@@ -58,6 +58,15 @@ import { ConfigComponent } from './setting/config/config.component';
 import { SubscriptionComponent } from './setting/subscription/subscription.component';
 import { ApplicationSpaceComponent } from './communities/community-space/application-space/application-space.component';
 import { FileSpaceComponent } from './communities/community-space/file-space/file-space.component';
+//import for deal space
+import { DealSpaceFrontComponent } from './collaborations/deal-space-front/deal-space-front.component';
+import { DealHistoricalComponent } from './collaborations/deal-space-front/deal-historical/deal-historical.component';
+import { DealListComponent } from './collaborations/deal-space-front/deal-list/deal-list.component';
+import { DealApplicationComponent } from './collaborations/deal-space-front/deal-application/deal-application.component';
+import { DealFilesComponent } from './collaborations/deal-space-front/deal-files/deal-files.component';
+import { DealQuestionsAnswersComponent } from './collaborations/deal-space-front/deal-questions-answers/deal-questions-answers.component';
+import { DealPlanningComponent } from './collaborations/deal-space-front/deal-planning/deal-planning.component';
+import { OneDealSpaceComponent } from './collaborations/deal-space-front/one-deal-space/one-deal-space.component';
 
 @NgModule({
   imports: [
@@ -121,6 +130,14 @@ import { FileSpaceComponent } from './communities/community-space/file-space/fil
     SubscriptionComponent,
     ApplicationSpaceComponent,
     FileSpaceComponent,
+    DealSpaceFrontComponent,
+    DealHistoricalComponent,
+    DealListComponent,
+    DealApplicationComponent,
+    DealFilesComponent,
+    DealQuestionsAnswersComponent,
+    DealPlanningComponent,
+    OneDealSpaceComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],
