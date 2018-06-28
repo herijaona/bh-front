@@ -31,4 +31,8 @@ export class CommunitiesComponent implements OnInit {
       this.myModalHist.hide();
     }, 330);
   }
+
+  async onSubmitNewCommunities() {
+    console.log('Mahasao');
+  }
 }

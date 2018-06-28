@@ -46,7 +46,7 @@
       </div>
       <!--Body-->
       <div class="modal-body mb-0">
-        <form [formGroup]='newCommForm'>
+        <form [formGroup]='newCommForm' (ngSubmit)="onSubmitNewCommunities()" >
           <div class="input-md">
             <label>Name</label>
             <input placeholder="Community name" formControlName="name" class="form-control" mdbActive validate required="required">
@@ -57,7 +57,7 @@
           </div>
           <div class="flex fx">
             <a class="nav-link select-col fca" (click)="hideModal()">Cancel</a>
-            <a class="nav-link select-col fc">Create Community</a>
+            <a type="submit" class="nav-link select-col fc">Create Community</a>
           </div>
         </form>
       </div>
