@@ -13,7 +13,7 @@ export class CommunitiesComponent implements OnInit {
   public img_a: string;
   @ViewChild('modalHist') public myModalHist: ModalDirective;
   public newCommForm: FormGroup;
-  constructor(public g: Globals) {}
+  constructor(public g: Globals, private tms: TeamsService) {}
   ngOnInit() {
     this.newCommForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -33,6 +33,17 @@ export class CommunitiesComponent implements OnInit {
   }
 
   async onSubmitNewCommunities() {
-    console.log('Mahasao');
+    if (this.newCommForm.valid) {
+      try {
+        const addNewREs = await this.tms.addNewCommunities(this.newCommForm.value);
+        console.log(addNewREs);
+        if (addNewREs['status'] === 'OK') {
+          this.newCommForm.reset();
+          this.hideModal();
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
   }
 }

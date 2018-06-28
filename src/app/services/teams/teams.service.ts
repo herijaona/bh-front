@@ -110,4 +110,11 @@ export class TeamsService extends BaseHttpService {
   public getAcceptedInvitations() {
     return this.fetch('get', 'get-accepted-invitations').toPromise();
   }
+
+  /**
+   * addNewCommunities
+   */
+  public addNewCommunities(arg) {
+    return this.fetch('post', 'addAccountNewCommunity', arg).toPromise();
+  }
 }
