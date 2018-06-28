@@ -64,6 +64,9 @@ export class ProjectsService extends BaseHttpService {
       projectID: idPR,
     }).toPromise();
   }
+  public getCountryHasCollab() {
+    return this.fetch('get', 'getCountryHasCollab').toPromise();
+  }
 
   /**
    * getApplByCollabID

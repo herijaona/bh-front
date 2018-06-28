@@ -13,4 +13,7 @@ export class Project1Component implements OnInit {
   constructor(public g: Globals, public auth: AuthserviceService) {}
 
   ngOnInit() {}
+  showDetails() {
+    console.log('ok');
+  }
 }

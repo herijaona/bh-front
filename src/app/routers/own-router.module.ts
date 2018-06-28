@@ -298,12 +298,16 @@ const routes: Routes = [
     component: ProjectDescriptionComponent,
   },
   {
-    path: 'c-capital/acceuil',
+    path: 'c-capital/accueil',
     component: AcceuilComponent,
   },
   {
-    path: 'c-capital/entreprises',
+    path: 'c-capital/entreprise',
     component: EntrepriseComponent,
+  },
+  {
+    path: 'c-capital/innovations',
+    component: Project1Component,
   },
   {
     path: 'reset-my-pass/:id_/:pass_code',

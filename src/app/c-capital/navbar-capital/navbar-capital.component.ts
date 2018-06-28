@@ -96,7 +96,7 @@ export class NavbarCapitalComponent implements OnInit {
         this.auth.profile().then(
           (res: any) => {
             this.connModal.hide();
-            this.router.navigateByUrl("/project1");
+            this.router.navigateByUrl("/c-capital/accueil");
           },
           err => {
             this.sh.notifToast({
@@ -166,6 +166,6 @@ export class NavbarCapitalComponent implements OnInit {
 
   logout() {
     this.auth.logout();
-    this.router.navigateByUrl("/project1");
+    this.router.navigateByUrl("/c-capital/accueil");
   }
 }
