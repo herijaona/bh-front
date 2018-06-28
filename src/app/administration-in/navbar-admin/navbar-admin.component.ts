@@ -25,7 +25,9 @@ export class NavbarAdminComponent implements OnInit {
   public show: boolean = false;
   public hide: boolean = false;
   public currentSlug: string = "";
+  public isOn: boolean = false;
 
+  public st: any;
   constructor(
     private cs: CompanyService,
     private router: Router,
@@ -40,7 +42,8 @@ export class NavbarAdminComponent implements OnInit {
   async ngOnInit() {
     try {
       let isAdmin = await this.auth.isAdminUser();
-      if (isAdmin.status == "OK") {
+      this.st = isAdmin;
+      if (this.st.status == "OK") {
         this.getProfile();
         this.getMember();
       } else {
@@ -84,6 +87,9 @@ export class NavbarAdminComponent implements OnInit {
       console.log(e);
     }
   }
+  tif(){
+    this.isOn = true;
+  }
   toggleCollapse() {
     this.el.nativeElement
       .querySelector(".mobil-top")
@@ -92,11 +98,16 @@ export class NavbarAdminComponent implements OnInit {
       .querySelector(".mobil-top")
       .classList.replace("nav-link", "fy");
   }
+  toggleCollapse2() {
+    this.el.nativeElement
+    .querySelector(".m-deconnect").classList.toggle("toggle-i"); 
+  }
 
   async getDataOnCompany() {
     try {
       const isAdmin = await this.auth.isAdminUser();
-      if (isAdmin.status === "OK") {
+      this.st = isAdmin; 
+      if (this.st.status === "OK") { 
         const getRes = await this.cs.getMyCompanData();
         if (getRes) {
           if (getRes.hasOwnProperty("_slug")) {

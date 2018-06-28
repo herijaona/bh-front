@@ -12,6 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiHttpService } from '../../services/api-http/api-http.service';
 import { AuthserviceService } from '../../services/authservice/authservice.service';
 import { NotifComponent } from '../notif/notif.component';
+import { NotifRegisterComponent } from './notif-register/notif-register.component';
 import { PageLoginComponent } from '../page-login/page-login.component';
 import { ValidateOrgtypes } from '../../services/validators/own.validator';
 import { SharedNotificationService } from './../../services/shared-notification/shared-notification.service';
@@ -37,13 +38,13 @@ export class RegistrationComponent implements OnInit {
   })
   attachView: ViewContainerRef;
   /*   geoTypes: ['(regions)', '(cities)'], */
-
   userSettings: any = {
     showSearchButton: false,
     showRecentSearch: false,
     showCurrentLocation: false,
     inputPlaceholderText: 'Adresse: City, Country ......',
   };
+  public register_pre = true;
   public em_empty = false;
   public orgType: any = [];
   public invitationID = '';
@@ -64,7 +65,8 @@ export class RegistrationComponent implements OnInit {
     this.activRoute.params.subscribe((params_: any) => {
       this.invitationID = params_['id_invitation'];
     });
-    this.img_bg = this.g.base_href + 'assets/img/bg-0.png';
+    /* this.img_bg = this.g.base_href + 'assets/img/bg-0.png'; */
+    this.img_bg = this.g.base_href + 'assets/img/imgbanner-100.jpg';
     this.getOrgtype();
   }
   async getOrgtype() {
@@ -143,23 +145,12 @@ export class RegistrationComponent implements OnInit {
         this.fileError = true;
       } else {
         credential.Logo = resFile.data.imID;
-        this.sh.runloader({
-          action: 'show',
-        });
         this.auth.register(credential).subscribe(
           (r: any) => {
-            // this.router.navigateByUrl("/profile");
-            this.sh.runloader({
-              action: 'hide',
-            });
-            formEl.remove();
-            // this.notifAndLogin();
-            this.router.navigateByUrl('/login');
+            this.register_pre = false;
+            this.notifAndLogin();
           },
           err => {
-            this.sh.runloader({
-              action: 'hide',
-            });
             if (err.status === 409) {
               this.used_email = true;
             }
@@ -181,17 +172,11 @@ export class RegistrationComponent implements OnInit {
           data: null,
         });
       } else {
-        this.sh.runloader({
-          action: 'show',
-        });
         formData.append('im_up', inputEl.files.item(0), inputEl.files.item(0).name);
         this.apiHttp
           .postUpImages(formData)
           .toPromise()
           .then((resp: any) => {
-            this.sh.runloader({
-              action: 'hide',
-            });
             if (resp.status === 'OK') {
               resolve({
                 status: 1,
@@ -206,12 +191,10 @@ export class RegistrationComponent implements OnInit {
 
   /* Show notification after registration */
   private notifAndLogin() {
-    const factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifComponent);
+    const factoryNotif = this.componentFactoryResolver.resolveComponentFactory(NotifRegisterComponent);
     const refNotif = this.attachView.createComponent(factoryNotif);
-    refNotif.instance.type = 'success';
-    refNotif.instance.message = 'Account create successfully<br>Consult your email box to activate your account.';
-    const factoryLogin = this.componentFactoryResolver.resolveComponentFactory(PageLoginComponent);
-    this.attachView.createComponent(factoryLogin);
+    /* refNotif.instance.message =
+      '" Great ! Now, to confirm the creation of your account,Click on the link sent by email"'; */
     // ref.changeDetectorRef.detectChanges();
   }
 

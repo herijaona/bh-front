@@ -8,7 +8,15 @@
   }
   .text-bl {
     color: #393f4be6;
-    box-shadow: -2px 1px 1px 0px #808080bf;
+    .date{
+      width: 10%;
+    }
+    .last-name{
+      width: 15%;
+    }
+    .about{
+      width: 25%;
+    }
   }
 }
 

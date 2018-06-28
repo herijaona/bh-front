@@ -12,9 +12,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class CommunitiesComponent implements OnInit {
   public img_a: string;
   @ViewChild('modalHist') public myModalHist: ModalDirective;
-  constructor(public g: Globals) {
-    this.img_a = this.g.base_href + 'assets/img/group.svg';
-  }
+  constructor(public g: Globals) {}
   ngOnInit() {}
 
   public showMod() {

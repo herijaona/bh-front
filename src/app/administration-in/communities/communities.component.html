@@ -26,19 +26,21 @@
         </li>
     </ul>
 </nav>
-<div class="col-container mt-5">
+<div class="">
     <router-outlet></router-outlet>
 </div>
 
 
 <!-- Modal video play-->
-<div style="overflow: auto;" mdbModal #modalHist="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: false}">
+<div style="overflow: auto;" mdbModal #modalHist="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div  class="modal-dialog" role="document">
       <!--Content-->
       <div class="modal-content">
         <!--Header-->
         <div class="modal-header md-new">
-            <h2><i class="fa fa-users"></i>Create new Community</h2>
+            <h2>
+                <img class="img-responsive cnc" src="{{g.base_href}}assets/img/cnc.png">Create new Community
+            </h2>
         </div>
         <!--Body-->
         <div class="modal-body mb-0">
@@ -49,8 +51,7 @@
                 </div>
                 <div class="pb-3 input-md">
                     <label>Description</label>
-                    <textarea  placeholder="Overall Satisfaction Question" type="text"  class="">
-                    </textarea>
+                    <textarea rows="7" cols="50" placeholder="Overall Satisfaction Question" type="text"  class="osq"></textarea>
                 </div>
                 <div class="flex fx">
                     <a class="nav-link select-col fca" (click)="hideModal()">Cancel</a>

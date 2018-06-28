@@ -5,7 +5,7 @@
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
-          <th>&nbsp; Date &nbsp;</th>
+          <th class="date">&nbsp; Date &nbsp;</th>
           <th>First name</th>
           <th>Last name</th>
           <th>Organisation</th>
@@ -16,8 +16,8 @@
       <!--Table body-->
       <tbody>
         <tr *ngFor="let item of allInv, let indx = index ">
-          <!-- <td class="no-wrp">{{item.sendDate}}</td> -->
-          <td class="no-wrp">--</td>
+          <td class="no-wrp">{{getDAteString(item.sendDate)}}</td>
+          <!-- <td class="no-wrp">--</td> -->
           <td>{{item.dataDetails.firstname}}</td>
           <td>{{item.dataDetails.lastname}}</td>
           <td>

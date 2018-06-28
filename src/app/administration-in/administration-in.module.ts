@@ -55,6 +55,9 @@ import { InviteOrganisationsComponent } from './mydesk/invited-organisation/invi
 import { InvitationsSentComponent } from './mydesk/invited-organisation/invitations-sent/invitations-sent.component';
 import { SpinDataReadyComponent } from './extra/spin-data-ready/spin-data-ready.component';
 import { ConfigComponent } from './setting/config/config.component';
+import { SubscriptionComponent } from './setting/subscription/subscription.component';
+import { ApplicationSpaceComponent } from './communities/community-space/application-space/application-space.component';
+import { FileSpaceComponent } from './communities/community-space/file-space/file-space.component';
 
 @NgModule({
   imports: [
@@ -115,6 +118,9 @@ import { ConfigComponent } from './setting/config/config.component';
     InvitationsSentComponent,
     SpinDataReadyComponent,
     ConfigComponent,
+    SubscriptionComponent,
+    ApplicationSpaceComponent,
+    FileSpaceComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

@@ -61,16 +61,30 @@
 .title-name{
   color: #393f4b;
   font-family: SourceSansPro-Semibold;
+  font-size: 14px;
 }
 .valeur-name{
   color: #393f4b;
   font-family: SourceSansPro-Regular;
+  font-size: 14px;
 }
 .mt-m{
-  margin-top: 4rem !important;
+  top: 1rem !important;
+  background: #ff00000f !important;
+  position: relative;
+  padding: 12px 0px 12px 0px;
 }
-.respDATA{
-  margin-left: 25px;
+.rvn{
+  border: 1px solid #8080803d;
+  padding: 17px;
+}
+.ptn{
+  padding: 0px 0px 0px 15px;
+}
+@media(min-width:500px){
+  .vn{
+    margin-left: 17px;
+  }
 }
 .hour-name{
   color: #f73547;
@@ -79,4 +93,18 @@
 .date-r{
   color: gray;
   font-size: 13px;
+}
+.question-data{
+  background: #9ee9ff26;
+  padding: 8px 5px 8px 15px;
+  margin: 0px;
+}
+.btn-black{
+  background: black !important;
+  border: 1px solid black;
+}
+.btn-gr{
+  background: gray;
+  border: 1px solid gray;
+  margin-right: -10px;
 }

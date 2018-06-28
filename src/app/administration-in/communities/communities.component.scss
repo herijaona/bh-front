@@ -8,6 +8,7 @@
     color: white;
     background: #f73547;
     right: 52px;
+    top: 4px;
     i{
         margin-right: 5px;
     }
@@ -48,28 +49,29 @@ textarea.md-textarea {
     border: 1px solid #f4f3f3;
     border-radius: 4px;
     height: 23px;
-    padding-left: 16px;
+    padding-left: 4px;
     width: 95%;
     font-size: 13.5px;
 }
 
-textarea {
+.osq{
     border: 1px solid #f4f3f3;
     box-shadow: none;
     font-size: 13.5px;
     height: 92px;
+    padding: 4px 4px 4px 4px;
 }
 
 .md-new {
     width: 90%;
     margin: 0 auto;
-    border-bottom: 1.5px solid #da544561;
+    border-bottom: 1.5px solid #f7354769;
     h2{
-        color: #e94e45c9;
-        font-size: 17px;
+        color: #f73547cc;
+        font-size: 18.5px;
         font-family: SourceSansPro-Regular;
         position: relative;
-        top: 8px;
+        top: 12px;
         i{
             margin-right: 15px;
         }
@@ -77,6 +79,13 @@ textarea {
 }
 .fx{
     float: right;
+}
+.cnc{
+    width: 35px;
+    height: 31px;
+    margin-right: 14px;
+    opacity: 0.9;
+    margin-top: -4px;
 }
 .fca{
     background: #929292;
@@ -87,7 +96,7 @@ textarea {
     height: 38px;
 }
 .fc{
-    background: #e94e45;
+    background: #f73547;
     color: white !important;
     font-family: SourceSansPro-Semibold;
     margin-left: 10px;

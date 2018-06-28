@@ -28,4 +28,8 @@ export class InvitationsSentComponent implements OnInit {
       console.log(err);
     }
   }
+
+  getDAteString(item) {
+    return new Date(item).toDateString();
+  }
 }

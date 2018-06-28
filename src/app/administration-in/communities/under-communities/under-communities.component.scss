@@ -6,9 +6,6 @@
         border-bottom: 1px solid #0275d8;
     }
     .head-color{
-        tr{
-            box-shadow: 0px 0px 2px 0px;
-        }
         .text-bl{
             th{
                 width: 17%;
@@ -54,24 +51,8 @@
         }
     }
 }
-.btn-tab1{
-    background: #f73547;
-    padding: 7px 13px 7px 13px;
-    color: white !important;
-    font-weight: 700;
-    font-size: 13.5px;
-}
-.btn-tab2{
-    background: #ff00000a;
-    padding: 7px 13px 7px 13px;
-    color: #f73547 !important;
-    font-weight: 700;
-    font-size: 13.5px;
-}
-.btn-tab3{
-    background: #ff00000a;
-    padding: 7px 13px 7px 13px;
-    color: #f73547 !important;
-    font-weight: 700;
-    font-size: 13.5px;
+.mtr{
+    top: 29px;
+    position: relative;
+    z-index: -2;
 }
