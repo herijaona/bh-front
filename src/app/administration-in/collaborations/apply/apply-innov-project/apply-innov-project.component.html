@@ -10,7 +10,11 @@
     <i class="fa fa-check"></i>
   </div>
   <label class="grey-text-form">project objectives</label>
-  <div class="" [innerHtml]="prObjApply.collabData.objectif"></div>
+  <div class="position-realtive">
+    <i class="fa fa-check"></i>
+    <div class="object-project" [innerHtml]="prObjApply.collabData.objectif">
+    </div>
+  </div>
   <form [formGroup]="applyToForm" (ngSubmit)="sendApplicationOnProject()">
     <label class="grey-text-form mt-3">Application name</label>
     <div class="input-md position-realtive">

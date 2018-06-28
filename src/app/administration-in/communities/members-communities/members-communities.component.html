@@ -1,6 +1,6 @@
 <div class="col-container">
 <ng-template [ngIf]="communityShow">
-  <div class="mt-custom">
+  <div class="mt-custom table-responsive">
     <table class="table appli-table">
       <thead class="head-color">
         <tr class="text-bl">
@@ -31,12 +31,13 @@
             </span>
           </td>
           <td class="">
-            <span *ngIf="item.last_act !='application'" class="text-capitalize">
+              <a class="nav-link select-col" (click)="showModal()">Select</a>
+<!--             <span *ngIf="item.last_act !='application'" class="text-capitalize">
               Passive
             </span>
             <span *ngIf="item.last_act =='application'" class="text-capitalize">
               passive/active (wait deal space)
-            </span>
+            </span> -->
           </td>
         </tr>
       </tbody>
@@ -52,4 +53,21 @@
 <ng-template [ngIf]="anyUser">
   <div class="members-yet">There are no members yet</div>
 </ng-template>
+</div>
+
+<div [config]="{backdrop: false, ignoreBackdropClick: false}" style="overflow: auto;" mdbModal #modalSet="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div  class="modal-dialog" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header md-new">
+            modal header
+        </div>
+        <!--Body-->
+        <div class="modal-body mb-0">
+            body modal
+          </div>
+        </div>
+        <!--/.Content-->
+    </div>
 </div>
