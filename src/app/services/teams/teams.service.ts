@@ -145,4 +145,11 @@ export class TeamsService extends BaseHttpService {
   public getCOMMSUbjectsList(argData) {
     return this.fetch('get', 'getCommSubjectsList', argData).toPromise();
   }
+
+  /**
+   * getCommDetailsData
+   */
+  public getCommDetailsData(argData) {
+    return this.fetch('get', 'getCommDetailsData', argData).toPromise();
+  }
 }
