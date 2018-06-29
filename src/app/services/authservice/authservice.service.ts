@@ -115,7 +115,6 @@ export class AuthserviceService extends BaseHttpService {
   async isAdminUserV2() {
     try {
       const roleObj = JSON.parse(localStorage.getItem(Globals.localStorageString.DATAROLE));
-      console.log(roleObj);
     } catch (e) {
       console.log(e);
     }

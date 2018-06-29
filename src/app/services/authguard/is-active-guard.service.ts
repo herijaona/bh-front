@@ -12,7 +12,6 @@ export class IsActiveGuardService {
 		}
 		try {
 			let prfl = await this.auth.profile();
-			console.log(prfl);
 			if (prfl.active === true) {
 				this.router.navigateByUrl("/administration-in/desk");
 				return false;

@@ -76,7 +76,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
             this.listData[xe].contexte = cnt;
           }
         }
-        console.log(this.listData);
       }
     } catch (e) {
       console.log(e);

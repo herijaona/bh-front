@@ -112,7 +112,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       const gD: any = await this.auth.getallOrgTypes();
       if (gD) {
         if (gD.status === 'OK') {
-          console.log(gD.data);
           this.orgType = gD.data;
         }
       }

@@ -46,7 +46,7 @@ export class ApplicationComponent implements OnInit {
     try {
       const acceptResData = await this.pr.sendacceptApplicationData({ applicationID: this.currentCandidatureID });
       if (acceptResData['status'] === 'OK') {
-        console.log(acceptResData);
+        
       }
     } catch (err) {
       console.log(err);

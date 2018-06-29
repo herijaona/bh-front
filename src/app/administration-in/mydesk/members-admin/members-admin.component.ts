@@ -114,7 +114,6 @@ export class MembersAdminComponent implements OnInit {
   }
 
   async teamCommChange(ev, ent, it) {
-    console.log(ent);
     try {
       let d: {
         [key: string]: any;
@@ -135,7 +134,6 @@ export class MembersAdminComponent implements OnInit {
       let r: any = await this.tms.changeRoleAdmin(d);
       if (r) {
         if (r.status == 'OK') {
-          console.log('Success');
           this.userAdminData = [];
           this.getMember();
         }
@@ -178,7 +176,6 @@ export class MembersAdminComponent implements OnInit {
         let i = 0;
         for (const it of allInvitation.data) {
           allInvitation.data[i].dateAdd = new Date(it.dateAdd).toDateString();
-          console.log(allInvitation.data[i].dateAdd);
           i++;
         }
         this.userInvitedData = allInvitation.data;

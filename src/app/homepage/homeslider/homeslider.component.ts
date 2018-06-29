@@ -22,7 +22,6 @@ export class HomesliderComponent implements OnInit {
   constructor(private router: Router, public g: Globals) {}
 
   activeSlideChange() {
-    // console.log(this.activeSlideIndex);
   }
 
   ngOnInit() {}

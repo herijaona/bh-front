@@ -75,7 +75,6 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
       if (st.select) {
         if (st.destFile === this.dest_file) {
           this.imData = st.data;
-          console.log(this.imData);
           this.im_poster = this.imData.url;
         }
       }
@@ -92,7 +91,6 @@ export class TeamFrontNewComponent implements OnInit, OnDestroy {
         editorTest: this.tmvDATA["data"].textTeam,
         tvVideoUrl: ""
       });
-      console.log(this.tmvDATA);
       if (this.tmvDATA.type == 1) {
         this.selectedType = 1;
         this.teamVideoForm.patchValue({

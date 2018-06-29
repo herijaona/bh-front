@@ -39,7 +39,6 @@ export class PModalShowComponent implements OnInit, OnDestroy {
 	public applyModal: boolean = false;
 
 	public applyToProjects(arg) {
-		console.log(arg);
 		this.router.navigateByUrl(
 			"/" +
 				["administration-in", "collaborations", "apply-to", arg.data._id].join(
@@ -83,7 +82,6 @@ export class PModalShowComponent implements OnInit, OnDestroy {
 
 	endMesssage(evnt) {
 		if (evnt["after"]) {
-			console.log(evnt);
 			this.myModalGen.hide();
 			setTimeout(() => {
 				this.sh.pushData({

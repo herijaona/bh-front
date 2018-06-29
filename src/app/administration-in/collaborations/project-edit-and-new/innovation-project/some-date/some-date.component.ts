@@ -36,7 +36,6 @@ export class SomeDateComponent implements OnInit {
     this.myDatePickerOptionsDiscussionDate = this.mdlOptions;
   }
   onDateChanged(event, date_T) {
-    console.log(this.modelDate);
     let mdl = Object.create(this.mdlOptions);
     switch (date_T) {
       case 'applicationselecteddate':
@@ -46,7 +45,6 @@ export class SomeDateComponent implements OnInit {
       case 'limitdate':
         mdl.disableUntil = event.date;
         Object.keys(this.modelDate).forEach(el => {
-          console.log(this.modelDate[el]);
         });
         this.myDatePickerOptionsSelectApplication = mdl;
 

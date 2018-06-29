@@ -24,7 +24,6 @@ export class CollaborationsComponent implements OnInit {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         let urlAfterredirects = event.urlAfterRedirects.trim().split('/');
-        console.log('app', urlAfterredirects);
         this.isIn = this.inArray(this.tab, urlAfterredirects);
         if (this.isIn) {
           this.dp = false;

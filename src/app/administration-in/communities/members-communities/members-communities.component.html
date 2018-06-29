@@ -55,27 +55,34 @@
   </ng-template>
 </div>
 
-<div [config]="{backdrop: false, ignoreBackdropClick: false}" style="overflow: auto;" mdbModal #modalSet="mdb-modal" class="modal fade"
+<div style="overflow: auto;" mdbModal #modalSet="mdb-modal" class="modal fade"
   id="modalZoneForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div class="modal-dialog" role="document">
     <!--Content-->
     <div class="modal-content">
       <!--Header-->
-      <div class="modal-header md-new">
-        Select Community to add this user
+      <div class="mh">
+        <h3 class="modal-header md-new">
+          Select Community to add this user 
+        </h3>
       </div>
       <!--Body-->
       <div class="modal-body mb-0">
         <div class="row">
           <div *ngFor="let iit of allComm" class="col-4">
-            <input type="checkbox" [checked]="checkIfIn(iit._id)" (change)="changeState($event, iit._id)">
-            <span>{{iit.name}}</span>
+            <p id="invite-for">
+              <label class="custon-ch">
+                <span for="collab-{{indx}}" class="agree">{{iit.name}}</span>
+                  <input type="checkbox" [checked]="checkIfIn(iit._id)" (change)="changeState($event, iit._id)">  
+                  <span class="checkmark"></span>
+              </label>
+            </p>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button (click)="modalSet.hide()" class="btn grey">cancel</button>
-        <button (click)="saveUserCommunitiesChange()" [ngClass]="{disabled: !icheckChange()}" class="btn btn-info">Save</button>
+      <div class="modal-footer border-0">
+        <button (click)="modalSet.hide()" class="nav-link select-col fca">cancel</button>
+        <button (click)="saveUserCommunitiesChange()" [ngClass]="{disabled: !icheckChange()}" class="nav-link select-col fc">Save</button>
       </div>
     </div>
     <!--/.Content-->

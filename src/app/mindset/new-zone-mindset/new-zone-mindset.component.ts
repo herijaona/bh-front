@@ -97,7 +97,6 @@ export class NewZoneMindsetComponent implements OnInit, OnDestroy {
           this.zoneSelectVChange('vidAdd');
           break;
         case 3:
-          console.log(this.data_zone.data_suppl);
           if ('createdYear' in this.data_zone.data_suppl && 'proopsed_collaborations' in this.data_zone.data_suppl) {
             this.chrForm.setValue(this.data_zone.data_suppl);
           }
