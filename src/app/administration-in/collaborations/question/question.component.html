@@ -36,9 +36,11 @@
         </tr>
         <tr class="reply-bm">
           <th colspan="6" class="reply-b">
-            <span [innerHtml]="item.quest_part|bhSafeHtml"> </span>
-            <a class="more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
-              More
+            <a [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
+              <span [innerHtml]="item.quest_part|bhSafeHtml"> </span>
+              <a class="more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
+                More
+              </a>
             </a>
           </th>
         </tr>

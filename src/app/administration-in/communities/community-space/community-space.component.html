@@ -25,17 +25,21 @@
           </div>
         </section>
         <section class="col-content content-eco-fr">
-          <h2 *ngIf="readyData(commDETAILS)">{{commDETAILS.name}}</h2>
+          <div style="display: flex">
+            <h2>Community: </h2>
+            <h2 *ngIf="readyData(commDETAILS)">{{commDETAILS.name}}</h2>
+          </div>
           <div>
             <div *ngIf="readyData(slctSubject)">
               <div class="readydata">
+                <h3>Subjects:</h3>
                 <strong>Name:</strong>&nbsp;
                 <span>{{slctSubject.name}}</span>
                 <br>
                 <strong>by:</strong>&nbsp;
                 <span>{{slctSubject.byUser.lastname +' '+ slctSubject.byUser.firstname}}</span>
                 <br>
-                <div class="flex">
+                <div>
                   <strong>content:&nbsp;</strong>
                   <div [innerHtml]="slctSubject.subject"></div>
                 </div>
@@ -82,7 +86,8 @@
           <div *ngIf="readyData(commDETAILS)">
             <div *ngIf="commDETAILS.users_in.length > 0">
               <span *ngFor="let itemm of commDETAILS.users_in" class="item-lastname">
-                <span>{{itemm.lastname+' '+ itemm.firstname}}</span><br>
+                <span>{{itemm.lastname+' '+ itemm.firstname}}</span>
+                <br>
               </span>
             </div>
             <div *ngIf="commDETAILS.users_in.length === 0">
@@ -103,25 +108,25 @@
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header md-new">
-          <h2>
-            Create new Subject
-          </h2>
-        </div>
+        <h2>
+          Create new Subject
+        </h2>
+      </div>
       <!--Body-->
       <div class="modal-body mb-0">
         <form [formGroup]='newSubjectForm'>
-            <div class="input-md">
-              <label for="sName">Name</label>
-              <input placeholder="Subject Name" id="sName"formControlName="subjectName" class="form-control" mdbActive validate required="required">
-            </div>
-            <div class="pb-3 input-md">
-              <label for="sContent">Content:</label>
-              <ckeditor name='sContent' formControlName="subjectContent" height="100px" rows="40" cols="40" placeholder="your questions for the community"
-                [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)"
-                (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
-              </ckeditor>
-            </div>
-          </form>
+          <div class="input-md">
+            <label for="sName">Name</label>
+            <input placeholder="Subject Name" id="sName" formControlName="subjectName" class="form-control" mdbActive validate required="required">
+          </div>
+          <div class="pb-3 input-md">
+            <label for="sContent">Content:</label>
+            <ckeditor name='sContent' formControlName="subjectContent" height="100px" rows="40" cols="40" placeholder="your questions for the community"
+              [config]="g.getConfig('conf0_editor')" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)"
+              (ready)="onReady($event)" (focus)="onChange($event)" (blur)="onChange($event)" debounce="500">
+            </ckeditor>
+          </div>
+        </form>
       </div>
       <div class="modal-footer pt-0 border-0">
         <button (click)="modalSet.hide()" class="nav-link select-col fca">cancel</button>

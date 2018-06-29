@@ -34,40 +34,18 @@
             </td>
             <td>
             </td>
-            <!-- <td>
-                        <a target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                    </td> -->
 
           </tr>
           <tr class="text-tr">
             <th colspan="5" class="reply-b">
-              <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
-              <a class="ml-2 more" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
-                More
+              <a [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
+                <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
+                <a class="ml-2 more" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
+                  More
+                </a>
               </a>
             </th>
           </tr>
-          <!-- <tr *ngIf="item.hasresp">
-          <td colspan="5">
-            <div class="reply-box" *ngFor="let resp_item of item.responseIN" [innerHtml]="resp_item.respText | bhSafeHtml">
-              <span [innerHtml]="resp_item.rDate | bhSafeHtml"></span>
-            </div>
-          </td>
-        </tr> -->
-          <!--  <tr class="text-right">
-          <th colspan="5" class="border-0">
-            <a (click)="archivequestions(item, indx)" class="btn btn-primary btn-lg btn-question" role="button">
-              <span>delete</span>
-              <i class="fa fa-remove"></i>
-            </a>
-            <a (click)="showMod(item)" class="btn btn-primary btn-lg btn-apply" role="button">
-              <span>Reply</span>
-              <i class="fa fa-check"></i>
-            </a>
-          </th>
-        </tr> -->
         </tbody>
         <!--Table body-->
       </table>

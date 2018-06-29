@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthserviceService } from '../../../services/authservice/authservice.service';
 import { TeamsService } from '../../../services/teams/teams.service';
+import { SharedNotificationService } from '../../../services/shared-notification/shared-notification.service';
 
 @Component({
   selector: 'questions-details',
@@ -19,7 +20,13 @@ export class QuestionsDetailsComponent implements OnInit {
   public allQDet: any;
   public readytoshow = false;
 
-  constructor(private tms: TeamsService, private activRoute: ActivatedRoute, public g: Globals) {
+  constructor(
+    private sh: SharedNotificationService,
+    private tms: TeamsService,
+    private router: Router,
+    private activRoute: ActivatedRoute,
+    public g: Globals
+  ) {
     this.activRoute.params.subscribe((params_: any) => {
       this.questionsID = params_['qID'];
       this.getDetailsOnQuestions();
@@ -79,6 +86,11 @@ export class QuestionsDetailsComponent implements OnInit {
     try {
       const archResp = await this.tms.archiveQuestions(this.allQDet._id);
       if (archResp['status'] === 'OK') {
+        this.sh.notifToast({
+          type: 'success',
+          message: '<p>Questions successfully archived</p>',
+        });
+        this.router.navigateByUrl('/administration-in/desk/historical');
       }
     } catch (e) {
       console.log(e);
