@@ -54,7 +54,7 @@ import { AcceptedInvitationsComponent } from './mydesk/invited-organisation/acce
 import { InviteOrganisationsComponent } from './mydesk/invited-organisation/invite-organisations/invite-organisations.component';
 import { InvitationsSentComponent } from './mydesk/invited-organisation/invitations-sent/invitations-sent.component';
 import { SpinDataReadyComponent } from './extra/spin-data-ready/spin-data-ready.component';
-import { ConfigComponent } from './setting/config/config.component';
+import { GeneralConfigComponent } from './setting/general-config/general-config.component';
 import { SubscriptionComponent } from './setting/subscription/subscription.component';
 import { ApplicationSpaceComponent } from './communities/community-space/application-space/application-space.component';
 import { FileSpaceComponent } from './communities/community-space/file-space/file-space.component';
@@ -118,7 +118,7 @@ import { PaginationInComponent } from './extra/pagination-in/pagination-in.compo
     InviteOrganisationsComponent,
     InvitationsSentComponent,
     SpinDataReadyComponent,
-    ConfigComponent,
+    GeneralConfigComponent,
     SubscriptionComponent,
     ApplicationSpaceComponent,
     FileSpaceComponent,

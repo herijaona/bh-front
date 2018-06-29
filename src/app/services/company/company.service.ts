@@ -63,9 +63,9 @@ export class CompanyService extends BaseHttpService {
   }
   updateCompanyImages(data, entity): Promise<any> {
     let ress: string;
-    if (entity == 'account') {
+    if (entity === 'account') {
       ress = 'updateCompanyImages';
-    } else if (entity == 'user') {
+    } else if (entity === 'user') {
       ress = 'updateUserImages';
     }
     return this.fetch('post', ress, data, {}).toPromise();
@@ -73,9 +73,9 @@ export class CompanyService extends BaseHttpService {
 
   getImBiblio(data, entity) {
     let ress: string;
-    if (entity == 'account') {
+    if (entity === 'account') {
       ress = 'biblioImageCompany';
-    } else if (entity == 'user') {
+    } else if (entity === 'user') {
       ress = 'biblioImageUser';
     }
     return this.fetch(
@@ -92,8 +92,7 @@ export class CompanyService extends BaseHttpService {
   }
 
   updatePagetoShow(w: any) {
-    let dw = w.d;
-    return this.fetch('post', 'updateCompanyShowPage', dw).toPromise();
+    return this.fetch('post', 'updateCompanyShowPage', w).toPromise();
   }
   public saveZoneData(dt: any) {
     return this.fetch('post', 'saveZoneData', dt).toPromise();
@@ -171,9 +170,9 @@ export class CompanyService extends BaseHttpService {
     return this.fetch('get', 'userCompanyDetails').toPromise();
   }
 
-  getCompanyPresentation(parms) {
+  public getCompanyPresentation(pardms) {
     return this.fetch('get', 'company_presentation', {
-      company_slug: parms,
+      company_slug: pardms,
     }).toPromise();
   }
 

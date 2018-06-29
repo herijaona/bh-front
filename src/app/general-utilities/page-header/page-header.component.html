@@ -52,84 +52,29 @@
     <div class="nav-col " ng-class="textType" id="navbarNav">
       <ng-template [ngIf]="FrontMenu">
         <ul *ngIf="pagetoShow" class="navbar-nav mg-4">
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
+          <li class="nav-item nav-hv" routerLinkActive="active">
             <a [routerLink]="['/open-innovation',currentCompanySlug,'acceuil']" class="nav-link" href="#">Mindset
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
+          <li *ngIf="pagetoShow.pTeam" class="nav-item nav-hv" routerLinkActive="active">
             <a [routerLink]="['/open-innovation',currentCompanySlug,'team']" class="nav-link">Committee</a>
           </li>
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.projet}">
+          <li *ngIf="pagetoShow.pProjects" class="nav-item nav-hv" routerLinkActive="active">
             <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Collaborations</a>
           </li>
           <!-- <li *ngIf="pagetoShow.pIdeas" class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
                 <a class="nav-link" href="#">Ideas</a>
             </li> -->
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
+          <li *ngIf="pagetoShow.pSs" class="nav-item nav-hv" routerLinkActive="active">
             <a [routerLink]="['/open-innovation',currentCompanySlug,'success-stories']" class="nav-link" href="#">SuccessStory</a>
-          </li>
-        </ul>
-      </ng-template>
-      <ng-template [ngIf]="!FrontMenu">
-        <ul class="navbar-nav mg-4">
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
-            <a [routerLink]="['/administration-in/desk']" class="nav-link" href="#">Profile
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
-            <a [routerLink]="['/members-admin']" class="nav-link">Committee</a>
-          </li>
-          <!--  <li   class="nav-item" [ngClass]="{'active': isactivePage.projet}">
-              <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
-            </li>
-            <li  class="nav-item" [ngClass]="{'active': isactivePage.ideas}">
-                <a class="nav-link" href="#">Ideas</a>
-            </li> -->
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.viewreaction}">
-            <a [routerLink]="['/view-all-reaction']" class="nav-link">Questions</a>
-          </li>
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.applicationreport}">
-            <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
-          </li>
-          <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
-            <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" target="_blank">Web Portal</a>
           </li>
         </ul>
       </ng-template>
     </div>
   </div>
 </nav>
-<!-- menu for ecran small -->
-<ng-template [ngIf]="!FrontMenu">
-  <div class="collapse nav-one nav-one-two" [class.show]="show">
-    <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4 mb-ed animated fadeInRight">
-      <li class="nav-item text-right">
-        <button (click)="toggleCollapse()" [class.hide]="hide" class=" navbar-toggler navbar-toggler-right btn-menu-btn" type="button">
-          <i class="fa fa-close"></i>
-        </button>
-      </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
-        <a [routerLink]="['/administration-in/desk']" class="nav-link" href="#">Profile
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
-        <a [routerLink]="['/members-admin']" class="nav-link">Committee</a>
-      </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.viewreaction}">
-        <a [routerLink]="['/view-all-reaction']" class="nav-link">Questions</a>
-      </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.applicationreport}">
-        <a [routerLink]="['/view-project-application']" class="nav-link">Candidature</a>
-      </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
-        <a [routerLink]="['/open-innovation',cmp_slug,'acceuil']" class="nav-link" target="_blank">Web Portal</a>
-      </li>
-    </ul>
-  </div>
-</ng-template>
+
 <ng-template [ngIf]="FrontMenu">
   <div class="collapse nav-one nav-one-two" [class.show]="show">
     <ul *ngIf="pagetoShow" class="nav-link navbar-nav mg-4 mb-ed animated fadeInRight">
@@ -138,18 +83,18 @@
           <i class="fa fa-close"></i>
         </button>
       </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.mindset}">
+      <li class="nav-item nav-hv" routerLinkActive="active">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'acceuil']" class="nav-link" href="#">Mindset
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.team}">
+      <li class="nav-item nav-hv" routerLinkActive="active">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'team']" class="nav-link">Committee</a>
       </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.projet}">
+      <li class="nav-item nav-hv" routerLinkActive="active">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'projects']" class="nav-link" href="#">Projects</a>
       </li>
-      <li class="nav-item nav-hv" [ngClass]="{'active': isactivePage.sStr}">
+      <li class="nav-item nav-hv" routerLinkActive="active">
         <a [routerLink]="['/open-innovation',currentCompanySlug,'success-stories']" class="nav-link" href="#">SuccessStory</a>
       </li>
     </ul>

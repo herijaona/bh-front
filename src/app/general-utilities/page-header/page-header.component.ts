@@ -97,9 +97,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     });
   }
 
-  sanitizert(url: string) {
-    return this.sanitizer.bypassSecurityTrustUrl(url);
-  }
 
   toggleCollapse() {
     this.hide = !this.hide;
