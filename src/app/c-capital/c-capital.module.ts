@@ -13,6 +13,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { EntrepriseComponent } from './entreprises/entreprises.component';
 import { RouterModule } from '@angular/router';
 import { TabsComponent } from './core/tabs/tabs.component';
+import { ServicesModal } from './services/services-modal';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, MDBBootstrapModule.forRoot(), FormsModule,RouterModule],
@@ -29,5 +30,8 @@ import { TabsComponent } from './core/tabs/tabs.component';
     EntrepriseComponent
   ],
   exports: [NavbarCapitalComponent],
+  providers: [
+    ServicesModal
+  ]
 })
 export class CCapitalModule {}

@@ -7,8 +7,9 @@ import { merge } from 'rxjs/observable/merge';
 import { Observable } from 'rxjs/Observable';
 import { of as observableOf } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators/catchError';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { startWith, switchMap, map } from 'rxjs/operators';
+import { ServicesModal } from "../services/services-modal";
 
 @Component({
   selector: "app-project1",
@@ -23,10 +24,12 @@ export class Project1Component implements OnInit {
   selectedcCountry;
   selectedtypeCollab;
   selectedActivity;
+  subscription: Subscription;
   constructor(public g: Globals, public auth: AuthserviceService, 
     public projectService: ProjectsService,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private serviceModal: ServicesModal) {}
 
   async ngOnInit() {
     this.selectedcCountry = this.route.snapshot.queryParams.cCountry;
@@ -55,16 +58,29 @@ export class Project1Component implements OnInit {
       });
   }
   displaycountrySelect(filter) {
-    this.selectedcCountry = filter;
-    this.dataChange.next(this.selectedcCountry);
+    if(this.auth.isLoggedIn()) {
+      this.selectedcCountry = filter;
+      this.dataChange.next(this.selectedcCountry);
+    } else {
+      this.canActiveModal();
+    }
+    
   }
   displayCollabSelect(filter) {
-    this.selectedtypeCollab = filter;
-    this.dataChange.next(this.selectedtypeCollab);
+    if(this.auth.isLoggedIn()) {
+      this.selectedtypeCollab = filter;
+      this.dataChange.next(this.selectedtypeCollab);
+    } else {
+      this.canActiveModal();
+    }
   }
   displayActivitySelect(filter) {
-    this.selectedActivity = filter;
-    this.dataChange.next(this.selectedActivity);
+    if(this.auth.isLoggedIn()) {
+      this.selectedActivity = filter;
+      this.dataChange.next(this.selectedActivity);
+    } else {
+      this.canActiveModal();
+    }
   }
   
   private getQueryParams() {
@@ -73,5 +89,9 @@ export class Project1Component implements OnInit {
     if (this.selectedtypeCollab) queryParams += `&typeCollab=${encodeURIComponent(this.selectedtypeCollab)}`;
     if (this.selectedActivity) queryParams += `&areaActivity=${encodeURIComponent(this.selectedActivity)}`;
     return queryParams;
+  }
+
+  canActiveModal() {
+    this.serviceModal.guardFiltre(false);
   }
 }

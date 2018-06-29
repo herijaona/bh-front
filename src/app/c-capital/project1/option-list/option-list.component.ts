@@ -29,24 +29,12 @@ export class OptionListComponent implements OnInit {
   }
 
   changeCountry(event: any) {
-    if(this.auth.isLoggedIn())
     this.countrySelect.emit(event.target.value);
-    else 
-    this.affichageAlert(); 
   }
-  changeCollab(event: any) {
-    if(this.auth.isLoggedIn())
-    this.collabSelect.emit(event.target.value);
-    else 
-    this.affichageAlert(); 
+  changeCollab(event: any) {    
+    this.collabSelect.emit(event.target.value);    
   }
-  changeActivity(event: any) {
-    if(this.auth.isLoggedIn())
+  changeActivity(event: any) {    
     this.activitySelect.emit(event.target.value);
-    else 
-    this.affichageAlert(); 
-  }
-  affichageAlert() {
-    alert('Veuillez vous s\'authentifier d\'abord ou s\'inscrire');
   }
 }
