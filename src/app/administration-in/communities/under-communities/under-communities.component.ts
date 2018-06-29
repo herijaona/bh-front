@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamsService } from '../../../services/teams/teams.service';
+import { SharedNotificationService } from '../../../services/shared-notification/shared-notification.service';
 
 @Component({
   selector: 'app-under-communities',
@@ -12,9 +13,20 @@ export class UnderCommunitiesComponent implements OnInit {
   public pageNum = [];
   showPagination = false;
   currPage = 1;
-  constructor(private tms: TeamsService) {}
+  constructor(private tms: TeamsService, private sh: SharedNotificationService) {}
+
+  reactOnNewCommData() {
+    this.getCommDataList();
+  }
 
   ngOnInit() {
+    this.sh.busDataIn$.subscribe((st: any) => {
+      switch (st.from) {
+        case 'addedNewCommData':
+          this.reactOnNewCommData();
+          break;
+      }
+    });
     this.getCommDataList();
   }
 
