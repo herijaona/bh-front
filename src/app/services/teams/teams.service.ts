@@ -138,4 +138,11 @@ export class TeamsService extends BaseHttpService {
   public saveNewSubjectCommunity(argData) {
     return this.fetch('post', 'save-new-subjects', argData).toPromise();
   }
+
+  /**
+   * getCOMMSUbjectsList: get subjects list
+   */
+  public getCOMMSUbjectsList(argData) {
+    return this.fetch('get', 'getCommSubjectsList', argData).toPromise();
+  }
 }

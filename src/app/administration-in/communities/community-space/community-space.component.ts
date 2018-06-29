@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'angular-bootstrap-md';
 import { Globals } from '../../../globals/globals';
 import { TeamsService } from '../../../services/teams/teams.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-community-space',
   templateUrl: './community-space.component.html',
@@ -10,19 +11,38 @@ import { TeamsService } from '../../../services/teams/teams.service';
 })
 export class CommunitySpaceComponent implements OnInit {
   public newSubjectForm: FormGroup;
+  allSubjetcs = [];
   public img_avatar: string;
   public currCOMMID = '';
   @ViewChild('modalSet') public myModalHist: ModalDirective;
-  constructor(public g: Globals, private tms: TeamsService) {
+  constructor(public activRoute: ActivatedRoute, public g: Globals, private tms: TeamsService) {
     this.img_avatar = this.g.base_href + 'assets/img/profile.JPG';
   }
 
   ngOnInit() {
+    this.activRoute.params.subscribe((params_: any) => {
+      this.currCOMMID = params_['id_project'];
+      if (this.currCOMMID) {
+        this.getSubjectsList();
+        this.getUserCommList();
+      }
+    });
     this.newSubjectForm = new FormGroup({
       subjectName: new FormControl('', [Validators.required]),
       subjectContent: new FormControl('', [Validators.required]),
     });
   }
+
+  async getSubjectsList() {
+    try {
+      const rs = this.tms.getCOMMSUbjectsList({ commID: this.currCOMMID });
+      if (rs['status'] === 'OK') {
+        this.allSubjetcs = rs['data'];
+      }
+    } catch (e) {}
+  }
+  async getUserCommList() {}
+
   public showModal() {
     this.newSubjectForm.reset();
     setTimeout(() => {
