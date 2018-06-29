@@ -25,7 +25,7 @@ export class DealListComponent implements OnInit {
       let list: any = await this.dealService.getDealSpaceList();
       if (list.status == "OK") {
         console.log(list);
-        this.listDeal = list;
+        this.listDeal = list.data;
       }
       else alert("Error when getting deal space list");
     }
