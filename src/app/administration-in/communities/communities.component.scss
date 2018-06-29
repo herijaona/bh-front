@@ -33,6 +33,13 @@
         margin-bottom: 3px;
         font-size: 13px;
     }
+    .form-control {
+        border: 1px solid #f4f3f3;
+        box-shadow: none;
+        font-size: 13.5px;
+        height: 43px;
+        padding: 4px 4px 4px 4px;
+    }
 }
 input[type=text],
 input[type=password],
