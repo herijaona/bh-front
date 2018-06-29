@@ -33,7 +33,7 @@ export class BaseHttpService {
     if (this.getXCompanyID() !== '') {
       header['X-Ccompany-Id'] = this.getXCompanyID();
     }
-
+    console.log(url);
     return this.http.request(method, url, {
       headers: new HttpHeaders(header),
       body: _data,

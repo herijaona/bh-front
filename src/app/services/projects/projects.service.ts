@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SharedNotificationService } from '../shared-notification/shared-notification.service';
 import { BaseHttpService } from '../base-http/base-http.service';
 import { Globals } from './../../globals/globals';
+import { all } from 'q';
 
 @Injectable()
 export class ProjectsService extends BaseHttpService {
@@ -64,6 +65,9 @@ export class ProjectsService extends BaseHttpService {
       projectID: idPR,
     }).toPromise();
   }
+  public getCountryHasCollab() {
+    return this.fetch('get', 'getCountryHasCollab').toPromise();
+  }
 
   /**
    * getApplByCollabID
@@ -91,5 +95,13 @@ export class ProjectsService extends BaseHttpService {
    */
   public sendacceptApplicationData(argData) {
     return this.fetch('post', 'accept-application', argData).toPromise();
+  }
+
+  /**
+   * getCollabFilter
+   */
+  public getCollabFilter(cCountry: string = "france", typeCollab: string = "all", areaActivity: string = "all") {
+    return this.fetch('get', 'getCollabFilter',
+     { cCountry: cCountry, typeCollab: typeCollab, areaActivity: areaActivity }).toPromise();
   }
 }

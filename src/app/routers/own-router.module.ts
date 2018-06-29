@@ -60,6 +60,8 @@ import { HistoricalComponent } from '../administration-in/mydesk/historical/hist
 import { InactiveAccountComponent } from '../administration-in/extra/inactive-account/inactive-account.component';
 import { ErrorNotificationComponent } from '../administration-in/extra/error-notification/error-notification.component';
 import { ReplyOrgInvitationComponent } from '../user-auth/reply-org-invitation/reply-org-invitation.component';
+import { AcceuilComponent } from '../c-capital/acceuil/acceuil.component';
+import { EntrepriseComponent } from '../c-capital/entreprises/entreprises.component';
 
 // import for deal space
 import { DealSpaceFrontComponent } from '../administration-in/collaborations/deal-space-front/deal-space-front.component';
@@ -360,6 +362,20 @@ const routes: Routes = [
   {
     path: 'c-capital/description-project',
     component: ProjectDescriptionComponent,
+  },
+  {
+    path: 'c-capital/accueil',
+    component: AcceuilComponent,
+  },
+  {
+    path: 'c-capital/entreprise',
+    component: EntrepriseComponent,
+  },
+  {
+    path: 'c-capital/innovations',
+    children: [
+      { path: '', component: Project1Component }
+    ]
   },
   {
     path: 'reset-my-pass/:id_/:pass_code',

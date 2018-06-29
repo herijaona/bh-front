@@ -40,7 +40,7 @@ import { TeamModule } from './team/team.module';
 import { ProfileAdminModule } from './profile-admin/profile-admin.module';
 import { CCapitalModule } from './c-capital/c-capital.module';
 import { TabModule } from 'angular-tabs-component';
-
+ 
 /* Component import */
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './spinner/spinner.component';

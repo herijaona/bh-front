@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { Globals } from "./../../globals/globals";
 import { ModalDirective } from "angular-bootstrap-md";
 
@@ -6,13 +6,15 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthserviceService } from "../../services/authservice/authservice.service";
 import { Router } from "@angular/router";
 import { SharedNotificationService } from "./../../services/shared-notification/shared-notification.service";
+import { ServicesModal } from "../services/services-modal";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "navbar-capital",
   templateUrl: "./navbar-capital.component.html",
   styleUrls: ["./navbar-capital.component.scss"]
 })
-export class NavbarCapitalComponent implements OnInit {
+export class NavbarCapitalComponent implements OnInit, OnDestroy {
   public header_page_logo: string =
     this.g.base_href + "assets/img/logo-collaboration.png";
   public logo_cca: string = this.g.base_href + "assets/img/logo-cca.png";
@@ -29,6 +31,7 @@ export class NavbarCapitalComponent implements OnInit {
   type_ = "notif";
   text_ = "Success de registration";
   error_log: boolean = false;
+  subscription: Subscription;
 
   @ViewChild("modalconect") connModal: ModalDirective;
   @ViewChild("modalregister") registerModal: ModalDirective;
@@ -38,7 +41,8 @@ export class NavbarCapitalComponent implements OnInit {
     public g: Globals,
     public auth: AuthserviceService,
     private router: Router,
-    private sh: SharedNotificationService
+    private sh: SharedNotificationService,
+    private serviceModal: ServicesModal
   ) {
     this.show = false;
   }
@@ -61,6 +65,16 @@ export class NavbarCapitalComponent implements OnInit {
         Validators.minLength(8)
       ])
     });
+    this.subscription = this.serviceModal._item.subscribe(
+      item => {
+       if(!item) {
+         this.addModalconn();
+       }
+      }
+    );
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   addModalconn() {
@@ -96,7 +110,7 @@ export class NavbarCapitalComponent implements OnInit {
         this.auth.profile().then(
           (res: any) => {
             this.connModal.hide();
-            this.router.navigateByUrl("/project1");
+            this.router.navigateByUrl(this.router.url);
           },
           err => {
             this.sh.notifToast({
@@ -166,6 +180,6 @@ export class NavbarCapitalComponent implements OnInit {
 
   logout() {
     this.auth.logout();
-    this.router.navigateByUrl("/project1");
+    this.router.navigateByUrl(this.router.url);
   }
 }

@@ -9,18 +9,29 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NotifComponentUser } from './notif/notif.component';
 import { OptionListComponent } from './project1/option-list/option-list.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
+import { EntrepriseComponent } from './entreprises/entreprises.component';
+import { RouterModule } from '@angular/router';
+import { TabsComponent } from './core/tabs/tabs.component';
+import { ServicesModal } from './services/services-modal';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, MDBBootstrapModule.forRoot(), FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MDBBootstrapModule.forRoot(), FormsModule,RouterModule],
   declarations: [
     Project1Component,
-    NavbarCapitalComponent,
+    NavbarCapitalComponent,    
+    TabsComponent,
     CreateAccountFormComponent,
     RequestInfoComponent,
     ProjectDescriptionComponent,
     NotifComponentUser,
     OptionListComponent,
+    AcceuilComponent,
+    EntrepriseComponent
   ],
   exports: [NavbarCapitalComponent],
+  providers: [
+    ServicesModal
+  ]
 })
 export class CCapitalModule {}
