@@ -61,6 +61,16 @@ import { InactiveAccountComponent } from '../administration-in/extra/inactive-ac
 import { ErrorNotificationComponent } from '../administration-in/extra/error-notification/error-notification.component';
 import { ReplyOrgInvitationComponent } from '../user-auth/reply-org-invitation/reply-org-invitation.component';
 
+// import for deal space
+import { DealSpaceFrontComponent } from '../administration-in/collaborations/deal-space-front/deal-space-front.component';
+import { DealHistoricalComponent } from '../administration-in/collaborations/deal-space-front/deal-historical/deal-historical.component';
+import { DealListComponent } from '../administration-in/collaborations/deal-space-front/deal-list/deal-list.component';
+import { DealApplicationComponent } from '../administration-in/collaborations/deal-space-front/deal-application/deal-application.component';
+import { DealQuestionsAnswersComponent } from '../administration-in/collaborations/deal-space-front/deal-questions-answers/deal-questions-answers.component';
+import { DealFilesComponent } from '../administration-in/collaborations/deal-space-front/deal-files/deal-files.component';
+import { DealPlanningComponent } from '../administration-in/collaborations/deal-space-front/deal-planning/deal-planning.component';
+import { OneDealSpaceComponent } from '../administration-in/collaborations/deal-space-front/one-deal-space/one-deal-space.component';
+
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
   {
@@ -224,6 +234,42 @@ const routes: Routes = [
       {
         path: 'application-form',
         component: ApplicationFormComponent,
+      },
+      {
+        path: 'deal-space',
+        component: DealSpaceFrontComponent,
+        children: [
+          {
+            path: 'historical',
+            component:DealHistoricalComponent,
+          },
+          {
+            path: 'list',
+            component:DealListComponent,
+          },
+          {
+            path: 'deal',
+            component: OneDealSpaceComponent,
+            children: [
+              {
+                path: 'application',
+                component:DealApplicationComponent,
+              },
+              {
+                path: 'files',
+                component:DealFilesComponent,
+              },
+              {
+                path: 'questions-answers',
+                component:DealQuestionsAnswersComponent,
+              },
+              {
+                path: 'planning',
+                component:DealPlanningComponent,
+              },
+            ],
+          },
+        ],
       },
     ],
   },

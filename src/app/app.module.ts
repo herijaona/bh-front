@@ -23,6 +23,7 @@ import { CompanyService } from './services/company/company.service';
 import { ProjectsService } from './services/projects/projects.service';
 import { RequestInterceptorService } from './services/request-interceptor/request-interceptor.service';
 import { IsActiveGuardService } from './services/authguard/is-active-guard.service';
+import { DealSpaceService } from './services/deal-space/deal-space.service';
 
 /*pipe*/
 
@@ -86,6 +87,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ProjectsService,
     CompanyService,
     IsActiveGuardService,
+    DealSpaceService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

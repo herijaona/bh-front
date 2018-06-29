@@ -1,0 +1,37 @@
+.deal-app-container {
+  padding-top: 10px;
+}
+.deal-app-container .deal-app-head {
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 0px;
+  background-color: black;
+}
+.deal-app-container .deal-app-head h2 {
+  font-size: 18px;
+  font-family: SourceSansPro-Regular;
+  color: white;
+}
+.deal-app-container .deal-app-head table {
+  width: 100%;
+}
+.deal-app-container .deal-app-head table tr td h4 {
+  color: #DDDDDD;
+  font-size: 14px;
+  font-family: SourceSansPro-Regular;
+  margin-left: 10px;
+}
+.deal-app-container .deal-app-head table tr td img {
+  float: left;
+  margin-right: 10px;
+}
+.deal-app-container .deal-app-head table tr td p {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: SourceSansPro-Regular;
+  margin-left: 20px;
+}
+.deal-app-container .deal-dd h3 {
+  font-size: 18px;
+  font-family: SourceSansPro-Regular;
+}
