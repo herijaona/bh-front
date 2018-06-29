@@ -9,12 +9,12 @@
     <p [innerHtml]="detailsAll.applDetail.user_application_describ"></p>
     <h3>identity</h3>
     <div class="flex fx">
-    <p class="mr-4">
-      <strong>Organisation name : </strong>{{detailsAll.candidat.org}}</p>
-    <p class="mr-4">
-      <strong>Date : </strong>{{detailsAll.date}}</p>
-    <p class="mr-4">
-      <strong>Country : </strong>{{detailsAll.applDetail.countryCD}}</p>
+      <p class="mr-4">
+        <strong>Organisation name : </strong>{{detailsAll.candidat.org}}</p>
+      <p class="mr-4">
+        <strong>Date : </strong>{{detailsAll.date}}</p>
+      <p class="mr-4">
+        <strong>Country : </strong>{{detailsAll.applDetail.countryCD}}</p>
     </div>
     <h3>Activity and skills</h3>
     <h4>Main area of activity</h4>
@@ -28,12 +28,15 @@
       nisi ea ea do dolore sit dolore ut officia.</p>
     <p [innerHtml]="detailsAll.applDetail.collab_proposal_describ | bhSafeHtml"></p>
   </ng-template>
-  <div class="text-right btn-app mb-4">
+  <div *ngIf="detailsAll.status != 'accepted'" class="text-right btn-app mb-4">
     <button (click)="acceptApplication()" class="btn btn-success green-color">
       <i class="fa fa-check"></i>Accept</button>
     <button class="btn btn-success red-color">
       <i class="fa fa-ban"></i>refuse</button>
     <button (click)="closeAction()" class="btn btn-success gray-color">
       <i class="fa fa-close"></i>close</button>
+  </div>
+  <div *ngIf="detailsAll.status == 'accepted'" class="text-right btn-app mb-4">
+    Application Accepted
   </div>
 </div>

@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthserviceService } from '../../../services/authservice/authservice.service';
 import { TeamsService } from '../../../services/teams/teams.service';
 import { ProjectsService } from '../../../services/projects/projects.service';
+import { SharedNotificationService } from '../../../services/shared-notification/shared-notification.service';
 
 @Component({
   selector: 'app-application',
@@ -16,7 +17,14 @@ export class ApplicationComponent implements OnInit {
   public currentCandidatureID = '';
   public readytoshow = false;
   public detailsAll: any = {};
-  constructor(private pr: ProjectsService, private activRoute: ActivatedRoute, private titl: Title, public g: Globals) {
+  constructor(
+    private router: Router,
+    private pr: ProjectsService,
+    private activRoute: ActivatedRoute,
+    private sh: SharedNotificationService,
+    private titl: Title,
+    public g: Globals
+  ) {
     this.activRoute.params.subscribe((params_: any) => {
       this.currentCandidatureID = params_['applicationID'];
       this.getDetailsOnCandidature();
@@ -46,7 +54,11 @@ export class ApplicationComponent implements OnInit {
     try {
       const acceptResData = await this.pr.sendacceptApplicationData({ applicationID: this.currentCandidatureID });
       if (acceptResData['status'] === 'OK') {
-        
+        this.sh.notifToast({
+          type: 'success',
+          message: '<p>Application save</p>',
+        });
+        this.router.navigateByUrl('/administration-in/collaborations/deal-space/list');
       }
     } catch (err) {
       console.log(err);
