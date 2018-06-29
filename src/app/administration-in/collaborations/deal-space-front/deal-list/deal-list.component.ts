@@ -5,16 +5,12 @@ import { DealSpaceService } from '../../../../services/deal-space/deal-space.ser
 @Component({
   selector: 'app-deal-list',
   templateUrl: './deal-list.component.html',
-  styleUrls: ['./deal-list.component.scss']
+  styleUrls: ['./deal-list.component.scss'],
 })
 export class DealListComponent implements OnInit {
+  public listDeal: any;
 
-  private listDeal: any;
-
-  constructor(
-    private auth: AuthserviceService,
-    private dealService: DealSpaceService,
-  ) { }
+  constructor(private auth: AuthserviceService, private dealService: DealSpaceService) {}
 
   ngOnInit() {
     this.getListDealSpace();
@@ -23,15 +19,12 @@ export class DealListComponent implements OnInit {
   async getListDealSpace() {
     try {
       let list: any = await this.dealService.getDealSpaceList();
-      if (list.status == "OK") {
+      if (list.status === 'OK') {
         console.log(list);
         this.listDeal = list.data;
-      }
-      else alert("Error when getting deal space list");
-    }
-    catch (ex) {
+      } else alert('Error when getting deal space list');
+    } catch (ex) {
       console.log(ex);
     }
   }
-
 }
