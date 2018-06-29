@@ -131,4 +131,11 @@ export class TeamsService extends BaseHttpService {
   public saveUserCommunityData(argDATA) {
     return this.fetch('post', 'saveCommDataUser', argDATA).toPromise();
   }
+
+  /**
+   * saveNewSubjectCommunity
+   argData   */
+  public saveNewSubjectCommunity(argData) {
+    return this.fetch('post', 'save-new-subjects', argData).toPromise();
+  }
 }
