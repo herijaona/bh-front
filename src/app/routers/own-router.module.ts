@@ -245,15 +245,15 @@ const routes: Routes = [
         component: UnderCommunitiesComponent,
       },
       {
-        path: 'community-space',
+        path: 'community-space/:commID',
         component: CommunitySpaceComponent,
         children: [
           {
-              path: 'application-space',    
-              component: ApplicationSpaceComponent,
+            path: 'application-space',
+            component: ApplicationSpaceComponent,
           },
           {
-            path: 'files',    
+            path: 'files',
             component: FileSpaceComponent,
           },
         ],
