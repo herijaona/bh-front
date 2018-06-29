@@ -3,10 +3,13 @@
     <div class="after-nav">
         <div class="row">
             <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
-                <option-list></option-list>
+                <option-list (countrySelect)='displaycountrySelect($event)'
+                (collabSelect)='displayCollabSelect($event)'
+                (activitySelect)='displayActivitySelect($event)'
+                ></option-list>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 text-right">
-                <button class="btn-pro-project" *ngIf="!auth.isLoggedIn()"><i class="fa fa-plus"></i>se connecter</button>
+                <!-- <button class="btn-pro-project" *ngIf="!auth.isLoggedIn()"><i class="fa fa-plus"></i>se connecter</button> -->
             </div>
         </div>
     </div>
@@ -15,146 +18,14 @@
 <div class="grid-project">
     <div class="after-nav">
         <div class="row mb-12">
-            <div class="col-18">
+            <div class="col-18" *ngFor="let project of projectList">
                 <div class="card-st text-center">
                     <div class="img-rp">
-                        <img class="img-responsive" (click)='showDetails()' src="{{g.base_href}}assets/img/st1.png" width="100%" height="100%">
+                        <img class="img-responsive" (click)='showDetails()' src="{{project.logoAccont}}" width="100%" height="100%">
                     </div>
                     <div class="view-st">
-                        <h4>lorem ipsum</h4>
-                        <p>projet programme</p>
-                        <ul>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-18">
-                <div class="card-st">
-                    <div class="img-rp text-center">
-                        <img class="img-responsive" src="{{g.base_href}}assets/img/st2.png" width="100%" height="100%">
-                    </div>
-                    <div class="view-st">
-                        <h4>lorem ipsum</h4>
-                        <p>projet programme</p>
-                        <ul>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-18">
-                <div class="card-st text-center">
-                    <div class="img-rp">
-                        <img class="img-responsive" src="{{g.base_href}}assets/img/st3.png" width="100%" height="100%">
-                    </div>
-                    <div class="view-st">
-                        <h4>lorem ipsum</h4>
-                        <p>projet programme</p>
-                        <ul>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-18">
-                <div class="card-st">
-                    <div class="img-rp text-center">
-                        <img class="img-responsive" src="{{g.base_href}}assets/img/st4.png" width="100%" height="100%">
-                    </div>
-                    <div class="view-st">
-                        <h4>lorem ipsum</h4>
-                        <p>projet programme</p>
-                        <ul>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-18">
-                <div class="card-st">
-                    <div class="img-rp text-center">
-                        <img class="img-responsive" src="{{g.base_href}}assets/img/st5.png" width="100%" height="100%">
-                    </div>
-                    <div class="view-st">
-                        <h4>lorem ipsum</h4>
-                        <p>projet programme</p>
-                        <ul>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-18">
-                <div class="card-st text-center">
-                    <div class="img-rp">
-                        <img class="img-responsive" src="{{g.base_href}}assets/img/st1.png" width="100%" height="100%">
-                    </div>
-                    <div class="view-st">
-                        <h4>lorem ipsum</h4>
-                        <p>projet programme</p>
-                        <ul>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/group.png" width="15" height="13"><span>07</span>
-                            </li>
-                            <li>
-                                <img class="img-responsive" src="{{g.base_href}}assets/img/confirmed.png" width="14" height="13"><span>15</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-18">
-                <div class="card-st">
-                    <div class="img-rp text-center">
-                        <img class="img-responsive" src="{{g.base_href}}assets/img/st2.png" width="100%" height="100%">
-                    </div>
-                    <div class="view-st">
-                        <h4>lorem ipsum</h4>
-                        <p>projet programme</p>
+                        <h4>{{project.name}}</h4>
+                        <p>{{project.durationType}}</p>
                         <ul>
                             <li>
                                 <img class="img-responsive" src="{{g.base_href}}assets/img/voir.png" width="18" height="12"><span>89</span>

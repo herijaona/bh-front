@@ -43,7 +43,7 @@ export class NavbarCapitalComponent implements OnInit {
     this.show = false;
   }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.resetpassForm = new FormGroup({
       bhemail: new FormControl("", [
         Validators.required,
@@ -96,7 +96,7 @@ export class NavbarCapitalComponent implements OnInit {
         this.auth.profile().then(
           (res: any) => {
             this.connModal.hide();
-            this.router.navigateByUrl("/c-capital/accueil");
+            this.router.navigateByUrl(this.router.url);
           },
           err => {
             this.sh.notifToast({
@@ -166,6 +166,6 @@ export class NavbarCapitalComponent implements OnInit {
 
   logout() {
     this.auth.logout();
-    this.router.navigateByUrl("/c-capital/accueil");
+    this.router.navigateByUrl(this.router.url);
   }
 }

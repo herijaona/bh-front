@@ -327,7 +327,9 @@ const routes: Routes = [
   },
   {
     path: 'c-capital/innovations',
-    component: Project1Component,
+    children: [
+      { path: '', component: Project1Component }
+    ]
   },
   {
     path: 'reset-my-pass/:id_/:pass_code',
