@@ -38,7 +38,6 @@ export class ApplyInnovProjectComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.prObjApply);
     if (this.prObjApply['hasAcc']) {
       /* the default */
       this.UserOrgName = this.prObjApply['userACC'][0].enseigneCommerciale;

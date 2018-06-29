@@ -12,7 +12,6 @@ export class IsloggedVerifyGuard implements CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     if (this.auth.isLoggedIn()) {
       this.router.navigateByUrl('/');
-      console.log('Tsy mety');
       return false;
     }
     return true;

@@ -54,7 +54,6 @@ export class ProjectApplyComponent implements OnInit {
 	}
 
 	async sendApplicationOnProject() {
-		console.log(this.currObj);
 		let arg = {
 			data: this.projectApplyData,
 			currObj: this.currObj.data

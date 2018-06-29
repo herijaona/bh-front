@@ -37,7 +37,6 @@ export class CommunitiesComponent implements OnInit, OnDestroy {
     if (this.newCommForm.valid) {
       try {
         const addNewREs = await this.tms.addNewCommunities(this.newCommForm.value);
-        console.log(addNewREs);
         if (addNewREs['status'] === 'OK') {
           this.newCommForm.reset();
           this.sh.notifToast({

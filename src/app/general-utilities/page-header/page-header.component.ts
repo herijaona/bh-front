@@ -303,7 +303,6 @@ export class PageHeaderComponent implements OnInit, OnDestroy {
     }
     if (rsp['websiteUrl']) {
       this.websiteUrl = rsp['websiteUrl'];
-      console.log(this.websiteUrl);
       this.hasWebSiteUrl = true;
     }
     this.company_comm_name = rsp['enseigneCommerciale'];

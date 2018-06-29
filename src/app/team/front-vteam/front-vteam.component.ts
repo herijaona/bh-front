@@ -38,7 +38,6 @@ export class FrontVteamComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit() {
-    console.log(this.teamVideoData);
     if (this.teamVideoData['type'] == 1) {
       this.im_poster = this.sh.getVideoImPoster(this.teamVideoData['data']['id_video']);
     } else if (this.teamVideoData['type'] == 0) {

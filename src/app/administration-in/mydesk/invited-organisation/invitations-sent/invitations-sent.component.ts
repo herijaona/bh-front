@@ -22,7 +22,6 @@ export class InvitationsSentComponent implements OnInit {
       const inProgress = await this.tms.getInProgressInvitations();
       if (inProgress['status'] === 'OK') {
         this.allInv = inProgress['data'];
-        console.log(this.allInv);
       }
     } catch (err) {
       console.log(err);

@@ -12,7 +12,6 @@ export class AuthguardService {
     }
     try {
       const prfl = await this.auth.profile();
-      console.log(prfl);
       if (prfl.active === false) {
         this.router.navigateByUrl('/administration-in/account-note');
         return false;

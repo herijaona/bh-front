@@ -24,7 +24,6 @@ export class AcceptedInvitationsComponent implements OnInit {
       const accINvt = await this.tms.getAcceptedInvitations();
       if (accINvt['status'] === 'OK') {
         for (const fs of accINvt['data']) {
-          console.log(fs);
         }
         this.allAccepted = accINvt['data'];
         console.log(this.allAccepted);
@@ -43,7 +42,6 @@ export class AcceptedInvitationsComponent implements OnInit {
 
   selectCollaboration(item) {
     this.selectedItem = item;
-    console.log(this.selectedItem);
     this.showData = true;
     this.myModalHist.show();
   }

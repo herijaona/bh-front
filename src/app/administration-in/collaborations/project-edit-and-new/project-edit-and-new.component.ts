@@ -59,7 +59,6 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
       let allCT: any = await this.pr.getAllCollabTpes();
       if (allCT) {
         if (allCT.status === 'OK') {
-          console.log(allCT);
           this.collabTypes = allCT.data;
         }
       }
@@ -69,7 +68,6 @@ export class ProjectEditAndNewComponent implements OnInit, OnDestroy {
   }
 
   selectTypeCollab() {
-    console.log(this.selctCollab);
   }
 
   ngOnDestroy() {}

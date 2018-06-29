@@ -73,7 +73,6 @@ export class NavbarComponent implements OnInit {
 				let urlAfterredirects = event.urlAfterRedirects
 					.trim()
 					.split("/");
-					console.log(urlAfterredirects);
 				this.isIn = this.inArray(this.tab, urlAfterredirects);
 			}
 		});

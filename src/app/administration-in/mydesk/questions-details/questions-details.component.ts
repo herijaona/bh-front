@@ -36,7 +36,6 @@ export class QuestionsDetailsComponent implements OnInit {
           this.allQDet = qDet.data;
           this.readytoshow = true;
           this.responseIN = this.allQDet['responseIN'];
-          console.log(qDet);
         }
       }
     } catch (e) {
@@ -60,7 +59,6 @@ export class QuestionsDetailsComponent implements OnInit {
         for (const respR of respRes['data']) {
           let eq = 0;
           for (const respI of this.responseIN) {
-            console.log(respI._id, respR._id, respI._id === respR._id);
             if (respI._id === respR._id) {
               eq = 1;
               break;
@@ -75,14 +73,11 @@ export class QuestionsDetailsComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
-    console.log(this.allQDet, this.responseForm.value);
   }
 
   async archivequestions() {
-    console.log(this.allQDet);
     try {
       const archResp = await this.tms.archiveQuestions(this.allQDet._id);
-      console.log('archiv', archResp);
       if (archResp['status'] === 'OK') {
       }
     } catch (e) {

@@ -57,7 +57,6 @@ export class AskQuestionsComponent implements OnInit {
         account: accAA,
       },
     };
-    console.log(_data_);
     try {
       let qRES = await this.tms.questionsSendData(_data_);
       if (qRES) {

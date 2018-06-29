@@ -125,9 +125,6 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   }
 
   async saveProjects() {
-    console.log(this.prModel);
-    console.log(this.cPrModel);
-
     let new_val: { [key: string]: any } = {};
     Object.keys(this.prModel).forEach(e => {
       new_val[e.split('_')[1]] = this.prModel[e];
@@ -291,7 +288,6 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   onFocus(vent) {}
 
   saveDate(event) {
-    console.log(event);
     this.collabDateObject = event;
     this.onChange(event);
   }
@@ -372,13 +368,10 @@ export class InnovationProjectComponent implements OnInit, OnDestroy {
   }
 
   selectIncubator($event, item) {
-    console.log(item);
   }
   selectResearch($event, item) {
-    console.log(item);
   }
   selectCapitalVenture($event, item) {
-    console.log(item);
   }
 
   checkItems(item, pT): boolean {
