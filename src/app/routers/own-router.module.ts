@@ -243,11 +243,11 @@ const routes: Routes = [
         children: [
           {
             path: 'historical',
-            component:DealHistoricalComponent,
+            component: DealHistoricalComponent,
           },
           {
             path: 'list',
-            component:DealListComponent,
+            component: DealListComponent,
           },
           {
             path: 'deal',
@@ -255,19 +255,19 @@ const routes: Routes = [
             children: [
               {
                 path: 'application',
-                component:DealApplicationComponent,
+                component: DealApplicationComponent,
               },
               {
                 path: 'files',
-                component:DealFilesComponent,
+                component: DealFilesComponent,
               },
               {
                 path: 'questions-answers',
-                component:DealQuestionsAnswersComponent,
+                component: DealQuestionsAnswersComponent,
               },
               {
                 path: 'planning',
-                component:DealPlanningComponent,
+                component: DealPlanningComponent,
               },
             ],
           },
@@ -373,9 +373,7 @@ const routes: Routes = [
   },
   {
     path: 'c-capital/innovations',
-    children: [
-      { path: '', component: Project1Component }
-    ]
+    children: [{ path: '', component: Project1Component }],
   },
   {
     path: 'reset-my-pass/:id_/:pass_code',
