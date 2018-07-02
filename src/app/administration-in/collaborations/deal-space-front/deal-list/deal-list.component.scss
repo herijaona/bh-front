@@ -12,16 +12,20 @@ $gray: #a7a7a7;
 }
 
 .list-deal-div thead {
-  background-color: $color2;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f3f3f3;
 }
-
-.list-deal-div tbody tr {
-  border-bottom: solid 1px black;
-}
-
 .list-deal-div thead tr td {
-  font-size: 16px;
+  color: #393f4b;
   font-family: SourceSansPro-Semibold;
-  color: white;
-  margin-left: 10px;
+  text-transform: capitaliz
+}
+h3{
+  color: #f73547;
+  font-size: 18px;
+  font-family: SourceSansPro-Semibold;
+  margin-bottom: 17px;
+}
+table.table a {
+  color: #0275d8;
 }

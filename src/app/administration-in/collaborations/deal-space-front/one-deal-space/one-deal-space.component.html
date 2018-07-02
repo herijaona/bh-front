@@ -4,13 +4,11 @@
             <div class="row">
                 <section class="col-team team-fr">
                     <div>
-                        <h2>Applications</h2>
+                        <h2 class="application-ms">Applications</h2>
                         <div class="selectdiv ">
                             <label>
                               <select>
-                                  <option selected>Organise par priorite</option>
-                                  <option>Option 1</option>
-                                  <option>Option 2</option>
+                                  <option selected>Organiser par priorite</option>
                                   <option>Last long option</option>
                               </select>
                           </label>
@@ -132,19 +130,19 @@
                 </section>
                 <section class="col-team observation">
                     <div>
-                        <h2>Observations</h2>
-                        <h5>Today</h5>
+                        <h2>Observations<span (click)="insertObservation()">Insert</span></h2>
                         <div class="card card-ob">
                             <div class="card-content">
                                 <div class="card-body">
                                     <h4 class="card-title danger">
                                         <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="34px">
                                     </h4>
-                                    <h4 class="">
+                                    <h4 class="flex cch">
                                         <label class="custon-ch">
                                             <input type="checkbox" id="asia" checked>
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="date-cch">05/07/2018</span>
                                     </h4>
                                     <p class="card-text">love chocolate <span class="c-gr">@john</span> cake cake cheesecake. Chocolate cake pastry macaroon.</p>
                                     <span class="footer-card">Completed by John Doe</span>
@@ -157,11 +155,12 @@
                                     <h4 class="card-title danger">
                                         <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="34px">
                                     </h4>
-                                    <h4 class="">
+                                    <h4 class="flex cch">
                                         <label class="custon-ch">
                                             <input type="checkbox" id="asia">
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="date-cch">05/07/2018</span>
                                     </h4>
                                     <p class="card-text">Chocolate <span class="c-gr">@john</span> cake macaroon.</p>
                                     <span class="footer-card">Completed by John Doe</span>
@@ -174,11 +173,12 @@
                                     <h4 class="card-title danger">
                                         <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="34px">
                                     </h4>
-                                    <h4 class="">
+                                    <h4 class="cch flex">
                                         <label class="custon-ch">
                                             <input type="checkbox" id="asia" checked>
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="date-cch">05/07/2018</span>
                                     </h4>
                                     <p class="card-text">love chocolate <span class="c-rd">@john</span> cake cake cheesecake. Chocolate cake pastry macaroon.</p>
                                     <span class="footer-card">Completed by John Doe</span>
@@ -191,11 +191,12 @@
                                     <h4 class="card-title danger">
                                         <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="34px">
                                     </h4>
-                                    <h4 class="">
+                                    <h4 class="flex cch">
                                         <label class="custon-ch">
                                             <input type="checkbox" id="asia" checked>
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="date-cch">05/07/2018</span>
                                     </h4>
                                     <p class="card-text">love chocolate cake cake cheesecake. Chocolate cake pastry macaroon.</p>
                                     <p>
@@ -212,11 +213,12 @@
                                     <h4 class="card-title danger">
                                         <img [src]="img_avatar" class="rounded-circle img-fluid" alt="First sample avatar image" width="34px">
                                     </h4>
-                                    <h4 class="">
+                                    <h4 class="flex cch">
                                         <label class="custon-ch">
                                             <input type="checkbox" id="asia">
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="date-cch">05/07/2018</span>
                                     </h4>
                                     <p class="card-text">Chocolate cake macaroon <span class="c-rd">@john</span></p>
                                     <span class="footer-card">Completed by John Doe</span>
@@ -228,4 +230,29 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div style="overflow: auto;" mdbModal #modalHist="mdb-modal" class="modal fade" id="modalZoneForm" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header md-new">
+        <h2>
+          Insert observation
+        </h2>
+      </div>
+      <!--Body-->
+      <div class="modal-body mb-0">
+            <p>insert observation</p>
+            <div class="flex fx">
+                <a class="nav-link select-col fca" (click)="hideModal()">Cancel</a>
+                <a type="submit" class="nav-link select-col fc" >Insert</a>
+            </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
 </div>
