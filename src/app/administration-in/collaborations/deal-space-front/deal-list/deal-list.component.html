@@ -1,9 +1,9 @@
-<div class="deal-list-container">
+<div class="deal-list-container pt-3">
   <h3>
     Your deal spaces list
   </h3>
   <div class="list-deal-div">
-    <table>
+    <table class="table appli-table table-striped">
       <thead>
         <tr>
           <td>Deal name</td>
@@ -14,13 +14,13 @@
       </thead>
       <tbody>
         <tr>
-          <td><a routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal']">Test</a></td>
+          <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal']">Test</a></td>
           <td>-</td>
           <td>-</td>
           <td>4</td>
         </tr>
         <tr *ngFor="let deal of listDeal">
-          <td><a routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal']">Test</a></td>
+          <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal']">Test</a></td>
           <td></td>
           <td>-</td>
           <td>-</td>
