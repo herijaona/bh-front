@@ -49,7 +49,7 @@
       <div class="text-right">
         <button *ngIf="allQDet.stateAdmin === 'active'" [ngClass]="{disabled: !responseForm.valid}" type="submit" class="btn btn-primary btn-lg btn-squestion"
           role="button">
-          <span>Save response</span>
+          <span>Send the answer</span>
           <i class="fa fa-save"></i>
         </button>
         <a *ngIf="allQDet.stateAdmin === 'active'" (click)="archivequestions()" class="btn btn-primary btn-lg btn-question" role="button">

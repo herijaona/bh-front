@@ -176,6 +176,12 @@ li {
 //         display: none;
 //     }
 // }
+.desk-nav-icon{
+    .pw a{
+        font-family: SourceSansPro-Bold;
+        font-size: 13px !important;
+    }
+}
 @media(max-width:767px) {
     .desk-sh {
         position: absolute;

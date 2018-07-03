@@ -68,6 +68,7 @@ export class QuestionsDetailsComponent implements OnInit {
           for (const respI of this.responseIN) {
             if (respI._id === respR._id) {
               eq = 1;
+              this.router.navigateByUrl('/' + ['administration-in', 'collaborations'].join('/'));
               break;
             }
           }

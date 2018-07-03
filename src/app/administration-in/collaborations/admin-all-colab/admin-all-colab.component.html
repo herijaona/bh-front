@@ -14,11 +14,11 @@
       <!--Table head-->
       <thead class="head-color">
         <tr class="text-bl">
-          <th>Collaboration name</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Author</th>
-          <th>Number</th>
+          <th class="col-name">Collaboration name</th>
+          <th class="type">Type</th>
+          <th class="type">Date</th>
+          <th class="author">Author</th>
+          <th class="number">Number</th>
         </tr>
       </thead>
       <!--Table head-->
@@ -28,7 +28,7 @@
           <td>
             <a class="bn" target="_blanck" [routerLink]="['/administration-in','collaborations','application-received','by-collaborations', item._id ]">{{item.name}}</a>
           </td>
-          <td>{{g.getCollabtypetext(item.type)}}</td>
+          <td class="type">{{g.getCollabtypetext(item.type)}}</td>
           <td>{{item.date}}</td>
           <td>{{item.author.firstname +" "+ item.author.lastname}}</td>
           <td>

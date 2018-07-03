@@ -7,16 +7,18 @@
       <strong>NAME : </strong>{{detailsAll.projet.name}}</p>
     <h4>description</h4>
     <p [innerHtml]="detailsAll.applDetail.user_application_describ"></p>
-    <h3>identity</h3>
-    <div class="flex fx">
-      <p class="mr-4">
-        <strong>Organisation name : </strong>{{detailsAll.candidat.org}}</p>
-      <p class="mr-4">
-        <strong>Date : </strong>{{detailsAll.date}}</p>
-      <p class="mr-4">
-        <strong>Country : </strong>{{detailsAll.applDetail.countryCD}}</p>
+    <div class="identity">
+      <h3>identity</h3>
+      <div class="flex fx">
+        <p class="mr-4">
+          <strong>Organisation name : </strong>{{detailsAll.candidat.org}}</p>
+        <p class="mr-4">
+          <strong>Date : </strong>{{detailsAll.date}}</p>
+        <p class="mr-4">
+          <strong>Country : </strong>{{detailsAll.applDetail.countryCD}}</p>
+      </div>
     </div>
-    <h3>Activity and skills</h3>
+    <h3 class="activity-skills">Activity and skills</h3>
     <h4>Main area of activity</h4>
     <p [innerHtml]="detailsAll.applDetail.main_activity_domain | bhSafeHtml"></p>
     <h4>Second area of activity</h4>

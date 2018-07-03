@@ -58,27 +58,27 @@
               <h4 class="title-propos">PROJECT TYPE :</h4>&nbsp;
               <span class="text-capitalize">{{detailsData.dataDetails.collabDurationType}}</span>
             </div>
-            <div class="row" *ngIf="detailsData.dataDetails.collabDurationType == 'programmed'">
-              <div *ngIf="detailsData.dataDetails.collabDurationData.limitdate" class="col-4 programmed">
+            <div class="row" >
+              <div class="col-4 programmed">
                 <p>Deadline for receipt of applications</p>
-                <h6>{{getDateString(detailsData.dataDetails.collabDurationData.limitdate.jsdate)}}</h6>
+                <h6>05 05 058</h6>
               </div>
-              <div *ngIf="detailsData.dataDetails.collabDurationData.applicationselecteddate" class="col-4 programmed">
+              <div  class="col-4 programmed">
                 <p>Date of the selected appications</p>
-                <h6>{{getDateString(detailsData.dataDetails.collabDurationData.applicationselecteddate.jsdate)}}</h6>
+                <h6>15 15 1028</h6>
               </div>
-              <div *ngIf="detailsData.dataDetails.collabDurationData.discussdate" class="col-4 programmed">
+              <div  class="col-4 programmed">
                 <p>Planned date of discussion</p>
-                <h6>{{getDateString(detailsData.dataDetails.collabDurationData.discussdate.jsdate)}}</h6>
+                <h6>15 05 18</h6>
               </div>
             </div>
             <div class="flx mt-2">
               <h4 class="title-propos">CONFIDENTIAL PART : </h4>
-              <span class="text-capitalize ml-1"> {{detailsData.dataDetails.hasInfoConfidential}}</span>
+              <span class="text-capitalize ml-1"> confidentiluh</span>
 
             </div>
           </div>
-          <p class="text-right">
+          <p class="text-right ask-app">
             <a (click)="ask_questions_aboutProject($event)" class="btn btn-primary btn-lg btn-question" href="#" role="button">
               <span>Question</span>
               <i class="fa fa-question-circle"></i>
