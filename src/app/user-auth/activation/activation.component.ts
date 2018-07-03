@@ -82,19 +82,18 @@ export class ActivationComponent implements OnInit, OnDestroy {
 
 	private notifAndLogin(m, t, s) {
 		var factoryNotif = this.componentFactoryResolver.resolveComponentFactory(
-			NotifComponent
+			PageLoginComponent
 		);
 		this.refNotif = this.attachView.createComponent(factoryNotif);
 		this.refNotif.instance.type = "notif";
 		this.refNotif.instance.message = m;
 
-		if (s) {
-			// code...
+		/* if (s) {
 			var factoryLogin = this.componentFactoryResolver.resolveComponentFactory(
 				PageLoginComponent
 			);
 			var refLogin = this.attachView.createComponent(factoryLogin);
-		}
+		} */
 
 		// ref.changeDetectorRef.detectChanges();
 	}
