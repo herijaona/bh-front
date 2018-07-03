@@ -33,7 +33,8 @@
     <div [innerHtml]="allQDet.question_content" class="mb-2 mt-2 question-data">
     </div>
     <div class="respDATA valeur-name vn">
-      <span class="title-name">My answer</span>
+      <span class="title-name" *ngIf="responseIN.length > 0 && allQDet.myQst">Answer</span>
+      <span class="title-name" *ngIf="responseIN.length > 0 && !allQDet.myQst">My answer</span>
       <div class="rvn mb-2" *ngFor="let item of responseIN">
         <div>
           <span class="hour-name">{{item.user.firstname+ ' '+ item.user.lastname}} </span> -
@@ -43,24 +44,59 @@
       </div>
     </div>
     <form [formGroup]='responseForm' (ngSubmit)="saveResponse()">
-      <div *ngIf="allQDet.stateAdmin === 'active'" class="ml-3">
-        <ckeditor name="responseData" formControlName="respValue" [config]="g.getConfig('conf0_editor')" [readonly]="false" debounce="100"></ckeditor>
-      </div>
-      <div class="text-right">
-        <button *ngIf="allQDet.stateAdmin === 'active'" [ngClass]="{disabled: !responseForm.valid}" type="submit" class="btn btn-primary btn-lg btn-squestion"
-          role="button">
-          <span>Send the answer</span>
-          <i class="fa fa-save"></i>
-        </button>
-        <a *ngIf="allQDet.stateAdmin === 'active'" (click)="archivequestions()" class="btn btn-primary btn-lg btn-question" role="button">
-          <span>delete</span>
-          <i class="fa fa-remove"></i>
-        </a>
-        <a (click)="closeAction()" class="btn btn-primary btn-lg btn-apply" role="button">
-          <span>Close</span>
-          <i class="fa fa-check"></i>
-        </a>
-      </div>
+      <!-- if myquestions:  -->
+      <ng-template [ngIf]="allQDet.myQst">
+        <ng-template [ngIf]="responseIN.length > 0">
+          <div *ngIf="allQDet.stateAdmin === 'active'" class="ml-3">
+            <ckeditor name="responseData" formControlName="respValue" [config]="g.getConfig('conf0_editor')" [readonly]="false" debounce="100"></ckeditor>
+          </div>
+          <div class="text-right">
+            <button *ngIf="allQDet.stateAdmin === 'active'" [ngClass]="{disabled: !responseForm.valid}" type="submit" class="btn btn-primary btn-lg btn-squestion"
+              role="button">
+              <span>Send the answer</span>
+              <i class="fa fa-save"></i>
+            </button>
+            <a *ngIf="allQDet.stateAdmin === 'active'" (click)="archivequestions()" class="btn btn-primary btn-lg btn-question" role="button">
+              <span>delete</span>
+              <i class="fa fa-remove"></i>
+            </a>
+            <a (click)="closeAction()" class="btn btn-primary btn-lg btn-apply" role="button">
+              <span>Close</span>
+              <i class="fa fa-check"></i>
+            </a>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="responseIN.length == 0">
+          <div class="text-right">
+            <a (click)="closeAction()" class="btn btn-primary btn-lg btn-apply" role="button">
+              <span>Close</span>
+              <i class="fa fa-check"></i>
+            </a>
+          </div>
+        </ng-template>
+      </ng-template>
+      <!-- if not my questions -->
+      <ng-template [ngIf]="!allQDet.myQst">
+        <div *ngIf="allQDet.stateAdmin === 'active'" class="ml-3">
+          <ckeditor name="responseData" formControlName="respValue" [config]="g.getConfig('conf0_editor')" [readonly]="false" debounce="100"></ckeditor>
+        </div>
+        <div class="text-right">
+          <button *ngIf="allQDet.stateAdmin === 'active'" [ngClass]="{disabled: !responseForm.valid}" type="submit" class="btn btn-primary btn-lg btn-squestion"
+            role="button">
+            <span>Send the answer</span>
+            <i class="fa fa-save"></i>
+          </button>
+          <a *ngIf="allQDet.stateAdmin === 'active'" (click)="archivequestions()" class="btn btn-primary btn-lg btn-question" role="button">
+            <span>delete</span>
+            <i class="fa fa-remove"></i>
+          </a>
+          <a (click)="closeAction()" class="btn btn-primary btn-lg btn-apply" role="button">
+            <span>Close</span>
+            <i class="fa fa-check"></i>
+          </a>
+        </div>
+      </ng-template>
+
     </form>
   </div>
 </div>

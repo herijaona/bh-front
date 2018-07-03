@@ -3,6 +3,7 @@
     <div class="loader"></div>
   </div>
   <div *ngIf="readyData" class="table-respo">
+    Received:
     <!-- has no Data -->
     <div *ngIf="!hasData">
       <p class="hasdata">
@@ -48,5 +49,38 @@
       <!--Table body-->
     </table>
     <!--Table-->
+  </div>
+  <div>
+    Your Questions:
+    <table>
+      <thead>
+        <th>Date</th>
+        <th>Hour</th>
+        <th>Organisation</th>
+        <th>About</th>
+        <th>Interaction</th>
+      </thead>
+      <tbody *ngFor="let tx of dataL" class="tb-items">
+        <tr>
+          <td class="t1">{{tx.date}}</td>
+          <td class="t1">{{tx.hour}}</td>
+          <td class="t2">{{tx.account.enseigneCommerciale}}</td>
+          <td class="t2">{{tx.collab.name}}</td>
+          <td class="t2">{{tx.interaction}}
+            <span *ngIf="tx.newFlag" class="red">new</span>
+          </td>
+        </tr>
+        <tr class="reply-bm">
+          <th colspan="6" class="reply-b">
+            <a [routerLink]="['/administration-in','collaborations','questions','details' , tx._id ]">
+              <span [innerHtml]="tx.resumContent|bhSafeHtml"> </span>
+              <a class="more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , tx._id ]">
+                More
+              </a>
+            </a>
+          </th>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

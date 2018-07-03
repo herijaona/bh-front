@@ -50,7 +50,7 @@ export class QuestionsDetailsComponent implements OnInit {
     }
   }
 
-  closeAction() {
+  public closeAction() {
     window.close();
   }
 

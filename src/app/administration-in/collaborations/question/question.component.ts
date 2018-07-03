@@ -15,13 +15,26 @@ export class QuestionComponent implements OnInit {
   public allQuestions: any = [];
   public readyData = false;
   public hasData = false;
+  public dataL = [];
   constructor(private tms: TeamsService, private titl: Title) {}
 
   ngOnInit() {
     this.getAllQuestions();
+    this.getAskedQUestions();
     this.titl.setTitle('Questions Report');
   }
-
+  async getAskedQUestions() {
+    this.dataL = [];
+    try {
+      const rDAta = await this.tms.getaskedQQ({ qREF: 'PRT' });
+      if (rDAta['status'] === 'OK') {
+        console.log(rDAta);
+        this.dataL = rDAta['data'];
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
   async getAllQuestions() {
     this.allQuestions = [];
     try {
