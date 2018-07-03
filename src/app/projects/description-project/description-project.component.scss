@@ -128,8 +128,9 @@
 }
 
 .project-list {
+    position: relative;
     box-shadow: 0px 0px 3px 1px #b9b9b9;
-    padding: 42px 42px 5px 42px;
+    padding: 44px 42px 200px 44px;
 }
 
 .list-nav {
@@ -177,9 +178,9 @@
 
 .specialField {
     background-color: pink;
-    width: 100%;
+    width: auto;
+    position: absolute;
     padding: 15px;
-    padding-bottom: 2px;
 }
 
 .title-propos {
@@ -203,4 +204,8 @@
         font-size: 14.5px;
         font-family: "SourceSansPro-Regular";
     }
+}
+.ask-app{
+    position: relative;
+    top: 202px;
 }

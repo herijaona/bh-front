@@ -72,3 +72,19 @@
   background: transparent !important;
   cursor: auto;
 }
+.appli-table{
+thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+ tbody + tbody {
+  border-top: 0px solid #dee2e6;
+  }
+  .reply-b{
+    a span  {
+      color: #393f4b;
+      font-family: SourceSansPro-Regular;
+      font-size: 15px
+    }
+  }
+}
