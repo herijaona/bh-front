@@ -3,7 +3,7 @@
     <div class="loader"></div>
   </div>
   <div *ngIf="readyData" class="table-respo">
-    Received:
+    <h3 class="m-yq">Received:</h3>
     <!-- has no Data -->
     <div *ngIf="!hasData">
       <p class="hasdata">
@@ -51,14 +51,16 @@
     <!--Table-->
   </div>
   <div>
-    Your Questions:
-    <table>
-      <thead>
-        <th>Date</th>
-        <th>Hour</th>
-        <th>Organisation</th>
-        <th>About</th>
-        <th>Interaction</th>
+    <h3 class="m-yq">Your Questions:</h3>
+    <table class="table appli-table table-striped">
+      <thead class="head-color">
+        <tr class="text-bl">
+          <th>Date</th>
+          <th>Hour</th>
+          <th>Organisation</th>
+          <th>About</th>
+          <th>Interaction</th>
+        </tr>
       </thead>
       <tbody *ngFor="let tx of dataL" class="tb-items">
         <tr>
@@ -67,7 +69,7 @@
           <td class="t2">{{tx.account.enseigneCommerciale}}</td>
           <td class="t2">{{tx.collab.name}}</td>
           <td class="t2">{{tx.interaction}}
-            <span *ngIf="tx.newFlag" class="red">new</span>
+            <span *ngIf="tx.newFlag" class="badge badge-pill pink">new</span>
           </td>
         </tr>
         <tr class="reply-bm">

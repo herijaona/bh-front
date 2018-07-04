@@ -34,7 +34,7 @@
         </tr>
         <tr class="text-tr">
           <td colspan="5" class="reply-b">
-            <a [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
+            <span>
               <span [innerHtml]="item.quest_part|bhSafeHtml"></span>
               <a *ngIf="item.abType !== 'prt'" class="ml-2 text-blue more" target="_blank" [routerLink]="['/administration-in','desk','questions','details' , item._id ]">
                 More
@@ -42,7 +42,7 @@
               <a *ngIf="item.abType === 'prt'" class="ml-2 text-blue more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , item._id ]">
                 More
               </a>
-            </a>
+            </span>
           </td>
         </tr>
         <div class="mb-3"></div>

@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthserviceService } from '../../../services/authservice/authservice.service';
 import { TeamsService } from '../../../services/teams/teams.service';
 import { SharedNotificationService } from '../../../services/shared-notification/shared-notification.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'questions-details',
   templateUrl: './questions-details.component.html',
@@ -21,6 +21,7 @@ export class QuestionsDetailsComponent implements OnInit {
   public readytoshow = false;
 
   constructor(
+    private location: Location,
     private sh: SharedNotificationService,
     private tms: TeamsService,
     private router: Router,
@@ -52,6 +53,7 @@ export class QuestionsDetailsComponent implements OnInit {
 
   public closeAction() {
     window.close();
+    this.location.back();
   }
 
   async saveResponse() {
