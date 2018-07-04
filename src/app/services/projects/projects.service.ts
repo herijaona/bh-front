@@ -100,8 +100,18 @@ export class ProjectsService extends BaseHttpService {
   /**
    * getCollabFilter
    */
-  public getCollabFilter(cCountry: string = "france", typeCollab: string = "all", areaActivity: string = "all") {
-    return this.fetch('get', 'getCollabFilter',
-     { cCountry: cCountry, typeCollab: typeCollab, areaActivity: areaActivity }).toPromise();
+  public getCollabFilter(cCountry: string = 'france', typeCollab: string = 'all', areaActivity: string = 'all') {
+    return this.fetch('get', 'getCollabFilter', {
+      cCountry: cCountry,
+      typeCollab: typeCollab,
+      areaActivity: areaActivity,
+    }).toPromise();
+  }
+
+  /**
+   * getMyCollaborWith
+   */
+  public getMyCollaborWith() {
+    return this.fetch('get', 'my-collabor_with').toPromise();
   }
 }

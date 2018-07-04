@@ -10,7 +10,7 @@ export class Globals {
   /**
    * Base URL
    */
-  base_href = '';
+  base_href = '/';
   api_baseUrl = 'http://localhost:3000';
   site_baseUrl = 'http://localhost:4546';
   // base_href: string = "/bh_version/";
