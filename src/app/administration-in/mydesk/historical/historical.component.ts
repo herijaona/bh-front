@@ -1,21 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Globals } from '../../../globals/globals';
-import { Router } from '@angular/router';
-import { AuthserviceService } from '../../../services/authservice/authservice.service';
 import { TeamsService } from '../../../services/teams/teams.service';
-import { ModalDirective } from 'angular-bootstrap-md';
+import { ProjectsService } from '../../../services/projects/projects.service';
 @Component({
   selector: 'app-historical',
   templateUrl: './historical.component.html',
-  styleUrls: ['./historical.component.scss']
+  styleUrls: ['./historical.component.scss'],
 })
 export class HistoricalComponent implements OnInit {
-  constructor(private tms: TeamsService, public g: Globals) { }
+  constructor(private tms: TeamsService, public g: Globals, public pr: ProjectsService) {}
   public allQuestions: any = [];
   ngOnInit() {
     this.getAllarchives();
+    this.getArchivedApplication();
   }
 
   async getAllarchives() {
@@ -32,8 +30,19 @@ export class HistoricalComponent implements OnInit {
     }
   }
 
-  getDateString(arg){
-    let a = new Date(arg).toDateString();
-    return  a;
+  getDateString(arg) {
+    const a = new Date(arg).toDateString();
+    return a;
+  }
+
+  public async getArchivedApplication() {
+    try {
+      const hRefused = await this.pr.refusedApplication();
+      if (hRefused['status'] === 'OK') {
+        console.log(hRefused['data']);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
