@@ -121,4 +121,11 @@ export class ProjectsService extends BaseHttpService {
   public getMyCollaborWith() {
     return this.fetch('get', 'my-collabor_with').toPromise();
   }
+
+  /**
+   * Get refused application
+   */
+  public refusedApplication() {
+    return this.fetch('get', 'archived-refused-Application').toPromise();
+  }
 }
