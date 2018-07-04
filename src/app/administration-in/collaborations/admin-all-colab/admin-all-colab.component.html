@@ -58,7 +58,7 @@
             <td>{{item.slDate}}</td>
             <td>{{item.orgCollab.enseigneCommerciale}}</td>
             <td>{{item.typeCollab}}</td>
-            <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal']">{{item.collabName}}</a></td>
+            <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal', item.dealID]">{{item.collabName}}</a></td>
             <td>{{item.interAction}}</td>
           </tr>
         </tbody>
