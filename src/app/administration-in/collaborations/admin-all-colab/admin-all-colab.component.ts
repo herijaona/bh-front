@@ -22,6 +22,7 @@ export class AdminAllColabComponent implements OnInit {
   }
   ngOnInit() {
     this.getMyCollabList();
+    this.getICollaborWith();
   }
   async getMyCollabList() {
     try {
@@ -32,6 +33,17 @@ export class AdminAllColabComponent implements OnInit {
           this.hasData = true;
         }
         this.readyData = true;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async getICollaborWith() {
+    try {
+      const li = await this.pr.getMyCollaborWith();
+      if (li['status'] === 'OK') {
+        console.log(li['data']);
       }
     } catch (e) {
       console.log(e);
