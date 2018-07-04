@@ -12,6 +12,7 @@ export class AdminAllColabComponent implements OnInit {
   public listCollab: any = [];
   public hasData = false;
   public readyData = false;
+  public withcolab: any = [];
   constructor(
     public g: Globals,
     private pr: ProjectsService,
@@ -43,7 +44,8 @@ export class AdminAllColabComponent implements OnInit {
     try {
       const li = await this.pr.getMyCollaborWith();
       if (li['status'] === 'OK') {
-        console.log(li['data']);
+        this.withcolab = li['data'];
+        console.log("---0-",li['data']);
       }
     } catch (e) {
       console.log(e);
