@@ -65,6 +65,18 @@ export class ApplicationComponent implements OnInit {
     }
   }
 
+  async refusedpplication() {
+    try {
+      const refusResData = await this.pr.sendRefuseApplicationData({ applicationID: this.currentCandidatureID });
+      if (refusResData['status'] === 'OK') {
+        this.sh.notifToast({ type: 'success', message: '<p>Application save</p>' });
+        this.router.navigateByUrl('/administration-in/collaborations/application-received');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   closeAction() {
     window.close();
   }

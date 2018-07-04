@@ -98,6 +98,13 @@ export class ProjectsService extends BaseHttpService {
   }
 
   /**
+   * sendRefuseApplicationData
+   */
+  public sendRefuseApplicationData(argDATA: any) {
+    return this.fetch('post', 'refuse-application', argDATA).toPromise();
+  }
+
+  /**
    * getCollabFilter
    */
   public getCollabFilter(cCountry: string = 'france', typeCollab: string = 'all', areaActivity: string = 'all') {
