@@ -33,12 +33,15 @@
   <div *ngIf="detailsAll.status != 'accepted'" class="text-right btn-app mb-4">
     <button (click)="acceptApplication()" class="btn btn-success green-color">
       <i class="fa fa-check"></i>Accept</button>
-    <button class="btn btn-success red-color">
+    <button (click)="refusedpplication()" class="btn btn-success red-color">
       <i class="fa fa-ban"></i>refuse</button>
     <button (click)="closeAction()" class="btn btn-success gray-color">
       <i class="fa fa-close"></i>close</button>
   </div>
   <div *ngIf="detailsAll.status == 'accepted'" class="text-right btn-app mb-4">
     Application Accepted
+  </div>
+  <div *ngIf="detailsAll.status == 'refused'" class="text-right btn-app mb-4">
+    Application refused
   </div>
 </div>
