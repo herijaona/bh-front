@@ -331,8 +331,8 @@ h6 {
 }
 
 .col-container {
-  margin-left: 85px;
-  margin-right: 85px;
+  margin-left: 94px;
+  margin-right: 94px;
 }
 
 @media(max-width:767px) {
@@ -519,9 +519,13 @@ h6 {
 }
 
 .hasdata {
-  margin-top: 10px;
-  color: #393f4b;
-  font-family: SourceSansPro-Regular; // text-transform: capitalize;
+  font-size: 17px;
+  font-family: SourceSansPro-Regular;
+  /* top: 70px; */
+  position: relative;
+  text-align: center;
+  color: #e64047;
+  margin-top: 15px;
 }
 
 .question-data p {
@@ -576,4 +580,59 @@ h6 {
     color: #495057;
     padding-left: 14px;
   }
+}
+table.table th, table.table td {
+  padding: 10px !important;
+}
+.appli-table{
+  tbody tr:nth-of-type(odd) {
+    background-color:transparent !important;
+  }
+  tbody tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  .reply-b{
+    a{
+      span{
+        color: #393f4b;
+        font-family: SourceSansPro-Regular;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.appli-table {
+  td a {
+    color: #0275d8 !important;
+  }
+  td a:hover {
+    border-bottom: 1px solid #0275d8;
+  }
+  tbody tr:hover {
+    background: #ff00001a !important;
+    cursor: pointer;
+  }
+  tbody {
+    td {
+      border-top: none;
+    }
+  }
+}
+
+.fca{
+  background: #929292 !important;
+  color: white !important;
+  font-family: SourceSansPro-Semibold;
+  font-size: 14px;
+  padding: 8px 15px 8px 15px;
+  height: 38px;
+}
+.fc{
+  background: #f73547;
+  color: white !important;
+  font-family: SourceSansPro-Semibold;
+  margin-left: 10px;
+  font-size: 14px;
+  padding: 8px 15px 8px 15px;
+  height: 38px;
 }

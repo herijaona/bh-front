@@ -84,7 +84,31 @@ thead th {
     a span  {
       color: #393f4b;
       font-family: SourceSansPro-Regular;
-      font-size: 15px
+      font-size: 14px
+    }
+  }
+}
+.m-yq{
+  color: #f73547;
+  font-family: SourceSansPro-Semibold;
+  font-size: 17px;
+  margin-top: 13px;
+}
+
+.appli-table {
+  td a {
+    color: #0275d8;
+  }
+  td a:hover {
+    border-bottom: 1px solid #0275d8;
+  }
+  tbody tr:hover {
+    background: #ff00001a !important;
+    cursor: pointer;
+  }
+  tbody {
+    td {
+      border-top: none;
     }
   }
 }

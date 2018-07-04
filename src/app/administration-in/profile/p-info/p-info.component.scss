@@ -136,3 +136,19 @@
         border-color: #373d49 transparent transparent transparent;
     }
 }
+.select-col{
+    color: white !important;
+    background: #f73547;
+    border: 0px solid;
+    display: inherit;
+    font-family: SourceSansPro-Semibold;
+  }
+  .select-col:hover{
+    border: 0px solid !important;
+  }
+  .modal-title{
+    color: #f73547;
+    font-size: 18.5px;
+    font-family: SourceSansPro-Regular;
+    position: relative;
+  }
