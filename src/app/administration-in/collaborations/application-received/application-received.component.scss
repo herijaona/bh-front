@@ -3,15 +3,11 @@
     margin: 0 auto;
     box-shadow: none;
 }
-.text-bl{
-    th{
-        width: 12.5%;
-    }
+.date{
+    width: 125px;   
 }
 .privil-td{
-    background: #989898;
-    color: white;
-    border: 1px solid white !important;
-    font-family: SourceSansPro-Bold;
-    text-align: center;
+    width: 25%;
+    max-width: 151px;
+    word-wrap: break-word;
 }

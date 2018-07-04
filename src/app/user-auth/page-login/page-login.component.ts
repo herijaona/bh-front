@@ -11,6 +11,7 @@ import { Globals } from '../../globals/globals';
   styleUrls: ['./page-login.component.scss'],
 })
 export class PageLoginComponent implements OnInit {
+  public img_bg: string;
   public img_logo: string;
   public img_avatar: string;
   public loginForm: FormGroup;
@@ -27,6 +28,7 @@ export class PageLoginComponent implements OnInit {
     private router: Router,
     private sh: SharedNotificationService
   ) {
+    this.img_bg = this.g.base_href + 'assets/img/bg-accueil.jpg';
     this.img_avatar = this.g.base_href + 'assets/img/bg-accueil.jpg';
     this.img_logo = this.g.base_href + 'assets/img/logo-cca.png';
   }
@@ -39,6 +41,9 @@ export class PageLoginComponent implements OnInit {
       bhemail: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
       bh_pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
     });
+  }
+  getUrl() {
+    return 'url(' + this.img_bg + ')';
   }
   async onFormSubmit() {
     const credential = {

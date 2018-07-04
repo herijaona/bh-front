@@ -28,14 +28,14 @@
         <!--Table body-->
         <tbody>
           <tr *ngFor="let item of allApplData">
-            <td>{{item.date}}</td>
+            <td class="date">{{item.date}}</td>
             <td>{{item.countryCD}}</td>
             <td>{{item.usr.org}}</td>
             <td>{{g.getCollabtypetext(item.prjt.type)}}</td>
             <!-- <td>{{item.usr.firstname}}</td>
             <td>{{item.usr.lastname}}</td> -->
-            <td class="privil-td">{{item.prjt.name}}</td>
-            <td class="privil-td">{{item.applicationName}}</td>
+            <td class="privil-td"><a [routerLink]="['/administration-in','collaborations','application-received','details', item._id ]" target="_blank">{{item.prjt.name}}</a></td>
+            <td class="privil-td"><a [routerLink]="['/administration-in','collaborations','application-received','details', item._id ]" target="_blank">{{item.applicationName}}</a></td>
             <td class="text-capitalize">{{item.status}}</td>
             <td>
               <a [routerLink]="['/administration-in','collaborations','application-received','details', item._id ]" target="_blank">

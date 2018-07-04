@@ -3,7 +3,7 @@
     <div class="loader"></div>
   </div>
   <div *ngIf="readyData" class="table-respo">
-    <h3 class="m-yq">Received:</h3>
+    <h3 class="m-yq">Received :</h3>
     <!-- has no Data -->
     <div *ngIf="!hasData">
       <p class="hasdata">
@@ -51,7 +51,7 @@
     <!--Table-->
   </div>
   <div>
-    <h3 class="m-yq">Your Questions:</h3>
+    <h3 class="m-yq">Your Questions :</h3>
     <table class="table appli-table table-striped">
       <thead class="head-color">
         <tr class="text-bl">
@@ -72,8 +72,8 @@
             <span *ngIf="tx.newFlag" class="badge badge-pill pink">new</span>
           </td>
         </tr>
-        <tr class="reply-bm">
-          <th colspan="6" class="reply-b">
+        <tr class="mre">
+          <th colspan="6">
             <a [routerLink]="['/administration-in','collaborations','questions','details' , tx._id ]">
               <span [innerHtml]="tx.resumContent|bhSafeHtml"> </span>
               <a class="more" target="_blank" [routerLink]="['/administration-in','collaborations','questions','details' , tx._id ]">
