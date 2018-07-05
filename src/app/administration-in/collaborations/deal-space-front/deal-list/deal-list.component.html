@@ -8,26 +8,18 @@
         <tr>
           <td>Deal name</td>
           <td>Collaboration type</td>
-          <td>Project type</td>
           <td>Author</td>
           <td>Applications</td>
           <td>Numbers</td>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal']">Test</a></td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>4</td>
-        </tr>
         <tr *ngFor="let deal of listDeal">
-          <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal']">Test</a></td>
-          <td></td>
-          <td>-</td>
-          <td>-</td>
+          <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal']">{{deal.collabData.name}}</a></td>
+          <td>{{deal.collabData.typeCollab}}</td>
+          <td>{{deal.byUser.lastname}}</td>
+          <td>{{deal.dealNumber.applicationNum}}</td>
+          <td>{{deal.dealNumber.files + deal.dealNumber.questions_response}}</td>
         </tr>
       </tbody>
     </table>
