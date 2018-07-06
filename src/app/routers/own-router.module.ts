@@ -76,6 +76,7 @@ import { DealResumeComponent } from '../administration-in/collaborations/deal-sp
 import { DealResolverIdService } from '../services/resolver/deal-resolver-id.service';
 import { DealApplicationIdDealService } from '../services/resolver/deal-application-id-deal.service';
 import { DealApplicationIdService } from '../services/resolver/deal-application-id.service';
+import { DealFilesService } from '../services/resolver/deal-files.service';
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
@@ -279,6 +280,9 @@ const routes: Routes = [
               {
                 path: 'files/:idAppl',
                 component: DealFilesComponent,
+                resolve: {
+                  dataApplication: DealFilesService,
+                },
               },
               {
                 path: 'questions-answers/:idAppl',

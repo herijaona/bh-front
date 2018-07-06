@@ -47,6 +47,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { DealResolverIdService } from './services/resolver/deal-resolver-id.service';
 import { DealApplicationIdDealService } from './services/resolver/deal-application-id-deal.service';
 import { DealApplicationIdService } from './services/resolver/deal-application-id.service';
+import { DealFilesService } from './services/resolver/deal-files.service';
 
 @NgModule({
   declarations: [AppComponent, SpinnerComponent],
@@ -91,10 +92,10 @@ import { DealApplicationIdService } from './services/resolver/deal-application-i
     CompanyService,
     IsActiveGuardService,
     DealSpaceService,
-    /* resolver */
     DealResolverIdService,
     DealApplicationIdDealService,
     DealApplicationIdService,
+    DealFilesService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

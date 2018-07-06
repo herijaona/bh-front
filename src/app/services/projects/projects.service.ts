@@ -142,4 +142,11 @@ export class ProjectsService extends BaseHttpService {
   public getApplicationFirstInDeal(argDATA) {
     return this.fetch('get', 'getApplicationDefl', { dID: argDATA }).toPromise();
   }
+
+  /**
+   * getFilesList
+   */
+  public getFilesList(argDATA) {
+    return this.fetch('get', 'getUsersFilesList', { dID: argDATA }).toPromise();
+  }
 }
