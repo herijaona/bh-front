@@ -13,9 +13,6 @@
         margin-right: 5px;
     }
 }
-.nav-tel{
-    height: 43px;
-}
 .nav-tel .ns li .active {
     padding-bottom: 12px;
 }
@@ -110,4 +107,22 @@ textarea.md-textarea {
     font-size: 14px;
     padding: 8px 15px 8px 15px;
     height: 38px;
+}
+
+@media(max-width: 767px){
+    .nav-tel{
+        width: 100%;
+        display: inline-block !important;
+        padding-left: 1rem !important;
+    }
+    .ns{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .float-r{
+        position: relative;
+        top: 0px;
+        right: 0;
+        float: initial;
+    }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthserviceService } from '../../../../services/authservice/authservice.service';
 import { DealSpaceService } from '../../../../services/deal-space/deal-space.service';
-
+import { Globals } from '../../../../globals/globals';
 @Component({
   selector: 'app-deal-list',
   templateUrl: './deal-list.component.html',
@@ -10,7 +10,7 @@ import { DealSpaceService } from '../../../../services/deal-space/deal-space.ser
 export class DealListComponent implements OnInit {
   public listDeal: any;
 
-  constructor(private auth: AuthserviceService, private dealService: DealSpaceService) {}
+  constructor(private auth: AuthserviceService, private dealService: DealSpaceService,public g: Globals) {}
 
   ngOnInit() {
     this.getListDealSpace();

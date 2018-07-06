@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, ElementRef } from '@angular/core';
 import { Globals } from './../../globals/globals';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -14,7 +14,7 @@ export class CommunitiesComponent implements OnInit, OnDestroy {
   public img_a: string;
   @ViewChild('modalHist') public myModalHist: ModalDirective;
   public newCommForm: FormGroup;
-  constructor(public g: Globals, private tms: TeamsService, private sh: SharedNotificationService) {}
+  constructor(public g: Globals, private tms: TeamsService, private sh: SharedNotificationService,public el: ElementRef) {}
   ngOnInit() {
     this.newCommForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -61,4 +61,8 @@ export class CommunitiesComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sh.pushData({});
   }
+  toggleCollapse2() {
+		this.el.nativeElement.querySelector('.ns').classList.toggle('ln');
+		this.el.nativeElement.querySelector('.float-r').classList.toggle('ln');
+	  }
 }
