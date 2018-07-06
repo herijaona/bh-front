@@ -13,4 +13,8 @@ export class DealSpaceService extends BaseHttpService {
   getDealSpaceList() {
     return this.fetch('get', 'deal/list').toPromise();
   }
+
+  updateFilesUserAdd(arg) {
+    return this.fetch('post', 'updatesFilesAdder', arg).toPromise();
+  }
 }

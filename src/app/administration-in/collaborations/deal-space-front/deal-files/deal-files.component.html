@@ -5,20 +5,15 @@
       <th class="last-u">LAST UPDATE</th>
       <th class="size">SIZE</th>
       <th class="author">AUTHOR</th>
-      <th class="size" (click)="insertObservation()"><input type="button" class="bt-insert" value="Insert"></th>
+      <th class="size" (click)="insertObservation()">
+        <input type="button" class="bt-insert" value="Insert">
+      </th>
     </tr>
-    <tr class="deal-file-row">
-      <td>File 1</td>
-      <td>Nov 04, 2017</td>
-      <td>300 Ko</td>
-      <td>Jamal</td>
-      <td></td>
-    </tr>
-    <tr class="deal-file-row">
-      <td>File 2</td>
-      <td>Jan 16, 2018</td>
-      <td>4 Mo</td>
-      <td>Jamal</td>
+    <tr *ngFor="let itr of data_" class="deal-file-row">
+      <td>{{itr.name}}</td>
+      <td>{{getDateString(itr.creationDate)}}</td>
+      <td>{{itr.size}} Octets</td>
+      <td>{{itr.userADD.lastname+' '+ itr.userADD.firstname}}</td>
       <td></td>
     </tr>
   </table>
@@ -37,11 +32,25 @@
       </div>
       <!--Body-->
       <div class="modal-body mb-0">
-            <p>insert observation</p>
-            <div class="flex fx">
-                <a class="nav-link select-col fca" (click)="hideModal()">Cancel</a>
-                <a type="submit" class="nav-link select-col fc" >Insert</a>
-            </div>
+        <div class="modal-body mb-0">
+          <div class="file-field">
+            <input multiple (change)="changeFilesList($event,'_filev')" id="_filev" name="_filev" type="file" class="inputfile" mdbActive>
+            <label for="logoFile" class="label-file">
+              <i class="fa fa-upload"></i>
+              <strong>Add a file</strong>
+            </label>
+          </div>
+          <hr>
+          <div *ngFor="let iter of filesSelected">
+            <span class="mr-3">{{iter.name}}</span>
+            <span class="mr-3">{{iter.size}}</span>
+            <span class="mr-3">{{iter.type}}</span>
+          </div>
+        </div>
+        <div class="flex fx">
+          <a class="nav-link select-col fca" (click)="hideModal()">Cancel</a>
+          <a [ngClass]="{ disabled: !butt_up }" (click)="uploadImageInBiblio($event, '_filev' )" type="submit" class="nav-link select-col fc">Insert</a>
+        </div>
       </div>
     </div>
     <!--/.Content-->
