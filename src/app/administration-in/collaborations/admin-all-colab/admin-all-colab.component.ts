@@ -45,7 +45,6 @@ export class AdminAllColabComponent implements OnInit {
       const li = await this.pr.getMyCollaborWith();
       if (li['status'] === 'OK') {
         this.withcolab = li['data'];
-        console.log("---0-",li['data']);
       }
     } catch (e) {
       console.log(e);

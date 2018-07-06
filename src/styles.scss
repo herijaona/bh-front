@@ -605,7 +605,8 @@ table.table th, table.table td {
     color: #0275d8 !important;
   }
   tbody tr:hover {
-    background: #ff00001a !important;
+    /* background: #ff00001a !important; */
+    background:  #ff00000d !important;
     cursor: pointer;
   }
   tbody {
@@ -638,8 +639,9 @@ table.table th, table.table td {
 .m-yq{
   color: #f73547;
   font-family: SourceSansPro-Semibold;
-  font-size: 17px;
+  font-size: 14px;
   padding-top: 15px;
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 7px;
+  text-transform: uppercase;
 }
