@@ -45,6 +45,8 @@ import { TabModule } from 'angular-tabs-component';
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DealResolverIdService } from './services/resolver/deal-resolver-id.service';
+import { DealApplicationIdDealService } from './services/resolver/deal-application-id-deal.service';
+import { DealApplicationIdService } from './services/resolver/deal-application-id.service';
 
 @NgModule({
   declarations: [AppComponent, SpinnerComponent],
@@ -89,7 +91,10 @@ import { DealResolverIdService } from './services/resolver/deal-resolver-id.serv
     CompanyService,
     IsActiveGuardService,
     DealSpaceService,
-    DealResolverIdService
+    /* resolver */
+    DealResolverIdService,
+    DealApplicationIdDealService,
+    DealApplicationIdService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

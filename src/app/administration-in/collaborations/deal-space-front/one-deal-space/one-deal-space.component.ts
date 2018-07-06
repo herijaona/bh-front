@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Globals } from '../../../../globals/globals';
 import { ModalDirective } from 'angular-bootstrap-md';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-one-deal-space',
   templateUrl: './one-deal-space.component.html',
@@ -9,18 +9,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OneDealSpaceComponent implements OnInit {
   public img_avatar: string;
+  public idCurrentApplication = '';
   data_: any;
+  public userList = [];
   public currentDealID = '';
   @ViewChild('modalHist') public myModalHist: ModalDirective;
-  constructor(public g: Globals, private activRoute: ActivatedRoute) {
+  constructor(public g: Globals, private activRoute: ActivatedRoute, private router: Router) {
     this.img_avatar = this.g.base_href + 'assets/img/profile.JPG';
-    /* this.activRoute.params.subscribe((params_: any) => {
-      this.currentDealID = params_['dealID'];
-    }); */
   }
   ngOnInit() {
-    this.data_ = this.activRoute.snapshot.data;
+    this.data_ = this.activRoute.snapshot.data.dealDetails;
     console.log(this.data_);
+    this.userList = this.data_.users;
+    this.idCurrentApplication = this.userList[0].application;
   }
 
   public insertObservation() {
@@ -32,5 +33,12 @@ export class OneDealSpaceComponent implements OnInit {
     setTimeout(() => {
       this.myModalHist.hide();
     }, 330);
+  }
+
+  selectUserInDeal(item) {
+    this.idCurrentApplication = item.application;
+    this.router.navigateByUrl(
+      '/administration-in/collaborations/deal-space/deal/' + this.data_._id + '/application/' + item.application
+    );
   }
 }

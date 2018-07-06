@@ -14,115 +14,38 @@
               </label>
             </div>
             <div class="clearfix"></div>
-            <div class="media team-media">
+            <!-- list user  -->
+            <div (click)="selectUserInDeal(item)" *ngFor="let item of userList" class="media team-media">
+              <!-- <a> -->
               <i class="fa fa-circle-thin"></i>
               <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
+                <h5 class="mt-0 mb-1" *ngIf="item.userAccount">{{item.userAccount.enseigneCommerciale}}</h5>
+                <span>{{ item.user.firstname +' '+ item.user.lastname }}</span>
               </div>
               <div class="time-count">
                 <span>2</span>
                 <br>
                 <span>03/03/2018</span>
               </div>
-            </div>
-            <div class="media team-media">
-              <i class="fa fa-square i-square"></i>
-              <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
-              </div>
-              <div class="time-count">
-                <br>
-                <span>03/03/2018</span>
-              </div>
-            </div>
-            <div class="media team-media">
-              <i class="fa fa-circle-thin i-triangle"></i>
-              <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
-              </div>
-              <div class="time-count">
-                <span>1</span>
-                <br>
-                <span>03/03/2018</span>
-              </div>
-            </div>
-            <div class="media team-media">
-              <i class="fa fa-circle-thin"></i>
-              <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
-              </div>
-              <div class="time-count">
-                <span>7</span>
-                <br>
-                <span>03/03/2018</span>
-              </div>
-            </div>
-            <div class="media team-media">
-              <i class="fa fa-square i-square"></i>
-              <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
-              </div>
-              <div class="time-count">
-                <br>
-                <span>03/03/2018</span>
-              </div>
-            </div>
-            <div class="media team-media">
-              <i class="fa fa-square i-square"></i>
-              <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
-              </div>
-              <div class="time-count">
-                <br>
-                <span>03/03/2018</span>
-              </div>
-            </div>
-            <div class="media team-media">
-              <i class="fa fa-circle-thin"></i>
-              <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
-              </div>
-              <div class="time-count">
-                <span>4</span>
-                <br>
-                <span>03/03/2018</span>
-              </div>
-            </div>
-            <div class="media team-media">
-              <i class="fa fa-square i-square"></i>
-              <div class="media-body pr">
-                <h5 class="mt-0 mb-1">Predicsis</h5>
-                <span>Jean Louis Fucellaro</span>
-              </div>
-              <div class="time-count">
-                <br>
-                <span>03/03/2018</span>
-              </div>
+              <!-- </a> -->
             </div>
           </div>
         </section>
         <section class="col-content content-eco-fr">
-          <h2>Eco-friendly plastic packaging</h2>
+          <h2>{{data_.collaborationObj.name}}</h2>
           <nav class="navbar navbar-expand-sm nav-tel justify-content-center">
             <ul class="navbar-nav ns">
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/administration-in','collaborations','deal-space','deal','application']">Application</a>
+                <a class="nav-link" routerLinkActive="active"  [routerLink]="['/administration-in','collaborations','deal-space','deal',data_._id,'application',idCurrentApplication]">Application</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal','files']">Files</a>
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal',data_._id,'files',idCurrentApplication]">Files</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal','questions-answers']">Questions-Answers</a>
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal',data_._id,'questions-answers',idCurrentApplication]">Questions-Answers</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal','planning']">Planning</a>
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/administration-in','collaborations','deal-space','deal',data_._id,'planning',idCurrentApplication]">Planning</a>
               </li>
             </ul>
           </nav>
