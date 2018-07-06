@@ -40,10 +40,13 @@ import { TeamModule } from './team/team.module';
 import { ProfileAdminModule } from './profile-admin/profile-admin.module';
 import { CCapitalModule } from './c-capital/c-capital.module';
 import { TabModule } from 'angular-tabs-component';
- 
+
 /* Component import */
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { DealResolverIdService } from './services/resolver/deal-resolver-id.service';
+import { DealApplicationIdDealService } from './services/resolver/deal-application-id-deal.service';
+import { DealApplicationIdService } from './services/resolver/deal-application-id.service';
 
 @NgModule({
   declarations: [AppComponent, SpinnerComponent],
@@ -88,6 +91,10 @@ import { SpinnerComponent } from './spinner/spinner.component';
     CompanyService,
     IsActiveGuardService,
     DealSpaceService,
+    /* resolver */
+    DealResolverIdService,
+    DealApplicationIdDealService,
+    DealApplicationIdService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

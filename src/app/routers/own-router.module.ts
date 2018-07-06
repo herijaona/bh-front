@@ -72,6 +72,10 @@ import { DealQuestionsAnswersComponent } from '../administration-in/collaboratio
 import { DealFilesComponent } from '../administration-in/collaborations/deal-space-front/deal-files/deal-files.component';
 import { DealPlanningComponent } from '../administration-in/collaborations/deal-space-front/deal-planning/deal-planning.component';
 import { OneDealSpaceComponent } from '../administration-in/collaborations/deal-space-front/one-deal-space/one-deal-space.component';
+import { DealResumeComponent } from '../administration-in/collaborations/deal-space-front/deal-resume/deal-resume.component';
+import { DealResolverIdService } from '../services/resolver/deal-resolver-id.service';
+import { DealApplicationIdDealService } from '../services/resolver/deal-application-id-deal.service';
+import { DealApplicationIdService } from '../services/resolver/deal-application-id.service';
 
 // import { UserAuthModule } from '../user-auth/user-auth.module';
 const routes: Routes = [
@@ -250,23 +254,38 @@ const routes: Routes = [
             component: DealListComponent,
           },
           {
-            path: 'deal',
+            path: 'deal/:idDeal',
             component: OneDealSpaceComponent,
+            resolve: { dealDetails: DealResolverIdService },
             children: [
               {
-                path: 'application',
-                component: DealApplicationComponent,
+                path: 'de',
+                component: DealResumeComponent,
               },
               {
-                path: 'files',
+                path: '',
+                component: DealApplicationComponent,
+                resolve: {
+                  dataApplication: DealApplicationIdDealService,
+                },
+              },
+              {
+                path: 'application/:idAppl',
+                component: DealApplicationComponent,
+                resolve: {
+                  dataApplication: DealApplicationIdService,
+                },
+              },
+              {
+                path: 'files/:idAppl',
                 component: DealFilesComponent,
               },
               {
-                path: 'questions-answers',
+                path: 'questions-answers/:idAppl',
                 component: DealQuestionsAnswersComponent,
               },
               {
-                path: 'planning',
+                path: 'planning/:idAppl',
                 component: DealPlanningComponent,
               },
             ],

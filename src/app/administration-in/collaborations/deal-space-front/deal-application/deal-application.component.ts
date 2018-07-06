@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Globals } from '../../../../globals/globals';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-deal-application',
@@ -7,7 +8,17 @@ import { Globals } from '../../../../globals/globals';
   styleUrls: ['./deal-application.component.scss'],
 })
 export class DealApplicationComponent implements OnInit {
-  constructor(public g: Globals) {}
+  public data_;
+  constructor(public g: Globals, public activRoute: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data_ = this.activRoute.snapshot.data['dataApplication'];
+  }
+
+  getAdrrCountry(adr) {
+    return JSON.parse(adr)
+      .description.split(',')
+      .pop()
+      .trim();
+  }
 }

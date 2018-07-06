@@ -128,4 +128,18 @@ export class ProjectsService extends BaseHttpService {
   public refusedApplication() {
     return this.fetch('get', 'archived-refused-Application').toPromise();
   }
+
+  /**
+   * getDetailsDealBYID
+   */
+  public getDetailsDealBYID(argID) {
+    return this.fetch('get', 'getDealByID', { dID: argID }).toPromise();
+  }
+
+  /**
+   * getApplicationFirstInDeal
+   */
+  public getApplicationFirstInDeal(argDATA) {
+    return this.fetch('get', 'getApplicationDefl', { dID: argDATA }).toPromise();
+  }
 }

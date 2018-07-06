@@ -68,6 +68,7 @@ import { DealFilesComponent } from './collaborations/deal-space-front/deal-files
 import { DealQuestionsAnswersComponent } from './collaborations/deal-space-front/deal-questions-answers/deal-questions-answers.component';
 import { DealPlanningComponent } from './collaborations/deal-space-front/deal-planning/deal-planning.component';
 import { OneDealSpaceComponent } from './collaborations/deal-space-front/one-deal-space/one-deal-space.component';
+import { DealResumeComponent } from './collaborations/deal-space-front/deal-resume/deal-resume.component';
 
 @NgModule({
   imports: [
@@ -140,6 +141,7 @@ import { OneDealSpaceComponent } from './collaborations/deal-space-front/one-dea
     DealPlanningComponent,
     OneDealSpaceComponent,
     DealSpaceFrontComponent,
+    DealResumeComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   exports: [NavbarAdminComponent],

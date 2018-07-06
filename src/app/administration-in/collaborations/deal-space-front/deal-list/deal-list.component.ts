@@ -20,7 +20,6 @@ export class DealListComponent implements OnInit {
     try {
       let list: any = await this.dealService.getDealSpaceList();
       if (list.status === 'OK') {
-        console.log("-----5---",list);
         this.listDeal = list.data;
       } else alert('Error when getting deal space list');
     } catch (ex) {

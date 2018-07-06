@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let deal of listDeal">
-          <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal']">{{deal.collabData.name}}</a></td>
+          <td><a [routerLink]="['/administration-in','collaborations','deal-space','deal',  deal._id]">{{deal.collabData.name}}</a></td>
           <td>{{g.getCollabtypetext(deal.collabData.typeCollab)}}</td>
           <td>{{deal.byUser.lastname}}</td>
           <td>{{deal.dealNumber.applicationNum}}</td>
